@@ -3576,9 +3576,9 @@ define hidden noundef double @_ZNK2cv23LineSegmentDetectorImpl8rect_nfaERKNS0_4r
   %74 = fdiv double %72, %73
   %75 = select i1 %.not.i105, double 0.000000e+00, double %74
   %.not139 = icmp sgt i32 %.fr149, %60
-  br i1 %.not139, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit, label %.lr.ph145
+  br i1 %.not139, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit, label %.lr.ph144
 
-.lr.ph145:                                        ; preds = %48
+.lr.ph144:                                        ; preds = %48
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %77 = load i32, ptr %76, align 4
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -3599,17 +3599,17 @@ define hidden noundef double @_ZNK2cv23LineSegmentDetectorImpl8rect_nfaERKNS0_4r
   br label %100
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %indvars.iv157 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next158, %.preheader ]
-  %92 = trunc i64 %indvars.iv157 to i32
+  %indvars.iv155 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next156, %.preheader ]
+  %92 = trunc i64 %indvars.iv155 to i32
   %93 = add i32 %spec.select, %92
   %94 = and i32 %93, 3
   %95 = zext nneg i32 %94 to i64
   %96 = getelementptr inbounds nuw %"class.cv::Point_.25", ptr %5, i64 %95
-  %97 = getelementptr inbounds nuw %"class.cv::Point_.25", ptr %6, i64 %indvars.iv157
+  %97 = getelementptr inbounds nuw %"class.cv::Point_.25", ptr %6, i64 %indvars.iv155
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %97, ptr noundef nonnull align 16 dereferenceable(16) %96, i64 16, i1 false), !tbaa.struct !187
-  %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
-  %exitcond160.not = icmp eq i64 %indvars.iv.next158, 4
-  br i1 %exitcond160.not, label %48, label %.preheader, !llvm.loop !188
+  %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
+  %exitcond158.not = icmp eq i64 %indvars.iv.next156, 4
+  br i1 %exitcond158.not, label %48, label %.preheader, !llvm.loop !188
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %.loopexit, %48
   %.lcssa125138.lcssa = phi i32 [ 0, %48 ], [ %.lcssa125137, %.loopexit ]
@@ -3624,12 +3624,12 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %.loopexit, %48
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret double %99
 
-100:                                              ; preds = %.lr.ph145, %.loopexit
-  %.087142 = phi i32 [ %.fr149, %.lr.ph145 ], [ %168, %.loopexit ]
-  %101 = phi i32 [ 0, %.lr.ph145 ], [ %167, %.loopexit ]
-  %102 = phi i32 [ 0, %.lr.ph145 ], [ %166, %.loopexit ]
-  %.lcssa123136141 = phi i32 [ 0, %.lr.ph145 ], [ %.lcssa123135, %.loopexit ]
-  %.lcssa125138140 = phi i32 [ 0, %.lr.ph145 ], [ %.lcssa125137, %.loopexit ]
+100:                                              ; preds = %.lr.ph144, %.loopexit
+  %.087142 = phi i32 [ %.fr149, %.lr.ph144 ], [ %166, %.loopexit ]
+  %101 = phi i32 [ 0, %.lr.ph144 ], [ %165, %.loopexit ]
+  %102 = phi i32 [ 0, %.lr.ph144 ], [ %164, %.loopexit ]
+  %.lcssa123136141 = phi i32 [ 0, %.lr.ph144 ], [ %.lcssa123135, %.loopexit ]
+  %.lcssa125138140 = phi i32 [ 0, %.lr.ph144 ], [ %.lcssa125137, %.loopexit ]
   %103 = icmp sgt i32 %.087142, -1
   %.not95 = icmp slt i32 %.087142, %77
   %or.cond = select i1 %103, i1 %.not95, i1 false
@@ -3680,87 +3680,87 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %.loopexit, %48
   br i1 %.not28.i, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.0127.us = phi i32 [ %132, %.lr.ph.split.us ], [ %123, %.lr.ph ]
-  %126 = phi i32 [ %131, %.lr.ph.split.us ], [ %102, %.lr.ph ]
-  %127 = phi i32 [ %130, %.lr.ph.split.us ], [ %.lcssa123136141, %.lr.ph ]
+  %.0127.us = phi i32 [ %130, %.lr.ph.split.us ], [ %123, %.lr.ph ]
+  %126 = phi i32 [ %spec.select148, %.lr.ph.split.us ], [ %102, %.lr.ph ]
+  %127 = phi i32 [ %spec.select147, %.lr.ph.split.us ], [ %.lcssa123136141, %.lr.ph ]
   %128 = icmp sgt i32 %.0127.us, -1
   %.not98.us = icmp slt i32 %.0127.us, %79
   %or.cond102.us = select i1 %128, i1 %.not98.us, i1 false
   %129 = add nsw i32 %126, 1
-  %130 = select i1 %or.cond102.us, i32 %129, i32 %127
-  %131 = select i1 %or.cond102.us, i32 %129, i32 %126
-  %132 = add i32 %.0127.us, 1
-  %exitcond161.not = icmp eq i32 %.0127.us, %124
-  br i1 %exitcond161.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !189
+  %spec.select147 = select i1 %or.cond102.us, i32 %129, i32 %127
+  %spec.select148 = select i1 %or.cond102.us, i32 %129, i32 %126
+  %130 = add i32 %.0127.us, 1
+  %exitcond159.not = icmp eq i32 %.0127.us, %124
+  br i1 %exitcond159.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !189
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread
-  %.0127 = phi i32 [ %165, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %123, %.lr.ph ]
-  %133 = phi i32 [ %164, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %101, %.lr.ph ]
-  %134 = phi i32 [ %163, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %102, %.lr.ph ]
-  %135 = phi i32 [ %162, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %.lcssa123136141, %.lr.ph ]
-  %136 = phi i32 [ %161, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %.lcssa125138140, %.lr.ph ]
-  %137 = icmp sgt i32 %.0127, -1
+  %.0127 = phi i32 [ %163, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %123, %.lr.ph ]
+  %131 = phi i32 [ %162, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %101, %.lr.ph ]
+  %132 = phi i32 [ %161, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %102, %.lr.ph ]
+  %133 = phi i32 [ %160, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %.lcssa123136141, %.lr.ph ]
+  %134 = phi i32 [ %159, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %.lcssa125138140, %.lr.ph ]
+  %135 = icmp sgt i32 %.0127, -1
   %.not98 = icmp slt i32 %.0127, %79
-  %or.cond102 = select i1 %137, i1 %.not98, i1 false
-  br i1 %or.cond102, label %138, label %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread
+  %or.cond102 = select i1 %135, i1 %.not98, i1 false
+  br i1 %or.cond102, label %136, label %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread
 
-138:                                              ; preds = %.lr.ph.split
-  %139 = add nsw i32 %134, 1
+136:                                              ; preds = %.lr.ph.split
+  %137 = add nsw i32 %132, 1
   %.not.i106 = icmp slt i32 %.0127, %83
-  br i1 %.not.i106, label %140, label %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread
+  br i1 %.not.i106, label %138, label %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread
 
-140:                                              ; preds = %138
-  %141 = load i64, ptr %89, align 8, !tbaa !75
-  %142 = mul i64 %141, %125
-  %143 = getelementptr inbounds nuw i8, ptr %87, i64 %142
-  %144 = zext nneg i32 %.0127 to i64
-  %145 = getelementptr inbounds nuw double, ptr %143, i64 %144
-  %146 = load double, ptr %145, align 8, !tbaa !90
-  %147 = fcmp oeq double %146, -1.024000e+03
-  br i1 %147, label %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread, label %148
+138:                                              ; preds = %136
+  %139 = load i64, ptr %89, align 8, !tbaa !75
+  %140 = mul i64 %139, %125
+  %141 = getelementptr inbounds nuw i8, ptr %87, i64 %140
+  %142 = zext nneg i32 %.0127 to i64
+  %143 = getelementptr inbounds nuw double, ptr %141, i64 %142
+  %144 = load double, ptr %143, align 8, !tbaa !90
+  %145 = fcmp oeq double %144, -1.024000e+03
+  br i1 %145, label %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread, label %146
 
-148:                                              ; preds = %140
-  %149 = fsub double %90, %146
-  %150 = fcmp olt double %149, 0.000000e+00
-  %151 = fneg double %149
-  %.0.i107 = select i1 %150, double %151, double %149
-  %152 = fcmp ogt double %.0.i107, 0x4012D97C7F3321D2
-  br i1 %152, label %153, label %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit
+146:                                              ; preds = %138
+  %147 = fsub double %90, %144
+  %148 = fcmp olt double %147, 0.000000e+00
+  %149 = fneg double %147
+  %.0.i107 = select i1 %148, double %149, double %147
+  %150 = fcmp ogt double %.0.i107, 0x4012D97C7F3321D2
+  br i1 %150, label %151, label %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit
 
-153:                                              ; preds = %148
-  %154 = fadd double %.0.i107, 0xC01921FB54442D18
-  %155 = fcmp olt double %154, 0.000000e+00
-  br i1 %155, label %156, label %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit
+151:                                              ; preds = %146
+  %152 = fadd double %.0.i107, 0xC01921FB54442D18
+  %153 = fcmp olt double %152, 0.000000e+00
+  br i1 %153, label %154, label %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit
 
-156:                                              ; preds = %153
-  %157 = fneg double %154
+154:                                              ; preds = %151
+  %155 = fneg double %152
   br label %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit
 
-_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit: ; preds = %148, %153, %156
-  %.1.i = phi double [ %157, %156 ], [ %154, %153 ], [ %.0.i107, %148 ]
-  %158 = fcmp ugt double %.1.i, %91
-  br i1 %158, label %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread, label %159
+_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit: ; preds = %146, %151, %154
+  %.1.i = phi double [ %155, %154 ], [ %152, %151 ], [ %.0.i107, %146 ]
+  %156 = fcmp ugt double %.1.i, %91
+  br i1 %156, label %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread, label %157
 
-159:                                              ; preds = %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit
-  %160 = add nsw i32 %133, 1
+157:                                              ; preds = %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit
+  %158 = add nsw i32 %131, 1
   br label %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread
 
-_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread: ; preds = %140, %138, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit, %159, %.lr.ph.split
-  %161 = phi i32 [ %136, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit ], [ %160, %159 ], [ %136, %.lr.ph.split ], [ %136, %138 ], [ %136, %140 ]
-  %162 = phi i32 [ %139, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit ], [ %139, %159 ], [ %135, %.lr.ph.split ], [ %139, %138 ], [ %139, %140 ]
-  %163 = phi i32 [ %139, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit ], [ %139, %159 ], [ %134, %.lr.ph.split ], [ %139, %138 ], [ %139, %140 ]
-  %164 = phi i32 [ %133, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit ], [ %160, %159 ], [ %133, %.lr.ph.split ], [ %133, %138 ], [ %133, %140 ]
-  %165 = add i32 %.0127, 1
-  %exitcond162.not = icmp eq i32 %.0127, %124
-  br i1 %exitcond162.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !189
+_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread: ; preds = %138, %136, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit, %157, %.lr.ph.split
+  %159 = phi i32 [ %134, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit ], [ %158, %157 ], [ %134, %.lr.ph.split ], [ %134, %138 ], [ %134, %136 ]
+  %160 = phi i32 [ %137, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit ], [ %137, %157 ], [ %133, %.lr.ph.split ], [ %137, %138 ], [ %137, %136 ]
+  %161 = phi i32 [ %137, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit ], [ %137, %157 ], [ %132, %.lr.ph.split ], [ %137, %138 ], [ %137, %136 ]
+  %162 = phi i32 [ %131, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit ], [ %158, %157 ], [ %131, %.lr.ph.split ], [ %131, %138 ], [ %131, %136 ]
+  %163 = add i32 %.0127, 1
+  %exitcond160.not = icmp eq i32 %.0127, %124
+  br i1 %exitcond160.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !189
 
 .loopexit:                                        ; preds = %.lr.ph.split.us, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread, %121, %100
-  %.lcssa125137 = phi i32 [ %.lcssa125138140, %100 ], [ %.lcssa125138140, %121 ], [ %161, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %.lcssa125138140, %.lr.ph.split.us ]
-  %.lcssa123135 = phi i32 [ %.lcssa123136141, %100 ], [ %.lcssa123136141, %121 ], [ %162, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %130, %.lr.ph.split.us ]
-  %166 = phi i32 [ %102, %100 ], [ %102, %121 ], [ %163, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %131, %.lr.ph.split.us ]
-  %167 = phi i32 [ %101, %100 ], [ %101, %121 ], [ %164, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %101, %.lr.ph.split.us ]
-  %168 = add i32 %.087142, 1
-  %.not = icmp sgt i32 %168, %60
+  %.lcssa125137 = phi i32 [ %.lcssa125138140, %100 ], [ %.lcssa125138140, %121 ], [ %159, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %.lcssa125138140, %.lr.ph.split.us ]
+  %.lcssa123135 = phi i32 [ %.lcssa123136141, %100 ], [ %.lcssa123136141, %121 ], [ %160, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %spec.select147, %.lr.ph.split.us ]
+  %164 = phi i32 [ %102, %100 ], [ %102, %121 ], [ %161, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %spec.select148, %.lr.ph.split.us ]
+  %165 = phi i32 [ %101, %100 ], [ %101, %121 ], [ %162, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %101, %.lr.ph.split.us ]
+  %166 = add i32 %.087142, 1
+  %.not = icmp sgt i32 %166, %60
   br i1 %.not, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit, label %100, !llvm.loop !190
 }
 

@@ -889,8 +889,7 @@ _ZNK2cv11_InputArray6getMatEi.exit174:            ; preds = %229, %226
   %236 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %237 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %238 = getelementptr inbounds nuw i8, ptr %21, i64 72
-  %smax = call i32 @llvm.smax.i32(i32 %.sroa.speculated, i32 1)
-  %wide.trip.count265 = zext nneg i32 %smax to i64
+  %wide.trip.count265 = zext nneg i32 %.sroa.speculated to i64
   br label %239
 
 239:                                              ; preds = %.lr.ph, %329
@@ -4139,8 +4138,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN2cv12hough_cmp_gt
   %234 = fptrunc double %9 to float
   %235 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %236 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %smax = call i32 @llvm.smax.i32(i32 %.sroa.speculated, i32 1)
-  %wide.trip.count214 = zext nneg i32 %smax to i64
+  %wide.trip.count214 = zext nneg i32 %.sroa.speculated to i64
   br label %237
 
 237:                                              ; preds = %.lr.ph, %_ZNSt6vectorIN2cv3VecIdLi3EEESaIS2_EE9push_backEOS2_.exit

@@ -2845,43 +2845,49 @@ define internal fastcc i64 @ZSTD_estimateCCtxSize_usingCCtxParams_internal(ptr n
   %10 = alloca %struct.ldmParams_t, align 8
   %11 = alloca %struct.ldmParams_t, align 8
   %12 = load i32, ptr %0, align 4, !tbaa !68
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i32, ptr %13, align 4, !tbaa !72
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load i32, ptr %15, align 4, !tbaa !73
-  %.not4.i.i = icmp eq i32 %16, 1
+  %.fr38.i = freeze i32 %12
+  %13 = icmp eq i64 %6, 0
+  br i1 %13, label %.thread, label %14
+
+14:                                               ; preds = %9
+  %15 = zext nneg i32 %.fr38.i to i64
+  %16 = shl nuw i64 1, %15
+  %. = tail call i64 @llvm.umin.i64(i64 %16, i64 %6)
+  %17 = icmp eq i64 %8, 0
+  %..i = select i1 %17, i64 131072, i64 %8
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %..i, i64 %.)
+  br label %.thread
+
+.thread:                                          ; preds = %14, %9
+  %18 = phi i64 [ 1, %9 ], [ %spec.select, %14 ]
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %20 = load i32, ptr %19, align 4, !tbaa !72
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %22 = load i32, ptr %21, align 4, !tbaa !73
+  %.not4.i.i = icmp eq i32 %22, 1
   br i1 %.not4.i.i, label %ZSTD_allocateChainTable.exit.thread.i, label %ZSTD_allocateChainTable.exit.i
 
-ZSTD_allocateChainTable.exit.i:                   ; preds = %9
-  %17 = add i32 %16, -3
-  %18 = icmp ult i32 %17, 3
-  %19 = icmp eq i32 %3, 1
-  %.not8.i.not.i = and i1 %19, %18
+ZSTD_allocateChainTable.exit.i:                   ; preds = %.thread
+  %23 = add i32 %22, -3
+  %24 = icmp ult i32 %23, 3
+  %25 = icmp eq i32 %3, 1
+  %.not8.i.not.i = and i1 %25, %24
   br i1 %.not8.i.not.i, label %ZSTD_allocateChainTable.exit.thread.i, label %ZSTD_allocateChainTable.exit.thread29.i
 
 ZSTD_allocateChainTable.exit.thread29.i:          ; preds = %ZSTD_allocateChainTable.exit.i
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %21 = load i32, ptr %20, align 4, !tbaa !69
-  %22 = zext nneg i32 %21 to i64
-  %23 = shl i64 4, %22
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %27 = load i32, ptr %26, align 4, !tbaa !69
+  %28 = zext nneg i32 %27 to i64
+  %29 = shl i64 4, %28
   br label %ZSTD_allocateChainTable.exit.thread.i
 
-ZSTD_allocateChainTable.exit.thread.i:            ; preds = %ZSTD_allocateChainTable.exit.thread29.i, %ZSTD_allocateChainTable.exit.i, %9
-  %24 = phi i64 [ %23, %ZSTD_allocateChainTable.exit.thread29.i ], [ 0, %ZSTD_allocateChainTable.exit.i ], [ 0, %9 ]
-  %.fr38.i = freeze i32 %12
-  %25 = icmp eq i64 %6, 0
-  %26 = icmp eq i64 %8, 0
-  %..i = select i1 %26, i64 131072, i64 %8
-  %27 = zext nneg i32 %.fr38.i to i64
-  %28 = shl nuw i64 1, %27
-  %. = tail call i64 @llvm.umin.i64(i64 %28, i64 %6)
-  %29 = tail call i64 @llvm.umin.i64(i64 %..i, i64 %.)
-  %30 = select i1 %25, i64 1, i64 %29
-  %31 = icmp eq i32 %14, 3
+ZSTD_allocateChainTable.exit.thread.i:            ; preds = %ZSTD_allocateChainTable.exit.thread29.i, %ZSTD_allocateChainTable.exit.i, %.thread
+  %30 = phi i64 [ %29, %ZSTD_allocateChainTable.exit.thread29.i ], [ 0, %ZSTD_allocateChainTable.exit.i ], [ 0, %.thread ]
+  %31 = icmp eq i32 %20, 3
   %32 = icmp ne i32 %7, 0
   %33 = or i1 %32, %31
   %34 = select i1 %33, i64 3, i64 4
-  %35 = udiv i64 %30, %34
+  %35 = udiv i64 %18, %34
   %36 = shl i64 %35, 3
   %37 = add i64 %36, 56
   %38 = and i64 %37, -64
@@ -2891,14 +2897,14 @@ ZSTD_allocateChainTable.exit.thread.i:            ; preds = %ZSTD_allocateChainT
   %.fr.i = select i1 %31, i32 %spec.select27.i, i32 0
   %41 = zext nneg i32 %40 to i64
   %42 = shl nuw i64 1, %41
-  %43 = add i32 %16, -6
+  %43 = add i32 %22, -6
   %44 = icmp ult i32 %43, -3
   %45 = icmp ne i32 %3, 1
   %.not37.i = or i1 %45, %44
   %46 = add nuw i64 %42, 63
   %47 = and i64 %46, -64
   %48 = select i1 %.not37.i, i64 0, i64 %47
-  %49 = icmp ugt i32 %16, 6
+  %49 = icmp ugt i32 %22, 6
   %50 = shl i64 4, %41
   %.not25.i = icmp eq i32 %.fr.i, 0
   %51 = zext nneg i32 %.fr.i to i64
@@ -2911,7 +2917,7 @@ ZSTD_allocateChainTable.exit.thread.i:            ; preds = %ZSTD_allocateChainT
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 4 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !130
-  %56 = tail call i64 @ZSTD_ldm_getMaxNbSeq(ptr noundef nonnull byval(%struct.ldmParams_t) align 8 %11, i64 noundef %30) #28
+  %56 = tail call i64 @ZSTD_ldm_getMaxNbSeq(ptr noundef nonnull byval(%struct.ldmParams_t) align 8 %11, i64 noundef %18) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %57 = load i32, ptr %1, align 4, !tbaa !131
   %58 = icmp eq i32 %57, 1
@@ -2920,8 +2926,8 @@ ZSTD_allocateChainTable.exit.thread.i:            ; preds = %ZSTD_allocateChainT
   %61 = and i64 %60, -64
   %62 = select i1 %58, i64 %61, i64 0
   %.not = icmp eq i32 %2, 0
-  %63 = udiv i64 %30, 3
-  %64 = lshr i64 %30, 10
+  %63 = udiv i64 %18, 3
+  %64 = lshr i64 %18, 10
   %65 = add nuw nsw i64 %64, 2
   %66 = add nuw nsw i64 %65, %63
   %.not43 = icmp eq i32 %7, 0
@@ -2934,11 +2940,11 @@ ZSTD_allocateChainTable.exit.thread.i:            ; preds = %ZSTD_allocateChainT
   %73 = add i64 %4, 32
   %74 = add i64 %73, %72
   %75 = add i64 %74, %5
-  %76 = add i64 %75, %54
-  %77 = add i64 %76, %30
+  %76 = add i64 %75, %18
+  %77 = add i64 %76, %54
   %78 = add i64 %77, %53
   %79 = add i64 %78, %70
-  %80 = add i64 %79, %24
+  %80 = add i64 %79, %30
   %81 = add i64 %80, %71
   %82 = add i64 %81, %38
   %83 = add i64 %82, %50

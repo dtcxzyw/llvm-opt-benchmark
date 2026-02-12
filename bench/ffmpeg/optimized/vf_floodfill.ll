@@ -198,10 +198,10 @@ is_inside.exit:                                   ; preds = %37
 
 89:                                               ; preds = %80
   call void @av_frame_free(ptr noundef nonnull %3) #7
-  br label %155
+  br label %154
 
 90:                                               ; preds = %.lr.ph142, %is_inside.exit126.thread
-  %91 = phi i32 [ %84, %.lr.ph142 ], [ %147, %is_inside.exit126.thread ]
+  %91 = phi i32 [ %84, %.lr.ph142 ], [ %146, %is_inside.exit126.thread ]
   %92 = add nsw i32 %91, -1
   store i32 %92, ptr %82, align 8, !tbaa !49
   %93 = load ptr, ptr %87, align 8, !tbaa !48
@@ -234,103 +234,97 @@ is_inside.exit:                                   ; preds = %37
   %112 = icmp slt i32 %111, %29
   %113 = icmp sgt i32 %31, %100
   %or.cond10.i113 = and i1 %112, %113
+  %.pre144.pre.pre.pre = load i32, ptr %82, align 8, !tbaa !49
   br i1 %or.cond10.i113, label %is_inside.exit114, label %is_inside.exit114.thread
 
 is_inside.exit114:                                ; preds = %108
   %114 = trunc i32 %111 to i16
   %115 = load ptr, ptr %87, align 8, !tbaa !48
-  %116 = load i32, ptr %82, align 8, !tbaa !49
-  %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds %struct.Points, ptr %115, i64 %117
-  store i16 %114, ptr %118, align 2, !tbaa !50
-  %119 = add nsw i32 %116, 1
-  store i32 %119, ptr %82, align 8, !tbaa !49
-  %120 = getelementptr inbounds nuw i8, ptr %118, i64 2
-  store i16 %99, ptr %120, align 2, !tbaa !53
+  %116 = sext i32 %.pre144.pre.pre.pre to i64
+  %117 = getelementptr inbounds %struct.Points, ptr %115, i64 %116
+  store i16 %114, ptr %117, align 2, !tbaa !50
+  %118 = add nsw i32 %.pre144.pre.pre.pre, 1
+  store i32 %118, ptr %82, align 8, !tbaa !49
+  %119 = getelementptr inbounds nuw i8, ptr %117, i64 2
+  store i16 %99, ptr %119, align 2, !tbaa !53
   br label %is_inside.exit114.thread
 
 is_inside.exit114.thread:                         ; preds = %108, %is_inside.exit114
-  %121 = add i16 %96, -1
-  %.not = icmp eq i16 %96, 0
-  br i1 %.not, label %is_inside.exit114.thread.is_inside.exit118.thread_crit_edge, label %122
+  %.pre144.pre.pre = phi i32 [ %.pre144.pre.pre.pre, %108 ], [ %118, %is_inside.exit114 ]
+  %120 = icmp ne i16 %96, 0
+  %121 = icmp sge i32 %29, %97
+  %or.cond10.i117 = and i1 %121, %113
+  %or.cond = select i1 %120, i1 %or.cond10.i117, i1 false
+  br i1 %or.cond, label %is_inside.exit118, label %is_inside.exit118.thread
 
-is_inside.exit114.thread.is_inside.exit118.thread_crit_edge: ; preds = %is_inside.exit114.thread
-  %.pre144.pre.pre = load i32, ptr %82, align 8, !tbaa !49
+is_inside.exit118:                                ; preds = %is_inside.exit114.thread
+  %122 = add i16 %96, -1
+  %123 = load ptr, ptr %87, align 8, !tbaa !48
+  %124 = sext i32 %.pre144.pre.pre to i64
+  %125 = getelementptr inbounds %struct.Points, ptr %123, i64 %124
+  store i16 %122, ptr %125, align 2, !tbaa !50
+  %126 = add nsw i32 %.pre144.pre.pre, 1
+  store i32 %126, ptr %82, align 8, !tbaa !49
+  %127 = getelementptr inbounds nuw i8, ptr %125, i64 2
+  store i16 %99, ptr %127, align 2, !tbaa !53
   br label %is_inside.exit118.thread
 
-122:                                              ; preds = %is_inside.exit114.thread
-  %123 = icmp sge i32 %29, %97
-  %or.cond10.i117 = and i1 %123, %113
-  %.pre144.pre.pre146 = load i32, ptr %82, align 8, !tbaa !49
-  br i1 %or.cond10.i117, label %is_inside.exit118, label %is_inside.exit118.thread
-
-is_inside.exit118:                                ; preds = %122
-  %124 = load ptr, ptr %87, align 8, !tbaa !48
-  %125 = sext i32 %.pre144.pre.pre146 to i64
-  %126 = getelementptr inbounds %struct.Points, ptr %124, i64 %125
-  store i16 %121, ptr %126, align 2, !tbaa !50
-  %127 = add nsw i32 %.pre144.pre.pre146, 1
-  store i32 %127, ptr %82, align 8, !tbaa !49
-  %128 = getelementptr inbounds nuw i8, ptr %126, i64 2
-  store i16 %99, ptr %128, align 2, !tbaa !53
-  br label %is_inside.exit118.thread
-
-is_inside.exit118.thread:                         ; preds = %is_inside.exit114.thread.is_inside.exit118.thread_crit_edge, %122, %is_inside.exit118
-  %.pre144.pre = phi i32 [ %.pre144.pre.pre, %is_inside.exit114.thread.is_inside.exit118.thread_crit_edge ], [ %.pre144.pre.pre146, %122 ], [ %127, %is_inside.exit118 ]
-  %129 = add nuw nsw i32 %100, 1
-  %130 = icmp sgt i32 %29, %97
-  %131 = icmp slt i32 %129, %31
-  %or.cond10.i121 = and i1 %130, %131
+is_inside.exit118.thread:                         ; preds = %is_inside.exit114.thread, %is_inside.exit118
+  %.pre144.pre = phi i32 [ %.pre144.pre.pre, %is_inside.exit114.thread ], [ %126, %is_inside.exit118 ]
+  %128 = add nuw nsw i32 %100, 1
+  %129 = icmp sgt i32 %29, %97
+  %130 = icmp slt i32 %128, %31
+  %or.cond10.i121 = and i1 %129, %130
   br i1 %or.cond10.i121, label %is_inside.exit122, label %is_inside.exit122.thread
 
 is_inside.exit122:                                ; preds = %is_inside.exit118.thread
-  %132 = load ptr, ptr %87, align 8, !tbaa !48
-  %133 = sext i32 %.pre144.pre to i64
-  %134 = getelementptr inbounds %struct.Points, ptr %132, i64 %133
-  store i16 %96, ptr %134, align 2, !tbaa !50
-  %135 = trunc i32 %129 to i16
-  %136 = add nsw i32 %.pre144.pre, 1
-  store i32 %136, ptr %82, align 8, !tbaa !49
-  %137 = getelementptr inbounds nuw i8, ptr %134, i64 2
-  store i16 %135, ptr %137, align 2, !tbaa !53
+  %131 = load ptr, ptr %87, align 8, !tbaa !48
+  %132 = sext i32 %.pre144.pre to i64
+  %133 = getelementptr inbounds %struct.Points, ptr %131, i64 %132
+  store i16 %96, ptr %133, align 2, !tbaa !50
+  %134 = trunc i32 %128 to i16
+  %135 = add nsw i32 %.pre144.pre, 1
+  store i32 %135, ptr %82, align 8, !tbaa !49
+  %136 = getelementptr inbounds nuw i8, ptr %133, i64 2
+  store i16 %134, ptr %136, align 2, !tbaa !53
   br label %is_inside.exit122.thread
 
 is_inside.exit122.thread:                         ; preds = %is_inside.exit118.thread, %is_inside.exit122
-  %.pre144 = phi i32 [ %.pre144.pre, %is_inside.exit118.thread ], [ %136, %is_inside.exit122 ]
-  %138 = icmp ne i16 %99, 0
-  %139 = icmp sge i32 %31, %100
-  %140 = and i1 %138, %139
-  %or.cond10.i125 = and i1 %130, %140
+  %.pre144 = phi i32 [ %.pre144.pre, %is_inside.exit118.thread ], [ %135, %is_inside.exit122 ]
+  %137 = icmp ne i16 %99, 0
+  %138 = icmp sge i32 %31, %100
+  %139 = and i1 %137, %138
+  %or.cond10.i125 = and i1 %129, %139
   br i1 %or.cond10.i125, label %is_inside.exit126, label %is_inside.exit126.thread
 
 is_inside.exit126:                                ; preds = %is_inside.exit122.thread
-  %141 = add i16 %99, -1
-  %142 = load ptr, ptr %87, align 8, !tbaa !48
-  %143 = sext i32 %.pre144 to i64
-  %144 = getelementptr inbounds %struct.Points, ptr %142, i64 %143
-  store i16 %96, ptr %144, align 2, !tbaa !50
-  %145 = add nsw i32 %.pre144, 1
-  store i32 %145, ptr %82, align 8, !tbaa !49
-  %146 = getelementptr inbounds nuw i8, ptr %144, i64 2
-  store i16 %141, ptr %146, align 2, !tbaa !53
+  %140 = add i16 %99, -1
+  %141 = load ptr, ptr %87, align 8, !tbaa !48
+  %142 = sext i32 %.pre144 to i64
+  %143 = getelementptr inbounds %struct.Points, ptr %141, i64 %142
+  store i16 %96, ptr %143, align 2, !tbaa !50
+  %144 = add nsw i32 %.pre144, 1
+  store i32 %144, ptr %82, align 8, !tbaa !49
+  %145 = getelementptr inbounds nuw i8, ptr %143, i64 2
+  store i16 %140, ptr %145, align 2, !tbaa !53
   br label %is_inside.exit126.thread
 
 is_inside.exit126.thread:                         ; preds = %.is_inside.exit126.thread_crit_edge, %is_inside.exit122.thread, %is_inside.exit126
-  %147 = phi i32 [ %.pre, %.is_inside.exit126.thread_crit_edge ], [ %.pre144, %is_inside.exit122.thread ], [ %145, %is_inside.exit126 ]
-  %148 = load i32, ptr %83, align 4, !tbaa !54
-  %149 = icmp sgt i32 %147, %148
-  br i1 %149, label %90, label %is_inside.exit.thread, !llvm.loop !56
+  %146 = phi i32 [ %.pre, %.is_inside.exit126.thread_crit_edge ], [ %.pre144, %is_inside.exit122.thread ], [ %144, %is_inside.exit126 ]
+  %147 = load i32, ptr %83, align 4, !tbaa !54
+  %148 = icmp sgt i32 %146, %147
+  br i1 %148, label %90, label %is_inside.exit.thread, !llvm.loop !56
 
 is_inside.exit.thread:                            ; preds = %58, %is_inside.exit126.thread, %.preheader, %37, %2, %._crit_edge
-  %150 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  %151 = load ptr, ptr %150, align 8, !tbaa !57
-  %152 = load ptr, ptr %151, align 8, !tbaa !58
-  %153 = load ptr, ptr %3, align 8, !tbaa !20
-  %154 = call i32 @ff_filter_frame(ptr noundef %152, ptr noundef %153) #7
-  br label %155
+  %149 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  %150 = load ptr, ptr %149, align 8, !tbaa !57
+  %151 = load ptr, ptr %150, align 8, !tbaa !58
+  %152 = load ptr, ptr %3, align 8, !tbaa !20
+  %153 = call i32 @ff_filter_frame(ptr noundef %151, ptr noundef %152) #7
+  br label %154
 
-155:                                              ; preds = %is_inside.exit.thread, %89
-  %.0 = phi i32 [ %154, %is_inside.exit.thread ], [ %81, %89 ]
+154:                                              ; preds = %is_inside.exit.thread, %89
+  %.0 = phi i32 [ %153, %is_inside.exit.thread ], [ %81, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

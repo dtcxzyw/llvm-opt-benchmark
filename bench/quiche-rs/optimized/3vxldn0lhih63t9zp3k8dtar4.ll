@@ -4883,13 +4883,13 @@ define void @_ZN12tokio_quiche4quic2io21utilization_estimator29MaxUtilizedBandwi
   %52 = mul nuw nsw i128 %51, 1000000000
   %53 = zext nneg i32 %49 to i128
   %54 = add nuw nsw i128 %52, %53
-  %spec.store.select.i = call i128 @llvm.umax.i128(i128 %54, i128 1)
   %55 = zext i64 %25 to i128
   %56 = mul nuw nsw i128 %55, 8000000000
-  %57 = icmp samesign ult i128 %56, %spec.store.select.i
+  %57 = icmp samesign ugt i128 %54, %56
   br i1 %57, label %_ZN12tokio_quiche4quic2io21utilization_estimator35bandwidth_from_bytes_and_time_delta17h7588b20f55c18469E.exit, label %58
 
 58:                                               ; preds = %48
+  %spec.store.select.i = call i128 @llvm.umax.i128(i128 %54, i128 1)
   %59 = udiv i128 %56, %spec.store.select.i
   %60 = trunc i128 %59 to i64
   br label %_ZN12tokio_quiche4quic2io21utilization_estimator35bandwidth_from_bytes_and_time_delta17h7588b20f55c18469E.exit
@@ -4902,11 +4902,12 @@ _ZN12tokio_quiche4quic2io21utilization_estimator35bandwidth_from_bytes_and_time_
 62:                                               ; preds = %_ZN12tokio_quiche4quic2io21utilization_estimator35bandwidth_from_bytes_and_time_delta17h7588b20f55c18469E.exit
   %63 = zext i64 %27 to i128
   %64 = mul nuw nsw i128 %63, 8000000000
-  %65 = icmp samesign ult i128 %64, %spec.store.select.i
+  %65 = icmp samesign ugt i128 %54, %64
   br i1 %65, label %_ZN12tokio_quiche4quic2io21utilization_estimator35bandwidth_from_bytes_and_time_delta17h7588b20f55c18469E.exit35, label %66
 
 66:                                               ; preds = %62
-  %67 = udiv i128 %64, %spec.store.select.i
+  %spec.store.select.i33 = call i128 @llvm.umax.i128(i128 %54, i128 1)
+  %67 = udiv i128 %64, %spec.store.select.i33
   %68 = trunc i128 %67 to i64
   br label %_ZN12tokio_quiche4quic2io21utilization_estimator35bandwidth_from_bytes_and_time_delta17h7588b20f55c18469E.exit35
 

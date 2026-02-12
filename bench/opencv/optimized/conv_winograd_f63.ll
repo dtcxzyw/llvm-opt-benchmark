@@ -2088,15 +2088,13 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn13runWi
 .lr.ph.us.i.i.i:                                  ; preds = %.preheader.us.i.i.i
   %262 = sext i32 %spec.store.select2.us.i.i.i to i64
   %263 = shl nsw i64 %262, 2
-  %smax.i.i.i = call i32 @llvm.smax.i32(i32 %spec.store.select.us.i.i.i, i32 1)
-  %wide.trip.count.i.i.i = zext nneg i32 %smax.i.i.i to i64
+  %wide.trip.count.i.i.i = zext nneg i32 %spec.store.select.us.i.i.i to i64
   br label %208
 
 .lr.ph163.us.i.i.i:                               ; preds = %250
   %264 = sext i32 %spec.store.select2.us.i.i.i to i64
   %265 = shl nsw i64 %264, 2
-  %smax189.i.i.i = call i32 @llvm.smax.i32(i32 %spec.store.select.us.i.i.i, i32 1)
-  %wide.trip.count190.i.i.i = zext nneg i32 %smax189.i.i.i to i64
+  %wide.trip.count190.i.i.i = zext nneg i32 %spec.store.select.us.i.i.i to i64
   br label %253
 
 ._crit_edge.us.i.i.i:                             ; preds = %.loopexit.us.i.i.i

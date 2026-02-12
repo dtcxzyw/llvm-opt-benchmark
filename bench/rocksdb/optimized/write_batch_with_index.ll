@@ -1318,8 +1318,7 @@ _ZN7rocksdb8SkipListIPNS_20WriteBatchIndexEntryERKNS_25WriteBatchEntryComparator
   store ptr %115, ptr %114, align 8, !tbaa !117
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %117 = ptrtoint ptr %114 to i64
-  %smax = tail call i32 @llvm.smax.i32(i32 %.0.lcssa.i, i32 1)
-  %wide.trip.count51 = zext nneg i32 %smax to i64
+  %wide.trip.count51 = zext i32 %.0.lcssa.i to i64
   br label %121
 
 118:                                              ; preds = %121
@@ -12919,9 +12918,6 @@ declare i64 @llvm.umax.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #23
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24

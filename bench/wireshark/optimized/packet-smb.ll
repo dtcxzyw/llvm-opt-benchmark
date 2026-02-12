@@ -18251,14 +18251,14 @@ define internal i32 @dissect_negprot_request(ptr noundef %0, ptr noundef readonl
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 57
   %28 = load i16, ptr %27, align 1
   %29 = and i16 %28, 8
-  %.not89 = icmp eq i16 %29, 0
-  br i1 %.not89, label %30, label %40
+  %.not88 = icmp eq i16 %29, 0
+  br i1 %.not88, label %30, label %40
 
 30:                                               ; preds = %22
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %32 = load ptr, ptr %31, align 8
-  %.not90 = icmp eq ptr %32, null
-  br i1 %.not90, label %40, label %33
+  %.not89 = icmp eq ptr %32, null
+  br i1 %.not89, label %40, label %33
 
 33:                                               ; preds = %30
   %34 = call ptr @wmem_file_scope()
@@ -18275,26 +18275,26 @@ define internal i32 @dissect_negprot_request(ptr noundef %0, ptr noundef readonl
 40:                                               ; preds = %33, %30, %22
   %.082 = phi ptr [ null, %22 ], [ %35, %33 ], [ null, %30 ]
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %.not92 = icmp eq ptr %24, null
+  %.not91 = icmp eq ptr %24, null
   %42 = icmp ne ptr %.082, null
   %43 = getelementptr inbounds nuw i8, ptr %.082, i64 8
   br label %44
 
 44:                                               ; preds = %40, %84
-  %.199 = phi i32 [ %20, %40 ], [ %66, %84 ]
-  %.07998 = phi i16 [ %16, %40 ], [ %68, %84 ]
+  %.198 = phi i32 [ %20, %40 ], [ %66, %84 ]
+  %.07997 = phi i16 [ %16, %40 ], [ %68, %84 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %45 = add i32 %.199, 1
+  %45 = add i32 %.198, 1
   call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %45, i32 noundef 1)
   %46 = load ptr, ptr %41, align 8
   %47 = call ptr @tvb_get_stringz_enc(ptr noundef %46, ptr noundef %0, i32 noundef %45, ptr noundef nonnull %8, i32 noundef 0)
-  br i1 %.not92, label %55, label %48
+  br i1 %.not91, label %55, label %48
 
 48:                                               ; preds = %44
   %49 = load i32, ptr @hf_smb_dialect, align 4
   %50 = load i32, ptr %8, align 4
   %51 = add i32 %50, 1
-  %52 = call ptr @proto_tree_add_string(ptr noundef nonnull %24, i32 noundef %49, ptr noundef %0, i32 noundef %.199, i32 noundef %51, ptr noundef %47)
+  %52 = call ptr @proto_tree_add_string(ptr noundef nonnull %24, i32 noundef %49, ptr noundef %0, i32 noundef %.198, i32 noundef %51, ptr noundef %47)
   %53 = load i32, ptr @ett_smb_dialect, align 4
   %54 = call ptr @proto_item_add_subtree(ptr noundef %52, i32 noundef %53)
   br label %55
@@ -18302,8 +18302,8 @@ define internal i32 @dissect_negprot_request(ptr noundef %0, ptr noundef readonl
 55:                                               ; preds = %44, %48
   %.078 = phi ptr [ %54, %48 ], [ null, %44 ]
   %56 = load i32, ptr @hf_smb_buffer_format, align 4
-  %57 = call ptr @proto_tree_add_item(ptr noundef %.078, i32 noundef %56, ptr noundef %0, i32 noundef %.199, i32 noundef 1, i32 noundef -2147483648)
-  %58 = add i16 %.07998, -1
+  %57 = call ptr @proto_tree_add_item(ptr noundef %.078, i32 noundef %56, ptr noundef %0, i32 noundef %.198, i32 noundef 1, i32 noundef -2147483648)
+  %58 = add i16 %.07997, -1
   %59 = zext i16 %58 to i32
   %60 = load i32, ptr %8, align 4
   %61 = icmp sgt i32 %60, %59
@@ -18346,8 +18346,8 @@ define internal i32 @dissect_negprot_request(ptr noundef %0, ptr noundef readonl
 
 84:                                               ; preds = %62, %74, %77
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.not91 = icmp eq i16 %68, 0
-  br i1 %.not91, label %85, label %44
+  %.not90 = icmp eq i16 %68, 0
+  br i1 %.not90, label %85, label %44
 
 85:                                               ; preds = %84
   %86 = load ptr, ptr %7, align 8

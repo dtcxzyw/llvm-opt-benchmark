@@ -3472,8 +3472,7 @@ Vec_IntPush.exit73:                               ; preds = %.Vec_IntGrow.exit10
   %147 = getelementptr inbounds nuw i32, ptr %.val52, i64 %146
   tail call void @Abc_QuickSortCostData(ptr noundef %.val52, i32 noundef %4, i32 noundef 1, ptr noundef nonnull %147, ptr noundef nonnull %144) #30
   %.val49 = load ptr, ptr %.phi.trans.insert.i68, align 8, !tbaa !10
-  %smax = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
-  %wide.trip.count84 = zext nneg i32 %smax to i64
+  %wide.trip.count84 = zext nneg i32 %4 to i64
   br label %148
 
 148:                                              ; preds = %.lr.ph, %148

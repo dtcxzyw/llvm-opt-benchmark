@@ -853,8 +853,7 @@ count_items.exit376:                              ; preds = %34
   %293 = fdiv nsz double %292, 2.000000e+01
   %294 = fmul nsz double %293, 0x400A934F0979A371
   %295 = call nsz double @llvm.exp2.f64(double %294)
-  %smax = call i32 @llvm.smax.i32(i32 %11, i32 1)
-  %wide.trip.count472 = zext nneg i32 %smax to i64
+  %wide.trip.count472 = zext nneg i32 %11 to i64
   br label %296
 
 296:                                              ; preds = %.lr.ph437, %314
@@ -1447,9 +1446,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #12
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
 
 attributes #0 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -8712,8 +8712,8 @@ _ZL33computeAnnealingTargetTemperatureRK10t_inputrecif.exit: ; preds = %66, %71,
   %90 = load i32, ptr %16, align 8, !tbaa !427
   %91 = icmp eq i32 %90, 2
   %92 = icmp eq i64 %indvars.iv, 0
-  %or.cond.i12 = and i1 %92, %91
-  br i1 %or.cond.i12, label %93, label %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit
+  %or.cond.i = and i1 %92, %91
+  br i1 %or.cond.i, label %93, label %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit
 
 93:                                               ; preds = %_ZL33computeAnnealingTargetTemperatureRK10t_inputrecif.exit
   store float %.0.i, ptr %17, align 4, !tbaa !362

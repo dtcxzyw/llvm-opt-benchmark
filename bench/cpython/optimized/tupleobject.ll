@@ -1024,7 +1024,7 @@ tuple_alloc.exit:                                 ; preds = %21, %.thread.i
   %.09.i18 = phi ptr [ %14, %tuple_alloc.exit.thread16 ], [ %.09.i, %tuple_alloc.exit ]
   %25 = getelementptr inbounds nuw i8, ptr %.09.i18, i64 24
   %26 = shl nuw i64 %0, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %25, i8 0, i64 %26, i1 false), !tbaa !25
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %25, i8 0, i64 %26, i1 false), !tbaa !25
   %27 = getelementptr i8, ptr %.09.i18, i64 -16
   %28 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %29 = load ptr, ptr %28, align 8, !tbaa !4

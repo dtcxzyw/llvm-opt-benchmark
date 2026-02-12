@@ -1018,7 +1018,7 @@ get_type_attr_as_size.exit21:                     ; preds = %13, %17
 .lr.ph:                                           ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %31 = shl nuw i64 %11, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %30, i8 0, i64 %31, i1 false), !tbaa !4
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %30, i8 0, i64 %31, i1 false), !tbaa !4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %28, %get_type_attr_as_size.exit21.thread, %get_type_attr_as_size.exit.thread, %get_type_attr_as_size.exit21, %25, %get_type_attr_as_size.exit

@@ -478,7 +478,7 @@ define dso_local void @_ZN4absl16strings_internal26BigUnsigned_ShiftLeft_Test8Te
   %wide.trip.count.i.i.i = zext nneg i32 %.sroa.speculated.i.i.i to i64
   br label %69
 
-68:                                               ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit16.i.i.i
+68:                                               ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit15.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %69, !llvm.loop !28
@@ -496,23 +496,23 @@ define dso_local void @_ZN4absl16strings_internal26BigUnsigned_ShiftLeft_Test8Te
 _ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit.i.i.i: ; preds = %70, %69
   %.0.i.i.i.i = phi i32 [ %72, %70 ], [ 0, %69 ]
   %.not.i13.i.i.i = icmp slt i64 %indvars.iv.i.i.i, %67
-  br i1 %.not.i13.i.i.i, label %73, label %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit16.i.i.i
+  br i1 %.not.i13.i.i.i, label %73, label %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit15.i.i.i
 
 73:                                               ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit.i.i.i
   %74 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv.i.i.i
   %75 = load i32, ptr %74, align 4, !tbaa !22, !noalias !23
-  br label %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit16.i.i.i
+  br label %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit15.i.i.i
 
-_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit16.i.i.i: ; preds = %73, %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit.i.i.i
-  %.0.i15.i.i.i = phi i32 [ %75, %73 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit.i.i.i ]
-  %.not.i.i.i = icmp eq i32 %.0.i.i.i.i, %.0.i15.i.i.i
+_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit15.i.i.i: ; preds = %73, %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit.i.i.i
+  %.0.i14.i.i.i = phi i32 [ %75, %73 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit.i.i.i ]
+  %.not.i.i.i = icmp eq i32 %.0.i.i.i.i, %.0.i14.i.i.i
   br i1 %.not.i.i.i, label %68, label %_ZN4absl16strings_internaleqILi4ELi4EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i
 
 .loopexit.i.i:                                    ; preds = %68
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %3)
   br label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi4EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit
 
-_ZN4absl16strings_internaleqILi4ELi4EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit16.i.i.i
+_ZN4absl16strings_internaleqILi4ELi4EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit15.i.i.i
   call void @_ZN7testing8internal18CmpHelperEQFailureIN4absl16strings_internal11BigUnsignedILi4EEES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull align 4 dereferenceable(20) %2, ptr noundef nonnull align 4 dereferenceable(20) %4)
   br label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi4EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit
 
@@ -649,29 +649,29 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %114
 
-_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit16.i.i.i150.thread: ; preds = %114, %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit16.i.i.i150
+_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit15.i.i.i150.thread: ; preds = %114, %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit15.i.i.i150
   %indvars.iv.next.i.i.i154 = add nuw nsw i64 %indvars.iv.i.i.i145, 1
   %exitcond.not.i.i.i155 = icmp eq i64 %indvars.iv.next.i.i.i154, 4
   br i1 %exitcond.not.i.i.i155, label %.loopexit.i.i156, label %114, !llvm.loop !28
 
-114:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit16.i.i.i150.thread, %.lr.ph.i.i.i143
-  %indvars.iv.i.i.i145 = phi i64 [ 0, %.lr.ph.i.i.i143 ], [ %indvars.iv.next.i.i.i154, %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit16.i.i.i150.thread ]
+114:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit15.i.i.i150.thread, %.lr.ph.i.i.i143
+  %indvars.iv.i.i.i145 = phi i64 [ 0, %.lr.ph.i.i.i143 ], [ %indvars.iv.next.i.i.i154, %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit15.i.i.i150.thread ]
   %.not.i.i.i.i146 = icmp samesign ult i64 %indvars.iv.i.i.i145, 4
-  br i1 %.not.i.i.i.i146, label %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit16.i.i.i150, label %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit16.i.i.i150.thread
+  br i1 %.not.i.i.i.i146, label %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit15.i.i.i150, label %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit15.i.i.i150.thread
 
-_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit16.i.i.i150: ; preds = %114
+_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit15.i.i.i150: ; preds = %114
   %115 = getelementptr inbounds nuw i32, ptr %111, i64 %indvars.iv.i.i.i145
   %116 = load i32, ptr %115, align 4, !tbaa !22, !noalias !50
   %117 = getelementptr inbounds nuw i32, ptr %112, i64 %indvars.iv.i.i.i145
   %118 = load i32, ptr %117, align 4, !tbaa !22, !noalias !50
   %.not.i.i.i152 = icmp eq i32 %116, %118
-  br i1 %.not.i.i.i152, label %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit16.i.i.i150.thread, label %_ZN4absl16strings_internaleqILi4ELi4EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i153
+  br i1 %.not.i.i.i152, label %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit15.i.i.i150.thread, label %_ZN4absl16strings_internaleqILi4ELi4EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i153
 
-.loopexit.i.i156:                                 ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit16.i.i.i150.thread
+.loopexit.i.i156:                                 ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit15.i.i.i150.thread
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %10)
   br label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi4EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit157
 
-_ZN4absl16strings_internaleqILi4ELi4EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i153: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit16.i.i.i150
+_ZN4absl16strings_internaleqILi4ELi4EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i153: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit15.i.i.i150
   call void @_ZN7testing8internal18CmpHelperEQFailureIN4absl16strings_internal11BigUnsignedILi4EEES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %10, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull align 4 dereferenceable(20) %7, ptr noundef nonnull align 4 dereferenceable(20) %8)
   br label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi4EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit157
 
@@ -788,8 +788,8 @@ _ZN7testing15AssertionResultD2Ev.exit170:         ; preds = %145, %_ZNKSt14defau
   %154 = load i32, ptr %7, align 4, !tbaa !20, !noalias !55
   %155 = load i32, ptr %9, align 4, !tbaa !20, !noalias !55
   %.sroa.speculated.i.i.i171 = call i32 @llvm.smax.i32(i32 %154, i32 %155)
-  %.not1220.i.i.i172 = icmp slt i32 %.sroa.speculated.i.i.i171, 1
-  br i1 %.not1220.i.i.i172, label %.loopexit.i, label %.lr.ph.i.i.i173
+  %.not1219.i.i.i172 = icmp slt i32 %.sroa.speculated.i.i.i171, 1
+  br i1 %.not1219.i.i.i172, label %.loopexit.i, label %.lr.ph.i.i.i173
 
 .lr.ph.i.i.i173:                                  ; preds = %_ZN7testing15AssertionResultD2Ev.exit170
   %156 = sext i32 %155 to i64
@@ -797,7 +797,7 @@ _ZN7testing15AssertionResultD2Ev.exit170:         ; preds = %145, %_ZNKSt14defau
   %wide.trip.count.i.i.i174 = zext nneg i32 %.sroa.speculated.i.i.i171 to i64
   br label %159
 
-158:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit16.i.i.i180
+158:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit15.i.i.i180
   %indvars.iv.next.i.i.i182 = add nuw nsw i64 %indvars.iv.i.i.i175, 1
   %exitcond.not.i.i.i183 = icmp eq i64 %indvars.iv.next.i.i.i182, %wide.trip.count.i.i.i174
   br i1 %exitcond.not.i.i.i183, label %.loopexit.i, label %159, !llvm.loop !28
@@ -815,19 +815,19 @@ _ZN7testing15AssertionResultD2Ev.exit170:         ; preds = %145, %_ZNKSt14defau
 _ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit.i.i.i177: ; preds = %160, %159
   %.0.i.i.i.i178 = phi i32 [ %162, %160 ], [ 0, %159 ]
   %.not.i13.i.i.i179 = icmp slt i64 %indvars.iv.i.i.i175, %156
-  br i1 %.not.i13.i.i.i179, label %163, label %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit16.i.i.i180
+  br i1 %.not.i13.i.i.i179, label %163, label %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit15.i.i.i180
 
 163:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit.i.i.i177
   %164 = getelementptr inbounds nuw i32, ptr %113, i64 %indvars.iv.i.i.i175
   %165 = load i32, ptr %164, align 4, !tbaa !22, !noalias !55
-  br label %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit16.i.i.i180
+  br label %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit15.i.i.i180
 
-_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit16.i.i.i180: ; preds = %163, %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit.i.i.i177
-  %.0.i15.i.i.i181 = phi i32 [ %165, %163 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit.i.i.i177 ]
-  %.not.i.not.i.i = icmp eq i32 %.0.i.i.i.i178, %.0.i15.i.i.i181
+_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit15.i.i.i180: ; preds = %163, %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit.i.i.i177
+  %.0.i14.i.i.i181 = phi i32 [ %165, %163 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit.i.i.i177 ]
+  %.not.i.not.i.i = icmp eq i32 %.0.i.i.i.i178, %.0.i14.i.i.i181
   br i1 %.not.i.not.i.i, label %158, label %_ZN4absl16strings_internalneILi4ELi4EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i
 
-_ZN4absl16strings_internalneILi4ELi4EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit16.i.i.i180
+_ZN4absl16strings_internalneILi4ELi4EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit15.i.i.i180
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %13)
   br label %_ZN7testing8internal11CmpHelperNEIN4absl16strings_internal11BigUnsignedILi4EEES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.exit
 
@@ -968,29 +968,29 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   br label %207
 
-_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i.thread: ; preds = %207, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i
+_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i.thread: ; preds = %207, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i
   %indvars.iv.next.i.i.i218 = add nuw nsw i64 %indvars.iv.i.i.i212, 1
   %exitcond.not.i.i.i219 = icmp eq i64 %indvars.iv.next.i.i.i218, 84
   br i1 %exitcond.not.i.i.i219, label %.loopexit.i.i220, label %207, !llvm.loop !60
 
-207:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i.thread, %.lr.ph.i.i.i210
-  %indvars.iv.i.i.i212 = phi i64 [ 0, %.lr.ph.i.i.i210 ], [ %indvars.iv.next.i.i.i218, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i.thread ]
+207:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i.thread, %.lr.ph.i.i.i210
+  %indvars.iv.i.i.i212 = phi i64 [ 0, %.lr.ph.i.i.i210 ], [ %indvars.iv.next.i.i.i218, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i.thread ]
   %.not.i.i.i.i213 = icmp samesign ult i64 %indvars.iv.i.i.i212, 84
-  br i1 %.not.i.i.i.i213, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i.thread
+  br i1 %.not.i.i.i.i213, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i.thread
 
-_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i: ; preds = %207
+_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i: ; preds = %207
   %208 = getelementptr inbounds nuw i32, ptr %201, i64 %indvars.iv.i.i.i212
   %209 = load i32, ptr %208, align 4, !tbaa !22, !noalias !61
   %210 = getelementptr inbounds nuw i32, ptr %202, i64 %indvars.iv.i.i.i212
   %211 = load i32, ptr %210, align 4, !tbaa !22, !noalias !61
   %.not.i.i.i217 = icmp eq i32 %209, %211
-  br i1 %.not.i.i.i217, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i.thread, label %_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i
+  br i1 %.not.i.i.i217, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i.thread, label %_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i
 
-.loopexit.i.i220:                                 ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i.thread
+.loopexit.i.i220:                                 ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i.thread
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %19)
   br label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi84EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit
 
-_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i
+_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i
   call void @_ZN7testing8internal18CmpHelperEQFailureIN4absl16strings_internal11BigUnsignedILi84EEES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %19, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull align 4 dereferenceable(340) %16, ptr noundef nonnull align 4 dereferenceable(340) %17)
   br label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi84EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit
 
@@ -1114,8 +1114,8 @@ _ZN7testing15AssertionResultD2Ev.exit233:         ; preds = %239, %_ZNKSt14defau
   %248 = load i32, ptr %16, align 4, !tbaa !58, !noalias !66
   %249 = load i32, ptr %18, align 4, !tbaa !58, !noalias !66
   %.sroa.speculated.i.i.i234 = call i32 @llvm.smax.i32(i32 %248, i32 %249)
-  %.not1220.i.i.i235 = icmp slt i32 %.sroa.speculated.i.i.i234, 1
-  br i1 %.not1220.i.i.i235, label %.loopexit.i248, label %.lr.ph.i.i.i236
+  %.not1219.i.i.i235 = icmp slt i32 %.sroa.speculated.i.i.i234, 1
+  br i1 %.not1219.i.i.i235, label %.loopexit.i248, label %.lr.ph.i.i.i236
 
 .lr.ph.i.i.i236:                                  ; preds = %_ZN7testing15AssertionResultD2Ev.exit233
   %250 = sext i32 %249 to i64
@@ -1123,7 +1123,7 @@ _ZN7testing15AssertionResultD2Ev.exit233:         ; preds = %239, %_ZNKSt14defau
   %wide.trip.count.i.i.i237 = zext nneg i32 %.sroa.speculated.i.i.i234 to i64
   br label %253
 
-252:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i243
+252:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i243
   %indvars.iv.next.i.i.i246 = add nuw nsw i64 %indvars.iv.i.i.i238, 1
   %exitcond.not.i.i.i247 = icmp eq i64 %indvars.iv.next.i.i.i246, %wide.trip.count.i.i.i237
   br i1 %exitcond.not.i.i.i247, label %.loopexit.i248, label %253, !llvm.loop !60
@@ -1141,19 +1141,19 @@ _ZN7testing15AssertionResultD2Ev.exit233:         ; preds = %239, %_ZNKSt14defau
 _ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i240: ; preds = %254, %253
   %.0.i.i.i.i241 = phi i32 [ %256, %254 ], [ 0, %253 ]
   %.not.i13.i.i.i242 = icmp slt i64 %indvars.iv.i.i.i238, %250
-  br i1 %.not.i13.i.i.i242, label %257, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i243
+  br i1 %.not.i13.i.i.i242, label %257, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i243
 
 257:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i240
   %258 = getelementptr inbounds nuw i32, ptr %203, i64 %indvars.iv.i.i.i238
   %259 = load i32, ptr %258, align 4, !tbaa !22, !noalias !66
-  br label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i243
+  br label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i243
 
-_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i243: ; preds = %257, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i240
-  %.0.i15.i.i.i244 = phi i32 [ %259, %257 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i240 ]
-  %.not.i.not.i.i245 = icmp eq i32 %.0.i.i.i.i241, %.0.i15.i.i.i244
+_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i243: ; preds = %257, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i240
+  %.0.i14.i.i.i244 = phi i32 [ %259, %257 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i240 ]
+  %.not.i.not.i.i245 = icmp eq i32 %.0.i.i.i.i241, %.0.i14.i.i.i244
   br i1 %.not.i.not.i.i245, label %252, label %_ZN4absl16strings_internalneILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i
 
-_ZN4absl16strings_internalneILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i243
+_ZN4absl16strings_internalneILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i243
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %22)
   br label %_ZN7testing8internal11CmpHelperNEIN4absl16strings_internal11BigUnsignedILi84EEES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_.exit
 
@@ -1308,34 +1308,34 @@ _ZN7testing15AssertionResultD2Ev.exit261:         ; preds = %286, %_ZNKSt14defau
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(340) %32, i8 0, i64 340, i1 false)
   %306 = load i32, ptr %26, align 4, !tbaa !58, !noalias !72
-  %.not1220.i.i.i263 = icmp slt i32 %306, 1
-  br i1 %.not1220.i.i.i263, label %.loopexit.i.i277, label %.lr.ph.i.i.i264
+  %.not1219.i.i.i263 = icmp slt i32 %306, 1
+  br i1 %.not1219.i.i.i263, label %.loopexit.i.i277, label %.lr.ph.i.i.i264
 
 .lr.ph.i.i.i264:                                  ; preds = %305
   %307 = zext nneg i32 %306 to i64
   br label %308
 
-_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i271.thread: ; preds = %308, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i271
+_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i271.thread: ; preds = %308, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i271
   %indvars.iv.next.i.i.i275 = add nuw nsw i64 %indvars.iv.i.i.i266, 1
   %exitcond.not.i.i.i276 = icmp eq i64 %indvars.iv.next.i.i.i275, %307
   br i1 %exitcond.not.i.i.i276, label %.loopexit.i.i277, label %308, !llvm.loop !60
 
-308:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i271.thread, %.lr.ph.i.i.i264
-  %indvars.iv.i.i.i266 = phi i64 [ 0, %.lr.ph.i.i.i264 ], [ %indvars.iv.next.i.i.i275, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i271.thread ]
+308:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i271.thread, %.lr.ph.i.i.i264
+  %indvars.iv.i.i.i266 = phi i64 [ 0, %.lr.ph.i.i.i264 ], [ %indvars.iv.next.i.i.i275, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i271.thread ]
   %.not.i.i.i.i267 = icmp samesign ult i64 %indvars.iv.i.i.i266, %307
-  br i1 %.not.i.i.i.i267, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i271, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i271.thread
+  br i1 %.not.i.i.i.i267, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i271, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i271.thread
 
-_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i271: ; preds = %308
+_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i271: ; preds = %308
   %309 = getelementptr inbounds nuw i32, ptr %302, i64 %indvars.iv.i.i.i266
   %310 = load i32, ptr %309, align 4, !tbaa !22, !noalias !72
   %.not.i.i.i273 = icmp eq i32 %310, 0
-  br i1 %.not.i.i.i273, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i271.thread, label %_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i274
+  br i1 %.not.i.i.i273, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i271.thread, label %_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i274
 
-.loopexit.i.i277:                                 ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i271.thread, %305
+.loopexit.i.i277:                                 ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i271.thread, %305
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %31)
           to label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi84EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit280 unwind label %440
 
-_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i274: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i271
+_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i274: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i271
   invoke void @_ZN7testing8internal18CmpHelperEQFailureIN4absl16strings_internal11BigUnsignedILi84EEES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %31, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.11, ptr noundef nonnull align 4 dereferenceable(340) %26, ptr noundef nonnull align 4 dereferenceable(340) %32)
           to label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi84EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit280 unwind label %440
 
@@ -1522,8 +1522,8 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit295: ; preds = %_
   %386 = load i32, ptr %26, align 4, !tbaa !58, !noalias !78
   %387 = load i32, ptr %27, align 4, !tbaa !58, !noalias !78
   %.sroa.speculated.i.i.i296 = call i32 @llvm.smax.i32(i32 %386, i32 %387)
-  %.not1220.i.i.i297 = icmp slt i32 %.sroa.speculated.i.i.i296, 1
-  br i1 %.not1220.i.i.i297, label %.loopexit.i.i311, label %.lr.ph.i.i.i298
+  %.not1219.i.i.i297 = icmp slt i32 %.sroa.speculated.i.i.i296, 1
+  br i1 %.not1219.i.i.i297, label %.loopexit.i.i311, label %.lr.ph.i.i.i298
 
 .lr.ph.i.i.i298:                                  ; preds = %_ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit295
   %388 = sext i32 %387 to i64
@@ -1531,7 +1531,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit295: ; preds = %_
   %wide.trip.count.i.i.i299 = zext nneg i32 %.sroa.speculated.i.i.i296 to i64
   br label %391
 
-390:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i305
+390:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i305
   %indvars.iv.next.i.i.i309 = add nuw nsw i64 %indvars.iv.i.i.i300, 1
   %exitcond.not.i.i.i310 = icmp eq i64 %indvars.iv.next.i.i.i309, %wide.trip.count.i.i.i299
   br i1 %exitcond.not.i.i.i310, label %.loopexit.i.i311, label %391, !llvm.loop !60
@@ -1549,23 +1549,23 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit295: ; preds = %_
 _ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i302: ; preds = %392, %391
   %.0.i.i.i.i303 = phi i32 [ %394, %392 ], [ 0, %391 ]
   %.not.i13.i.i.i304 = icmp slt i64 %indvars.iv.i.i.i300, %388
-  br i1 %.not.i13.i.i.i304, label %395, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i305
+  br i1 %.not.i13.i.i.i304, label %395, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i305
 
 395:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i302
   %396 = getelementptr inbounds nuw i32, ptr %303, i64 %indvars.iv.i.i.i300
   %397 = load i32, ptr %396, align 4, !tbaa !22, !noalias !78
-  br label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i305
+  br label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i305
 
-_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i305: ; preds = %395, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i302
-  %.0.i15.i.i.i306 = phi i32 [ %397, %395 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i302 ]
-  %.not.i.i.i307 = icmp eq i32 %.0.i.i.i.i303, %.0.i15.i.i.i306
+_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i305: ; preds = %395, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i302
+  %.0.i14.i.i.i306 = phi i32 [ %397, %395 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i302 ]
+  %.not.i.i.i307 = icmp eq i32 %.0.i.i.i.i303, %.0.i14.i.i.i306
   br i1 %.not.i.i.i307, label %390, label %_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i308
 
 .loopexit.i.i311:                                 ; preds = %390, %_ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit295
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %28)
           to label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi84EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit314 unwind label %402
 
-_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i308: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i305
+_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i308: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i305
   invoke void @_ZN7testing8internal18CmpHelperEQFailureIN4absl16strings_internal11BigUnsignedILi84EEES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %28, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull align 4 dereferenceable(340) %26, ptr noundef nonnull align 4 dereferenceable(340) %27)
           to label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi84EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit314 unwind label %402
 
@@ -2516,8 +2516,8 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit432: ; preds = %6
   %736 = load i32, ptr %35, align 4, !tbaa !58, !noalias !93
   %737 = load i32, ptr %47, align 4, !tbaa !58, !noalias !93
   %.sroa.speculated.i.i.i433 = call i32 @llvm.smax.i32(i32 %736, i32 %737)
-  %.not1220.i.i.i434 = icmp slt i32 %.sroa.speculated.i.i.i433, 1
-  br i1 %.not1220.i.i.i434, label %.loopexit.i.i448, label %.lr.ph.i.i.i435
+  %.not1219.i.i.i434 = icmp slt i32 %.sroa.speculated.i.i.i433, 1
+  br i1 %.not1219.i.i.i434, label %.loopexit.i.i448, label %.lr.ph.i.i.i435
 
 .lr.ph.i.i.i435:                                  ; preds = %_ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit432
   %738 = sext i32 %737 to i64
@@ -2525,7 +2525,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit432: ; preds = %6
   %wide.trip.count.i.i.i436 = zext nneg i32 %.sroa.speculated.i.i.i433 to i64
   br label %741
 
-740:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i442
+740:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i442
   %indvars.iv.next.i.i.i446 = add nuw nsw i64 %indvars.iv.i.i.i437, 1
   %exitcond.not.i.i.i447 = icmp eq i64 %indvars.iv.next.i.i.i446, %wide.trip.count.i.i.i436
   br i1 %exitcond.not.i.i.i447, label %.loopexit.i.i448, label %741, !llvm.loop !60
@@ -2543,23 +2543,23 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit432: ; preds = %6
 _ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i439: ; preds = %742, %741
   %.0.i.i.i.i440 = phi i32 [ %744, %742 ], [ 0, %741 ]
   %.not.i13.i.i.i441 = icmp slt i64 %indvars.iv.i.i.i437, %738
-  br i1 %.not.i13.i.i.i441, label %745, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i442
+  br i1 %.not.i13.i.i.i441, label %745, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i442
 
 745:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i439
   %746 = getelementptr inbounds nuw i32, ptr %490, i64 %indvars.iv.i.i.i437
   %747 = load i32, ptr %746, align 4, !tbaa !22, !noalias !93
-  br label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i442
+  br label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i442
 
-_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i442: ; preds = %745, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i439
-  %.0.i15.i.i.i443 = phi i32 [ %747, %745 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i439 ]
-  %.not.i.i.i444 = icmp eq i32 %.0.i.i.i.i440, %.0.i15.i.i.i443
+_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i442: ; preds = %745, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i439
+  %.0.i14.i.i.i443 = phi i32 [ %747, %745 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i439 ]
+  %.not.i.i.i444 = icmp eq i32 %.0.i.i.i.i440, %.0.i14.i.i.i443
   br i1 %.not.i.i.i444, label %740, label %_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i445
 
 .loopexit.i.i448:                                 ; preds = %740, %_ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit432
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %48)
   br label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi84EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit449
 
-_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i445: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i442
+_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i445: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i442
   call void @_ZN7testing8internal18CmpHelperEQFailureIN4absl16strings_internal11BigUnsignedILi84EEES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %48, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef nonnull align 4 dereferenceable(340) %35, ptr noundef nonnull align 4 dereferenceable(340) %47)
   br label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi84EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit449
 
@@ -2783,8 +2783,8 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit481: ; preds = %_
   %827 = load i32, ptr %37, align 4, !tbaa !58, !noalias !98
   %828 = load i32, ptr %51, align 4, !tbaa !58, !noalias !98
   %.sroa.speculated.i.i.i482 = call i32 @llvm.smax.i32(i32 %827, i32 %828)
-  %.not1220.i.i.i483 = icmp slt i32 %.sroa.speculated.i.i.i482, 1
-  br i1 %.not1220.i.i.i483, label %.loopexit.i.i497, label %.lr.ph.i.i.i484
+  %.not1219.i.i.i483 = icmp slt i32 %.sroa.speculated.i.i.i482, 1
+  br i1 %.not1219.i.i.i483, label %.loopexit.i.i497, label %.lr.ph.i.i.i484
 
 .lr.ph.i.i.i484:                                  ; preds = %_ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit481
   %829 = sext i32 %828 to i64
@@ -2792,7 +2792,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit481: ; preds = %_
   %wide.trip.count.i.i.i485 = zext nneg i32 %.sroa.speculated.i.i.i482 to i64
   br label %832
 
-831:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i491
+831:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i491
   %indvars.iv.next.i.i.i495 = add nuw nsw i64 %indvars.iv.i.i.i486, 1
   %exitcond.not.i.i.i496 = icmp eq i64 %indvars.iv.next.i.i.i495, %wide.trip.count.i.i.i485
   br i1 %exitcond.not.i.i.i496, label %.loopexit.i.i497, label %832, !llvm.loop !60
@@ -2810,23 +2810,23 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit481: ; preds = %_
 _ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i488: ; preds = %833, %832
   %.0.i.i.i.i489 = phi i32 [ %835, %833 ], [ 0, %832 ]
   %.not.i13.i.i.i490 = icmp slt i64 %indvars.iv.i.i.i486, %829
-  br i1 %.not.i13.i.i.i490, label %836, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i491
+  br i1 %.not.i13.i.i.i490, label %836, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i491
 
 836:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i488
   %837 = getelementptr inbounds nuw i32, ptr %493, i64 %indvars.iv.i.i.i486
   %838 = load i32, ptr %837, align 4, !tbaa !22, !noalias !98
-  br label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i491
+  br label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i491
 
-_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i491: ; preds = %836, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i488
-  %.0.i15.i.i.i492 = phi i32 [ %838, %836 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i488 ]
-  %.not.i.i.i493 = icmp eq i32 %.0.i.i.i.i489, %.0.i15.i.i.i492
+_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i491: ; preds = %836, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i488
+  %.0.i14.i.i.i492 = phi i32 [ %838, %836 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i488 ]
+  %.not.i.i.i493 = icmp eq i32 %.0.i.i.i.i489, %.0.i14.i.i.i492
   br i1 %.not.i.i.i493, label %831, label %_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i494
 
 .loopexit.i.i497:                                 ; preds = %831, %_ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit481
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %52)
   br label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi84EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit498
 
-_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i494: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i491
+_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i494: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i491
   call void @_ZN7testing8internal18CmpHelperEQFailureIN4absl16strings_internal11BigUnsignedILi84EEES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %52, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, ptr noundef nonnull align 4 dereferenceable(340) %37, ptr noundef nonnull align 4 dereferenceable(340) %51)
   br label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi84EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit498
 
@@ -3075,8 +3075,8 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit530: ; preds = %8
   %923 = load i32, ptr %36, align 4, !tbaa !58, !noalias !103
   %924 = load i32, ptr %56, align 4, !tbaa !58, !noalias !103
   %.sroa.speculated.i.i.i531 = call i32 @llvm.smax.i32(i32 %923, i32 %924)
-  %.not1220.i.i.i532 = icmp slt i32 %.sroa.speculated.i.i.i531, 1
-  br i1 %.not1220.i.i.i532, label %.loopexit.i.i546, label %.lr.ph.i.i.i533
+  %.not1219.i.i.i532 = icmp slt i32 %.sroa.speculated.i.i.i531, 1
+  br i1 %.not1219.i.i.i532, label %.loopexit.i.i546, label %.lr.ph.i.i.i533
 
 .lr.ph.i.i.i533:                                  ; preds = %_ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit530
   %925 = sext i32 %924 to i64
@@ -3084,7 +3084,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit530: ; preds = %8
   %wide.trip.count.i.i.i534 = zext nneg i32 %.sroa.speculated.i.i.i531 to i64
   br label %928
 
-927:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i540
+927:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i540
   %indvars.iv.next.i.i.i544 = add nuw nsw i64 %indvars.iv.i.i.i535, 1
   %exitcond.not.i.i.i545 = icmp eq i64 %indvars.iv.next.i.i.i544, %wide.trip.count.i.i.i534
   br i1 %exitcond.not.i.i.i545, label %.loopexit.i.i546, label %928, !llvm.loop !60
@@ -3102,23 +3102,23 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit530: ; preds = %8
 _ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i537: ; preds = %929, %928
   %.0.i.i.i.i538 = phi i32 [ %931, %929 ], [ 0, %928 ]
   %.not.i13.i.i.i539 = icmp slt i64 %indvars.iv.i.i.i535, %925
-  br i1 %.not.i13.i.i.i539, label %932, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i540
+  br i1 %.not.i13.i.i.i539, label %932, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i540
 
 932:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i537
   %933 = getelementptr inbounds nuw i32, ptr %683, i64 %indvars.iv.i.i.i535
   %934 = load i32, ptr %933, align 4, !tbaa !22, !noalias !103
-  br label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i540
+  br label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i540
 
-_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i540: ; preds = %932, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i537
-  %.0.i15.i.i.i541 = phi i32 [ %934, %932 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i537 ]
-  %.not.i.i.i542 = icmp eq i32 %.0.i.i.i.i538, %.0.i15.i.i.i541
+_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i540: ; preds = %932, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i537
+  %.0.i14.i.i.i541 = phi i32 [ %934, %932 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i537 ]
+  %.not.i.i.i542 = icmp eq i32 %.0.i.i.i.i538, %.0.i14.i.i.i541
   br i1 %.not.i.i.i542, label %927, label %_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i543
 
 .loopexit.i.i546:                                 ; preds = %927, %_ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit530
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %57)
   br label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi84EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit547
 
-_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i543: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i540
+_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i543: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i540
   call void @_ZN7testing8internal18CmpHelperEQFailureIN4absl16strings_internal11BigUnsignedILi84EEES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %57, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.14, ptr noundef nonnull align 4 dereferenceable(340) %36, ptr noundef nonnull align 4 dereferenceable(340) %56)
   br label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi84EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit547
 
@@ -3342,8 +3342,8 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit579: ; preds = %_
   %1014 = load i32, ptr %36, align 4, !tbaa !58, !noalias !108
   %1015 = load i32, ptr %60, align 4, !tbaa !58, !noalias !108
   %.sroa.speculated.i.i.i580 = call i32 @llvm.smax.i32(i32 %1014, i32 %1015)
-  %.not1220.i.i.i581 = icmp slt i32 %.sroa.speculated.i.i.i580, 1
-  br i1 %.not1220.i.i.i581, label %.loopexit.i.i595, label %.lr.ph.i.i.i582
+  %.not1219.i.i.i581 = icmp slt i32 %.sroa.speculated.i.i.i580, 1
+  br i1 %.not1219.i.i.i581, label %.loopexit.i.i595, label %.lr.ph.i.i.i582
 
 .lr.ph.i.i.i582:                                  ; preds = %_ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit579
   %1016 = sext i32 %1015 to i64
@@ -3351,7 +3351,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit579: ; preds = %_
   %wide.trip.count.i.i.i583 = zext nneg i32 %.sroa.speculated.i.i.i580 to i64
   br label %1019
 
-1018:                                             ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i589
+1018:                                             ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i589
   %indvars.iv.next.i.i.i593 = add nuw nsw i64 %indvars.iv.i.i.i584, 1
   %exitcond.not.i.i.i594 = icmp eq i64 %indvars.iv.next.i.i.i593, %wide.trip.count.i.i.i583
   br i1 %exitcond.not.i.i.i594, label %.loopexit.i.i595, label %1019, !llvm.loop !60
@@ -3369,23 +3369,23 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit579: ; preds = %_
 _ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i586: ; preds = %1020, %1019
   %.0.i.i.i.i587 = phi i32 [ %1022, %1020 ], [ 0, %1019 ]
   %.not.i13.i.i.i588 = icmp slt i64 %indvars.iv.i.i.i584, %1016
-  br i1 %.not.i13.i.i.i588, label %1023, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i589
+  br i1 %.not.i13.i.i.i588, label %1023, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i589
 
 1023:                                             ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i586
   %1024 = getelementptr inbounds nuw i32, ptr %685, i64 %indvars.iv.i.i.i584
   %1025 = load i32, ptr %1024, align 4, !tbaa !22, !noalias !108
-  br label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i589
+  br label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i589
 
-_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i589: ; preds = %1023, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i586
-  %.0.i15.i.i.i590 = phi i32 [ %1025, %1023 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i586 ]
-  %.not.i.i.i591 = icmp eq i32 %.0.i.i.i.i587, %.0.i15.i.i.i590
+_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i589: ; preds = %1023, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i586
+  %.0.i14.i.i.i590 = phi i32 [ %1025, %1023 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i586 ]
+  %.not.i.i.i591 = icmp eq i32 %.0.i.i.i.i587, %.0.i14.i.i.i590
   br i1 %.not.i.i.i591, label %1018, label %_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i592
 
 .loopexit.i.i595:                                 ; preds = %1018, %_ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit579
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %61)
   br label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi84EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit596
 
-_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i592: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i589
+_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i592: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i589
   call void @_ZN7testing8internal18CmpHelperEQFailureIN4absl16strings_internal11BigUnsignedILi84EEES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %61, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.16, ptr noundef nonnull align 4 dereferenceable(340) %36, ptr noundef nonnull align 4 dereferenceable(340) %60)
   br label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi84EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit596
 
@@ -3591,8 +3591,8 @@ define dso_local void @_ZN4absl16strings_internal33BigUnsigned_MultiplyByUint32_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(340) %5, ptr noundef nonnull align 4 dereferenceable(340) %2, i64 340, i1 false), !tbaa.struct !84
   %11 = load i32, ptr %5, align 4, !tbaa !58, !noalias !113
   %.sroa.speculated.i.i.i = call i32 @llvm.smax.i32(i32 %42, i32 %11)
-  %.not1220.i.i.i = icmp slt i32 %.sroa.speculated.i.i.i, 1
-  br i1 %.not1220.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
+  %.not1219.i.i.i = icmp slt i32 %.sroa.speculated.i.i.i, 1
+  br i1 %.not1219.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -3601,7 +3601,7 @@ define dso_local void @_ZN4absl16strings_internal33BigUnsigned_MultiplyByUint32_
   %wide.trip.count.i.i.i = zext nneg i32 %.sroa.speculated.i.i.i to i64
   br label %16
 
-15:                                               ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i
+15:                                               ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %16, !llvm.loop !60
@@ -3619,23 +3619,23 @@ define dso_local void @_ZN4absl16strings_internal33BigUnsigned_MultiplyByUint32_
 _ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i: ; preds = %17, %16
   %.0.i.i.i.i = phi i32 [ %19, %17 ], [ 0, %16 ]
   %.not.i13.i.i.i = icmp slt i64 %indvars.iv.i.i.i, %13
-  br i1 %.not.i13.i.i.i, label %20, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i
+  br i1 %.not.i13.i.i.i, label %20, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i
 
 20:                                               ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i
   %21 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i.i
   %22 = load i32, ptr %21, align 4, !tbaa !22, !noalias !113
-  br label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i
+  br label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i
 
-_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i: ; preds = %20, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i
-  %.0.i15.i.i.i = phi i32 [ %22, %20 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i ]
-  %.not.i.i.i = icmp eq i32 %.0.i.i.i.i, %.0.i15.i.i.i
+_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i: ; preds = %20, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i
+  %.0.i14.i.i.i = phi i32 [ %22, %20 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i ]
+  %.not.i.i.i = icmp eq i32 %.0.i.i.i.i, %.0.i14.i.i.i
   br i1 %.not.i.i.i, label %15, label %_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i
 
 .loopexit.i.i:                                    ; preds = %15, %10
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %4)
   br label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi84EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit
 
-_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i
+_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i
   call void @_ZN7testing8internal18CmpHelperEQFailureIN4absl16strings_internal11BigUnsignedILi84EEES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.21, ptr noundef nonnull align 4 dereferenceable(340) %3, ptr noundef nonnull align 4 dereferenceable(340) %5)
   br label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi84EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit
 
@@ -3871,8 +3871,8 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByILi84EEEvRKNS1_IXT_EEE
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %37 = load i32, ptr %6, align 4, !tbaa !58, !noalias !121
   %.sroa.speculated.i.i.i = call i32 @llvm.smax.i32(i32 %36, i32 %37)
-  %.not1220.i.i.i = icmp slt i32 %.sroa.speculated.i.i.i, 1
-  br i1 %.not1220.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
+  %.not1219.i.i.i = icmp slt i32 %.sroa.speculated.i.i.i, 1
+  br i1 %.not1219.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByILi84EEEvRKNS1_IXT_EEE.exit
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -3881,7 +3881,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByILi84EEEvRKNS1_IXT_EEE
   %wide.trip.count.i.i.i = zext nneg i32 %.sroa.speculated.i.i.i to i64
   br label %42
 
-41:                                               ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i
+41:                                               ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %42, !llvm.loop !60
@@ -3899,23 +3899,23 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByILi84EEEvRKNS1_IXT_EEE
 _ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i: ; preds = %43, %42
   %.0.i.i.i.i = phi i32 [ %45, %43 ], [ 0, %42 ]
   %.not.i13.i.i.i = icmp slt i64 %indvars.iv.i.i.i, %39
-  br i1 %.not.i13.i.i.i, label %46, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i
+  br i1 %.not.i13.i.i.i, label %46, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i
 
 46:                                               ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i
   %47 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv.i.i.i
   %48 = load i32, ptr %47, align 4, !tbaa !22, !noalias !121
-  br label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i
+  br label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i
 
-_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i: ; preds = %46, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i
-  %.0.i15.i.i.i = phi i32 [ %48, %46 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i ]
-  %.not.i.i.i = icmp eq i32 %.0.i.i.i.i, %.0.i15.i.i.i
+_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i: ; preds = %46, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i
+  %.0.i14.i.i.i = phi i32 [ %48, %46 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i ]
+  %.not.i.i.i = icmp eq i32 %.0.i.i.i.i, %.0.i14.i.i.i
   br i1 %.not.i.i.i, label %41, label %_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i
 
 .loopexit.i.i:                                    ; preds = %41, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByILi84EEEvRKNS1_IXT_EEE.exit
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %9)
   br label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi84EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit
 
-_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i
+_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i
   call void @_ZN7testing8internal18CmpHelperEQFailureIN4absl16strings_internal11BigUnsignedILi84EEES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %9, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26, ptr noundef nonnull align 4 dereferenceable(340) %7, ptr noundef nonnull align 4 dereferenceable(340) %6)
   br label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi84EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit
 
@@ -5445,8 +5445,8 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByILi84EEEvRKNS1_IXT_EEE
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %640 = load i32, ptr %21, align 4, !tbaa !58, !noalias !139
   %.sroa.speculated.i.i.i139 = call i32 @llvm.smax.i32(i32 %639, i32 %640)
-  %.not1220.i.i.i140 = icmp slt i32 %.sroa.speculated.i.i.i139, 1
-  br i1 %.not1220.i.i.i140, label %.loopexit.i.i154, label %.lr.ph.i.i.i141
+  %.not1219.i.i.i140 = icmp slt i32 %.sroa.speculated.i.i.i139, 1
+  br i1 %.not1219.i.i.i140, label %.loopexit.i.i154, label %.lr.ph.i.i.i141
 
 .lr.ph.i.i.i141:                                  ; preds = %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByILi84EEEvRKNS1_IXT_EEE.exit138
   %641 = sext i32 %640 to i64
@@ -5454,7 +5454,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByILi84EEEvRKNS1_IXT_EEE
   %wide.trip.count.i.i.i142 = zext nneg i32 %.sroa.speculated.i.i.i139 to i64
   br label %644
 
-643:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i148
+643:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i148
   %indvars.iv.next.i.i.i152 = add nuw nsw i64 %indvars.iv.i.i.i143, 1
   %exitcond.not.i.i.i153 = icmp eq i64 %indvars.iv.next.i.i.i152, %wide.trip.count.i.i.i142
   br i1 %exitcond.not.i.i.i153, label %.loopexit.i.i154, label %644, !llvm.loop !60
@@ -5472,23 +5472,23 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByILi84EEEvRKNS1_IXT_EEE
 _ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i145: ; preds = %645, %644
   %.0.i.i.i.i146 = phi i32 [ %647, %645 ], [ 0, %644 ]
   %.not.i13.i.i.i147 = icmp slt i64 %indvars.iv.i.i.i143, %641
-  br i1 %.not.i13.i.i.i147, label %648, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i148
+  br i1 %.not.i13.i.i.i147, label %648, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i148
 
 648:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i145
   %649 = getelementptr inbounds nuw i32, ptr %139, i64 %indvars.iv.i.i.i143
   %650 = load i32, ptr %649, align 4, !tbaa !22, !noalias !139
-  br label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i148
+  br label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i148
 
-_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i148: ; preds = %648, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i145
-  %.0.i15.i.i.i149 = phi i32 [ %650, %648 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i145 ]
-  %.not.i.i.i150 = icmp eq i32 %.0.i.i.i.i146, %.0.i15.i.i.i149
+_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i148: ; preds = %648, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i145
+  %.0.i14.i.i.i149 = phi i32 [ %650, %648 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i145 ]
+  %.not.i.i.i150 = icmp eq i32 %.0.i.i.i.i146, %.0.i14.i.i.i149
   br i1 %.not.i.i.i150, label %643, label %_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i151
 
 .loopexit.i.i154:                                 ; preds = %643, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByILi84EEEvRKNS1_IXT_EEE.exit138
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %24)
           to label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi84EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit157 unwind label %706
 
-_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i151: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i148
+_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i151: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i148
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !144
   invoke void @_ZN7testing13PrintToStringIN4absl16strings_internal11BigUnsignedILi84EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %2, ptr noundef nonnull align 4 dereferenceable(340) %18)
           to label %.noexc223 unwind label %706
@@ -6189,8 +6189,8 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByILi4EEEvRKNS1_IXT_EEE.e
   %101 = phi i32 [ %.pre68, %_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByILi4EEEvRKNS1_IXT_EEE.exit33.loopexit ], [ %95, %_ZN4absl16strings_internal11BigUnsignedILi4EE9ShiftLeftEi.exit27 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.sroa.speculated.i.i.i34 = call i32 @llvm.smax.i32(i32 %101, i32 %100)
-  %.not1220.i.i.i35 = icmp slt i32 %.sroa.speculated.i.i.i34, 1
-  br i1 %.not1220.i.i.i35, label %.loopexit.i.i49, label %.lr.ph.i.i.i36
+  %.not1219.i.i.i35 = icmp slt i32 %.sroa.speculated.i.i.i34, 1
+  br i1 %.not1219.i.i.i35, label %.loopexit.i.i49, label %.lr.ph.i.i.i36
 
 .lr.ph.i.i.i36:                                   ; preds = %_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByILi4EEEvRKNS1_IXT_EEE.exit33
   %102 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -6199,7 +6199,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByILi4EEEvRKNS1_IXT_EEE.e
   %wide.trip.count.i.i.i37 = zext nneg i32 %.sroa.speculated.i.i.i34 to i64
   br label %106
 
-105:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit16.i.i.i43
+105:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit15.i.i.i43
   %indvars.iv.next.i.i.i47 = add nuw nsw i64 %indvars.iv.i.i.i38, 1
   %exitcond.not.i.i.i48 = icmp eq i64 %indvars.iv.next.i.i.i47, %wide.trip.count.i.i.i37
   br i1 %exitcond.not.i.i.i48, label %.loopexit.i.i49, label %106, !llvm.loop !28
@@ -6217,23 +6217,23 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByILi4EEEvRKNS1_IXT_EEE.e
 _ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit.i.i.i40: ; preds = %107, %106
   %.0.i.i.i.i41 = phi i32 [ %109, %107 ], [ 0, %106 ]
   %.not.i13.i.i.i42 = icmp slt i64 %indvars.iv.i.i.i38, %103
-  br i1 %.not.i13.i.i.i42, label %110, label %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit16.i.i.i43
+  br i1 %.not.i13.i.i.i42, label %110, label %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit15.i.i.i43
 
 110:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit.i.i.i40
   %111 = getelementptr inbounds nuw i32, ptr %102, i64 %indvars.iv.i.i.i38
   %112 = load i32, ptr %111, align 4, !tbaa !22, !noalias !155
-  br label %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit16.i.i.i43
+  br label %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit15.i.i.i43
 
-_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit16.i.i.i43: ; preds = %110, %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit.i.i.i40
-  %.0.i15.i.i.i44 = phi i32 [ %112, %110 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit.i.i.i40 ]
-  %.not.i.i.i45 = icmp eq i32 %.0.i.i.i.i41, %.0.i15.i.i.i44
+_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit15.i.i.i43: ; preds = %110, %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit.i.i.i40
+  %.0.i14.i.i.i44 = phi i32 [ %112, %110 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit.i.i.i40 ]
+  %.not.i.i.i45 = icmp eq i32 %.0.i.i.i.i41, %.0.i14.i.i.i44
   br i1 %.not.i.i.i45, label %105, label %_ZN4absl16strings_internaleqILi4ELi4EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i46
 
 .loopexit.i.i49:                                  ; preds = %105, %_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByILi4EEEvRKNS1_IXT_EEE.exit33
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %10)
   br label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi4EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit50
 
-_ZN4absl16strings_internaleqILi4ELi4EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i46: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit16.i.i.i43
+_ZN4absl16strings_internaleqILi4ELi4EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i46: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi4EE7GetWordEi.exit15.i.i.i43
   call void @_ZN7testing8internal18CmpHelperEQFailureIN4absl16strings_internal11BigUnsignedILi4EEES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %10, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, ptr noundef nonnull align 4 dereferenceable(20) %7, ptr noundef nonnull align 4 dereferenceable(20) %8)
   br label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi4EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit50
 
@@ -6420,8 +6420,8 @@ define dso_local void @_ZN4absl16strings_internal29BigUnsigned_FiveToTheNth_Test
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %31 = load i32, ptr %4, align 4, !tbaa !58, !noalias !160
   %.sroa.speculated.i.i.i = call i32 @llvm.smax.i32(i32 %31, i32 %30)
-  %.not1220.i.i.i = icmp slt i32 %.sroa.speculated.i.i.i, 1
-  br i1 %.not1220.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
+  %.not1219.i.i.i = icmp slt i32 %.sroa.speculated.i.i.i, 1
+  br i1 %.not1219.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge
   %32 = sext i32 %30 to i64
@@ -6429,7 +6429,7 @@ define dso_local void @_ZN4absl16strings_internal29BigUnsigned_FiveToTheNth_Test
   %wide.trip.count.i.i.i = zext nneg i32 %.sroa.speculated.i.i.i to i64
   br label %35
 
-34:                                               ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i
+34:                                               ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %35, !llvm.loop !60
@@ -6447,23 +6447,23 @@ define dso_local void @_ZN4absl16strings_internal29BigUnsigned_FiveToTheNth_Test
 _ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i: ; preds = %36, %35
   %.0.i.i.i.i = phi i32 [ %38, %36 ], [ 0, %35 ]
   %.not.i13.i.i.i = icmp slt i64 %indvars.iv.i.i.i, %32
-  br i1 %.not.i13.i.i.i, label %39, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i
+  br i1 %.not.i13.i.i.i, label %39, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i
 
 39:                                               ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i
   %40 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i.i.i
   %41 = load i32, ptr %40, align 4, !tbaa !22, !noalias !160
-  br label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i
+  br label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i
 
-_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i: ; preds = %39, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i
-  %.0.i15.i.i.i = phi i32 [ %41, %39 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i ]
-  %.not.i.i.i = icmp eq i32 %.0.i.i.i.i, %.0.i15.i.i.i
+_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i: ; preds = %39, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i
+  %.0.i14.i.i.i = phi i32 [ %41, %39 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i ]
+  %.not.i.i.i = icmp eq i32 %.0.i.i.i.i, %.0.i14.i.i.i
   br i1 %.not.i.i.i, label %34, label %_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i
 
 .loopexit.i.i:                                    ; preds = %34, %._crit_edge
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %6)
           to label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi84EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit unwind label %63
 
-_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i
+_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i
   invoke void @_ZN7testing8internal18CmpHelperEQFailureIN4absl16strings_internal11BigUnsignedILi84EEES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %6, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, ptr noundef nonnull align 4 dereferenceable(340) %4, ptr noundef nonnull align 4 dereferenceable(340) %5)
           to label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi84EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit unwind label %63
 
@@ -6678,8 +6678,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %88, %_ZNKSt14defaul
   %107 = load i32, ptr %11, align 4, !tbaa !58, !noalias !167
   %108 = load i32, ptr %12, align 4, !tbaa !58, !noalias !167
   %.sroa.speculated.i.i.i33 = call i32 @llvm.smax.i32(i32 %107, i32 %108)
-  %.not1220.i.i.i34 = icmp slt i32 %.sroa.speculated.i.i.i33, 1
-  br i1 %.not1220.i.i.i34, label %.loopexit.i.i48, label %.lr.ph.i.i.i35
+  %.not1219.i.i.i34 = icmp slt i32 %.sroa.speculated.i.i.i33, 1
+  br i1 %.not1219.i.i.i34, label %.loopexit.i.i48, label %.lr.ph.i.i.i35
 
 .lr.ph.i.i.i35:                                   ; preds = %106
   %109 = sext i32 %108 to i64
@@ -6687,7 +6687,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %88, %_ZNKSt14defaul
   %wide.trip.count.i.i.i36 = zext nneg i32 %.sroa.speculated.i.i.i33 to i64
   br label %112
 
-111:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i42
+111:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i42
   %indvars.iv.next.i.i.i46 = add nuw nsw i64 %indvars.iv.i.i.i37, 1
   %exitcond.not.i.i.i47 = icmp eq i64 %indvars.iv.next.i.i.i46, %wide.trip.count.i.i.i36
   br i1 %exitcond.not.i.i.i47, label %.loopexit.i.i48, label %112, !llvm.loop !60
@@ -6705,23 +6705,23 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %88, %_ZNKSt14defaul
 _ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i39: ; preds = %113, %112
   %.0.i.i.i.i40 = phi i32 [ %115, %113 ], [ 0, %112 ]
   %.not.i13.i.i.i41 = icmp slt i64 %indvars.iv.i.i.i37, %109
-  br i1 %.not.i13.i.i.i41, label %116, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i42
+  br i1 %.not.i13.i.i.i41, label %116, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i42
 
 116:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i39
   %117 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.i.i.i37
   %118 = load i32, ptr %117, align 4, !tbaa !22, !noalias !167
-  br label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i42
+  br label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i42
 
-_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i42: ; preds = %116, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i39
-  %.0.i15.i.i.i43 = phi i32 [ %118, %116 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i39 ]
-  %.not.i.i.i44 = icmp eq i32 %.0.i.i.i.i40, %.0.i15.i.i.i43
+_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i42: ; preds = %116, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i39
+  %.0.i14.i.i.i43 = phi i32 [ %118, %116 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i39 ]
+  %.not.i.i.i44 = icmp eq i32 %.0.i.i.i.i40, %.0.i14.i.i.i43
   br i1 %.not.i.i.i44, label %111, label %_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i45
 
 .loopexit.i.i48:                                  ; preds = %111, %106
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %13)
           to label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi84EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit51 unwind label %125
 
-_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i45: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i42
+_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i45: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i42
   invoke void @_ZN7testing8internal18CmpHelperEQFailureIN4absl16strings_internal11BigUnsignedILi84EEES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %13, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, ptr noundef nonnull align 4 dereferenceable(340) %11, ptr noundef nonnull align 4 dereferenceable(340) %12)
           to label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi84EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit51 unwind label %125
 
@@ -6950,8 +6950,8 @@ define dso_local void @_ZN4absl16strings_internal28BigUnsigned_TenToTheNth_Test8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %36 = load i32, ptr %4, align 4, !tbaa !58, !noalias !173
   %.sroa.speculated.i.i.i = call i32 @llvm.smax.i32(i32 %36, i32 %35)
-  %.not1220.i.i.i = icmp slt i32 %.sroa.speculated.i.i.i, 1
-  br i1 %.not1220.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
+  %.not1219.i.i.i = icmp slt i32 %.sroa.speculated.i.i.i, 1
+  br i1 %.not1219.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge
   %37 = sext i32 %35 to i64
@@ -6959,7 +6959,7 @@ define dso_local void @_ZN4absl16strings_internal28BigUnsigned_TenToTheNth_Test8
   %wide.trip.count.i.i.i = zext nneg i32 %.sroa.speculated.i.i.i to i64
   br label %40
 
-39:                                               ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i
+39:                                               ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %40, !llvm.loop !60
@@ -6977,23 +6977,23 @@ define dso_local void @_ZN4absl16strings_internal28BigUnsigned_TenToTheNth_Test8
 _ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i: ; preds = %41, %40
   %.0.i.i.i.i = phi i32 [ %43, %41 ], [ 0, %40 ]
   %.not.i13.i.i.i = icmp slt i64 %indvars.iv.i.i.i, %37
-  br i1 %.not.i13.i.i.i, label %44, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i
+  br i1 %.not.i13.i.i.i, label %44, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i
 
 44:                                               ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i
   %45 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i.i.i
   %46 = load i32, ptr %45, align 4, !tbaa !22, !noalias !173
-  br label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i
+  br label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i
 
-_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i: ; preds = %44, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i
-  %.0.i15.i.i.i = phi i32 [ %46, %44 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i ]
-  %.not.i.i.i = icmp eq i32 %.0.i.i.i.i, %.0.i15.i.i.i
+_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i: ; preds = %44, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i
+  %.0.i14.i.i.i = phi i32 [ %46, %44 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i ]
+  %.not.i.i.i = icmp eq i32 %.0.i.i.i.i, %.0.i14.i.i.i
   br i1 %.not.i.i.i, label %39, label %_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i
 
 .loopexit.i.i:                                    ; preds = %39, %._crit_edge
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %6)
           to label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi84EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit unwind label %68
 
-_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i
+_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i
   invoke void @_ZN7testing8internal18CmpHelperEQFailureIN4absl16strings_internal11BigUnsignedILi84EEES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %6, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, ptr noundef nonnull align 4 dereferenceable(340) %4, ptr noundef nonnull align 4 dereferenceable(340) %5)
           to label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi84EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit unwind label %68
 
@@ -7276,8 +7276,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %_ZN
   %136 = load i32, ptr %11, align 4, !tbaa !58, !noalias !183
   %137 = load i32, ptr %12, align 4, !tbaa !58, !noalias !183
   %.sroa.speculated.i.i.i44 = call i32 @llvm.smax.i32(i32 %136, i32 %137)
-  %.not1220.i.i.i45 = icmp slt i32 %.sroa.speculated.i.i.i44, 1
-  br i1 %.not1220.i.i.i45, label %.loopexit.i.i59, label %.lr.ph.i.i.i46
+  %.not1219.i.i.i45 = icmp slt i32 %.sroa.speculated.i.i.i44, 1
+  br i1 %.not1219.i.i.i45, label %.loopexit.i.i59, label %.lr.ph.i.i.i46
 
 .lr.ph.i.i.i46:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43
   %138 = sext i32 %137 to i64
@@ -7285,7 +7285,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %_ZN
   %wide.trip.count.i.i.i47 = zext nneg i32 %.sroa.speculated.i.i.i44 to i64
   br label %141
 
-140:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i53
+140:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i53
   %indvars.iv.next.i.i.i57 = add nuw nsw i64 %indvars.iv.i.i.i48, 1
   %exitcond.not.i.i.i58 = icmp eq i64 %indvars.iv.next.i.i.i57, %wide.trip.count.i.i.i47
   br i1 %exitcond.not.i.i.i58, label %.loopexit.i.i59, label %141, !llvm.loop !60
@@ -7303,23 +7303,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %_ZN
 _ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i50: ; preds = %142, %141
   %.0.i.i.i.i51 = phi i32 [ %144, %142 ], [ 0, %141 ]
   %.not.i13.i.i.i52 = icmp slt i64 %indvars.iv.i.i.i48, %138
-  br i1 %.not.i13.i.i.i52, label %145, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i53
+  br i1 %.not.i13.i.i.i52, label %145, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i53
 
 145:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i50
   %146 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv.i.i.i48
   %147 = load i32, ptr %146, align 4, !tbaa !22, !noalias !183
-  br label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i53
+  br label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i53
 
-_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i53: ; preds = %145, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i50
-  %.0.i15.i.i.i54 = phi i32 [ %147, %145 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i50 ]
-  %.not.i.i.i55 = icmp eq i32 %.0.i.i.i.i51, %.0.i15.i.i.i54
+_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i53: ; preds = %145, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i50
+  %.0.i14.i.i.i54 = phi i32 [ %147, %145 ], [ 0, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i.i.i50 ]
+  %.not.i.i.i55 = icmp eq i32 %.0.i.i.i.i51, %.0.i14.i.i.i54
   br i1 %.not.i.i.i55, label %140, label %_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i56
 
 .loopexit.i.i59:                                  ; preds = %140, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %15)
           to label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi84EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit62 unwind label %166
 
-_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i56: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit16.i.i.i53
+_ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit.i.i56: ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit15.i.i.i53
   invoke void @_ZN7testing8internal18CmpHelperEQFailureIN4absl16strings_internal11BigUnsignedILi84EEES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %15, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, ptr noundef nonnull align 4 dereferenceable(340) %11, ptr noundef nonnull align 4 dereferenceable(340) %12)
           to label %_ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi84EEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit62 unwind label %166
 

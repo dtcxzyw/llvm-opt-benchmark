@@ -8804,68 +8804,67 @@ define void @_ZN5boost3log11v2_mt_posix5sinks4file22rotation_at_time_pointC2ENS_
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK5boost3log11v2_mt_posix5sinks4file22rotation_at_time_pointclEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-_ZN5boost10posix_time13time_durationC2Ellll.exit:
-  %1 = alloca %"class.boost::date_time::month_functor", align 4
-  %2 = alloca %"class.std::runtime_error", align 8
-  %3 = alloca i64, align 8
-  %4 = alloca %struct.tm, align 8
-  %5 = alloca %"class.boost::gregorian::date", align 4
+  %2 = alloca %"class.boost::date_time::month_functor", align 4
+  %3 = alloca %"class.std::runtime_error", align 8
+  %4 = alloca i64, align 8
+  %5 = alloca %struct.tm, align 8
   %6 = alloca %"class.boost::gregorian::date", align 4
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %8 = load i8, ptr %7, align 1, !tbaa !208
-  %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %11 = load i8, ptr %10, align 2, !tbaa !214
-  %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %14 = load i8, ptr %13, align 1, !tbaa !215
-  %15 = zext i8 %14 to i64
-  %16 = mul nuw nsw i64 %9, 3600
-  %17 = mul nuw nsw i64 %12, 60
-  %18 = add nuw nsw i64 %17, %16
-  %19 = add nuw nsw i64 %18, %15
-  %20 = mul nuw nsw i64 %19, 1000000
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %21 = call i64 @time(ptr noundef nonnull %3) #30
+  %7 = alloca %"class.boost::gregorian::date", align 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %9 = load i8, ptr %8, align 1, !tbaa !208
+  %10 = zext i8 %9 to i64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %12 = load i8, ptr %11, align 2, !tbaa !214
+  %13 = zext i8 %12 to i64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %15 = load i8, ptr %14, align 1, !tbaa !215
+  %16 = zext i8 %15 to i64
+  %17 = mul nuw nsw i64 %10, 3600
+  %18 = mul nuw nsw i64 %13, 60
+  %19 = add nuw nsw i64 %18, %17
+  %20 = add nuw nsw i64 %19, %16
+  %21 = mul nuw nsw i64 %20, 1000000
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %22 = call ptr @localtime_r(ptr noundef nonnull %3, ptr noundef nonnull %4) #30
-  %.not.i.i = icmp eq ptr %22, null
-  br i1 %.not.i.i, label %23, label %_ZN5boost9date_time12second_clockINS_10posix_time5ptimeEE10local_timeEv.exit
+  %22 = call i64 @time(ptr noundef nonnull %4) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %23 = call ptr @localtime_r(ptr noundef nonnull %4, ptr noundef nonnull %5) #30
+  %.not.i.i = icmp eq ptr %23, null
+  br i1 %.not.i.i, label %24, label %_ZN5boost9date_time12second_clockINS_10posix_time5ptimeEE10local_timeEv.exit
 
-23:                                               ; preds = %_ZN5boost10posix_time13time_durationC2Ellll.exit
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.105)
-  invoke void @_ZN5boost15throw_exceptionISt13runtime_errorEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %2) #31
-          to label %24 unwind label %25
+24:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.105)
+  invoke void @_ZN5boost15throw_exceptionISt13runtime_errorEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %3) #31
+          to label %25 unwind label %26
 
-24:                                               ; preds = %23
+25:                                               ; preds = %24
   unreachable
 
-25:                                               ; preds = %23
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %24
+  %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #30
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  resume { ptr, i32 } %26
-
-_ZN5boost9date_time12second_clockINS_10posix_time5ptimeEE10local_timeEv.exit: ; preds = %_ZN5boost10posix_time13time_durationC2Ellll.exit
-  %27 = call i64 @_ZN5boost9date_time12second_clockINS_10posix_time5ptimeEE11create_timeEP2tm(ptr noundef nonnull %22)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load i64, ptr %28, align 8, !tbaa !216
-  %30 = add i64 %29, 9223372036854775807
-  %31 = icmp ult i64 %30, -3
-  br i1 %31, label %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE11time_of_dayEv.exit, label %.thread.sink.split
+  resume { ptr, i32 } %27
+
+_ZN5boost9date_time12second_clockINS_10posix_time5ptimeEE10local_timeEv.exit: ; preds = %1
+  %28 = call i64 @_ZN5boost9date_time12second_clockINS_10posix_time5ptimeEE11create_timeEP2tm(ptr noundef nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %30 = load i64, ptr %29, align 8, !tbaa !216
+  %31 = add i64 %30, 9223372036854775807
+  %32 = icmp ult i64 %31, -3
+  br i1 %32, label %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE11time_of_dayEv.exit, label %.thread.sink.split
 
 _ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE11time_of_dayEv.exit: ; preds = %_ZN5boost9date_time12second_clockINS_10posix_time5ptimeEE10local_timeEv.exit
-  %32 = srem i64 %29, 86400000000
-  %33 = sdiv i64 %29, 86400000000
-  %34 = sdiv i64 %32, 1000000
-  %35 = icmp sle i64 %19, %34
-  %36 = load i8, ptr %0, align 8
-  %37 = lshr i8 %36, 6
-  switch i8 %37, label %default.unreachable155 [
+  %33 = srem i64 %30, 86400000000
+  %34 = sdiv i64 %30, 86400000000
+  %35 = sdiv i64 %33, 1000000
+  %36 = icmp sle i64 %20, %35
+  %37 = load i8, ptr %0, align 8
+  %38 = lshr i8 %37, 6
+  switch i8 %38, label %default.unreachable155 [
     i8 0, label %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE4dateEv.exit
     i8 1, label %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE4dateEv.exit46
     i8 2, label %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE4dateEv.exit88
@@ -8873,48 +8872,48 @@ _ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemIN
   ]
 
 _ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE4dateEv.exit: ; preds = %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE11time_of_dayEv.exit
-  %38 = sdiv i64 %29, 86400000000
-  %39 = trunc nsw i64 %38 to i32
-  %40 = call i48 @_ZN5boost9date_time23gregorian_calendar_baseINS0_19year_month_day_baseINS_9gregorian9greg_yearENS3_10greg_monthENS3_8greg_dayEEEjE15from_day_numberEj(i32 noundef %39)
-  %.sroa.0.0.extract.trunc.i.i.i = trunc i48 %40 to i32
-  %.sroa.4.0.extract.shift.i.i.i = lshr i48 %40, 16
+  %39 = sdiv i64 %30, 86400000000
+  %40 = trunc nsw i64 %39 to i32
+  %41 = call i48 @_ZN5boost9date_time23gregorian_calendar_baseINS0_19year_month_day_baseINS_9gregorian9greg_yearENS3_10greg_monthENS3_8greg_dayEEEjE15from_day_numberEj(i32 noundef %40)
+  %.sroa.0.0.extract.trunc.i.i.i = trunc i48 %41 to i32
+  %.sroa.4.0.extract.shift.i.i.i = lshr i48 %41, 16
   %.sroa.4.0.extract.trunc.i.i.i = trunc nuw i48 %.sroa.4.0.extract.shift.i.i.i to i32
-  %.sroa.5.0.extract.shift.i.i.i = lshr i48 %40, 32
+  %.sroa.5.0.extract.shift.i.i.i = lshr i48 %41, 32
   %.sroa.5.0.extract.trunc.i.i.i = trunc nuw nsw i48 %.sroa.5.0.extract.shift.i.i.i to i32
-  %41 = and i32 %.sroa.4.0.extract.trunc.i.i.i, 65535
-  %42 = sub nsw i32 14, %41
-  %43 = sdiv i32 %42, 12
-  %44 = add i32 %.sroa.0.0.extract.trunc.i.i.i, 4800
-  %45 = sub i32 %44, %43
-  %46 = mul nsw i32 %43, 12
-  %47 = add i32 %.sroa.4.0.extract.trunc.i.i.i, 65533
-  %48 = add i32 %47, %46
-  %49 = and i32 %48, 65535
-  %50 = mul nuw nsw i32 %49, 153
-  %51 = add nuw nsw i32 %50, 2
-  %52 = udiv i32 %51, 5
-  %53 = and i32 %45, 65535
-  %54 = mul nuw nsw i32 %53, 365
-  %55 = lshr i32 %53, 2
-  %.lhs.trunc.i.i.i.i.i.i = trunc i32 %45 to i16
-  %56 = udiv i16 %.lhs.trunc.i.i.i.i.i.i, 100
-  %.zext.i.i.i.i.i.i = zext nneg i16 %56 to i32
-  %57 = udiv i16 %.lhs.trunc.i.i.i.i.i.i, 400
-  %.zext12.i.i.i.i.i.i = zext nneg i16 %57 to i32
-  %58 = add nsw i32 %.sroa.5.0.extract.trunc.i.i.i, -32045
-  %59 = add nsw i32 %58, %54
+  %42 = and i32 %.sroa.4.0.extract.trunc.i.i.i, 65535
+  %43 = sub nsw i32 14, %42
+  %44 = sdiv i32 %43, 12
+  %45 = add i32 %.sroa.0.0.extract.trunc.i.i.i, 4800
+  %46 = sub i32 %45, %44
+  %47 = mul nsw i32 %44, 12
+  %48 = add i32 %.sroa.4.0.extract.trunc.i.i.i, 65533
+  %49 = add i32 %48, %47
+  %50 = and i32 %49, 65535
+  %51 = mul nuw nsw i32 %50, 153
+  %52 = add nuw nsw i32 %51, 2
+  %53 = udiv i32 %52, 5
+  %54 = and i32 %46, 65535
+  %55 = mul nuw nsw i32 %54, 365
+  %56 = lshr i32 %54, 2
+  %.lhs.trunc.i.i.i.i.i.i = trunc i32 %46 to i16
+  %57 = udiv i16 %.lhs.trunc.i.i.i.i.i.i, 100
+  %.zext.i.i.i.i.i.i = zext nneg i16 %57 to i32
+  %58 = udiv i16 %.lhs.trunc.i.i.i.i.i.i, 400
+  %.zext12.i.i.i.i.i.i = zext nneg i16 %58 to i32
+  %59 = add nsw i32 %.sroa.5.0.extract.trunc.i.i.i, -32045
   %60 = add nsw i32 %59, %55
-  %61 = sub nsw i32 %60, %.zext.i.i.i.i.i.i
-  %62 = add nsw i32 %61, %.zext12.i.i.i.i.i.i
-  %63 = add nsw i32 %62, %52
-  %64 = add nsw i32 %63, -1
-  %spec.select.i.i7.i.i = icmp ult i32 %64, -3
-  %narrow = and i1 %35, %spec.select.i.i7.i.i
+  %61 = add nsw i32 %60, %56
+  %62 = sub nsw i32 %61, %.zext.i.i.i.i.i.i
+  %63 = add nsw i32 %62, %.zext12.i.i.i.i.i.i
+  %64 = add nsw i32 %63, %53
+  %65 = add nsw i32 %64, -1
+  %spec.select.i.i7.i.i = icmp ult i32 %65, -3
+  %narrow = and i1 %36, %spec.select.i.i7.i.i
   %.sroa.0.0.i8.i.i = zext i1 %narrow to i32
-  %.sroa.0125.0 = add nsw i32 %63, %.sroa.0.0.i8.i.i
+  %.sroa.0125.0 = add nsw i32 %64, %.sroa.0.0.i8.i.i
   %.off.i.i.i.i = add nsw i32 %.sroa.0125.0, -1
   %switch.i.i.i.i = icmp ult i32 %.off.i.i.i.i, -3
-  br i1 %switch.i.i.i.i, label %65, label %.thread.i.i.i.i.i
+  br i1 %switch.i.i.i.i, label %66, label %.thread.i.i.i.i.i
 
 .thread.i.i.i.i.i:                                ; preds = %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE4dateEv.exit
   switch i32 %.sroa.0125.0, label %default.unreachable143 [
@@ -8926,83 +8925,83 @@ _ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemIN
 default.unreachable143:                           ; preds = %.thread.i.i.i.i.i
   unreachable
 
-65:                                               ; preds = %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE4dateEv.exit
-  %66 = zext i32 %.sroa.0125.0 to i64
-  %67 = mul nuw nsw i64 %66, 86400000000
-  %68 = add nuw nsw i64 %67, %20
+66:                                               ; preds = %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE4dateEv.exit
+  %67 = zext i32 %.sroa.0125.0 to i64
+  %68 = mul nuw nsw i64 %67, 86400000000
+  %69 = add nuw nsw i64 %68, %21
   br label %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit
 
 _ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit.fold.split: ; preds = %.thread.i.i.i.i.i
   br label %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit
 
-_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit: ; preds = %.thread.i.i.i.i.i, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit.fold.split, %65
-  %storemerge.i.i.i.i = phi i64 [ %68, %65 ], [ 9223372036854775806, %.thread.i.i.i.i.i ], [ 9223372036854775807, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit.fold.split ]
-  %.not148 = icmp slt i64 %27, %storemerge.i.i.i.i
+_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit: ; preds = %.thread.i.i.i.i.i, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit.fold.split, %66
+  %storemerge.i.i.i.i = phi i64 [ %69, %66 ], [ 9223372036854775806, %.thread.i.i.i.i.i ], [ 9223372036854775807, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit.fold.split ]
+  %.not148 = icmp slt i64 %28, %storemerge.i.i.i.i
   br i1 %.not148, label %.thread, label %.thread.sink.split
 
 _ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE4dateEv.exit46: ; preds = %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE11time_of_dayEv.exit
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %69 = sdiv i64 %29, 86400000000
-  %70 = trunc nsw i64 %69 to i32
-  %71 = call i48 @_ZN5boost9date_time23gregorian_calendar_baseINS0_19year_month_day_baseINS_9gregorian9greg_yearENS3_10greg_monthENS3_8greg_dayEEEjE15from_day_numberEj(i32 noundef %70)
-  %.sroa.0.0.extract.trunc.i.i.i35 = trunc i48 %71 to i32
-  %.sroa.4.0.extract.shift.i.i.i36 = lshr i48 %71, 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  %70 = sdiv i64 %30, 86400000000
+  %71 = trunc nsw i64 %70 to i32
+  %72 = call i48 @_ZN5boost9date_time23gregorian_calendar_baseINS0_19year_month_day_baseINS_9gregorian9greg_yearENS3_10greg_monthENS3_8greg_dayEEEjE15from_day_numberEj(i32 noundef %71)
+  %.sroa.0.0.extract.trunc.i.i.i35 = trunc i48 %72 to i32
+  %.sroa.4.0.extract.shift.i.i.i36 = lshr i48 %72, 16
   %.sroa.4.0.extract.trunc.i.i.i37 = trunc nuw i48 %.sroa.4.0.extract.shift.i.i.i36 to i32
-  %.sroa.5.0.extract.shift.i.i.i38 = lshr i48 %71, 32
+  %.sroa.5.0.extract.shift.i.i.i38 = lshr i48 %72, 32
   %.sroa.5.0.extract.trunc.i.i.i39 = trunc nuw nsw i48 %.sroa.5.0.extract.shift.i.i.i38 to i32
-  %72 = and i32 %.sroa.4.0.extract.trunc.i.i.i37, 65535
-  %73 = sub nsw i32 14, %72
-  %74 = sdiv i32 %73, 12
-  %75 = add i32 %.sroa.0.0.extract.trunc.i.i.i35, 4800
-  %76 = sub i32 %75, %74
-  %77 = mul nsw i32 %74, 12
-  %78 = add i32 %.sroa.4.0.extract.trunc.i.i.i37, 65533
-  %79 = add i32 %78, %77
-  %80 = and i32 %79, 65535
-  %81 = mul nuw nsw i32 %80, 153
-  %82 = add nuw nsw i32 %81, 2
-  %83 = udiv i32 %82, 5
-  %84 = and i32 %76, 65535
-  %85 = mul nuw nsw i32 %84, 365
-  %86 = lshr i32 %84, 2
-  %.lhs.trunc.i.i.i.i.i.i40 = trunc i32 %76 to i16
-  %87 = udiv i16 %.lhs.trunc.i.i.i.i.i.i40, 100
-  %.zext.i.i.i.i.i.i41 = zext nneg i16 %87 to i32
-  %88 = udiv i16 %.lhs.trunc.i.i.i.i.i.i40, 400
-  %.zext12.i.i.i.i.i.i42 = zext nneg i16 %88 to i32
-  %89 = add nsw i32 %.sroa.5.0.extract.trunc.i.i.i39, -32045
-  %90 = add nsw i32 %89, %85
+  %73 = and i32 %.sroa.4.0.extract.trunc.i.i.i37, 65535
+  %74 = sub nsw i32 14, %73
+  %75 = sdiv i32 %74, 12
+  %76 = add i32 %.sroa.0.0.extract.trunc.i.i.i35, 4800
+  %77 = sub i32 %76, %75
+  %78 = mul nsw i32 %75, 12
+  %79 = add i32 %.sroa.4.0.extract.trunc.i.i.i37, 65533
+  %80 = add i32 %79, %78
+  %81 = and i32 %80, 65535
+  %82 = mul nuw nsw i32 %81, 153
+  %83 = add nuw nsw i32 %82, 2
+  %84 = udiv i32 %83, 5
+  %85 = and i32 %77, 65535
+  %86 = mul nuw nsw i32 %85, 365
+  %87 = lshr i32 %85, 2
+  %.lhs.trunc.i.i.i.i.i.i40 = trunc i32 %77 to i16
+  %88 = udiv i16 %.lhs.trunc.i.i.i.i.i.i40, 100
+  %.zext.i.i.i.i.i.i41 = zext nneg i16 %88 to i32
+  %89 = udiv i16 %.lhs.trunc.i.i.i.i.i.i40, 400
+  %.zext12.i.i.i.i.i.i42 = zext nneg i16 %89 to i32
+  %90 = add nsw i32 %.sroa.5.0.extract.trunc.i.i.i39, -32045
   %91 = add nsw i32 %90, %86
-  %92 = sub nsw i32 %91, %.zext.i.i.i.i.i.i41
-  %93 = add nsw i32 %92, %.zext12.i.i.i.i.i.i42
-  %94 = add nsw i32 %93, %83
-  store i32 %94, ptr %5, align 4
-  %95 = load i8, ptr %0, align 8
-  %96 = and i8 %95, 63
-  %97 = zext nneg i8 %96 to i32
-  %98 = call i16 @_ZNK5boost9date_time4dateINS_9gregorian4dateENS2_18gregorian_calendarENS2_13date_durationEE11day_of_weekEv(ptr noundef nonnull align 4 dereferenceable(4) %5)
-  %99 = zext i16 %98 to i32
-  %100 = sub nsw i32 %97, %99
-  %101 = add nsw i32 %94, 2
-  %spec.select.i.i7.i.i48 = icmp ult i32 %101, 3
-  %102 = select i1 %spec.select.i.i7.i.i48, i32 0, i32 %100
-  %.sroa.0.0.i8.i.i49 = add nsw i32 %102, %94
-  %103 = icmp samesign ult i32 %97, %99
-  %104 = icmp eq i32 %97, %99
-  %or.cond = and i1 %35, %104
-  %or.cond30 = or i1 %103, %or.cond
-  %105 = add nsw i32 %.sroa.0.0.i8.i.i49, -1
-  %spec.select.i.i7.i.i56 = icmp ult i32 %105, -3
-  %106 = and i1 %or.cond30, %spec.select.i.i7.i.i56
-  %.sroa.0.0.i8.i.i57 = select i1 %106, i32 7, i32 0
+  %92 = add nsw i32 %91, %87
+  %93 = sub nsw i32 %92, %.zext.i.i.i.i.i.i41
+  %94 = add nsw i32 %93, %.zext12.i.i.i.i.i.i42
+  %95 = add nsw i32 %94, %84
+  store i32 %95, ptr %6, align 4
+  %96 = load i8, ptr %0, align 8
+  %97 = and i8 %96, 63
+  %98 = zext nneg i8 %97 to i32
+  %99 = call i16 @_ZNK5boost9date_time4dateINS_9gregorian4dateENS2_18gregorian_calendarENS2_13date_durationEE11day_of_weekEv(ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %100 = zext i16 %99 to i32
+  %101 = sub nsw i32 %98, %100
+  %102 = add nsw i32 %95, 2
+  %spec.select.i.i7.i.i48 = icmp ult i32 %102, 3
+  %103 = select i1 %spec.select.i.i7.i.i48, i32 0, i32 %101
+  %.sroa.0.0.i8.i.i49 = add nsw i32 %103, %95
+  %104 = icmp samesign ult i32 %98, %100
+  %105 = icmp eq i32 %98, %100
+  %or.cond = and i1 %36, %105
+  %or.cond30 = or i1 %104, %or.cond
+  %106 = add nsw i32 %.sroa.0.0.i8.i.i49, -1
+  %spec.select.i.i7.i.i56 = icmp ult i32 %106, -3
+  %107 = and i1 %or.cond30, %spec.select.i.i7.i.i56
+  %.sroa.0.0.i8.i.i57 = select i1 %107, i32 7, i32 0
   %.sroa.0119.0 = add nsw i32 %.sroa.0.0.i8.i.i49, %.sroa.0.0.i8.i.i57
   %.off.i.i.i.i63 = add nsw i32 %.sroa.0119.0, -1
   %switch.i.i.i.i64 = icmp ult i32 %.off.i.i.i.i63, -3
-  br i1 %switch.i.i.i.i64, label %107, label %.thread.i.i.i.i.i66
+  br i1 %switch.i.i.i.i64, label %108, label %.thread.i.i.i.i.i66
 
 .thread.i.i.i.i.i66:                              ; preds = %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE4dateEv.exit46
   switch i32 %.sroa.0119.0, label %default.unreachable144 [
-    i32 -2, label %172
+    i32 -2, label %173
     i32 -1, label %.fold.split
     i32 0, label %.thread139
   ]
@@ -9011,142 +9010,142 @@ default.unreachable144:                           ; preds = %.thread.i.i.i.i.i66
   unreachable
 
 .thread139:                                       ; preds = %.thread.i.i.i.i.i66
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread.sink.split
 
-107:                                              ; preds = %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE4dateEv.exit46
-  %108 = zext i32 %.sroa.0119.0 to i64
-  %109 = mul nuw nsw i64 %108, 86400000000
-  %110 = add nuw nsw i64 %109, %20
-  br label %172
+108:                                              ; preds = %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE4dateEv.exit46
+  %109 = zext i32 %.sroa.0119.0 to i64
+  %110 = mul nuw nsw i64 %109, 86400000000
+  %111 = add nuw nsw i64 %110, %21
+  br label %173
 
 _ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE4dateEv.exit88: ; preds = %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE11time_of_dayEv.exit
-  %111 = trunc nsw i64 %33 to i32
-  %112 = call i48 @_ZN5boost9date_time23gregorian_calendar_baseINS0_19year_month_day_baseINS_9gregorian9greg_yearENS3_10greg_monthENS3_8greg_dayEEEjE15from_day_numberEj(i32 noundef %111)
-  %.sroa.0.0.extract.trunc.i.i.i77 = trunc i48 %112 to i32
-  %.sroa.4.0.extract.shift.i.i.i78 = lshr i48 %112, 16
+  %112 = trunc nsw i64 %34 to i32
+  %113 = call i48 @_ZN5boost9date_time23gregorian_calendar_baseINS0_19year_month_day_baseINS_9gregorian9greg_yearENS3_10greg_monthENS3_8greg_dayEEEjE15from_day_numberEj(i32 noundef %112)
+  %.sroa.0.0.extract.trunc.i.i.i77 = trunc i48 %113 to i32
+  %.sroa.4.0.extract.shift.i.i.i78 = lshr i48 %113, 16
   %.sroa.4.0.extract.trunc.i.i.i79 = trunc nuw i48 %.sroa.4.0.extract.shift.i.i.i78 to i32
-  %.sroa.5.0.extract.shift.i.i.i80 = lshr i48 %112, 32
+  %.sroa.5.0.extract.shift.i.i.i80 = lshr i48 %113, 32
   %.sroa.5.0.extract.trunc.i.i.i81 = trunc nuw nsw i48 %.sroa.5.0.extract.shift.i.i.i80 to i32
-  %113 = and i32 %.sroa.4.0.extract.trunc.i.i.i79, 65535
-  %114 = sub nsw i32 14, %113
-  %115 = sdiv i32 %114, 12
-  %116 = add i32 %.sroa.0.0.extract.trunc.i.i.i77, 4800
-  %117 = sub i32 %116, %115
-  %118 = mul nsw i32 %115, 12
-  %119 = add i32 %.sroa.4.0.extract.trunc.i.i.i79, 65533
-  %120 = add i32 %119, %118
-  %121 = and i32 %120, 65535
-  %122 = mul nuw nsw i32 %121, 153
-  %123 = add nuw nsw i32 %122, 2
-  %124 = udiv i32 %123, 5
-  %125 = and i32 %117, 65535
-  %126 = mul nuw nsw i32 %125, 365
-  %127 = lshr i32 %125, 2
-  %.lhs.trunc.i.i.i.i.i.i82 = trunc i32 %117 to i16
-  %128 = udiv i16 %.lhs.trunc.i.i.i.i.i.i82, 100
-  %.zext.i.i.i.i.i.i83 = zext nneg i16 %128 to i32
-  %129 = udiv i16 %.lhs.trunc.i.i.i.i.i.i82, 400
-  %.zext12.i.i.i.i.i.i84 = zext nneg i16 %129 to i32
-  %130 = add nsw i32 %.sroa.5.0.extract.trunc.i.i.i81, -32045
-  %131 = add nsw i32 %130, %126
+  %114 = and i32 %.sroa.4.0.extract.trunc.i.i.i79, 65535
+  %115 = sub nsw i32 14, %114
+  %116 = sdiv i32 %115, 12
+  %117 = add i32 %.sroa.0.0.extract.trunc.i.i.i77, 4800
+  %118 = sub i32 %117, %116
+  %119 = mul nsw i32 %116, 12
+  %120 = add i32 %.sroa.4.0.extract.trunc.i.i.i79, 65533
+  %121 = add i32 %120, %119
+  %122 = and i32 %121, 65535
+  %123 = mul nuw nsw i32 %122, 153
+  %124 = add nuw nsw i32 %123, 2
+  %125 = udiv i32 %124, 5
+  %126 = and i32 %118, 65535
+  %127 = mul nuw nsw i32 %126, 365
+  %128 = lshr i32 %126, 2
+  %.lhs.trunc.i.i.i.i.i.i82 = trunc i32 %118 to i16
+  %129 = udiv i16 %.lhs.trunc.i.i.i.i.i.i82, 100
+  %.zext.i.i.i.i.i.i83 = zext nneg i16 %129 to i32
+  %130 = udiv i16 %.lhs.trunc.i.i.i.i.i.i82, 400
+  %.zext12.i.i.i.i.i.i84 = zext nneg i16 %130 to i32
+  %131 = add nsw i32 %.sroa.5.0.extract.trunc.i.i.i81, -32045
   %132 = add nsw i32 %131, %127
-  %133 = sub nsw i32 %132, %.zext.i.i.i.i.i.i83
-  %134 = add nsw i32 %133, %.zext12.i.i.i.i.i.i84
-  %135 = add nsw i32 %134, %124
-  %136 = load i8, ptr %0, align 8
-  %137 = and i8 %136, 63
-  %138 = zext nneg i8 %137 to i16
-  %139 = icmp eq i8 %137, 0
-  br i1 %139, label %140, label %141
+  %133 = add nsw i32 %132, %128
+  %134 = sub nsw i32 %133, %.zext.i.i.i.i.i.i83
+  %135 = add nsw i32 %134, %.zext12.i.i.i.i.i.i84
+  %136 = add nsw i32 %135, %125
+  %137 = load i8, ptr %0, align 8
+  %138 = and i8 %137, 63
+  %139 = zext nneg i8 %138 to i16
+  %140 = icmp eq i8 %138, 0
+  br i1 %140, label %141, label %142
 
-140:                                              ; preds = %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE4dateEv.exit88
+141:                                              ; preds = %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE4dateEv.exit88
   call void @_ZN5boost2CV23simple_exception_policyItLt1ELt31ENS_9gregorian16bad_day_of_monthEE8on_errorEttNS0_14violation_enumE(i16 noundef zeroext 1, i16 noundef zeroext 0, i32 noundef 0)
   br label %_ZN5boost9gregorian8greg_dayC2Et.exit
 
-141:                                              ; preds = %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE4dateEv.exit88
-  %142 = icmp samesign ugt i8 %137, 31
-  br i1 %142, label %143, label %_ZN5boost9gregorian8greg_dayC2Et.exit
+142:                                              ; preds = %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE4dateEv.exit88
+  %143 = icmp samesign ugt i8 %138, 31
+  br i1 %143, label %144, label %_ZN5boost9gregorian8greg_dayC2Et.exit
 
-143:                                              ; preds = %141
-  call void @_ZN5boost2CV23simple_exception_policyItLt1ELt31ENS_9gregorian16bad_day_of_monthEE8on_errorEttNS0_14violation_enumE(i16 noundef zeroext 1, i16 noundef zeroext %138, i32 noundef 1)
+144:                                              ; preds = %142
+  call void @_ZN5boost2CV23simple_exception_policyItLt1ELt31ENS_9gregorian16bad_day_of_monthEE8on_errorEttNS0_14violation_enumE(i16 noundef zeroext 1, i16 noundef zeroext %139, i32 noundef 1)
   br label %_ZN5boost9gregorian8greg_dayC2Et.exit
 
-_ZN5boost9gregorian8greg_dayC2Et.exit:            ; preds = %141, %140, %143
-  %.sroa.0107.0 = phi i16 [ 1, %140 ], [ 1, %143 ], [ %138, %141 ]
-  %144 = call i48 @_ZN5boost9date_time23gregorian_calendar_baseINS0_19year_month_day_baseINS_9gregorian9greg_yearENS3_10greg_monthENS3_8greg_dayEEEjE15from_day_numberEj(i32 noundef %135)
-  %.sroa.0.4.extract.shift.i = lshr i48 %144, 32
+_ZN5boost9gregorian8greg_dayC2Et.exit:            ; preds = %142, %141, %144
+  %.sroa.0107.0 = phi i16 [ 1, %141 ], [ 1, %144 ], [ %139, %142 ]
+  %145 = call i48 @_ZN5boost9date_time23gregorian_calendar_baseINS0_19year_month_day_baseINS_9gregorian9greg_yearENS3_10greg_monthENS3_8greg_dayEEEjE15from_day_numberEj(i32 noundef %136)
+  %.sroa.0.4.extract.shift.i = lshr i48 %145, 32
   %.sroa.0.4.extract.trunc.i = trunc nuw i48 %.sroa.0.4.extract.shift.i to i16
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %145 = call i48 @_ZN5boost9date_time23gregorian_calendar_baseINS0_19year_month_day_baseINS_9gregorian9greg_yearENS3_10greg_monthENS3_8greg_dayEEEjE15from_day_numberEj(i32 noundef %135)
-  %.sroa.0.0.extract.trunc.i = trunc i48 %145 to i16
-  %146 = call i48 @_ZN5boost9date_time23gregorian_calendar_baseINS0_19year_month_day_baseINS_9gregorian9greg_yearENS3_10greg_monthENS3_8greg_dayEEEjE15from_day_numberEj(i32 noundef %135)
-  %.sroa.0.2.extract.shift.i = lshr i48 %146, 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  %146 = call i48 @_ZN5boost9date_time23gregorian_calendar_baseINS0_19year_month_day_baseINS_9gregorian9greg_yearENS3_10greg_monthENS3_8greg_dayEEEjE15from_day_numberEj(i32 noundef %136)
+  %.sroa.0.0.extract.trunc.i = trunc i48 %146 to i16
+  %147 = call i48 @_ZN5boost9date_time23gregorian_calendar_baseINS0_19year_month_day_baseINS_9gregorian9greg_yearENS3_10greg_monthENS3_8greg_dayEEEjE15from_day_numberEj(i32 noundef %136)
+  %.sroa.0.2.extract.shift.i = lshr i48 %147, 16
   %.sroa.0.2.extract.trunc.i = trunc i48 %.sroa.0.2.extract.shift.i to i16
-  call void @_ZN5boost9gregorian4dateC2ENS0_9greg_yearENS0_10greg_monthENS0_8greg_dayE(ptr noundef nonnull align 4 dereferenceable(4) %6, i16 %.sroa.0.0.extract.trunc.i, i16 %.sroa.0.2.extract.trunc.i, i16 %.sroa.0107.0)
-  %147 = icmp ult i16 %.sroa.0107.0, %.sroa.0.4.extract.trunc.i
-  %148 = icmp eq i16 %.sroa.0107.0, %.sroa.0.4.extract.trunc.i
-  %or.cond3 = and i1 %35, %148
-  %or.cond146 = select i1 %147, i1 true, i1 %or.cond3
-  br i1 %or.cond146, label %149, label %thread-pre-split
+  call void @_ZN5boost9gregorian4dateC2ENS0_9greg_yearENS0_10greg_monthENS0_8greg_dayE(ptr noundef nonnull align 4 dereferenceable(4) %7, i16 %.sroa.0.0.extract.trunc.i, i16 %.sroa.0.2.extract.trunc.i, i16 %.sroa.0107.0)
+  %148 = icmp ult i16 %.sroa.0107.0, %.sroa.0.4.extract.trunc.i
+  %149 = icmp eq i16 %.sroa.0107.0, %.sroa.0.4.extract.trunc.i
+  %or.cond3 = and i1 %36, %149
+  %or.cond146 = select i1 %148, i1 true, i1 %or.cond3
+  br i1 %or.cond146, label %150, label %thread-pre-split
 
-149:                                              ; preds = %_ZN5boost9gregorian8greg_dayC2Et.exit
-  call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  store i32 1, ptr %1, align 4, !tbaa !217
-  %150 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i16 0, ptr %150, align 4, !tbaa !220
-  %151 = call i64 @_ZNK5boost9date_time13month_functorINS_9gregorian4dateEE10get_offsetERKS3_(ptr noundef nonnull align 4 dereferenceable(6) %1, ptr noundef nonnull align 4 dereferenceable(4) %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %152 = add i64 %151, -9223372036854775806
-  %spec.select.i.i.i.i.i = icmp ult i64 %152, 3
-  %153 = load i32, ptr %6, align 4, !tbaa !221
-  br i1 %spec.select.i.i.i.i.i, label %154, label %164
+150:                                              ; preds = %_ZN5boost9gregorian8greg_dayC2Et.exit
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  store i32 1, ptr %2, align 4, !tbaa !217
+  %151 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i16 0, ptr %151, align 4, !tbaa !220
+  %152 = call i64 @_ZNK5boost9date_time13month_functorINS_9gregorian4dateEE10get_offsetERKS3_(ptr noundef nonnull align 4 dereferenceable(6) %2, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  %153 = add i64 %152, -9223372036854775806
+  %spec.select.i.i.i.i.i = icmp ult i64 %153, 3
+  %154 = load i32, ptr %7, align 4, !tbaa !221
+  br i1 %spec.select.i.i.i.i.i, label %155, label %165
 
-154:                                              ; preds = %149
-  %155 = icmp eq i32 %153, -2
-  %156 = icmp eq i64 %151, 9223372036854775806
-  %or.cond13.i.i.i = or i1 %156, %155
-  br i1 %or.cond13.i.i.i, label %_ZN5boost9date_timepLERNS_9gregorian4dateERKNS0_15months_durationINS1_21greg_durations_configEEE.exit, label %157
+155:                                              ; preds = %150
+  %156 = icmp eq i32 %154, -2
+  %157 = icmp eq i64 %152, 9223372036854775806
+  %or.cond13.i.i.i = or i1 %157, %156
+  br i1 %or.cond13.i.i.i, label %_ZN5boost9date_timepLERNS_9gregorian4dateERKNS0_15months_durationINS1_21greg_durations_configEEE.exit, label %158
 
-157:                                              ; preds = %154
-  switch i32 %153, label %162 [
-    i32 -1, label %158
-    i32 0, label %160
+158:                                              ; preds = %155
+  switch i32 %154, label %163 [
+    i32 -1, label %159
+    i32 0, label %161
   ]
 
-158:                                              ; preds = %157
-  %159 = icmp eq i64 %151, -9223372036854775808
-  br i1 %159, label %_ZN5boost9date_timepLERNS_9gregorian4dateERKNS0_15months_durationINS1_21greg_durations_configEEE.exit, label %.thread10.i.i.i.i
+159:                                              ; preds = %158
+  %160 = icmp eq i64 %152, -9223372036854775808
+  br i1 %160, label %_ZN5boost9date_timepLERNS_9gregorian4dateERKNS0_15months_durationINS1_21greg_durations_configEEE.exit, label %.thread10.i.i.i.i
 
-160:                                              ; preds = %157
-  %161 = icmp eq i64 %151, 9223372036854775807
-  br i1 %161, label %_ZN5boost9date_timepLERNS_9gregorian4dateERKNS0_15months_durationINS1_21greg_durations_configEEE.exit, label %.thread10.i.i.i.i
+161:                                              ; preds = %158
+  %162 = icmp eq i64 %152, 9223372036854775807
+  br i1 %162, label %_ZN5boost9date_timepLERNS_9gregorian4dateERKNS0_15months_durationINS1_21greg_durations_configEEE.exit, label %.thread10.i.i.i.i
 
-.thread10.i.i.i.i:                                ; preds = %160, %158
+.thread10.i.i.i.i:                                ; preds = %161, %159
   br label %_ZN5boost9date_timepLERNS_9gregorian4dateERKNS0_15months_durationINS1_21greg_durations_configEEE.exit
 
-162:                                              ; preds = %157
-  %163 = icmp eq i64 %151, 9223372036854775807
-  %spec.select.i.i.i89 = sext i1 %163 to i32
+163:                                              ; preds = %158
+  %164 = icmp eq i64 %152, 9223372036854775807
+  %spec.select.i.i.i89 = sext i1 %164 to i32
   br label %_ZN5boost9date_timepLERNS_9gregorian4dateERKNS0_15months_durationINS1_21greg_durations_configEEE.exit
 
-164:                                              ; preds = %149
-  %165 = trunc i64 %151 to i32
-  %166 = add i32 %153, 2
-  %spec.select.i.i7.i.i.i = icmp ult i32 %166, 3
-  %167 = select i1 %spec.select.i.i7.i.i.i, i32 0, i32 %165
-  %.sroa.0.0.i8.i.i.i = add i32 %167, %153
+165:                                              ; preds = %150
+  %166 = trunc i64 %152 to i32
+  %167 = add i32 %154, 2
+  %spec.select.i.i7.i.i.i = icmp ult i32 %167, 3
+  %168 = select i1 %spec.select.i.i7.i.i.i, i32 0, i32 %166
+  %.sroa.0.0.i8.i.i.i = add i32 %168, %154
   br label %_ZN5boost9date_timepLERNS_9gregorian4dateERKNS0_15months_durationINS1_21greg_durations_configEEE.exit
 
 thread-pre-split:                                 ; preds = %_ZN5boost9gregorian8greg_dayC2Et.exit
-  %.sroa.04.0.copyload.pr = load i32, ptr %6, align 4
+  %.sroa.04.0.copyload.pr = load i32, ptr %7, align 4
   br label %_ZN5boost9date_timepLERNS_9gregorian4dateERKNS0_15months_durationINS1_21greg_durations_configEEE.exit
 
-_ZN5boost9date_timepLERNS_9gregorian4dateERKNS0_15months_durationINS1_21greg_durations_configEEE.exit: ; preds = %164, %162, %.thread10.i.i.i.i, %160, %158, %154, %thread-pre-split
-  %.sroa.04.0.copyload = phi i32 [ %.sroa.04.0.copyload.pr, %thread-pre-split ], [ %.sroa.0.0.i8.i.i.i, %164 ], [ -2, %160 ], [ -2, %154 ], [ %153, %.thread10.i.i.i.i ], [ -2, %158 ], [ %spec.select.i.i.i89, %162 ]
+_ZN5boost9date_timepLERNS_9gregorian4dateERKNS0_15months_durationINS1_21greg_durations_configEEE.exit: ; preds = %165, %163, %.thread10.i.i.i.i, %161, %159, %155, %thread-pre-split
+  %.sroa.04.0.copyload = phi i32 [ %.sroa.04.0.copyload.pr, %thread-pre-split ], [ %.sroa.0.0.i8.i.i.i, %165 ], [ -2, %161 ], [ -2, %155 ], [ %154, %.thread10.i.i.i.i ], [ -2, %159 ], [ %spec.select.i.i.i89, %163 ]
   %.off.i.i.i.i90 = add i32 %.sroa.04.0.copyload, -1
   %switch.i.i.i.i91 = icmp ult i32 %.off.i.i.i.i90, -3
-  br i1 %switch.i.i.i.i91, label %168, label %.thread.i.i.i.i.i93
+  br i1 %switch.i.i.i.i91, label %169, label %.thread.i.i.i.i.i93
 
 .thread.i.i.i.i.i93:                              ; preds = %_ZN5boost9date_timepLERNS_9gregorian4dateERKNS0_15months_durationINS1_21greg_durations_configEEE.exit
   switch i32 %.sroa.04.0.copyload, label %default.unreachable145 [
@@ -9159,42 +9158,42 @@ default.unreachable145:                           ; preds = %.thread.i.i.i.i.i93
   unreachable
 
 _ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit100.thread: ; preds = %.thread.i.i.i.i.i93
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread.sink.split
 
-168:                                              ; preds = %_ZN5boost9date_timepLERNS_9gregorian4dateERKNS0_15months_durationINS1_21greg_durations_configEEE.exit
-  %169 = zext i32 %.sroa.04.0.copyload to i64
-  %170 = mul nuw nsw i64 %169, 86400000000
-  %171 = add nuw nsw i64 %170, %20
+169:                                              ; preds = %_ZN5boost9date_timepLERNS_9gregorian4dateERKNS0_15months_durationINS1_21greg_durations_configEEE.exit
+  %170 = zext i32 %.sroa.04.0.copyload to i64
+  %171 = mul nuw nsw i64 %170, 86400000000
+  %172 = add nuw nsw i64 %171, %21
   br label %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit100
 
 _ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit100.fold.split: ; preds = %.thread.i.i.i.i.i93
   br label %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit100
 
-_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit100: ; preds = %.thread.i.i.i.i.i93, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit100.fold.split, %168
-  %storemerge.i.i.i.i96 = phi i64 [ %171, %168 ], [ 9223372036854775806, %.thread.i.i.i.i.i93 ], [ 9223372036854775807, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit100.fold.split ]
-  %.not = icmp slt i64 %27, %storemerge.i.i.i.i96
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit100: ; preds = %.thread.i.i.i.i.i93, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit100.fold.split, %169
+  %storemerge.i.i.i.i96 = phi i64 [ %172, %169 ], [ 9223372036854775806, %.thread.i.i.i.i.i93 ], [ 9223372036854775807, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit100.fold.split ]
+  %.not = icmp slt i64 %28, %storemerge.i.i.i.i96
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not, label %.thread, label %.thread.sink.split
 
 default.unreachable155:                           ; preds = %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE11time_of_dayEv.exit
   unreachable
 
 .fold.split:                                      ; preds = %.thread.i.i.i.i.i66
-  br label %172
+  br label %173
 
-172:                                              ; preds = %.thread.i.i.i.i.i66, %.fold.split, %107
-  %storemerge.i.i.i.i69 = phi i64 [ %110, %107 ], [ 9223372036854775806, %.thread.i.i.i.i.i66 ], [ 9223372036854775807, %.fold.split ]
-  %.not147 = icmp slt i64 %27, %storemerge.i.i.i.i69
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+173:                                              ; preds = %.thread.i.i.i.i.i66, %.fold.split, %108
+  %storemerge.i.i.i.i69 = phi i64 [ %111, %108 ], [ 9223372036854775806, %.thread.i.i.i.i.i66 ], [ 9223372036854775807, %.fold.split ]
+  %.not147 = icmp slt i64 %28, %storemerge.i.i.i.i69
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not147, label %.thread, label %.thread.sink.split
 
-.thread.sink.split:                               ; preds = %172, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit100, %.thread139, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit100.thread, %.thread.i.i.i.i.i, %_ZN5boost9date_time12second_clockINS_10posix_time5ptimeEE10local_timeEv.exit
-  store i64 %27, ptr %28, align 8
+.thread.sink.split:                               ; preds = %173, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit100, %.thread139, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit100.thread, %.thread.i.i.i.i.i, %_ZN5boost9date_time12second_clockINS_10posix_time5ptimeEE10local_timeEv.exit
+  store i64 %28, ptr %29, align 8
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE11time_of_dayEv.exit, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit100, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit, %172
-  %.0 = phi i1 [ false, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit ], [ false, %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE11time_of_dayEv.exit ], [ false, %172 ], [ false, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit100 ], [ %31, %.thread.sink.split ]
+.thread:                                          ; preds = %.thread.sink.split, %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE11time_of_dayEv.exit, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit100, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit, %173
+  %.0 = phi i1 [ false, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit ], [ false, %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE11time_of_dayEv.exit ], [ false, %173 ], [ false, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit100 ], [ %32, %.thread.sink.split ]
   ret i1 %.0
 }
 

@@ -8808,7 +8808,6 @@ _ZNSt6vectorIxSaIxEED2Ev.exit:                    ; preds = %208, %210
   %238 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %239 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %240 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %smax268 = call i64 @llvm.smax.i64(i64 %53, i64 1)
   br label %269
 
 ._crit_edge257:                                   ; preds = %_ZN6casadi6MatrixIdED2Ev.exit185, %_ZNSt6vectorIxSaIxEED2Ev.exit
@@ -9206,7 +9205,7 @@ _ZN6casadi6MatrixIdED2Ev.exit185:                 ; preds = %_ZNSt6vectorIdSaIdE
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %371 = add nuw nsw i64 %.043255, 1
-  %exitcond269.not = icmp eq i64 %371, %smax268
+  %exitcond269.not = icmp eq i64 %371, %53
   br i1 %exitcond269.not, label %._crit_edge257, label %269, !llvm.loop !160
 
 372:                                              ; preds = %269

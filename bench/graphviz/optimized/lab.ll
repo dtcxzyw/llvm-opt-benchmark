@@ -877,7 +877,6 @@ gv_calloc.exit123:                                ; preds = %67
 
 .lr.ph157.preheader:                              ; preds = %92
   %96 = trunc nuw nsw i64 %indvars.iv169 to i32
-  %smax = call i32 @llvm.smax.i32(i32 %1, i32 1)
   br label %.lr.ph157
 
 .lr.ph157:                                        ; preds = %.lr.ph157.preheader, %.critedge
@@ -953,7 +952,7 @@ gv_calloc.exit123:                                ; preds = %67
 .critedge:                                        ; preds = %130, %.critedge.loopexit.split.loop.exit, %.lr.ph157
   %.2107.lcssa = phi i32 [ %.1106152, %.lr.ph157 ], [ %131, %.critedge.loopexit.split.loop.exit ], [ %46, %130 ]
   %132 = add nuw nsw i32 %.2101155, 1
-  %exitcond178.not = icmp eq i32 %132, %smax
+  %exitcond178.not = icmp eq i32 %132, %1
   br i1 %exitcond178.not, label %.loopexit, label %.lr.ph157, !llvm.loop !55
 
 .loopexit:                                        ; preds = %.critedge, %77

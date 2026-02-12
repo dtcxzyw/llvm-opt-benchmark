@@ -9246,7 +9246,6 @@ _ZN2cv3RNG7uniformEii.exit234:                    ; preds = %293, %_ZN2cv3RNG7un
   %339 = phi ptr [ %.pre923, %._crit_edge385.loopexit ], [ %.pre, %335 ], [ null, %._crit_edge.thread ]
   %340 = lshr i32 %2, 1
   %341 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %smax = call i32 @llvm.smax.i32(i32 %2, i32 1)
   br label %428
 
 342:                                              ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
@@ -9450,7 +9449,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
 .loopexit:                                        ; preds = %_ZN2cv3RNG7uniformEii.exit274, %.preheader
   %425 = phi ptr [ %487, %.preheader ], [ %486, %_ZN2cv3RNG7uniformEii.exit274 ]
   %.sroa.0335.2.lcssa = phi i64 [ %.sroa.0335.1399, %.preheader ], [ %532, %_ZN2cv3RNG7uniformEii.exit274 ]
-  %exitcond919.not = icmp eq i32 %432, %smax
+  %exitcond919.not = icmp eq i32 %432, %2
   br i1 %exitcond919.not, label %._crit_edge404, label %428, !llvm.loop !244
 
 ._crit_edge404:                                   ; preds = %.loopexit
@@ -13599,8 +13598,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %.loopexit524, %502
   br i1 %.not.i.i.i.i319, label %._crit_edge601, label %.lr.ph600.preheader
 
 .lr.ph600.preheader:                              ; preds = %.preheader509
-  %smax = call i32 @llvm.smax.i32(i32 %39, i32 1)
-  %wide.trip.count686 = zext nneg i32 %smax to i64
+  %wide.trip.count686 = zext nneg i32 %39 to i64
   br label %.lr.ph600
 
 531:                                              ; preds = %.lr.ph596, %.loopexit511
@@ -14326,8 +14324,7 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %_ZNSt6vectorIdSaIdE
   %836 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %837 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %838 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %smax691 = call i32 @llvm.smax.i32(i32 %39, i32 1)
-  %wide.trip.count692 = zext nneg i32 %smax691 to i64
+  %wide.trip.count692 = zext nneg i32 %39 to i64
   br label %839
 
 839:                                              ; preds = %.lr.ph604, %857
@@ -15827,8 +15824,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorId
 .lr.ph76:                                         ; preds = %64
   %68 = load ptr, ptr %1, align 8, !tbaa !313
   %69 = load ptr, ptr %4, align 8, !tbaa !57
-  %smax83 = call i32 @llvm.smax.i32(i32 %16, i32 1)
-  %wide.trip.count84 = zext nneg i32 %smax83 to i64
+  %wide.trip.count84 = zext nneg i32 %16 to i64
   br label %78
 
 ._crit_edge77:                                    ; preds = %78, %64

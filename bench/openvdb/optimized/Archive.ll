@@ -19099,15 +19099,15 @@ _ZNSt8ios_base5pwordEi.exit:                      ; preds = %cond.true.i21, %con
   %cond-lvalue.i20 = phi ptr [ %arrayidx.i24, %cond.true.i21 ], [ %call.i19, %cond.false.i18 ]
   store ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, ptr %cond-lvalue.i20, align 8
   %5 = load i32, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, align 4
-  %cmp4 = icmp sgt i32 %5, 0
-  br i1 %cmp4, label %for.body.preheader, label %if.else50
+  %cmp5 = icmp sgt i32 %5, 0
+  br i1 %cmp5, label %for.body.preheader, label %if.else50
 
 for.body.preheader:                               ; preds = %_ZNSt8ios_base5pwordEi.exit
-  %vtable11.pre9 = load ptr, ptr @_ZSt4cout, align 8
+  %vtable11.pre10 = load ptr, ptr @_ZSt4cout, align 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %vtable11 = phi ptr [ %vtable11.pre9, %for.body.preheader ], [ %vtable18, %for.inc ]
+  %vtable11 = phi ptr [ %vtable11.pre10, %for.body.preheader ], [ %vtable18, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %vbase.offset.ptr12 = getelementptr i8, ptr %vtable11, i64 -24
   %vbase.offset13 = load i64, ptr %vbase.offset.ptr12, align 8

@@ -378,7 +378,7 @@ _ZNK8rawspeed10ByteStream12getSubStreamEjj.exit:  ; preds = %2
 42:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
   %43 = add nuw nsw i32 %.sroa.1359.062, 4
-  %.not.i.i.i = icmp samesign ugt i32 %.sroa.1359.062, 12
+  %.not.i.i.i = icmp ugt i32 %.sroa.1359.062, 12
   br i1 %.not.i.i.i, label %47, label %44, !prof !109
 
 44:                                               ; preds = %42

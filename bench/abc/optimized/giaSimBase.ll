@@ -13837,12 +13837,11 @@ Abc_TtAndXorSum.exit91:                           ; preds = %Abc_TtCountOnes2.ex
 
 .lr.ph102:                                        ; preds = %._crit_edge
   %194 = load ptr, ptr %28, align 8, !tbaa !143
-  %smax = tail call i32 @llvm.smax.i32(i32 %191, i32 1)
   br label %197
 
 195:                                              ; preds = %197
   %196 = add nuw nsw i32 %.3100, 1
-  %exitcond108.not = icmp eq i32 %196, %smax
+  %exitcond108.not = icmp eq i32 %196, %191
   br i1 %exitcond108.not, label %._crit_edge103, label %197, !llvm.loop !288
 
 197:                                              ; preds = %.lr.ph102, %195
@@ -21670,7 +21669,6 @@ Vec_WrdStart.exit:                                ; preds = %4, %17
   %27 = getelementptr i8, ptr %3, i64 8
   %28 = zext nneg i32 %10 to i64
   %smax = tail call i32 @llvm.smax.i32(i32 %12, i32 1)
-  %smax191 = tail call i32 @llvm.smax.i32(i32 %13, i32 1)
   br label %.preheader144
 
 .preheader144:                                    ; preds = %.preheader144.lr.ph, %._crit_edge173
@@ -21966,7 +21964,7 @@ Vec_WrdStart.exit:                                ; preds = %4, %17
   %190 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.96, i32 noundef %189)
   %putchar110 = tail call i32 @putchar(i32 10)
   %191 = add nuw nsw i32 %.097174, 1
-  %exitcond192.not = icmp eq i32 %191, %smax191
+  %exitcond192.not = icmp eq i32 %191, %13
   br i1 %exitcond192.not, label %._crit_edge175, label %.preheader144, !llvm.loop !391
 
 ._crit_edge175:                                   ; preds = %._crit_edge173, %Vec_WrdStart.exit

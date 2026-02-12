@@ -1225,28 +1225,28 @@ define dso_local range(i64 0, 65532) i64 @PageGetHeapFreeSpace(ptr noundef reado
   %17 = getelementptr i8, ptr %0, i64 10
   %.val22 = load i16, ptr %17, align 2
   %18 = trunc i16 %.val22 to i1
-  br i1 %18, label %.lr.ph, label %.loopexit
+  br i1 %18, label %.preheader, label %.loopexit
 
-.lr.ph:                                           ; preds = %16
+.preheader:                                       ; preds = %16
   %19 = getelementptr i8, ptr %0, i64 20
   br label %22
 
 20:                                               ; preds = %22
-  %21 = add i16 %.01525, 1
+  %21 = add i16 %.01524, 1
   %.not20 = icmp ugt i16 %21, %.0.i23
   br i1 %.not20, label %.loopexit, label %22, !llvm.loop !19
 
-22:                                               ; preds = %.lr.ph, %20
-  %.01525 = phi i16 [ 1, %.lr.ph ], [ %21, %20 ]
-  %23 = zext i16 %.01525 to i64
+22:                                               ; preds = %.preheader, %20
+  %.01524 = phi i16 [ 1, %.preheader ], [ %21, %20 ]
+  %23 = zext i16 %.01524 to i64
   %24 = getelementptr %struct.ItemIdData, ptr %19, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 98304
   %.not21 = icmp eq i32 %26, 0
   br i1 %.not21, label %.loopexit, label %20
 
-.loopexit:                                        ; preds = %22, %20, %10, %16, %1
-  %.014.shrunk = phi i32 [ 0, %1 ], [ %narrow.i, %10 ], [ 0, %16 ], [ %narrow.i, %22 ], [ 0, %20 ]
+.loopexit:                                        ; preds = %20, %22, %10, %16, %1
+  %.014.shrunk = phi i32 [ 0, %1 ], [ %narrow.i, %10 ], [ 0, %16 ], [ 0, %20 ], [ %narrow.i, %22 ]
   %.014 = zext nneg i32 %.014.shrunk to i64
   ret i64 %.014
 }
@@ -1901,67 +1901,71 @@ define dso_local noundef zeroext i1 @PageIndexTupleOverwrite(ptr noundef capture
   %70 = add nsw i32 %69, %66
   %71 = sext i32 %70 to i64
   %72 = icmp ule i64 %68, %71
-  br i1 %72, label %73, label %104
+  br i1 %72, label %73, label %106
 
 73:                                               ; preds = %65
   %74 = trunc i64 %68 to i32
   %75 = sub i32 %66, %74
   %.not78 = icmp eq i32 %66, %74
-  br i1 %.not78, label %.loopexit, label %.lr.ph.preheader
+  br i1 %.not78, label %.loopexit, label %76
 
-.lr.ph.preheader:                                 ; preds = %73
-  %76 = zext i16 %10 to i64
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 %76
-  %78 = sext i32 %75 to i64
-  %79 = getelementptr inbounds i8, ptr %77, i64 %78
-  %80 = sub nsw i32 %51, %52
-  %81 = zext i32 %80 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %79, ptr align 1 %77, i64 %81, i1 false)
-  %82 = load i16, ptr %9, align 2
-  %83 = trunc i32 %75 to i16
-  %84 = add i16 %82, %83
-  store i16 %84, ptr %9, align 2
-  br label %.lr.ph
+76:                                               ; preds = %73
+  %77 = zext i16 %10 to i64
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 %77
+  %79 = sext i32 %75 to i64
+  %80 = getelementptr inbounds i8, ptr %78, i64 %79
+  %81 = sub nsw i32 %51, %52
+  %82 = zext i32 %81 to i64
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %80, ptr align 1 %78, i64 %82, i1 false)
+  %83 = load i16, ptr %9, align 2
+  %84 = trunc i32 %75 to i16
+  %85 = add i16 %83, %84
+  store i16 %85, ptr %9, align 2
+  br label %86
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %93
-  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %93 ]
-  %85 = getelementptr %struct.ItemIdData, ptr %47, i64 %indvars.iv
-  %86 = load i32, ptr %85, align 4
-  %.not80 = icmp ult i32 %86, 131072
-  %87 = and i32 %86, 32767
-  %.not81 = icmp samesign ugt i32 %87, %51
+86:                                               ; preds = %76, %95
+  %indvars.iv = phi i64 [ 1, %76 ], [ %indvars.iv.next, %95 ]
+  %87 = getelementptr %struct.ItemIdData, ptr %47, i64 %indvars.iv
+  %88 = load i32, ptr %87, align 4
+  %.not80 = icmp ult i32 %88, 131072
+  %89 = and i32 %88, 32767
+  %.not81 = icmp samesign ugt i32 %89, %51
   %or.cond83 = select i1 %.not80, i1 true, i1 %.not81
-  br i1 %or.cond83, label %93, label %88
+  br i1 %or.cond83, label %95, label %90
 
-88:                                               ; preds = %.lr.ph
-  %89 = add i32 %86, %75
-  %90 = and i32 %89, 32767
-  %91 = and i32 %86, -32768
-  %92 = or disjoint i32 %90, %91
-  store i32 %92, ptr %85, align 4
-  br label %93
+90:                                               ; preds = %86
+  %91 = add i32 %88, %75
+  %92 = and i32 %91, 32767
+  %93 = and i32 %88, -32768
+  %94 = or disjoint i32 %92, %93
+  store i32 %94, ptr %87, align 4
+  br label %95
 
-93:                                               ; preds = %88, %.lr.ph
+95:                                               ; preds = %90, %86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv, %39
-  br i1 %exitcond, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond, label %.loopexit.loopexit, label %86, !llvm.loop !24
 
-.loopexit:                                        ; preds = %93, %73
-  %94 = add i32 %75, %49
-  %95 = load i32, ptr %48, align 4
-  %96 = and i32 %94, 32767
-  %97 = and i32 %95, 98304
-  %98 = trunc i64 %3 to i32
-  %99 = shl i32 %98, 17
-  %100 = or disjoint i32 %97, %99
-  %101 = or disjoint i32 %100, %96
-  store i32 %101, ptr %48, align 4
-  %102 = zext nneg i32 %96 to i64
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 %102
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %103, ptr align 1 %2, i64 %3, i1 false)
-  br label %104
+.loopexit.loopexit:                               ; preds = %95
+  %.pre = load i32, ptr %48, align 4
+  br label %.loopexit
 
-104:                                              ; preds = %65, %.loopexit
+.loopexit:                                        ; preds = %.loopexit.loopexit, %73
+  %96 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %49, %73 ]
+  %97 = add i32 %75, %49
+  %98 = and i32 %97, 32767
+  %99 = and i32 %96, 98304
+  %100 = trunc i64 %3 to i32
+  %101 = shl i32 %100, 17
+  %102 = or disjoint i32 %99, %101
+  %103 = or disjoint i32 %102, %98
+  store i32 %103, ptr %48, align 4
+  %104 = zext nneg i32 %98 to i64
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 %104
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %105, ptr align 1 %2, i64 %3, i1 false)
+  br label %106
+
+106:                                              ; preds = %65, %.loopexit
   ret i1 %72
 }
 

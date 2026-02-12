@@ -832,10 +832,9 @@ hex_blamp.exit178.backedge:                       ; preds = %.lr.ph.i.i174, %218
   br label %257
 
 ._crit_edge202:                                   ; preds = %244
-  %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
-  %255 = zext nneg i32 %smax to i64
+  %255 = zext nneg i32 %1 to i64
   %256 = shl nuw nsw i64 %255, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %0, ptr noundef nonnull align 16 dereferenceable(1) %6, i64 %256, i1 false), !tbaa !16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %0, ptr nonnull align 16 %6, i64 %256, i1 false), !tbaa !16
   br label %257
 
 257:                                              ; preds = %._crit_edge202, %._crit_edge199

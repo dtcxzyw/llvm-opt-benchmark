@@ -112,9 +112,9 @@ define internal range(i32 -1094995529, 1) i32 @rka_decode_init(ptr noundef %0) #
   br i1 %52, label %60, label %61
 
 60:                                               ; preds = %26
-  %.0.i = tail call i32 @llvm.smin.i32(i32 %56, i32 8)
-  store i32 %.0.i, ptr %58, align 4, !tbaa !49
-  store i32 %.0.i, ptr %59, align 4, !tbaa !49
+  %..i = tail call i32 @llvm.smin.i32(i32 %56, i32 8)
+  store i32 %..i, ptr %58, align 4, !tbaa !49
+  store i32 %..i, ptr %59, align 4, !tbaa !49
   br label %61
 
 61:                                               ; preds = %60, %26

@@ -170,7 +170,7 @@ read_line.exit:                                   ; preds = %25, %28, %20
   %.0.i62 = phi i64 [ 0, %30 ], [ %35, %.critedge.i ]
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 %.0.i62
   %34 = load i8, ptr %33, align 1, !tbaa !11
-  switch i8 %34, label %find_header.exit.thread.preheader [
+  switch i8 %34, label %find_header.exit.preheader [
     i8 32, label %.critedge.i
     i8 9, label %.critedge.i
     i8 91, label %36
@@ -186,10 +186,10 @@ read_line.exit:                                   ; preds = %25, %28, %20
   %39 = load i8, ptr %38, align 1, !tbaa !11
   %40 = add i8 %39, -97
   %or.cond.i = icmp ult i8 %40, 26
-  br i1 %or.cond.i, label %41, label %find_header.exit.thread.preheader
+  br i1 %or.cond.i, label %41, label %find_header.exit.preheader
 
-find_header.exit.thread.preheader:                ; preds = %32, %36
-  br label %find_header.exit.thread
+find_header.exit.preheader:                       ; preds = %32, %36
+  br label %find_header.exit
 
 41:                                               ; preds = %36
   %42 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %31, i32 noundef 58) #9
@@ -236,9 +236,9 @@ find_header.exit.thread.preheader:                ; preds = %32, %36
   store i8 93, ptr %44, align 1, !tbaa !11
   br label %.thread73
 
-find_header.exit.thread:                          ; preds = %find_header.exit.thread.preheader, %73
-  %.027.i = phi i64 [ %.128.i, %73 ], [ 0, %find_header.exit.thread.preheader ]
-  %.0.i63 = phi i32 [ %.1.i, %73 ], [ 0, %find_header.exit.thread.preheader ]
+find_header.exit:                                 ; preds = %find_header.exit.preheader, %73
+  %.027.i = phi i64 [ %.128.i, %73 ], [ 0, %find_header.exit.preheader ]
+  %.0.i63 = phi i32 [ %.1.i, %73 ], [ 0, %find_header.exit.preheader ]
   %60 = getelementptr inbounds nuw i8, ptr %31, i64 %.027.i
   %61 = load i8, ptr %60, align 1, !tbaa !11
   switch i8 %61, label %64 [
@@ -247,11 +247,11 @@ find_header.exit.thread:                          ; preds = %find_header.exit.th
     i8 91, label %62
   ]
 
-62:                                               ; preds = %find_header.exit.thread
+62:                                               ; preds = %find_header.exit
   %63 = add nsw i32 %.0.i63, 1
   br label %73
 
-64:                                               ; preds = %find_header.exit.thread
+64:                                               ; preds = %find_header.exit
   %65 = icmp eq i8 %61, 93
   %66 = icmp ne i32 %.0.i63, 0
   %or.cond.i64 = select i1 %65, i1 %66, i1 false
@@ -279,10 +279,10 @@ find_header.exit.thread:                          ; preds = %find_header.exit.th
 count_ts.exit.preheader:                          ; preds = %69, %71
   br label %count_ts.exit
 
-73:                                               ; preds = %71, %70, %70, %70, %67, %62, %find_header.exit.thread, %find_header.exit.thread
-  %.1.i = phi i32 [ %.0.i63, %find_header.exit.thread ], [ %63, %62 ], [ %68, %67 ], [ %.0.i63, %find_header.exit.thread ], [ %.0.i63, %71 ], [ %.0.i63, %70 ], [ %.0.i63, %70 ], [ %.0.i63, %70 ]
+73:                                               ; preds = %71, %70, %70, %70, %67, %62, %find_header.exit, %find_header.exit
+  %.1.i = phi i32 [ %.0.i63, %find_header.exit ], [ %63, %62 ], [ %68, %67 ], [ %.0.i63, %find_header.exit ], [ %.0.i63, %71 ], [ %.0.i63, %70 ], [ %.0.i63, %70 ], [ %.0.i63, %70 ]
   %.128.i = add nuw nsw i64 %.027.i, 1
-  br label %find_header.exit.thread
+  br label %find_header.exit
 
 count_ts.exit:                                    ; preds = %count_ts.exit.preheader, %109
   %74 = phi ptr [ %.pre97, %109 ], [ %31, %count_ts.exit.preheader ]

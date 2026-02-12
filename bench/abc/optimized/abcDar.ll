@@ -8054,7 +8054,7 @@ define void @Abc_NtkPrintLatchEquivClasses(ptr noundef readonly captures(none) %
 .lr.ph93.split.us:                                ; preds = %.lr.ph93
   %44 = zext nneg i32 %.val8290 to i64
   %45 = shl nuw nsw i64 %44, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %8, i8 0, i64 %45, i1 false), !tbaa !35
+  tail call void @llvm.memset.p0.i64(ptr align 4 %8, i8 0, i64 %45, i1 false), !tbaa !35
   br label %.critedge2.preheader
 
 .critedge2.preheader:                             ; preds = %Aig_ObjRepr.exit.thread, %.lr.ph93.split.us, %.critedge

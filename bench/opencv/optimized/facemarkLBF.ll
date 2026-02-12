@@ -18444,8 +18444,7 @@ define hidden void @_ZN2cv4face15FacemarkLBFImpl9Regressor21globalRegressionTrai
   br i1 %86, label %.lr.ph117.preheader, label %._crit_edge118
 
 .lr.ph117.preheader:                              ; preds = %.preheader
-  %smax = call i32 @llvm.smax.i32(i32 %33, i32 1)
-  %wide.trip.count160 = zext nneg i32 %smax to i64
+  %wide.trip.count160 = zext nneg i32 %33 to i64
   br label %.lr.ph117
 
 116:                                              ; preds = %._crit_edge
@@ -18733,7 +18732,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i247: ; preds = %.noexc252
 .lr.ph.preheader:                                 ; preds = %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i247, %.noexc252
   %38 = zext nneg i32 %4 to i64
   %39 = shl nuw nsw i64 %38, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %33, i8 0, i64 %39, i1 false), !tbaa !46
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %33, i8 0, i64 %39, i1 false), !tbaa !46
   br label %.preheader382
 
 .preheader382:                                    ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %.lr.ph.preheader
@@ -19108,8 +19107,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit262.thread:          ; preds = %35
 
 .lr.ph427:                                        ; preds = %._crit_edge421
   %198 = fmul nnan double %40, 5.000000e-01
-  %smax456 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
-  %wide.trip.count457 = zext nneg i32 %smax456 to i64
+  %wide.trip.count457 = zext nneg i32 %4 to i64
   br label %199
 
 199:                                              ; preds = %.lr.ph427, %199

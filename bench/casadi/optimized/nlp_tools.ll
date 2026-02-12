@@ -6186,7 +6186,6 @@ _ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit.i.i1427: ; preds = %2119, %_ZSt8_
   %2162 = getelementptr inbounds nuw i8, ptr %168, i64 24
   %2163 = getelementptr inbounds nuw i8, ptr %168, i64 32
   %2164 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  %smax2816 = call i64 @llvm.smax.i64(i64 %.1493, i64 1)
   br label %2197
 
 ._crit_edge2793:                                  ; preds = %_ZN6casadi8SubIndexINS_6MatrixINS_6SXElemEEESt6vectorIxSaIxEEED2Ev.exit1523
@@ -6688,7 +6687,7 @@ _ZN6casadi8SubIndexINS_6MatrixINS_6SXElemEEESt6vectorIxSaIxEEED2Ev.exit1523: ; p
   call void @llvm.lifetime.end.p0(ptr nonnull %168)
   call void @llvm.lifetime.end.p0(ptr nonnull %167)
   %2314 = add nuw nsw i64 %.05092791, 1
-  %exitcond2817.not = icmp eq i64 %2314, %smax2816
+  %exitcond2817.not = icmp eq i64 %2314, %.1493
   br i1 %exitcond2817.not, label %._crit_edge2793, label %2197, !llvm.loop !110
 
 2315:                                             ; preds = %2197
@@ -6793,7 +6792,6 @@ _ZN6casadi8SubIndexINS_6MatrixINS_6SXElemEEESt6vectorIxSaIxEEED2Ev.exit1523: ; p
   %2355 = getelementptr inbounds nuw i8, ptr %175, i64 24
   %2356 = getelementptr inbounds nuw i8, ptr %175, i64 32
   %2357 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  %smax2818 = call i64 @llvm.smax.i64(i64 %.1493, i64 1)
   br label %2410
 
 .lr.ph2797:                                       ; preds = %_ZN6casadi8SubIndexINS_6MatrixINS_6SXElemEEESt6vectorIxSaIxEEED2Ev.exit1571
@@ -6845,7 +6843,6 @@ _ZN6casadi8SubIndexINS_6MatrixINS_6SXElemEEESt6vectorIxSaIxEEED2Ev.exit1523: ; p
   %2403 = getelementptr inbounds nuw i8, ptr %176, i64 24
   %2404 = getelementptr inbounds nuw i8, ptr %176, i64 32
   %2405 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  %smax2820 = call i64 @llvm.smax.i64(i64 %.1493, i64 1)
   br label %2492
 
 2406:                                             ; preds = %._crit_edge2793
@@ -7079,7 +7076,7 @@ _ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit.i.i1570: ; preds = %2473, %_ZSt8_
 _ZN6casadi8SubIndexINS_6MatrixINS_6SXElemEEESt6vectorIxSaIxEEED2Ev.exit1571: ; preds = %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit.i.i1570
   call void @llvm.lifetime.end.p0(ptr nonnull %175)
   %2481 = add nuw nsw i64 %.05082794, 1
-  %exitcond2819.not = icmp eq i64 %2481, %smax2818
+  %exitcond2819.not = icmp eq i64 %2481, %.1493
   br i1 %exitcond2819.not, label %.lr.ph2797, label %2410, !llvm.loop !111
 
 2482:                                             ; preds = %2410
@@ -7672,7 +7669,7 @@ _ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit.i1701: ; preds = %2640, %_ZSt8_De
 _ZN6casadi6MatrixINS_6SXElemEED2Ev.exit1702:      ; preds = %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit.i1701
   call void @llvm.lifetime.end.p0(ptr nonnull %176)
   %2648 = add nuw nsw i64 %.05072796, 1
-  %exitcond2821.not = icmp eq i64 %2648, %smax2820
+  %exitcond2821.not = icmp eq i64 %2648, %.1493
   br i1 %exitcond2821.not, label %._crit_edge2798, label %2492, !llvm.loop !112
 
 2649:                                             ; preds = %2492
@@ -8195,7 +8192,6 @@ _ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit.i1783: ; preds = %2793, %_ZSt8_De
   %2834 = getelementptr inbounds nuw i8, ptr %200, i64 24
   %2835 = getelementptr inbounds nuw i8, ptr %200, i64 32
   %2836 = getelementptr inbounds nuw i8, ptr %200, i64 8
-  %smax2822 = call i64 @llvm.smax.i64(i64 %.1493, i64 1)
   br label %2868
 
 ._crit_edge.i.i1785:                              ; preds = %_ZN6casadi8SubIndexINS_6MatrixINS_6SXElemEEESt6vectorIxSaIxEEED2Ev.exit1872
@@ -8679,7 +8675,7 @@ _ZN6casadi8SubIndexINS_6MatrixINS_6SXElemEEESt6vectorIxSaIxEEED2Ev.exit1872: ; p
   call void @llvm.lifetime.end.p0(ptr nonnull %199)
   call void @llvm.lifetime.end.p0(ptr nonnull %198)
   %2983 = add nuw nsw i64 %.05062799, 1
-  %exitcond2823.not = icmp eq i64 %2983, %smax2822
+  %exitcond2823.not = icmp eq i64 %2983, %.1493
   br i1 %exitcond2823.not, label %._crit_edge.i.i1785, label %2868, !llvm.loop !113
 
 2984:                                             ; preds = %2868
@@ -16795,7 +16791,6 @@ _ZNSt6vectorIxSaIxEED2Ev.exit.i.i1164:            ; preds = %1586, %1583
   %1615 = getelementptr inbounds nuw i8, ptr %174, i64 32
   %1616 = getelementptr inbounds nuw i8, ptr %173, i64 16
   %1617 = getelementptr inbounds nuw i8, ptr %173, i64 32
-  %smax1907 = call i64 @llvm.smax.i64(i64 %.1493, i64 1)
   br label %1658
 
 ._crit_edge1889:                                  ; preds = %_ZN6casadi8SubIndexINS_2MXESt6vectorIxSaIxEEED2Ev.exit1211
@@ -17094,7 +17089,7 @@ _ZN6casadi8SubIndexINS_2MXESt6vectorIxSaIxEEED2Ev.exit1211: ; preds = %_ZN6casad
   call void @llvm.lifetime.end.p0(ptr nonnull %173)
   call void @llvm.lifetime.end.p0(ptr nonnull %172)
   %1705 = add nuw nsw i64 %.05091887, 1
-  %exitcond1908.not = icmp eq i64 %1705, %smax1907
+  %exitcond1908.not = icmp eq i64 %1705, %.1493
   br i1 %exitcond1908.not, label %._crit_edge1889, label %1658, !llvm.loop !183
 
 1706:                                             ; preds = %1658
@@ -17218,7 +17213,6 @@ _ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit
   %1738 = getelementptr inbounds nuw i8, ptr %178, i64 32
   %1739 = getelementptr inbounds nuw i8, ptr %180, i64 16
   %1740 = getelementptr inbounds nuw i8, ptr %180, i64 32
-  %smax1909 = call i64 @llvm.smax.i64(i64 %.1493, i64 1)
   br label %1749
 
 .lr.ph1893:                                       ; preds = %_ZN6casadi8SubIndexINS_2MXESt6vectorIxSaIxEEED2Ev.exit1225
@@ -17226,7 +17220,6 @@ _ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit
   %1742 = getelementptr inbounds nuw i8, ptr %182, i64 32
   %1743 = getelementptr inbounds nuw i8, ptr %191, i64 16
   %1744 = getelementptr inbounds nuw i8, ptr %191, i64 32
-  %smax1911 = call i64 @llvm.smax.i64(i64 %.1493, i64 1)
   br label %1783
 
 1745:                                             ; preds = %._crit_edge1889
@@ -17300,7 +17293,7 @@ _ZN6casadi8SubIndexINS_2MXESt6vectorIxSaIxEEED2Ev.exit1225: ; preds = %1765, %17
   call void @_ZN6casadi2MXD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %180) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %180)
   %1772 = add nuw nsw i64 %.05081890, 1
-  %exitcond1910.not = icmp eq i64 %1772, %smax1909
+  %exitcond1910.not = icmp eq i64 %1772, %.1493
   br i1 %exitcond1910.not, label %.lr.ph1893, label %1749, !llvm.loop !187
 
 1773:                                             ; preds = %1749
@@ -17455,7 +17448,7 @@ _ZN6casadi8SubIndexINS_2MXESt6vectorIxSaIxEEED2Ev.exit1248: ; preds = %1800, %18
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %181) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %181)
   %1807 = add nuw nsw i64 %.05071892, 1
-  %exitcond1912.not = icmp eq i64 %1807, %smax1911
+  %exitcond1912.not = icmp eq i64 %1807, %.1493
   br i1 %exitcond1912.not, label %._crit_edge1894, label %1783, !llvm.loop !188
 
 1808:                                             ; preds = %1783
@@ -17692,7 +17685,6 @@ _ZN6casadidvERKNS_2MXES2_.exit1270:               ; preds = %_ZN6casadi13Generic
   %1873 = getelementptr inbounds nuw i8, ptr %207, i64 32
   %1874 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %1875 = getelementptr inbounds nuw i8, ptr %205, i64 32
-  %smax1913 = call i64 @llvm.smax.i64(i64 %.1493, i64 1)
   br label %1908
 
 ._crit_edge.i.i1273:                              ; preds = %_ZN6casadi8SubIndexINS_2MXESt6vectorIxSaIxEEED2Ev.exit1300
@@ -17938,7 +17930,7 @@ _ZN6casadi8SubIndexINS_2MXESt6vectorIxSaIxEEED2Ev.exit1300: ; preds = %_ZN6casad
   call void @llvm.lifetime.end.p0(ptr nonnull %204)
   call void @llvm.lifetime.end.p0(ptr nonnull %203)
   %1951 = add nuw nsw i64 %.05061895, 1
-  %exitcond1914.not = icmp eq i64 %1951, %smax1913
+  %exitcond1914.not = icmp eq i64 %1951, %.1493
   br i1 %exitcond1914.not, label %._crit_edge.i.i1273, label %1908, !llvm.loop !189
 
 1952:                                             ; preds = %1908
@@ -29424,9 +29416,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #20
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #20
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

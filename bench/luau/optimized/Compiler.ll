@@ -12961,8 +12961,8 @@ _ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit: ; preds = %_ZN4Luau8Compi
   br label %.body255
 
 .critedge202:                                     ; preds = %136, %134, %187, %141, %107, %117, %112, %361, %356, %_ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit
-  %369 = phi i1 [ false, %187 ], [ true, %361 ], [ true, %356 ], [ true, %_ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit ], [ false, %107 ], [ false, %141 ], [ false, %112 ], [ false, %117 ], [ false, %134 ], [ false, %136 ]
-  %.2149360391 = phi i32 [ -1, %187 ], [ %.2149360392505, %361 ], [ %.2149360392505, %356 ], [ %.2149360392505, %_ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit ], [ -1, %107 ], [ %143, %141 ], [ -1, %112 ], [ -1, %117 ], [ -1, %134 ], [ -1, %136 ]
+  %369 = phi i1 [ false, %141 ], [ true, %361 ], [ true, %356 ], [ true, %_ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit ], [ false, %107 ], [ false, %187 ], [ false, %112 ], [ false, %117 ], [ false, %134 ], [ false, %136 ]
+  %.2149360391 = phi i32 [ %143, %141 ], [ %.2149360392505, %361 ], [ %.2149360392505, %356 ], [ %.2149360392505, %_ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit ], [ -1, %107 ], [ -1, %187 ], [ -1, %112 ], [ -1, %117 ], [ -1, %134 ], [ -1, %136 ]
   %370 = load i8, ptr %80, align 8, !tbaa !505, !range !63, !noundef !64
   %371 = trunc nuw i8 %370 to i1
   br i1 %371, label %372, label %429

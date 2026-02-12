@@ -673,10 +673,9 @@ _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit.preheader: ; preds = %_ZL25calcMolecule
   br i1 %166, label %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit.preheader608, label %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit._crit_edge
 
 _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit.preheader608: ; preds = %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit.preheader
-  %smax = call i32 @llvm.smax.i32(i32 %227, i32 1)
-  %230 = zext nneg i32 %smax to i64
+  %230 = zext nneg i32 %227 to i64
   %231 = shl nuw nsw i64 %230, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %229, i8 0, i64 %231, i1 false), !tbaa !62
+  call void @llvm.memset.p0.i64(ptr align 8 %229, i8 0, i64 %231, i1 false), !tbaa !62
   br label %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit._crit_edge
 
 _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit._crit_edge: ; preds = %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit.preheader608, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit.preheader

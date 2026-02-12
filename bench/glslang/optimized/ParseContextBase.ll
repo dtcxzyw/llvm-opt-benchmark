@@ -2754,10 +2754,10 @@ define void @_ZN7glslang17TParseContextBase20parseSwizzleSelectorERKNS_10TSource
   br i1 %19, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %16
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %22 = tail call i32 @llvm.umin.i32(i32 %18, i32 4)
-  %wide.trip.count = zext nneg i32 %22 to i64
+  %20 = tail call i32 @llvm.umin.i32(i32 %18, i32 4)
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %wide.trip.count = zext nneg i32 %20 to i64
   br label %26
 
 .preheader:                                       ; preds = %130, %16
@@ -2772,7 +2772,7 @@ define void @_ZN7glslang17TParseContextBase20parseSwizzleSelectorERKNS_10TSource
 
 26:                                               ; preds = %.lr.ph, %130
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %130 ]
-  %27 = load ptr, ptr %20, align 8
+  %27 = load ptr, ptr %21, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %indvars.iv
   %29 = load i8, ptr %28, align 1
   switch i8 %29, label %126 [
@@ -2799,7 +2799,7 @@ define void @_ZN7glslang17TParseContextBase20parseSwizzleSelectorERKNS_10TSource
   %34 = add nsw i32 %31, 1
   store i32 %34, ptr %4, align 4
   %35 = sext i32 %31 to i64
-  %36 = getelementptr inbounds i32, ptr %21, i64 %35
+  %36 = getelementptr inbounds i32, ptr %22, i64 %35
   store i32 0, ptr %36, align 4
   br label %_ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit
 
@@ -2817,7 +2817,7 @@ _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit: ; preds = %30, %33
   %42 = add nsw i32 %39, 1
   store i32 %42, ptr %4, align 4
   %43 = sext i32 %39 to i64
-  %44 = getelementptr inbounds i32, ptr %21, i64 %43
+  %44 = getelementptr inbounds i32, ptr %22, i64 %43
   store i32 0, ptr %44, align 4
   br label %_ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit57
 
@@ -2835,7 +2835,7 @@ _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit57: ; preds = %38, %41
   %50 = add nsw i32 %47, 1
   store i32 %50, ptr %4, align 4
   %51 = sext i32 %47 to i64
-  %52 = getelementptr inbounds i32, ptr %21, i64 %51
+  %52 = getelementptr inbounds i32, ptr %22, i64 %51
   store i32 0, ptr %52, align 4
   br label %_ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit58
 
@@ -2853,7 +2853,7 @@ _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit58: ; preds = %46, %49
   %58 = add nsw i32 %55, 1
   store i32 %58, ptr %4, align 4
   %59 = sext i32 %55 to i64
-  %60 = getelementptr inbounds i32, ptr %21, i64 %59
+  %60 = getelementptr inbounds i32, ptr %22, i64 %59
   store i32 1, ptr %60, align 4
   br label %_ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit59
 
@@ -2871,7 +2871,7 @@ _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit59: ; preds = %54, %57
   %66 = add nsw i32 %63, 1
   store i32 %66, ptr %4, align 4
   %67 = sext i32 %63 to i64
-  %68 = getelementptr inbounds i32, ptr %21, i64 %67
+  %68 = getelementptr inbounds i32, ptr %22, i64 %67
   store i32 1, ptr %68, align 4
   br label %_ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit60
 
@@ -2889,7 +2889,7 @@ _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit60: ; preds = %62, %65
   %74 = add nsw i32 %71, 1
   store i32 %74, ptr %4, align 4
   %75 = sext i32 %71 to i64
-  %76 = getelementptr inbounds i32, ptr %21, i64 %75
+  %76 = getelementptr inbounds i32, ptr %22, i64 %75
   store i32 1, ptr %76, align 4
   br label %_ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit61
 
@@ -2907,7 +2907,7 @@ _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit61: ; preds = %70, %73
   %82 = add nsw i32 %79, 1
   store i32 %82, ptr %4, align 4
   %83 = sext i32 %79 to i64
-  %84 = getelementptr inbounds i32, ptr %21, i64 %83
+  %84 = getelementptr inbounds i32, ptr %22, i64 %83
   store i32 2, ptr %84, align 4
   br label %_ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit62
 
@@ -2925,7 +2925,7 @@ _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit62: ; preds = %78, %81
   %90 = add nsw i32 %87, 1
   store i32 %90, ptr %4, align 4
   %91 = sext i32 %87 to i64
-  %92 = getelementptr inbounds i32, ptr %21, i64 %91
+  %92 = getelementptr inbounds i32, ptr %22, i64 %91
   store i32 2, ptr %92, align 4
   br label %_ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit63
 
@@ -2943,7 +2943,7 @@ _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit63: ; preds = %86, %89
   %98 = add nsw i32 %95, 1
   store i32 %98, ptr %4, align 4
   %99 = sext i32 %95 to i64
-  %100 = getelementptr inbounds i32, ptr %21, i64 %99
+  %100 = getelementptr inbounds i32, ptr %22, i64 %99
   store i32 2, ptr %100, align 4
   br label %_ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit64
 
@@ -2961,7 +2961,7 @@ _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit64: ; preds = %94, %97
   %106 = add nsw i32 %103, 1
   store i32 %106, ptr %4, align 4
   %107 = sext i32 %103 to i64
-  %108 = getelementptr inbounds i32, ptr %21, i64 %107
+  %108 = getelementptr inbounds i32, ptr %22, i64 %107
   store i32 3, ptr %108, align 4
   br label %_ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit65
 
@@ -2979,7 +2979,7 @@ _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit65: ; preds = %102, %105
   %114 = add nsw i32 %111, 1
   store i32 %114, ptr %4, align 4
   %115 = sext i32 %111 to i64
-  %116 = getelementptr inbounds i32, ptr %21, i64 %115
+  %116 = getelementptr inbounds i32, ptr %22, i64 %115
   store i32 3, ptr %116, align 4
   br label %_ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit66
 
@@ -2997,7 +2997,7 @@ _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit66: ; preds = %110, %113
   %122 = add nsw i32 %119, 1
   store i32 %122, ptr %4, align 4
   %123 = sext i32 %119 to i64
-  %124 = getelementptr inbounds i32, ptr %21, i64 %123
+  %124 = getelementptr inbounds i32, ptr %22, i64 %123
   store i32 3, ptr %124, align 4
   br label %_ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit67
 

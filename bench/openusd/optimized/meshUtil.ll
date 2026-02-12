@@ -5791,7 +5791,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_24HdTokens_StaticTokenTy
 
 .lr.ph249.split.preheader:                        ; preds = %.lr.ph249
   %137 = shl nuw nsw i64 %134, 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0193.0253, i8 0, i64 %137, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 4 %.sroa.0193.0253, i8 0, i64 %137, i1 false)
   %scevgep = getelementptr i8, ptr %.sroa.0193.0253, i64 16
   %138 = shl nuw nsw i64 %136, 4
   %scevgep281 = getelementptr i8, ptr %scevgep, i64 %138
@@ -5799,7 +5799,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_24HdTokens_StaticTokenTy
 
 .lr.ph249.split.us.preheader:                     ; preds = %.lr.ph249
   %139 = mul nuw nsw i64 %134, 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0193.0253, i8 0, i64 %139, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 4 %.sroa.0193.0253, i8 0, i64 %139, i1 false)
   %scevgep283 = getelementptr i8, ptr %.sroa.0193.0253, i64 24
   %140 = mul nuw nsw i64 %136, 24
   %scevgep285 = getelementptr i8, ptr %scevgep283, i64 %140

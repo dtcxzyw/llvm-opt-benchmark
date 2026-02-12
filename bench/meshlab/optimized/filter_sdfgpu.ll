@@ -4651,8 +4651,7 @@ _ZNK19MeshLabPluginLogger3logIJRjEEEvN11GLLogStream6LevelsEPKcDpOT_.exit124: ; p
   br i1 %322, label %._crit_edge194, label %.lr.ph193.split.preheader
 
 .lr.ph193.split.preheader:                        ; preds = %.lr.ph193
-  %smax = call i32 @llvm.smax.i32(i32 %56, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %56 to i64
   br label %.lr.ph193.split
 
 .lr.ph193.split:                                  ; preds = %.lr.ph193.split.preheader, %_ZNK19MeshLabPluginLogger3logIJRiS1_EEEvN11GLLogStream6LevelsEPKcDpOT_.exit
@@ -22618,9 +22617,6 @@ declare i32 @llvm.umin.i32(i32, i32) #26
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #26
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #26
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

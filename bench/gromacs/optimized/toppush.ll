@@ -14333,8 +14333,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit407: ; preds = %34
 
 .lr.ph626:                                        ; preds = %374
   %376 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %smax = call i32 @llvm.smax.i32(i32 %47, i32 1)
-  %wide.trip.count691 = zext nneg i32 %smax to i64
+  %wide.trip.count691 = zext nneg i32 %47 to i64
   br label %377
 
 ._crit_edge627:                                   ; preds = %_Z9PERTURBEDRK6t_atom.exit
@@ -14849,8 +14848,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit444: ; preds = %56
 
 .lr.ph641:                                        ; preds = %585
   %587 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %smax710 = call i32 @llvm.smax.i32(i32 %47, i32 1)
-  %wide.trip.count711 = zext nneg i32 %smax710 to i64
+  %wide.trip.count711 = zext nneg i32 %47 to i64
   br label %588
 
 ._crit_edge642:                                   ; preds = %_Z9PERTURBEDRK6t_atom.exit447

@@ -8293,8 +8293,7 @@ _ZN2cv3Mat2atIfEERT_i.exit443:                    ; preds = %.thread601, %786, %
   %812 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %813 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %814 = sext i32 %683 to i64
-  %smax541 = call i32 @llvm.smax.i32(i32 %643, i32 1)
-  %wide.trip.count542 = zext nneg i32 %smax541 to i64
+  %wide.trip.count542 = zext nneg i32 %643 to i64
   br label %832
 
 ._crit_edge523:                                   ; preds = %862, %_ZN2cv3Mat2atIfEERT_i.exit443
@@ -8529,8 +8528,7 @@ _ZN2cv3Mat2atIfEERT_i.exit443:                    ; preds = %.thread601, %786, %
   %901 = getelementptr inbounds nuw i8, ptr %61, i64 72
   %902 = load ptr, ptr %901, align 8
   %903 = load i64, ptr %902, align 8, !tbaa !68
-  %smax552 = call i32 @llvm.smax.i32(i32 %643, i32 1)
-  %wide.trip.count553 = zext nneg i32 %smax552 to i64
+  %wide.trip.count553 = zext nneg i32 %643 to i64
   %wide.trip.count547 = zext nneg i32 %888 to i64
   br label %.preheader.us
 
@@ -12297,8 +12295,7 @@ _ZN2cv3Mat2atINS_6Point_IfEEEERT_i.exit.us116:    ; preds = %.preheader113.us, %
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %105 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %106 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %smax = call i32 @llvm.smax.i32(i32 %2, i32 1)
-  %wide.trip.count150 = zext nneg i32 %smax to i64
+  %wide.trip.count150 = zext nneg i32 %2 to i64
   br label %109
 
 107:                                              ; preds = %5

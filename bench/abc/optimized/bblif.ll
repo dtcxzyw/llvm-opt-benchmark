@@ -846,8 +846,7 @@ define noalias noundef ptr @Bbl_ManSortSop(ptr noundef %0, i32 noundef %1) local
   %sext = add i64 %39, 4294967296
   %40 = ashr exact i64 %sext, 32
   %41 = tail call noalias ptr @malloc(i64 noundef %40) #26
-  %smax = tail call i32 @llvm.smax.i32(i32 %6, i32 1)
-  %wide.trip.count48 = zext nneg i32 %smax to i64
+  %wide.trip.count48 = zext nneg i32 %6 to i64
   br label %42
 
 42:                                               ; preds = %.lr.ph, %42

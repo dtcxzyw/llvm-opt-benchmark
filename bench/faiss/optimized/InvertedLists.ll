@@ -2089,8 +2089,7 @@ _ZNSt6vectorIlSaIlEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPlmlET_
 .lr.ph133:                                        ; preds = %_ZNSt6vectorIlSaIlEEC2EmRKS0_.exit
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %73 = load ptr, ptr %72, align 8
-  %smax149 = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
-  %wide.trip.count150 = zext nneg i32 %smax149 to i64
+  %wide.trip.count150 = zext nneg i32 %2 to i64
   br label %76
 
 .preheader:                                       ; preds = %92, %_ZNSt6vectorIlSaIlEEC2EmRKS0_.exit
@@ -6516,9 +6515,6 @@ declare i64 @llvm.umin.i64(i64, i64) #27
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #27
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #28

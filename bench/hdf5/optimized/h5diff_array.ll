@@ -8291,7 +8291,6 @@ define internal fastcc i64 @diff_region(i64 noundef range(i64 0, -92233720368547
   %117 = load ptr, ptr %12, align 8, !tbaa !72
   %118 = call i32 @H5free_memory(ptr noundef %117) #16
   call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.81) #16
-  %smax272 = call i64 @llvm.smax.i64(i64 %24, i64 1)
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph, %print_region_block.exit212.loopexit.us
@@ -8368,7 +8367,7 @@ print_region_block.exit212.loopexit.us:           ; preds = %.lr.ph23.i204.us
   call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.90) #16
   call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.2) #16
   %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
-  %exitcond273.not = icmp eq i64 %indvars.iv.next270, %smax272
+  %exitcond273.not = icmp eq i64 %indvars.iv.next270, %24
   br i1 %exitcond273.not, label %._crit_edge, label %.lr.ph.i.us, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %print_region_block.exit212.loopexit.us
@@ -8506,11 +8505,10 @@ print_region_block.exit212.loopexit.us:           ; preds = %.lr.ph23.i204.us
 
 .preheader.lr.ph:                                 ; preds = %198
   call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.83) #16
-  %smax297 = call i64 @llvm.smax.i64(i64 %26, i64 1)
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %.critedge.us
-  %indvars.iv294 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next295, %.critedge.us ]
+  %indvars.iv294 = phi i64 [ %indvars.iv.next295, %.critedge.us ], [ 0, %.preheader.lr.ph ]
   %201 = mul nuw nsw i64 %indvars.iv294, %144
   br label %203
 
@@ -8571,7 +8569,7 @@ print_points.exit229.us:                          ; preds = %213
 
 .critedge.us:                                     ; preds = %202, %print_points.exit229.us
   %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
-  %exitcond298.not = icmp eq i64 %indvars.iv.next295, %smax297
+  %exitcond298.not = icmp eq i64 %indvars.iv.next295, %26
   br i1 %exitcond298.not, label %.loopexit, label %.preheader.us, !llvm.loop !109
 
 .loopexit:                                        ; preds = %.critedge.us, %.preheader230.lr.ph, %198, %._crit_edge246
@@ -11323,9 +11321,6 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #15
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #14

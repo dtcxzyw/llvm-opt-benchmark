@@ -9468,15 +9468,17 @@ define internal fastcc void @_ZN2cvL17f64_sincos_reduceERKNS_10softdoubleERS0_Ri
   %9 = alloca %"struct.cv::softdouble", align 8
   %10 = alloca %"struct.cv::softdouble", align 8
   %11 = load i64, ptr %0, align 8, !tbaa !27
-  %12 = and i64 %11, 9218868437227405312
-  %13 = icmp ne i64 %12, 9218868437227405312
-  %14 = and i64 %11, 4503599627370495
-  %.not.i.i = icmp eq i64 %14, 0
-  %or.cond.i.i = or i1 %13, %.not.i.i
-  %15 = and i64 %11, 9223372036854775800
-  %16 = icmp samesign ult i64 %15, 4605249457297304856
-  %or.cond = select i1 %or.cond.i.i, i1 %16, i1 false
-  br i1 %or.cond, label %17, label %_ZNK2cv10softdoubleltERKS0_.exit.thread
+  %12 = and i64 %11, 9223372036854775807
+  %13 = and i64 %11, 9218868437227405312
+  %14 = icmp ne i64 %13, 9218868437227405312
+  %15 = and i64 %11, 4503599627370495
+  %.not.i.i = icmp eq i64 %15, 0
+  %or.cond.i.i.not70.not72 = or i1 %14, %.not.i.i
+  %.not22.i.i = icmp ne i64 %12, 4605249457297304856
+  %or.cond.not71 = and i1 %.not22.i.i, %or.cond.i.i.not70.not72
+  %16 = icmp samesign ult i64 %12, 4605249457297304856
+  %or.cond68 = select i1 %or.cond.not71, i1 %16, i1 false
+  br i1 %or.cond68, label %17, label %_ZNK2cv10softdoubleltERKS0_.exit.thread
 
 17:                                               ; preds = %3
   store i32 0, ptr %2, align 4, !tbaa !537
@@ -9515,15 +9517,15 @@ _ZNK2cv10softdoublemiERKS0_.exit:                 ; preds = %22, %23
   br i1 %or.cond.i.i17, label %29, label %_ZNK2cv10softdoubleleERKS0_.exit30.thread.critedge
 
 29:                                               ; preds = %_ZNK2cv10softdoublemiERKS0_.exit
-  %or.cond68 = icmp samesign ult i64 %25, 4605249457297304857
-  br i1 %or.cond68, label %_ZNK2cv10softdoubleleERKS0_.exit.thread63, label %_ZNK2cv10softdoubleleERKS0_.exit.thread
+  %or.cond69 = icmp samesign ult i64 %25, 4605249457297304857
+  br i1 %or.cond69, label %_ZNK2cv10softdoubleleERKS0_.exit.thread, label %_ZNK2cv10softdoubleleERKS0_.exit.thread63
 
-_ZNK2cv10softdoubleleERKS0_.exit.thread63:        ; preds = %29
+_ZNK2cv10softdoubleleERKS0_.exit.thread:          ; preds = %29
   store i32 0, ptr %2, align 4, !tbaa !537
   store i64 %19, ptr %1, align 8, !tbaa !27
   br label %_ZN2cv10softdoubleaSERKS0_.exit23
 
-_ZNK2cv10softdoubleleERKS0_.exit.thread:          ; preds = %29
+_ZNK2cv10softdoubleleERKS0_.exit.thread63:        ; preds = %29
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef 3)
@@ -9534,124 +9536,114 @@ _ZNK2cv10softdoubleleERKS0_.exit.thread:          ; preds = %29
   %33 = and i64 %30, 4503599627370495
   %.not19.i.i = icmp eq i64 %33, 0
   %or.cond23.i.i = or i1 %32, %.not19.i.i
-  br i1 %or.cond23.i.i, label %34, label %_ZNK2cv10softdoubleleERKS0_.exit30.thread
-
-34:                                               ; preds = %_ZNK2cv10softdoubleleERKS0_.exit.thread
   %.not21.i.i28 = icmp sgt i64 %30, -1
-  br i1 %.not21.i.i28, label %35, label %_ZNK2cv10softdoubleleERKS0_.exit30
+  %or.cond = and i1 %or.cond23.i.i, %.not21.i.i28
+  br i1 %or.cond, label %34, label %.sink.split
 
-35:                                               ; preds = %34
-  %36 = icmp eq i64 %25, %30
-  br i1 %36, label %_ZNK2cv10softdoubleleERKS0_.exit30.thread66, label %37
+34:                                               ; preds = %_ZNK2cv10softdoubleleERKS0_.exit.thread63
+  %35 = icmp eq i64 %25, %30
+  br i1 %35, label %_ZNK2cv10softdoubleleERKS0_.exit30.thread66, label %36
 
-_ZNK2cv10softdoubleleERKS0_.exit30.thread66:      ; preds = %35
+_ZNK2cv10softdoubleleERKS0_.exit30.thread66:      ; preds = %34
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %40
+  br label %38
 
-37:                                               ; preds = %35
-  %38 = icmp samesign ult i64 %25, %30
+36:                                               ; preds = %34
+  %37 = icmp samesign ult i64 %25, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %38, label %40, label %50
+  br i1 %37, label %38, label %48
 
 _ZNK2cv10softdoubleleERKS0_.exit30.thread.critedge: ; preds = %_ZNK2cv10softdoublemiERKS0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef 3)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL5piby4E)
-  br label %_ZNK2cv10softdoubleleERKS0_.exit30.thread
+  br label %.sink.split
 
-_ZNK2cv10softdoubleleERKS0_.exit30.thread:        ; preds = %_ZNK2cv10softdoubleleERKS0_.exit30.thread.critedge, %_ZNK2cv10softdoubleleERKS0_.exit.thread
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %50
+38:                                               ; preds = %36, %_ZNK2cv10softdoubleleERKS0_.exit30.thread66
+  %39 = fcmp ogt double %21, 0.000000e+00
+  br i1 %39, label %40, label %41
 
-_ZNK2cv10softdoubleleERKS0_.exit30:               ; preds = %34
-  %.masked.i.i69 = or i64 %30, %24
-  %39 = and i64 %.masked.i.i69, 9223372036854775807
-  %.not22.i.i29 = icmp eq i64 %39, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.not22.i.i29, label %40, label %50
-
-40:                                               ; preds = %37, %_ZNK2cv10softdoubleleERKS0_.exit30.thread66, %_ZNK2cv10softdoubleleERKS0_.exit30
-  %41 = fcmp ogt double %21, 0.000000e+00
-  br i1 %41, label %42, label %43
-
-42:                                               ; preds = %40
+40:                                               ; preds = %38
   store i32 1, ptr %2, align 4, !tbaa !537
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  br i1 %20, label %44, label %45
+  br i1 %20, label %42, label %43
 
-43:                                               ; preds = %40
+41:                                               ; preds = %38
   store i32 3, ptr %2, align 4, !tbaa !537
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  br i1 %20, label %47, label %48
+  br i1 %20, label %45, label %46
 
-44:                                               ; preds = %42
+42:                                               ; preds = %40
   call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %8, i64 noundef %19, i64 noundef 4609753056924675352, i1 noundef zeroext false), !alias.scope !573
   br label %_ZNK2cv10softdoublemiERKS0_.exit37
 
-45:                                               ; preds = %42
+43:                                               ; preds = %40
   call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %8, i64 noundef %19, i64 noundef 4609753056924675352, i1 noundef zeroext true), !alias.scope !573
   br label %_ZNK2cv10softdoublemiERKS0_.exit37
 
-_ZNK2cv10softdoublemiERKS0_.exit37:               ; preds = %45, %44
-  %46 = load i64, ptr %8, align 8, !tbaa !27
-  store i64 %46, ptr %1, align 8, !tbaa !27
+_ZNK2cv10softdoublemiERKS0_.exit37:               ; preds = %43, %42
+  %44 = load i64, ptr %8, align 8, !tbaa !27
+  store i64 %44, ptr %1, align 8, !tbaa !27
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN2cv10softdoubleaSERKS0_.exit23
 
-47:                                               ; preds = %43
+45:                                               ; preds = %41
   call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %9, i64 noundef %19, i64 noundef 4609753056924675352, i1 noundef zeroext false), !alias.scope !578
   br label %_ZNK2cv10softdoubleplERKS0_.exit41
 
-48:                                               ; preds = %43
+46:                                               ; preds = %41
   call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %9, i64 noundef %19, i64 noundef 4609753056924675352, i1 noundef zeroext true), !alias.scope !578
   br label %_ZNK2cv10softdoubleplERKS0_.exit41
 
-_ZNK2cv10softdoubleplERKS0_.exit41:               ; preds = %48, %47
-  %49 = load i64, ptr %9, align 8, !tbaa !27
-  store i64 %49, ptr %1, align 8, !tbaa !27
+_ZNK2cv10softdoubleplERKS0_.exit41:               ; preds = %46, %45
+  %47 = load i64, ptr %9, align 8, !tbaa !27
+  store i64 %47, ptr %1, align 8, !tbaa !27
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN2cv10softdoubleaSERKS0_.exit23
 
-50:                                               ; preds = %37, %_ZNK2cv10softdoubleleERKS0_.exit30.thread, %_ZNK2cv10softdoubleleERKS0_.exit30
+.sink.split:                                      ; preds = %_ZNK2cv10softdoubleleERKS0_.exit.thread63, %_ZNK2cv10softdoubleleERKS0_.exit30.thread.critedge
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br label %48
+
+48:                                               ; preds = %.sink.split, %36
   store i32 2, ptr %2, align 4, !tbaa !537
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %51 = fcmp ogt double %21, 0.000000e+00
-  br i1 %51, label %52, label %55
+  %49 = fcmp ogt double %21, 0.000000e+00
+  br i1 %49, label %50, label %53
 
-52:                                               ; preds = %50
-  br i1 %20, label %53, label %54
+50:                                               ; preds = %48
+  br i1 %20, label %51, label %52
 
-53:                                               ; preds = %52
+51:                                               ; preds = %50
   call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %10, i64 noundef %19, i64 noundef 4614256656552045848, i1 noundef zeroext false), !alias.scope !583
   br label %_ZNK2cv10softdoublemiERKS0_.exit45
 
-54:                                               ; preds = %52
+52:                                               ; preds = %50
   call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %10, i64 noundef %19, i64 noundef 4614256656552045848, i1 noundef zeroext true), !alias.scope !583
   br label %_ZNK2cv10softdoublemiERKS0_.exit45
 
-55:                                               ; preds = %50
-  br i1 %20, label %56, label %57
+53:                                               ; preds = %48
+  br i1 %20, label %54, label %55
 
-56:                                               ; preds = %55
+54:                                               ; preds = %53
   call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %10, i64 noundef %19, i64 noundef 4614256656552045848, i1 noundef zeroext false), !alias.scope !588
   br label %_ZNK2cv10softdoublemiERKS0_.exit45
 
-57:                                               ; preds = %55
+55:                                               ; preds = %53
   call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %10, i64 noundef %19, i64 noundef 4614256656552045848, i1 noundef zeroext true), !alias.scope !588
   br label %_ZNK2cv10softdoublemiERKS0_.exit45
 
-_ZNK2cv10softdoublemiERKS0_.exit45:               ; preds = %53, %54, %56, %57
-  %58 = load i64, ptr %10, align 8, !tbaa !27
-  store i64 %58, ptr %1, align 8, !tbaa !27
+_ZNK2cv10softdoublemiERKS0_.exit45:               ; preds = %51, %52, %54, %55
+  %56 = load i64, ptr %10, align 8, !tbaa !27
+  store i64 %56, ptr %1, align 8, !tbaa !27
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN2cv10softdoubleaSERKS0_.exit23
 
-_ZN2cv10softdoubleaSERKS0_.exit23:                ; preds = %_ZNK2cv10softdoubleleERKS0_.exit.thread63, %_ZNK2cv10softdoublemiERKS0_.exit45, %_ZNK2cv10softdoubleplERKS0_.exit41, %_ZNK2cv10softdoublemiERKS0_.exit37
+_ZN2cv10softdoubleaSERKS0_.exit23:                ; preds = %_ZNK2cv10softdoubleleERKS0_.exit.thread, %_ZNK2cv10softdoublemiERKS0_.exit45, %_ZNK2cv10softdoubleplERKS0_.exit41, %_ZNK2cv10softdoublemiERKS0_.exit37
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN2cv10softdoubleaSERKS0_.exit

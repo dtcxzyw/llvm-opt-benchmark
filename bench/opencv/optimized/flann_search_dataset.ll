@@ -2928,8 +2928,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit:            ; preds = %.noexc386, %_ZNSt6v
   br i1 %.not.i.i.i.i384, label %._crit_edge732.thread, label %.lr.ph731.preheader
 
 .lr.ph731.preheader:                              ; preds = %._crit_edge726
-  %smax = call i32 @llvm.smax.i32(i32 %390, i32 1)
-  %wide.trip.count771 = zext nneg i32 %smax to i64
+  %wide.trip.count771 = zext nneg i32 %390 to i64
   br label %.lr.ph731
 
 629:                                              ; preds = %580

@@ -11007,8 +11007,7 @@ _ZN2cv3Mat2atINS_3VecIdLi3EEEEERT_i.exit178.us:   ; preds = %311, %307, %297
   %334 = load ptr, ptr %333, align 8, !tbaa !101
   %335 = load i64, ptr %334, align 8, !tbaa !102
   %336 = getelementptr inbounds nuw i8, ptr %332, i64 %335
-  %smax327 = call i32 @llvm.smax.i32(i32 %32, i32 1)
-  %wide.trip.count328 = zext nneg i32 %smax327 to i64
+  %wide.trip.count328 = zext nneg i32 %32 to i64
   br label %355
 
 337:                                              ; preds = %89, %86, %83
@@ -11537,9 +11536,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #17
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #17

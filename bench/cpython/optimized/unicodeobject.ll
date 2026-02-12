@@ -58156,7 +58156,6 @@ PyUnicode_READ.exit:                              ; preds = %51, %73
 .lr.ph112.preheader:                              ; preds = %85, %83
   %.0.i83 = phi ptr [ %.0.i.i82, %83 ], [ %.val4.i84, %85 ]
   %87 = load i64, ptr %3, align 8, !tbaa !182
-  %smax121 = call i64 @llvm.smax.i64(i64 %28, i64 1)
   br label %.lr.ph112
 
 .lr.ph112:                                        ; preds = %.lr.ph112.preheader, %PyUnicode_WRITE.exit
@@ -58212,7 +58211,7 @@ PyUnicode_WRITE.exit:                             ; preds = %99, %102, %105
   %107 = load i64, ptr %5, align 8, !tbaa !182
   %108 = add i64 %107, %.159110
   %109 = add nuw nsw i64 %.157111, 1
-  %exitcond122.not = icmp eq i64 %109, %smax121
+  %exitcond122.not = icmp eq i64 %109, %28
   br i1 %exitcond122.not, label %.loopexit, label %.lr.ph112, !llvm.loop !654
 
 .loopexit:                                        ; preds = %PyUnicode_WRITE.exit, %25, %.loopexit91, %22, %.thread89, %37

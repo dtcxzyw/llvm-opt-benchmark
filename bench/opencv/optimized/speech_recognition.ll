@@ -4845,8 +4845,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit89:                  ; preds = %_ZNSt6vectorIS_IdSa
   br i1 %.not197, label %._crit_edge204, label %.lr.ph200.preheader
 
 .lr.ph200.preheader:                              ; preds = %.lr.ph203
-  %smax = call i32 @llvm.smax.i32(i32 %2, i32 1)
-  %wide.trip.count223 = zext nneg i32 %smax to i64
+  %wide.trip.count223 = zext nneg i32 %2 to i64
   %wide.trip.count = zext i32 %12 to i64
   br label %.lr.ph200
 
@@ -7374,9 +7373,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare x86_fp80 @llvm.log.f80(x86_fp80) #19
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #19
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

@@ -2021,8 +2021,7 @@ for.end181:                                       ; preds = %if.end159, %for.inc
   br i1 %brmerge.not, label %for.body188.preheader, label %return
 
 for.body188.preheader:                            ; preds = %for.end181
-  %smax = call i32 @llvm.smax.i32(i32 %nsubmatch, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %nsubmatch to i64
   br label %for.body188
 
 for.body188:                                      ; preds = %for.body188.preheader, %_ZN4absl7debian211string_viewC2EPKcm.exit
@@ -3041,9 +3040,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #14

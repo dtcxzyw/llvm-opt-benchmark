@@ -104,13 +104,13 @@ define internal fastcc void @zend_mark_reachable_blocks(ptr noundef %0, ptr noun
   br i1 %17, label %.split, label %.loopexit191
 
 .split:                                           ; preds = %13, %._crit_edge
-  %18 = phi i32 [ %132, %._crit_edge ], [ %12, %13 ]
+  %18 = phi i32 [ %129, %._crit_edge ], [ %12, %13 ]
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph200, label %.loopexit191
 
-.lr.ph200:                                        ; preds = %.split, %131
-  %indvars.iv = phi i64 [ %indvars.iv.next, %131 ], [ 0, %.split ]
-  %.0144198 = phi i32 [ %.5, %131 ], [ 0, %.split ]
+.lr.ph200:                                        ; preds = %.split, %128
+  %indvars.iv = phi i64 [ %indvars.iv.next, %128 ], [ 0, %.split ]
+  %.0144198 = phi i32 [ %.5, %128 ], [ 0, %.split ]
   %20 = load ptr, ptr %16, align 8, !tbaa !31
   %21 = getelementptr inbounds nuw %struct._zend_try_catch_element, ptr %20, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !32
@@ -139,297 +139,290 @@ define internal fastcc void @zend_mark_reachable_blocks(ptr noundef %0, ptr noun
   %.not165193 = icmp eq i32 %25, %36
   br i1 %.not165193, label %.loopexit190.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %33, %44
-  %.0141194 = phi ptr [ %45, %44 ], [ %27, %33 ]
+.lr.ph:                                           ; preds = %33, %41
+  %.0141194 = phi ptr [ %42, %41 ], [ %27, %33 ]
   %39 = getelementptr inbounds nuw i8, ptr %.0141194, i64 8
   %40 = load i32, ptr %39, align 8, !tbaa !13
   %.not166 = icmp sgt i32 %40, -1
-  br i1 %.not166, label %44, label %41
+  br i1 %.not166, label %41, label %.loopexit190
 
 41:                                               ; preds = %.lr.ph
-  %42 = getelementptr inbounds nuw i8, ptr %.0141194, i64 12
-  %43 = load i32, ptr %42, align 4, !tbaa !36
-  store i32 %43, ptr %21, align 4, !tbaa !32
-  %.pre = zext i32 %43 to i64
+  %42 = getelementptr inbounds nuw i8, ptr %.0141194, i64 64
+  %.not165 = icmp eq ptr %42, %38
+  br i1 %.not165, label %.loopexit190.thread, label %.lr.ph
+
+.loopexit190:                                     ; preds = %.lr.ph
+  %43 = getelementptr inbounds nuw i8, ptr %.0141194, i64 12
+  %44 = load i32, ptr %43, align 4, !tbaa !36
+  store i32 %44, ptr %21, align 4, !tbaa !32
+  %.pre = zext i32 %44 to i64
   %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %15, i64 %.pre
   %.pre212 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !34
   %.phi.trans.insert213 = zext i32 %.pre212 to i64
   %.phi.trans.insert214 = getelementptr inbounds nuw %struct._zend_basic_block, ptr %5, i64 %.phi.trans.insert213
   %.phi.trans.insert215 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert214, i64 8
   %.pre216 = load i32, ptr %.phi.trans.insert215, align 8, !tbaa !13
-  br label %.loopexit190
+  %45 = icmp sgt i32 %.pre216, -1
+  br i1 %45, label %.loopexit190.thread, label %.loopexit189
 
-44:                                               ; preds = %.lr.ph
-  %45 = getelementptr inbounds nuw i8, ptr %.0141194, i64 64
-  %.not165 = icmp eq ptr %45, %38
-  br i1 %.not165, label %.loopexit190, label %.lr.ph
+.loopexit190.thread:                              ; preds = %41, %33, %30, %.loopexit190
+  %.pn = phi i64 [ %.phi.trans.insert213, %.loopexit190 ], [ %26, %33 ], [ %26, %30 ], [ %26, %41 ]
+  %46 = phi i32 [ %44, %.loopexit190 ], [ %22, %33 ], [ %22, %30 ], [ %22, %41 ]
+  %47 = phi i32 [ %.pre212, %.loopexit190 ], [ %25, %33 ], [ %25, %30 ], [ %25, %41 ]
+  %48 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %49 = load i32, ptr %48, align 4, !tbaa !37
+  %.not168 = icmp eq i32 %49, 0
+  br i1 %.not168, label %.loopexit189, label %50
 
-.loopexit190:                                     ; preds = %44, %41
-  %.pre-phi222 = phi i64 [ %.phi.trans.insert213, %41 ], [ %26, %44 ]
-  %46 = phi i32 [ %.pre216, %41 ], [ %29, %44 ]
-  %47 = phi i32 [ %.pre212, %41 ], [ %25, %44 ]
-  %48 = phi i32 [ %43, %41 ], [ %22, %44 ]
-  %.not167 = icmp sgt i32 %46, -1
-  br i1 %.not167, label %.loopexit190.thread, label %.loopexit189
-
-.loopexit190.thread:                              ; preds = %33, %30, %.loopexit190
-  %.pn = phi i64 [ %.pre-phi222, %.loopexit190 ], [ %26, %30 ], [ %26, %33 ]
-  %49 = phi i32 [ %48, %.loopexit190 ], [ %22, %30 ], [ %22, %33 ]
-  %50 = phi i32 [ %47, %.loopexit190 ], [ %25, %30 ], [ %25, %33 ]
-  %51 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %52 = load i32, ptr %51, align 4, !tbaa !37
-  %.not168 = icmp eq i32 %52, 0
-  br i1 %.not168, label %.loopexit189, label %53
-
-53:                                               ; preds = %.loopexit190.thread
-  %54 = zext i32 %52 to i64
-  %55 = getelementptr inbounds nuw i32, ptr %15, i64 %54
-  %56 = load i32, ptr %55, align 4, !tbaa !34
-  %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw %struct._zend_basic_block, ptr %5, i64 %57
-  %.not169195 = icmp eq i32 %50, %56
+50:                                               ; preds = %.loopexit190.thread
+  %51 = zext i32 %49 to i64
+  %52 = getelementptr inbounds nuw i32, ptr %15, i64 %51
+  %53 = load i32, ptr %52, align 4, !tbaa !34
+  %54 = zext i32 %53 to i64
+  %55 = getelementptr inbounds nuw %struct._zend_basic_block, ptr %5, i64 %54
+  %.not169195 = icmp eq i32 %47, %53
   br i1 %.not169195, label %.loopexit189, label %.lr.ph197.preheader
 
-.lr.ph197.preheader:                              ; preds = %53
-  %59 = getelementptr inbounds nuw %struct._zend_basic_block, ptr %5, i64 %.pn
+.lr.ph197.preheader:                              ; preds = %50
+  %56 = getelementptr inbounds nuw %struct._zend_basic_block, ptr %5, i64 %.pn
   br label %.lr.ph197
 
-60:                                               ; preds = %.lr.ph197
-  %61 = getelementptr inbounds nuw i8, ptr %.1142196, i64 64
-  %.not169 = icmp eq ptr %61, %58
+57:                                               ; preds = %.lr.ph197
+  %58 = getelementptr inbounds nuw i8, ptr %.1142196, i64 64
+  %.not169 = icmp eq ptr %58, %55
   br i1 %.not169, label %.loopexit189, label %.lr.ph197
 
-.lr.ph197:                                        ; preds = %.lr.ph197.preheader, %60
-  %.1142196 = phi ptr [ %61, %60 ], [ %59, %.lr.ph197.preheader ]
-  %62 = getelementptr inbounds nuw i8, ptr %.1142196, i64 8
-  %63 = load i32, ptr %62, align 8, !tbaa !13
-  %.not170 = icmp sgt i32 %63, -1
-  br i1 %.not170, label %60, label %64
+.lr.ph197:                                        ; preds = %.lr.ph197.preheader, %57
+  %.1142196 = phi ptr [ %58, %57 ], [ %56, %.lr.ph197.preheader ]
+  %59 = getelementptr inbounds nuw i8, ptr %.1142196, i64 8
+  %60 = load i32, ptr %59, align 8, !tbaa !13
+  %.not170 = icmp sgt i32 %60, -1
+  br i1 %.not170, label %57, label %61
 
-64:                                               ; preds = %.lr.ph197
+61:                                               ; preds = %.lr.ph197
   store i32 %32, ptr %21, align 4, !tbaa !32
-  %65 = load ptr, ptr %9, align 8, !tbaa !15
-  %66 = zext i32 %32 to i64
-  %67 = getelementptr inbounds nuw i32, ptr %15, i64 %66
-  %68 = load i32, ptr %67, align 4, !tbaa !34
-  %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw %struct._zend_basic_block, ptr %5, i64 %69
-  tail call fastcc void @zend_mark_reachable(ptr noundef %65, ptr noundef %1, ptr noundef %70)
+  %62 = load ptr, ptr %9, align 8, !tbaa !15
+  %63 = zext i32 %32 to i64
+  %64 = getelementptr inbounds nuw i32, ptr %15, i64 %63
+  %65 = load i32, ptr %64, align 4, !tbaa !34
+  %66 = zext i32 %65 to i64
+  %67 = getelementptr inbounds nuw %struct._zend_basic_block, ptr %5, i64 %66
+  tail call fastcc void @zend_mark_reachable(ptr noundef %62, ptr noundef %1, ptr noundef %67)
   %.pre217 = load ptr, ptr %16, align 8, !tbaa !31
   %.phi.trans.insert218 = getelementptr inbounds nuw %struct._zend_try_catch_element, ptr %.pre217, i64 %indvars.iv
   %.pre219 = load i32, ptr %.phi.trans.insert218, align 4, !tbaa !32
   br label %.loopexit189
 
-.loopexit189:                                     ; preds = %60, %53, %.loopexit190, %64, %.loopexit190.thread, %.lr.ph200
-  %71 = phi i32 [ %22, %.lr.ph200 ], [ %48, %.loopexit190 ], [ %.pre219, %64 ], [ %49, %.loopexit190.thread ], [ %49, %53 ], [ %49, %60 ]
-  %72 = phi ptr [ %20, %.lr.ph200 ], [ %20, %.loopexit190 ], [ %.pre217, %64 ], [ %20, %.loopexit190.thread ], [ %20, %53 ], [ %20, %60 ]
-  %.1145 = phi i32 [ %.0144198, %.lr.ph200 ], [ %.0144198, %.loopexit190 ], [ 1, %64 ], [ %.0144198, %.loopexit190.thread ], [ %.0144198, %53 ], [ %.0144198, %60 ]
-  %73 = zext i32 %71 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %15, i64 %73
-  %75 = load i32, ptr %74, align 4, !tbaa !34
-  %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds nuw %struct._zend_basic_block, ptr %5, i64 %76
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %79 = load i32, ptr %78, align 8, !tbaa !13
-  %.not171 = icmp sgt i32 %79, -1
-  br i1 %.not171, label %131, label %80
+.loopexit189:                                     ; preds = %57, %50, %.loopexit190, %61, %.loopexit190.thread, %.lr.ph200
+  %68 = phi i32 [ %22, %.lr.ph200 ], [ %44, %.loopexit190 ], [ %.pre219, %61 ], [ %46, %.loopexit190.thread ], [ %46, %50 ], [ %46, %57 ]
+  %69 = phi ptr [ %20, %.lr.ph200 ], [ %20, %.loopexit190 ], [ %.pre217, %61 ], [ %20, %.loopexit190.thread ], [ %20, %50 ], [ %20, %57 ]
+  %.1145 = phi i32 [ %.0144198, %.lr.ph200 ], [ %.0144198, %.loopexit190 ], [ 1, %61 ], [ %.0144198, %.loopexit190.thread ], [ %.0144198, %50 ], [ %.0144198, %57 ]
+  %70 = zext i32 %68 to i64
+  %71 = getelementptr inbounds nuw i32, ptr %15, i64 %70
+  %72 = load i32, ptr %71, align 4, !tbaa !34
+  %73 = zext i32 %72 to i64
+  %74 = getelementptr inbounds nuw %struct._zend_basic_block, ptr %5, i64 %73
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  %76 = load i32, ptr %75, align 8, !tbaa !13
+  %.not171 = icmp sgt i32 %76, -1
+  br i1 %.not171, label %128, label %77
 
-80:                                               ; preds = %.loopexit189
-  %81 = getelementptr inbounds nuw %struct._zend_try_catch_element, ptr %72, i64 %indvars.iv
-  %82 = or i32 %79, 32
-  store i32 %82, ptr %78, align 8, !tbaa !13
-  %83 = getelementptr inbounds nuw i8, ptr %81, i64 4
-  %84 = load i32, ptr %83, align 4, !tbaa !35
-  %.not178 = icmp eq i32 %84, 0
-  br i1 %.not178, label %97, label %85
+77:                                               ; preds = %.loopexit189
+  %78 = getelementptr inbounds nuw %struct._zend_try_catch_element, ptr %69, i64 %indvars.iv
+  %79 = or i32 %76, 32
+  store i32 %79, ptr %75, align 8, !tbaa !13
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 4
+  %81 = load i32, ptr %80, align 4, !tbaa !35
+  %.not178 = icmp eq i32 %81, 0
+  br i1 %.not178, label %94, label %82
 
-85:                                               ; preds = %80
-  %86 = zext i32 %84 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %15, i64 %86
-  %88 = load i32, ptr %87, align 4, !tbaa !34
-  %89 = zext i32 %88 to i64
-  %90 = getelementptr inbounds nuw %struct._zend_basic_block, ptr %5, i64 %89
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %92 = load i32, ptr %91, align 8, !tbaa !13
-  %93 = or i32 %92, 64
-  store i32 %93, ptr %91, align 8, !tbaa !13
-  %94 = icmp slt i32 %92, 0
-  br i1 %94, label %97, label %95
+82:                                               ; preds = %77
+  %83 = zext i32 %81 to i64
+  %84 = getelementptr inbounds nuw i32, ptr %15, i64 %83
+  %85 = load i32, ptr %84, align 4, !tbaa !34
+  %86 = zext i32 %85 to i64
+  %87 = getelementptr inbounds nuw %struct._zend_basic_block, ptr %5, i64 %86
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %89 = load i32, ptr %88, align 8, !tbaa !13
+  %90 = or i32 %89, 64
+  store i32 %90, ptr %88, align 8, !tbaa !13
+  %91 = icmp slt i32 %89, 0
+  br i1 %91, label %94, label %92
 
-95:                                               ; preds = %85
-  %96 = load ptr, ptr %9, align 8, !tbaa !15
-  tail call fastcc void @zend_mark_reachable(ptr noundef %96, ptr noundef %1, ptr noundef nonnull %90)
+92:                                               ; preds = %82
+  %93 = load ptr, ptr %9, align 8, !tbaa !15
+  tail call fastcc void @zend_mark_reachable(ptr noundef %93, ptr noundef %1, ptr noundef nonnull %87)
   %.pre220 = load ptr, ptr %16, align 8, !tbaa !31
-  br label %97
+  br label %94
 
-97:                                               ; preds = %85, %95, %80
-  %98 = phi ptr [ %72, %85 ], [ %.pre220, %95 ], [ %72, %80 ]
-  %.3 = phi i32 [ %.1145, %85 ], [ 1, %95 ], [ %.1145, %80 ]
-  %99 = getelementptr inbounds nuw %struct._zend_try_catch_element, ptr %98, i64 %indvars.iv
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %101 = load i32, ptr %100, align 4, !tbaa !37
-  %.not179 = icmp eq i32 %101, 0
-  br i1 %.not179, label %114, label %102
+94:                                               ; preds = %82, %92, %77
+  %95 = phi ptr [ %69, %82 ], [ %.pre220, %92 ], [ %69, %77 ]
+  %.3 = phi i32 [ %.1145, %82 ], [ 1, %92 ], [ %.1145, %77 ]
+  %96 = getelementptr inbounds nuw %struct._zend_try_catch_element, ptr %95, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %98 = load i32, ptr %97, align 4, !tbaa !37
+  %.not179 = icmp eq i32 %98, 0
+  br i1 %.not179, label %111, label %99
 
-102:                                              ; preds = %97
-  %103 = zext i32 %101 to i64
-  %104 = getelementptr inbounds nuw i32, ptr %15, i64 %103
-  %105 = load i32, ptr %104, align 4, !tbaa !34
-  %106 = zext i32 %105 to i64
-  %107 = getelementptr inbounds nuw %struct._zend_basic_block, ptr %5, i64 %106
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  %109 = load i32, ptr %108, align 8, !tbaa !13
-  %110 = or i32 %109, 128
-  store i32 %110, ptr %108, align 8, !tbaa !13
-  %111 = icmp slt i32 %109, 0
-  br i1 %111, label %114, label %112
+99:                                               ; preds = %94
+  %100 = zext i32 %98 to i64
+  %101 = getelementptr inbounds nuw i32, ptr %15, i64 %100
+  %102 = load i32, ptr %101, align 4, !tbaa !34
+  %103 = zext i32 %102 to i64
+  %104 = getelementptr inbounds nuw %struct._zend_basic_block, ptr %5, i64 %103
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %106 = load i32, ptr %105, align 8, !tbaa !13
+  %107 = or i32 %106, 128
+  store i32 %107, ptr %105, align 8, !tbaa !13
+  %108 = icmp slt i32 %106, 0
+  br i1 %108, label %111, label %109
 
-112:                                              ; preds = %102
-  %113 = load ptr, ptr %9, align 8, !tbaa !15
-  tail call fastcc void @zend_mark_reachable(ptr noundef %113, ptr noundef %1, ptr noundef nonnull %107)
+109:                                              ; preds = %99
+  %110 = load ptr, ptr %9, align 8, !tbaa !15
+  tail call fastcc void @zend_mark_reachable(ptr noundef %110, ptr noundef %1, ptr noundef nonnull %104)
   %.pre221 = load ptr, ptr %16, align 8, !tbaa !31
-  br label %114
+  br label %111
 
-114:                                              ; preds = %102, %112, %97
-  %115 = phi ptr [ %98, %102 ], [ %.pre221, %112 ], [ %98, %97 ]
-  %.4 = phi i32 [ %.3, %102 ], [ 1, %112 ], [ %.3, %97 ]
-  %116 = getelementptr inbounds nuw %struct._zend_try_catch_element, ptr %115, i64 %indvars.iv
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 12
-  %118 = load i32, ptr %117, align 4, !tbaa !38
-  %.not180 = icmp eq i32 %118, 0
-  br i1 %.not180, label %131, label %119
+111:                                              ; preds = %99, %109, %94
+  %112 = phi ptr [ %95, %99 ], [ %.pre221, %109 ], [ %95, %94 ]
+  %.4 = phi i32 [ %.3, %99 ], [ 1, %109 ], [ %.3, %94 ]
+  %113 = getelementptr inbounds nuw %struct._zend_try_catch_element, ptr %112, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 12
+  %115 = load i32, ptr %114, align 4, !tbaa !38
+  %.not180 = icmp eq i32 %115, 0
+  br i1 %.not180, label %128, label %116
 
-119:                                              ; preds = %114
-  %120 = zext i32 %118 to i64
-  %121 = getelementptr inbounds nuw i32, ptr %15, i64 %120
-  %122 = load i32, ptr %121, align 4, !tbaa !34
-  %123 = zext i32 %122 to i64
-  %124 = getelementptr inbounds nuw %struct._zend_basic_block, ptr %5, i64 %123
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  %126 = load i32, ptr %125, align 8, !tbaa !13
-  %127 = or i32 %126, 256
-  store i32 %127, ptr %125, align 8, !tbaa !13
-  %128 = icmp slt i32 %126, 0
-  br i1 %128, label %131, label %129
+116:                                              ; preds = %111
+  %117 = zext i32 %115 to i64
+  %118 = getelementptr inbounds nuw i32, ptr %15, i64 %117
+  %119 = load i32, ptr %118, align 4, !tbaa !34
+  %120 = zext i32 %119 to i64
+  %121 = getelementptr inbounds nuw %struct._zend_basic_block, ptr %5, i64 %120
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  %123 = load i32, ptr %122, align 8, !tbaa !13
+  %124 = or i32 %123, 256
+  store i32 %124, ptr %122, align 8, !tbaa !13
+  %125 = icmp slt i32 %123, 0
+  br i1 %125, label %128, label %126
 
-129:                                              ; preds = %119
-  %130 = load ptr, ptr %9, align 8, !tbaa !15
-  tail call fastcc void @zend_mark_reachable(ptr noundef %130, ptr noundef %1, ptr noundef nonnull %124)
-  br label %131
+126:                                              ; preds = %116
+  %127 = load ptr, ptr %9, align 8, !tbaa !15
+  tail call fastcc void @zend_mark_reachable(ptr noundef %127, ptr noundef %1, ptr noundef nonnull %121)
+  br label %128
 
-131:                                              ; preds = %.loopexit189, %119, %129, %114
-  %.5 = phi i32 [ %.4, %119 ], [ 1, %129 ], [ %.4, %114 ], [ %.1145, %.loopexit189 ]
+128:                                              ; preds = %.loopexit189, %116, %126, %111
+  %.5 = phi i32 [ %.4, %116 ], [ 1, %126 ], [ %.4, %111 ], [ %.1145, %.loopexit189 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %132 = load i32, ptr %11, align 4, !tbaa !29
-  %133 = sext i32 %132 to i64
-  %134 = icmp slt i64 %indvars.iv.next, %133
-  br i1 %134, label %.lr.ph200, label %._crit_edge
+  %129 = load i32, ptr %11, align 4, !tbaa !29
+  %130 = sext i32 %129 to i64
+  %131 = icmp slt i64 %indvars.iv.next, %130
+  br i1 %131, label %.lr.ph200, label %._crit_edge
 
-._crit_edge:                                      ; preds = %131
-  %135 = icmp eq i32 %.5, 0
-  br i1 %135, label %.loopexit191, label %.split, !llvm.loop !39
+._crit_edge:                                      ; preds = %128
+  %132 = icmp eq i32 %.5, 0
+  br i1 %132, label %.loopexit191, label %.split, !llvm.loop !39
 
 .loopexit191:                                     ; preds = %.split, %._crit_edge, %13, %3
-  %136 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %137 = load i32, ptr %136, align 8, !tbaa !41
-  %138 = and i32 %137, 32
-  %.not159 = icmp eq i32 %138, 0
-  br i1 %.not159, label %.loopexit188, label %139
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %134 = load i32, ptr %133, align 8, !tbaa !41
+  %135 = and i32 %134, 32
+  %.not159 = icmp eq i32 %135, 0
+  br i1 %.not159, label %.loopexit188, label %136
 
-139:                                              ; preds = %.loopexit191
-  %140 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %141 = load ptr, ptr %140, align 8, !tbaa !30
-  %142 = load i32, ptr %1, align 8, !tbaa !12
-  %143 = icmp sgt i32 %142, 0
-  br i1 %143, label %.lr.ph206, label %.loopexit188
+136:                                              ; preds = %.loopexit191
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %138 = load ptr, ptr %137, align 8, !tbaa !30
+  %139 = load i32, ptr %1, align 8, !tbaa !12
+  %140 = icmp sgt i32 %139, 0
+  br i1 %140, label %.lr.ph206, label %.loopexit188
 
-.lr.ph206:                                        ; preds = %139, %.loopexit
-  %.0148204 = phi ptr [ %186, %.loopexit ], [ %5, %139 ]
-  %144 = getelementptr inbounds nuw i8, ptr %.0148204, i64 8
-  %145 = load i32, ptr %144, align 8, !tbaa !13
-  %.not160 = icmp sgt i32 %145, -1
-  br i1 %.not160, label %146, label %.loopexit
+.lr.ph206:                                        ; preds = %136, %.loopexit
+  %.0148204 = phi ptr [ %183, %.loopexit ], [ %5, %136 ]
+  %141 = getelementptr inbounds nuw i8, ptr %.0148204, i64 8
+  %142 = load i32, ptr %141, align 8, !tbaa !13
+  %.not160 = icmp sgt i32 %142, -1
+  br i1 %.not160, label %143, label %.loopexit
 
-146:                                              ; preds = %.lr.ph206
-  %147 = getelementptr inbounds nuw i8, ptr %.0148204, i64 12
-  %148 = load i32, ptr %147, align 4, !tbaa !36
-  %149 = getelementptr inbounds nuw i8, ptr %.0148204, i64 16
-  %150 = load i32, ptr %149, align 8, !tbaa !42
-  %151 = add i32 %150, %148
-  %152 = icmp ult i32 %148, %151
-  br i1 %152, label %.lr.ph203.preheader, label %.loopexit
+143:                                              ; preds = %.lr.ph206
+  %144 = getelementptr inbounds nuw i8, ptr %.0148204, i64 12
+  %145 = load i32, ptr %144, align 4, !tbaa !36
+  %146 = getelementptr inbounds nuw i8, ptr %.0148204, i64 16
+  %147 = load i32, ptr %146, align 8, !tbaa !42
+  %148 = add i32 %147, %145
+  %149 = icmp ult i32 %145, %148
+  br i1 %149, label %.lr.ph203.preheader, label %.loopexit
 
-.lr.ph203.preheader:                              ; preds = %146
-  %153 = sext i32 %148 to i64
+.lr.ph203.preheader:                              ; preds = %143
+  %150 = sext i32 %145 to i64
   br label %.lr.ph203
 
 .lr.ph203:                                        ; preds = %.lr.ph203.preheader, %zend_optimizer_is_loop_var_free.exit.thread
-  %indvars.iv209 = phi i64 [ %153, %.lr.ph203.preheader ], [ %indvars.iv.next210, %zend_optimizer_is_loop_var_free.exit.thread ]
-  %154 = load ptr, ptr %9, align 8, !tbaa !15
-  %155 = getelementptr inbounds %struct._zend_op, ptr %154, i64 %indvars.iv209
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 28
-  %157 = load i8, ptr %156, align 4, !tbaa !43
-  switch i8 %157, label %zend_optimizer_is_loop_var_free.exit.thread [
-    i8 127, label %158
+  %indvars.iv209 = phi i64 [ %150, %.lr.ph203.preheader ], [ %indvars.iv.next210, %zend_optimizer_is_loop_var_free.exit.thread ]
+  %151 = load ptr, ptr %9, align 8, !tbaa !15
+  %152 = getelementptr inbounds %struct._zend_op, ptr %151, i64 %indvars.iv209
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 28
+  %154 = load i8, ptr %153, align 4, !tbaa !43
+  switch i8 %154, label %zend_optimizer_is_loop_var_free.exit.thread [
+    i8 127, label %155
     i8 70, label %zend_optimizer_is_loop_var_free.exit
   ]
 
-158:                                              ; preds = %.lr.ph203
-  %159 = getelementptr inbounds nuw i8, ptr %155, i64 20
-  %160 = load i32, ptr %159, align 4, !tbaa !45
-  %.not.i.not = icmp eq i32 %160, 1
-  br i1 %.not.i.not, label %zend_optimizer_is_loop_var_free.exit.thread, label %164
+155:                                              ; preds = %.lr.ph203
+  %156 = getelementptr inbounds nuw i8, ptr %152, i64 20
+  %157 = load i32, ptr %156, align 4, !tbaa !45
+  %.not.i.not = icmp eq i32 %157, 1
+  br i1 %.not.i.not, label %zend_optimizer_is_loop_var_free.exit.thread, label %161
 
 zend_optimizer_is_loop_var_free.exit:             ; preds = %.lr.ph203
-  %161 = getelementptr inbounds nuw i8, ptr %155, i64 20
-  %162 = load i32, ptr %161, align 4, !tbaa !45
-  %163 = icmp eq i32 %162, 2
-  br i1 %163, label %164, label %zend_optimizer_is_loop_var_free.exit.thread
+  %158 = getelementptr inbounds nuw i8, ptr %152, i64 20
+  %159 = load i32, ptr %158, align 4, !tbaa !45
+  %160 = icmp eq i32 %159, 2
+  br i1 %160, label %161, label %zend_optimizer_is_loop_var_free.exit.thread
 
-164:                                              ; preds = %158, %zend_optimizer_is_loop_var_free.exit
-  %165 = tail call ptr @zend_optimizer_get_loop_var_def(ptr noundef nonnull %0, ptr noundef nonnull %155) #9
-  %.not161 = icmp eq ptr %165, null
-  br i1 %.not161, label %zend_optimizer_is_loop_var_free.exit.thread, label %166
+161:                                              ; preds = %155, %zend_optimizer_is_loop_var_free.exit
+  %162 = tail call ptr @zend_optimizer_get_loop_var_def(ptr noundef nonnull %0, ptr noundef nonnull %152) #9
+  %.not161 = icmp eq ptr %162, null
+  br i1 %.not161, label %zend_optimizer_is_loop_var_free.exit.thread, label %163
 
-166:                                              ; preds = %164
-  %167 = load ptr, ptr %9, align 8, !tbaa !15
-  %168 = ptrtoint ptr %165 to i64
-  %169 = ptrtoint ptr %167 to i64
-  %170 = sub i64 %168, %169
-  %171 = ashr exact i64 %170, 3
-  %172 = getelementptr inbounds i8, ptr %141, i64 %171
-  %173 = load i32, ptr %172, align 4, !tbaa !34
-  %174 = zext i32 %173 to i64
-  %175 = getelementptr inbounds nuw %struct._zend_basic_block, ptr %5, i64 %174
-  %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  %177 = load i32, ptr %176, align 8, !tbaa !13
-  %.not162 = icmp sgt i32 %177, -1
-  br i1 %.not162, label %zend_optimizer_is_loop_var_free.exit.thread, label %178
+163:                                              ; preds = %161
+  %164 = load ptr, ptr %9, align 8, !tbaa !15
+  %165 = ptrtoint ptr %162 to i64
+  %166 = ptrtoint ptr %164 to i64
+  %167 = sub i64 %165, %166
+  %168 = ashr exact i64 %167, 3
+  %169 = getelementptr inbounds i8, ptr %138, i64 %168
+  %170 = load i32, ptr %169, align 4, !tbaa !34
+  %171 = zext i32 %170 to i64
+  %172 = getelementptr inbounds nuw %struct._zend_basic_block, ptr %5, i64 %171
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
+  %174 = load i32, ptr %173, align 8, !tbaa !13
+  %.not162 = icmp sgt i32 %174, -1
+  br i1 %.not162, label %zend_optimizer_is_loop_var_free.exit.thread, label %175
 
-178:                                              ; preds = %166
-  %179 = load i32, ptr %144, align 8, !tbaa !13
-  %180 = or i32 %179, 2048
-  store i32 %180, ptr %144, align 8, !tbaa !13
+175:                                              ; preds = %163
+  %176 = load i32, ptr %141, align 8, !tbaa !13
+  %177 = or i32 %176, 2048
+  store i32 %177, ptr %141, align 8, !tbaa !13
   br label %.loopexit
 
-zend_optimizer_is_loop_var_free.exit.thread:      ; preds = %166, %164, %.lr.ph203, %158, %zend_optimizer_is_loop_var_free.exit
+zend_optimizer_is_loop_var_free.exit.thread:      ; preds = %163, %161, %.lr.ph203, %155, %zend_optimizer_is_loop_var_free.exit
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
-  %181 = load i32, ptr %147, align 4, !tbaa !36
-  %182 = load i32, ptr %149, align 8, !tbaa !42
-  %183 = add i32 %182, %181
-  %184 = trunc nsw i64 %indvars.iv.next210 to i32
-  %185 = icmp ugt i32 %183, %184
-  br i1 %185, label %.lr.ph203, label %.loopexit
+  %178 = load i32, ptr %144, align 4, !tbaa !36
+  %179 = load i32, ptr %146, align 8, !tbaa !42
+  %180 = add i32 %179, %178
+  %181 = trunc nsw i64 %indvars.iv.next210 to i32
+  %182 = icmp ugt i32 %180, %181
+  br i1 %182, label %.lr.ph203, label %.loopexit
 
-.loopexit:                                        ; preds = %zend_optimizer_is_loop_var_free.exit.thread, %146, %178, %.lr.ph206
-  %186 = getelementptr inbounds nuw i8, ptr %.0148204, i64 64
-  %187 = load i32, ptr %1, align 8, !tbaa !12
-  %188 = sext i32 %187 to i64
-  %189 = getelementptr inbounds %struct._zend_basic_block, ptr %5, i64 %188
-  %190 = icmp ult ptr %186, %189
-  br i1 %190, label %.lr.ph206, label %.loopexit188
+.loopexit:                                        ; preds = %zend_optimizer_is_loop_var_free.exit.thread, %143, %175, %.lr.ph206
+  %183 = getelementptr inbounds nuw i8, ptr %.0148204, i64 64
+  %184 = load i32, ptr %1, align 8, !tbaa !12
+  %185 = sext i32 %184 to i64
+  %186 = getelementptr inbounds %struct._zend_basic_block, ptr %5, i64 %185
+  %187 = icmp ult ptr %183, %186
+  br i1 %187, label %.lr.ph206, label %.loopexit188
 
-.loopexit188:                                     ; preds = %.loopexit, %139, %.loopexit191
+.loopexit188:                                     ; preds = %.loopexit, %136, %.loopexit191
   ret void
 }
 

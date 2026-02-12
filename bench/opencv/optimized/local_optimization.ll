@@ -3017,8 +3017,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i165: ; preds = %
   %283 = fsub double %.0.i177, %.019.i176
   store double %283, ptr %258, align 8, !tbaa !196
   %284 = icmp sgt i32 %165, -1
-  %285 = icmp samesign ult i32 %165, %239
-  %or.cond = select i1 %284, i1 %285, i1 false
+  %285 = icmp slt i32 %165, %239
+  %or.cond = and i1 %284, %285
   br i1 %or.cond, label %293, label %286
 
 286:                                              ; preds = %277
@@ -3099,8 +3099,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i183: ; preds = %
   %316 = fsub double %.0.i195, %.019.i194
   store double %316, ptr %258, align 8, !tbaa !196
   %317 = icmp sgt i32 %165, -1
-  %318 = icmp samesign ult i32 %165, %239
-  %or.cond227 = select i1 %317, i1 %318, i1 false
+  %318 = icmp slt i32 %165, %239
+  %or.cond227 = and i1 %317, %318
   br i1 %or.cond227, label %.invoke.sink.split, label %319
 
 319:                                              ; preds = %309

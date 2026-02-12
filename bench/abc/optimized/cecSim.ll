@@ -808,8 +808,7 @@ Abc_TtIsConst0.exit:                              ; preds = %.lr.ph.i, %.lr.ph.i
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %69 = load ptr, ptr %68, align 8, !tbaa !46
-  %smax = tail call i32 @llvm.smax.i32(i32 %.val143, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %.val143 to i64
   br label %118
 
 70:                                               ; preds = %Abc_TtIsConst0.exit

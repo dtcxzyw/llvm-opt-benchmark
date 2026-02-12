@@ -414,8 +414,7 @@ define noundef ptr @ARKodeButcherTable_Create(i32 noundef %0, i32 noundef %1, i3
 .lr.ph:                                           ; preds = %._crit_edge50
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %35 = load ptr, ptr %34, align 8, !tbaa !15
-  %smax = tail call i32 @llvm.smax.i32(i32 %0, i32 1)
-  %wide.trip.count61 = zext nneg i32 %smax to i64
+  %wide.trip.count61 = zext nneg i32 %0 to i64
   br label %36
 
 36:                                               ; preds = %.lr.ph, %36

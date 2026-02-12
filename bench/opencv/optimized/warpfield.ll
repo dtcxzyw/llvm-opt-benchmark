@@ -39778,8 +39778,7 @@ _ZN7cvflann15PooledAllocator8allocateIPNS_27HierarchicalClusteringIndexINS_9L2_S
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %216 = add nsw i32 %5, 1
   %smax = call i32 @llvm.smax.i32(i32 %3, i32 1)
-  %smax181 = call i32 @llvm.smax.i32(i32 %4, i32 1)
-  %wide.trip.count182 = zext nneg i32 %smax181 to i64
+  %wide.trip.count182 = zext nneg i32 %4 to i64
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %.preheader
 

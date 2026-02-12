@@ -2624,8 +2624,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %_ZNSt6vector
   %136 = getelementptr i8, ptr %132, i64 %131
   %137 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %136, ptr %137, align 8, !tbaa !164
-  %smax.i = call i32 @llvm.smax.i32(i32 %.sroa.speculated.i, i32 1)
-  %wide.trip.count.i = zext nneg i32 %smax.i to i64
+  %wide.trip.count.i = zext nneg i32 %.sroa.speculated.i to i64
   br label %.lr.ph.i
 
 138:                                              ; preds = %130, %129
@@ -4019,8 +4018,7 @@ _ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE5clearEv.exit: ; preds = %155, %_ZSt8_D
 .lr.ph148:                                        ; preds = %190
   %192 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %193 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %smax157 = call i32 @llvm.smax.i32(i32 %61, i32 1)
-  %wide.trip.count158 = zext nneg i32 %smax157 to i64
+  %wide.trip.count158 = zext nneg i32 %61 to i64
   br label %196
 
 194:                                              ; preds = %184

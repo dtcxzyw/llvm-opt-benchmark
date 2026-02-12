@@ -1008,8 +1008,7 @@ parse_command_line.exit.thread:                   ; preds = %.lr.ph.i
   store i32 %spec.select.i, ptr %31, align 4, !tbaa !45
   store i32 %spec.select.i, ptr %33, align 8, !tbaa !47
   store i32 %spec.select.i, ptr %32, align 4, !tbaa !35
-  %smax.i = call i32 @llvm.smax.i32(i32 %spec.select.i, i32 1)
-  %wide.trip.count.i = zext nneg i32 %smax.i to i64
+  %wide.trip.count.i = zext nneg i32 %spec.select.i to i64
   br label %329
 
 328:                                              ; preds = %329

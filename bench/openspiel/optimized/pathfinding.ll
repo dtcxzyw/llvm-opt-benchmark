@@ -3155,22 +3155,22 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIS
   %110 = icmp slt i64 %indvars.iv.next, %109
   br i1 %110, label %19, label %.preheader87, !llvm.loop !16
 
-.preheader86:                                     ; preds = %154
-  %111 = icmp sgt i32 %155, 0
+.preheader86:                                     ; preds = %151
+  %111 = icmp sgt i32 %152, 0
   br i1 %111, label %.lr.ph104, label %.preheader
 
 .lr.ph104:                                        ; preds = %.preheader86
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  br label %158
+  br label %155
 
-113:                                              ; preds = %.lr.ph101, %154
-  %114 = phi i32 [ %108, %.lr.ph101 ], [ %155, %154 ]
-  %indvars.iv114 = phi i64 [ 0, %.lr.ph101 ], [ %indvars.iv.next115, %154 ]
+113:                                              ; preds = %.lr.ph101, %151
+  %114 = phi i32 [ %108, %.lr.ph101 ], [ %152, %151 ]
+  %indvars.iv114 = phi i64 [ 0, %.lr.ph101 ], [ %indvars.iv.next115, %151 ]
   %115 = load ptr, ptr %17, align 8
   %116 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv114
   %117 = load i32, ptr %116, align 4
   %118 = icmp eq i32 %117, 1
-  br i1 %118, label %119, label %154
+  br i1 %118, label %119, label %151
 
 119:                                              ; preds = %113
   %120 = getelementptr inbounds nuw %"struct.std::pair.34", ptr %.sroa.061.3, i64 %indvars.iv114
@@ -3191,7 +3191,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIS
   %133 = zext i32 %.0.i53 to i64
   %.not41 = icmp eq i64 %indvars.iv114, %133
   %or.cond45 = or i1 %or.cond.i52.not, %.not41
-  br i1 %or.cond45, label %154, label %134
+  br i1 %or.cond45, label %151, label %134
 
 134:                                              ; preds = %119
   %135 = sext i32 %.0.i53 to i64
@@ -3205,91 +3205,87 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIS
   %143 = load ptr, ptr %139, align 8
   %144 = getelementptr inbounds i32, ptr %143, i64 %142
   %145 = load i32, ptr %144, align 4
-  %146 = icmp sgt i32 %145, -1
-  %147 = icmp slt i32 %145, %114
-  %or.cond.i54 = and i1 %146, %147
-  %148 = zext i32 %145 to i64
-  %149 = icmp eq i64 %indvars.iv114, %148
-  %150 = and i1 %149, %or.cond.i54
-  br i1 %150, label %151, label %154
+  %146 = zext i32 %145 to i64
+  %147 = icmp eq i64 %indvars.iv114, %146
+  br i1 %147, label %148, label %151
 
-151:                                              ; preds = %134
+148:                                              ; preds = %134
   store i32 0, ptr %116, align 4
-  %152 = load ptr, ptr %17, align 8
-  %153 = getelementptr inbounds i32, ptr %152, i64 %135
-  store i32 0, ptr %153, align 4
+  %149 = load ptr, ptr %17, align 8
+  %150 = getelementptr inbounds i32, ptr %149, i64 %135
+  store i32 0, ptr %150, align 4
   %.pre120 = load i32, ptr %3, align 4
-  br label %154
+  br label %151
 
-154:                                              ; preds = %113, %134, %119, %151
-  %155 = phi i32 [ %114, %113 ], [ %114, %134 ], [ %114, %119 ], [ %.pre120, %151 ]
+151:                                              ; preds = %113, %134, %119, %148
+  %152 = phi i32 [ %114, %113 ], [ %114, %134 ], [ %114, %119 ], [ %.pre120, %148 ]
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
-  %156 = sext i32 %155 to i64
-  %157 = icmp slt i64 %indvars.iv.next115, %156
-  br i1 %157, label %113, label %.preheader86, !llvm.loop !17
+  %153 = sext i32 %152 to i64
+  %154 = icmp slt i64 %indvars.iv.next115, %153
+  br i1 %154, label %113, label %.preheader86, !llvm.loop !17
 
-.preheader:                                       ; preds = %168, %7, %.preheader87, %.preheader86
-  %.sroa.19.1.lcssa138143 = phi ptr [ %.sroa.19.3, %.preheader86 ], [ null, %7 ], [ %.sroa.19.3, %.preheader87 ], [ %.sroa.19.3, %168 ]
-  %.sroa.061.1.lcssa139142 = phi ptr [ %.sroa.061.3, %.preheader86 ], [ null, %7 ], [ %.sroa.061.3, %.preheader87 ], [ %.sroa.061.3, %168 ]
-  %.035.lcssa = phi i32 [ 0, %.preheader86 ], [ 0, %7 ], [ 0, %.preheader87 ], [ %.1, %168 ]
-  br label %172
+.preheader:                                       ; preds = %165, %7, %.preheader87, %.preheader86
+  %.sroa.19.1.lcssa138143 = phi ptr [ %.sroa.19.3, %.preheader86 ], [ null, %7 ], [ %.sroa.19.3, %.preheader87 ], [ %.sroa.19.3, %165 ]
+  %.sroa.061.1.lcssa139142 = phi ptr [ %.sroa.061.3, %.preheader86 ], [ null, %7 ], [ %.sroa.061.3, %.preheader87 ], [ %.sroa.061.3, %165 ]
+  %.035.lcssa = phi i32 [ 0, %.preheader86 ], [ 0, %7 ], [ 0, %.preheader87 ], [ %.1, %165 ]
+  br label %169
 
-158:                                              ; preds = %.lr.ph104, %168
-  %159 = phi i32 [ %155, %.lr.ph104 ], [ %169, %168 ]
-  %indvars.iv117 = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next118, %168 ]
-  %.035102 = phi i32 [ 0, %.lr.ph104 ], [ %.1, %168 ]
-  %160 = load ptr, ptr %112, align 8
-  %161 = getelementptr inbounds nuw i32, ptr %160, i64 %indvars.iv117
-  %162 = load i32, ptr %161, align 4
-  %163 = icmp eq i32 %162, 1
-  br i1 %163, label %164, label %166
+155:                                              ; preds = %.lr.ph104, %165
+  %156 = phi i32 [ %152, %.lr.ph104 ], [ %166, %165 ]
+  %indvars.iv117 = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next118, %165 ]
+  %.035102 = phi i32 [ 0, %.lr.ph104 ], [ %.1, %165 ]
+  %157 = load ptr, ptr %112, align 8
+  %158 = getelementptr inbounds nuw i32, ptr %157, i64 %indvars.iv117
+  %159 = load i32, ptr %158, align 4
+  %160 = icmp eq i32 %159, 1
+  br i1 %160, label %161, label %163
 
-164:                                              ; preds = %158
-  %165 = add nsw i32 %.035102, 1
-  br label %168
+161:                                              ; preds = %155
+  %162 = add nsw i32 %.035102, 1
+  br label %165
 
-166:                                              ; preds = %158
-  %167 = trunc nuw nsw i64 %indvars.iv117 to i32
-  call void @_ZN10open_spiel11pathfinding16PathfindingState19ResolvePlayerActionEi(ptr noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %167)
+163:                                              ; preds = %155
+  %164 = trunc nuw nsw i64 %indvars.iv117 to i32
+  call void @_ZN10open_spiel11pathfinding16PathfindingState19ResolvePlayerActionEi(ptr noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %164)
   %.pre121 = load i32, ptr %3, align 4
-  br label %168
+  br label %165
 
-168:                                              ; preds = %166, %164
-  %169 = phi i32 [ %159, %164 ], [ %.pre121, %166 ]
-  %.1 = phi i32 [ %165, %164 ], [ %.035102, %166 ]
+165:                                              ; preds = %163, %161
+  %166 = phi i32 [ %156, %161 ], [ %.pre121, %163 ]
+  %.1 = phi i32 [ %162, %161 ], [ %.035102, %163 ]
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
-  %170 = sext i32 %169 to i64
-  %171 = icmp slt i64 %indvars.iv.next118, %170
-  br i1 %171, label %158, label %.preheader, !llvm.loop !18
+  %167 = sext i32 %166 to i64
+  %168 = icmp slt i64 %indvars.iv.next118, %167
+  br i1 %168, label %155, label %.preheader, !llvm.loop !18
 
-172:                                              ; preds = %.preheader, %172
-  %.2 = phi i32 [ %174, %172 ], [ %.035.lcssa, %.preheader ]
-  %173 = call noundef i32 @_ZN10open_spiel11pathfinding16PathfindingState19TryResolveContestedEv(ptr noundef nonnull align 8 dereferenceable(264) %0)
-  %174 = sub nsw i32 %.2, %173
-  %175 = icmp sgt i32 %173, 0
-  br i1 %175, label %172, label %176, !llvm.loop !19
+169:                                              ; preds = %.preheader, %169
+  %.2 = phi i32 [ %171, %169 ], [ %.035.lcssa, %.preheader ]
+  %170 = call noundef i32 @_ZN10open_spiel11pathfinding16PathfindingState19TryResolveContestedEv(ptr noundef nonnull align 8 dereferenceable(264) %0)
+  %171 = sub nsw i32 %.2, %170
+  %172 = icmp sgt i32 %170, 0
+  br i1 %172, label %169, label %173, !llvm.loop !19
 
-176:                                              ; preds = %172
-  %177 = icmp sgt i32 %174, 0
-  br i1 %177, label %178, label %180
+173:                                              ; preds = %169
+  %174 = icmp sgt i32 %171, 0
+  br i1 %174, label %175, label %177
 
-178:                                              ; preds = %176
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 -1, ptr %179, align 8
-  br label %180
+175:                                              ; preds = %173
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i32 -1, ptr %176, align 8
+  br label %177
 
-180:                                              ; preds = %178, %176
+177:                                              ; preds = %175, %173
   %.not.i.i.i56 = icmp eq ptr %.sroa.061.1.lcssa139142, null
-  br i1 %.not.i.i.i56, label %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit57, label %181
+  br i1 %.not.i.i.i56, label %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit57, label %178
 
-181:                                              ; preds = %180
-  %182 = ptrtoint ptr %.sroa.19.1.lcssa138143 to i64
-  %183 = ptrtoint ptr %.sroa.061.1.lcssa139142 to i64
-  %184 = sub i64 %182, %183
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.061.1.lcssa139142, i64 noundef %184) #34
+178:                                              ; preds = %177
+  %179 = ptrtoint ptr %.sroa.19.1.lcssa138143 to i64
+  %180 = ptrtoint ptr %.sroa.061.1.lcssa139142 to i64
+  %181 = sub i64 %179, %180
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.061.1.lcssa139142, i64 noundef %181) #34
   br label %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit57
 
-_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit57:      ; preds = %180, %181
+_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit57:      ; preds = %177, %178
   ret void
 }
 

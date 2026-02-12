@@ -655,8 +655,7 @@ define dso_local i32 @MultiXactIdExpand(i32 noundef %0, i32 noundef %1, i32 noun
   br i1 %.not, label %._crit_edge45, label %.lr.ph44
 
 .lr.ph44:                                         ; preds = %._crit_edge
-  %smax = tail call i32 @llvm.smax.i32(i32 %6, i32 1)
-  %wide.trip.count51 = zext nneg i32 %smax to i64
+  %wide.trip.count51 = zext nneg i32 %6 to i64
   br label %25
 
 25:                                               ; preds = %.lr.ph44, %44
@@ -3324,9 +3323,6 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10

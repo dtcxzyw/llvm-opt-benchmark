@@ -265,18 +265,17 @@ init_query_structure.exit:                        ; preds = %_max.exit.i, %60, %
 
 .lr.ph.preheader.i.lr.ph:                         ; preds = %.lr.ph
   %152 = uitofp nneg i32 %0 to double
-  %153 = uitofp nneg i32 %0 to double
-  %154 = add nuw i32 %0, 1
-  %wide.trip.count95 = zext i32 %154 to i64
+  %153 = add nuw i32 %0, 1
+  %wide.trip.count95 = zext i32 %153 to i64
   br label %.lr.ph.preheader.i
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %155 = getelementptr inbounds nuw %struct.segment_t, ptr %1, i64 %indvars.iv
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 40
-  store i32 %22, ptr %156, align 8, !tbaa !43
-  %157 = getelementptr inbounds nuw i8, ptr %155, i64 36
-  store i32 %22, ptr %157, align 4, !tbaa !44
+  %154 = getelementptr inbounds nuw %struct.segment_t, ptr %1, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 40
+  store i32 %22, ptr %155, align 8, !tbaa !43
+  %156 = getelementptr inbounds nuw i8, ptr %154, i64 36
+  store i32 %22, ptr %156, align 4, !tbaa !44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph.preheader.i.lr.ph, label %.lr.ph, !llvm.loop !45
@@ -287,15 +286,15 @@ init_query_structure.exit:                        ; preds = %_max.exit.i, %60, %
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.06.i = phi double [ %158, %.lr.ph.i ], [ %152, %.lr.ph.preheader.i ]
-  %.045.i = phi i32 [ %159, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %158 = tail call double @llvm.log2.f64(double %.06.i), !tbaa !12
-  %159 = add nuw nsw i32 %.045.i, 1
-  %160 = fcmp ult double %158, 1.000000e+00
-  br i1 %160, label %math_logstar_n.exit.thread, label %.lr.ph.i, !llvm.loop !47
+  %.06.i = phi double [ %157, %.lr.ph.i ], [ %152, %.lr.ph.preheader.i ]
+  %.045.i = phi i32 [ %158, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %157 = tail call double @llvm.log2.f64(double %.06.i), !tbaa !12
+  %158 = add nuw nsw i32 %.045.i, 1
+  %159 = fcmp ult double %157, 1.000000e+00
+  br i1 %159, label %math_logstar_n.exit.thread, label %.lr.ph.i, !llvm.loop !47
 
 math_logstar_n.exit57.thread:                     ; preds = %init_query_structure.exit
-  %.pre = sitofp i32 %0 to double
+  %160 = sitofp i32 %0 to double
   br label %math_N.exit63
 
 math_logstar_n.exit.thread:                       ; preds = %.lr.ph.i
@@ -311,7 +310,7 @@ math_logstar_n.exit.thread:                       ; preds = %.lr.ph.i
   br label %.lr.ph.i45
 
 .lr.ph.i45:                                       ; preds = %.lr.ph.i45.preheader, %.lr.ph.i45
-  %.08.i = phi double [ %164, %.lr.ph.i45 ], [ %153, %.lr.ph.i45.preheader ]
+  %.08.i = phi double [ %164, %.lr.ph.i45 ], [ %152, %.lr.ph.i45.preheader ]
   %.067.i = phi i32 [ %165, %.lr.ph.i45 ], [ 0, %.lr.ph.i45.preheader ]
   %164 = tail call double @log2(double noundef %.08.i) #20, !tbaa !12
   %165 = add nuw nsw i32 %.067.i, 1
@@ -319,8 +318,8 @@ math_logstar_n.exit.thread:                       ; preds = %.lr.ph.i
   br i1 %exitcond.not.i, label %math_N.exit, label %.lr.ph.i45, !llvm.loop !48
 
 math_N.exit:                                      ; preds = %.lr.ph.i45, %161
-  %.0.lcssa.i = phi double [ %153, %161 ], [ %164, %.lr.ph.i45 ]
-  %166 = fdiv double %153, %.0.lcssa.i
+  %.0.lcssa.i = phi double [ %152, %161 ], [ %164, %.lr.ph.i45 ]
+  %166 = fdiv double %152, %.0.lcssa.i
   %167 = tail call double @llvm.ceil.f64(double %166)
   %168 = fptosi double %167 to i32
   %169 = sext i32 %.079 to i64
@@ -332,7 +331,7 @@ math_N.exit:                                      ; preds = %.lr.ph.i45, %161
   br label %.lr.ph.i47
 
 .lr.ph.i47:                                       ; preds = %170, %.lr.ph.i47
-  %.08.i48 = phi double [ %171, %.lr.ph.i47 ], [ %153, %170 ]
+  %.08.i48 = phi double [ %171, %.lr.ph.i47 ], [ %152, %170 ]
   %.067.i49 = phi i32 [ %172, %.lr.ph.i47 ], [ 0, %170 ]
   %171 = tail call double @log2(double noundef %.08.i48) #20, !tbaa !12
   %172 = add nuw nsw i32 %.067.i49, 1
@@ -340,7 +339,7 @@ math_N.exit:                                      ; preds = %.lr.ph.i45, %161
   br i1 %exitcond.not.i50, label %math_N.exit51, label %.lr.ph.i47, !llvm.loop !48
 
 math_N.exit51:                                    ; preds = %.lr.ph.i47
-  %173 = fdiv double %153, %171
+  %173 = fdiv double %152, %171
   %174 = tail call double @llvm.ceil.f64(double %173)
   %175 = fptosi double %174 to i32
   %.not42.not = icmp slt i32 %.137.in, %175
@@ -418,8 +417,8 @@ math_logstar_n.exit57:                            ; preds = %.lr.ph.i53
 
 math_N.exit63:                                    ; preds = %.lr.ph.i59, %math_logstar_n.exit57.thread, %math_logstar_n.exit57
   %.072 = phi i32 [ %.079, %math_logstar_n.exit57 ], [ 2, %math_logstar_n.exit57.thread ], [ %.079, %.lr.ph.i59 ]
-  %207 = phi double [ %152, %math_logstar_n.exit57 ], [ %.pre, %math_logstar_n.exit57.thread ], [ %152, %.lr.ph.i59 ]
-  %.0.lcssa.i58 = phi double [ %152, %math_logstar_n.exit57 ], [ %.pre, %math_logstar_n.exit57.thread ], [ %205, %.lr.ph.i59 ]
+  %207 = phi double [ %152, %math_logstar_n.exit57 ], [ %160, %math_logstar_n.exit57.thread ], [ %152, %.lr.ph.i59 ]
+  %.0.lcssa.i58 = phi double [ %152, %math_logstar_n.exit57 ], [ %160, %math_logstar_n.exit57.thread ], [ %205, %.lr.ph.i59 ]
   %208 = fdiv double %207, %.0.lcssa.i58
   %209 = tail call double @llvm.ceil.f64(double %208)
   %210 = fptosi double %209 to i32

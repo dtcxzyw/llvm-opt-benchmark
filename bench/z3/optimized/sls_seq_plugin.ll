@@ -35658,13 +35658,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %167
   %204 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !131
   %205 = and i64 %194, 4294967295
   invoke void @_ZN11mpz_managerILb1EE11set_big_i64ER3mpzl(ptr noundef nonnull align 8 dereferenceable(728) %204, ptr noundef nonnull align 8 dereferenceable(32) %192, i64 noundef %205)
-          to label %_ZN11mpq_managerILb1EE3setER3mpqj.exit.i unwind label %263
+          to label %.noexc23 unwind label %263
 
-_ZN11mpq_managerILb1EE3setER3mpqj.exit.i:         ; preds = %181
+.noexc23:                                         ; preds = %181
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(728) %204, ptr noundef nonnull align 8 dereferenceable(16) %199)
           to label %206 unwind label %263
 
-206:                                              ; preds = %_ZN11mpq_managerILb1EE3setER3mpqj.exit.i
+206:                                              ; preds = %.noexc23
   store i32 1, ptr %199, align 8, !tbaa !178
   %207 = load i8, ptr %200, align 4
   %208 = and i8 %207, -2
@@ -35767,7 +35767,7 @@ _ZN3sls10seq_plugin10int_updateD2Ev.exit31:       ; preds = %.noexc.i.i30
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %268
 
-263:                                              ; preds = %_ZN11mpq_managerILb1EE3setER3mpqj.exit.i, %181
+263:                                              ; preds = %.noexc23, %181
   %264 = landingpad { ptr, i32 }
           cleanup
   br label %267

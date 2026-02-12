@@ -439,9 +439,9 @@ _ZL5add_bP18InteractionsOfTypePiP8sortable.exit:  ; preds = %_ZL5add_bP18Interac
   br i1 %137, label %.preheader50.i, label %_ZL6do_geniP8sortableP8t_nextnb.exit
 
 .preheader50.i:                                   ; preds = %.preheader50.lr.ph.i, %._crit_edge63.i
-  %138 = phi i32 [ %240, %._crit_edge63.i ], [ %132, %.preheader50.lr.ph.i ]
-  %139 = phi i32 [ %241, %._crit_edge63.i ], [ %136, %.preheader50.lr.ph.i ]
-  %140 = phi i32 [ %242, %._crit_edge63.i ], [ %136, %.preheader50.lr.ph.i ]
+  %138 = phi i32 [ %239, %._crit_edge63.i ], [ %132, %.preheader50.lr.ph.i ]
+  %139 = phi i32 [ %240, %._crit_edge63.i ], [ %136, %.preheader50.lr.ph.i ]
+  %140 = phi i32 [ %241, %._crit_edge63.i ], [ %136, %.preheader50.lr.ph.i ]
   %indvars.iv80.i = phi i64 [ %142, %._crit_edge63.i ], [ 1, %.preheader50.lr.ph.i ]
   %141 = icmp sgt i32 %140, 0
   %142 = add nuw nsw i64 %indvars.iv80.i, 1
@@ -452,9 +452,9 @@ _ZL5add_bP18InteractionsOfTypePiP8sortable.exit:  ; preds = %_ZL5add_bP18Interac
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge61.i, %.preheader.lr.ph.i
-  %143 = phi i32 [ %139, %.preheader.lr.ph.i ], [ %235, %._crit_edge61.i ]
-  %144 = phi ptr [ %.pre87.i, %.preheader.lr.ph.i ], [ %236, %._crit_edge61.i ]
-  %145 = phi ptr [ %.pre87.i, %.preheader.lr.ph.i ], [ %237, %._crit_edge61.i ]
+  %143 = phi i32 [ %139, %.preheader.lr.ph.i ], [ %234, %._crit_edge61.i ]
+  %144 = phi ptr [ %.pre87.i, %.preheader.lr.ph.i ], [ %235, %._crit_edge61.i ]
+  %145 = phi ptr [ %.pre87.i, %.preheader.lr.ph.i ], [ %236, %._crit_edge61.i ]
   %indvars.iv77.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %indvars.iv.next78.i, %._crit_edge61.i ]
   %146 = getelementptr inbounds nuw ptr, ptr %145, i64 %indvars.iv77.i
   %147 = load ptr, ptr %146, align 8, !tbaa !19
@@ -468,10 +468,10 @@ _ZL5add_bP18InteractionsOfTypePiP8sortable.exit:  ; preds = %_ZL5add_bP18Interac
   br label %151
 
 151:                                              ; preds = %._crit_edge58.i, %.lr.ph60.i
-  %152 = phi ptr [ %144, %.lr.ph60.i ], [ %226, %._crit_edge58.i ]
-  %153 = phi ptr [ %.pre88.i, %.lr.ph60.i ], [ %227, %._crit_edge58.i ]
-  %154 = phi ptr [ %145, %.lr.ph60.i ], [ %226, %._crit_edge58.i ]
-  %155 = phi ptr [ %.pre88.i, %.lr.ph60.i ], [ %228, %._crit_edge58.i ]
+  %152 = phi ptr [ %144, %.lr.ph60.i ], [ %225, %._crit_edge58.i ]
+  %153 = phi ptr [ %.pre88.i, %.lr.ph60.i ], [ %226, %._crit_edge58.i ]
+  %154 = phi ptr [ %145, %.lr.ph60.i ], [ %225, %._crit_edge58.i ]
+  %155 = phi ptr [ %.pre88.i, %.lr.ph60.i ], [ %227, %._crit_edge58.i ]
   %indvars.iv74.i = phi i64 [ 0, %.lr.ph60.i ], [ %indvars.iv.next75.i, %._crit_edge58.i ]
   %156 = getelementptr inbounds nuw ptr, ptr %155, i64 %indvars.iv77.i
   %157 = load ptr, ptr %156, align 8, !tbaa !16
@@ -487,11 +487,11 @@ _ZL5add_bP18InteractionsOfTypePiP8sortable.exit:  ; preds = %_ZL5add_bP18Interac
   %167 = icmp sgt i32 %166, 0
   br i1 %167, label %.lr.ph57.i, label %._crit_edge58.i
 
-.lr.ph57.i:                                       ; preds = %151, %_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.i
-  %168 = phi ptr [ %217, %_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.i ], [ %152, %151 ]
-  %169 = phi ptr [ %218, %_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.i ], [ %154, %151 ]
-  %170 = phi ptr [ %219, %_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.i ], [ %153, %151 ]
-  %indvars.iv71.i = phi i64 [ %indvars.iv.next72.i, %_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.i ], [ 0, %151 ]
+.lr.ph57.i:                                       ; preds = %151, %_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.thread.i
+  %168 = phi ptr [ %216, %_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.thread.i ], [ %152, %151 ]
+  %169 = phi ptr [ %217, %_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.thread.i ], [ %154, %151 ]
+  %170 = phi ptr [ %218, %_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.thread.i ], [ %153, %151 ]
+  %indvars.iv71.i = phi i64 [ %indvars.iv.next72.i, %_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.thread.i ], [ 0, %151 ]
   %171 = getelementptr inbounds ptr, ptr %170, i64 %162
   %172 = load ptr, ptr %171, align 8, !tbaa !16
   %173 = getelementptr inbounds nuw ptr, ptr %172, i64 %indvars.iv80.i
@@ -501,9 +501,9 @@ _ZL5add_bP18InteractionsOfTypePiP8sortable.exit:  ; preds = %_ZL5add_bP18Interac
   %177 = load i32, ptr %93, align 4, !tbaa !14
   %178 = sext i32 %177 to i64
   %179 = icmp slt i64 %indvars.iv80.i, %178
-  br i1 %179, label %.preheader.lr.ph.i.i, label %183
+  br i1 %179, label %.preheader25.i.i, label %183
 
-.preheader.lr.ph.i.i:                             ; preds = %.lr.ph57.i
+.preheader25.i.i:                                 ; preds = %.lr.ph57.i
   %180 = getelementptr inbounds nuw ptr, ptr %169, i64 %indvars.iv77.i
   %181 = load ptr, ptr %180, align 8, !tbaa !19
   %182 = getelementptr inbounds nuw ptr, ptr %170, i64 %indvars.iv77.i
@@ -513,8 +513,8 @@ _ZL5add_bP18InteractionsOfTypePiP8sortable.exit:  ; preds = %_ZL5add_bP18Interac
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL22atom_is_present_in_nnbPK8t_nextnbiiiENK3$_0clEv", ptr noundef nonnull @.str.1, i32 noundef 268) #15
   unreachable
 
-.preheader.i.i:                                   ; preds = %._crit_edge.i.i, %.preheader.lr.ph.i.i
-  %indvars.iv36.i.i = phi i64 [ 0, %.preheader.lr.ph.i.i ], [ %indvars.iv.next37.i.i, %._crit_edge.i.i ]
+.preheader.i.i:                                   ; preds = %._crit_edge.i.i, %.preheader25.i.i
+  %indvars.iv36.i.i = phi i64 [ 0, %.preheader25.i.i ], [ %indvars.iv.next37.i.i, %._crit_edge.i.i ]
   %184 = getelementptr inbounds nuw i32, ptr %181, i64 %indvars.iv36.i.i
   %185 = load i32, ptr %184, align 4, !tbaa !23
   %.not2129.i.i = icmp sgt i32 %185, 0
@@ -537,91 +537,91 @@ _ZL5add_bP18InteractionsOfTypePiP8sortable.exit:  ; preds = %_ZL5add_bP18Interac
   %191 = getelementptr inbounds nuw i32, ptr %188, i64 %indvars.iv.i.i
   %192 = load i32, ptr %191, align 4, !tbaa !23
   %193 = icmp eq i32 %192, %176
-  br i1 %193, label %_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.i, label %189
+  br i1 %193, label %_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.thread.i, label %189
 
 ._crit_edge.i.i:                                  ; preds = %189, %.preheader.i.i
   %indvars.iv.next37.i.i = add nuw nsw i64 %indvars.iv36.i.i, 1
   %exitcond40.not.i.i = icmp eq i64 %indvars.iv36.i.i, %indvars.iv80.i
-  br i1 %exitcond40.not.i.i, label %194, label %.preheader.i.i, !llvm.loop !43
+  br i1 %exitcond40.not.i.i, label %_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.i, label %.preheader.i.i, !llvm.loop !43
 
-194:                                              ; preds = %._crit_edge.i.i
-  %195 = load ptr, ptr %182, align 8, !tbaa !16
-  %196 = getelementptr inbounds nuw ptr, ptr %195, i64 %142
-  %197 = getelementptr inbounds nuw i32, ptr %181, i64 %142
-  %198 = load i32, ptr %197, align 4, !tbaa !23
-  %199 = add nsw i32 %198, 1
-  %200 = sext i32 %199 to i64
-  %201 = load ptr, ptr %196, align 8, !tbaa !19
-  %202 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 125, ptr noundef %201, i64 noundef range(i64 -2147483647, 2147483648) %200, i64 noundef 4)
-  store ptr %202, ptr %196, align 8, !tbaa !19
-  %203 = load ptr, ptr %135, align 8, !tbaa !17
-  %204 = getelementptr inbounds nuw ptr, ptr %203, i64 %indvars.iv77.i
-  %205 = load ptr, ptr %204, align 8, !tbaa !16
-  %206 = getelementptr inbounds nuw ptr, ptr %205, i64 %142
-  %207 = load ptr, ptr %206, align 8, !tbaa !19
-  %208 = load ptr, ptr %134, align 8, !tbaa !18
-  %209 = getelementptr inbounds nuw ptr, ptr %208, i64 %indvars.iv77.i
-  %210 = load ptr, ptr %209, align 8, !tbaa !19
-  %211 = getelementptr inbounds nuw i32, ptr %210, i64 %142
-  %212 = load i32, ptr %211, align 4, !tbaa !23
-  %213 = sext i32 %212 to i64
-  %214 = getelementptr inbounds i32, ptr %207, i64 %213
-  store i32 %176, ptr %214, align 4, !tbaa !23
-  %215 = load i32, ptr %211, align 4, !tbaa !23
-  %216 = add nsw i32 %215, 1
-  store i32 %216, ptr %211, align 4, !tbaa !23
-  br label %_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.i
+_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.i: ; preds = %._crit_edge.i.i
+  %194 = load ptr, ptr %182, align 8, !tbaa !16
+  %195 = getelementptr inbounds nuw ptr, ptr %194, i64 %142
+  %196 = getelementptr inbounds nuw i32, ptr %181, i64 %142
+  %197 = load i32, ptr %196, align 4, !tbaa !23
+  %198 = add nsw i32 %197, 1
+  %199 = sext i32 %198 to i64
+  %200 = load ptr, ptr %195, align 8, !tbaa !19
+  %201 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 125, ptr noundef %200, i64 noundef range(i64 -2147483647, 2147483648) %199, i64 noundef 4)
+  store ptr %201, ptr %195, align 8, !tbaa !19
+  %202 = load ptr, ptr %135, align 8, !tbaa !17
+  %203 = getelementptr inbounds nuw ptr, ptr %202, i64 %indvars.iv77.i
+  %204 = load ptr, ptr %203, align 8, !tbaa !16
+  %205 = getelementptr inbounds nuw ptr, ptr %204, i64 %142
+  %206 = load ptr, ptr %205, align 8, !tbaa !19
+  %207 = load ptr, ptr %134, align 8, !tbaa !18
+  %208 = getelementptr inbounds nuw ptr, ptr %207, i64 %indvars.iv77.i
+  %209 = load ptr, ptr %208, align 8, !tbaa !19
+  %210 = getelementptr inbounds nuw i32, ptr %209, i64 %142
+  %211 = load i32, ptr %210, align 4, !tbaa !23
+  %212 = sext i32 %211 to i64
+  %213 = getelementptr inbounds i32, ptr %206, i64 %212
+  store i32 %176, ptr %213, align 4, !tbaa !23
+  %214 = load i32, ptr %210, align 4, !tbaa !23
+  %215 = add nsw i32 %214, 1
+  store i32 %215, ptr %210, align 4, !tbaa !23
+  br label %_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.thread.i
 
-_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.i: ; preds = %190, %194
-  %217 = phi ptr [ %208, %194 ], [ %168, %190 ]
-  %218 = phi ptr [ %208, %194 ], [ %169, %190 ]
-  %219 = phi ptr [ %203, %194 ], [ %170, %190 ]
+_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.thread.i: ; preds = %190, %_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.i
+  %216 = phi ptr [ %207, %_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.i ], [ %168, %190 ]
+  %217 = phi ptr [ %207, %_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.i ], [ %169, %190 ]
+  %218 = phi ptr [ %202, %_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.i ], [ %170, %190 ]
   %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
-  %220 = getelementptr inbounds ptr, ptr %218, i64 %162
-  %221 = load ptr, ptr %220, align 8, !tbaa !19
-  %222 = getelementptr inbounds nuw i32, ptr %221, i64 %indvars.iv80.i
-  %223 = load i32, ptr %222, align 4, !tbaa !23
-  %224 = sext i32 %223 to i64
-  %225 = icmp slt i64 %indvars.iv.next72.i, %224
-  br i1 %225, label %.lr.ph57.i, label %._crit_edge58.i, !llvm.loop !44
+  %219 = getelementptr inbounds ptr, ptr %217, i64 %162
+  %220 = load ptr, ptr %219, align 8, !tbaa !19
+  %221 = getelementptr inbounds nuw i32, ptr %220, i64 %indvars.iv80.i
+  %222 = load i32, ptr %221, align 4, !tbaa !23
+  %223 = sext i32 %222 to i64
+  %224 = icmp slt i64 %indvars.iv.next72.i, %223
+  br i1 %224, label %.lr.ph57.i, label %._crit_edge58.i, !llvm.loop !44
 
-._crit_edge58.i:                                  ; preds = %_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.i, %151
-  %226 = phi ptr [ %152, %151 ], [ %217, %_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.i ]
-  %227 = phi ptr [ %153, %151 ], [ %219, %_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.i ]
-  %228 = phi ptr [ %155, %151 ], [ %219, %_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.i ]
+._crit_edge58.i:                                  ; preds = %_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.thread.i, %151
+  %225 = phi ptr [ %152, %151 ], [ %216, %_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.thread.i ]
+  %226 = phi ptr [ %153, %151 ], [ %218, %_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.thread.i ]
+  %227 = phi ptr [ %155, %151 ], [ %218, %_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.thread.i ]
   %indvars.iv.next75.i = add nuw nsw i64 %indvars.iv74.i, 1
-  %229 = getelementptr inbounds nuw ptr, ptr %226, i64 %indvars.iv77.i
-  %230 = load ptr, ptr %229, align 8, !tbaa !19
-  %231 = getelementptr inbounds nuw i8, ptr %230, i64 4
-  %232 = load i32, ptr %231, align 4, !tbaa !23
-  %233 = sext i32 %232 to i64
-  %234 = icmp slt i64 %indvars.iv.next75.i, %233
-  br i1 %234, label %151, label %._crit_edge61.loopexit.i, !llvm.loop !45
+  %228 = getelementptr inbounds nuw ptr, ptr %225, i64 %indvars.iv77.i
+  %229 = load ptr, ptr %228, align 8, !tbaa !19
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 4
+  %231 = load i32, ptr %230, align 4, !tbaa !23
+  %232 = sext i32 %231 to i64
+  %233 = icmp slt i64 %indvars.iv.next75.i, %232
+  br i1 %233, label %151, label %._crit_edge61.loopexit.i, !llvm.loop !45
 
 ._crit_edge61.loopexit.i:                         ; preds = %._crit_edge58.i
   %.pre89.i = load i32, ptr %0, align 8, !tbaa !4
   br label %._crit_edge61.i
 
 ._crit_edge61.i:                                  ; preds = %._crit_edge61.loopexit.i, %.preheader.i
-  %235 = phi i32 [ %.pre89.i, %._crit_edge61.loopexit.i ], [ %143, %.preheader.i ]
-  %236 = phi ptr [ %226, %._crit_edge61.loopexit.i ], [ %144, %.preheader.i ]
-  %237 = phi ptr [ %226, %._crit_edge61.loopexit.i ], [ %145, %.preheader.i ]
+  %234 = phi i32 [ %.pre89.i, %._crit_edge61.loopexit.i ], [ %143, %.preheader.i ]
+  %235 = phi ptr [ %225, %._crit_edge61.loopexit.i ], [ %144, %.preheader.i ]
+  %236 = phi ptr [ %225, %._crit_edge61.loopexit.i ], [ %145, %.preheader.i ]
   %indvars.iv.next78.i = add nuw nsw i64 %indvars.iv77.i, 1
-  %238 = sext i32 %235 to i64
-  %239 = icmp slt i64 %indvars.iv.next78.i, %238
-  br i1 %239, label %.preheader.i, label %._crit_edge63.loopexit.i, !llvm.loop !46
+  %237 = sext i32 %234 to i64
+  %238 = icmp slt i64 %indvars.iv.next78.i, %237
+  br i1 %238, label %.preheader.i, label %._crit_edge63.loopexit.i, !llvm.loop !46
 
 ._crit_edge63.loopexit.i:                         ; preds = %._crit_edge61.i
   %.pre90.i = load i32, ptr %93, align 4, !tbaa !14
   br label %._crit_edge63.i
 
 ._crit_edge63.i:                                  ; preds = %._crit_edge63.loopexit.i, %.preheader50.i
-  %240 = phi i32 [ %.pre90.i, %._crit_edge63.loopexit.i ], [ %138, %.preheader50.i ]
-  %241 = phi i32 [ %235, %._crit_edge63.loopexit.i ], [ %139, %.preheader50.i ]
-  %242 = phi i32 [ %235, %._crit_edge63.loopexit.i ], [ %140, %.preheader50.i ]
-  %243 = sext i32 %240 to i64
-  %244 = icmp slt i64 %142, %243
-  br i1 %244, label %.preheader50.i, label %_ZL6do_geniP8sortableP8t_nextnb.exit, !llvm.loop !47
+  %239 = phi i32 [ %.pre90.i, %._crit_edge63.loopexit.i ], [ %138, %.preheader50.i ]
+  %240 = phi i32 [ %234, %._crit_edge63.loopexit.i ], [ %139, %.preheader50.i ]
+  %241 = phi i32 [ %234, %._crit_edge63.loopexit.i ], [ %140, %.preheader50.i ]
+  %242 = sext i32 %239 to i64
+  %243 = icmp slt i64 %142, %242
+  br i1 %243, label %.preheader50.i, label %_ZL6do_geniP8sortableP8t_nextnb.exit, !llvm.loop !47
 
 _ZL6do_geniP8sortableP8t_nextnb.exit:             ; preds = %._crit_edge63.i, %.loopexit.i, %.preheader50.lr.ph.i
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 392, ptr noundef %7)

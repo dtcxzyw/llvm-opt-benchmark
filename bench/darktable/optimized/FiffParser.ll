@@ -803,30 +803,30 @@ _ZNSt10unique_ptrIN8rawspeed9TiffEntryESt14default_deleteIS1_EED2Ev.exit124: ; p
   %224 = add nuw nsw i32 %.sroa.19.0251, 2
   %225 = icmp samesign ule i32 %224, %204
   call void @llvm.assume(i1 %225)
-  %226 = icmp sgt i32 %.sroa.19.0251, -1
-  call void @llvm.assume(i1 %226)
-  %227 = getelementptr inbounds nuw i8, ptr %208, i64 %220
-  %.0.copyload.i.i.i.i.i.i138 = load i16, ptr %227, align 1
-  %228 = call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i.i.i138)
-  %229 = zext nneg i32 %224 to i64
-  %.not.i.i.i.i.i.i141 = icmp samesign ult i64 %invariant.op, %229
-  br i1 %.not.i.i.i.i.i.i141, label %230, label %231
+  %226 = getelementptr inbounds nuw i8, ptr %208, i64 %220
+  %.0.copyload.i.i.i.i.i.i138 = load i16, ptr %226, align 1
+  %227 = call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i.i.i138)
+  %228 = zext i32 %224 to i64
+  %.not.i.i.i.i.i.i141 = icmp samesign ult i64 %invariant.op, %228
+  br i1 %.not.i.i.i.i.i.i141, label %229, label %230
 
-230:                                              ; preds = %223
+229:                                              ; preds = %223
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.7, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #13
           to label %.noexc144 unwind label %238
 
-.noexc144:                                        ; preds = %230
+.noexc144:                                        ; preds = %229
   unreachable
 
-231:                                              ; preds = %223
-  %232 = add nuw nsw i32 %.sroa.19.0251, 4
-  %233 = icmp samesign ule i32 %232, %204
+230:                                              ; preds = %223
+  %231 = add nuw nsw i32 %.sroa.19.0251, 4
+  %232 = icmp samesign ule i32 %231, %204
+  call void @llvm.assume(i1 %232)
+  %233 = icmp sgt i32 %.sroa.19.0251, -3
   call void @llvm.assume(i1 %233)
-  %234 = getelementptr inbounds nuw i8, ptr %208, i64 %229
+  %234 = getelementptr inbounds nuw i8, ptr %208, i64 %228
   %.0.copyload.i.i.i.i.i.i142 = load i16, ptr %234, align 1
   %235 = call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i.i.i142)
-  switch i16 %228, label %242 [
+  switch i16 %227, label %242 [
     i16 256, label %240
     i16 272, label %240
     i16 273, label %240
@@ -838,21 +838,21 @@ _ZNSt10unique_ptrIN8rawspeed9TiffEntryESt14default_deleteIS1_EED2Ev.exit124: ; p
           cleanup
   br label %_ZNKSt14default_deleteIN8rawspeed7TiffIFDEEclEPS1_.exit.i168
 
-238:                                              ; preds = %230
+238:                                              ; preds = %229
   %239 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNKSt14default_deleteIN8rawspeed7TiffIFDEEclEPS1_.exit.i168
 
-240:                                              ; preds = %231, %231, %231, %231
+240:                                              ; preds = %230, %230, %230, %230
   %241 = lshr i16 %235, 1
   br label %242
 
-242:                                              ; preds = %240, %231
-  %.0239 = phi i8 [ 3, %240 ], [ 7, %231 ]
-  %.in = phi i16 [ %241, %240 ], [ %235, %231 ]
+242:                                              ; preds = %240, %230
+  %.0239 = phi i8 [ 3, %240 ], [ 7, %230 ]
+  %.in = phi i16 [ %241, %240 ], [ %235, %230 ]
   %243 = zext i16 %.in to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %244 = zext nneg i32 %232 to i64
+  %244 = zext nneg i32 %231 to i64
   %245 = zext i16 %235 to i64
   %246 = add nuw nsw i64 %245, %244
   %.not.i.i146 = icmp samesign ugt i64 %246, %209
@@ -867,7 +867,7 @@ _ZNSt10unique_ptrIN8rawspeed9TiffEntryESt14default_deleteIS1_EED2Ev.exit124: ; p
 
 248:                                              ; preds = %242
   %249 = zext i16 %235 to i32
-  %250 = add nuw nsw i32 %232, %249
+  %250 = add nuw nsw i32 %231, %249
   %251 = icmp samesign ule i32 %250, %204
   call void @llvm.assume(i1 %251)
   %252 = getelementptr inbounds nuw i8, ptr %208, i64 %244
@@ -880,7 +880,7 @@ _ZNSt10unique_ptrIN8rawspeed9TiffEntryESt14default_deleteIS1_EED2Ev.exit124: ; p
           to label %.noexc148 unwind label %.loopexit249
 
 .noexc148:                                        ; preds = %248
-  invoke void @_ZN8rawspeed9TiffEntryC1EPNS_7TiffIFDENS_7TiffTagENS_12TiffDataTypeEjNS_10ByteStreamE(ptr noundef nonnull align 8 dereferenceable(48) %253, ptr noundef nonnull %97, i16 noundef zeroext %228, i8 noundef zeroext %.0239, i32 noundef %243, ptr noundef nonnull byval(%"class.rawspeed::ByteStream") align 8 %22)
+  invoke void @_ZN8rawspeed9TiffEntryC1EPNS_7TiffIFDENS_7TiffTagENS_12TiffDataTypeEjNS_10ByteStreamE(ptr noundef nonnull align 8 dereferenceable(48) %253, ptr noundef nonnull %97, i16 noundef zeroext %227, i8 noundef zeroext %.0239, i32 noundef %243, ptr noundef nonnull byval(%"class.rawspeed::ByteStream") align 8 %22)
           to label %256 unwind label %254, !noalias !60
 
 254:                                              ; preds = %.noexc148

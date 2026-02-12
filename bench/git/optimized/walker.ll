@@ -47,7 +47,7 @@ define dso_local void @walker_say(ptr noundef readonly captures(none) %0, ptr no
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %8 = call i32 @vfprintf(ptr noundef %7, ptr noundef %1, ptr noundef nonnull %3) #14
+  %8 = call i32 @vfprintf(ptr noundef %7, ptr noundef %1, ptr noundef nonnull %3) #13
   call void @llvm.va_end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %9
@@ -73,7 +73,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @walker_targets_stdin(p
   store ptr null, ptr %0, align 8, !tbaa !12
   store ptr null, ptr %1, align 8, !tbaa !12
   %4 = load ptr, ptr @stdin, align 8, !tbaa !10
-  %5 = call i32 @strbuf_getline_lf(ptr noundef nonnull %3, ptr noundef %4) #15
+  %5 = call i32 @strbuf_getline_lf(ptr noundef nonnull %3, ptr noundef %4) #14
   %6 = icmp eq i32 %5, -1
   br i1 %6, label %._crit_edge, label %.lr.ph
 
@@ -85,7 +85,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @walker_targets_stdin(p
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %.02539 = phi i32 [ 0, %.lr.ph ], [ %.2, %31 ]
   %9 = load ptr, ptr %7, align 8, !tbaa !14
-  %10 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %9, i32 noundef 9) #16
+  %10 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %9, i32 noundef 9) #15
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %13, label %11
 
@@ -109,22 +109,22 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @walker_targets_stdin(p
   br i1 %mul.ov.i, label %19, label %st_mult.exit33
 
 19:                                               ; preds = %15
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.5, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %18) #17
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.5, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %18) #16
   unreachable
 
 st_mult.exit33:                                   ; preds = %15
   %20 = load ptr, ptr %0, align 8, !tbaa !12
   %21 = shl nuw nsw i64 %18, 3
-  %22 = call ptr @xrealloc(ptr noundef %20, i64 noundef %21) #15
+  %22 = call ptr @xrealloc(ptr noundef %20, i64 noundef %21) #14
   store ptr %22, ptr %0, align 8, !tbaa !12
   %23 = load ptr, ptr %1, align 8, !tbaa !12
-  %24 = call ptr @xrealloc(ptr noundef %23, i64 noundef %21) #15
+  %24 = call ptr @xrealloc(ptr noundef %23, i64 noundef %21) #14
   store ptr %24, ptr %1, align 8, !tbaa !12
   br label %25
 
 25:                                               ; preds = %st_mult.exit33, %13
   %.2 = phi i32 [ %17, %st_mult.exit33 ], [ %.02539, %13 ]
-  %26 = call ptr @xstrdup(ptr noundef nonnull %9) #15
+  %26 = call ptr @xstrdup(ptr noundef nonnull %9) #14
   %27 = load ptr, ptr %0, align 8, !tbaa !12
   %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
   store ptr %26, ptr %28, align 8, !tbaa !19
@@ -132,7 +132,7 @@ st_mult.exit33:                                   ; preds = %15
   br i1 %.not.i, label %31, label %29
 
 29:                                               ; preds = %25
-  %30 = call ptr @xstrdup(ptr noundef nonnull %.024) #15
+  %30 = call ptr @xstrdup(ptr noundef nonnull %.024) #14
   br label %31
 
 31:                                               ; preds = %29, %25
@@ -142,7 +142,7 @@ st_mult.exit33:                                   ; preds = %15
   store ptr %32, ptr %34, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load ptr, ptr @stdin, align 8, !tbaa !10
-  %36 = call i32 @strbuf_getline_lf(ptr noundef nonnull %3, ptr noundef %35) #15
+  %36 = call i32 @strbuf_getline_lf(ptr noundef nonnull %3, ptr noundef %35) #14
   %37 = icmp eq i32 %36, -1
   br i1 %37, label %._crit_edge.loopexit, label %8
 
@@ -152,7 +152,7 @@ st_mult.exit33:                                   ; preds = %15
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %.023.lcssa = phi i32 [ 0, %2 ], [ %38, %._crit_edge.loopexit ]
-  call void @strbuf_release(ptr noundef nonnull %3) #15
+  call void @strbuf_release(ptr noundef nonnull %3) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.023.lcssa
 }
@@ -186,7 +186,7 @@ define dso_local void @walker_targets_free(i32 noundef %0, ptr noundef readonly 
   %indvars.iv10 = phi i64 [ %indvars.iv.next11, %.lr.ph.split.us ], [ %5, %.lr.ph ]
   %6 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv10
   %7 = load ptr, ptr %6, align 8, !tbaa !19
-  tail call void @free(ptr noundef %7) #15
+  tail call void @free(ptr noundef %7) #14
   %indvars.iv.next11 = add nsw i64 %indvars.iv10, -1
   %8 = icmp eq i64 %indvars.iv10, 0
   br i1 %8, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !20
@@ -195,10 +195,10 @@ define dso_local void @walker_targets_free(i32 noundef %0, ptr noundef readonly 
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ %5, %.lr.ph ]
   %9 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !19
-  tail call void @free(ptr noundef %10) #15
+  tail call void @free(ptr noundef %10) #14
   %11 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !19
-  tail call void @free(ptr noundef %12) #15
+  tail call void @free(ptr noundef %12) #14
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %13 = icmp eq i64 %indvars.iv, 0
   br i1 %13, label %._crit_edge, label %.lr.ph.split, !llvm.loop !20
@@ -227,26 +227,26 @@ define dso_local range(i32 -1, 1) i32 @walker_fetch(ptr noundef %0, i32 noundef 
   br i1 %mul.ov.i, label %12, label %st_mult.exit
 
 12:                                               ; preds = %5
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.5, i64 noundef 36, i64 noundef range(i64 -2147483648, 2147483648) %11) #17
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.5, i64 noundef 36, i64 noundef range(i64 -2147483648, 2147483648) %11) #16
   unreachable
 
 st_mult.exit:                                     ; preds = %5
   %13 = mul nuw nsw i64 %11, 36
-  %14 = tail call ptr @xmalloc(i64 noundef %13) #15
+  %14 = tail call ptr @xmalloc(i64 noundef %13) #14
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %23, label %15
 
 15:                                               ; preds = %st_mult.exit
   %16 = load ptr, ptr @the_repository, align 8, !tbaa !23
-  %17 = tail call ptr @get_main_ref_store(ptr noundef %16) #15
-  %18 = call ptr @ref_store_transaction_begin(ptr noundef %17, i32 noundef 0, ptr noundef nonnull %10) #15
+  %17 = tail call ptr @get_main_ref_store(ptr noundef %16) #14
+  %18 = call ptr @ref_store_transaction_begin(ptr noundef %17, i32 noundef 0, ptr noundef nonnull %10) #14
   %.not47 = icmp eq ptr %18, null
   br i1 %.not47, label %19, label %23
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !14
-  %22 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef %21) #15
+  %22 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef %21) #14
   br label %301
 
 23:                                               ; preds = %15, %st_mult.exit
@@ -258,9 +258,9 @@ st_mult.exit:                                     ; preds = %5
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr @the_repository, align 8, !tbaa !23
-  %28 = call ptr @get_main_ref_store(ptr noundef %27) #15
-  %29 = call i32 @refs_for_each_ref(ptr noundef %28, ptr noundef nonnull @mark_complete, ptr noundef null) #15
-  call void @commit_list_sort_by_date(ptr noundef nonnull @complete) #15
+  %28 = call ptr @get_main_ref_store(ptr noundef %27) #14
+  %29 = call i32 @refs_for_each_ref(ptr noundef %28, ptr noundef nonnull @mark_complete, ptr noundef null) #14
+  call void @commit_list_sort_by_date(ptr noundef nonnull @complete) #14
   br label %30
 
 30:                                               ; preds = %26, %23
@@ -278,19 +278,19 @@ st_mult.exit:                                     ; preds = %5
   %34 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8, !tbaa !19
   %36 = getelementptr inbounds nuw %struct.object_id, ptr %14, i64 %indvars.iv
-  %37 = call i32 @get_oid_hex(ptr noundef %35, ptr noundef %36) #15
+  %37 = call i32 @get_oid_hex(ptr noundef %35, ptr noundef %36) #14
   %.not.i = icmp eq i32 %37, 0
   br i1 %.not.i, label %interpret_target.exit.thread, label %38
 
 38:                                               ; preds = %33
-  %39 = call i32 @check_refname_format(ptr noundef %35, i32 noundef 0) #15
+  %39 = call i32 @check_refname_format(ptr noundef %35, i32 noundef 0) #14
   %.not13.i = icmp eq i32 %39, 0
   br i1 %.not13.i, label %40, label %interpret_target.exit.thread61
 
 40:                                               ; preds = %38
-  %41 = call ptr @alloc_ref(ptr noundef %35) #15
+  %41 = call ptr @alloc_ref(ptr noundef %35) #14
   %42 = load ptr, ptr %31, align 8, !tbaa !26
-  %43 = call i32 %42(ptr noundef %0, ptr noundef %41) #15
+  %43 = call i32 %42(ptr noundef %0, ptr noundef %41) #14
   %.not14.i = icmp eq i32 %43, 0
   br i1 %.not14.i, label %interpret_target.exit.thread64, label %interpret_target.exit
 
@@ -301,22 +301,22 @@ interpret_target.exit.thread64:                   ; preds = %40
   %46 = load i32, ptr %45, align 4, !tbaa !27
   %47 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store i32 %46, ptr %47, align 4, !tbaa !27
-  call void @free(ptr noundef %41) #15
+  call void @free(ptr noundef %41) #14
   br label %interpret_target.exit.thread
 
 interpret_target.exit:                            ; preds = %40
-  call void @free(ptr noundef %41) #15
+  call void @free(ptr noundef %41) #14
   br label %interpret_target.exit.thread61
 
 interpret_target.exit.thread61:                   ; preds = %38, %interpret_target.exit
   %48 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8, !tbaa !19
-  %50 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1, ptr noundef %49) #15
+  %50 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1, ptr noundef %49) #14
   br label %301
 
 interpret_target.exit.thread:                     ; preds = %33, %interpret_target.exit.thread64
   %51 = load ptr, ptr @the_repository, align 8, !tbaa !23
-  %52 = call ptr @lookup_unknown_object(ptr noundef %51, ptr noundef %36) #15
+  %52 = call ptr @lookup_unknown_object(ptr noundef %51, ptr noundef %36) #14
   %53 = load i32, ptr %52, align 4
   %54 = and i32 %53, 32
   %.not.i56 = icmp eq i32 %54, 0
@@ -327,7 +327,7 @@ interpret_target.exit.thread:                     ; preds = %33, %interpret_targ
   store i32 %56, ptr %52, align 4
   %57 = load ptr, ptr @the_repository, align 8, !tbaa !23
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  %59 = call i32 @repo_has_object_file(ptr noundef %57, ptr noundef nonnull %58) #15
+  %59 = call i32 @repo_has_object_file(ptr noundef %57, ptr noundef nonnull %58) #14
   %.not9.i = icmp eq i32 %59, 0
   %60 = load i32, ptr %52, align 4
   br i1 %.not9.i, label %63, label %61
@@ -344,12 +344,12 @@ interpret_target.exit.thread:                     ; preds = %33, %interpret_targ
 
 65:                                               ; preds = %63
   %66 = load ptr, ptr %32, align 8, !tbaa !29
-  call void %66(ptr noundef %0, ptr noundef nonnull %58) #15
+  call void %66(ptr noundef %0, ptr noundef nonnull %58) #14
   br label %67
 
 67:                                               ; preds = %65, %61
   %68 = load ptr, ptr @process_queue_end, align 8, !tbaa !30
-  %69 = call ptr @object_list_insert(ptr noundef nonnull %52, ptr noundef %68) #15
+  %69 = call ptr @object_list_insert(ptr noundef nonnull %52, ptr noundef %68) #14
   %70 = load ptr, ptr @process_queue_end, align 8, !tbaa !30
   %71 = load ptr, ptr %70, align 8, !tbaa !32
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
@@ -376,12 +376,12 @@ process.exit:                                     ; preds = %interpret_target.ex
   br i1 %.not4.i.i, label %_.exit.i, label %78
 
 78:                                               ; preds = %75
-  %79 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 5) #15
+  %79 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 5) #14
   br label %_.exit.i
 
 _.exit.i:                                         ; preds = %78, %75
   %.0.i.i = phi ptr [ %79, %78 ], [ @.str.6, %75 ]
-  %80 = call ptr @start_delayed_progress(ptr noundef %76, ptr noundef %.0.i.i, i64 noundef 0) #15
+  %80 = call ptr @start_delayed_progress(ptr noundef %76, ptr noundef %.0.i.i, i64 noundef 0) #14
   store ptr %80, ptr %8, align 8, !tbaa !35
   br label %81
 
@@ -403,7 +403,7 @@ _.exit.i:                                         ; preds = %78, %75
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %90 = load ptr, ptr %89, align 8, !tbaa !41
   store ptr %90, ptr @process_queue, align 8, !tbaa !32
-  call void @free(ptr noundef nonnull %87) #15
+  call void @free(ptr noundef nonnull %87) #14
   %91 = load ptr, ptr @process_queue, align 8, !tbaa !32
   %.not19.i = icmp eq ptr %91, null
   br i1 %.not19.i, label %92, label %93
@@ -421,7 +421,7 @@ _.exit.i:                                         ; preds = %78, %75
 96:                                               ; preds = %93
   %97 = load ptr, ptr %83, align 8, !tbaa !42
   %98 = getelementptr inbounds nuw i8, ptr %88, i64 4
-  %99 = call i32 %97(ptr noundef %0, ptr noundef nonnull %98) #15
+  %99 = call i32 %97(ptr noundef %0, ptr noundef nonnull %98) #14
   %.not21.i = icmp eq i32 %99, 0
   br i1 %.not21.i, label %._crit_edge58.i, label %100
 
@@ -435,12 +435,12 @@ _.exit.i:                                         ; preds = %78, %75
   br i1 %.not4.i.i.i, label %stop_progress.exit.i, label %102
 
 102:                                              ; preds = %100
-  %103 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef 5) #15
+  %103 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef 5) #14
   br label %stop_progress.exit.i
 
 stop_progress.exit.i:                             ; preds = %102, %100
   %.0.i.i.i = phi ptr [ %103, %102 ], [ @.str.8, %100 ]
-  call void @stop_progress_msg(ptr noundef nonnull %8, ptr noundef %.0.i.i.i) #15
+  call void @stop_progress_msg(ptr noundef nonnull %8, ptr noundef %.0.i.i.i) #14
   %104 = load ptr, ptr @stderr, align 8, !tbaa !10
   %105 = load i32, ptr %88, align 4
   %106 = lshr i32 %105, 1
@@ -449,21 +449,21 @@ stop_progress.exit.i:                             ; preds = %102, %100
   br i1 %.not.i.i, label %110, label %108
 
 108:                                              ; preds = %stop_progress.exit.i
-  %109 = call ptr @type_name(i32 noundef %107) #15
+  %109 = call ptr @type_name(i32 noundef %107) #14
   br label %110
 
 110:                                              ; preds = %108, %stop_progress.exit.i
   %111 = phi ptr [ %109, %108 ], [ @.str.10, %stop_progress.exit.i ]
-  %112 = call ptr @oid_to_hex(ptr noundef nonnull %98) #15
-  %113 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.9, ptr noundef %111, ptr noundef %112) #14
+  %112 = call ptr @oid_to_hex(ptr noundef nonnull %98) #14
+  %113 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.9, ptr noundef %111, ptr noundef %112) #13
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) @current_commit_oid, ptr noundef nonnull dereferenceable(32) @is_null_oid.null_hash, i64 32)
   %.not.i.not.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %.not.i.not.i.i, label %loop.exit.thread, label %114
 
 114:                                              ; preds = %110
   %115 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %116 = call ptr @oid_to_hex(ptr noundef nonnull @current_commit_oid) #15
-  %117 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %115, ptr noundef nonnull @.str.11, ptr noundef %116) #14
+  %116 = call ptr @oid_to_hex(ptr noundef nonnull @current_commit_oid) #14
+  %117 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %115, ptr noundef nonnull @.str.11, ptr noundef %116) #13
   br label %loop.exit.thread
 
 118:                                              ; preds = %._crit_edge58.i, %93
@@ -475,7 +475,7 @@ stop_progress.exit.i:                             ; preds = %102, %100
 121:                                              ; preds = %118
   %122 = load ptr, ptr @the_repository, align 8, !tbaa !23
   %123 = getelementptr inbounds nuw i8, ptr %88, i64 4
-  %124 = call ptr @parse_object(ptr noundef %122, ptr noundef nonnull %123) #15
+  %124 = call ptr @parse_object(ptr noundef %122, ptr noundef nonnull %123) #14
   %.pre59.i = load i32, ptr %88, align 4
   br label %125
 
@@ -492,7 +492,7 @@ stop_progress.exit.i:                             ; preds = %102, %100
 
 129:                                              ; preds = %125
   %130 = load ptr, ptr @the_repository, align 8, !tbaa !23
-  %131 = call i32 @repo_parse_commit_gently(ptr noundef %130, ptr noundef nonnull %88, i32 noundef 0) #15
+  %131 = call i32 @repo_parse_commit_gently(ptr noundef %130, ptr noundef nonnull %88, i32 noundef 0) #14
   %.not.i.i.i = icmp eq i32 %131, 0
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %process_object.exit.i
 
@@ -515,7 +515,7 @@ stop_progress.exit.i:                             ; preds = %102, %100
   br i1 %.not16.i.i.i, label %.critedge.i.i.i, label %140
 
 140:                                              ; preds = %134
-  %141 = call ptr @pop_most_recent_commit(ptr noundef nonnull @complete, i32 noundef 1) #15
+  %141 = call ptr @pop_most_recent_commit(ptr noundef nonnull @complete, i32 noundef 1) #14
   %142 = load ptr, ptr @complete, align 8, !tbaa !43
   %.not15.i.i.i = icmp eq ptr %142, null
   br i1 %.not15.i.i.i, label %.critedge.i.i.i, label %134, !llvm.loop !52
@@ -532,10 +532,10 @@ stop_progress.exit.i:                             ; preds = %102, %100
   %147 = getelementptr inbounds nuw i8, ptr %88, i64 36
   %148 = load i32, ptr %147, align 4, !tbaa !27
   store i32 %148, ptr getelementptr inbounds nuw (i8, ptr @current_commit_oid, i64 32), align 4, !tbaa !27
-  %149 = call ptr @oid_to_hex(ptr noundef nonnull %146) #15
+  %149 = call ptr @oid_to_hex(ptr noundef nonnull %146) #14
   call void (ptr, ptr, ...) @walker_say(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %149)
   %150 = load ptr, ptr @the_repository, align 8, !tbaa !23
-  %151 = call ptr @repo_get_commit_tree(ptr noundef %150, ptr noundef nonnull %88) #15
+  %151 = call ptr @repo_get_commit_tree(ptr noundef %150, ptr noundef nonnull %88) #14
   %152 = load i32, ptr %151, align 4
   %153 = and i32 %152, 32
   %.not.i.i.i.i = icmp eq i32 %153, 0
@@ -546,7 +546,7 @@ stop_progress.exit.i:                             ; preds = %102, %100
   store i32 %155, ptr %151, align 4
   %156 = load ptr, ptr @the_repository, align 8, !tbaa !23
   %157 = getelementptr inbounds nuw i8, ptr %151, i64 4
-  %158 = call i32 @repo_has_object_file(ptr noundef %156, ptr noundef nonnull %157) #15
+  %158 = call i32 @repo_has_object_file(ptr noundef %156, ptr noundef nonnull %157) #14
   %.not9.i.i.i.i = icmp eq i32 %158, 0
   %159 = load i32, ptr %151, align 4
   br i1 %.not9.i.i.i.i, label %162, label %160
@@ -563,12 +563,12 @@ stop_progress.exit.i:                             ; preds = %102, %100
 
 164:                                              ; preds = %162
   %165 = load ptr, ptr %84, align 8, !tbaa !29
-  call void %165(ptr noundef %0, ptr noundef nonnull %157) #15
+  call void %165(ptr noundef %0, ptr noundef nonnull %157) #14
   br label %166
 
 166:                                              ; preds = %164, %160
   %167 = load ptr, ptr @process_queue_end, align 8, !tbaa !30
-  %168 = call ptr @object_list_insert(ptr noundef nonnull %151, ptr noundef %167) #15
+  %168 = call ptr @object_list_insert(ptr noundef nonnull %151, ptr noundef %167) #14
   %169 = load ptr, ptr @process_queue_end, align 8, !tbaa !30
   %170 = load ptr, ptr %169, align 8, !tbaa !32
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -594,7 +594,7 @@ process.exit.i.i.i:                               ; preds = %166, %162, %145
   store i32 %177, ptr %173, align 4
   %178 = load ptr, ptr @the_repository, align 8, !tbaa !23
   %179 = getelementptr inbounds nuw i8, ptr %173, i64 4
-  %180 = call i32 @repo_has_object_file(ptr noundef %178, ptr noundef nonnull %179) #15
+  %180 = call i32 @repo_has_object_file(ptr noundef %178, ptr noundef nonnull %179) #14
   %.not9.i20.i.i.i = icmp eq i32 %180, 0
   %181 = load i32, ptr %173, align 4
   br i1 %.not9.i20.i.i.i, label %184, label %182
@@ -611,12 +611,12 @@ process.exit.i.i.i:                               ; preds = %166, %162, %145
 
 186:                                              ; preds = %184
   %187 = load ptr, ptr %84, align 8, !tbaa !29
-  call void %187(ptr noundef %0, ptr noundef nonnull %179) #15
+  call void %187(ptr noundef %0, ptr noundef nonnull %179) #14
   br label %188
 
 188:                                              ; preds = %186, %182
   %189 = load ptr, ptr @process_queue_end, align 8, !tbaa !30
-  %190 = call ptr @object_list_insert(ptr noundef nonnull %173, ptr noundef %189) #15
+  %190 = call ptr @object_list_insert(ptr noundef nonnull %173, ptr noundef %189) #14
   %191 = load ptr, ptr @process_queue_end, align 8, !tbaa !30
   %192 = load ptr, ptr %191, align 8, !tbaa !32
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
@@ -632,7 +632,7 @@ process.exit22.i.i.i:                             ; preds = %188, %184, %.lr.ph2
 195:                                              ; preds = %125
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %196 = call i32 @parse_tree_gently(ptr noundef nonnull %88, i32 noundef 0) #15
+  %196 = call i32 @parse_tree_gently(ptr noundef nonnull %88, i32 noundef 0) #14
   %.not.i17.i.i = icmp eq i32 %196, 0
   br i1 %.not.i17.i.i, label %197, label %process_tree.exit.thread.i.i
 
@@ -642,8 +642,8 @@ process.exit22.i.i.i:                             ; preds = %188, %184, %.lr.ph2
   %200 = load ptr, ptr %199, align 8, !tbaa !54
   %201 = getelementptr inbounds nuw i8, ptr %88, i64 48
   %202 = load i64, ptr %201, align 8, !tbaa !56
-  call void @init_tree_desc(ptr noundef nonnull %6, ptr noundef nonnull %198, ptr noundef %200, i64 noundef %202) #15
-  %203 = call i32 @tree_entry(ptr noundef nonnull %6, ptr noundef nonnull %7) #15
+  call void @init_tree_desc(ptr noundef nonnull %6, ptr noundef nonnull %198, ptr noundef %200, i64 noundef %202) #14
+  %203 = call i32 @tree_entry(ptr noundef nonnull %6, ptr noundef nonnull %7) #14
   %.not2026.i.i.i = icmp eq i32 %203, 0
   br i1 %.not2026.i.i.i, label %.loopexit.i.i, label %.lr.ph.i19.i.i
 
@@ -658,12 +658,12 @@ process.exit22.i.i.i:                             ; preds = %188, %184, %.lr.ph2
 
 206:                                              ; preds = %.lr.ph.i19.i.i
   %207 = load ptr, ptr @the_repository, align 8, !tbaa !23
-  %208 = call ptr @lookup_tree(ptr noundef %207, ptr noundef nonnull %7) #15
+  %208 = call ptr @lookup_tree(ptr noundef %207, ptr noundef nonnull %7) #14
   br label %212
 
 209:                                              ; preds = %.lr.ph.i19.i.i
   %210 = load ptr, ptr @the_repository, align 8, !tbaa !23
-  %211 = call ptr @lookup_blob(ptr noundef %210, ptr noundef nonnull %7) #15
+  %211 = call ptr @lookup_blob(ptr noundef %210, ptr noundef nonnull %7) #14
   br label %212
 
 212:                                              ; preds = %209, %206
@@ -682,7 +682,7 @@ process.exit22.i.i.i:                             ; preds = %188, %184, %.lr.ph2
   store i32 %217, ptr %.115.i.i.i, align 4
   %218 = load ptr, ptr @the_repository, align 8, !tbaa !23
   %219 = getelementptr inbounds nuw i8, ptr %.115.i.i.i, i64 4
-  %220 = call i32 @repo_has_object_file(ptr noundef %218, ptr noundef nonnull %219) #15
+  %220 = call i32 @repo_has_object_file(ptr noundef %218, ptr noundef nonnull %219) #14
   %.not9.i.i22.i.i = icmp eq i32 %220, 0
   %221 = load i32, ptr %.115.i.i.i, align 4
   br i1 %.not9.i.i22.i.i, label %224, label %222
@@ -699,12 +699,12 @@ process.exit22.i.i.i:                             ; preds = %188, %184, %.lr.ph2
 
 226:                                              ; preds = %224
   %227 = load ptr, ptr %84, align 8, !tbaa !29
-  call void %227(ptr noundef %0, ptr noundef nonnull %219) #15
+  call void %227(ptr noundef %0, ptr noundef nonnull %219) #14
   br label %228
 
 228:                                              ; preds = %226, %222
   %229 = load ptr, ptr @process_queue_end, align 8, !tbaa !30
-  %230 = call ptr @object_list_insert(ptr noundef nonnull %.115.i.i.i, ptr noundef %229) #15
+  %230 = call ptr @object_list_insert(ptr noundef nonnull %.115.i.i.i, ptr noundef %229) #14
   %231 = load ptr, ptr @process_queue_end, align 8, !tbaa !30
   %232 = load ptr, ptr %231, align 8, !tbaa !32
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 8
@@ -712,7 +712,7 @@ process.exit22.i.i.i:                             ; preds = %188, %184, %.lr.ph2
   br label %process.exit.i21.i.i
 
 process.exit.i21.i.i:                             ; preds = %228, %224, %213, %.lr.ph.i19.i.i
-  %234 = call i32 @tree_entry(ptr noundef nonnull %6, ptr noundef nonnull %7) #15
+  %234 = call i32 @tree_entry(ptr noundef nonnull %6, ptr noundef nonnull %7) #14
   %.not20.i.i.i = icmp eq i32 %234, 0
   br i1 %.not20.i.i.i, label %.loopexit.i.i, label %.lr.ph.i19.i.i
 
@@ -722,13 +722,13 @@ process_tree.exit.thread.i.i:                     ; preds = %195, %212
   br label %process_object.exit.i
 
 .loopexit.i.i:                                    ; preds = %process.exit.i21.i.i, %197
-  call void @free_tree_buffer(ptr noundef nonnull %88) #15
+  call void @free_tree_buffer(ptr noundef nonnull %88) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit.i
 
 235:                                              ; preds = %125
-  %236 = call i32 @parse_tag(ptr noundef nonnull %88) #15
+  %236 = call i32 @parse_tag(ptr noundef nonnull %88) #14
   %.not.i24.i.i = icmp eq i32 %236, 0
   br i1 %.not.i24.i.i, label %237, label %process_object.exit.i
 
@@ -745,7 +745,7 @@ process_tree.exit.thread.i.i:                     ; preds = %195, %212
   store i32 %243, ptr %239, align 4
   %244 = load ptr, ptr @the_repository, align 8, !tbaa !23
   %245 = getelementptr inbounds nuw i8, ptr %239, i64 4
-  %246 = call i32 @repo_has_object_file(ptr noundef %244, ptr noundef nonnull %245) #15
+  %246 = call i32 @repo_has_object_file(ptr noundef %244, ptr noundef nonnull %245) #14
   %.not9.i.i28.i.i = icmp eq i32 %246, 0
   %247 = load i32, ptr %239, align 4
   br i1 %.not9.i.i28.i.i, label %250, label %248
@@ -762,12 +762,12 @@ process_tree.exit.thread.i.i:                     ; preds = %195, %212
 
 252:                                              ; preds = %250
   %253 = load ptr, ptr %84, align 8, !tbaa !29
-  call void %253(ptr noundef %0, ptr noundef nonnull %245) #15
+  call void %253(ptr noundef %0, ptr noundef nonnull %245) #14
   br label %254
 
 254:                                              ; preds = %252, %248
   %255 = load ptr, ptr @process_queue_end, align 8, !tbaa !30
-  %256 = call ptr @object_list_insert(ptr noundef nonnull %239, ptr noundef %255) #15
+  %256 = call ptr @object_list_insert(ptr noundef nonnull %239, ptr noundef %255) #14
   %257 = load ptr, ptr @process_queue_end, align 8, !tbaa !30
   %258 = load ptr, ptr %257, align 8, !tbaa !32
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 8
@@ -775,10 +775,10 @@ process_tree.exit.thread.i.i:                     ; preds = %195, %212
   br label %.loopexit.i
 
 260:                                              ; preds = %125
-  %261 = call ptr @type_name(i32 noundef %128) #15
+  %261 = call ptr @type_name(i32 noundef %128) #14
   %262 = getelementptr inbounds nuw i8, ptr %88, i64 4
-  %263 = call ptr @oid_to_hex(ptr noundef nonnull %262) #15
-  %264 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.12, ptr noundef %261, ptr noundef %263) #15
+  %263 = call ptr @oid_to_hex(ptr noundef nonnull %262) #14
+  %264 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.12, ptr noundef %261, ptr noundef %263) #14
   br label %process_object.exit.i
 
 process_object.exit.i:                            ; preds = %235, %129, %260, %process_tree.exit.thread.i.i
@@ -787,18 +787,18 @@ process_object.exit.i:                            ; preds = %235, %129, %260, %p
   br i1 %.not4.i.i26.i, label %stop_progress.exit28.i, label %266
 
 266:                                              ; preds = %process_object.exit.i
-  %267 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef 5) #15
+  %267 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef 5) #14
   br label %stop_progress.exit28.i
 
 stop_progress.exit28.i:                           ; preds = %266, %process_object.exit.i
   %.0.i.i27.i = phi ptr [ %267, %266 ], [ @.str.8, %process_object.exit.i ]
-  call void @stop_progress_msg(ptr noundef nonnull %8, ptr noundef %.0.i.i27.i) #15
+  call void @stop_progress_msg(ptr noundef nonnull %8, ptr noundef %.0.i.i27.i) #14
   br label %loop.exit.thread
 
 .loopexit.i:                                      ; preds = %process.exit22.i.i.i, %254, %250, %237, %.loopexit.i.i, %process.exit.i.i.i, %.critedge.i.i.i, %125
   %268 = load ptr, ptr %8, align 8, !tbaa !35
   %269 = add i64 %.01545.i, 1
-  call void @display_progress(ptr noundef %268, i64 noundef %269) #15
+  call void @display_progress(ptr noundef %268, i64 noundef %269) #14
   %270 = load ptr, ptr @process_queue, align 8, !tbaa !32
   %.not18.i = icmp eq ptr %270, null
   br i1 %.not18.i, label %._crit_edge.i, label %86, !llvm.loop !61
@@ -809,7 +809,7 @@ stop_progress.exit28.i:                           ; preds = %266, %process_objec
   br i1 %.not4.i.i29.i, label %loop.exit, label %272
 
 272:                                              ; preds = %._crit_edge.i
-  %273 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef 5) #15
+  %273 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef 5) #14
   br label %loop.exit
 
 loop.exit.thread:                                 ; preds = %stop_progress.exit28.i, %110, %114
@@ -818,7 +818,7 @@ loop.exit.thread:                                 ; preds = %stop_progress.exit2
 
 loop.exit:                                        ; preds = %._crit_edge.i, %272
   %.0.i.i30.i = phi ptr [ %273, %272 ], [ @.str.8, %._crit_edge.i ]
-  call void @stop_progress_msg(ptr noundef nonnull %8, ptr noundef %.0.i.i30.i) #15
+  call void @stop_progress_msg(ptr noundef nonnull %8, ptr noundef %.0.i.i30.i) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not, label %301, label %274
 
@@ -827,7 +827,7 @@ loop.exit:                                        ; preds = %._crit_edge.i, %272
   br i1 %.not50, label %277, label %275
 
 275:                                              ; preds = %274
-  %276 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.2, ptr noundef nonnull %4) #15
+  %276 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.2, ptr noundef nonnull %4) #14
   br label %277
 
 277:                                              ; preds = %274, %275
@@ -839,8 +839,7 @@ loop.exit:                                        ; preds = %._crit_edge.i, %272
   %279 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.not53 = icmp eq ptr %.139, null
   %280 = select i1 %.not53, ptr @.str.4, ptr %.139
-  %smax116 = call i32 @llvm.smax.i32(i32 %1, i32 1)
-  %wide.trip.count117 = zext nneg i32 %smax116 to i64
+  %wide.trip.count117 = zext nneg i32 %1 to i64
   br label %281
 
 281:                                              ; preds = %.lr.ph92, %295
@@ -863,17 +862,17 @@ loop.exit:                                        ; preds = %._crit_edge.i, %272
 
 strbuf_setlen.exit:                               ; preds = %284, %286
   %287 = phi ptr [ %283, %284 ], [ %.pre, %286 ]
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %9, ptr noundef nonnull @.str.3, ptr noundef %287) #15
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %9, ptr noundef nonnull @.str.3, ptr noundef %287) #14
   %288 = load ptr, ptr %279, align 8, !tbaa !14
   %289 = getelementptr inbounds nuw %struct.object_id, ptr %14, i64 %indvars.iv113
-  %290 = call i32 @ref_transaction_update(ptr noundef %.040, ptr noundef %288, ptr noundef %289, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %280, ptr noundef nonnull %10) #15
+  %290 = call i32 @ref_transaction_update(ptr noundef %.040, ptr noundef %288, ptr noundef %289, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %280, ptr noundef nonnull %10) #14
   %.not54 = icmp eq i32 %290, 0
   br i1 %.not54, label %295, label %291
 
 291:                                              ; preds = %strbuf_setlen.exit
   %292 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %293 = load ptr, ptr %292, align 8, !tbaa !14
-  %294 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef %293) #15
+  %294 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef %293) #14
   br label %301
 
 295:                                              ; preds = %strbuf_setlen.exit, %281
@@ -882,25 +881,25 @@ strbuf_setlen.exit:                               ; preds = %284, %286
   br i1 %exitcond118.not, label %._crit_edge93, label %281, !llvm.loop !63
 
 ._crit_edge93:                                    ; preds = %295, %277
-  %296 = call i32 @ref_transaction_commit(ptr noundef %.040, ptr noundef nonnull %10) #15
+  %296 = call i32 @ref_transaction_commit(ptr noundef %.040, ptr noundef nonnull %10) #14
   %.not51 = icmp eq i32 %296, 0
   br i1 %.not51, label %301, label %297
 
 297:                                              ; preds = %._crit_edge93
   %298 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %299 = load ptr, ptr %298, align 8, !tbaa !14
-  %300 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef %299) #15
+  %300 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef %299) #14
   br label %301
 
 301:                                              ; preds = %loop.exit.thread, %loop.exit, %._crit_edge93, %297, %291, %interpret_target.exit.thread61, %19
   %.141 = phi ptr [ %.040, %interpret_target.exit.thread61 ], [ null, %19 ], [ %.040, %loop.exit ], [ %.040, %291 ], [ %.040, %297 ], [ %.040, %._crit_edge93 ], [ %.040, %loop.exit.thread ]
   %.038 = phi ptr [ null, %interpret_target.exit.thread61 ], [ null, %19 ], [ null, %loop.exit ], [ %.139, %291 ], [ %.139, %297 ], [ %.139, %._crit_edge93 ], [ null, %loop.exit.thread ]
   %.0 = phi i32 [ -1, %interpret_target.exit.thread61 ], [ -1, %19 ], [ 0, %loop.exit ], [ -1, %291 ], [ -1, %297 ], [ 0, %._crit_edge93 ], [ -1, %loop.exit.thread ]
-  call void @ref_transaction_free(ptr noundef %.141) #15
-  call void @free(ptr noundef %.038) #15
-  call void @free(ptr noundef %14) #15
-  call void @strbuf_release(ptr noundef nonnull %10) #15
-  call void @strbuf_release(ptr noundef nonnull %9) #15
+  call void @ref_transaction_free(ptr noundef %.141) #14
+  call void @free(ptr noundef %.038) #14
+  call void @free(ptr noundef %14) #14
+  call void @strbuf_release(ptr noundef nonnull %10) #14
+  call void @strbuf_release(ptr noundef nonnull %9) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
@@ -919,7 +918,7 @@ declare i32 @refs_for_each_ref(ptr noundef, ptr noundef, ptr noundef) local_unna
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @mark_complete(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, i32 %3, ptr readnone captures(none) %4) #3 {
   %6 = load ptr, ptr @the_repository, align 8, !tbaa !23
-  %7 = tail call ptr @lookup_commit_reference_gently(ptr noundef %6, ptr noundef %2, i32 noundef 1) #15
+  %7 = tail call ptr @lookup_commit_reference_gently(ptr noundef %6, ptr noundef %2, i32 noundef 1) #14
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %12, label %8
 
@@ -927,7 +926,7 @@ define internal noundef i32 @mark_complete(ptr readnone captures(none) %0, ptr r
   %9 = load i32, ptr %7, align 8
   %10 = or i32 %9, 16
   store i32 %10, ptr %7, align 8
-  %11 = tail call ptr @commit_list_insert(ptr noundef nonnull %7, ptr noundef nonnull @complete) #15
+  %11 = tail call ptr @commit_list_insert(ptr noundef nonnull %7, ptr noundef nonnull @complete) #14
   br label %12
 
 12:                                               ; preds = %8, %5
@@ -952,8 +951,8 @@ declare void @ref_transaction_free(ptr noundef) local_unnamed_addr #5
 define dso_local void @walker_free(ptr noundef %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !64
-  tail call void %3(ptr noundef %0) #15
-  tail call void @free(ptr noundef %0) #15
+  tail call void %3(ptr noundef %0) #14
+  tail call void @free(ptr noundef %0) #14
   ret void
 }
 
@@ -1021,9 +1020,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #13
-
 attributes #0 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1037,11 +1033,10 @@ attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { cold nounwind }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind willreturn memory(read) }
-attributes #17 = { noreturn nounwind }
+attributes #13 = { cold nounwind }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

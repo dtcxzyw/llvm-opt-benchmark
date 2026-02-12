@@ -1051,8 +1051,7 @@ _ZN2cv3dnn14dnn4_v2024122312_GLOBAL__N_113CaffeImporter8BlobNoteD2Ev.exit352: ; 
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %236 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %237 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %smax1923 = call i32 @llvm.smax.i32(i32 %159, i32 1)
-  %wide.trip.count1924 = zext nneg i32 %smax1923 to i64
+  %wide.trip.count1924 = zext nneg i32 %159 to i64
   br label %240
 
 238:                                              ; preds = %230
@@ -1185,7 +1184,6 @@ _ZNSt6vectorIiSaIiEED2Ev.exit358:                 ; preds = %279, %276, %274
   %284 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %285 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %286 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %smax1913 = call i32 @llvm.smax.i32(i32 %159, i32 1)
   br label %372
 
 287:                                              ; preds = %280
@@ -1482,7 +1480,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE9push_backERKS1_.exit385: ; preds = %._ZNSt6vecto
 _ZNSt6vectorIiSaIiEED2Ev.exit387:                 ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE9push_backERKS1_.exit385, %386
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   %387 = add nuw nsw i32 %.01981814, 1
-  %exitcond1914.not = icmp eq i32 %387, %smax1913
+  %exitcond1914.not = icmp eq i32 %387, %159
   br i1 %exitcond1914.not, label %.loopexit1093, label %372, !llvm.loop !88
 
 388:                                              ; preds = %384
@@ -1951,8 +1949,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i:   ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %.not.i.i.i.i.i400, label %._crit_edge.i, label %.lr.ph32.i
 
 .lr.ph32.i:                                       ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i
-  %smax.i = call i32 @llvm.smax.i32(i32 %605, i32 1)
-  %wide.trip.count.i = zext nneg i32 %smax.i to i64
+  %wide.trip.count.i = zext nneg i32 %605 to i64
   br label %642
 
 ._crit_edge.i:                                    ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i
@@ -16154,9 +16151,6 @@ declare i64 @llvm.smax.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #24
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #24
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #25

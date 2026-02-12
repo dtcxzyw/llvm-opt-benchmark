@@ -40648,20 +40648,16 @@ _ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iterat
   %96 = sub i64 %94, %95
   %spec.store.select = tail call i64 @llvm.smin.i64(i64 %96, i64 196608)
   %97 = icmp sgt i64 %96, 0
-  br i1 %97, label %.lr.ph.preheader, label %._crit_edge.thread
-
-.lr.ph.preheader:                                 ; preds = %90
-  %smax = tail call i64 @llvm.smax.i64(i64 %spec.store.select, i64 1)
-  br label %.lr.ph
+  br i1 %97, label %.lr.ph, label %._crit_edge.thread
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.pre262.pre = load ptr, ptr %61, align 8, !tbaa !124
   %.not214 = icmp samesign ugt i64 %96, 196607
   br i1 %.not214, label %105, label %._crit_edge.thread
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0198249 = phi ptr [ %101, %.lr.ph ], [ %91, %.lr.ph.preheader ]
-  %.0199248 = phi i64 [ %102, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %90, %.lr.ph
+  %.0198249 = phi ptr [ %101, %.lr.ph ], [ %91, %90 ]
+  %.0199248 = phi i64 [ %102, %.lr.ph ], [ 0, %90 ]
   %98 = load ptr, ptr %92, align 8, !tbaa !173
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 1
   store ptr %99, ptr %92, align 8, !tbaa !173
@@ -40669,7 +40665,7 @@ _ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iterat
   %101 = getelementptr inbounds nuw i8, ptr %.0198249, i64 1
   store i8 %100, ptr %.0198249, align 1, !tbaa !11
   %102 = add nuw nsw i64 %.0199248, 1
-  %exitcond.not = icmp eq i64 %102, %smax
+  %exitcond.not = icmp eq i64 %102, %spec.store.select
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !174
 
 ._crit_edge.thread:                               ; preds = %90, %._crit_edge
@@ -81139,20 +81135,16 @@ _ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iterat
   %96 = sub i64 %94, %95
   %spec.store.select = tail call i64 @llvm.smin.i64(i64 %96, i64 196608)
   %97 = icmp sgt i64 %96, 0
-  br i1 %97, label %.lr.ph.preheader, label %._crit_edge.thread
-
-.lr.ph.preheader:                                 ; preds = %90
-  %smax = tail call i64 @llvm.smax.i64(i64 %spec.store.select, i64 1)
-  br label %.lr.ph
+  br i1 %97, label %.lr.ph, label %._crit_edge.thread
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.pre262.pre = load ptr, ptr %61, align 8, !tbaa !212
   %.not214 = icmp samesign ugt i64 %96, 196607
   br i1 %.not214, label %105, label %._crit_edge.thread
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0198249 = phi ptr [ %101, %.lr.ph ], [ %91, %.lr.ph.preheader ]
-  %.0199248 = phi i64 [ %102, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %90, %.lr.ph
+  %.0198249 = phi ptr [ %101, %.lr.ph ], [ %91, %90 ]
+  %.0199248 = phi i64 [ %102, %.lr.ph ], [ 0, %90 ]
   %98 = load ptr, ptr %92, align 8, !tbaa !226
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 1
   store ptr %99, ptr %92, align 8, !tbaa !226
@@ -81160,7 +81152,7 @@ _ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iterat
   %101 = getelementptr inbounds nuw i8, ptr %.0198249, i64 1
   store i8 %100, ptr %.0198249, align 1, !tbaa !11
   %102 = add nuw nsw i64 %.0199248, 1
-  %exitcond.not = icmp eq i64 %102, %smax
+  %exitcond.not = icmp eq i64 %102, %spec.store.select
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !227
 
 ._crit_edge.thread:                               ; preds = %90, %._crit_edge
@@ -81494,9 +81486,6 @@ declare i64 @llvm.umax.i64(i64, i64) #28
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #28
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #28
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

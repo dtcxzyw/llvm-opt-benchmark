@@ -25820,11 +25820,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc191, %2
   br label %579
 
 .preheader354:                                    ; preds = %._crit_edge419, %._crit_edge
-  br i1 %.not.i.i.i.i, label %.preheader, label %.lr.ph425.preheader
-
-.lr.ph425.preheader:                              ; preds = %.preheader354
-  %smax452 = call i64 @llvm.smax.i64(i64 %44, i64 1)
-  br label %.lr.ph425
+  br i1 %.not.i.i.i.i, label %.preheader, label %.lr.ph425
 
 251:                                              ; preds = %.lr.ph423, %._crit_edge419
   %.sroa.0308.0421 = phi ptr [ %214, %.lr.ph423 ], [ %425, %._crit_edge419 ]
@@ -26580,12 +26576,11 @@ _ZNSt6vectorIxSaIxEED2Ev.exit254:                 ; preds = %488, %486, %480
   br i1 %.not.i.i.i.i182, label %._crit_edge428, label %.lr.ph427.preheader
 
 .lr.ph427.preheader:                              ; preds = %.preheader
-  %smax454 = call i64 @llvm.smax.i64(i64 %47, i64 1)
   %.pre456 = load ptr, ptr %31, align 8, !tbaa !408
   br label %.lr.ph427
 
-.lr.ph425:                                        ; preds = %.lr.ph425.preheader, %_ZN6casadi2MXaSERKS0_.exit257
-  %.050424 = phi i64 [ %499, %_ZN6casadi2MXaSERKS0_.exit257 ], [ 0, %.lr.ph425.preheader ]
+.lr.ph425:                                        ; preds = %.preheader354, %_ZN6casadi2MXaSERKS0_.exit257
+  %.050424 = phi i64 [ %499, %_ZN6casadi2MXaSERKS0_.exit257 ], [ 0, %.preheader354 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %495 = getelementptr inbounds nuw %"class.std::vector.12", ptr %.pr.i284, i64 %.050424
   invoke void @_ZN6casadi2MX7horzcatERKSt6vectorIS0_SaIS0_EE(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %40, ptr noundef nonnull align 8 dereferenceable(24) %495)
@@ -26601,7 +26596,7 @@ _ZN6casadi2MXaSERKS0_.exit257:                    ; preds = %_ZN6casadi7horzcatE
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %40) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %499 = add nuw nsw i64 %.050424, 1
-  %exitcond453.not = icmp eq i64 %499, %smax452
+  %exitcond453.not = icmp eq i64 %499, %44
   br i1 %exitcond453.not, label %.preheader, label %.lr.ph425, !llvm.loop !428
 
 500:                                              ; preds = %.lr.ph425
@@ -26641,7 +26636,7 @@ _ZN6casadi2MXaSERKS0_.exit262:                    ; preds = %_ZN6casadi7horzcatE
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   %510 = add nuw nsw i64 %.0426, 1
-  %exitcond455.not = icmp eq i64 %510, %smax454
+  %exitcond455.not = icmp eq i64 %510, %47
   br i1 %exitcond455.not, label %._crit_edge428, label %.lr.ph427, !llvm.loop !429
 
 511:                                              ; preds = %.lr.ph427

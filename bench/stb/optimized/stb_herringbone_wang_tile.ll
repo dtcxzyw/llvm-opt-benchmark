@@ -3239,66 +3239,66 @@ define void @stbhw__draw_hline(ptr noundef writeonly captures(none) %0, i32 noun
 ._crit_edge:                                      ; preds = %18, %7
   %22 = sub nsw i32 %12, %10
   %23 = icmp slt i32 %22, 2
-  br i1 %23, label %24, label %28
+  br i1 %23, label %.thread, label %27
 
-24:                                               ; preds = %._crit_edge
-  %25 = sdiv i32 %5, 2
-  %26 = add nsw i32 %25, -1
-  %27 = and i32 %5, 1
-  %spec.select.v = add nuw nsw i32 %27, 1
-  %spec.select = add nsw i32 %spec.select.v, %25
-  br label %28
+.thread:                                          ; preds = %._crit_edge
+  %24 = sdiv i32 %5, 2
+  %25 = add nsw i32 %24, -1
+  %26 = and i32 %5, 1
+  %spec.select.v = add nuw nsw i32 %26, 1
+  %spec.select = add nsw i32 %spec.select.v, %24
+  br label %.lr.ph32
 
-28:                                               ; preds = %24, %._crit_edge
-  %.026 = phi i32 [ %10, %._crit_edge ], [ %26, %24 ]
-  %.0 = phi i32 [ %12, %._crit_edge ], [ %spec.select, %24 ]
-  %29 = icmp slt i32 %.026, %.0
-  br i1 %29, label %.lr.ph32, label %._crit_edge33
+27:                                               ; preds = %._crit_edge
+  %28 = icmp slt i32 %10, %12
+  br i1 %28, label %.lr.ph32, label %._crit_edge33
 
-.lr.ph32:                                         ; preds = %28
-  %30 = sext i32 %6 to i64
-  %31 = getelementptr inbounds [8 x [3 x i8]], ptr @stbhw__color, i64 %30
-  %32 = sext i32 %4 to i64
-  %33 = getelementptr inbounds [3 x i8], ptr %31, i64 %32
-  %34 = mul nsw i32 %3, %1
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds i8, ptr %0, i64 %35
-  %37 = sext i32 %.026 to i64
-  %38 = sext i32 %2 to i64
-  %wide.trip.count38 = sext i32 %.0 to i64
+.lr.ph32:                                         ; preds = %.thread, %27
+  %.044 = phi i32 [ %spec.select, %.thread ], [ %12, %27 ]
+  %.02643 = phi i32 [ %25, %.thread ], [ %10, %27 ]
+  %29 = sext i32 %6 to i64
+  %30 = getelementptr inbounds [8 x [3 x i8]], ptr @stbhw__color, i64 %29
+  %31 = sext i32 %4 to i64
+  %32 = getelementptr inbounds [3 x i8], ptr %30, i64 %31
+  %33 = mul nsw i32 %3, %1
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds i8, ptr %0, i64 %34
+  %36 = sext i32 %.02643 to i64
+  %37 = sext i32 %2 to i64
+  %wide.trip.count38 = sext i32 %.044 to i64
+  br label %38
+
+38:                                               ; preds = %.lr.ph32, %stbhw__stbhw__set_pixel_whiten.exit
+  %indvars.iv35 = phi i64 [ %36, %.lr.ph32 ], [ %indvars.iv.next36, %stbhw__stbhw__set_pixel_whiten.exit ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %39
 
-39:                                               ; preds = %.lr.ph32, %stbhw__stbhw__set_pixel_whiten.exit
-  %indvars.iv35 = phi i64 [ %37, %.lr.ph32 ], [ %indvars.iv.next36, %stbhw__stbhw__set_pixel_whiten.exit ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  br label %40
-
-40:                                               ; preds = %40, %39
-  %indvars.iv.i = phi i64 [ 0, %39 ], [ %indvars.iv.next.i, %40 ]
-  %41 = getelementptr inbounds nuw i8, ptr %33, i64 %indvars.iv.i
-  %42 = load i8, ptr %41, align 1, !tbaa !58
-  %43 = zext i8 %42 to i16
-  %44 = shl nuw nsw i16 %43, 1
-  %45 = add nuw nsw i16 %44, 255
-  %46 = udiv i16 %45, 3
-  %47 = trunc nuw i16 %46 to i8
-  %48 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i
-  store i8 %47, ptr %48, align 1, !tbaa !58
+39:                                               ; preds = %39, %38
+  %indvars.iv.i = phi i64 [ 0, %38 ], [ %indvars.iv.next.i, %39 ]
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv.i
+  %41 = load i8, ptr %40, align 1, !tbaa !58
+  %42 = zext i8 %41 to i16
+  %43 = shl nuw nsw i16 %42, 1
+  %44 = add nuw nsw i16 %43, 255
+  %45 = udiv i16 %44, 3
+  %46 = trunc nuw i16 %45 to i8
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i
+  store i8 %46, ptr %47, align 1, !tbaa !58
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %stbhw__stbhw__set_pixel_whiten.exit, label %40, !llvm.loop !102
+  br i1 %exitcond.not.i, label %stbhw__stbhw__set_pixel_whiten.exit, label %39, !llvm.loop !102
 
-stbhw__stbhw__set_pixel_whiten.exit:              ; preds = %40
-  %49 = add nsw i64 %indvars.iv35, %38
-  %50 = mul nsw i64 %49, 3
-  %51 = getelementptr inbounds i8, ptr %36, i64 %50
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %51, ptr noundef nonnull align 1 dereferenceable(3) %8, i64 3, i1 false)
+stbhw__stbhw__set_pixel_whiten.exit:              ; preds = %39
+  %48 = add nsw i64 %indvars.iv35, %37
+  %49 = mul nsw i64 %48, 3
+  %50 = getelementptr inbounds i8, ptr %35, i64 %49
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %50, ptr noundef nonnull align 1 dereferenceable(3) %8, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next36 = add nsw i64 %indvars.iv35, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count38
-  br i1 %exitcond39.not, label %._crit_edge33, label %39, !llvm.loop !104
+  br i1 %exitcond39.not, label %._crit_edge33, label %38, !llvm.loop !104
 
-._crit_edge33:                                    ; preds = %stbhw__stbhw__set_pixel_whiten.exit, %28
+._crit_edge33:                                    ; preds = %stbhw__stbhw__set_pixel_whiten.exit, %27
   ret void
 }
 
@@ -3334,67 +3334,67 @@ define void @stbhw__draw_vline(ptr noundef writeonly captures(none) %0, i32 noun
 ._crit_edge:                                      ; preds = %18, %7
   %21 = sub nsw i32 %12, %10
   %22 = icmp slt i32 %21, 2
-  br i1 %22, label %23, label %27
+  br i1 %22, label %.thread, label %26
 
-23:                                               ; preds = %._crit_edge
-  %24 = sdiv i32 %5, 2
-  %25 = add nsw i32 %24, -1
-  %26 = and i32 %5, 1
-  %spec.select.v = add nuw nsw i32 %26, 1
-  %spec.select = add nsw i32 %spec.select.v, %24
-  br label %27
+.thread:                                          ; preds = %._crit_edge
+  %23 = sdiv i32 %5, 2
+  %24 = add nsw i32 %23, -1
+  %25 = and i32 %5, 1
+  %spec.select.v = add nuw nsw i32 %25, 1
+  %spec.select = add nsw i32 %spec.select.v, %23
+  br label %.lr.ph32
 
-27:                                               ; preds = %23, %._crit_edge
-  %.026 = phi i32 [ %10, %._crit_edge ], [ %25, %23 ]
-  %.0 = phi i32 [ %12, %._crit_edge ], [ %spec.select, %23 ]
-  %28 = icmp slt i32 %.026, %.0
-  br i1 %28, label %.lr.ph32, label %._crit_edge33
+26:                                               ; preds = %._crit_edge
+  %27 = icmp slt i32 %10, %12
+  br i1 %27, label %.lr.ph32, label %._crit_edge33
 
-.lr.ph32:                                         ; preds = %27
-  %29 = sext i32 %6 to i64
-  %30 = getelementptr inbounds [8 x [3 x i8]], ptr @stbhw__color, i64 %29
-  %31 = sext i32 %4 to i64
-  %32 = getelementptr inbounds [3 x i8], ptr %30, i64 %31
-  %33 = mul nsw i32 %2, 3
-  %34 = sext i32 %33 to i64
-  %invariant.gep34 = getelementptr i8, ptr %0, i64 %34
-  %35 = sext i32 %.026 to i64
-  %36 = sext i32 %3 to i64
-  %37 = sext i32 %1 to i64
-  %wide.trip.count40 = sext i32 %.0 to i64
+.lr.ph32:                                         ; preds = %.thread, %26
+  %.046 = phi i32 [ %spec.select, %.thread ], [ %12, %26 ]
+  %.02645 = phi i32 [ %24, %.thread ], [ %10, %26 ]
+  %28 = sext i32 %6 to i64
+  %29 = getelementptr inbounds [8 x [3 x i8]], ptr @stbhw__color, i64 %28
+  %30 = sext i32 %4 to i64
+  %31 = getelementptr inbounds [3 x i8], ptr %29, i64 %30
+  %32 = mul nsw i32 %2, 3
+  %33 = sext i32 %32 to i64
+  %invariant.gep34 = getelementptr i8, ptr %0, i64 %33
+  %34 = sext i32 %.02645 to i64
+  %35 = sext i32 %3 to i64
+  %36 = sext i32 %1 to i64
+  %wide.trip.count40 = sext i32 %.046 to i64
+  br label %37
+
+37:                                               ; preds = %.lr.ph32, %stbhw__stbhw__set_pixel_whiten.exit
+  %indvars.iv37 = phi i64 [ %34, %.lr.ph32 ], [ %indvars.iv.next38, %stbhw__stbhw__set_pixel_whiten.exit ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %38
 
-38:                                               ; preds = %.lr.ph32, %stbhw__stbhw__set_pixel_whiten.exit
-  %indvars.iv37 = phi i64 [ %35, %.lr.ph32 ], [ %indvars.iv.next38, %stbhw__stbhw__set_pixel_whiten.exit ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  br label %39
-
-39:                                               ; preds = %39, %38
-  %indvars.iv.i = phi i64 [ 0, %38 ], [ %indvars.iv.next.i, %39 ]
-  %40 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv.i
-  %41 = load i8, ptr %40, align 1, !tbaa !58
-  %42 = zext i8 %41 to i16
-  %43 = shl nuw nsw i16 %42, 1
-  %44 = add nuw nsw i16 %43, 255
-  %45 = udiv i16 %44, 3
-  %46 = trunc nuw i16 %45 to i8
-  %47 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i
-  store i8 %46, ptr %47, align 1, !tbaa !58
+38:                                               ; preds = %38, %37
+  %indvars.iv.i = phi i64 [ 0, %37 ], [ %indvars.iv.next.i, %38 ]
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 %indvars.iv.i
+  %40 = load i8, ptr %39, align 1, !tbaa !58
+  %41 = zext i8 %40 to i16
+  %42 = shl nuw nsw i16 %41, 1
+  %43 = add nuw nsw i16 %42, 255
+  %44 = udiv i16 %43, 3
+  %45 = trunc nuw i16 %44 to i8
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i
+  store i8 %45, ptr %46, align 1, !tbaa !58
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %stbhw__stbhw__set_pixel_whiten.exit, label %39, !llvm.loop !102
+  br i1 %exitcond.not.i, label %stbhw__stbhw__set_pixel_whiten.exit, label %38, !llvm.loop !102
 
-stbhw__stbhw__set_pixel_whiten.exit:              ; preds = %39
-  %48 = add nsw i64 %indvars.iv37, %36
-  %49 = mul nsw i64 %48, %37
-  %gep35 = getelementptr i8, ptr %invariant.gep34, i64 %49
+stbhw__stbhw__set_pixel_whiten.exit:              ; preds = %38
+  %47 = add nsw i64 %indvars.iv37, %35
+  %48 = mul nsw i64 %47, %36
+  %gep35 = getelementptr i8, ptr %invariant.gep34, i64 %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep35, ptr noundef nonnull align 1 dereferenceable(3) %8, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next38 = add nsw i64 %indvars.iv37, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next38, %wide.trip.count40
-  br i1 %exitcond41.not, label %._crit_edge33, label %38, !llvm.loop !106
+  br i1 %exitcond41.not, label %._crit_edge33, label %37, !llvm.loop !106
 
-._crit_edge33:                                    ; preds = %stbhw__stbhw__set_pixel_whiten.exit, %27
+._crit_edge33:                                    ; preds = %stbhw__stbhw__set_pixel_whiten.exit, %26
   ret void
 }
 
@@ -3531,478 +3531,448 @@ define void @stbhw__edge_process_h_rect(ptr noundef readonly captures(none) %0, 
 ._crit_edge.i:                                    ; preds = %34, %9
   %38 = sub nsw i32 %28, %26
   %39 = icmp slt i32 %38, 2
-  br i1 %39, label %40, label %44
+  br i1 %39, label %.thread.i, label %.lr.ph32.i
 
-40:                                               ; preds = %._crit_edge.i
-  %41 = sdiv i32 %19, 2
-  %42 = add nsw i32 %41, -1
-  %43 = and i32 %19, 1
-  %spec.select.v.i = add nuw nsw i32 %43, 1
-  %spec.select.i = add nsw i32 %spec.select.v.i, %41
-  br label %44
+.thread.i:                                        ; preds = %._crit_edge.i
+  %40 = sdiv i32 %19, 2
+  %41 = add nsw i32 %40, -1
+  %42 = and i32 %19, 1
+  %spec.select.v.i = add nuw nsw i32 %42, 1
+  %spec.select.i = add nsw i32 %spec.select.v.i, %40
+  br label %.lr.ph32.i
 
-44:                                               ; preds = %40, %._crit_edge.i
-  %.026.i = phi i32 [ %26, %._crit_edge.i ], [ %42, %40 ]
-  %.0.i = phi i32 [ %28, %._crit_edge.i ], [ %spec.select.i, %40 ]
-  %45 = icmp slt i32 %.026.i, %.0.i
-  br i1 %45, label %.lr.ph32.i, label %stbhw__draw_hline.exit
+.lr.ph32.i:                                       ; preds = %._crit_edge.i, %.thread.i
+  %.044.i = phi i32 [ %spec.select.i, %.thread.i ], [ %28, %._crit_edge.i ]
+  %.02643.i = phi i32 [ %41, %.thread.i ], [ %26, %._crit_edge.i ]
+  %43 = sext i32 %3 to i64
+  %44 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 48), i64 %43
+  %45 = mul nsw i32 %23, %2
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds i8, ptr %21, i64 %46
+  %48 = sext i32 %.02643.i to i64
+  %49 = sext i32 %24 to i64
+  %wide.trip.count38.i = sext i32 %.044.i to i64
+  br label %50
 
-.lr.ph32.i:                                       ; preds = %44
-  %46 = sext i32 %3 to i64
-  %47 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 48), i64 %46
-  %48 = mul nsw i32 %23, %2
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i8, ptr %21, i64 %49
-  %51 = sext i32 %.026.i to i64
-  %52 = sext i32 %24 to i64
-  %wide.trip.count38.i = sext i32 %.0.i to i64
-  br label %53
-
-53:                                               ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i, %.lr.ph32.i
-  %indvars.iv35.i = phi i64 [ %51, %.lr.ph32.i ], [ %indvars.iv.next36.i, %stbhw__stbhw__set_pixel_whiten.exit.i ]
+50:                                               ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i, %.lr.ph32.i
+  %indvars.iv35.i = phi i64 [ %48, %.lr.ph32.i ], [ %indvars.iv.next36.i, %stbhw__stbhw__set_pixel_whiten.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  br label %54
+  br label %51
 
-54:                                               ; preds = %54, %53
-  %indvars.iv.i.i = phi i64 [ 0, %53 ], [ %indvars.iv.next.i.i, %54 ]
-  %55 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv.i.i
-  %56 = load i8, ptr %55, align 1, !tbaa !58
-  %57 = zext i8 %56 to i16
-  %58 = shl nuw nsw i16 %57, 1
-  %59 = add nuw nsw i16 %58, 255
-  %60 = udiv i16 %59, 3
-  %61 = trunc nuw i16 %60 to i8
-  %62 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv.i.i
-  store i8 %61, ptr %62, align 1, !tbaa !58
+51:                                               ; preds = %51, %50
+  %indvars.iv.i.i = phi i64 [ 0, %50 ], [ %indvars.iv.next.i.i, %51 ]
+  %52 = getelementptr inbounds nuw i8, ptr %44, i64 %indvars.iv.i.i
+  %53 = load i8, ptr %52, align 1, !tbaa !58
+  %54 = zext i8 %53 to i16
+  %55 = shl nuw nsw i16 %54, 1
+  %56 = add nuw nsw i16 %55, 255
+  %57 = udiv i16 %56, 3
+  %58 = trunc nuw i16 %57 to i8
+  %59 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv.i.i
+  store i8 %58, ptr %59, align 1, !tbaa !58
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %stbhw__stbhw__set_pixel_whiten.exit.i, label %54, !llvm.loop !102
+  br i1 %exitcond.not.i.i, label %stbhw__stbhw__set_pixel_whiten.exit.i, label %51, !llvm.loop !102
 
-stbhw__stbhw__set_pixel_whiten.exit.i:            ; preds = %54
-  %63 = add nsw i64 %indvars.iv35.i, %52
-  %64 = mul nsw i64 %63, 3
-  %65 = getelementptr inbounds i8, ptr %50, i64 %64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %65, ptr noundef nonnull align 1 dereferenceable(3) %15, i64 3, i1 false)
+stbhw__stbhw__set_pixel_whiten.exit.i:            ; preds = %51
+  %60 = add nsw i64 %indvars.iv35.i, %49
+  %61 = mul nsw i64 %60, 3
+  %62 = getelementptr inbounds i8, ptr %47, i64 %61
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %62, ptr noundef nonnull align 1 dereferenceable(3) %15, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %indvars.iv.next36.i = add nsw i64 %indvars.iv35.i, 1
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next36.i, %wide.trip.count38.i
-  br i1 %exitcond39.not.i, label %stbhw__draw_hline.exit, label %53, !llvm.loop !104
+  br i1 %exitcond39.not.i, label %stbhw__draw_hline.exit, label %50, !llvm.loop !104
 
-stbhw__draw_hline.exit:                           ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i, %44
-  %66 = load ptr, ptr %20, align 8, !tbaa !88
-  %67 = load i32, ptr %22, align 8, !tbaa !89
-  %68 = add i32 %24, %19
-  br i1 %29, label %.lr.ph.i55, label %._crit_edge.i41
+stbhw__draw_hline.exit:                           ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i
+  %63 = load ptr, ptr %20, align 8, !tbaa !88
+  %64 = load i32, ptr %22, align 8, !tbaa !89
+  %65 = add i32 %24, %19
+  br i1 %29, label %.lr.ph.i56, label %._crit_edge.i41
 
-.lr.ph.i55:                                       ; preds = %stbhw__draw_hline.exit
-  %69 = mul nsw i32 %67, %2
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds i8, ptr %66, i64 %70
-  %72 = sext i32 %68 to i64
-  %wide.trip.count.i56 = zext nneg i32 %19 to i64
-  br label %73
+.lr.ph.i56:                                       ; preds = %stbhw__draw_hline.exit
+  %66 = mul nsw i32 %64, %2
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds i8, ptr %63, i64 %67
+  %69 = sext i32 %65 to i64
+  %wide.trip.count.i57 = zext nneg i32 %19 to i64
+  br label %70
 
-73:                                               ; preds = %73, %.lr.ph.i55
-  %indvars.iv.i57 = phi i64 [ 0, %.lr.ph.i55 ], [ %indvars.iv.next.i58, %73 ]
-  %74 = add nsw i64 %indvars.iv.i57, %72
-  %75 = mul nsw i64 %74, 3
-  %76 = getelementptr inbounds i8, ptr %71, i64 %75
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %76, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
-  %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i57, 1
-  %exitcond.not.i59 = icmp eq i64 %indvars.iv.next.i58, %wide.trip.count.i56
-  br i1 %exitcond.not.i59, label %._crit_edge.i41, label %73, !llvm.loop !103
+70:                                               ; preds = %70, %.lr.ph.i56
+  %indvars.iv.i58 = phi i64 [ 0, %.lr.ph.i56 ], [ %indvars.iv.next.i59, %70 ]
+  %71 = add nsw i64 %indvars.iv.i58, %69
+  %72 = mul nsw i64 %71, 3
+  %73 = getelementptr inbounds i8, ptr %68, i64 %72
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %73, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i58, 1
+  %exitcond.not.i60 = icmp eq i64 %indvars.iv.next.i59, %wide.trip.count.i57
+  br i1 %exitcond.not.i60, label %._crit_edge.i41, label %70, !llvm.loop !103
 
-._crit_edge.i41:                                  ; preds = %73, %stbhw__draw_hline.exit
-  br i1 %39, label %77, label %81
+._crit_edge.i41:                                  ; preds = %70, %stbhw__draw_hline.exit
+  br i1 %39, label %.thread.i53, label %.lr.ph32.i42
 
-77:                                               ; preds = %._crit_edge.i41
-  %78 = sdiv i32 %19, 2
-  %79 = add nsw i32 %78, -1
-  %80 = and i32 %19, 1
-  %spec.select.v.i53 = add nuw nsw i32 %80, 1
-  %spec.select.i54 = add nsw i32 %spec.select.v.i53, %78
-  br label %81
+.thread.i53:                                      ; preds = %._crit_edge.i41
+  %74 = sdiv i32 %19, 2
+  %75 = add nsw i32 %74, -1
+  %76 = and i32 %19, 1
+  %spec.select.v.i54 = add nuw nsw i32 %76, 1
+  %spec.select.i55 = add nsw i32 %spec.select.v.i54, %74
+  br label %.lr.ph32.i42
 
-81:                                               ; preds = %77, %._crit_edge.i41
-  %.026.i42 = phi i32 [ %26, %._crit_edge.i41 ], [ %79, %77 ]
-  %.0.i43 = phi i32 [ %28, %._crit_edge.i41 ], [ %spec.select.i54, %77 ]
-  %82 = icmp slt i32 %.026.i42, %.0.i43
-  br i1 %82, label %.lr.ph32.i44, label %stbhw__draw_hline.exit60
+.lr.ph32.i42:                                     ; preds = %._crit_edge.i41, %.thread.i53
+  %.044.i43 = phi i32 [ %spec.select.i55, %.thread.i53 ], [ %28, %._crit_edge.i41 ]
+  %.02643.i44 = phi i32 [ %75, %.thread.i53 ], [ %26, %._crit_edge.i41 ]
+  %77 = sext i32 %4 to i64
+  %78 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 72), i64 %77
+  %79 = mul nsw i32 %64, %2
+  %80 = sext i32 %79 to i64
+  %81 = getelementptr inbounds i8, ptr %63, i64 %80
+  %82 = sext i32 %.02643.i44 to i64
+  %83 = sext i32 %65 to i64
+  %wide.trip.count38.i45 = sext i32 %.044.i43 to i64
+  br label %84
 
-.lr.ph32.i44:                                     ; preds = %81
-  %83 = sext i32 %4 to i64
-  %84 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 72), i64 %83
-  %85 = mul nsw i32 %67, %2
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds i8, ptr %66, i64 %86
-  %88 = sext i32 %.026.i42 to i64
-  %89 = sext i32 %68 to i64
-  %wide.trip.count38.i45 = sext i32 %.0.i43 to i64
-  br label %90
-
-90:                                               ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i50, %.lr.ph32.i44
-  %indvars.iv35.i46 = phi i64 [ %88, %.lr.ph32.i44 ], [ %indvars.iv.next36.i51, %stbhw__stbhw__set_pixel_whiten.exit.i50 ]
+84:                                               ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i50, %.lr.ph32.i42
+  %indvars.iv35.i46 = phi i64 [ %82, %.lr.ph32.i42 ], [ %indvars.iv.next36.i51, %stbhw__stbhw__set_pixel_whiten.exit.i50 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  br label %91
+  br label %85
 
-91:                                               ; preds = %91, %90
-  %indvars.iv.i.i47 = phi i64 [ 0, %90 ], [ %indvars.iv.next.i.i48, %91 ]
-  %92 = getelementptr inbounds nuw i8, ptr %84, i64 %indvars.iv.i.i47
-  %93 = load i8, ptr %92, align 1, !tbaa !58
-  %94 = zext i8 %93 to i16
-  %95 = shl nuw nsw i16 %94, 1
-  %96 = add nuw nsw i16 %95, 255
-  %97 = udiv i16 %96, 3
-  %98 = trunc nuw i16 %97 to i8
-  %99 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv.i.i47
-  store i8 %98, ptr %99, align 1, !tbaa !58
+85:                                               ; preds = %85, %84
+  %indvars.iv.i.i47 = phi i64 [ 0, %84 ], [ %indvars.iv.next.i.i48, %85 ]
+  %86 = getelementptr inbounds nuw i8, ptr %78, i64 %indvars.iv.i.i47
+  %87 = load i8, ptr %86, align 1, !tbaa !58
+  %88 = zext i8 %87 to i16
+  %89 = shl nuw nsw i16 %88, 1
+  %90 = add nuw nsw i16 %89, 255
+  %91 = udiv i16 %90, 3
+  %92 = trunc nuw i16 %91 to i8
+  %93 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv.i.i47
+  store i8 %92, ptr %93, align 1, !tbaa !58
   %indvars.iv.next.i.i48 = add nuw nsw i64 %indvars.iv.i.i47, 1
   %exitcond.not.i.i49 = icmp eq i64 %indvars.iv.next.i.i48, 3
-  br i1 %exitcond.not.i.i49, label %stbhw__stbhw__set_pixel_whiten.exit.i50, label %91, !llvm.loop !102
+  br i1 %exitcond.not.i.i49, label %stbhw__stbhw__set_pixel_whiten.exit.i50, label %85, !llvm.loop !102
 
-stbhw__stbhw__set_pixel_whiten.exit.i50:          ; preds = %91
-  %100 = add nsw i64 %indvars.iv35.i46, %89
-  %101 = mul nsw i64 %100, 3
-  %102 = getelementptr inbounds i8, ptr %87, i64 %101
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %102, ptr noundef nonnull align 1 dereferenceable(3) %14, i64 3, i1 false)
+stbhw__stbhw__set_pixel_whiten.exit.i50:          ; preds = %85
+  %94 = add nsw i64 %indvars.iv35.i46, %83
+  %95 = mul nsw i64 %94, 3
+  %96 = getelementptr inbounds i8, ptr %81, i64 %95
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %96, ptr noundef nonnull align 1 dereferenceable(3) %14, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %indvars.iv.next36.i51 = add nsw i64 %indvars.iv35.i46, 1
   %exitcond39.not.i52 = icmp eq i64 %indvars.iv.next36.i51, %wide.trip.count38.i45
-  br i1 %exitcond39.not.i52, label %stbhw__draw_hline.exit60, label %90, !llvm.loop !104
+  br i1 %exitcond39.not.i52, label %stbhw__draw_hline.exit61, label %84, !llvm.loop !104
 
-stbhw__draw_hline.exit60:                         ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i50, %81
-  %103 = load ptr, ptr %20, align 8, !tbaa !88
-  %104 = load i32, ptr %22, align 8, !tbaa !89
-  %105 = add i32 %2, 1
-  br i1 %29, label %.lr.ph.i71, label %._crit_edge.i61
+stbhw__draw_hline.exit61:                         ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i50
+  %97 = load ptr, ptr %20, align 8, !tbaa !88
+  %98 = load i32, ptr %22, align 8, !tbaa !89
+  %99 = add i32 %2, 1
+  br i1 %29, label %.lr.ph.i71, label %._crit_edge.i62
 
-.lr.ph.i71:                                       ; preds = %stbhw__draw_hline.exit60
-  %106 = mul nsw i32 %1, 3
-  %107 = sext i32 %106 to i64
-  %invariant.gep.i = getelementptr i8, ptr %103, i64 %107
-  %108 = sext i32 %105 to i64
-  %109 = sext i32 %104 to i64
+.lr.ph.i71:                                       ; preds = %stbhw__draw_hline.exit61
+  %100 = mul nsw i32 %1, 3
+  %101 = sext i32 %100 to i64
+  %invariant.gep.i = getelementptr i8, ptr %97, i64 %101
+  %102 = sext i32 %99 to i64
+  %103 = sext i32 %98 to i64
   %wide.trip.count.i72 = zext nneg i32 %19 to i64
-  br label %110
+  br label %104
 
-110:                                              ; preds = %110, %.lr.ph.i71
-  %indvars.iv.i73 = phi i64 [ 0, %.lr.ph.i71 ], [ %indvars.iv.next.i74, %110 ]
-  %111 = add nsw i64 %indvars.iv.i73, %108
-  %112 = mul nsw i64 %111, %109
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %112
+104:                                              ; preds = %104, %.lr.ph.i71
+  %indvars.iv.i73 = phi i64 [ 0, %.lr.ph.i71 ], [ %indvars.iv.next.i74, %104 ]
+  %105 = add nsw i64 %indvars.iv.i73, %102
+  %106 = mul nsw i64 %105, %103
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %106
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i74 = add nuw nsw i64 %indvars.iv.i73, 1
   %exitcond.not.i75 = icmp eq i64 %indvars.iv.next.i74, %wide.trip.count.i72
-  br i1 %exitcond.not.i75, label %._crit_edge.i61, label %110, !llvm.loop !105
+  br i1 %exitcond.not.i75, label %._crit_edge.i62, label %104, !llvm.loop !105
 
-._crit_edge.i61:                                  ; preds = %110, %stbhw__draw_hline.exit60
-  br i1 %39, label %113, label %117
+._crit_edge.i62:                                  ; preds = %104, %stbhw__draw_hline.exit61
+  br i1 %39, label %.thread.i68, label %.lr.ph32.i63
 
-113:                                              ; preds = %._crit_edge.i61
-  %114 = sdiv i32 %19, 2
-  %115 = add nsw i32 %114, -1
-  %116 = and i32 %19, 1
-  %spec.select.v.i69 = add nuw nsw i32 %116, 1
-  %spec.select.i70 = add nsw i32 %spec.select.v.i69, %114
+.thread.i68:                                      ; preds = %._crit_edge.i62
+  %107 = sdiv i32 %19, 2
+  %108 = add nsw i32 %107, -1
+  %109 = and i32 %19, 1
+  %spec.select.v.i69 = add nuw nsw i32 %109, 1
+  %spec.select.i70 = add nsw i32 %spec.select.v.i69, %107
+  br label %.lr.ph32.i63
+
+.lr.ph32.i63:                                     ; preds = %._crit_edge.i62, %.thread.i68
+  %.046.i = phi i32 [ %spec.select.i70, %.thread.i68 ], [ %28, %._crit_edge.i62 ]
+  %.02645.i = phi i32 [ %108, %.thread.i68 ], [ %26, %._crit_edge.i62 ]
+  %110 = sext i32 %5 to i64
+  %111 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 24), i64 %110
+  %112 = mul nsw i32 %1, 3
+  %113 = sext i32 %112 to i64
+  %invariant.gep34.i = getelementptr i8, ptr %97, i64 %113
+  %114 = sext i32 %.02645.i to i64
+  %115 = sext i32 %99 to i64
+  %116 = sext i32 %98 to i64
+  %wide.trip.count40.i = sext i32 %.046.i to i64
   br label %117
 
-117:                                              ; preds = %113, %._crit_edge.i61
-  %.026.i62 = phi i32 [ %26, %._crit_edge.i61 ], [ %115, %113 ]
-  %.0.i63 = phi i32 [ %28, %._crit_edge.i61 ], [ %spec.select.i70, %113 ]
-  %118 = icmp slt i32 %.026.i62, %.0.i63
-  br i1 %118, label %.lr.ph32.i64, label %stbhw__draw_vline.exit
-
-.lr.ph32.i64:                                     ; preds = %117
-  %119 = sext i32 %5 to i64
-  %120 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 24), i64 %119
-  %121 = mul nsw i32 %1, 3
-  %122 = sext i32 %121 to i64
-  %invariant.gep34.i = getelementptr i8, ptr %103, i64 %122
-  %123 = sext i32 %.026.i62 to i64
-  %124 = sext i32 %105 to i64
-  %125 = sext i32 %104 to i64
-  %wide.trip.count40.i = sext i32 %.0.i63 to i64
-  br label %126
-
-126:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i68, %.lr.ph32.i64
-  %indvars.iv37.i = phi i64 [ %123, %.lr.ph32.i64 ], [ %indvars.iv.next38.i, %stbhw__stbhw__set_pixel_whiten.exit.i68 ]
+117:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i67, %.lr.ph32.i63
+  %indvars.iv37.i = phi i64 [ %114, %.lr.ph32.i63 ], [ %indvars.iv.next38.i, %stbhw__stbhw__set_pixel_whiten.exit.i67 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  br label %127
+  br label %118
 
-127:                                              ; preds = %127, %126
-  %indvars.iv.i.i65 = phi i64 [ 0, %126 ], [ %indvars.iv.next.i.i66, %127 ]
-  %128 = getelementptr inbounds nuw i8, ptr %120, i64 %indvars.iv.i.i65
-  %129 = load i8, ptr %128, align 1, !tbaa !58
-  %130 = zext i8 %129 to i16
-  %131 = shl nuw nsw i16 %130, 1
-  %132 = add nuw nsw i16 %131, 255
-  %133 = udiv i16 %132, 3
-  %134 = trunc nuw i16 %133 to i8
-  %135 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i.i65
-  store i8 %134, ptr %135, align 1, !tbaa !58
-  %indvars.iv.next.i.i66 = add nuw nsw i64 %indvars.iv.i.i65, 1
-  %exitcond.not.i.i67 = icmp eq i64 %indvars.iv.next.i.i66, 3
-  br i1 %exitcond.not.i.i67, label %stbhw__stbhw__set_pixel_whiten.exit.i68, label %127, !llvm.loop !102
+118:                                              ; preds = %118, %117
+  %indvars.iv.i.i64 = phi i64 [ 0, %117 ], [ %indvars.iv.next.i.i65, %118 ]
+  %119 = getelementptr inbounds nuw i8, ptr %111, i64 %indvars.iv.i.i64
+  %120 = load i8, ptr %119, align 1, !tbaa !58
+  %121 = zext i8 %120 to i16
+  %122 = shl nuw nsw i16 %121, 1
+  %123 = add nuw nsw i16 %122, 255
+  %124 = udiv i16 %123, 3
+  %125 = trunc nuw i16 %124 to i8
+  %126 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i.i64
+  store i8 %125, ptr %126, align 1, !tbaa !58
+  %indvars.iv.next.i.i65 = add nuw nsw i64 %indvars.iv.i.i64, 1
+  %exitcond.not.i.i66 = icmp eq i64 %indvars.iv.next.i.i65, 3
+  br i1 %exitcond.not.i.i66, label %stbhw__stbhw__set_pixel_whiten.exit.i67, label %118, !llvm.loop !102
 
-stbhw__stbhw__set_pixel_whiten.exit.i68:          ; preds = %127
-  %136 = add nsw i64 %indvars.iv37.i, %124
-  %137 = mul nsw i64 %136, %125
-  %gep35.i = getelementptr i8, ptr %invariant.gep34.i, i64 %137
+stbhw__stbhw__set_pixel_whiten.exit.i67:          ; preds = %118
+  %127 = add nsw i64 %indvars.iv37.i, %115
+  %128 = mul nsw i64 %127, %116
+  %gep35.i = getelementptr i8, ptr %invariant.gep34.i, i64 %128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep35.i, ptr noundef nonnull align 1 dereferenceable(3) %13, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %indvars.iv.next38.i = add nsw i64 %indvars.iv37.i, 1
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next38.i, %wide.trip.count40.i
-  br i1 %exitcond41.not.i, label %stbhw__draw_vline.exit, label %126, !llvm.loop !106
+  br i1 %exitcond41.not.i, label %stbhw__draw_vline.exit, label %117, !llvm.loop !106
 
-stbhw__draw_vline.exit:                           ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i68, %117
-  %138 = load ptr, ptr %20, align 8, !tbaa !88
-  %139 = load i32, ptr %22, align 8, !tbaa !89
-  %140 = shl nsw i32 %19, 1
-  %141 = add i32 %24, %140
-  br i1 %29, label %.lr.ph.i92, label %._crit_edge.i76
+stbhw__draw_vline.exit:                           ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i67
+  %129 = load ptr, ptr %20, align 8, !tbaa !88
+  %130 = load i32, ptr %22, align 8, !tbaa !89
+  %131 = shl nsw i32 %19, 1
+  %132 = add i32 %24, %131
+  br i1 %29, label %.lr.ph.i93, label %._crit_edge.i76
 
-.lr.ph.i92:                                       ; preds = %stbhw__draw_vline.exit
-  %142 = mul nsw i32 %141, 3
-  %143 = sext i32 %142 to i64
-  %invariant.gep.i93 = getelementptr i8, ptr %138, i64 %143
-  %144 = sext i32 %105 to i64
-  %145 = sext i32 %139 to i64
-  %wide.trip.count.i94 = zext nneg i32 %19 to i64
-  br label %146
+.lr.ph.i93:                                       ; preds = %stbhw__draw_vline.exit
+  %133 = mul nsw i32 %132, 3
+  %134 = sext i32 %133 to i64
+  %invariant.gep.i94 = getelementptr i8, ptr %129, i64 %134
+  %135 = sext i32 %130 to i64
+  %wide.trip.count.i95 = zext nneg i32 %19 to i64
+  br label %136
 
-146:                                              ; preds = %146, %.lr.ph.i92
-  %indvars.iv.i95 = phi i64 [ 0, %.lr.ph.i92 ], [ %indvars.iv.next.i97, %146 ]
-  %147 = add nsw i64 %indvars.iv.i95, %144
-  %148 = mul nsw i64 %147, %145
-  %gep.i96 = getelementptr i8, ptr %invariant.gep.i93, i64 %148
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i96, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
-  %indvars.iv.next.i97 = add nuw nsw i64 %indvars.iv.i95, 1
-  %exitcond.not.i98 = icmp eq i64 %indvars.iv.next.i97, %wide.trip.count.i94
-  br i1 %exitcond.not.i98, label %._crit_edge.i76, label %146, !llvm.loop !105
+136:                                              ; preds = %136, %.lr.ph.i93
+  %indvars.iv.i96 = phi i64 [ 0, %.lr.ph.i93 ], [ %indvars.iv.next.i98, %136 ]
+  %137 = add nsw i64 %indvars.iv.i96, %115
+  %138 = mul nsw i64 %137, %135
+  %gep.i97 = getelementptr i8, ptr %invariant.gep.i94, i64 %138
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i97, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i96, 1
+  %exitcond.not.i99 = icmp eq i64 %indvars.iv.next.i98, %wide.trip.count.i95
+  br i1 %exitcond.not.i99, label %._crit_edge.i76, label %136, !llvm.loop !105
 
-._crit_edge.i76:                                  ; preds = %146, %stbhw__draw_vline.exit
-  br i1 %39, label %149, label %153
+._crit_edge.i76:                                  ; preds = %136, %stbhw__draw_vline.exit
+  br i1 %39, label %.thread.i90, label %.lr.ph32.i77
 
-149:                                              ; preds = %._crit_edge.i76
-  %150 = sdiv i32 %19, 2
-  %151 = add nsw i32 %150, -1
-  %152 = and i32 %19, 1
-  %spec.select.v.i90 = add nuw nsw i32 %152, 1
-  %spec.select.i91 = add nsw i32 %spec.select.v.i90, %150
-  br label %153
+.thread.i90:                                      ; preds = %._crit_edge.i76
+  %139 = sdiv i32 %19, 2
+  %140 = add nsw i32 %139, -1
+  %141 = and i32 %19, 1
+  %spec.select.v.i91 = add nuw nsw i32 %141, 1
+  %spec.select.i92 = add nsw i32 %spec.select.v.i91, %139
+  br label %.lr.ph32.i77
 
-153:                                              ; preds = %149, %._crit_edge.i76
-  %.026.i77 = phi i32 [ %26, %._crit_edge.i76 ], [ %151, %149 ]
-  %.0.i78 = phi i32 [ %28, %._crit_edge.i76 ], [ %spec.select.i91, %149 ]
-  %154 = icmp slt i32 %.026.i77, %.0.i78
-  br i1 %154, label %.lr.ph32.i79, label %stbhw__draw_vline.exit99
+.lr.ph32.i77:                                     ; preds = %._crit_edge.i76, %.thread.i90
+  %.046.i78 = phi i32 [ %spec.select.i92, %.thread.i90 ], [ %28, %._crit_edge.i76 ]
+  %.02645.i79 = phi i32 [ %140, %.thread.i90 ], [ %26, %._crit_edge.i76 ]
+  %142 = sext i32 %6 to i64
+  %143 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 96), i64 %142
+  %144 = mul nsw i32 %132, 3
+  %145 = sext i32 %144 to i64
+  %invariant.gep34.i80 = getelementptr i8, ptr %129, i64 %145
+  %146 = sext i32 %.02645.i79 to i64
+  %147 = sext i32 %130 to i64
+  %wide.trip.count40.i81 = sext i32 %.046.i78 to i64
+  br label %148
 
-.lr.ph32.i79:                                     ; preds = %153
-  %155 = sext i32 %6 to i64
-  %156 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 96), i64 %155
-  %157 = mul nsw i32 %141, 3
-  %158 = sext i32 %157 to i64
-  %invariant.gep34.i80 = getelementptr i8, ptr %138, i64 %158
-  %159 = sext i32 %.026.i77 to i64
-  %160 = sext i32 %105 to i64
-  %161 = sext i32 %139 to i64
-  %wide.trip.count40.i81 = sext i32 %.0.i78 to i64
-  br label %162
-
-162:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i86, %.lr.ph32.i79
-  %indvars.iv37.i82 = phi i64 [ %159, %.lr.ph32.i79 ], [ %indvars.iv.next38.i88, %stbhw__stbhw__set_pixel_whiten.exit.i86 ]
+148:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i86, %.lr.ph32.i77
+  %indvars.iv37.i82 = phi i64 [ %146, %.lr.ph32.i77 ], [ %indvars.iv.next38.i88, %stbhw__stbhw__set_pixel_whiten.exit.i86 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  br label %163
+  br label %149
 
-163:                                              ; preds = %163, %162
-  %indvars.iv.i.i83 = phi i64 [ 0, %162 ], [ %indvars.iv.next.i.i84, %163 ]
-  %164 = getelementptr inbounds nuw i8, ptr %156, i64 %indvars.iv.i.i83
-  %165 = load i8, ptr %164, align 1, !tbaa !58
-  %166 = zext i8 %165 to i16
-  %167 = shl nuw nsw i16 %166, 1
-  %168 = add nuw nsw i16 %167, 255
-  %169 = udiv i16 %168, 3
-  %170 = trunc nuw i16 %169 to i8
-  %171 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv.i.i83
-  store i8 %170, ptr %171, align 1, !tbaa !58
+149:                                              ; preds = %149, %148
+  %indvars.iv.i.i83 = phi i64 [ 0, %148 ], [ %indvars.iv.next.i.i84, %149 ]
+  %150 = getelementptr inbounds nuw i8, ptr %143, i64 %indvars.iv.i.i83
+  %151 = load i8, ptr %150, align 1, !tbaa !58
+  %152 = zext i8 %151 to i16
+  %153 = shl nuw nsw i16 %152, 1
+  %154 = add nuw nsw i16 %153, 255
+  %155 = udiv i16 %154, 3
+  %156 = trunc nuw i16 %155 to i8
+  %157 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv.i.i83
+  store i8 %156, ptr %157, align 1, !tbaa !58
   %indvars.iv.next.i.i84 = add nuw nsw i64 %indvars.iv.i.i83, 1
   %exitcond.not.i.i85 = icmp eq i64 %indvars.iv.next.i.i84, 3
-  br i1 %exitcond.not.i.i85, label %stbhw__stbhw__set_pixel_whiten.exit.i86, label %163, !llvm.loop !102
+  br i1 %exitcond.not.i.i85, label %stbhw__stbhw__set_pixel_whiten.exit.i86, label %149, !llvm.loop !102
 
-stbhw__stbhw__set_pixel_whiten.exit.i86:          ; preds = %163
-  %172 = add nsw i64 %indvars.iv37.i82, %160
-  %173 = mul nsw i64 %172, %161
-  %gep35.i87 = getelementptr i8, ptr %invariant.gep34.i80, i64 %173
+stbhw__stbhw__set_pixel_whiten.exit.i86:          ; preds = %149
+  %158 = add nsw i64 %indvars.iv37.i82, %115
+  %159 = mul nsw i64 %158, %147
+  %gep35.i87 = getelementptr i8, ptr %invariant.gep34.i80, i64 %159
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep35.i87, ptr noundef nonnull align 1 dereferenceable(3) %12, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %indvars.iv.next38.i88 = add nsw i64 %indvars.iv37.i82, 1
   %exitcond41.not.i89 = icmp eq i64 %indvars.iv.next38.i88, %wide.trip.count40.i81
-  br i1 %exitcond41.not.i89, label %stbhw__draw_vline.exit99, label %162, !llvm.loop !106
+  br i1 %exitcond41.not.i89, label %stbhw__draw_vline.exit100, label %148, !llvm.loop !106
 
-stbhw__draw_vline.exit99:                         ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i86, %153
-  %174 = load ptr, ptr %20, align 8, !tbaa !88
-  %175 = load i32, ptr %22, align 8, !tbaa !89
-  %176 = add i32 %105, %19
-  br i1 %29, label %.lr.ph.i114, label %._crit_edge.i100
+stbhw__draw_vline.exit100:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i86
+  %160 = load ptr, ptr %20, align 8, !tbaa !88
+  %161 = load i32, ptr %22, align 8, !tbaa !89
+  %162 = add i32 %99, %19
+  br i1 %29, label %.lr.ph.i116, label %._crit_edge.i101
 
-.lr.ph.i114:                                      ; preds = %stbhw__draw_vline.exit99
-  %177 = mul nsw i32 %175, %176
-  %178 = sext i32 %177 to i64
-  %179 = getelementptr inbounds i8, ptr %174, i64 %178
-  %180 = sext i32 %24 to i64
-  %wide.trip.count.i115 = zext nneg i32 %19 to i64
-  br label %181
+.lr.ph.i116:                                      ; preds = %stbhw__draw_vline.exit100
+  %163 = mul nsw i32 %161, %162
+  %164 = sext i32 %163 to i64
+  %165 = getelementptr inbounds i8, ptr %160, i64 %164
+  %wide.trip.count.i117 = zext nneg i32 %19 to i64
+  br label %166
 
-181:                                              ; preds = %181, %.lr.ph.i114
-  %indvars.iv.i116 = phi i64 [ 0, %.lr.ph.i114 ], [ %indvars.iv.next.i117, %181 ]
-  %182 = add nsw i64 %indvars.iv.i116, %180
-  %183 = mul nsw i64 %182, 3
-  %184 = getelementptr inbounds i8, ptr %179, i64 %183
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %184, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
-  %indvars.iv.next.i117 = add nuw nsw i64 %indvars.iv.i116, 1
-  %exitcond.not.i118 = icmp eq i64 %indvars.iv.next.i117, %wide.trip.count.i115
-  br i1 %exitcond.not.i118, label %._crit_edge.i100, label %181, !llvm.loop !103
+166:                                              ; preds = %166, %.lr.ph.i116
+  %indvars.iv.i118 = phi i64 [ 0, %.lr.ph.i116 ], [ %indvars.iv.next.i119, %166 ]
+  %167 = add nsw i64 %indvars.iv.i118, %49
+  %168 = mul nsw i64 %167, 3
+  %169 = getelementptr inbounds i8, ptr %165, i64 %168
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %169, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  %indvars.iv.next.i119 = add nuw nsw i64 %indvars.iv.i118, 1
+  %exitcond.not.i120 = icmp eq i64 %indvars.iv.next.i119, %wide.trip.count.i117
+  br i1 %exitcond.not.i120, label %._crit_edge.i101, label %166, !llvm.loop !103
 
-._crit_edge.i100:                                 ; preds = %181, %stbhw__draw_vline.exit99
-  br i1 %39, label %185, label %189
+._crit_edge.i101:                                 ; preds = %166, %stbhw__draw_vline.exit100
+  br i1 %39, label %.thread.i113, label %.lr.ph32.i102
 
-185:                                              ; preds = %._crit_edge.i100
-  %186 = sdiv i32 %19, 2
-  %187 = add nsw i32 %186, -1
-  %188 = and i32 %19, 1
-  %spec.select.v.i112 = add nuw nsw i32 %188, 1
-  %spec.select.i113 = add nsw i32 %spec.select.v.i112, %186
-  br label %189
+.thread.i113:                                     ; preds = %._crit_edge.i101
+  %170 = sdiv i32 %19, 2
+  %171 = add nsw i32 %170, -1
+  %172 = and i32 %19, 1
+  %spec.select.v.i114 = add nuw nsw i32 %172, 1
+  %spec.select.i115 = add nsw i32 %spec.select.v.i114, %170
+  br label %.lr.ph32.i102
 
-189:                                              ; preds = %185, %._crit_edge.i100
-  %.026.i101 = phi i32 [ %26, %._crit_edge.i100 ], [ %187, %185 ]
-  %.0.i102 = phi i32 [ %28, %._crit_edge.i100 ], [ %spec.select.i113, %185 ]
-  %190 = icmp slt i32 %.026.i101, %.0.i102
-  br i1 %190, label %.lr.ph32.i103, label %stbhw__draw_hline.exit119
+.lr.ph32.i102:                                    ; preds = %._crit_edge.i101, %.thread.i113
+  %.044.i103 = phi i32 [ %spec.select.i115, %.thread.i113 ], [ %28, %._crit_edge.i101 ]
+  %.02643.i104 = phi i32 [ %171, %.thread.i113 ], [ %26, %._crit_edge.i101 ]
+  %173 = sext i32 %7 to i64
+  %174 = getelementptr inbounds [3 x i8], ptr @stbhw__color, i64 %173
+  %175 = mul nsw i32 %161, %162
+  %176 = sext i32 %175 to i64
+  %177 = getelementptr inbounds i8, ptr %160, i64 %176
+  %178 = sext i32 %.02643.i104 to i64
+  %wide.trip.count38.i105 = sext i32 %.044.i103 to i64
+  br label %179
 
-.lr.ph32.i103:                                    ; preds = %189
-  %191 = sext i32 %7 to i64
-  %192 = getelementptr inbounds [3 x i8], ptr @stbhw__color, i64 %191
-  %193 = mul nsw i32 %175, %176
-  %194 = sext i32 %193 to i64
-  %195 = getelementptr inbounds i8, ptr %174, i64 %194
-  %196 = sext i32 %.026.i101 to i64
-  %197 = sext i32 %24 to i64
-  %wide.trip.count38.i104 = sext i32 %.0.i102 to i64
-  br label %198
-
-198:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i109, %.lr.ph32.i103
-  %indvars.iv35.i105 = phi i64 [ %196, %.lr.ph32.i103 ], [ %indvars.iv.next36.i110, %stbhw__stbhw__set_pixel_whiten.exit.i109 ]
+179:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i110, %.lr.ph32.i102
+  %indvars.iv35.i106 = phi i64 [ %178, %.lr.ph32.i102 ], [ %indvars.iv.next36.i111, %stbhw__stbhw__set_pixel_whiten.exit.i110 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  br label %199
+  br label %180
 
-199:                                              ; preds = %199, %198
-  %indvars.iv.i.i106 = phi i64 [ 0, %198 ], [ %indvars.iv.next.i.i107, %199 ]
-  %200 = getelementptr inbounds nuw i8, ptr %192, i64 %indvars.iv.i.i106
-  %201 = load i8, ptr %200, align 1, !tbaa !58
-  %202 = zext i8 %201 to i16
-  %203 = shl nuw nsw i16 %202, 1
-  %204 = add nuw nsw i16 %203, 255
-  %205 = udiv i16 %204, 3
-  %206 = trunc nuw i16 %205 to i8
-  %207 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i.i106
-  store i8 %206, ptr %207, align 1, !tbaa !58
-  %indvars.iv.next.i.i107 = add nuw nsw i64 %indvars.iv.i.i106, 1
-  %exitcond.not.i.i108 = icmp eq i64 %indvars.iv.next.i.i107, 3
-  br i1 %exitcond.not.i.i108, label %stbhw__stbhw__set_pixel_whiten.exit.i109, label %199, !llvm.loop !102
+180:                                              ; preds = %180, %179
+  %indvars.iv.i.i107 = phi i64 [ 0, %179 ], [ %indvars.iv.next.i.i108, %180 ]
+  %181 = getelementptr inbounds nuw i8, ptr %174, i64 %indvars.iv.i.i107
+  %182 = load i8, ptr %181, align 1, !tbaa !58
+  %183 = zext i8 %182 to i16
+  %184 = shl nuw nsw i16 %183, 1
+  %185 = add nuw nsw i16 %184, 255
+  %186 = udiv i16 %185, 3
+  %187 = trunc nuw i16 %186 to i8
+  %188 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i.i107
+  store i8 %187, ptr %188, align 1, !tbaa !58
+  %indvars.iv.next.i.i108 = add nuw nsw i64 %indvars.iv.i.i107, 1
+  %exitcond.not.i.i109 = icmp eq i64 %indvars.iv.next.i.i108, 3
+  br i1 %exitcond.not.i.i109, label %stbhw__stbhw__set_pixel_whiten.exit.i110, label %180, !llvm.loop !102
 
-stbhw__stbhw__set_pixel_whiten.exit.i109:         ; preds = %199
-  %208 = add nsw i64 %indvars.iv35.i105, %197
-  %209 = mul nsw i64 %208, 3
-  %210 = getelementptr inbounds i8, ptr %195, i64 %209
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %210, ptr noundef nonnull align 1 dereferenceable(3) %11, i64 3, i1 false)
+stbhw__stbhw__set_pixel_whiten.exit.i110:         ; preds = %180
+  %189 = add nsw i64 %indvars.iv35.i106, %49
+  %190 = mul nsw i64 %189, 3
+  %191 = getelementptr inbounds i8, ptr %177, i64 %190
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %191, ptr noundef nonnull align 1 dereferenceable(3) %11, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %indvars.iv.next36.i110 = add nsw i64 %indvars.iv35.i105, 1
-  %exitcond39.not.i111 = icmp eq i64 %indvars.iv.next36.i110, %wide.trip.count38.i104
-  br i1 %exitcond39.not.i111, label %stbhw__draw_hline.exit119, label %198, !llvm.loop !104
+  %indvars.iv.next36.i111 = add nsw i64 %indvars.iv35.i106, 1
+  %exitcond39.not.i112 = icmp eq i64 %indvars.iv.next36.i111, %wide.trip.count38.i105
+  br i1 %exitcond39.not.i112, label %stbhw__draw_hline.exit121, label %179, !llvm.loop !104
 
-stbhw__draw_hline.exit119:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i109, %189
-  %211 = load ptr, ptr %20, align 8, !tbaa !88
-  %212 = load i32, ptr %22, align 8, !tbaa !89
-  br i1 %29, label %.lr.ph.i134, label %._crit_edge.i120
+stbhw__draw_hline.exit121:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i110
+  %192 = load ptr, ptr %20, align 8, !tbaa !88
+  %193 = load i32, ptr %22, align 8, !tbaa !89
+  br i1 %29, label %.lr.ph.i137, label %._crit_edge.i122
 
-.lr.ph.i134:                                      ; preds = %stbhw__draw_hline.exit119
-  %213 = mul nsw i32 %212, %176
-  %214 = sext i32 %213 to i64
-  %215 = getelementptr inbounds i8, ptr %211, i64 %214
-  %216 = sext i32 %68 to i64
-  %wide.trip.count.i135 = zext nneg i32 %19 to i64
-  br label %217
+.lr.ph.i137:                                      ; preds = %stbhw__draw_hline.exit121
+  %194 = mul nsw i32 %193, %162
+  %195 = sext i32 %194 to i64
+  %196 = getelementptr inbounds i8, ptr %192, i64 %195
+  %wide.trip.count.i138 = zext nneg i32 %19 to i64
+  br label %197
 
-217:                                              ; preds = %217, %.lr.ph.i134
-  %indvars.iv.i136 = phi i64 [ 0, %.lr.ph.i134 ], [ %indvars.iv.next.i137, %217 ]
-  %218 = add nsw i64 %indvars.iv.i136, %216
-  %219 = mul nsw i64 %218, 3
-  %220 = getelementptr inbounds i8, ptr %215, i64 %219
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %220, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
-  %indvars.iv.next.i137 = add nuw nsw i64 %indvars.iv.i136, 1
-  %exitcond.not.i138 = icmp eq i64 %indvars.iv.next.i137, %wide.trip.count.i135
-  br i1 %exitcond.not.i138, label %._crit_edge.i120, label %217, !llvm.loop !103
+197:                                              ; preds = %197, %.lr.ph.i137
+  %indvars.iv.i139 = phi i64 [ 0, %.lr.ph.i137 ], [ %indvars.iv.next.i140, %197 ]
+  %198 = add nsw i64 %indvars.iv.i139, %83
+  %199 = mul nsw i64 %198, 3
+  %200 = getelementptr inbounds i8, ptr %196, i64 %199
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %200, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  %indvars.iv.next.i140 = add nuw nsw i64 %indvars.iv.i139, 1
+  %exitcond.not.i141 = icmp eq i64 %indvars.iv.next.i140, %wide.trip.count.i138
+  br i1 %exitcond.not.i141, label %._crit_edge.i122, label %197, !llvm.loop !103
 
-._crit_edge.i120:                                 ; preds = %217, %stbhw__draw_hline.exit119
-  br i1 %39, label %221, label %225
+._crit_edge.i122:                                 ; preds = %197, %stbhw__draw_hline.exit121
+  br i1 %39, label %.thread.i134, label %.lr.ph32.i123
 
-221:                                              ; preds = %._crit_edge.i120
-  %222 = sdiv i32 %19, 2
-  %223 = add nsw i32 %222, -1
-  %224 = and i32 %19, 1
-  %spec.select.v.i132 = add nuw nsw i32 %224, 1
-  %spec.select.i133 = add nsw i32 %spec.select.v.i132, %222
-  br label %225
+.thread.i134:                                     ; preds = %._crit_edge.i122
+  %201 = sdiv i32 %19, 2
+  %202 = add nsw i32 %201, -1
+  %203 = and i32 %19, 1
+  %spec.select.v.i135 = add nuw nsw i32 %203, 1
+  %spec.select.i136 = add nsw i32 %spec.select.v.i135, %201
+  br label %.lr.ph32.i123
 
-225:                                              ; preds = %221, %._crit_edge.i120
-  %.026.i121 = phi i32 [ %26, %._crit_edge.i120 ], [ %223, %221 ]
-  %.0.i122 = phi i32 [ %28, %._crit_edge.i120 ], [ %spec.select.i133, %221 ]
-  %226 = icmp slt i32 %.026.i121, %.0.i122
-  br i1 %226, label %.lr.ph32.i123, label %stbhw__draw_hline.exit139
+.lr.ph32.i123:                                    ; preds = %._crit_edge.i122, %.thread.i134
+  %.044.i124 = phi i32 [ %spec.select.i136, %.thread.i134 ], [ %28, %._crit_edge.i122 ]
+  %.02643.i125 = phi i32 [ %202, %.thread.i134 ], [ %26, %._crit_edge.i122 ]
+  %204 = sext i32 %8 to i64
+  %205 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 48), i64 %204
+  %206 = mul nsw i32 %193, %162
+  %207 = sext i32 %206 to i64
+  %208 = getelementptr inbounds i8, ptr %192, i64 %207
+  %209 = sext i32 %.02643.i125 to i64
+  %wide.trip.count38.i126 = sext i32 %.044.i124 to i64
+  br label %210
 
-.lr.ph32.i123:                                    ; preds = %225
-  %227 = sext i32 %8 to i64
-  %228 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 48), i64 %227
-  %229 = mul nsw i32 %212, %176
-  %230 = sext i32 %229 to i64
-  %231 = getelementptr inbounds i8, ptr %211, i64 %230
-  %232 = sext i32 %.026.i121 to i64
-  %233 = sext i32 %68 to i64
-  %wide.trip.count38.i124 = sext i32 %.0.i122 to i64
-  br label %234
-
-234:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i129, %.lr.ph32.i123
-  %indvars.iv35.i125 = phi i64 [ %232, %.lr.ph32.i123 ], [ %indvars.iv.next36.i130, %stbhw__stbhw__set_pixel_whiten.exit.i129 ]
+210:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i131, %.lr.ph32.i123
+  %indvars.iv35.i127 = phi i64 [ %209, %.lr.ph32.i123 ], [ %indvars.iv.next36.i132, %stbhw__stbhw__set_pixel_whiten.exit.i131 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  br label %235
+  br label %211
 
-235:                                              ; preds = %235, %234
-  %indvars.iv.i.i126 = phi i64 [ 0, %234 ], [ %indvars.iv.next.i.i127, %235 ]
-  %236 = getelementptr inbounds nuw i8, ptr %228, i64 %indvars.iv.i.i126
-  %237 = load i8, ptr %236, align 1, !tbaa !58
-  %238 = zext i8 %237 to i16
-  %239 = shl nuw nsw i16 %238, 1
-  %240 = add nuw nsw i16 %239, 255
-  %241 = udiv i16 %240, 3
-  %242 = trunc nuw i16 %241 to i8
-  %243 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv.i.i126
-  store i8 %242, ptr %243, align 1, !tbaa !58
-  %indvars.iv.next.i.i127 = add nuw nsw i64 %indvars.iv.i.i126, 1
-  %exitcond.not.i.i128 = icmp eq i64 %indvars.iv.next.i.i127, 3
-  br i1 %exitcond.not.i.i128, label %stbhw__stbhw__set_pixel_whiten.exit.i129, label %235, !llvm.loop !102
+211:                                              ; preds = %211, %210
+  %indvars.iv.i.i128 = phi i64 [ 0, %210 ], [ %indvars.iv.next.i.i129, %211 ]
+  %212 = getelementptr inbounds nuw i8, ptr %205, i64 %indvars.iv.i.i128
+  %213 = load i8, ptr %212, align 1, !tbaa !58
+  %214 = zext i8 %213 to i16
+  %215 = shl nuw nsw i16 %214, 1
+  %216 = add nuw nsw i16 %215, 255
+  %217 = udiv i16 %216, 3
+  %218 = trunc nuw i16 %217 to i8
+  %219 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv.i.i128
+  store i8 %218, ptr %219, align 1, !tbaa !58
+  %indvars.iv.next.i.i129 = add nuw nsw i64 %indvars.iv.i.i128, 1
+  %exitcond.not.i.i130 = icmp eq i64 %indvars.iv.next.i.i129, 3
+  br i1 %exitcond.not.i.i130, label %stbhw__stbhw__set_pixel_whiten.exit.i131, label %211, !llvm.loop !102
 
-stbhw__stbhw__set_pixel_whiten.exit.i129:         ; preds = %235
-  %244 = add nsw i64 %indvars.iv35.i125, %233
-  %245 = mul nsw i64 %244, 3
-  %246 = getelementptr inbounds i8, ptr %231, i64 %245
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %246, ptr noundef nonnull align 1 dereferenceable(3) %10, i64 3, i1 false)
+stbhw__stbhw__set_pixel_whiten.exit.i131:         ; preds = %211
+  %220 = add nsw i64 %indvars.iv35.i127, %83
+  %221 = mul nsw i64 %220, 3
+  %222 = getelementptr inbounds i8, ptr %208, i64 %221
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %222, ptr noundef nonnull align 1 dereferenceable(3) %10, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %indvars.iv.next36.i130 = add nsw i64 %indvars.iv35.i125, 1
-  %exitcond39.not.i131 = icmp eq i64 %indvars.iv.next36.i130, %wide.trip.count38.i124
-  br i1 %exitcond39.not.i131, label %stbhw__draw_hline.exit139, label %234, !llvm.loop !104
+  %indvars.iv.next36.i132 = add nsw i64 %indvars.iv35.i127, 1
+  %exitcond39.not.i133 = icmp eq i64 %indvars.iv.next36.i132, %wide.trip.count38.i126
+  br i1 %exitcond39.not.i133, label %stbhw__draw_hline.exit142, label %210, !llvm.loop !104
 
-stbhw__draw_hline.exit139:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i129, %225
+stbhw__draw_hline.exit142:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i131
   ret void
 }
 
@@ -4051,482 +4021,444 @@ define void @stbhw__edge_process_v_rect(ptr noundef readonly captures(none) %0, 
 ._crit_edge.i:                                    ; preds = %34, %9
   %38 = sub nsw i32 %28, %26
   %39 = icmp slt i32 %38, 2
-  br i1 %39, label %40, label %44
+  br i1 %39, label %.thread.i, label %.lr.ph32.i
 
-40:                                               ; preds = %._crit_edge.i
-  %41 = sdiv i32 %19, 2
-  %42 = add nsw i32 %41, -1
-  %43 = and i32 %19, 1
-  %spec.select.v.i = add nuw nsw i32 %43, 1
-  %spec.select.i = add nsw i32 %spec.select.v.i, %41
-  br label %44
+.thread.i:                                        ; preds = %._crit_edge.i
+  %40 = sdiv i32 %19, 2
+  %41 = add nsw i32 %40, -1
+  %42 = and i32 %19, 1
+  %spec.select.v.i = add nuw nsw i32 %42, 1
+  %spec.select.i = add nsw i32 %spec.select.v.i, %40
+  br label %.lr.ph32.i
 
-44:                                               ; preds = %40, %._crit_edge.i
-  %.026.i = phi i32 [ %26, %._crit_edge.i ], [ %42, %40 ]
-  %.0.i = phi i32 [ %28, %._crit_edge.i ], [ %spec.select.i, %40 ]
-  %45 = icmp slt i32 %.026.i, %.0.i
-  br i1 %45, label %.lr.ph32.i, label %stbhw__draw_hline.exit
+.lr.ph32.i:                                       ; preds = %._crit_edge.i, %.thread.i
+  %.044.i = phi i32 [ %spec.select.i, %.thread.i ], [ %28, %._crit_edge.i ]
+  %.02643.i = phi i32 [ %41, %.thread.i ], [ %26, %._crit_edge.i ]
+  %43 = sext i32 %3 to i64
+  %44 = getelementptr inbounds [3 x i8], ptr @stbhw__color, i64 %43
+  %45 = mul nsw i32 %23, %2
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds i8, ptr %21, i64 %46
+  %48 = sext i32 %.02643.i to i64
+  %49 = sext i32 %24 to i64
+  %wide.trip.count38.i = sext i32 %.044.i to i64
+  br label %50
 
-.lr.ph32.i:                                       ; preds = %44
-  %46 = sext i32 %3 to i64
-  %47 = getelementptr inbounds [3 x i8], ptr @stbhw__color, i64 %46
-  %48 = mul nsw i32 %23, %2
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i8, ptr %21, i64 %49
-  %51 = sext i32 %.026.i to i64
-  %52 = sext i32 %24 to i64
-  %wide.trip.count38.i = sext i32 %.0.i to i64
-  br label %53
-
-53:                                               ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i, %.lr.ph32.i
-  %indvars.iv35.i = phi i64 [ %51, %.lr.ph32.i ], [ %indvars.iv.next36.i, %stbhw__stbhw__set_pixel_whiten.exit.i ]
+50:                                               ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i, %.lr.ph32.i
+  %indvars.iv35.i = phi i64 [ %48, %.lr.ph32.i ], [ %indvars.iv.next36.i, %stbhw__stbhw__set_pixel_whiten.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  br label %54
+  br label %51
 
-54:                                               ; preds = %54, %53
-  %indvars.iv.i.i = phi i64 [ 0, %53 ], [ %indvars.iv.next.i.i, %54 ]
-  %55 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv.i.i
-  %56 = load i8, ptr %55, align 1, !tbaa !58
-  %57 = zext i8 %56 to i16
-  %58 = shl nuw nsw i16 %57, 1
-  %59 = add nuw nsw i16 %58, 255
-  %60 = udiv i16 %59, 3
-  %61 = trunc nuw i16 %60 to i8
-  %62 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv.i.i
-  store i8 %61, ptr %62, align 1, !tbaa !58
+51:                                               ; preds = %51, %50
+  %indvars.iv.i.i = phi i64 [ 0, %50 ], [ %indvars.iv.next.i.i, %51 ]
+  %52 = getelementptr inbounds nuw i8, ptr %44, i64 %indvars.iv.i.i
+  %53 = load i8, ptr %52, align 1, !tbaa !58
+  %54 = zext i8 %53 to i16
+  %55 = shl nuw nsw i16 %54, 1
+  %56 = add nuw nsw i16 %55, 255
+  %57 = udiv i16 %56, 3
+  %58 = trunc nuw i16 %57 to i8
+  %59 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv.i.i
+  store i8 %58, ptr %59, align 1, !tbaa !58
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %stbhw__stbhw__set_pixel_whiten.exit.i, label %54, !llvm.loop !102
+  br i1 %exitcond.not.i.i, label %stbhw__stbhw__set_pixel_whiten.exit.i, label %51, !llvm.loop !102
 
-stbhw__stbhw__set_pixel_whiten.exit.i:            ; preds = %54
-  %63 = add nsw i64 %indvars.iv35.i, %52
-  %64 = mul nsw i64 %63, 3
-  %65 = getelementptr inbounds i8, ptr %50, i64 %64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %65, ptr noundef nonnull align 1 dereferenceable(3) %15, i64 3, i1 false)
+stbhw__stbhw__set_pixel_whiten.exit.i:            ; preds = %51
+  %60 = add nsw i64 %indvars.iv35.i, %49
+  %61 = mul nsw i64 %60, 3
+  %62 = getelementptr inbounds i8, ptr %47, i64 %61
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %62, ptr noundef nonnull align 1 dereferenceable(3) %15, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %indvars.iv.next36.i = add nsw i64 %indvars.iv35.i, 1
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next36.i, %wide.trip.count38.i
-  br i1 %exitcond39.not.i, label %stbhw__draw_hline.exit, label %53, !llvm.loop !104
+  br i1 %exitcond39.not.i, label %stbhw__draw_hline.exit, label %50, !llvm.loop !104
 
-stbhw__draw_hline.exit:                           ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i, %44
-  %66 = load ptr, ptr %20, align 8, !tbaa !88
-  %67 = load i32, ptr %22, align 8, !tbaa !89
-  %68 = add i32 %2, 1
-  br i1 %29, label %.lr.ph.i51, label %._crit_edge.i41
+stbhw__draw_hline.exit:                           ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i
+  %63 = load ptr, ptr %20, align 8, !tbaa !88
+  %64 = load i32, ptr %22, align 8, !tbaa !89
+  %65 = add i32 %2, 1
+  br i1 %29, label %.lr.ph.i50, label %._crit_edge.i41
 
-.lr.ph.i51:                                       ; preds = %stbhw__draw_hline.exit
-  %69 = mul nsw i32 %1, 3
-  %70 = sext i32 %69 to i64
-  %invariant.gep.i = getelementptr i8, ptr %66, i64 %70
-  %71 = sext i32 %68 to i64
-  %72 = sext i32 %67 to i64
-  %wide.trip.count.i52 = zext nneg i32 %19 to i64
-  br label %73
+.lr.ph.i50:                                       ; preds = %stbhw__draw_hline.exit
+  %66 = mul nsw i32 %1, 3
+  %67 = sext i32 %66 to i64
+  %invariant.gep.i = getelementptr i8, ptr %63, i64 %67
+  %68 = sext i32 %65 to i64
+  %69 = sext i32 %64 to i64
+  %wide.trip.count.i51 = zext nneg i32 %19 to i64
+  br label %70
 
-73:                                               ; preds = %73, %.lr.ph.i51
-  %indvars.iv.i53 = phi i64 [ 0, %.lr.ph.i51 ], [ %indvars.iv.next.i54, %73 ]
-  %74 = add nsw i64 %indvars.iv.i53, %71
-  %75 = mul nsw i64 %74, %72
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %75
+70:                                               ; preds = %70, %.lr.ph.i50
+  %indvars.iv.i52 = phi i64 [ 0, %.lr.ph.i50 ], [ %indvars.iv.next.i53, %70 ]
+  %71 = add nsw i64 %indvars.iv.i52, %68
+  %72 = mul nsw i64 %71, %69
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
-  %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i53, 1
-  %exitcond.not.i55 = icmp eq i64 %indvars.iv.next.i54, %wide.trip.count.i52
-  br i1 %exitcond.not.i55, label %._crit_edge.i41, label %73, !llvm.loop !105
+  %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i52, 1
+  %exitcond.not.i54 = icmp eq i64 %indvars.iv.next.i53, %wide.trip.count.i51
+  br i1 %exitcond.not.i54, label %._crit_edge.i41, label %70, !llvm.loop !105
 
-._crit_edge.i41:                                  ; preds = %73, %stbhw__draw_hline.exit
-  br i1 %39, label %76, label %80
+._crit_edge.i41:                                  ; preds = %70, %stbhw__draw_hline.exit
+  br i1 %39, label %.thread.i47, label %.lr.ph32.i42
 
-76:                                               ; preds = %._crit_edge.i41
-  %77 = sdiv i32 %19, 2
-  %78 = add nsw i32 %77, -1
-  %79 = and i32 %19, 1
-  %spec.select.v.i49 = add nuw nsw i32 %79, 1
-  %spec.select.i50 = add nsw i32 %spec.select.v.i49, %77
-  br label %80
+.thread.i47:                                      ; preds = %._crit_edge.i41
+  %73 = sdiv i32 %19, 2
+  %74 = add nsw i32 %73, -1
+  %75 = and i32 %19, 1
+  %spec.select.v.i48 = add nuw nsw i32 %75, 1
+  %spec.select.i49 = add nsw i32 %spec.select.v.i48, %73
+  br label %.lr.ph32.i42
 
-80:                                               ; preds = %76, %._crit_edge.i41
-  %.026.i42 = phi i32 [ %26, %._crit_edge.i41 ], [ %78, %76 ]
-  %.0.i43 = phi i32 [ %28, %._crit_edge.i41 ], [ %spec.select.i50, %76 ]
-  %81 = icmp slt i32 %.026.i42, %.0.i43
-  br i1 %81, label %.lr.ph32.i44, label %stbhw__draw_vline.exit
+.lr.ph32.i42:                                     ; preds = %._crit_edge.i41, %.thread.i47
+  %.046.i = phi i32 [ %spec.select.i49, %.thread.i47 ], [ %28, %._crit_edge.i41 ]
+  %.02645.i = phi i32 [ %74, %.thread.i47 ], [ %26, %._crit_edge.i41 ]
+  %76 = sext i32 %4 to i64
+  %77 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 120), i64 %76
+  %78 = mul nsw i32 %1, 3
+  %79 = sext i32 %78 to i64
+  %invariant.gep34.i = getelementptr i8, ptr %63, i64 %79
+  %80 = sext i32 %.02645.i to i64
+  %81 = sext i32 %65 to i64
+  %82 = sext i32 %64 to i64
+  %wide.trip.count40.i = sext i32 %.046.i to i64
+  br label %83
 
-.lr.ph32.i44:                                     ; preds = %80
-  %82 = sext i32 %4 to i64
-  %83 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 120), i64 %82
-  %84 = mul nsw i32 %1, 3
-  %85 = sext i32 %84 to i64
-  %invariant.gep34.i = getelementptr i8, ptr %66, i64 %85
-  %86 = sext i32 %.026.i42 to i64
-  %87 = sext i32 %68 to i64
-  %88 = sext i32 %67 to i64
-  %wide.trip.count40.i = sext i32 %.0.i43 to i64
-  br label %89
-
-89:                                               ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i48, %.lr.ph32.i44
-  %indvars.iv37.i = phi i64 [ %86, %.lr.ph32.i44 ], [ %indvars.iv.next38.i, %stbhw__stbhw__set_pixel_whiten.exit.i48 ]
+83:                                               ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i46, %.lr.ph32.i42
+  %indvars.iv37.i = phi i64 [ %80, %.lr.ph32.i42 ], [ %indvars.iv.next38.i, %stbhw__stbhw__set_pixel_whiten.exit.i46 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  br label %90
+  br label %84
 
-90:                                               ; preds = %90, %89
-  %indvars.iv.i.i45 = phi i64 [ 0, %89 ], [ %indvars.iv.next.i.i46, %90 ]
-  %91 = getelementptr inbounds nuw i8, ptr %83, i64 %indvars.iv.i.i45
-  %92 = load i8, ptr %91, align 1, !tbaa !58
-  %93 = zext i8 %92 to i16
-  %94 = shl nuw nsw i16 %93, 1
-  %95 = add nuw nsw i16 %94, 255
-  %96 = udiv i16 %95, 3
-  %97 = trunc nuw i16 %96 to i8
-  %98 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv.i.i45
-  store i8 %97, ptr %98, align 1, !tbaa !58
-  %indvars.iv.next.i.i46 = add nuw nsw i64 %indvars.iv.i.i45, 1
-  %exitcond.not.i.i47 = icmp eq i64 %indvars.iv.next.i.i46, 3
-  br i1 %exitcond.not.i.i47, label %stbhw__stbhw__set_pixel_whiten.exit.i48, label %90, !llvm.loop !102
+84:                                               ; preds = %84, %83
+  %indvars.iv.i.i43 = phi i64 [ 0, %83 ], [ %indvars.iv.next.i.i44, %84 ]
+  %85 = getelementptr inbounds nuw i8, ptr %77, i64 %indvars.iv.i.i43
+  %86 = load i8, ptr %85, align 1, !tbaa !58
+  %87 = zext i8 %86 to i16
+  %88 = shl nuw nsw i16 %87, 1
+  %89 = add nuw nsw i16 %88, 255
+  %90 = udiv i16 %89, 3
+  %91 = trunc nuw i16 %90 to i8
+  %92 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv.i.i43
+  store i8 %91, ptr %92, align 1, !tbaa !58
+  %indvars.iv.next.i.i44 = add nuw nsw i64 %indvars.iv.i.i43, 1
+  %exitcond.not.i.i45 = icmp eq i64 %indvars.iv.next.i.i44, 3
+  br i1 %exitcond.not.i.i45, label %stbhw__stbhw__set_pixel_whiten.exit.i46, label %84, !llvm.loop !102
 
-stbhw__stbhw__set_pixel_whiten.exit.i48:          ; preds = %90
-  %99 = add nsw i64 %indvars.iv37.i, %87
-  %100 = mul nsw i64 %99, %88
-  %gep35.i = getelementptr i8, ptr %invariant.gep34.i, i64 %100
+stbhw__stbhw__set_pixel_whiten.exit.i46:          ; preds = %84
+  %93 = add nsw i64 %indvars.iv37.i, %81
+  %94 = mul nsw i64 %93, %82
+  %gep35.i = getelementptr i8, ptr %invariant.gep34.i, i64 %94
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep35.i, ptr noundef nonnull align 1 dereferenceable(3) %14, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %indvars.iv.next38.i = add nsw i64 %indvars.iv37.i, 1
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next38.i, %wide.trip.count40.i
-  br i1 %exitcond41.not.i, label %stbhw__draw_vline.exit, label %89, !llvm.loop !106
+  br i1 %exitcond41.not.i, label %stbhw__draw_vline.exit, label %83, !llvm.loop !106
 
-stbhw__draw_vline.exit:                           ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i48, %80
-  %101 = load ptr, ptr %20, align 8, !tbaa !88
-  %102 = load i32, ptr %22, align 8, !tbaa !89
-  %103 = add i32 %24, %19
-  br i1 %29, label %.lr.ph.i72, label %._crit_edge.i56
+stbhw__draw_vline.exit:                           ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i46
+  %95 = load ptr, ptr %20, align 8, !tbaa !88
+  %96 = load i32, ptr %22, align 8, !tbaa !89
+  %97 = add i32 %24, %19
+  br i1 %29, label %.lr.ph.i72, label %._crit_edge.i55
 
 .lr.ph.i72:                                       ; preds = %stbhw__draw_vline.exit
-  %104 = mul nsw i32 %103, 3
-  %105 = sext i32 %104 to i64
-  %invariant.gep.i73 = getelementptr i8, ptr %101, i64 %105
-  %106 = sext i32 %68 to i64
-  %107 = sext i32 %102 to i64
+  %98 = mul nsw i32 %97, 3
+  %99 = sext i32 %98 to i64
+  %invariant.gep.i73 = getelementptr i8, ptr %95, i64 %99
+  %100 = sext i32 %96 to i64
   %wide.trip.count.i74 = zext nneg i32 %19 to i64
-  br label %108
+  br label %101
 
-108:                                              ; preds = %108, %.lr.ph.i72
-  %indvars.iv.i75 = phi i64 [ 0, %.lr.ph.i72 ], [ %indvars.iv.next.i77, %108 ]
-  %109 = add nsw i64 %indvars.iv.i75, %106
-  %110 = mul nsw i64 %109, %107
-  %gep.i76 = getelementptr i8, ptr %invariant.gep.i73, i64 %110
+101:                                              ; preds = %101, %.lr.ph.i72
+  %indvars.iv.i75 = phi i64 [ 0, %.lr.ph.i72 ], [ %indvars.iv.next.i77, %101 ]
+  %102 = add nsw i64 %indvars.iv.i75, %81
+  %103 = mul nsw i64 %102, %100
+  %gep.i76 = getelementptr i8, ptr %invariant.gep.i73, i64 %103
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i76, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i75, 1
   %exitcond.not.i78 = icmp eq i64 %indvars.iv.next.i77, %wide.trip.count.i74
-  br i1 %exitcond.not.i78, label %._crit_edge.i56, label %108, !llvm.loop !105
+  br i1 %exitcond.not.i78, label %._crit_edge.i55, label %101, !llvm.loop !105
 
-._crit_edge.i56:                                  ; preds = %108, %stbhw__draw_vline.exit
-  br i1 %39, label %111, label %115
+._crit_edge.i55:                                  ; preds = %101, %stbhw__draw_vline.exit
+  br i1 %39, label %.thread.i69, label %.lr.ph32.i56
 
-111:                                              ; preds = %._crit_edge.i56
-  %112 = sdiv i32 %19, 2
-  %113 = add nsw i32 %112, -1
-  %114 = and i32 %19, 1
-  %spec.select.v.i70 = add nuw nsw i32 %114, 1
-  %spec.select.i71 = add nsw i32 %spec.select.v.i70, %112
-  br label %115
+.thread.i69:                                      ; preds = %._crit_edge.i55
+  %104 = sdiv i32 %19, 2
+  %105 = add nsw i32 %104, -1
+  %106 = and i32 %19, 1
+  %spec.select.v.i70 = add nuw nsw i32 %106, 1
+  %spec.select.i71 = add nsw i32 %spec.select.v.i70, %104
+  br label %.lr.ph32.i56
 
-115:                                              ; preds = %111, %._crit_edge.i56
-  %.026.i57 = phi i32 [ %26, %._crit_edge.i56 ], [ %113, %111 ]
-  %.0.i58 = phi i32 [ %28, %._crit_edge.i56 ], [ %spec.select.i71, %111 ]
-  %116 = icmp slt i32 %.026.i57, %.0.i58
-  br i1 %116, label %.lr.ph32.i59, label %stbhw__draw_vline.exit79
+.lr.ph32.i56:                                     ; preds = %._crit_edge.i55, %.thread.i69
+  %.046.i57 = phi i32 [ %spec.select.i71, %.thread.i69 ], [ %28, %._crit_edge.i55 ]
+  %.02645.i58 = phi i32 [ %105, %.thread.i69 ], [ %26, %._crit_edge.i55 ]
+  %107 = sext i32 %5 to i64
+  %108 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 24), i64 %107
+  %109 = mul nsw i32 %97, 3
+  %110 = sext i32 %109 to i64
+  %invariant.gep34.i59 = getelementptr i8, ptr %95, i64 %110
+  %111 = sext i32 %.02645.i58 to i64
+  %112 = sext i32 %96 to i64
+  %wide.trip.count40.i60 = sext i32 %.046.i57 to i64
+  br label %113
 
-.lr.ph32.i59:                                     ; preds = %115
-  %117 = sext i32 %5 to i64
-  %118 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 24), i64 %117
-  %119 = mul nsw i32 %103, 3
-  %120 = sext i32 %119 to i64
-  %invariant.gep34.i60 = getelementptr i8, ptr %101, i64 %120
-  %121 = sext i32 %.026.i57 to i64
-  %122 = sext i32 %68 to i64
-  %123 = sext i32 %102 to i64
-  %wide.trip.count40.i61 = sext i32 %.0.i58 to i64
-  br label %124
-
-124:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i66, %.lr.ph32.i59
-  %indvars.iv37.i62 = phi i64 [ %121, %.lr.ph32.i59 ], [ %indvars.iv.next38.i68, %stbhw__stbhw__set_pixel_whiten.exit.i66 ]
+113:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i65, %.lr.ph32.i56
+  %indvars.iv37.i61 = phi i64 [ %111, %.lr.ph32.i56 ], [ %indvars.iv.next38.i67, %stbhw__stbhw__set_pixel_whiten.exit.i65 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  br label %125
+  br label %114
 
-125:                                              ; preds = %125, %124
-  %indvars.iv.i.i63 = phi i64 [ 0, %124 ], [ %indvars.iv.next.i.i64, %125 ]
-  %126 = getelementptr inbounds nuw i8, ptr %118, i64 %indvars.iv.i.i63
-  %127 = load i8, ptr %126, align 1, !tbaa !58
-  %128 = zext i8 %127 to i16
-  %129 = shl nuw nsw i16 %128, 1
-  %130 = add nuw nsw i16 %129, 255
-  %131 = udiv i16 %130, 3
-  %132 = trunc nuw i16 %131 to i8
-  %133 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i.i63
-  store i8 %132, ptr %133, align 1, !tbaa !58
-  %indvars.iv.next.i.i64 = add nuw nsw i64 %indvars.iv.i.i63, 1
-  %exitcond.not.i.i65 = icmp eq i64 %indvars.iv.next.i.i64, 3
-  br i1 %exitcond.not.i.i65, label %stbhw__stbhw__set_pixel_whiten.exit.i66, label %125, !llvm.loop !102
+114:                                              ; preds = %114, %113
+  %indvars.iv.i.i62 = phi i64 [ 0, %113 ], [ %indvars.iv.next.i.i63, %114 ]
+  %115 = getelementptr inbounds nuw i8, ptr %108, i64 %indvars.iv.i.i62
+  %116 = load i8, ptr %115, align 1, !tbaa !58
+  %117 = zext i8 %116 to i16
+  %118 = shl nuw nsw i16 %117, 1
+  %119 = add nuw nsw i16 %118, 255
+  %120 = udiv i16 %119, 3
+  %121 = trunc nuw i16 %120 to i8
+  %122 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i.i62
+  store i8 %121, ptr %122, align 1, !tbaa !58
+  %indvars.iv.next.i.i63 = add nuw nsw i64 %indvars.iv.i.i62, 1
+  %exitcond.not.i.i64 = icmp eq i64 %indvars.iv.next.i.i63, 3
+  br i1 %exitcond.not.i.i64, label %stbhw__stbhw__set_pixel_whiten.exit.i65, label %114, !llvm.loop !102
 
-stbhw__stbhw__set_pixel_whiten.exit.i66:          ; preds = %125
-  %134 = add nsw i64 %indvars.iv37.i62, %122
-  %135 = mul nsw i64 %134, %123
-  %gep35.i67 = getelementptr i8, ptr %invariant.gep34.i60, i64 %135
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep35.i67, ptr noundef nonnull align 1 dereferenceable(3) %13, i64 3, i1 false)
+stbhw__stbhw__set_pixel_whiten.exit.i65:          ; preds = %114
+  %123 = add nsw i64 %indvars.iv37.i61, %81
+  %124 = mul nsw i64 %123, %112
+  %gep35.i66 = getelementptr i8, ptr %invariant.gep34.i59, i64 %124
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep35.i66, ptr noundef nonnull align 1 dereferenceable(3) %13, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %indvars.iv.next38.i68 = add nsw i64 %indvars.iv37.i62, 1
-  %exitcond41.not.i69 = icmp eq i64 %indvars.iv.next38.i68, %wide.trip.count40.i61
-  br i1 %exitcond41.not.i69, label %stbhw__draw_vline.exit79, label %124, !llvm.loop !106
+  %indvars.iv.next38.i67 = add nsw i64 %indvars.iv37.i61, 1
+  %exitcond41.not.i68 = icmp eq i64 %indvars.iv.next38.i67, %wide.trip.count40.i60
+  br i1 %exitcond41.not.i68, label %stbhw__draw_vline.exit79, label %113, !llvm.loop !106
 
-stbhw__draw_vline.exit79:                         ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i66, %115
-  %136 = load ptr, ptr %20, align 8, !tbaa !88
-  %137 = load i32, ptr %22, align 8, !tbaa !89
-  %138 = add i32 %68, %19
-  br i1 %29, label %.lr.ph.i96, label %._crit_edge.i80
+stbhw__draw_vline.exit79:                         ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i65
+  %125 = load ptr, ptr %20, align 8, !tbaa !88
+  %126 = load i32, ptr %22, align 8, !tbaa !89
+  %127 = add i32 %65, %19
+  br i1 %29, label %.lr.ph.i97, label %._crit_edge.i80
 
-.lr.ph.i96:                                       ; preds = %stbhw__draw_vline.exit79
-  %139 = mul nsw i32 %1, 3
-  %140 = sext i32 %139 to i64
-  %invariant.gep.i97 = getelementptr i8, ptr %136, i64 %140
-  %141 = sext i32 %138 to i64
-  %142 = sext i32 %137 to i64
-  %wide.trip.count.i98 = zext nneg i32 %19 to i64
-  br label %143
+.lr.ph.i97:                                       ; preds = %stbhw__draw_vline.exit79
+  %invariant.gep.i98 = getelementptr i8, ptr %125, i64 %79
+  %128 = sext i32 %127 to i64
+  %129 = sext i32 %126 to i64
+  %wide.trip.count.i99 = zext nneg i32 %19 to i64
+  br label %130
 
-143:                                              ; preds = %143, %.lr.ph.i96
-  %indvars.iv.i99 = phi i64 [ 0, %.lr.ph.i96 ], [ %indvars.iv.next.i101, %143 ]
-  %144 = add nsw i64 %indvars.iv.i99, %141
-  %145 = mul nsw i64 %144, %142
-  %gep.i100 = getelementptr i8, ptr %invariant.gep.i97, i64 %145
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i100, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
-  %indvars.iv.next.i101 = add nuw nsw i64 %indvars.iv.i99, 1
-  %exitcond.not.i102 = icmp eq i64 %indvars.iv.next.i101, %wide.trip.count.i98
-  br i1 %exitcond.not.i102, label %._crit_edge.i80, label %143, !llvm.loop !105
+130:                                              ; preds = %130, %.lr.ph.i97
+  %indvars.iv.i100 = phi i64 [ 0, %.lr.ph.i97 ], [ %indvars.iv.next.i102, %130 ]
+  %131 = add nsw i64 %indvars.iv.i100, %128
+  %132 = mul nsw i64 %131, %129
+  %gep.i101 = getelementptr i8, ptr %invariant.gep.i98, i64 %132
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i101, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  %indvars.iv.next.i102 = add nuw nsw i64 %indvars.iv.i100, 1
+  %exitcond.not.i103 = icmp eq i64 %indvars.iv.next.i102, %wide.trip.count.i99
+  br i1 %exitcond.not.i103, label %._crit_edge.i80, label %130, !llvm.loop !105
 
-._crit_edge.i80:                                  ; preds = %143, %stbhw__draw_vline.exit79
-  br i1 %39, label %146, label %150
+._crit_edge.i80:                                  ; preds = %130, %stbhw__draw_vline.exit79
+  br i1 %39, label %.thread.i94, label %.lr.ph32.i81
 
-146:                                              ; preds = %._crit_edge.i80
-  %147 = sdiv i32 %19, 2
-  %148 = add nsw i32 %147, -1
-  %149 = and i32 %19, 1
-  %spec.select.v.i94 = add nuw nsw i32 %149, 1
-  %spec.select.i95 = add nsw i32 %spec.select.v.i94, %147
-  br label %150
+.thread.i94:                                      ; preds = %._crit_edge.i80
+  %133 = sdiv i32 %19, 2
+  %134 = add nsw i32 %133, -1
+  %135 = and i32 %19, 1
+  %spec.select.v.i95 = add nuw nsw i32 %135, 1
+  %spec.select.i96 = add nsw i32 %spec.select.v.i95, %133
+  br label %.lr.ph32.i81
 
-150:                                              ; preds = %146, %._crit_edge.i80
-  %.026.i81 = phi i32 [ %26, %._crit_edge.i80 ], [ %148, %146 ]
-  %.0.i82 = phi i32 [ %28, %._crit_edge.i80 ], [ %spec.select.i95, %146 ]
-  %151 = icmp slt i32 %.026.i81, %.0.i82
-  br i1 %151, label %.lr.ph32.i83, label %stbhw__draw_vline.exit103
+.lr.ph32.i81:                                     ; preds = %._crit_edge.i80, %.thread.i94
+  %.046.i82 = phi i32 [ %spec.select.i96, %.thread.i94 ], [ %28, %._crit_edge.i80 ]
+  %.02645.i83 = phi i32 [ %134, %.thread.i94 ], [ %26, %._crit_edge.i80 ]
+  %136 = sext i32 %6 to i64
+  %137 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 96), i64 %136
+  %invariant.gep34.i84 = getelementptr i8, ptr %125, i64 %79
+  %138 = sext i32 %.02645.i83 to i64
+  %139 = sext i32 %127 to i64
+  %140 = sext i32 %126 to i64
+  %wide.trip.count40.i85 = sext i32 %.046.i82 to i64
+  br label %141
 
-.lr.ph32.i83:                                     ; preds = %150
-  %152 = sext i32 %6 to i64
-  %153 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 96), i64 %152
-  %154 = mul nsw i32 %1, 3
-  %155 = sext i32 %154 to i64
-  %invariant.gep34.i84 = getelementptr i8, ptr %136, i64 %155
-  %156 = sext i32 %.026.i81 to i64
-  %157 = sext i32 %138 to i64
-  %158 = sext i32 %137 to i64
-  %wide.trip.count40.i85 = sext i32 %.0.i82 to i64
-  br label %159
-
-159:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i90, %.lr.ph32.i83
-  %indvars.iv37.i86 = phi i64 [ %156, %.lr.ph32.i83 ], [ %indvars.iv.next38.i92, %stbhw__stbhw__set_pixel_whiten.exit.i90 ]
+141:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i90, %.lr.ph32.i81
+  %indvars.iv37.i86 = phi i64 [ %138, %.lr.ph32.i81 ], [ %indvars.iv.next38.i92, %stbhw__stbhw__set_pixel_whiten.exit.i90 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  br label %160
+  br label %142
 
-160:                                              ; preds = %160, %159
-  %indvars.iv.i.i87 = phi i64 [ 0, %159 ], [ %indvars.iv.next.i.i88, %160 ]
-  %161 = getelementptr inbounds nuw i8, ptr %153, i64 %indvars.iv.i.i87
-  %162 = load i8, ptr %161, align 1, !tbaa !58
-  %163 = zext i8 %162 to i16
-  %164 = shl nuw nsw i16 %163, 1
-  %165 = add nuw nsw i16 %164, 255
-  %166 = udiv i16 %165, 3
-  %167 = trunc nuw i16 %166 to i8
-  %168 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv.i.i87
-  store i8 %167, ptr %168, align 1, !tbaa !58
+142:                                              ; preds = %142, %141
+  %indvars.iv.i.i87 = phi i64 [ 0, %141 ], [ %indvars.iv.next.i.i88, %142 ]
+  %143 = getelementptr inbounds nuw i8, ptr %137, i64 %indvars.iv.i.i87
+  %144 = load i8, ptr %143, align 1, !tbaa !58
+  %145 = zext i8 %144 to i16
+  %146 = shl nuw nsw i16 %145, 1
+  %147 = add nuw nsw i16 %146, 255
+  %148 = udiv i16 %147, 3
+  %149 = trunc nuw i16 %148 to i8
+  %150 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv.i.i87
+  store i8 %149, ptr %150, align 1, !tbaa !58
   %indvars.iv.next.i.i88 = add nuw nsw i64 %indvars.iv.i.i87, 1
   %exitcond.not.i.i89 = icmp eq i64 %indvars.iv.next.i.i88, 3
-  br i1 %exitcond.not.i.i89, label %stbhw__stbhw__set_pixel_whiten.exit.i90, label %160, !llvm.loop !102
+  br i1 %exitcond.not.i.i89, label %stbhw__stbhw__set_pixel_whiten.exit.i90, label %142, !llvm.loop !102
 
-stbhw__stbhw__set_pixel_whiten.exit.i90:          ; preds = %160
-  %169 = add nsw i64 %indvars.iv37.i86, %157
-  %170 = mul nsw i64 %169, %158
-  %gep35.i91 = getelementptr i8, ptr %invariant.gep34.i84, i64 %170
+stbhw__stbhw__set_pixel_whiten.exit.i90:          ; preds = %142
+  %151 = add nsw i64 %indvars.iv37.i86, %139
+  %152 = mul nsw i64 %151, %140
+  %gep35.i91 = getelementptr i8, ptr %invariant.gep34.i84, i64 %152
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep35.i91, ptr noundef nonnull align 1 dereferenceable(3) %12, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %indvars.iv.next38.i92 = add nsw i64 %indvars.iv37.i86, 1
   %exitcond41.not.i93 = icmp eq i64 %indvars.iv.next38.i92, %wide.trip.count40.i85
-  br i1 %exitcond41.not.i93, label %stbhw__draw_vline.exit103, label %159, !llvm.loop !106
+  br i1 %exitcond41.not.i93, label %stbhw__draw_vline.exit104, label %141, !llvm.loop !106
 
-stbhw__draw_vline.exit103:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i90, %150
-  %171 = load ptr, ptr %20, align 8, !tbaa !88
-  %172 = load i32, ptr %22, align 8, !tbaa !89
-  br i1 %29, label %.lr.ph.i120, label %._crit_edge.i104
+stbhw__draw_vline.exit104:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i90
+  %153 = load ptr, ptr %20, align 8, !tbaa !88
+  %154 = load i32, ptr %22, align 8, !tbaa !89
+  br i1 %29, label %.lr.ph.i122, label %._crit_edge.i105
 
-.lr.ph.i120:                                      ; preds = %stbhw__draw_vline.exit103
-  %173 = mul nsw i32 %103, 3
-  %174 = sext i32 %173 to i64
-  %invariant.gep.i121 = getelementptr i8, ptr %171, i64 %174
-  %175 = sext i32 %138 to i64
-  %176 = sext i32 %172 to i64
-  %wide.trip.count.i122 = zext nneg i32 %19 to i64
-  br label %177
+.lr.ph.i122:                                      ; preds = %stbhw__draw_vline.exit104
+  %invariant.gep.i123 = getelementptr i8, ptr %153, i64 %110
+  %155 = sext i32 %154 to i64
+  %wide.trip.count.i124 = zext nneg i32 %19 to i64
+  br label %156
 
-177:                                              ; preds = %177, %.lr.ph.i120
-  %indvars.iv.i123 = phi i64 [ 0, %.lr.ph.i120 ], [ %indvars.iv.next.i125, %177 ]
-  %178 = add nsw i64 %indvars.iv.i123, %175
-  %179 = mul nsw i64 %178, %176
-  %gep.i124 = getelementptr i8, ptr %invariant.gep.i121, i64 %179
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i124, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
-  %indvars.iv.next.i125 = add nuw nsw i64 %indvars.iv.i123, 1
-  %exitcond.not.i126 = icmp eq i64 %indvars.iv.next.i125, %wide.trip.count.i122
-  br i1 %exitcond.not.i126, label %._crit_edge.i104, label %177, !llvm.loop !105
+156:                                              ; preds = %156, %.lr.ph.i122
+  %indvars.iv.i125 = phi i64 [ 0, %.lr.ph.i122 ], [ %indvars.iv.next.i127, %156 ]
+  %157 = add nsw i64 %indvars.iv.i125, %139
+  %158 = mul nsw i64 %157, %155
+  %gep.i126 = getelementptr i8, ptr %invariant.gep.i123, i64 %158
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i126, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  %indvars.iv.next.i127 = add nuw nsw i64 %indvars.iv.i125, 1
+  %exitcond.not.i128 = icmp eq i64 %indvars.iv.next.i127, %wide.trip.count.i124
+  br i1 %exitcond.not.i128, label %._crit_edge.i105, label %156, !llvm.loop !105
 
-._crit_edge.i104:                                 ; preds = %177, %stbhw__draw_vline.exit103
-  br i1 %39, label %180, label %184
+._crit_edge.i105:                                 ; preds = %156, %stbhw__draw_vline.exit104
+  br i1 %39, label %.thread.i119, label %.lr.ph32.i106
 
-180:                                              ; preds = %._crit_edge.i104
-  %181 = sdiv i32 %19, 2
-  %182 = add nsw i32 %181, -1
-  %183 = and i32 %19, 1
-  %spec.select.v.i118 = add nuw nsw i32 %183, 1
-  %spec.select.i119 = add nsw i32 %spec.select.v.i118, %181
-  br label %184
+.thread.i119:                                     ; preds = %._crit_edge.i105
+  %159 = sdiv i32 %19, 2
+  %160 = add nsw i32 %159, -1
+  %161 = and i32 %19, 1
+  %spec.select.v.i120 = add nuw nsw i32 %161, 1
+  %spec.select.i121 = add nsw i32 %spec.select.v.i120, %159
+  br label %.lr.ph32.i106
 
-184:                                              ; preds = %180, %._crit_edge.i104
-  %.026.i105 = phi i32 [ %26, %._crit_edge.i104 ], [ %182, %180 ]
-  %.0.i106 = phi i32 [ %28, %._crit_edge.i104 ], [ %spec.select.i119, %180 ]
-  %185 = icmp slt i32 %.026.i105, %.0.i106
-  br i1 %185, label %.lr.ph32.i107, label %stbhw__draw_vline.exit127
+.lr.ph32.i106:                                    ; preds = %._crit_edge.i105, %.thread.i119
+  %.046.i107 = phi i32 [ %spec.select.i121, %.thread.i119 ], [ %28, %._crit_edge.i105 ]
+  %.02645.i108 = phi i32 [ %160, %.thread.i119 ], [ %26, %._crit_edge.i105 ]
+  %162 = sext i32 %7 to i64
+  %163 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 120), i64 %162
+  %invariant.gep34.i109 = getelementptr i8, ptr %153, i64 %110
+  %164 = sext i32 %.02645.i108 to i64
+  %165 = sext i32 %154 to i64
+  %wide.trip.count40.i110 = sext i32 %.046.i107 to i64
+  br label %166
 
-.lr.ph32.i107:                                    ; preds = %184
-  %186 = sext i32 %7 to i64
-  %187 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 120), i64 %186
-  %188 = mul nsw i32 %103, 3
-  %189 = sext i32 %188 to i64
-  %invariant.gep34.i108 = getelementptr i8, ptr %171, i64 %189
-  %190 = sext i32 %.026.i105 to i64
-  %191 = sext i32 %138 to i64
-  %192 = sext i32 %172 to i64
-  %wide.trip.count40.i109 = sext i32 %.0.i106 to i64
-  br label %193
-
-193:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i114, %.lr.ph32.i107
-  %indvars.iv37.i110 = phi i64 [ %190, %.lr.ph32.i107 ], [ %indvars.iv.next38.i116, %stbhw__stbhw__set_pixel_whiten.exit.i114 ]
+166:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i115, %.lr.ph32.i106
+  %indvars.iv37.i111 = phi i64 [ %164, %.lr.ph32.i106 ], [ %indvars.iv.next38.i117, %stbhw__stbhw__set_pixel_whiten.exit.i115 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  br label %194
+  br label %167
 
-194:                                              ; preds = %194, %193
-  %indvars.iv.i.i111 = phi i64 [ 0, %193 ], [ %indvars.iv.next.i.i112, %194 ]
-  %195 = getelementptr inbounds nuw i8, ptr %187, i64 %indvars.iv.i.i111
-  %196 = load i8, ptr %195, align 1, !tbaa !58
-  %197 = zext i8 %196 to i16
-  %198 = shl nuw nsw i16 %197, 1
-  %199 = add nuw nsw i16 %198, 255
-  %200 = udiv i16 %199, 3
-  %201 = trunc nuw i16 %200 to i8
-  %202 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i.i111
-  store i8 %201, ptr %202, align 1, !tbaa !58
-  %indvars.iv.next.i.i112 = add nuw nsw i64 %indvars.iv.i.i111, 1
-  %exitcond.not.i.i113 = icmp eq i64 %indvars.iv.next.i.i112, 3
-  br i1 %exitcond.not.i.i113, label %stbhw__stbhw__set_pixel_whiten.exit.i114, label %194, !llvm.loop !102
+167:                                              ; preds = %167, %166
+  %indvars.iv.i.i112 = phi i64 [ 0, %166 ], [ %indvars.iv.next.i.i113, %167 ]
+  %168 = getelementptr inbounds nuw i8, ptr %163, i64 %indvars.iv.i.i112
+  %169 = load i8, ptr %168, align 1, !tbaa !58
+  %170 = zext i8 %169 to i16
+  %171 = shl nuw nsw i16 %170, 1
+  %172 = add nuw nsw i16 %171, 255
+  %173 = udiv i16 %172, 3
+  %174 = trunc nuw i16 %173 to i8
+  %175 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i.i112
+  store i8 %174, ptr %175, align 1, !tbaa !58
+  %indvars.iv.next.i.i113 = add nuw nsw i64 %indvars.iv.i.i112, 1
+  %exitcond.not.i.i114 = icmp eq i64 %indvars.iv.next.i.i113, 3
+  br i1 %exitcond.not.i.i114, label %stbhw__stbhw__set_pixel_whiten.exit.i115, label %167, !llvm.loop !102
 
-stbhw__stbhw__set_pixel_whiten.exit.i114:         ; preds = %194
-  %203 = add nsw i64 %indvars.iv37.i110, %191
-  %204 = mul nsw i64 %203, %192
-  %gep35.i115 = getelementptr i8, ptr %invariant.gep34.i108, i64 %204
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep35.i115, ptr noundef nonnull align 1 dereferenceable(3) %11, i64 3, i1 false)
+stbhw__stbhw__set_pixel_whiten.exit.i115:         ; preds = %167
+  %176 = add nsw i64 %indvars.iv37.i111, %139
+  %177 = mul nsw i64 %176, %165
+  %gep35.i116 = getelementptr i8, ptr %invariant.gep34.i109, i64 %177
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep35.i116, ptr noundef nonnull align 1 dereferenceable(3) %11, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %indvars.iv.next38.i116 = add nsw i64 %indvars.iv37.i110, 1
-  %exitcond41.not.i117 = icmp eq i64 %indvars.iv.next38.i116, %wide.trip.count40.i109
-  br i1 %exitcond41.not.i117, label %stbhw__draw_vline.exit127, label %193, !llvm.loop !106
+  %indvars.iv.next38.i117 = add nsw i64 %indvars.iv37.i111, 1
+  %exitcond41.not.i118 = icmp eq i64 %indvars.iv.next38.i117, %wide.trip.count40.i110
+  br i1 %exitcond41.not.i118, label %stbhw__draw_vline.exit129, label %166, !llvm.loop !106
 
-stbhw__draw_vline.exit127:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i114, %184
-  %205 = load ptr, ptr %20, align 8, !tbaa !88
-  %206 = load i32, ptr %22, align 8, !tbaa !89
-  %207 = shl nsw i32 %19, 1
-  %208 = add i32 %68, %207
-  br i1 %29, label %.lr.ph.i142, label %._crit_edge.i128
+stbhw__draw_vline.exit129:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i115
+  %178 = load ptr, ptr %20, align 8, !tbaa !88
+  %179 = load i32, ptr %22, align 8, !tbaa !89
+  %180 = shl nsw i32 %19, 1
+  %181 = add i32 %65, %180
+  br i1 %29, label %.lr.ph.i145, label %._crit_edge.i130
 
-.lr.ph.i142:                                      ; preds = %stbhw__draw_vline.exit127
-  %209 = mul nsw i32 %206, %208
-  %210 = sext i32 %209 to i64
-  %211 = getelementptr inbounds i8, ptr %205, i64 %210
-  %212 = sext i32 %24 to i64
-  %wide.trip.count.i143 = zext nneg i32 %19 to i64
-  br label %213
+.lr.ph.i145:                                      ; preds = %stbhw__draw_vline.exit129
+  %182 = mul nsw i32 %179, %181
+  %183 = sext i32 %182 to i64
+  %184 = getelementptr inbounds i8, ptr %178, i64 %183
+  %wide.trip.count.i146 = zext nneg i32 %19 to i64
+  br label %185
 
-213:                                              ; preds = %213, %.lr.ph.i142
-  %indvars.iv.i144 = phi i64 [ 0, %.lr.ph.i142 ], [ %indvars.iv.next.i145, %213 ]
-  %214 = add nsw i64 %indvars.iv.i144, %212
-  %215 = mul nsw i64 %214, 3
-  %216 = getelementptr inbounds i8, ptr %211, i64 %215
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %216, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
-  %indvars.iv.next.i145 = add nuw nsw i64 %indvars.iv.i144, 1
-  %exitcond.not.i146 = icmp eq i64 %indvars.iv.next.i145, %wide.trip.count.i143
-  br i1 %exitcond.not.i146, label %._crit_edge.i128, label %213, !llvm.loop !103
+185:                                              ; preds = %185, %.lr.ph.i145
+  %indvars.iv.i147 = phi i64 [ 0, %.lr.ph.i145 ], [ %indvars.iv.next.i148, %185 ]
+  %186 = add nsw i64 %indvars.iv.i147, %49
+  %187 = mul nsw i64 %186, 3
+  %188 = getelementptr inbounds i8, ptr %184, i64 %187
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %188, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  %indvars.iv.next.i148 = add nuw nsw i64 %indvars.iv.i147, 1
+  %exitcond.not.i149 = icmp eq i64 %indvars.iv.next.i148, %wide.trip.count.i146
+  br i1 %exitcond.not.i149, label %._crit_edge.i130, label %185, !llvm.loop !103
 
-._crit_edge.i128:                                 ; preds = %213, %stbhw__draw_vline.exit127
-  br i1 %39, label %217, label %221
+._crit_edge.i130:                                 ; preds = %185, %stbhw__draw_vline.exit129
+  br i1 %39, label %.thread.i142, label %.lr.ph32.i131
 
-217:                                              ; preds = %._crit_edge.i128
-  %218 = sdiv i32 %19, 2
-  %219 = add nsw i32 %218, -1
-  %220 = and i32 %19, 1
-  %spec.select.v.i140 = add nuw nsw i32 %220, 1
-  %spec.select.i141 = add nsw i32 %spec.select.v.i140, %218
-  br label %221
+.thread.i142:                                     ; preds = %._crit_edge.i130
+  %189 = sdiv i32 %19, 2
+  %190 = add nsw i32 %189, -1
+  %191 = and i32 %19, 1
+  %spec.select.v.i143 = add nuw nsw i32 %191, 1
+  %spec.select.i144 = add nsw i32 %spec.select.v.i143, %189
+  br label %.lr.ph32.i131
 
-221:                                              ; preds = %217, %._crit_edge.i128
-  %.026.i129 = phi i32 [ %26, %._crit_edge.i128 ], [ %219, %217 ]
-  %.0.i130 = phi i32 [ %28, %._crit_edge.i128 ], [ %spec.select.i141, %217 ]
-  %222 = icmp slt i32 %.026.i129, %.0.i130
-  br i1 %222, label %.lr.ph32.i131, label %stbhw__draw_hline.exit147
+.lr.ph32.i131:                                    ; preds = %._crit_edge.i130, %.thread.i142
+  %.044.i132 = phi i32 [ %spec.select.i144, %.thread.i142 ], [ %28, %._crit_edge.i130 ]
+  %.02643.i133 = phi i32 [ %190, %.thread.i142 ], [ %26, %._crit_edge.i130 ]
+  %192 = sext i32 %8 to i64
+  %193 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 72), i64 %192
+  %194 = mul nsw i32 %179, %181
+  %195 = sext i32 %194 to i64
+  %196 = getelementptr inbounds i8, ptr %178, i64 %195
+  %197 = sext i32 %.02643.i133 to i64
+  %wide.trip.count38.i134 = sext i32 %.044.i132 to i64
+  br label %198
 
-.lr.ph32.i131:                                    ; preds = %221
-  %223 = sext i32 %8 to i64
-  %224 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 72), i64 %223
-  %225 = mul nsw i32 %206, %208
-  %226 = sext i32 %225 to i64
-  %227 = getelementptr inbounds i8, ptr %205, i64 %226
-  %228 = sext i32 %.026.i129 to i64
-  %229 = sext i32 %24 to i64
-  %wide.trip.count38.i132 = sext i32 %.0.i130 to i64
-  br label %230
-
-230:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i137, %.lr.ph32.i131
-  %indvars.iv35.i133 = phi i64 [ %228, %.lr.ph32.i131 ], [ %indvars.iv.next36.i138, %stbhw__stbhw__set_pixel_whiten.exit.i137 ]
+198:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i139, %.lr.ph32.i131
+  %indvars.iv35.i135 = phi i64 [ %197, %.lr.ph32.i131 ], [ %indvars.iv.next36.i140, %stbhw__stbhw__set_pixel_whiten.exit.i139 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  br label %231
+  br label %199
 
-231:                                              ; preds = %231, %230
-  %indvars.iv.i.i134 = phi i64 [ 0, %230 ], [ %indvars.iv.next.i.i135, %231 ]
-  %232 = getelementptr inbounds nuw i8, ptr %224, i64 %indvars.iv.i.i134
-  %233 = load i8, ptr %232, align 1, !tbaa !58
-  %234 = zext i8 %233 to i16
-  %235 = shl nuw nsw i16 %234, 1
-  %236 = add nuw nsw i16 %235, 255
-  %237 = udiv i16 %236, 3
-  %238 = trunc nuw i16 %237 to i8
-  %239 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv.i.i134
-  store i8 %238, ptr %239, align 1, !tbaa !58
-  %indvars.iv.next.i.i135 = add nuw nsw i64 %indvars.iv.i.i134, 1
-  %exitcond.not.i.i136 = icmp eq i64 %indvars.iv.next.i.i135, 3
-  br i1 %exitcond.not.i.i136, label %stbhw__stbhw__set_pixel_whiten.exit.i137, label %231, !llvm.loop !102
+199:                                              ; preds = %199, %198
+  %indvars.iv.i.i136 = phi i64 [ 0, %198 ], [ %indvars.iv.next.i.i137, %199 ]
+  %200 = getelementptr inbounds nuw i8, ptr %193, i64 %indvars.iv.i.i136
+  %201 = load i8, ptr %200, align 1, !tbaa !58
+  %202 = zext i8 %201 to i16
+  %203 = shl nuw nsw i16 %202, 1
+  %204 = add nuw nsw i16 %203, 255
+  %205 = udiv i16 %204, 3
+  %206 = trunc nuw i16 %205 to i8
+  %207 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv.i.i136
+  store i8 %206, ptr %207, align 1, !tbaa !58
+  %indvars.iv.next.i.i137 = add nuw nsw i64 %indvars.iv.i.i136, 1
+  %exitcond.not.i.i138 = icmp eq i64 %indvars.iv.next.i.i137, 3
+  br i1 %exitcond.not.i.i138, label %stbhw__stbhw__set_pixel_whiten.exit.i139, label %199, !llvm.loop !102
 
-stbhw__stbhw__set_pixel_whiten.exit.i137:         ; preds = %231
-  %240 = add nsw i64 %indvars.iv35.i133, %229
-  %241 = mul nsw i64 %240, 3
-  %242 = getelementptr inbounds i8, ptr %227, i64 %241
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %242, ptr noundef nonnull align 1 dereferenceable(3) %10, i64 3, i1 false)
+stbhw__stbhw__set_pixel_whiten.exit.i139:         ; preds = %199
+  %208 = add nsw i64 %indvars.iv35.i135, %49
+  %209 = mul nsw i64 %208, 3
+  %210 = getelementptr inbounds i8, ptr %196, i64 %209
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %210, ptr noundef nonnull align 1 dereferenceable(3) %10, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %indvars.iv.next36.i138 = add nsw i64 %indvars.iv35.i133, 1
-  %exitcond39.not.i139 = icmp eq i64 %indvars.iv.next36.i138, %wide.trip.count38.i132
-  br i1 %exitcond39.not.i139, label %stbhw__draw_hline.exit147, label %230, !llvm.loop !104
+  %indvars.iv.next36.i140 = add nsw i64 %indvars.iv35.i135, 1
+  %exitcond39.not.i141 = icmp eq i64 %indvars.iv.next36.i140, %wide.trip.count38.i134
+  br i1 %exitcond39.not.i141, label %stbhw__draw_hline.exit150, label %198, !llvm.loop !104
 
-stbhw__draw_hline.exit147:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i137, %221
+stbhw__draw_hline.exit150:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i139
   ret void
 }
 
@@ -4580,1118 +4512,1079 @@ define void @stbhw__corner_process_h_rect(ptr noundef readonly captures(none) %0
 ._crit_edge.i:                                    ; preds = %39, %9
   %43 = sub nsw i32 %33, %31
   %44 = icmp slt i32 %43, 2
-  br i1 %44, label %45, label %49
+  br i1 %44, label %.thread.i, label %.lr.ph32.i
 
-45:                                               ; preds = %._crit_edge.i
-  %46 = sdiv i32 %19, 2
-  %47 = add nsw i32 %46, -1
-  %48 = and i32 %19, 1
-  %spec.select.v.i = add nuw nsw i32 %48, 1
-  %spec.select.i = add nsw i32 %spec.select.v.i, %46
-  br label %49
+.thread.i:                                        ; preds = %._crit_edge.i
+  %45 = sdiv i32 %19, 2
+  %46 = add nsw i32 %45, -1
+  %47 = and i32 %19, 1
+  %spec.select.v.i = add nuw nsw i32 %47, 1
+  %spec.select.i = add nsw i32 %spec.select.v.i, %45
+  br label %.lr.ph32.i
 
-49:                                               ; preds = %45, %._crit_edge.i
-  %.026.i = phi i32 [ %31, %._crit_edge.i ], [ %47, %45 ]
-  %.0.i = phi i32 [ %33, %._crit_edge.i ], [ %spec.select.i, %45 ]
-  %50 = icmp slt i32 %.026.i, %.0.i
-  br i1 %50, label %.lr.ph32.i, label %stbhw__draw_hline.exit
+.lr.ph32.i:                                       ; preds = %._crit_edge.i, %.thread.i
+  %.044.i = phi i32 [ %spec.select.i, %.thread.i ], [ %33, %._crit_edge.i ]
+  %.02643.i = phi i32 [ %46, %.thread.i ], [ %31, %._crit_edge.i ]
+  %48 = sext i32 %29 to i64
+  %49 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 48), i64 %48
+  %50 = mul nsw i32 %23, %2
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds i8, ptr %21, i64 %51
+  %53 = sext i32 %.02643.i to i64
+  %54 = sext i32 %24 to i64
+  %wide.trip.count38.i = sext i32 %.044.i to i64
+  br label %55
 
-.lr.ph32.i:                                       ; preds = %49
-  %51 = sext i32 %29 to i64
-  %52 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 48), i64 %51
-  %53 = mul nsw i32 %23, %2
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i8, ptr %21, i64 %54
-  %56 = sext i32 %.026.i to i64
-  %57 = sext i32 %24 to i64
-  %wide.trip.count38.i = sext i32 %.0.i to i64
-  br label %58
-
-58:                                               ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i, %.lr.ph32.i
-  %indvars.iv35.i = phi i64 [ %56, %.lr.ph32.i ], [ %indvars.iv.next36.i, %stbhw__stbhw__set_pixel_whiten.exit.i ]
+55:                                               ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i, %.lr.ph32.i
+  %indvars.iv35.i = phi i64 [ %53, %.lr.ph32.i ], [ %indvars.iv.next36.i, %stbhw__stbhw__set_pixel_whiten.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  br label %59
+  br label %56
 
-59:                                               ; preds = %59, %58
-  %indvars.iv.i.i = phi i64 [ 0, %58 ], [ %indvars.iv.next.i.i, %59 ]
-  %60 = getelementptr inbounds nuw i8, ptr %52, i64 %indvars.iv.i.i
-  %61 = load i8, ptr %60, align 1, !tbaa !58
-  %62 = zext i8 %61 to i16
-  %63 = shl nuw nsw i16 %62, 1
-  %64 = add nuw nsw i16 %63, 255
-  %65 = udiv i16 %64, 3
-  %66 = trunc nuw i16 %65 to i8
-  %67 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv.i.i
-  store i8 %66, ptr %67, align 1, !tbaa !58
+56:                                               ; preds = %56, %55
+  %indvars.iv.i.i = phi i64 [ 0, %55 ], [ %indvars.iv.next.i.i, %56 ]
+  %57 = getelementptr inbounds nuw i8, ptr %49, i64 %indvars.iv.i.i
+  %58 = load i8, ptr %57, align 1, !tbaa !58
+  %59 = zext i8 %58 to i16
+  %60 = shl nuw nsw i16 %59, 1
+  %61 = add nuw nsw i16 %60, 255
+  %62 = udiv i16 %61, 3
+  %63 = trunc nuw i16 %62 to i8
+  %64 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv.i.i
+  store i8 %63, ptr %64, align 1, !tbaa !58
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %stbhw__stbhw__set_pixel_whiten.exit.i, label %59, !llvm.loop !102
+  br i1 %exitcond.not.i.i, label %stbhw__stbhw__set_pixel_whiten.exit.i, label %56, !llvm.loop !102
 
-stbhw__stbhw__set_pixel_whiten.exit.i:            ; preds = %59
-  %68 = add nsw i64 %indvars.iv35.i, %57
-  %69 = mul nsw i64 %68, 3
-  %70 = getelementptr inbounds i8, ptr %55, i64 %69
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %70, ptr noundef nonnull align 1 dereferenceable(3) %15, i64 3, i1 false)
+stbhw__stbhw__set_pixel_whiten.exit.i:            ; preds = %56
+  %65 = add nsw i64 %indvars.iv35.i, %54
+  %66 = mul nsw i64 %65, 3
+  %67 = getelementptr inbounds i8, ptr %52, i64 %66
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %67, ptr noundef nonnull align 1 dereferenceable(3) %15, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %indvars.iv.next36.i = add nsw i64 %indvars.iv35.i, 1
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next36.i, %wide.trip.count38.i
-  br i1 %exitcond39.not.i, label %stbhw__draw_hline.exit, label %58, !llvm.loop !104
+  br i1 %exitcond39.not.i, label %stbhw__draw_hline.exit, label %55, !llvm.loop !104
 
-stbhw__draw_hline.exit:                           ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i, %49
-  %71 = load ptr, ptr %20, align 8, !tbaa !88
-  %72 = load i32, ptr %22, align 8, !tbaa !89
-  %73 = add nsw i32 %19, %1
-  %74 = add nsw i32 %73, 1
-  %75 = getelementptr inbounds [4 x i32], ptr @stbhw__corner_colors_to_edge_color, i64 %27
-  %76 = sext i32 %5 to i64
-  %77 = getelementptr inbounds i32, ptr %75, i64 %76
-  %78 = load i32, ptr %77, align 4, !tbaa !32
-  br i1 %34, label %.lr.ph.i158, label %._crit_edge.i144
+stbhw__draw_hline.exit:                           ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i
+  %68 = load ptr, ptr %20, align 8, !tbaa !88
+  %69 = load i32, ptr %22, align 8, !tbaa !89
+  %70 = add nsw i32 %19, %1
+  %71 = add nsw i32 %70, 1
+  %72 = getelementptr inbounds [4 x i32], ptr @stbhw__corner_colors_to_edge_color, i64 %27
+  %73 = sext i32 %5 to i64
+  %74 = getelementptr inbounds i32, ptr %72, i64 %73
+  %75 = load i32, ptr %74, align 4, !tbaa !32
+  br i1 %34, label %.lr.ph.i159, label %._crit_edge.i144
 
-.lr.ph.i158:                                      ; preds = %stbhw__draw_hline.exit
-  %79 = mul nsw i32 %72, %2
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds i8, ptr %71, i64 %80
-  %82 = sext i32 %74 to i64
-  %wide.trip.count.i159 = zext nneg i32 %19 to i64
-  br label %83
+.lr.ph.i159:                                      ; preds = %stbhw__draw_hline.exit
+  %76 = mul nsw i32 %69, %2
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds i8, ptr %68, i64 %77
+  %79 = sext i32 %71 to i64
+  %wide.trip.count.i160 = zext nneg i32 %19 to i64
+  br label %80
 
-83:                                               ; preds = %83, %.lr.ph.i158
-  %indvars.iv.i160 = phi i64 [ 0, %.lr.ph.i158 ], [ %indvars.iv.next.i161, %83 ]
-  %84 = add nsw i64 %indvars.iv.i160, %82
-  %85 = mul nsw i64 %84, 3
-  %86 = getelementptr inbounds i8, ptr %81, i64 %85
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %86, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
-  %indvars.iv.next.i161 = add nuw nsw i64 %indvars.iv.i160, 1
-  %exitcond.not.i162 = icmp eq i64 %indvars.iv.next.i161, %wide.trip.count.i159
-  br i1 %exitcond.not.i162, label %._crit_edge.i144, label %83, !llvm.loop !103
+80:                                               ; preds = %80, %.lr.ph.i159
+  %indvars.iv.i161 = phi i64 [ 0, %.lr.ph.i159 ], [ %indvars.iv.next.i162, %80 ]
+  %81 = add nsw i64 %indvars.iv.i161, %79
+  %82 = mul nsw i64 %81, 3
+  %83 = getelementptr inbounds i8, ptr %78, i64 %82
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %83, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  %indvars.iv.next.i162 = add nuw nsw i64 %indvars.iv.i161, 1
+  %exitcond.not.i163 = icmp eq i64 %indvars.iv.next.i162, %wide.trip.count.i160
+  br i1 %exitcond.not.i163, label %._crit_edge.i144, label %80, !llvm.loop !103
 
-._crit_edge.i144:                                 ; preds = %83, %stbhw__draw_hline.exit
-  br i1 %44, label %87, label %91
+._crit_edge.i144:                                 ; preds = %80, %stbhw__draw_hline.exit
+  br i1 %44, label %.thread.i156, label %.lr.ph32.i145
 
-87:                                               ; preds = %._crit_edge.i144
-  %88 = sdiv i32 %19, 2
-  %89 = add nsw i32 %88, -1
-  %90 = and i32 %19, 1
-  %spec.select.v.i156 = add nuw nsw i32 %90, 1
-  %spec.select.i157 = add nsw i32 %spec.select.v.i156, %88
-  br label %91
+.thread.i156:                                     ; preds = %._crit_edge.i144
+  %84 = sdiv i32 %19, 2
+  %85 = add nsw i32 %84, -1
+  %86 = and i32 %19, 1
+  %spec.select.v.i157 = add nuw nsw i32 %86, 1
+  %spec.select.i158 = add nsw i32 %spec.select.v.i157, %84
+  br label %.lr.ph32.i145
 
-91:                                               ; preds = %87, %._crit_edge.i144
-  %.026.i145 = phi i32 [ %31, %._crit_edge.i144 ], [ %89, %87 ]
-  %.0.i146 = phi i32 [ %33, %._crit_edge.i144 ], [ %spec.select.i157, %87 ]
-  %92 = icmp slt i32 %.026.i145, %.0.i146
-  br i1 %92, label %.lr.ph32.i147, label %stbhw__draw_hline.exit163
+.lr.ph32.i145:                                    ; preds = %._crit_edge.i144, %.thread.i156
+  %.044.i146 = phi i32 [ %spec.select.i158, %.thread.i156 ], [ %33, %._crit_edge.i144 ]
+  %.02643.i147 = phi i32 [ %85, %.thread.i156 ], [ %31, %._crit_edge.i144 ]
+  %87 = sext i32 %75 to i64
+  %88 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 72), i64 %87
+  %89 = mul nsw i32 %69, %2
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds i8, ptr %68, i64 %90
+  %92 = sext i32 %.02643.i147 to i64
+  %93 = sext i32 %71 to i64
+  %wide.trip.count38.i148 = sext i32 %.044.i146 to i64
+  br label %94
 
-.lr.ph32.i147:                                    ; preds = %91
-  %93 = sext i32 %78 to i64
-  %94 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 72), i64 %93
-  %95 = mul nsw i32 %72, %2
-  %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds i8, ptr %71, i64 %96
-  %98 = sext i32 %.026.i145 to i64
-  %99 = sext i32 %74 to i64
-  %wide.trip.count38.i148 = sext i32 %.0.i146 to i64
-  br label %100
-
-100:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i153, %.lr.ph32.i147
-  %indvars.iv35.i149 = phi i64 [ %98, %.lr.ph32.i147 ], [ %indvars.iv.next36.i154, %stbhw__stbhw__set_pixel_whiten.exit.i153 ]
+94:                                               ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i153, %.lr.ph32.i145
+  %indvars.iv35.i149 = phi i64 [ %92, %.lr.ph32.i145 ], [ %indvars.iv.next36.i154, %stbhw__stbhw__set_pixel_whiten.exit.i153 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  br label %101
+  br label %95
 
-101:                                              ; preds = %101, %100
-  %indvars.iv.i.i150 = phi i64 [ 0, %100 ], [ %indvars.iv.next.i.i151, %101 ]
-  %102 = getelementptr inbounds nuw i8, ptr %94, i64 %indvars.iv.i.i150
-  %103 = load i8, ptr %102, align 1, !tbaa !58
-  %104 = zext i8 %103 to i16
-  %105 = shl nuw nsw i16 %104, 1
-  %106 = add nuw nsw i16 %105, 255
-  %107 = udiv i16 %106, 3
-  %108 = trunc nuw i16 %107 to i8
-  %109 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv.i.i150
-  store i8 %108, ptr %109, align 1, !tbaa !58
+95:                                               ; preds = %95, %94
+  %indvars.iv.i.i150 = phi i64 [ 0, %94 ], [ %indvars.iv.next.i.i151, %95 ]
+  %96 = getelementptr inbounds nuw i8, ptr %88, i64 %indvars.iv.i.i150
+  %97 = load i8, ptr %96, align 1, !tbaa !58
+  %98 = zext i8 %97 to i16
+  %99 = shl nuw nsw i16 %98, 1
+  %100 = add nuw nsw i16 %99, 255
+  %101 = udiv i16 %100, 3
+  %102 = trunc nuw i16 %101 to i8
+  %103 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv.i.i150
+  store i8 %102, ptr %103, align 1, !tbaa !58
   %indvars.iv.next.i.i151 = add nuw nsw i64 %indvars.iv.i.i150, 1
   %exitcond.not.i.i152 = icmp eq i64 %indvars.iv.next.i.i151, 3
-  br i1 %exitcond.not.i.i152, label %stbhw__stbhw__set_pixel_whiten.exit.i153, label %101, !llvm.loop !102
+  br i1 %exitcond.not.i.i152, label %stbhw__stbhw__set_pixel_whiten.exit.i153, label %95, !llvm.loop !102
 
-stbhw__stbhw__set_pixel_whiten.exit.i153:         ; preds = %101
-  %110 = add nsw i64 %indvars.iv35.i149, %99
-  %111 = mul nsw i64 %110, 3
-  %112 = getelementptr inbounds i8, ptr %97, i64 %111
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %112, ptr noundef nonnull align 1 dereferenceable(3) %14, i64 3, i1 false)
+stbhw__stbhw__set_pixel_whiten.exit.i153:         ; preds = %95
+  %104 = add nsw i64 %indvars.iv35.i149, %93
+  %105 = mul nsw i64 %104, 3
+  %106 = getelementptr inbounds i8, ptr %91, i64 %105
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %106, ptr noundef nonnull align 1 dereferenceable(3) %14, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %indvars.iv.next36.i154 = add nsw i64 %indvars.iv35.i149, 1
   %exitcond39.not.i155 = icmp eq i64 %indvars.iv.next36.i154, %wide.trip.count38.i148
-  br i1 %exitcond39.not.i155, label %stbhw__draw_hline.exit163, label %100, !llvm.loop !104
+  br i1 %exitcond39.not.i155, label %stbhw__draw_hline.exit164, label %94, !llvm.loop !104
 
-stbhw__draw_hline.exit163:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i153, %91
-  %113 = load ptr, ptr %20, align 8, !tbaa !88
-  %114 = load i32, ptr %22, align 8, !tbaa !89
-  %115 = add nsw i32 %2, 1
-  %116 = sext i32 %6 to i64
-  %117 = getelementptr inbounds i32, ptr %26, i64 %116
-  %118 = load i32, ptr %117, align 4, !tbaa !32
-  br i1 %34, label %.lr.ph.i174, label %._crit_edge.i164
+stbhw__draw_hline.exit164:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i153
+  %107 = load ptr, ptr %20, align 8, !tbaa !88
+  %108 = load i32, ptr %22, align 8, !tbaa !89
+  %109 = add nsw i32 %2, 1
+  %110 = sext i32 %6 to i64
+  %111 = getelementptr inbounds i32, ptr %26, i64 %110
+  %112 = load i32, ptr %111, align 4, !tbaa !32
+  br i1 %34, label %.lr.ph.i174, label %._crit_edge.i165
 
-.lr.ph.i174:                                      ; preds = %stbhw__draw_hline.exit163
-  %119 = mul nsw i32 %1, 3
-  %120 = sext i32 %119 to i64
-  %invariant.gep.i = getelementptr i8, ptr %113, i64 %120
-  %121 = sext i32 %115 to i64
-  %122 = sext i32 %114 to i64
+.lr.ph.i174:                                      ; preds = %stbhw__draw_hline.exit164
+  %113 = mul nsw i32 %1, 3
+  %114 = sext i32 %113 to i64
+  %invariant.gep.i = getelementptr i8, ptr %107, i64 %114
+  %115 = sext i32 %109 to i64
+  %116 = sext i32 %108 to i64
   %wide.trip.count.i175 = zext nneg i32 %19 to i64
-  br label %123
+  br label %117
 
-123:                                              ; preds = %123, %.lr.ph.i174
-  %indvars.iv.i176 = phi i64 [ 0, %.lr.ph.i174 ], [ %indvars.iv.next.i177, %123 ]
-  %124 = add nsw i64 %indvars.iv.i176, %121
-  %125 = mul nsw i64 %124, %122
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %125
+117:                                              ; preds = %117, %.lr.ph.i174
+  %indvars.iv.i176 = phi i64 [ 0, %.lr.ph.i174 ], [ %indvars.iv.next.i177, %117 ]
+  %118 = add nsw i64 %indvars.iv.i176, %115
+  %119 = mul nsw i64 %118, %116
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %119
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i177 = add nuw nsw i64 %indvars.iv.i176, 1
   %exitcond.not.i178 = icmp eq i64 %indvars.iv.next.i177, %wide.trip.count.i175
-  br i1 %exitcond.not.i178, label %._crit_edge.i164, label %123, !llvm.loop !105
+  br i1 %exitcond.not.i178, label %._crit_edge.i165, label %117, !llvm.loop !105
 
-._crit_edge.i164:                                 ; preds = %123, %stbhw__draw_hline.exit163
-  br i1 %44, label %126, label %130
+._crit_edge.i165:                                 ; preds = %117, %stbhw__draw_hline.exit164
+  br i1 %44, label %.thread.i171, label %.lr.ph32.i166
 
-126:                                              ; preds = %._crit_edge.i164
-  %127 = sdiv i32 %19, 2
-  %128 = add nsw i32 %127, -1
-  %129 = and i32 %19, 1
-  %spec.select.v.i172 = add nuw nsw i32 %129, 1
-  %spec.select.i173 = add nsw i32 %spec.select.v.i172, %127
+.thread.i171:                                     ; preds = %._crit_edge.i165
+  %120 = sdiv i32 %19, 2
+  %121 = add nsw i32 %120, -1
+  %122 = and i32 %19, 1
+  %spec.select.v.i172 = add nuw nsw i32 %122, 1
+  %spec.select.i173 = add nsw i32 %spec.select.v.i172, %120
+  br label %.lr.ph32.i166
+
+.lr.ph32.i166:                                    ; preds = %._crit_edge.i165, %.thread.i171
+  %.046.i = phi i32 [ %spec.select.i173, %.thread.i171 ], [ %33, %._crit_edge.i165 ]
+  %.02645.i = phi i32 [ %121, %.thread.i171 ], [ %31, %._crit_edge.i165 ]
+  %123 = sext i32 %112 to i64
+  %124 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 24), i64 %123
+  %125 = mul nsw i32 %1, 3
+  %126 = sext i32 %125 to i64
+  %invariant.gep34.i = getelementptr i8, ptr %107, i64 %126
+  %127 = sext i32 %.02645.i to i64
+  %128 = sext i32 %109 to i64
+  %129 = sext i32 %108 to i64
+  %wide.trip.count40.i = sext i32 %.046.i to i64
   br label %130
 
-130:                                              ; preds = %126, %._crit_edge.i164
-  %.026.i165 = phi i32 [ %31, %._crit_edge.i164 ], [ %128, %126 ]
-  %.0.i166 = phi i32 [ %33, %._crit_edge.i164 ], [ %spec.select.i173, %126 ]
-  %131 = icmp slt i32 %.026.i165, %.0.i166
-  br i1 %131, label %.lr.ph32.i167, label %stbhw__draw_vline.exit
-
-.lr.ph32.i167:                                    ; preds = %130
-  %132 = sext i32 %118 to i64
-  %133 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 24), i64 %132
-  %134 = mul nsw i32 %1, 3
-  %135 = sext i32 %134 to i64
-  %invariant.gep34.i = getelementptr i8, ptr %113, i64 %135
-  %136 = sext i32 %.026.i165 to i64
-  %137 = sext i32 %115 to i64
-  %138 = sext i32 %114 to i64
-  %wide.trip.count40.i = sext i32 %.0.i166 to i64
-  br label %139
-
-139:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i171, %.lr.ph32.i167
-  %indvars.iv37.i = phi i64 [ %136, %.lr.ph32.i167 ], [ %indvars.iv.next38.i, %stbhw__stbhw__set_pixel_whiten.exit.i171 ]
+130:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i170, %.lr.ph32.i166
+  %indvars.iv37.i = phi i64 [ %127, %.lr.ph32.i166 ], [ %indvars.iv.next38.i, %stbhw__stbhw__set_pixel_whiten.exit.i170 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  br label %140
+  br label %131
 
-140:                                              ; preds = %140, %139
-  %indvars.iv.i.i168 = phi i64 [ 0, %139 ], [ %indvars.iv.next.i.i169, %140 ]
-  %141 = getelementptr inbounds nuw i8, ptr %133, i64 %indvars.iv.i.i168
-  %142 = load i8, ptr %141, align 1, !tbaa !58
-  %143 = zext i8 %142 to i16
-  %144 = shl nuw nsw i16 %143, 1
-  %145 = add nuw nsw i16 %144, 255
-  %146 = udiv i16 %145, 3
-  %147 = trunc nuw i16 %146 to i8
-  %148 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i.i168
-  store i8 %147, ptr %148, align 1, !tbaa !58
-  %indvars.iv.next.i.i169 = add nuw nsw i64 %indvars.iv.i.i168, 1
-  %exitcond.not.i.i170 = icmp eq i64 %indvars.iv.next.i.i169, 3
-  br i1 %exitcond.not.i.i170, label %stbhw__stbhw__set_pixel_whiten.exit.i171, label %140, !llvm.loop !102
+131:                                              ; preds = %131, %130
+  %indvars.iv.i.i167 = phi i64 [ 0, %130 ], [ %indvars.iv.next.i.i168, %131 ]
+  %132 = getelementptr inbounds nuw i8, ptr %124, i64 %indvars.iv.i.i167
+  %133 = load i8, ptr %132, align 1, !tbaa !58
+  %134 = zext i8 %133 to i16
+  %135 = shl nuw nsw i16 %134, 1
+  %136 = add nuw nsw i16 %135, 255
+  %137 = udiv i16 %136, 3
+  %138 = trunc nuw i16 %137 to i8
+  %139 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i.i167
+  store i8 %138, ptr %139, align 1, !tbaa !58
+  %indvars.iv.next.i.i168 = add nuw nsw i64 %indvars.iv.i.i167, 1
+  %exitcond.not.i.i169 = icmp eq i64 %indvars.iv.next.i.i168, 3
+  br i1 %exitcond.not.i.i169, label %stbhw__stbhw__set_pixel_whiten.exit.i170, label %131, !llvm.loop !102
 
-stbhw__stbhw__set_pixel_whiten.exit.i171:         ; preds = %140
-  %149 = add nsw i64 %indvars.iv37.i, %137
-  %150 = mul nsw i64 %149, %138
-  %gep35.i = getelementptr i8, ptr %invariant.gep34.i, i64 %150
+stbhw__stbhw__set_pixel_whiten.exit.i170:         ; preds = %131
+  %140 = add nsw i64 %indvars.iv37.i, %128
+  %141 = mul nsw i64 %140, %129
+  %gep35.i = getelementptr i8, ptr %invariant.gep34.i, i64 %141
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep35.i, ptr noundef nonnull align 1 dereferenceable(3) %13, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %indvars.iv.next38.i = add nsw i64 %indvars.iv37.i, 1
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next38.i, %wide.trip.count40.i
-  br i1 %exitcond41.not.i, label %stbhw__draw_vline.exit, label %139, !llvm.loop !106
+  br i1 %exitcond41.not.i, label %stbhw__draw_vline.exit, label %130, !llvm.loop !106
 
-stbhw__draw_vline.exit:                           ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i171, %130
-  %151 = load ptr, ptr %20, align 8, !tbaa !88
-  %152 = load i32, ptr %22, align 8, !tbaa !89
-  %153 = shl nsw i32 %19, 1
-  %154 = add i32 %24, %153
-  %155 = getelementptr inbounds [4 x i32], ptr @stbhw__corner_colors_to_edge_color, i64 %76
-  %156 = sext i32 %8 to i64
-  %157 = getelementptr inbounds i32, ptr %155, i64 %156
-  %158 = load i32, ptr %157, align 4, !tbaa !32
-  br i1 %34, label %.lr.ph.i195, label %._crit_edge.i179
+stbhw__draw_vline.exit:                           ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i170
+  %142 = load ptr, ptr %20, align 8, !tbaa !88
+  %143 = load i32, ptr %22, align 8, !tbaa !89
+  %144 = shl nsw i32 %19, 1
+  %145 = add i32 %24, %144
+  %146 = getelementptr inbounds [4 x i32], ptr @stbhw__corner_colors_to_edge_color, i64 %73
+  %147 = sext i32 %8 to i64
+  %148 = getelementptr inbounds i32, ptr %146, i64 %147
+  %149 = load i32, ptr %148, align 4, !tbaa !32
+  br i1 %34, label %.lr.ph.i196, label %._crit_edge.i179
 
-.lr.ph.i195:                                      ; preds = %stbhw__draw_vline.exit
-  %159 = mul nsw i32 %154, 3
-  %160 = sext i32 %159 to i64
-  %invariant.gep.i196 = getelementptr i8, ptr %151, i64 %160
-  %161 = sext i32 %115 to i64
-  %162 = sext i32 %152 to i64
-  %wide.trip.count.i197 = zext nneg i32 %19 to i64
-  br label %163
+.lr.ph.i196:                                      ; preds = %stbhw__draw_vline.exit
+  %150 = mul nsw i32 %145, 3
+  %151 = sext i32 %150 to i64
+  %invariant.gep.i197 = getelementptr i8, ptr %142, i64 %151
+  %152 = sext i32 %143 to i64
+  %wide.trip.count.i198 = zext nneg i32 %19 to i64
+  br label %153
 
-163:                                              ; preds = %163, %.lr.ph.i195
-  %indvars.iv.i198 = phi i64 [ 0, %.lr.ph.i195 ], [ %indvars.iv.next.i200, %163 ]
-  %164 = add nsw i64 %indvars.iv.i198, %161
-  %165 = mul nsw i64 %164, %162
-  %gep.i199 = getelementptr i8, ptr %invariant.gep.i196, i64 %165
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i199, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
-  %indvars.iv.next.i200 = add nuw nsw i64 %indvars.iv.i198, 1
-  %exitcond.not.i201 = icmp eq i64 %indvars.iv.next.i200, %wide.trip.count.i197
-  br i1 %exitcond.not.i201, label %._crit_edge.i179, label %163, !llvm.loop !105
+153:                                              ; preds = %153, %.lr.ph.i196
+  %indvars.iv.i199 = phi i64 [ 0, %.lr.ph.i196 ], [ %indvars.iv.next.i201, %153 ]
+  %154 = add nsw i64 %indvars.iv.i199, %128
+  %155 = mul nsw i64 %154, %152
+  %gep.i200 = getelementptr i8, ptr %invariant.gep.i197, i64 %155
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i200, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  %indvars.iv.next.i201 = add nuw nsw i64 %indvars.iv.i199, 1
+  %exitcond.not.i202 = icmp eq i64 %indvars.iv.next.i201, %wide.trip.count.i198
+  br i1 %exitcond.not.i202, label %._crit_edge.i179, label %153, !llvm.loop !105
 
-._crit_edge.i179:                                 ; preds = %163, %stbhw__draw_vline.exit
-  br i1 %44, label %166, label %170
+._crit_edge.i179:                                 ; preds = %153, %stbhw__draw_vline.exit
+  br i1 %44, label %.thread.i193, label %.lr.ph32.i180
 
-166:                                              ; preds = %._crit_edge.i179
-  %167 = sdiv i32 %19, 2
-  %168 = add nsw i32 %167, -1
-  %169 = and i32 %19, 1
-  %spec.select.v.i193 = add nuw nsw i32 %169, 1
-  %spec.select.i194 = add nsw i32 %spec.select.v.i193, %167
-  br label %170
+.thread.i193:                                     ; preds = %._crit_edge.i179
+  %156 = sdiv i32 %19, 2
+  %157 = add nsw i32 %156, -1
+  %158 = and i32 %19, 1
+  %spec.select.v.i194 = add nuw nsw i32 %158, 1
+  %spec.select.i195 = add nsw i32 %spec.select.v.i194, %156
+  br label %.lr.ph32.i180
 
-170:                                              ; preds = %166, %._crit_edge.i179
-  %.026.i180 = phi i32 [ %31, %._crit_edge.i179 ], [ %168, %166 ]
-  %.0.i181 = phi i32 [ %33, %._crit_edge.i179 ], [ %spec.select.i194, %166 ]
-  %171 = icmp slt i32 %.026.i180, %.0.i181
-  br i1 %171, label %.lr.ph32.i182, label %stbhw__draw_vline.exit202
+.lr.ph32.i180:                                    ; preds = %._crit_edge.i179, %.thread.i193
+  %.046.i181 = phi i32 [ %spec.select.i195, %.thread.i193 ], [ %33, %._crit_edge.i179 ]
+  %.02645.i182 = phi i32 [ %157, %.thread.i193 ], [ %31, %._crit_edge.i179 ]
+  %159 = sext i32 %149 to i64
+  %160 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 96), i64 %159
+  %161 = mul nsw i32 %145, 3
+  %162 = sext i32 %161 to i64
+  %invariant.gep34.i183 = getelementptr i8, ptr %142, i64 %162
+  %163 = sext i32 %.02645.i182 to i64
+  %164 = sext i32 %143 to i64
+  %wide.trip.count40.i184 = sext i32 %.046.i181 to i64
+  br label %165
 
-.lr.ph32.i182:                                    ; preds = %170
-  %172 = sext i32 %158 to i64
-  %173 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 96), i64 %172
-  %174 = mul nsw i32 %154, 3
-  %175 = sext i32 %174 to i64
-  %invariant.gep34.i183 = getelementptr i8, ptr %151, i64 %175
-  %176 = sext i32 %.026.i180 to i64
-  %177 = sext i32 %115 to i64
-  %178 = sext i32 %152 to i64
-  %wide.trip.count40.i184 = sext i32 %.0.i181 to i64
-  br label %179
-
-179:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i189, %.lr.ph32.i182
-  %indvars.iv37.i185 = phi i64 [ %176, %.lr.ph32.i182 ], [ %indvars.iv.next38.i191, %stbhw__stbhw__set_pixel_whiten.exit.i189 ]
+165:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i189, %.lr.ph32.i180
+  %indvars.iv37.i185 = phi i64 [ %163, %.lr.ph32.i180 ], [ %indvars.iv.next38.i191, %stbhw__stbhw__set_pixel_whiten.exit.i189 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  br label %180
+  br label %166
 
-180:                                              ; preds = %180, %179
-  %indvars.iv.i.i186 = phi i64 [ 0, %179 ], [ %indvars.iv.next.i.i187, %180 ]
-  %181 = getelementptr inbounds nuw i8, ptr %173, i64 %indvars.iv.i.i186
-  %182 = load i8, ptr %181, align 1, !tbaa !58
-  %183 = zext i8 %182 to i16
-  %184 = shl nuw nsw i16 %183, 1
-  %185 = add nuw nsw i16 %184, 255
-  %186 = udiv i16 %185, 3
-  %187 = trunc nuw i16 %186 to i8
-  %188 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv.i.i186
-  store i8 %187, ptr %188, align 1, !tbaa !58
+166:                                              ; preds = %166, %165
+  %indvars.iv.i.i186 = phi i64 [ 0, %165 ], [ %indvars.iv.next.i.i187, %166 ]
+  %167 = getelementptr inbounds nuw i8, ptr %160, i64 %indvars.iv.i.i186
+  %168 = load i8, ptr %167, align 1, !tbaa !58
+  %169 = zext i8 %168 to i16
+  %170 = shl nuw nsw i16 %169, 1
+  %171 = add nuw nsw i16 %170, 255
+  %172 = udiv i16 %171, 3
+  %173 = trunc nuw i16 %172 to i8
+  %174 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv.i.i186
+  store i8 %173, ptr %174, align 1, !tbaa !58
   %indvars.iv.next.i.i187 = add nuw nsw i64 %indvars.iv.i.i186, 1
   %exitcond.not.i.i188 = icmp eq i64 %indvars.iv.next.i.i187, 3
-  br i1 %exitcond.not.i.i188, label %stbhw__stbhw__set_pixel_whiten.exit.i189, label %180, !llvm.loop !102
+  br i1 %exitcond.not.i.i188, label %stbhw__stbhw__set_pixel_whiten.exit.i189, label %166, !llvm.loop !102
 
-stbhw__stbhw__set_pixel_whiten.exit.i189:         ; preds = %180
-  %189 = add nsw i64 %indvars.iv37.i185, %177
-  %190 = mul nsw i64 %189, %178
-  %gep35.i190 = getelementptr i8, ptr %invariant.gep34.i183, i64 %190
+stbhw__stbhw__set_pixel_whiten.exit.i189:         ; preds = %166
+  %175 = add nsw i64 %indvars.iv37.i185, %128
+  %176 = mul nsw i64 %175, %164
+  %gep35.i190 = getelementptr i8, ptr %invariant.gep34.i183, i64 %176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep35.i190, ptr noundef nonnull align 1 dereferenceable(3) %12, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %indvars.iv.next38.i191 = add nsw i64 %indvars.iv37.i185, 1
   %exitcond41.not.i192 = icmp eq i64 %indvars.iv.next38.i191, %wide.trip.count40.i184
-  br i1 %exitcond41.not.i192, label %stbhw__draw_vline.exit202, label %179, !llvm.loop !106
+  br i1 %exitcond41.not.i192, label %stbhw__draw_vline.exit203, label %165, !llvm.loop !106
 
-stbhw__draw_vline.exit202:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i189, %170
-  %191 = load ptr, ptr %20, align 8, !tbaa !88
-  %192 = load i32, ptr %22, align 8, !tbaa !89
-  %193 = add i32 %19, 1
-  %194 = add i32 %193, %2
-  %195 = getelementptr inbounds [4 x i32], ptr @stbhw__corner_colors_to_edge_color, i64 %116
-  %196 = sext i32 %7 to i64
-  %197 = getelementptr inbounds i32, ptr %195, i64 %196
-  %198 = load i32, ptr %197, align 4, !tbaa !32
-  br i1 %34, label %.lr.ph.i217, label %._crit_edge.i203
+stbhw__draw_vline.exit203:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i189
+  %177 = load ptr, ptr %20, align 8, !tbaa !88
+  %178 = load i32, ptr %22, align 8, !tbaa !89
+  %179 = add i32 %19, 1
+  %180 = add i32 %179, %2
+  %181 = getelementptr inbounds [4 x i32], ptr @stbhw__corner_colors_to_edge_color, i64 %110
+  %182 = sext i32 %7 to i64
+  %183 = getelementptr inbounds i32, ptr %181, i64 %182
+  %184 = load i32, ptr %183, align 4, !tbaa !32
+  br i1 %34, label %.lr.ph.i219, label %._crit_edge.i204
 
-.lr.ph.i217:                                      ; preds = %stbhw__draw_vline.exit202
-  %199 = mul nsw i32 %192, %194
-  %200 = sext i32 %199 to i64
-  %201 = getelementptr inbounds i8, ptr %191, i64 %200
-  %202 = sext i32 %24 to i64
-  %wide.trip.count.i218 = zext nneg i32 %19 to i64
-  br label %203
+.lr.ph.i219:                                      ; preds = %stbhw__draw_vline.exit203
+  %185 = mul nsw i32 %178, %180
+  %186 = sext i32 %185 to i64
+  %187 = getelementptr inbounds i8, ptr %177, i64 %186
+  %wide.trip.count.i220 = zext nneg i32 %19 to i64
+  br label %188
 
-203:                                              ; preds = %203, %.lr.ph.i217
-  %indvars.iv.i219 = phi i64 [ 0, %.lr.ph.i217 ], [ %indvars.iv.next.i220, %203 ]
-  %204 = add nsw i64 %indvars.iv.i219, %202
-  %205 = mul nsw i64 %204, 3
-  %206 = getelementptr inbounds i8, ptr %201, i64 %205
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %206, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
-  %indvars.iv.next.i220 = add nuw nsw i64 %indvars.iv.i219, 1
-  %exitcond.not.i221 = icmp eq i64 %indvars.iv.next.i220, %wide.trip.count.i218
-  br i1 %exitcond.not.i221, label %._crit_edge.i203, label %203, !llvm.loop !103
+188:                                              ; preds = %188, %.lr.ph.i219
+  %indvars.iv.i221 = phi i64 [ 0, %.lr.ph.i219 ], [ %indvars.iv.next.i222, %188 ]
+  %189 = add nsw i64 %indvars.iv.i221, %54
+  %190 = mul nsw i64 %189, 3
+  %191 = getelementptr inbounds i8, ptr %187, i64 %190
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %191, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  %indvars.iv.next.i222 = add nuw nsw i64 %indvars.iv.i221, 1
+  %exitcond.not.i223 = icmp eq i64 %indvars.iv.next.i222, %wide.trip.count.i220
+  br i1 %exitcond.not.i223, label %._crit_edge.i204, label %188, !llvm.loop !103
 
-._crit_edge.i203:                                 ; preds = %203, %stbhw__draw_vline.exit202
-  br i1 %44, label %207, label %211
+._crit_edge.i204:                                 ; preds = %188, %stbhw__draw_vline.exit203
+  br i1 %44, label %.thread.i216, label %.lr.ph32.i205
 
-207:                                              ; preds = %._crit_edge.i203
-  %208 = sdiv i32 %19, 2
-  %209 = add nsw i32 %208, -1
-  %210 = and i32 %19, 1
-  %spec.select.v.i215 = add nuw nsw i32 %210, 1
-  %spec.select.i216 = add nsw i32 %spec.select.v.i215, %208
-  br label %211
+.thread.i216:                                     ; preds = %._crit_edge.i204
+  %192 = sdiv i32 %19, 2
+  %193 = add nsw i32 %192, -1
+  %194 = and i32 %19, 1
+  %spec.select.v.i217 = add nuw nsw i32 %194, 1
+  %spec.select.i218 = add nsw i32 %spec.select.v.i217, %192
+  br label %.lr.ph32.i205
 
-211:                                              ; preds = %207, %._crit_edge.i203
-  %.026.i204 = phi i32 [ %31, %._crit_edge.i203 ], [ %209, %207 ]
-  %.0.i205 = phi i32 [ %33, %._crit_edge.i203 ], [ %spec.select.i216, %207 ]
-  %212 = icmp slt i32 %.026.i204, %.0.i205
-  br i1 %212, label %.lr.ph32.i206, label %stbhw__draw_hline.exit222
+.lr.ph32.i205:                                    ; preds = %._crit_edge.i204, %.thread.i216
+  %.044.i206 = phi i32 [ %spec.select.i218, %.thread.i216 ], [ %33, %._crit_edge.i204 ]
+  %.02643.i207 = phi i32 [ %193, %.thread.i216 ], [ %31, %._crit_edge.i204 ]
+  %195 = sext i32 %184 to i64
+  %196 = getelementptr inbounds [3 x i8], ptr @stbhw__color, i64 %195
+  %197 = mul nsw i32 %178, %180
+  %198 = sext i32 %197 to i64
+  %199 = getelementptr inbounds i8, ptr %177, i64 %198
+  %200 = sext i32 %.02643.i207 to i64
+  %wide.trip.count38.i208 = sext i32 %.044.i206 to i64
+  br label %201
 
-.lr.ph32.i206:                                    ; preds = %211
-  %213 = sext i32 %198 to i64
-  %214 = getelementptr inbounds [3 x i8], ptr @stbhw__color, i64 %213
-  %215 = mul nsw i32 %192, %194
-  %216 = sext i32 %215 to i64
-  %217 = getelementptr inbounds i8, ptr %191, i64 %216
-  %218 = sext i32 %.026.i204 to i64
-  %219 = sext i32 %24 to i64
-  %wide.trip.count38.i207 = sext i32 %.0.i205 to i64
-  br label %220
-
-220:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i212, %.lr.ph32.i206
-  %indvars.iv35.i208 = phi i64 [ %218, %.lr.ph32.i206 ], [ %indvars.iv.next36.i213, %stbhw__stbhw__set_pixel_whiten.exit.i212 ]
+201:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i213, %.lr.ph32.i205
+  %indvars.iv35.i209 = phi i64 [ %200, %.lr.ph32.i205 ], [ %indvars.iv.next36.i214, %stbhw__stbhw__set_pixel_whiten.exit.i213 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  br label %221
+  br label %202
 
-221:                                              ; preds = %221, %220
-  %indvars.iv.i.i209 = phi i64 [ 0, %220 ], [ %indvars.iv.next.i.i210, %221 ]
-  %222 = getelementptr inbounds nuw i8, ptr %214, i64 %indvars.iv.i.i209
-  %223 = load i8, ptr %222, align 1, !tbaa !58
-  %224 = zext i8 %223 to i16
-  %225 = shl nuw nsw i16 %224, 1
-  %226 = add nuw nsw i16 %225, 255
-  %227 = udiv i16 %226, 3
-  %228 = trunc nuw i16 %227 to i8
-  %229 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i.i209
-  store i8 %228, ptr %229, align 1, !tbaa !58
-  %indvars.iv.next.i.i210 = add nuw nsw i64 %indvars.iv.i.i209, 1
-  %exitcond.not.i.i211 = icmp eq i64 %indvars.iv.next.i.i210, 3
-  br i1 %exitcond.not.i.i211, label %stbhw__stbhw__set_pixel_whiten.exit.i212, label %221, !llvm.loop !102
+202:                                              ; preds = %202, %201
+  %indvars.iv.i.i210 = phi i64 [ 0, %201 ], [ %indvars.iv.next.i.i211, %202 ]
+  %203 = getelementptr inbounds nuw i8, ptr %196, i64 %indvars.iv.i.i210
+  %204 = load i8, ptr %203, align 1, !tbaa !58
+  %205 = zext i8 %204 to i16
+  %206 = shl nuw nsw i16 %205, 1
+  %207 = add nuw nsw i16 %206, 255
+  %208 = udiv i16 %207, 3
+  %209 = trunc nuw i16 %208 to i8
+  %210 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i.i210
+  store i8 %209, ptr %210, align 1, !tbaa !58
+  %indvars.iv.next.i.i211 = add nuw nsw i64 %indvars.iv.i.i210, 1
+  %exitcond.not.i.i212 = icmp eq i64 %indvars.iv.next.i.i211, 3
+  br i1 %exitcond.not.i.i212, label %stbhw__stbhw__set_pixel_whiten.exit.i213, label %202, !llvm.loop !102
 
-stbhw__stbhw__set_pixel_whiten.exit.i212:         ; preds = %221
-  %230 = add nsw i64 %indvars.iv35.i208, %219
-  %231 = mul nsw i64 %230, 3
-  %232 = getelementptr inbounds i8, ptr %217, i64 %231
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %232, ptr noundef nonnull align 1 dereferenceable(3) %11, i64 3, i1 false)
+stbhw__stbhw__set_pixel_whiten.exit.i213:         ; preds = %202
+  %211 = add nsw i64 %indvars.iv35.i209, %54
+  %212 = mul nsw i64 %211, 3
+  %213 = getelementptr inbounds i8, ptr %199, i64 %212
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %213, ptr noundef nonnull align 1 dereferenceable(3) %11, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %indvars.iv.next36.i213 = add nsw i64 %indvars.iv35.i208, 1
-  %exitcond39.not.i214 = icmp eq i64 %indvars.iv.next36.i213, %wide.trip.count38.i207
-  br i1 %exitcond39.not.i214, label %stbhw__draw_hline.exit222, label %220, !llvm.loop !104
+  %indvars.iv.next36.i214 = add nsw i64 %indvars.iv35.i209, 1
+  %exitcond39.not.i215 = icmp eq i64 %indvars.iv.next36.i214, %wide.trip.count38.i208
+  br i1 %exitcond39.not.i215, label %stbhw__draw_hline.exit224, label %201, !llvm.loop !104
 
-stbhw__draw_hline.exit222:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i212, %211
-  %233 = load ptr, ptr %20, align 8, !tbaa !88
-  %234 = load i32, ptr %22, align 8, !tbaa !89
-  %235 = getelementptr inbounds [4 x i32], ptr @stbhw__corner_colors_to_edge_color, i64 %196
-  %236 = getelementptr inbounds i32, ptr %235, i64 %156
-  %237 = load i32, ptr %236, align 4, !tbaa !32
-  br i1 %34, label %.lr.ph.i237, label %._crit_edge.i223
+stbhw__draw_hline.exit224:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i213
+  %214 = load ptr, ptr %20, align 8, !tbaa !88
+  %215 = load i32, ptr %22, align 8, !tbaa !89
+  %216 = getelementptr inbounds [4 x i32], ptr @stbhw__corner_colors_to_edge_color, i64 %182
+  %217 = getelementptr inbounds i32, ptr %216, i64 %147
+  %218 = load i32, ptr %217, align 4, !tbaa !32
+  br i1 %34, label %.lr.ph.i240, label %._crit_edge.i225
 
-.lr.ph.i237:                                      ; preds = %stbhw__draw_hline.exit222
-  %238 = mul nsw i32 %234, %194
-  %239 = sext i32 %238 to i64
-  %240 = getelementptr inbounds i8, ptr %233, i64 %239
-  %241 = sext i32 %74 to i64
-  %wide.trip.count.i238 = zext nneg i32 %19 to i64
-  br label %242
+.lr.ph.i240:                                      ; preds = %stbhw__draw_hline.exit224
+  %219 = mul nsw i32 %215, %180
+  %220 = sext i32 %219 to i64
+  %221 = getelementptr inbounds i8, ptr %214, i64 %220
+  %wide.trip.count.i241 = zext nneg i32 %19 to i64
+  br label %222
 
-242:                                              ; preds = %242, %.lr.ph.i237
-  %indvars.iv.i239 = phi i64 [ 0, %.lr.ph.i237 ], [ %indvars.iv.next.i240, %242 ]
-  %243 = add nsw i64 %indvars.iv.i239, %241
-  %244 = mul nsw i64 %243, 3
-  %245 = getelementptr inbounds i8, ptr %240, i64 %244
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %245, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
-  %indvars.iv.next.i240 = add nuw nsw i64 %indvars.iv.i239, 1
-  %exitcond.not.i241 = icmp eq i64 %indvars.iv.next.i240, %wide.trip.count.i238
-  br i1 %exitcond.not.i241, label %._crit_edge.i223, label %242, !llvm.loop !103
+222:                                              ; preds = %222, %.lr.ph.i240
+  %indvars.iv.i242 = phi i64 [ 0, %.lr.ph.i240 ], [ %indvars.iv.next.i243, %222 ]
+  %223 = add nsw i64 %indvars.iv.i242, %93
+  %224 = mul nsw i64 %223, 3
+  %225 = getelementptr inbounds i8, ptr %221, i64 %224
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %225, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  %indvars.iv.next.i243 = add nuw nsw i64 %indvars.iv.i242, 1
+  %exitcond.not.i244 = icmp eq i64 %indvars.iv.next.i243, %wide.trip.count.i241
+  br i1 %exitcond.not.i244, label %._crit_edge.i225, label %222, !llvm.loop !103
 
-._crit_edge.i223:                                 ; preds = %242, %stbhw__draw_hline.exit222
-  br i1 %44, label %246, label %250
+._crit_edge.i225:                                 ; preds = %222, %stbhw__draw_hline.exit224
+  br i1 %44, label %.thread.i237, label %.lr.ph32.i226
 
-246:                                              ; preds = %._crit_edge.i223
-  %247 = sdiv i32 %19, 2
-  %248 = add nsw i32 %247, -1
-  %249 = and i32 %19, 1
-  %spec.select.v.i235 = add nuw nsw i32 %249, 1
-  %spec.select.i236 = add nsw i32 %spec.select.v.i235, %247
-  br label %250
+.thread.i237:                                     ; preds = %._crit_edge.i225
+  %226 = sdiv i32 %19, 2
+  %227 = add nsw i32 %226, -1
+  %228 = and i32 %19, 1
+  %spec.select.v.i238 = add nuw nsw i32 %228, 1
+  %spec.select.i239 = add nsw i32 %spec.select.v.i238, %226
+  br label %.lr.ph32.i226
 
-250:                                              ; preds = %246, %._crit_edge.i223
-  %.026.i224 = phi i32 [ %31, %._crit_edge.i223 ], [ %248, %246 ]
-  %.0.i225 = phi i32 [ %33, %._crit_edge.i223 ], [ %spec.select.i236, %246 ]
-  %251 = icmp slt i32 %.026.i224, %.0.i225
-  br i1 %251, label %.lr.ph32.i226, label %stbhw__draw_hline.exit242
+.lr.ph32.i226:                                    ; preds = %._crit_edge.i225, %.thread.i237
+  %.044.i227 = phi i32 [ %spec.select.i239, %.thread.i237 ], [ %33, %._crit_edge.i225 ]
+  %.02643.i228 = phi i32 [ %227, %.thread.i237 ], [ %31, %._crit_edge.i225 ]
+  %229 = sext i32 %218 to i64
+  %230 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 48), i64 %229
+  %231 = mul nsw i32 %215, %180
+  %232 = sext i32 %231 to i64
+  %233 = getelementptr inbounds i8, ptr %214, i64 %232
+  %234 = sext i32 %.02643.i228 to i64
+  %wide.trip.count38.i229 = sext i32 %.044.i227 to i64
+  br label %235
 
-.lr.ph32.i226:                                    ; preds = %250
-  %252 = sext i32 %237 to i64
-  %253 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 48), i64 %252
-  %254 = mul nsw i32 %234, %194
-  %255 = sext i32 %254 to i64
-  %256 = getelementptr inbounds i8, ptr %233, i64 %255
-  %257 = sext i32 %.026.i224 to i64
-  %258 = sext i32 %74 to i64
-  %wide.trip.count38.i227 = sext i32 %.0.i225 to i64
-  br label %259
-
-259:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i232, %.lr.ph32.i226
-  %indvars.iv35.i228 = phi i64 [ %257, %.lr.ph32.i226 ], [ %indvars.iv.next36.i233, %stbhw__stbhw__set_pixel_whiten.exit.i232 ]
+235:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i234, %.lr.ph32.i226
+  %indvars.iv35.i230 = phi i64 [ %234, %.lr.ph32.i226 ], [ %indvars.iv.next36.i235, %stbhw__stbhw__set_pixel_whiten.exit.i234 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  br label %260
+  br label %236
 
-260:                                              ; preds = %260, %259
-  %indvars.iv.i.i229 = phi i64 [ 0, %259 ], [ %indvars.iv.next.i.i230, %260 ]
-  %261 = getelementptr inbounds nuw i8, ptr %253, i64 %indvars.iv.i.i229
-  %262 = load i8, ptr %261, align 1, !tbaa !58
-  %263 = zext i8 %262 to i16
-  %264 = shl nuw nsw i16 %263, 1
-  %265 = add nuw nsw i16 %264, 255
-  %266 = udiv i16 %265, 3
-  %267 = trunc nuw i16 %266 to i8
-  %268 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv.i.i229
-  store i8 %267, ptr %268, align 1, !tbaa !58
-  %indvars.iv.next.i.i230 = add nuw nsw i64 %indvars.iv.i.i229, 1
-  %exitcond.not.i.i231 = icmp eq i64 %indvars.iv.next.i.i230, 3
-  br i1 %exitcond.not.i.i231, label %stbhw__stbhw__set_pixel_whiten.exit.i232, label %260, !llvm.loop !102
+236:                                              ; preds = %236, %235
+  %indvars.iv.i.i231 = phi i64 [ 0, %235 ], [ %indvars.iv.next.i.i232, %236 ]
+  %237 = getelementptr inbounds nuw i8, ptr %230, i64 %indvars.iv.i.i231
+  %238 = load i8, ptr %237, align 1, !tbaa !58
+  %239 = zext i8 %238 to i16
+  %240 = shl nuw nsw i16 %239, 1
+  %241 = add nuw nsw i16 %240, 255
+  %242 = udiv i16 %241, 3
+  %243 = trunc nuw i16 %242 to i8
+  %244 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv.i.i231
+  store i8 %243, ptr %244, align 1, !tbaa !58
+  %indvars.iv.next.i.i232 = add nuw nsw i64 %indvars.iv.i.i231, 1
+  %exitcond.not.i.i233 = icmp eq i64 %indvars.iv.next.i.i232, 3
+  br i1 %exitcond.not.i.i233, label %stbhw__stbhw__set_pixel_whiten.exit.i234, label %236, !llvm.loop !102
 
-stbhw__stbhw__set_pixel_whiten.exit.i232:         ; preds = %260
-  %269 = add nsw i64 %indvars.iv35.i228, %258
-  %270 = mul nsw i64 %269, 3
-  %271 = getelementptr inbounds i8, ptr %256, i64 %270
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %271, ptr noundef nonnull align 1 dereferenceable(3) %10, i64 3, i1 false)
+stbhw__stbhw__set_pixel_whiten.exit.i234:         ; preds = %236
+  %245 = add nsw i64 %indvars.iv35.i230, %93
+  %246 = mul nsw i64 %245, 3
+  %247 = getelementptr inbounds i8, ptr %233, i64 %246
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %247, ptr noundef nonnull align 1 dereferenceable(3) %10, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %indvars.iv.next36.i233 = add nsw i64 %indvars.iv35.i228, 1
-  %exitcond39.not.i234 = icmp eq i64 %indvars.iv.next36.i233, %wide.trip.count38.i227
-  br i1 %exitcond39.not.i234, label %stbhw__draw_hline.exit242, label %259, !llvm.loop !104
+  %indvars.iv.next36.i235 = add nsw i64 %indvars.iv35.i230, 1
+  %exitcond39.not.i236 = icmp eq i64 %indvars.iv.next36.i235, %wide.trip.count38.i229
+  br i1 %exitcond39.not.i236, label %stbhw__draw_hline.exit245, label %235, !llvm.loop !104
 
-stbhw__draw_hline.exit242:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i232, %250
-  %272 = load ptr, ptr %16, align 8, !tbaa !12
-  %273 = getelementptr inbounds nuw i8, ptr %272, i64 56
-  %274 = getelementptr inbounds i32, ptr %273, i64 %25
-  %275 = load i32, ptr %274, align 4, !tbaa !32
-  %.not = icmp eq i32 %275, 0
-  %.pre358.pre361.pre365.pre369.pre373.pre377 = load ptr, ptr %20, align 8, !tbaa !88
-  %.pre360.pre363.pre367.pre371.pre375.pre379 = load i32, ptr %22, align 8, !tbaa !89
-  br i1 %.not, label %stbhw__draw_clipped_corner.exit, label %276
+stbhw__draw_hline.exit245:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i234
+  %248 = load ptr, ptr %16, align 8, !tbaa !12
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 56
+  %250 = getelementptr inbounds i32, ptr %249, i64 %25
+  %251 = load i32, ptr %250, align 4, !tbaa !32
+  %.not = icmp eq i32 %251, 0
+  %.pre361.pre364.pre368.pre372.pre376.pre380 = load ptr, ptr %20, align 8, !tbaa !88
+  %.pre363.pre366.pre370.pre374.pre378.pre382 = load i32, ptr %22, align 8, !tbaa !89
+  br i1 %.not, label %stbhw__draw_clipped_corner.exit, label %252
 
-276:                                              ; preds = %stbhw__draw_hline.exit242
-  %277 = sext i32 %153 to i64
-  %278 = sext i32 %24 to i64
-  %279 = sext i32 %115 to i64
-  %280 = sext i32 %.pre360.pre363.pre367.pre371.pre375.pre379 to i64
+252:                                              ; preds = %stbhw__draw_hline.exit245
+  %253 = sext i32 %144 to i64
+  %254 = sext i32 %.pre363.pre366.pre370.pre374.pre378.pre382 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %.split.us.i, %276
-  %indvars.iv45.i = phi i64 [ -2, %276 ], [ %indvars.iv.next46.i, %.split.us.i ]
+.preheader.i:                                     ; preds = %.split.us.i, %252
+  %indvars.iv45.i = phi i64 [ -2, %252 ], [ %indvars.iv.next46.i, %.split.us.i ]
   %indvars47.i = trunc i64 %indvars.iv45.i to i32
-  %281 = add i32 %indvars47.i, 1
-  %282 = icmp ugt i32 %indvars47.i, 2147483646
-  %283 = icmp sgt i32 %281, %19
-  %or.cond31.i = or i1 %282, %283
-  %284 = add nsw i64 %indvars.iv45.i, %279
-  %285 = mul nsw i64 %284, %280
-  %286 = getelementptr inbounds i8, ptr %.pre358.pre361.pre365.pre369.pre373.pre377, i64 %285
+  %255 = add i32 %indvars47.i, 1
+  %256 = icmp ugt i32 %indvars47.i, 2147483646
+  %257 = icmp sgt i32 %255, %19
+  %or.cond31.i = or i1 %256, %257
+  %258 = add nsw i64 %indvars.iv45.i, %128
+  %259 = mul nsw i64 %258, %254
+  %260 = getelementptr inbounds i8, ptr %.pre361.pre364.pre368.pre372.pre376.pre380, i64 %259
   br i1 %or.cond31.i, label %.split.us.i, label %.preheader.split.i
 
 .preheader.split.i:                               ; preds = %.preheader.i
-  %cond384 = icmp eq i32 %indvars47.i, 1
-  br i1 %cond384, label %.preheader.split.split.us.i, label %.preheader.split.split.i
+  %cond387 = icmp eq i32 %indvars47.i, 1
+  br i1 %cond387, label %.preheader.split.split.us.i, label %.preheader.split.split.i
 
-.preheader.split.split.us.i:                      ; preds = %.preheader.split.i, %295
-  %indvars.iv.i243 = phi i64 [ %indvars.iv.next.i244, %295 ], [ -2, %.preheader.split.i ]
-  %287 = trunc nsw i64 %indvars.iv.i243 to i32
-  switch i32 %287, label %288 [
-    i32 -2, label %295
-    i32 1, label %295
+.preheader.split.split.us.i:                      ; preds = %.preheader.split.i, %269
+  %indvars.iv.i246 = phi i64 [ %indvars.iv.next.i247, %269 ], [ -2, %.preheader.split.i ]
+  %261 = trunc nsw i64 %indvars.iv.i246 to i32
+  switch i32 %261, label %262 [
+    i32 -2, label %269
+    i32 1, label %269
   ]
 
-288:                                              ; preds = %.preheader.split.split.us.i
-  %289 = icmp slt i64 %indvars.iv.i243, 0
-  %290 = icmp sge i64 %indvars.iv.i243, %277
-  %or.cond.us34.i = or i1 %289, %290
-  br i1 %or.cond.us34.i, label %295, label %291
+262:                                              ; preds = %.preheader.split.split.us.i
+  %263 = icmp slt i64 %indvars.iv.i246, 0
+  %264 = icmp sge i64 %indvars.iv.i246, %253
+  %or.cond.us34.i = or i1 %263, %264
+  br i1 %or.cond.us34.i, label %269, label %265
 
-291:                                              ; preds = %288
-  %292 = add nsw i64 %indvars.iv.i243, %278
-  %293 = mul nsw i64 %292, 3
-  %294 = getelementptr inbounds i8, ptr %286, i64 %293
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %294, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
-  br label %295
+265:                                              ; preds = %262
+  %266 = add nsw i64 %indvars.iv.i246, %54
+  %267 = mul nsw i64 %266, 3
+  %268 = getelementptr inbounds i8, ptr %260, i64 %267
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %268, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  br label %269
 
-295:                                              ; preds = %291, %288, %.preheader.split.split.us.i, %.preheader.split.split.us.i
-  %indvars.iv.next.i244 = add nsw i64 %indvars.iv.i243, 1
-  %exitcond.not.i245 = icmp eq i64 %indvars.iv.next.i244, 2
-  br i1 %exitcond.not.i245, label %.split.us.i, label %.preheader.split.split.us.i, !llvm.loop !107
+269:                                              ; preds = %265, %262, %.preheader.split.split.us.i, %.preheader.split.split.us.i
+  %indvars.iv.next.i247 = add nsw i64 %indvars.iv.i246, 1
+  %exitcond.not.i248 = icmp eq i64 %indvars.iv.next.i247, 2
+  br i1 %exitcond.not.i248, label %.split.us.i, label %.preheader.split.split.us.i, !llvm.loop !107
 
-.preheader.split.split.i:                         ; preds = %.preheader.split.i, %303
-  %indvars.iv41.i = phi i64 [ %296, %303 ], [ -2, %.preheader.split.i ]
-  %296 = add nsw i64 %indvars.iv41.i, 1
-  %297 = icmp slt i64 %indvars.iv41.i, 0
-  %298 = icmp sge i64 %indvars.iv41.i, %277
-  %or.cond.i = or i1 %297, %298
-  br i1 %or.cond.i, label %303, label %299
+.preheader.split.split.i:                         ; preds = %.preheader.split.i, %277
+  %indvars.iv41.i = phi i64 [ %270, %277 ], [ -2, %.preheader.split.i ]
+  %270 = add nsw i64 %indvars.iv41.i, 1
+  %271 = icmp slt i64 %indvars.iv41.i, 0
+  %272 = icmp sge i64 %indvars.iv41.i, %253
+  %or.cond.i = or i1 %271, %272
+  br i1 %or.cond.i, label %277, label %273
 
-299:                                              ; preds = %.preheader.split.split.i
-  %300 = add nsw i64 %indvars.iv41.i, %278
-  %301 = mul nsw i64 %300, 3
-  %302 = getelementptr inbounds i8, ptr %286, i64 %301
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %302, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
-  br label %303
+273:                                              ; preds = %.preheader.split.split.i
+  %274 = add nsw i64 %indvars.iv41.i, %54
+  %275 = mul nsw i64 %274, 3
+  %276 = getelementptr inbounds i8, ptr %260, i64 %275
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %276, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  br label %277
 
-303:                                              ; preds = %299, %.preheader.split.split.i
-  %exitcond44.not.i = icmp eq i64 %296, 2
+277:                                              ; preds = %273, %.preheader.split.split.i
+  %exitcond44.not.i = icmp eq i64 %270, 2
   br i1 %exitcond44.not.i, label %.split.us.i, label %.preheader.split.split.i, !llvm.loop !107
 
-.split.us.i:                                      ; preds = %303, %295, %.preheader.i
+.split.us.i:                                      ; preds = %277, %269, %.preheader.i
   %indvars.iv.next46.i = add nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 2
   br i1 %exitcond48.not.i, label %stbhw__draw_clipped_corner.exit.loopexit, label %.preheader.i, !llvm.loop !108
 
 stbhw__draw_clipped_corner.exit.loopexit:         ; preds = %.split.us.i
   %.pre = load ptr, ptr %16, align 8, !tbaa !12
-  %.pre358.pre361.pre365.pre369.pre373.pre = load ptr, ptr %20, align 8, !tbaa !88
-  %.pre360.pre363.pre367.pre371.pre375.pre = load i32, ptr %22, align 8, !tbaa !89
+  %.pre361.pre364.pre368.pre372.pre376.pre = load ptr, ptr %20, align 8, !tbaa !88
+  %.pre363.pre366.pre370.pre374.pre378.pre = load i32, ptr %22, align 8, !tbaa !89
   br label %stbhw__draw_clipped_corner.exit
 
-stbhw__draw_clipped_corner.exit:                  ; preds = %stbhw__draw_clipped_corner.exit.loopexit, %stbhw__draw_hline.exit242
-  %.pre360.pre363.pre367.pre371.pre375 = phi i32 [ %.pre360.pre363.pre367.pre371.pre375.pre, %stbhw__draw_clipped_corner.exit.loopexit ], [ %.pre360.pre363.pre367.pre371.pre375.pre379, %stbhw__draw_hline.exit242 ]
-  %.pre358.pre361.pre365.pre369.pre373 = phi ptr [ %.pre358.pre361.pre365.pre369.pre373.pre, %stbhw__draw_clipped_corner.exit.loopexit ], [ %.pre358.pre361.pre365.pre369.pre373.pre377, %stbhw__draw_hline.exit242 ]
-  %304 = phi ptr [ %.pre, %stbhw__draw_clipped_corner.exit.loopexit ], [ %272, %stbhw__draw_hline.exit242 ]
-  %305 = getelementptr inbounds nuw i8, ptr %304, i64 72
-  %306 = getelementptr inbounds i32, ptr %305, i64 %27
-  %307 = load i32, ptr %306, align 4, !tbaa !32
-  %.not139 = icmp eq i32 %307, 0
-  br i1 %.not139, label %stbhw__draw_clipped_corner.exit264, label %308
+stbhw__draw_clipped_corner.exit:                  ; preds = %stbhw__draw_clipped_corner.exit.loopexit, %stbhw__draw_hline.exit245
+  %.pre363.pre366.pre370.pre374.pre378 = phi i32 [ %.pre363.pre366.pre370.pre374.pre378.pre, %stbhw__draw_clipped_corner.exit.loopexit ], [ %.pre363.pre366.pre370.pre374.pre378.pre382, %stbhw__draw_hline.exit245 ]
+  %.pre361.pre364.pre368.pre372.pre376 = phi ptr [ %.pre361.pre364.pre368.pre372.pre376.pre, %stbhw__draw_clipped_corner.exit.loopexit ], [ %.pre361.pre364.pre368.pre372.pre376.pre380, %stbhw__draw_hline.exit245 ]
+  %278 = phi ptr [ %.pre, %stbhw__draw_clipped_corner.exit.loopexit ], [ %248, %stbhw__draw_hline.exit245 ]
+  %279 = getelementptr inbounds nuw i8, ptr %278, i64 72
+  %280 = getelementptr inbounds i32, ptr %279, i64 %27
+  %281 = load i32, ptr %280, align 4, !tbaa !32
+  %.not139 = icmp eq i32 %281, 0
+  br i1 %.not139, label %stbhw__draw_clipped_corner.exit267, label %282
 
-308:                                              ; preds = %stbhw__draw_clipped_corner.exit
-  %309 = add nsw i32 %193, %1
-  %310 = sext i32 %193 to i64
-  %311 = sext i32 %153 to i64
-  %312 = sext i32 %309 to i64
-  %313 = sext i32 %115 to i64
-  %314 = sext i32 %.pre360.pre363.pre367.pre371.pre375 to i64
-  br label %.preheader.i246
+282:                                              ; preds = %stbhw__draw_clipped_corner.exit
+  %283 = add nsw i32 %179, %1
+  %284 = sext i32 %179 to i64
+  %285 = sext i32 %144 to i64
+  %286 = sext i32 %283 to i64
+  %287 = sext i32 %.pre363.pre366.pre370.pre374.pre378 to i64
+  br label %.preheader.i249
 
-.preheader.i246:                                  ; preds = %.split.us.i255, %308
-  %indvars.iv45.i247 = phi i64 [ -2, %308 ], [ %indvars.iv.next46.i256, %.split.us.i255 ]
-  %indvars47.i248 = trunc i64 %indvars.iv45.i247 to i32
-  %315 = add i32 %indvars47.i248, 1
-  %316 = icmp ugt i32 %indvars47.i248, 2147483646
-  %317 = icmp sgt i32 %315, %19
-  %or.cond31.i249 = or i1 %316, %317
-  %318 = add nsw i64 %indvars.iv45.i247, %313
-  %319 = mul nsw i64 %318, %314
-  %320 = getelementptr inbounds i8, ptr %.pre358.pre361.pre365.pre369.pre373, i64 %319
-  br i1 %or.cond31.i249, label %.split.us.i255, label %.preheader.split.i250
+.preheader.i249:                                  ; preds = %.split.us.i258, %282
+  %indvars.iv45.i250 = phi i64 [ -2, %282 ], [ %indvars.iv.next46.i259, %.split.us.i258 ]
+  %indvars47.i251 = trunc i64 %indvars.iv45.i250 to i32
+  %288 = add i32 %indvars47.i251, 1
+  %289 = icmp ugt i32 %indvars47.i251, 2147483646
+  %290 = icmp sgt i32 %288, %19
+  %or.cond31.i252 = or i1 %289, %290
+  %291 = add nsw i64 %indvars.iv45.i250, %128
+  %292 = mul nsw i64 %291, %287
+  %293 = getelementptr inbounds i8, ptr %.pre361.pre364.pre368.pre372.pre376, i64 %292
+  br i1 %or.cond31.i252, label %.split.us.i258, label %.preheader.split.i253
 
-.preheader.split.i250:                            ; preds = %.preheader.i246
-  %cond383 = icmp eq i32 %indvars47.i248, 1
-  br i1 %cond383, label %.preheader.split.split.us.i251, label %.preheader.split.split.i259
+.preheader.split.i253:                            ; preds = %.preheader.i249
+  %cond386 = icmp eq i32 %indvars47.i251, 1
+  br i1 %cond386, label %.preheader.split.split.us.i254, label %.preheader.split.split.i262
 
-.preheader.split.split.us.i251:                   ; preds = %.preheader.split.i250, %330
-  %indvars.iv.i252 = phi i64 [ %indvars.iv.next.i253, %330 ], [ -2, %.preheader.split.i250 ]
-  %321 = trunc nsw i64 %indvars.iv.i252 to i32
-  switch i32 %321, label %322 [
-    i32 -2, label %330
-    i32 1, label %330
+.preheader.split.split.us.i254:                   ; preds = %.preheader.split.i253, %303
+  %indvars.iv.i255 = phi i64 [ %indvars.iv.next.i256, %303 ], [ -2, %.preheader.split.i253 ]
+  %294 = trunc nsw i64 %indvars.iv.i255 to i32
+  switch i32 %294, label %295 [
+    i32 -2, label %303
+    i32 1, label %303
   ]
 
-322:                                              ; preds = %.preheader.split.split.us.i251
-  %323 = add nsw i64 %indvars.iv.i252, %310
-  %324 = icmp slt i64 %323, 1
-  %325 = icmp sgt i64 %323, %311
-  %or.cond.us34.i258 = or i1 %324, %325
-  br i1 %or.cond.us34.i258, label %330, label %326
+295:                                              ; preds = %.preheader.split.split.us.i254
+  %296 = add nsw i64 %indvars.iv.i255, %284
+  %297 = icmp slt i64 %296, 1
+  %298 = icmp sgt i64 %296, %285
+  %or.cond.us34.i261 = or i1 %297, %298
+  br i1 %or.cond.us34.i261, label %303, label %299
 
-326:                                              ; preds = %322
-  %327 = add nsw i64 %indvars.iv.i252, %312
-  %328 = mul nsw i64 %327, 3
-  %329 = getelementptr inbounds i8, ptr %320, i64 %328
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %329, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
-  br label %330
+299:                                              ; preds = %295
+  %300 = add nsw i64 %indvars.iv.i255, %286
+  %301 = mul nsw i64 %300, 3
+  %302 = getelementptr inbounds i8, ptr %293, i64 %301
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %302, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  br label %303
 
-330:                                              ; preds = %326, %322, %.preheader.split.split.us.i251, %.preheader.split.split.us.i251
-  %indvars.iv.next.i253 = add nsw i64 %indvars.iv.i252, 1
-  %exitcond.not.i254 = icmp eq i64 %indvars.iv.next.i253, 2
-  br i1 %exitcond.not.i254, label %.split.us.i255, label %.preheader.split.split.us.i251, !llvm.loop !107
+303:                                              ; preds = %299, %295, %.preheader.split.split.us.i254, %.preheader.split.split.us.i254
+  %indvars.iv.next.i256 = add nsw i64 %indvars.iv.i255, 1
+  %exitcond.not.i257 = icmp eq i64 %indvars.iv.next.i256, 2
+  br i1 %exitcond.not.i257, label %.split.us.i258, label %.preheader.split.split.us.i254, !llvm.loop !107
 
-.preheader.split.split.i259:                      ; preds = %.preheader.split.i250, %338
-  %indvars.iv41.i260 = phi i64 [ %indvars.iv.next42.i262, %338 ], [ -2, %.preheader.split.i250 ]
-  %331 = add nsw i64 %indvars.iv41.i260, %310
+.preheader.split.split.i262:                      ; preds = %.preheader.split.i253, %311
+  %indvars.iv41.i263 = phi i64 [ %indvars.iv.next42.i265, %311 ], [ -2, %.preheader.split.i253 ]
+  %304 = add nsw i64 %indvars.iv41.i263, %284
+  %305 = icmp slt i64 %304, 1
+  %306 = icmp sgt i64 %304, %285
+  %or.cond.i264 = or i1 %305, %306
+  br i1 %or.cond.i264, label %311, label %307
+
+307:                                              ; preds = %.preheader.split.split.i262
+  %308 = add nsw i64 %indvars.iv41.i263, %286
+  %309 = mul nsw i64 %308, 3
+  %310 = getelementptr inbounds i8, ptr %293, i64 %309
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %310, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  br label %311
+
+311:                                              ; preds = %307, %.preheader.split.split.i262
+  %indvars.iv.next42.i265 = add nsw i64 %indvars.iv41.i263, 1
+  %exitcond44.not.i266 = icmp eq i64 %indvars.iv.next42.i265, 2
+  br i1 %exitcond44.not.i266, label %.split.us.i258, label %.preheader.split.split.i262, !llvm.loop !107
+
+.split.us.i258:                                   ; preds = %311, %303, %.preheader.i249
+  %indvars.iv.next46.i259 = add nsw i64 %indvars.iv45.i250, 1
+  %exitcond48.not.i260 = icmp eq i64 %indvars.iv.next46.i259, 2
+  br i1 %exitcond48.not.i260, label %stbhw__draw_clipped_corner.exit267.loopexit, label %.preheader.i249, !llvm.loop !108
+
+stbhw__draw_clipped_corner.exit267.loopexit:      ; preds = %.split.us.i258
+  %.pre356 = load ptr, ptr %16, align 8, !tbaa !12
+  %.pre361.pre364.pre368.pre372.pre = load ptr, ptr %20, align 8, !tbaa !88
+  %.pre363.pre366.pre370.pre374.pre = load i32, ptr %22, align 8, !tbaa !89
+  br label %stbhw__draw_clipped_corner.exit267
+
+stbhw__draw_clipped_corner.exit267:               ; preds = %stbhw__draw_clipped_corner.exit267.loopexit, %stbhw__draw_clipped_corner.exit
+  %.pre363.pre366.pre370.pre374 = phi i32 [ %.pre363.pre366.pre370.pre374.pre, %stbhw__draw_clipped_corner.exit267.loopexit ], [ %.pre363.pre366.pre370.pre374.pre378, %stbhw__draw_clipped_corner.exit ]
+  %.pre361.pre364.pre368.pre372 = phi ptr [ %.pre361.pre364.pre368.pre372.pre, %stbhw__draw_clipped_corner.exit267.loopexit ], [ %.pre361.pre364.pre368.pre372.pre376, %stbhw__draw_clipped_corner.exit ]
+  %312 = phi ptr [ %.pre356, %stbhw__draw_clipped_corner.exit267.loopexit ], [ %278, %stbhw__draw_clipped_corner.exit ]
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 88
+  %314 = getelementptr inbounds i32, ptr %313, i64 %73
+  %315 = load i32, ptr %314, align 4, !tbaa !32
+  %.not140 = icmp eq i32 %315, 0
+  br i1 %.not140, label %stbhw__draw_clipped_corner.exit286, label %316
+
+316:                                              ; preds = %stbhw__draw_clipped_corner.exit267
+  %317 = or disjoint i32 %144, 1
+  %318 = add nsw i32 %317, %1
+  %319 = sext i32 %317 to i64
+  %320 = sext i32 %144 to i64
+  %321 = sext i32 %318 to i64
+  %322 = sext i32 %.pre363.pre366.pre370.pre374 to i64
+  br label %.preheader.i268
+
+.preheader.i268:                                  ; preds = %.split.us.i277, %316
+  %indvars.iv45.i269 = phi i64 [ -2, %316 ], [ %indvars.iv.next46.i278, %.split.us.i277 ]
+  %indvars47.i270 = trunc i64 %indvars.iv45.i269 to i32
+  %323 = add i32 %indvars47.i270, 1
+  %324 = icmp ugt i32 %indvars47.i270, 2147483646
+  %325 = icmp sgt i32 %323, %19
+  %or.cond31.i271 = or i1 %324, %325
+  %326 = add nsw i64 %indvars.iv45.i269, %128
+  %327 = mul nsw i64 %326, %322
+  %328 = getelementptr inbounds i8, ptr %.pre361.pre364.pre368.pre372, i64 %327
+  br i1 %or.cond31.i271, label %.split.us.i277, label %.preheader.split.i272
+
+.preheader.split.i272:                            ; preds = %.preheader.i268
+  %cond = icmp eq i32 %indvars47.i270, 1
+  br i1 %cond, label %.preheader.split.split.us.i273, label %.preheader.split.split.i281
+
+.preheader.split.split.us.i273:                   ; preds = %.preheader.split.i272, %338
+  %indvars.iv.i274 = phi i64 [ %indvars.iv.next.i275, %338 ], [ -2, %.preheader.split.i272 ]
+  %329 = trunc nsw i64 %indvars.iv.i274 to i32
+  switch i32 %329, label %330 [
+    i32 -2, label %338
+    i32 1, label %338
+  ]
+
+330:                                              ; preds = %.preheader.split.split.us.i273
+  %331 = add nsw i64 %indvars.iv.i274, %319
   %332 = icmp slt i64 %331, 1
-  %333 = icmp sgt i64 %331, %311
-  %or.cond.i261 = or i1 %332, %333
-  br i1 %or.cond.i261, label %338, label %334
+  %333 = icmp sgt i64 %331, %320
+  %or.cond.us34.i280 = or i1 %332, %333
+  br i1 %or.cond.us34.i280, label %338, label %334
 
-334:                                              ; preds = %.preheader.split.split.i259
-  %335 = add nsw i64 %indvars.iv41.i260, %312
+334:                                              ; preds = %330
+  %335 = add nsw i64 %indvars.iv.i274, %321
   %336 = mul nsw i64 %335, 3
-  %337 = getelementptr inbounds i8, ptr %320, i64 %336
+  %337 = getelementptr inbounds i8, ptr %328, i64 %336
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %337, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
   br label %338
 
-338:                                              ; preds = %334, %.preheader.split.split.i259
-  %indvars.iv.next42.i262 = add nsw i64 %indvars.iv41.i260, 1
-  %exitcond44.not.i263 = icmp eq i64 %indvars.iv.next42.i262, 2
-  br i1 %exitcond44.not.i263, label %.split.us.i255, label %.preheader.split.split.i259, !llvm.loop !107
+338:                                              ; preds = %334, %330, %.preheader.split.split.us.i273, %.preheader.split.split.us.i273
+  %indvars.iv.next.i275 = add nsw i64 %indvars.iv.i274, 1
+  %exitcond.not.i276 = icmp eq i64 %indvars.iv.next.i275, 2
+  br i1 %exitcond.not.i276, label %.split.us.i277, label %.preheader.split.split.us.i273, !llvm.loop !107
 
-.split.us.i255:                                   ; preds = %338, %330, %.preheader.i246
-  %indvars.iv.next46.i256 = add nsw i64 %indvars.iv45.i247, 1
-  %exitcond48.not.i257 = icmp eq i64 %indvars.iv.next46.i256, 2
-  br i1 %exitcond48.not.i257, label %stbhw__draw_clipped_corner.exit264.loopexit, label %.preheader.i246, !llvm.loop !108
+.preheader.split.split.i281:                      ; preds = %.preheader.split.i272, %346
+  %indvars.iv41.i282 = phi i64 [ %indvars.iv.next42.i284, %346 ], [ -2, %.preheader.split.i272 ]
+  %339 = add nsw i64 %indvars.iv41.i282, %319
+  %340 = icmp slt i64 %339, 1
+  %341 = icmp sgt i64 %339, %320
+  %or.cond.i283 = or i1 %340, %341
+  br i1 %or.cond.i283, label %346, label %342
 
-stbhw__draw_clipped_corner.exit264.loopexit:      ; preds = %.split.us.i255
-  %.pre353 = load ptr, ptr %16, align 8, !tbaa !12
-  %.pre358.pre361.pre365.pre369.pre = load ptr, ptr %20, align 8, !tbaa !88
-  %.pre360.pre363.pre367.pre371.pre = load i32, ptr %22, align 8, !tbaa !89
-  br label %stbhw__draw_clipped_corner.exit264
+342:                                              ; preds = %.preheader.split.split.i281
+  %343 = add nsw i64 %indvars.iv41.i282, %321
+  %344 = mul nsw i64 %343, 3
+  %345 = getelementptr inbounds i8, ptr %328, i64 %344
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %345, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  br label %346
 
-stbhw__draw_clipped_corner.exit264:               ; preds = %stbhw__draw_clipped_corner.exit264.loopexit, %stbhw__draw_clipped_corner.exit
-  %.pre360.pre363.pre367.pre371 = phi i32 [ %.pre360.pre363.pre367.pre371.pre, %stbhw__draw_clipped_corner.exit264.loopexit ], [ %.pre360.pre363.pre367.pre371.pre375, %stbhw__draw_clipped_corner.exit ]
-  %.pre358.pre361.pre365.pre369 = phi ptr [ %.pre358.pre361.pre365.pre369.pre, %stbhw__draw_clipped_corner.exit264.loopexit ], [ %.pre358.pre361.pre365.pre369.pre373, %stbhw__draw_clipped_corner.exit ]
-  %339 = phi ptr [ %.pre353, %stbhw__draw_clipped_corner.exit264.loopexit ], [ %304, %stbhw__draw_clipped_corner.exit ]
-  %340 = getelementptr inbounds nuw i8, ptr %339, i64 88
-  %341 = getelementptr inbounds i32, ptr %340, i64 %76
-  %342 = load i32, ptr %341, align 4, !tbaa !32
-  %.not140 = icmp eq i32 %342, 0
-  br i1 %.not140, label %stbhw__draw_clipped_corner.exit283, label %343
+346:                                              ; preds = %342, %.preheader.split.split.i281
+  %indvars.iv.next42.i284 = add nsw i64 %indvars.iv41.i282, 1
+  %exitcond44.not.i285 = icmp eq i64 %indvars.iv.next42.i284, 2
+  br i1 %exitcond44.not.i285, label %.split.us.i277, label %.preheader.split.split.i281, !llvm.loop !107
 
-343:                                              ; preds = %stbhw__draw_clipped_corner.exit264
-  %344 = or disjoint i32 %153, 1
-  %345 = add nsw i32 %344, %1
-  %346 = sext i32 %344 to i64
-  %347 = sext i32 %153 to i64
-  %348 = sext i32 %345 to i64
-  %349 = sext i32 %115 to i64
-  %350 = sext i32 %.pre360.pre363.pre367.pre371 to i64
-  br label %.preheader.i265
+.split.us.i277:                                   ; preds = %346, %338, %.preheader.i268
+  %indvars.iv.next46.i278 = add nsw i64 %indvars.iv45.i269, 1
+  %exitcond48.not.i279 = icmp eq i64 %indvars.iv.next46.i278, 2
+  br i1 %exitcond48.not.i279, label %stbhw__draw_clipped_corner.exit286.loopexit, label %.preheader.i268, !llvm.loop !108
 
-.preheader.i265:                                  ; preds = %.split.us.i274, %343
-  %indvars.iv45.i266 = phi i64 [ -2, %343 ], [ %indvars.iv.next46.i275, %.split.us.i274 ]
-  %indvars47.i267 = trunc i64 %indvars.iv45.i266 to i32
-  %351 = add i32 %indvars47.i267, 1
-  %352 = icmp ugt i32 %indvars47.i267, 2147483646
-  %353 = icmp sgt i32 %351, %19
-  %or.cond31.i268 = or i1 %352, %353
-  %354 = add nsw i64 %indvars.iv45.i266, %349
-  %355 = mul nsw i64 %354, %350
-  %356 = getelementptr inbounds i8, ptr %.pre358.pre361.pre365.pre369, i64 %355
-  br i1 %or.cond31.i268, label %.split.us.i274, label %.preheader.split.i269
+stbhw__draw_clipped_corner.exit286.loopexit:      ; preds = %.split.us.i277
+  %.pre357 = load ptr, ptr %16, align 8, !tbaa !12
+  %.pre361.pre364.pre368.pre = load ptr, ptr %20, align 8, !tbaa !88
+  %.pre363.pre366.pre370.pre = load i32, ptr %22, align 8, !tbaa !89
+  br label %stbhw__draw_clipped_corner.exit286
 
-.preheader.split.i269:                            ; preds = %.preheader.i265
-  %cond = icmp eq i32 %indvars47.i267, 1
-  br i1 %cond, label %.preheader.split.split.us.i270, label %.preheader.split.split.i278
+stbhw__draw_clipped_corner.exit286:               ; preds = %stbhw__draw_clipped_corner.exit286.loopexit, %stbhw__draw_clipped_corner.exit267
+  %.pre363.pre366.pre370 = phi i32 [ %.pre363.pre366.pre370.pre, %stbhw__draw_clipped_corner.exit286.loopexit ], [ %.pre363.pre366.pre370.pre374, %stbhw__draw_clipped_corner.exit267 ]
+  %.pre361.pre364.pre368 = phi ptr [ %.pre361.pre364.pre368.pre, %stbhw__draw_clipped_corner.exit286.loopexit ], [ %.pre361.pre364.pre368.pre372, %stbhw__draw_clipped_corner.exit267 ]
+  %347 = phi ptr [ %.pre357, %stbhw__draw_clipped_corner.exit286.loopexit ], [ %312, %stbhw__draw_clipped_corner.exit267 ]
+  %348 = getelementptr inbounds nuw i8, ptr %347, i64 40
+  %349 = getelementptr inbounds i32, ptr %348, i64 %110
+  %350 = load i32, ptr %349, align 4, !tbaa !32
+  %.not141 = icmp eq i32 %350, 0
+  br i1 %.not141, label %stbhw__draw_clipped_corner.exit305, label %351
 
-.preheader.split.split.us.i270:                   ; preds = %.preheader.split.i269, %366
-  %indvars.iv.i271 = phi i64 [ %indvars.iv.next.i272, %366 ], [ -2, %.preheader.split.i269 ]
-  %357 = trunc nsw i64 %indvars.iv.i271 to i32
-  switch i32 %357, label %358 [
-    i32 -2, label %366
-    i32 1, label %366
+351:                                              ; preds = %stbhw__draw_clipped_corner.exit286
+  %352 = sext i32 %144 to i64
+  %353 = sext i32 %180 to i64
+  %354 = sext i32 %.pre363.pre366.pre370 to i64
+  br label %.preheader.i287
+
+.preheader.i287:                                  ; preds = %.split.us.i296, %351
+  %indvars.iv45.i288 = phi i64 [ -2, %351 ], [ %indvars.iv.next46.i297, %.split.us.i296 ]
+  %indvars47.i289 = trunc i64 %indvars.iv45.i288 to i32
+  %355 = add i32 %179, %indvars47.i289
+  %356 = icmp slt i32 %355, 1
+  %357 = icmp sgt i32 %355, %19
+  %or.cond31.i290 = or i1 %356, %357
+  %358 = add nsw i64 %indvars.iv45.i288, %353
+  %359 = mul nsw i64 %358, %354
+  %360 = getelementptr inbounds i8, ptr %.pre361.pre364.pre368, i64 %359
+  br i1 %or.cond31.i290, label %.split.us.i296, label %.preheader.split.i291
+
+.preheader.split.i291:                            ; preds = %.preheader.i287
+  switch i32 %indvars47.i289, label %.preheader.split.split.i300 [
+    i32 -2, label %.preheader.split.split.us.i292.preheader
+    i32 1, label %.preheader.split.split.us.i292.preheader
   ]
 
-358:                                              ; preds = %.preheader.split.split.us.i270
-  %359 = add nsw i64 %indvars.iv.i271, %346
-  %360 = icmp slt i64 %359, 1
-  %361 = icmp sgt i64 %359, %347
-  %or.cond.us34.i277 = or i1 %360, %361
-  br i1 %or.cond.us34.i277, label %366, label %362
+.preheader.split.split.us.i292.preheader:         ; preds = %.preheader.split.i291, %.preheader.split.i291
+  br label %.preheader.split.split.us.i292
 
-362:                                              ; preds = %358
-  %363 = add nsw i64 %indvars.iv.i271, %348
-  %364 = mul nsw i64 %363, 3
-  %365 = getelementptr inbounds i8, ptr %356, i64 %364
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %365, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
-  br label %366
-
-366:                                              ; preds = %362, %358, %.preheader.split.split.us.i270, %.preheader.split.split.us.i270
-  %indvars.iv.next.i272 = add nsw i64 %indvars.iv.i271, 1
-  %exitcond.not.i273 = icmp eq i64 %indvars.iv.next.i272, 2
-  br i1 %exitcond.not.i273, label %.split.us.i274, label %.preheader.split.split.us.i270, !llvm.loop !107
-
-.preheader.split.split.i278:                      ; preds = %.preheader.split.i269, %374
-  %indvars.iv41.i279 = phi i64 [ %indvars.iv.next42.i281, %374 ], [ -2, %.preheader.split.i269 ]
-  %367 = add nsw i64 %indvars.iv41.i279, %346
-  %368 = icmp slt i64 %367, 1
-  %369 = icmp sgt i64 %367, %347
-  %or.cond.i280 = or i1 %368, %369
-  br i1 %or.cond.i280, label %374, label %370
-
-370:                                              ; preds = %.preheader.split.split.i278
-  %371 = add nsw i64 %indvars.iv41.i279, %348
-  %372 = mul nsw i64 %371, 3
-  %373 = getelementptr inbounds i8, ptr %356, i64 %372
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %373, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
-  br label %374
-
-374:                                              ; preds = %370, %.preheader.split.split.i278
-  %indvars.iv.next42.i281 = add nsw i64 %indvars.iv41.i279, 1
-  %exitcond44.not.i282 = icmp eq i64 %indvars.iv.next42.i281, 2
-  br i1 %exitcond44.not.i282, label %.split.us.i274, label %.preheader.split.split.i278, !llvm.loop !107
-
-.split.us.i274:                                   ; preds = %374, %366, %.preheader.i265
-  %indvars.iv.next46.i275 = add nsw i64 %indvars.iv45.i266, 1
-  %exitcond48.not.i276 = icmp eq i64 %indvars.iv.next46.i275, 2
-  br i1 %exitcond48.not.i276, label %stbhw__draw_clipped_corner.exit283.loopexit, label %.preheader.i265, !llvm.loop !108
-
-stbhw__draw_clipped_corner.exit283.loopexit:      ; preds = %.split.us.i274
-  %.pre354 = load ptr, ptr %16, align 8, !tbaa !12
-  %.pre358.pre361.pre365.pre = load ptr, ptr %20, align 8, !tbaa !88
-  %.pre360.pre363.pre367.pre = load i32, ptr %22, align 8, !tbaa !89
-  br label %stbhw__draw_clipped_corner.exit283
-
-stbhw__draw_clipped_corner.exit283:               ; preds = %stbhw__draw_clipped_corner.exit283.loopexit, %stbhw__draw_clipped_corner.exit264
-  %.pre360.pre363.pre367 = phi i32 [ %.pre360.pre363.pre367.pre, %stbhw__draw_clipped_corner.exit283.loopexit ], [ %.pre360.pre363.pre367.pre371, %stbhw__draw_clipped_corner.exit264 ]
-  %.pre358.pre361.pre365 = phi ptr [ %.pre358.pre361.pre365.pre, %stbhw__draw_clipped_corner.exit283.loopexit ], [ %.pre358.pre361.pre365.pre369, %stbhw__draw_clipped_corner.exit264 ]
-  %375 = phi ptr [ %.pre354, %stbhw__draw_clipped_corner.exit283.loopexit ], [ %339, %stbhw__draw_clipped_corner.exit264 ]
-  %376 = getelementptr inbounds nuw i8, ptr %375, i64 40
-  %377 = getelementptr inbounds i32, ptr %376, i64 %116
-  %378 = load i32, ptr %377, align 4, !tbaa !32
-  %.not141 = icmp eq i32 %378, 0
-  br i1 %.not141, label %stbhw__draw_clipped_corner.exit302, label %379
-
-379:                                              ; preds = %stbhw__draw_clipped_corner.exit283
-  %380 = sext i32 %153 to i64
-  %381 = sext i32 %24 to i64
-  %382 = sext i32 %194 to i64
-  %383 = sext i32 %.pre360.pre363.pre367 to i64
-  br label %.preheader.i284
-
-.preheader.i284:                                  ; preds = %.split.us.i293, %379
-  %indvars.iv45.i285 = phi i64 [ -2, %379 ], [ %indvars.iv.next46.i294, %.split.us.i293 ]
-  %indvars47.i286 = trunc i64 %indvars.iv45.i285 to i32
-  %384 = add i32 %193, %indvars47.i286
-  %385 = icmp slt i32 %384, 1
-  %386 = icmp sgt i32 %384, %19
-  %or.cond31.i287 = or i1 %385, %386
-  %387 = add nsw i64 %indvars.iv45.i285, %382
-  %388 = mul nsw i64 %387, %383
-  %389 = getelementptr inbounds i8, ptr %.pre358.pre361.pre365, i64 %388
-  br i1 %or.cond31.i287, label %.split.us.i293, label %.preheader.split.i288
-
-.preheader.split.i288:                            ; preds = %.preheader.i284
-  switch i32 %indvars47.i286, label %.preheader.split.split.i297 [
-    i32 -2, label %.preheader.split.split.us.i289.preheader
-    i32 1, label %.preheader.split.split.us.i289.preheader
+.preheader.split.split.us.i292:                   ; preds = %.preheader.split.split.us.i292.preheader, %369
+  %indvars.iv.i293 = phi i64 [ %indvars.iv.next.i294, %369 ], [ -2, %.preheader.split.split.us.i292.preheader ]
+  %361 = trunc nsw i64 %indvars.iv.i293 to i32
+  switch i32 %361, label %362 [
+    i32 -2, label %369
+    i32 1, label %369
   ]
 
-.preheader.split.split.us.i289.preheader:         ; preds = %.preheader.split.i288, %.preheader.split.i288
-  br label %.preheader.split.split.us.i289
+362:                                              ; preds = %.preheader.split.split.us.i292
+  %363 = icmp slt i64 %indvars.iv.i293, 0
+  %364 = icmp sge i64 %indvars.iv.i293, %352
+  %or.cond.us34.i299 = or i1 %363, %364
+  br i1 %or.cond.us34.i299, label %369, label %365
 
-.preheader.split.split.us.i289:                   ; preds = %.preheader.split.split.us.i289.preheader, %398
-  %indvars.iv.i290 = phi i64 [ %indvars.iv.next.i291, %398 ], [ -2, %.preheader.split.split.us.i289.preheader ]
-  %390 = trunc nsw i64 %indvars.iv.i290 to i32
-  switch i32 %390, label %391 [
-    i32 -2, label %398
-    i32 1, label %398
+365:                                              ; preds = %362
+  %366 = add nsw i64 %indvars.iv.i293, %54
+  %367 = mul nsw i64 %366, 3
+  %368 = getelementptr inbounds i8, ptr %360, i64 %367
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %368, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  br label %369
+
+369:                                              ; preds = %365, %362, %.preheader.split.split.us.i292, %.preheader.split.split.us.i292
+  %indvars.iv.next.i294 = add nsw i64 %indvars.iv.i293, 1
+  %exitcond.not.i295 = icmp eq i64 %indvars.iv.next.i294, 2
+  br i1 %exitcond.not.i295, label %.split.us.i296, label %.preheader.split.split.us.i292, !llvm.loop !107
+
+.preheader.split.split.i300:                      ; preds = %.preheader.split.i291, %377
+  %indvars.iv41.i301 = phi i64 [ %370, %377 ], [ -2, %.preheader.split.i291 ]
+  %370 = add nsw i64 %indvars.iv41.i301, 1
+  %371 = icmp slt i64 %indvars.iv41.i301, 0
+  %372 = icmp sge i64 %indvars.iv41.i301, %352
+  %or.cond.i302 = or i1 %371, %372
+  br i1 %or.cond.i302, label %377, label %373
+
+373:                                              ; preds = %.preheader.split.split.i300
+  %374 = add nsw i64 %indvars.iv41.i301, %54
+  %375 = mul nsw i64 %374, 3
+  %376 = getelementptr inbounds i8, ptr %360, i64 %375
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %376, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  br label %377
+
+377:                                              ; preds = %373, %.preheader.split.split.i300
+  %exitcond44.not.i304 = icmp eq i64 %370, 2
+  br i1 %exitcond44.not.i304, label %.split.us.i296, label %.preheader.split.split.i300, !llvm.loop !107
+
+.split.us.i296:                                   ; preds = %369, %377, %.preheader.i287
+  %indvars.iv.next46.i297 = add nsw i64 %indvars.iv45.i288, 1
+  %exitcond48.not.i298 = icmp eq i64 %indvars.iv.next46.i297, 2
+  br i1 %exitcond48.not.i298, label %stbhw__draw_clipped_corner.exit305.loopexit, label %.preheader.i287, !llvm.loop !108
+
+stbhw__draw_clipped_corner.exit305.loopexit:      ; preds = %.split.us.i296
+  %.pre358 = load ptr, ptr %16, align 8, !tbaa !12
+  %.pre361.pre364.pre = load ptr, ptr %20, align 8, !tbaa !88
+  %.pre363.pre366.pre = load i32, ptr %22, align 8, !tbaa !89
+  br label %stbhw__draw_clipped_corner.exit305
+
+stbhw__draw_clipped_corner.exit305:               ; preds = %stbhw__draw_clipped_corner.exit305.loopexit, %stbhw__draw_clipped_corner.exit286
+  %.pre363.pre366 = phi i32 [ %.pre363.pre366.pre, %stbhw__draw_clipped_corner.exit305.loopexit ], [ %.pre363.pre366.pre370, %stbhw__draw_clipped_corner.exit286 ]
+  %.pre361.pre364 = phi ptr [ %.pre361.pre364.pre, %stbhw__draw_clipped_corner.exit305.loopexit ], [ %.pre361.pre364.pre368, %stbhw__draw_clipped_corner.exit286 ]
+  %378 = phi ptr [ %.pre358, %stbhw__draw_clipped_corner.exit305.loopexit ], [ %347, %stbhw__draw_clipped_corner.exit286 ]
+  %379 = getelementptr inbounds nuw i8, ptr %378, i64 56
+  %380 = getelementptr inbounds i32, ptr %379, i64 %182
+  %381 = load i32, ptr %380, align 4, !tbaa !32
+  %.not142 = icmp eq i32 %381, 0
+  br i1 %.not142, label %stbhw__draw_clipped_corner.exit324, label %382
+
+382:                                              ; preds = %stbhw__draw_clipped_corner.exit305
+  %383 = add nsw i32 %179, %1
+  %384 = sext i32 %179 to i64
+  %385 = sext i32 %144 to i64
+  %386 = sext i32 %383 to i64
+  %387 = sext i32 %180 to i64
+  %388 = sext i32 %.pre363.pre366 to i64
+  br label %.preheader.i306
+
+.preheader.i306:                                  ; preds = %.split.us.i315, %382
+  %indvars.iv45.i307 = phi i64 [ -2, %382 ], [ %indvars.iv.next46.i316, %.split.us.i315 ]
+  %indvars47.i308 = trunc i64 %indvars.iv45.i307 to i32
+  %389 = add i32 %179, %indvars47.i308
+  %390 = icmp slt i32 %389, 1
+  %391 = icmp sgt i32 %389, %19
+  %or.cond31.i309 = or i1 %390, %391
+  %392 = add nsw i64 %indvars.iv45.i307, %387
+  %393 = mul nsw i64 %392, %388
+  %394 = getelementptr inbounds i8, ptr %.pre361.pre364, i64 %393
+  br i1 %or.cond31.i309, label %.split.us.i315, label %.preheader.split.i310
+
+.preheader.split.i310:                            ; preds = %.preheader.i306
+  switch i32 %indvars47.i308, label %.preheader.split.split.i319 [
+    i32 -2, label %.preheader.split.split.us.i311.preheader
+    i32 1, label %.preheader.split.split.us.i311.preheader
   ]
 
-391:                                              ; preds = %.preheader.split.split.us.i289
-  %392 = icmp slt i64 %indvars.iv.i290, 0
-  %393 = icmp sge i64 %indvars.iv.i290, %380
-  %or.cond.us34.i296 = or i1 %392, %393
-  br i1 %or.cond.us34.i296, label %398, label %394
+.preheader.split.split.us.i311.preheader:         ; preds = %.preheader.split.i310, %.preheader.split.i310
+  br label %.preheader.split.split.us.i311
 
-394:                                              ; preds = %391
-  %395 = add nsw i64 %indvars.iv.i290, %381
-  %396 = mul nsw i64 %395, 3
-  %397 = getelementptr inbounds i8, ptr %389, i64 %396
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %397, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
-  br label %398
-
-398:                                              ; preds = %394, %391, %.preheader.split.split.us.i289, %.preheader.split.split.us.i289
-  %indvars.iv.next.i291 = add nsw i64 %indvars.iv.i290, 1
-  %exitcond.not.i292 = icmp eq i64 %indvars.iv.next.i291, 2
-  br i1 %exitcond.not.i292, label %.split.us.i293, label %.preheader.split.split.us.i289, !llvm.loop !107
-
-.preheader.split.split.i297:                      ; preds = %.preheader.split.i288, %406
-  %indvars.iv41.i298 = phi i64 [ %399, %406 ], [ -2, %.preheader.split.i288 ]
-  %399 = add nsw i64 %indvars.iv41.i298, 1
-  %400 = icmp slt i64 %indvars.iv41.i298, 0
-  %401 = icmp sge i64 %indvars.iv41.i298, %380
-  %or.cond.i299 = or i1 %400, %401
-  br i1 %or.cond.i299, label %406, label %402
-
-402:                                              ; preds = %.preheader.split.split.i297
-  %403 = add nsw i64 %indvars.iv41.i298, %381
-  %404 = mul nsw i64 %403, 3
-  %405 = getelementptr inbounds i8, ptr %389, i64 %404
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %405, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
-  br label %406
-
-406:                                              ; preds = %402, %.preheader.split.split.i297
-  %exitcond44.not.i301 = icmp eq i64 %399, 2
-  br i1 %exitcond44.not.i301, label %.split.us.i293, label %.preheader.split.split.i297, !llvm.loop !107
-
-.split.us.i293:                                   ; preds = %398, %406, %.preheader.i284
-  %indvars.iv.next46.i294 = add nsw i64 %indvars.iv45.i285, 1
-  %exitcond48.not.i295 = icmp eq i64 %indvars.iv.next46.i294, 2
-  br i1 %exitcond48.not.i295, label %stbhw__draw_clipped_corner.exit302.loopexit, label %.preheader.i284, !llvm.loop !108
-
-stbhw__draw_clipped_corner.exit302.loopexit:      ; preds = %.split.us.i293
-  %.pre355 = load ptr, ptr %16, align 8, !tbaa !12
-  %.pre358.pre361.pre = load ptr, ptr %20, align 8, !tbaa !88
-  %.pre360.pre363.pre = load i32, ptr %22, align 8, !tbaa !89
-  br label %stbhw__draw_clipped_corner.exit302
-
-stbhw__draw_clipped_corner.exit302:               ; preds = %stbhw__draw_clipped_corner.exit302.loopexit, %stbhw__draw_clipped_corner.exit283
-  %.pre360.pre363 = phi i32 [ %.pre360.pre363.pre, %stbhw__draw_clipped_corner.exit302.loopexit ], [ %.pre360.pre363.pre367, %stbhw__draw_clipped_corner.exit283 ]
-  %.pre358.pre361 = phi ptr [ %.pre358.pre361.pre, %stbhw__draw_clipped_corner.exit302.loopexit ], [ %.pre358.pre361.pre365, %stbhw__draw_clipped_corner.exit283 ]
-  %407 = phi ptr [ %.pre355, %stbhw__draw_clipped_corner.exit302.loopexit ], [ %375, %stbhw__draw_clipped_corner.exit283 ]
-  %408 = getelementptr inbounds nuw i8, ptr %407, i64 56
-  %409 = getelementptr inbounds i32, ptr %408, i64 %196
-  %410 = load i32, ptr %409, align 4, !tbaa !32
-  %.not142 = icmp eq i32 %410, 0
-  br i1 %.not142, label %stbhw__draw_clipped_corner.exit321, label %411
-
-411:                                              ; preds = %stbhw__draw_clipped_corner.exit302
-  %412 = add nsw i32 %193, %1
-  %413 = sext i32 %193 to i64
-  %414 = sext i32 %153 to i64
-  %415 = sext i32 %412 to i64
-  %416 = sext i32 %194 to i64
-  %417 = sext i32 %.pre360.pre363 to i64
-  br label %.preheader.i303
-
-.preheader.i303:                                  ; preds = %.split.us.i312, %411
-  %indvars.iv45.i304 = phi i64 [ -2, %411 ], [ %indvars.iv.next46.i313, %.split.us.i312 ]
-  %indvars47.i305 = trunc i64 %indvars.iv45.i304 to i32
-  %418 = add i32 %193, %indvars47.i305
-  %419 = icmp slt i32 %418, 1
-  %420 = icmp sgt i32 %418, %19
-  %or.cond31.i306 = or i1 %419, %420
-  %421 = add nsw i64 %indvars.iv45.i304, %416
-  %422 = mul nsw i64 %421, %417
-  %423 = getelementptr inbounds i8, ptr %.pre358.pre361, i64 %422
-  br i1 %or.cond31.i306, label %.split.us.i312, label %.preheader.split.i307
-
-.preheader.split.i307:                            ; preds = %.preheader.i303
-  switch i32 %indvars47.i305, label %.preheader.split.split.i316 [
-    i32 -2, label %.preheader.split.split.us.i308.preheader
-    i32 1, label %.preheader.split.split.us.i308.preheader
+.preheader.split.split.us.i311:                   ; preds = %.preheader.split.split.us.i311.preheader, %404
+  %indvars.iv.i312 = phi i64 [ %indvars.iv.next.i313, %404 ], [ -2, %.preheader.split.split.us.i311.preheader ]
+  %395 = trunc nsw i64 %indvars.iv.i312 to i32
+  switch i32 %395, label %396 [
+    i32 -2, label %404
+    i32 1, label %404
   ]
 
-.preheader.split.split.us.i308.preheader:         ; preds = %.preheader.split.i307, %.preheader.split.i307
-  br label %.preheader.split.split.us.i308
+396:                                              ; preds = %.preheader.split.split.us.i311
+  %397 = add nsw i64 %indvars.iv.i312, %384
+  %398 = icmp slt i64 %397, 1
+  %399 = icmp sgt i64 %397, %385
+  %or.cond.us34.i318 = or i1 %398, %399
+  br i1 %or.cond.us34.i318, label %404, label %400
 
-.preheader.split.split.us.i308:                   ; preds = %.preheader.split.split.us.i308.preheader, %433
-  %indvars.iv.i309 = phi i64 [ %indvars.iv.next.i310, %433 ], [ -2, %.preheader.split.split.us.i308.preheader ]
-  %424 = trunc nsw i64 %indvars.iv.i309 to i32
-  switch i32 %424, label %425 [
-    i32 -2, label %433
-    i32 1, label %433
+400:                                              ; preds = %396
+  %401 = add nsw i64 %indvars.iv.i312, %386
+  %402 = mul nsw i64 %401, 3
+  %403 = getelementptr inbounds i8, ptr %394, i64 %402
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %403, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  br label %404
+
+404:                                              ; preds = %400, %396, %.preheader.split.split.us.i311, %.preheader.split.split.us.i311
+  %indvars.iv.next.i313 = add nsw i64 %indvars.iv.i312, 1
+  %exitcond.not.i314 = icmp eq i64 %indvars.iv.next.i313, 2
+  br i1 %exitcond.not.i314, label %.split.us.i315, label %.preheader.split.split.us.i311, !llvm.loop !107
+
+.preheader.split.split.i319:                      ; preds = %.preheader.split.i310, %412
+  %indvars.iv41.i320 = phi i64 [ %indvars.iv.next42.i322, %412 ], [ -2, %.preheader.split.i310 ]
+  %405 = add nsw i64 %indvars.iv41.i320, %384
+  %406 = icmp slt i64 %405, 1
+  %407 = icmp sgt i64 %405, %385
+  %or.cond.i321 = or i1 %406, %407
+  br i1 %or.cond.i321, label %412, label %408
+
+408:                                              ; preds = %.preheader.split.split.i319
+  %409 = add nsw i64 %indvars.iv41.i320, %386
+  %410 = mul nsw i64 %409, 3
+  %411 = getelementptr inbounds i8, ptr %394, i64 %410
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %411, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  br label %412
+
+412:                                              ; preds = %408, %.preheader.split.split.i319
+  %indvars.iv.next42.i322 = add nsw i64 %indvars.iv41.i320, 1
+  %exitcond44.not.i323 = icmp eq i64 %indvars.iv.next42.i322, 2
+  br i1 %exitcond44.not.i323, label %.split.us.i315, label %.preheader.split.split.i319, !llvm.loop !107
+
+.split.us.i315:                                   ; preds = %404, %412, %.preheader.i306
+  %indvars.iv.next46.i316 = add nsw i64 %indvars.iv45.i307, 1
+  %exitcond48.not.i317 = icmp eq i64 %indvars.iv.next46.i316, 2
+  br i1 %exitcond48.not.i317, label %stbhw__draw_clipped_corner.exit324.loopexit, label %.preheader.i306, !llvm.loop !108
+
+stbhw__draw_clipped_corner.exit324.loopexit:      ; preds = %.split.us.i315
+  %.pre359 = load ptr, ptr %16, align 8, !tbaa !12
+  %.pre361.pre = load ptr, ptr %20, align 8, !tbaa !88
+  %.pre363.pre = load i32, ptr %22, align 8, !tbaa !89
+  br label %stbhw__draw_clipped_corner.exit324
+
+stbhw__draw_clipped_corner.exit324:               ; preds = %stbhw__draw_clipped_corner.exit324.loopexit, %stbhw__draw_clipped_corner.exit305
+  %.pre363 = phi i32 [ %.pre363.pre, %stbhw__draw_clipped_corner.exit324.loopexit ], [ %.pre363.pre366, %stbhw__draw_clipped_corner.exit305 ]
+  %.pre361 = phi ptr [ %.pre361.pre, %stbhw__draw_clipped_corner.exit324.loopexit ], [ %.pre361.pre364, %stbhw__draw_clipped_corner.exit305 ]
+  %413 = phi ptr [ %.pre359, %stbhw__draw_clipped_corner.exit324.loopexit ], [ %378, %stbhw__draw_clipped_corner.exit305 ]
+  %414 = getelementptr inbounds nuw i8, ptr %413, i64 72
+  %415 = getelementptr inbounds i32, ptr %414, i64 %147
+  %416 = load i32, ptr %415, align 4, !tbaa !32
+  %.not143 = icmp eq i32 %416, 0
+  br i1 %.not143, label %stbhw__draw_clipped_corner.exit343, label %417
+
+417:                                              ; preds = %stbhw__draw_clipped_corner.exit324
+  %418 = or disjoint i32 %144, 1
+  %419 = add nsw i32 %418, %1
+  %420 = sext i32 %418 to i64
+  %421 = sext i32 %144 to i64
+  %422 = sext i32 %419 to i64
+  %423 = sext i32 %180 to i64
+  %424 = sext i32 %.pre363 to i64
+  br label %.preheader.i325
+
+.preheader.i325:                                  ; preds = %.split.us.i334, %417
+  %indvars.iv45.i326 = phi i64 [ -2, %417 ], [ %indvars.iv.next46.i335, %.split.us.i334 ]
+  %indvars47.i327 = trunc i64 %indvars.iv45.i326 to i32
+  %425 = add i32 %179, %indvars47.i327
+  %426 = icmp slt i32 %425, 1
+  %427 = icmp sgt i32 %425, %19
+  %or.cond31.i328 = or i1 %426, %427
+  %428 = add nsw i64 %indvars.iv45.i326, %423
+  %429 = mul nsw i64 %428, %424
+  %430 = getelementptr inbounds i8, ptr %.pre361, i64 %429
+  br i1 %or.cond31.i328, label %.split.us.i334, label %.preheader.split.i329
+
+.preheader.split.i329:                            ; preds = %.preheader.i325
+  switch i32 %indvars47.i327, label %.preheader.split.split.i338 [
+    i32 -2, label %.preheader.split.split.us.i330.preheader
+    i32 1, label %.preheader.split.split.us.i330.preheader
   ]
 
-425:                                              ; preds = %.preheader.split.split.us.i308
-  %426 = add nsw i64 %indvars.iv.i309, %413
-  %427 = icmp slt i64 %426, 1
-  %428 = icmp sgt i64 %426, %414
-  %or.cond.us34.i315 = or i1 %427, %428
-  br i1 %or.cond.us34.i315, label %433, label %429
+.preheader.split.split.us.i330.preheader:         ; preds = %.preheader.split.i329, %.preheader.split.i329
+  br label %.preheader.split.split.us.i330
 
-429:                                              ; preds = %425
-  %430 = add nsw i64 %indvars.iv.i309, %415
-  %431 = mul nsw i64 %430, 3
-  %432 = getelementptr inbounds i8, ptr %423, i64 %431
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %432, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
-  br label %433
-
-433:                                              ; preds = %429, %425, %.preheader.split.split.us.i308, %.preheader.split.split.us.i308
-  %indvars.iv.next.i310 = add nsw i64 %indvars.iv.i309, 1
-  %exitcond.not.i311 = icmp eq i64 %indvars.iv.next.i310, 2
-  br i1 %exitcond.not.i311, label %.split.us.i312, label %.preheader.split.split.us.i308, !llvm.loop !107
-
-.preheader.split.split.i316:                      ; preds = %.preheader.split.i307, %441
-  %indvars.iv41.i317 = phi i64 [ %indvars.iv.next42.i319, %441 ], [ -2, %.preheader.split.i307 ]
-  %434 = add nsw i64 %indvars.iv41.i317, %413
-  %435 = icmp slt i64 %434, 1
-  %436 = icmp sgt i64 %434, %414
-  %or.cond.i318 = or i1 %435, %436
-  br i1 %or.cond.i318, label %441, label %437
-
-437:                                              ; preds = %.preheader.split.split.i316
-  %438 = add nsw i64 %indvars.iv41.i317, %415
-  %439 = mul nsw i64 %438, 3
-  %440 = getelementptr inbounds i8, ptr %423, i64 %439
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %440, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
-  br label %441
-
-441:                                              ; preds = %437, %.preheader.split.split.i316
-  %indvars.iv.next42.i319 = add nsw i64 %indvars.iv41.i317, 1
-  %exitcond44.not.i320 = icmp eq i64 %indvars.iv.next42.i319, 2
-  br i1 %exitcond44.not.i320, label %.split.us.i312, label %.preheader.split.split.i316, !llvm.loop !107
-
-.split.us.i312:                                   ; preds = %433, %441, %.preheader.i303
-  %indvars.iv.next46.i313 = add nsw i64 %indvars.iv45.i304, 1
-  %exitcond48.not.i314 = icmp eq i64 %indvars.iv.next46.i313, 2
-  br i1 %exitcond48.not.i314, label %stbhw__draw_clipped_corner.exit321.loopexit, label %.preheader.i303, !llvm.loop !108
-
-stbhw__draw_clipped_corner.exit321.loopexit:      ; preds = %.split.us.i312
-  %.pre356 = load ptr, ptr %16, align 8, !tbaa !12
-  %.pre358.pre = load ptr, ptr %20, align 8, !tbaa !88
-  %.pre360.pre = load i32, ptr %22, align 8, !tbaa !89
-  br label %stbhw__draw_clipped_corner.exit321
-
-stbhw__draw_clipped_corner.exit321:               ; preds = %stbhw__draw_clipped_corner.exit321.loopexit, %stbhw__draw_clipped_corner.exit302
-  %.pre360 = phi i32 [ %.pre360.pre, %stbhw__draw_clipped_corner.exit321.loopexit ], [ %.pre360.pre363, %stbhw__draw_clipped_corner.exit302 ]
-  %.pre358 = phi ptr [ %.pre358.pre, %stbhw__draw_clipped_corner.exit321.loopexit ], [ %.pre358.pre361, %stbhw__draw_clipped_corner.exit302 ]
-  %442 = phi ptr [ %.pre356, %stbhw__draw_clipped_corner.exit321.loopexit ], [ %407, %stbhw__draw_clipped_corner.exit302 ]
-  %443 = getelementptr inbounds nuw i8, ptr %442, i64 72
-  %444 = getelementptr inbounds i32, ptr %443, i64 %156
-  %445 = load i32, ptr %444, align 4, !tbaa !32
-  %.not143 = icmp eq i32 %445, 0
-  br i1 %.not143, label %stbhw__draw_clipped_corner.exit340, label %446
-
-446:                                              ; preds = %stbhw__draw_clipped_corner.exit321
-  %447 = or disjoint i32 %153, 1
-  %448 = add nsw i32 %447, %1
-  %449 = sext i32 %447 to i64
-  %450 = sext i32 %153 to i64
-  %451 = sext i32 %448 to i64
-  %452 = sext i32 %194 to i64
-  %453 = sext i32 %.pre360 to i64
-  br label %.preheader.i322
-
-.preheader.i322:                                  ; preds = %.split.us.i331, %446
-  %indvars.iv45.i323 = phi i64 [ -2, %446 ], [ %indvars.iv.next46.i332, %.split.us.i331 ]
-  %indvars47.i324 = trunc i64 %indvars.iv45.i323 to i32
-  %454 = add i32 %193, %indvars47.i324
-  %455 = icmp slt i32 %454, 1
-  %456 = icmp sgt i32 %454, %19
-  %or.cond31.i325 = or i1 %455, %456
-  %457 = add nsw i64 %indvars.iv45.i323, %452
-  %458 = mul nsw i64 %457, %453
-  %459 = getelementptr inbounds i8, ptr %.pre358, i64 %458
-  br i1 %or.cond31.i325, label %.split.us.i331, label %.preheader.split.i326
-
-.preheader.split.i326:                            ; preds = %.preheader.i322
-  switch i32 %indvars47.i324, label %.preheader.split.split.i335 [
-    i32 -2, label %.preheader.split.split.us.i327.preheader
-    i32 1, label %.preheader.split.split.us.i327.preheader
+.preheader.split.split.us.i330:                   ; preds = %.preheader.split.split.us.i330.preheader, %440
+  %indvars.iv.i331 = phi i64 [ %indvars.iv.next.i332, %440 ], [ -2, %.preheader.split.split.us.i330.preheader ]
+  %431 = trunc nsw i64 %indvars.iv.i331 to i32
+  switch i32 %431, label %432 [
+    i32 -2, label %440
+    i32 1, label %440
   ]
 
-.preheader.split.split.us.i327.preheader:         ; preds = %.preheader.split.i326, %.preheader.split.i326
-  br label %.preheader.split.split.us.i327
+432:                                              ; preds = %.preheader.split.split.us.i330
+  %433 = add nsw i64 %indvars.iv.i331, %420
+  %434 = icmp slt i64 %433, 1
+  %435 = icmp sgt i64 %433, %421
+  %or.cond.us34.i337 = or i1 %434, %435
+  br i1 %or.cond.us34.i337, label %440, label %436
 
-.preheader.split.split.us.i327:                   ; preds = %.preheader.split.split.us.i327.preheader, %469
-  %indvars.iv.i328 = phi i64 [ %indvars.iv.next.i329, %469 ], [ -2, %.preheader.split.split.us.i327.preheader ]
-  %460 = trunc nsw i64 %indvars.iv.i328 to i32
-  switch i32 %460, label %461 [
-    i32 -2, label %469
-    i32 1, label %469
-  ]
+436:                                              ; preds = %432
+  %437 = add nsw i64 %indvars.iv.i331, %422
+  %438 = mul nsw i64 %437, 3
+  %439 = getelementptr inbounds i8, ptr %430, i64 %438
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %439, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  br label %440
 
-461:                                              ; preds = %.preheader.split.split.us.i327
-  %462 = add nsw i64 %indvars.iv.i328, %449
-  %463 = icmp slt i64 %462, 1
-  %464 = icmp sgt i64 %462, %450
-  %or.cond.us34.i334 = or i1 %463, %464
-  br i1 %or.cond.us34.i334, label %469, label %465
+440:                                              ; preds = %436, %432, %.preheader.split.split.us.i330, %.preheader.split.split.us.i330
+  %indvars.iv.next.i332 = add nsw i64 %indvars.iv.i331, 1
+  %exitcond.not.i333 = icmp eq i64 %indvars.iv.next.i332, 2
+  br i1 %exitcond.not.i333, label %.split.us.i334, label %.preheader.split.split.us.i330, !llvm.loop !107
 
-465:                                              ; preds = %461
-  %466 = add nsw i64 %indvars.iv.i328, %451
-  %467 = mul nsw i64 %466, 3
-  %468 = getelementptr inbounds i8, ptr %459, i64 %467
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %468, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
-  br label %469
+.preheader.split.split.i338:                      ; preds = %.preheader.split.i329, %448
+  %indvars.iv41.i339 = phi i64 [ %indvars.iv.next42.i341, %448 ], [ -2, %.preheader.split.i329 ]
+  %441 = add nsw i64 %indvars.iv41.i339, %420
+  %442 = icmp slt i64 %441, 1
+  %443 = icmp sgt i64 %441, %421
+  %or.cond.i340 = or i1 %442, %443
+  br i1 %or.cond.i340, label %448, label %444
 
-469:                                              ; preds = %465, %461, %.preheader.split.split.us.i327, %.preheader.split.split.us.i327
-  %indvars.iv.next.i329 = add nsw i64 %indvars.iv.i328, 1
-  %exitcond.not.i330 = icmp eq i64 %indvars.iv.next.i329, 2
-  br i1 %exitcond.not.i330, label %.split.us.i331, label %.preheader.split.split.us.i327, !llvm.loop !107
+444:                                              ; preds = %.preheader.split.split.i338
+  %445 = add nsw i64 %indvars.iv41.i339, %422
+  %446 = mul nsw i64 %445, 3
+  %447 = getelementptr inbounds i8, ptr %430, i64 %446
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %447, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  br label %448
 
-.preheader.split.split.i335:                      ; preds = %.preheader.split.i326, %477
-  %indvars.iv41.i336 = phi i64 [ %indvars.iv.next42.i338, %477 ], [ -2, %.preheader.split.i326 ]
-  %470 = add nsw i64 %indvars.iv41.i336, %449
-  %471 = icmp slt i64 %470, 1
-  %472 = icmp sgt i64 %470, %450
-  %or.cond.i337 = or i1 %471, %472
-  br i1 %or.cond.i337, label %477, label %473
+448:                                              ; preds = %444, %.preheader.split.split.i338
+  %indvars.iv.next42.i341 = add nsw i64 %indvars.iv41.i339, 1
+  %exitcond44.not.i342 = icmp eq i64 %indvars.iv.next42.i341, 2
+  br i1 %exitcond44.not.i342, label %.split.us.i334, label %.preheader.split.split.i338, !llvm.loop !107
 
-473:                                              ; preds = %.preheader.split.split.i335
-  %474 = add nsw i64 %indvars.iv41.i336, %451
-  %475 = mul nsw i64 %474, 3
-  %476 = getelementptr inbounds i8, ptr %459, i64 %475
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %476, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
-  br label %477
+.split.us.i334:                                   ; preds = %440, %448, %.preheader.i325
+  %indvars.iv.next46.i335 = add nsw i64 %indvars.iv45.i326, 1
+  %exitcond48.not.i336 = icmp eq i64 %indvars.iv.next46.i335, 2
+  br i1 %exitcond48.not.i336, label %stbhw__draw_clipped_corner.exit343.loopexit, label %.preheader.i325, !llvm.loop !108
 
-477:                                              ; preds = %473, %.preheader.split.split.i335
-  %indvars.iv.next42.i338 = add nsw i64 %indvars.iv41.i336, 1
-  %exitcond44.not.i339 = icmp eq i64 %indvars.iv.next42.i338, 2
-  br i1 %exitcond44.not.i339, label %.split.us.i331, label %.preheader.split.split.i335, !llvm.loop !107
+stbhw__draw_clipped_corner.exit343.loopexit:      ; preds = %.split.us.i334
+  %.pre360 = load ptr, ptr %20, align 8, !tbaa !88
+  %.pre362 = load i32, ptr %22, align 8, !tbaa !89
+  br label %stbhw__draw_clipped_corner.exit343
 
-.split.us.i331:                                   ; preds = %469, %477, %.preheader.i322
-  %indvars.iv.next46.i332 = add nsw i64 %indvars.iv45.i323, 1
-  %exitcond48.not.i333 = icmp eq i64 %indvars.iv.next46.i332, 2
-  br i1 %exitcond48.not.i333, label %stbhw__draw_clipped_corner.exit340.loopexit, label %.preheader.i322, !llvm.loop !108
-
-stbhw__draw_clipped_corner.exit340.loopexit:      ; preds = %.split.us.i331
-  %.pre357 = load ptr, ptr %20, align 8, !tbaa !88
-  %.pre359 = load i32, ptr %22, align 8, !tbaa !89
-  br label %stbhw__draw_clipped_corner.exit340
-
-stbhw__draw_clipped_corner.exit340:               ; preds = %stbhw__draw_clipped_corner.exit340.loopexit, %stbhw__draw_clipped_corner.exit321
-  %478 = phi i32 [ %.pre359, %stbhw__draw_clipped_corner.exit340.loopexit ], [ %.pre360, %stbhw__draw_clipped_corner.exit321 ]
-  %479 = phi ptr [ %.pre357, %stbhw__draw_clipped_corner.exit340.loopexit ], [ %.pre358, %stbhw__draw_clipped_corner.exit321 ]
-  %480 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__corner_colors, i64 12), i64 %25
-  %481 = mul nsw i32 %478, %2
-  %482 = sext i32 %481 to i64
-  %483 = getelementptr inbounds i8, ptr %479, i64 %482
-  %484 = mul nsw i32 %1, 3
-  %485 = sext i32 %484 to i64
-  %486 = getelementptr inbounds i8, ptr %483, i64 %485
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %486, ptr noundef nonnull readonly align 1 dereferenceable(3) %480, i64 3, i1 false)
-  %487 = load ptr, ptr %20, align 8, !tbaa !88
-  %488 = load i32, ptr %22, align 8, !tbaa !89
-  %489 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__corner_colors, i64 24), i64 %27
-  %490 = mul nsw i32 %488, %2
-  %491 = sext i32 %490 to i64
-  %492 = getelementptr inbounds i8, ptr %487, i64 %491
-  %493 = mul nsw i32 %73, 3
-  %494 = sext i32 %493 to i64
-  %495 = getelementptr inbounds i8, ptr %492, i64 %494
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %495, ptr noundef nonnull readonly align 1 dereferenceable(3) %489, i64 3, i1 false)
-  %496 = load ptr, ptr %20, align 8, !tbaa !88
-  %497 = load i32, ptr %22, align 8, !tbaa !89
-  %498 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__corner_colors, i64 36), i64 %76
-  %499 = mul nsw i32 %497, %2
-  %500 = sext i32 %499 to i64
-  %501 = getelementptr inbounds i8, ptr %496, i64 %500
-  %502 = mul nsw i32 %154, 3
-  %503 = sext i32 %502 to i64
-  %504 = getelementptr inbounds i8, ptr %501, i64 %503
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %504, ptr noundef nonnull readonly align 1 dereferenceable(3) %498, i64 3, i1 false)
-  %505 = load ptr, ptr %20, align 8, !tbaa !88
-  %506 = load i32, ptr %22, align 8, !tbaa !89
-  %507 = getelementptr inbounds [3 x i8], ptr @stbhw__corner_colors, i64 %116
-  %508 = mul nsw i32 %506, %194
-  %509 = sext i32 %508 to i64
-  %510 = getelementptr inbounds i8, ptr %505, i64 %509
-  %511 = getelementptr inbounds i8, ptr %510, i64 %485
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %511, ptr noundef nonnull readonly align 1 dereferenceable(3) %507, i64 3, i1 false)
-  %512 = load ptr, ptr %20, align 8, !tbaa !88
-  %513 = load i32, ptr %22, align 8, !tbaa !89
-  %514 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__corner_colors, i64 12), i64 %196
-  %515 = mul nsw i32 %513, %194
-  %516 = sext i32 %515 to i64
-  %517 = getelementptr inbounds i8, ptr %512, i64 %516
-  %518 = getelementptr inbounds i8, ptr %517, i64 %494
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %518, ptr noundef nonnull readonly align 1 dereferenceable(3) %514, i64 3, i1 false)
-  %519 = load ptr, ptr %20, align 8, !tbaa !88
-  %520 = load i32, ptr %22, align 8, !tbaa !89
-  %521 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__corner_colors, i64 24), i64 %156
-  %522 = mul nsw i32 %520, %194
-  %523 = sext i32 %522 to i64
-  %524 = getelementptr inbounds i8, ptr %519, i64 %523
-  %525 = getelementptr inbounds i8, ptr %524, i64 %503
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %525, ptr noundef nonnull readonly align 1 dereferenceable(3) %521, i64 3, i1 false)
+stbhw__draw_clipped_corner.exit343:               ; preds = %stbhw__draw_clipped_corner.exit343.loopexit, %stbhw__draw_clipped_corner.exit324
+  %449 = phi i32 [ %.pre362, %stbhw__draw_clipped_corner.exit343.loopexit ], [ %.pre363, %stbhw__draw_clipped_corner.exit324 ]
+  %450 = phi ptr [ %.pre360, %stbhw__draw_clipped_corner.exit343.loopexit ], [ %.pre361, %stbhw__draw_clipped_corner.exit324 ]
+  %451 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__corner_colors, i64 12), i64 %25
+  %452 = mul nsw i32 %449, %2
+  %453 = sext i32 %452 to i64
+  %454 = getelementptr inbounds i8, ptr %450, i64 %453
+  %455 = getelementptr inbounds i8, ptr %454, i64 %126
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %455, ptr noundef nonnull readonly align 1 dereferenceable(3) %451, i64 3, i1 false)
+  %456 = load ptr, ptr %20, align 8, !tbaa !88
+  %457 = load i32, ptr %22, align 8, !tbaa !89
+  %458 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__corner_colors, i64 24), i64 %27
+  %459 = mul nsw i32 %457, %2
+  %460 = sext i32 %459 to i64
+  %461 = getelementptr inbounds i8, ptr %456, i64 %460
+  %462 = mul nsw i32 %70, 3
+  %463 = sext i32 %462 to i64
+  %464 = getelementptr inbounds i8, ptr %461, i64 %463
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %464, ptr noundef nonnull readonly align 1 dereferenceable(3) %458, i64 3, i1 false)
+  %465 = load ptr, ptr %20, align 8, !tbaa !88
+  %466 = load i32, ptr %22, align 8, !tbaa !89
+  %467 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__corner_colors, i64 36), i64 %73
+  %468 = mul nsw i32 %466, %2
+  %469 = sext i32 %468 to i64
+  %470 = getelementptr inbounds i8, ptr %465, i64 %469
+  %471 = getelementptr inbounds i8, ptr %470, i64 %162
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %471, ptr noundef nonnull readonly align 1 dereferenceable(3) %467, i64 3, i1 false)
+  %472 = load ptr, ptr %20, align 8, !tbaa !88
+  %473 = load i32, ptr %22, align 8, !tbaa !89
+  %474 = getelementptr inbounds [3 x i8], ptr @stbhw__corner_colors, i64 %110
+  %475 = mul nsw i32 %473, %180
+  %476 = sext i32 %475 to i64
+  %477 = getelementptr inbounds i8, ptr %472, i64 %476
+  %478 = getelementptr inbounds i8, ptr %477, i64 %126
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %478, ptr noundef nonnull readonly align 1 dereferenceable(3) %474, i64 3, i1 false)
+  %479 = load ptr, ptr %20, align 8, !tbaa !88
+  %480 = load i32, ptr %22, align 8, !tbaa !89
+  %481 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__corner_colors, i64 12), i64 %182
+  %482 = mul nsw i32 %480, %180
+  %483 = sext i32 %482 to i64
+  %484 = getelementptr inbounds i8, ptr %479, i64 %483
+  %485 = getelementptr inbounds i8, ptr %484, i64 %463
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %485, ptr noundef nonnull readonly align 1 dereferenceable(3) %481, i64 3, i1 false)
+  %486 = load ptr, ptr %20, align 8, !tbaa !88
+  %487 = load i32, ptr %22, align 8, !tbaa !89
+  %488 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__corner_colors, i64 24), i64 %147
+  %489 = mul nsw i32 %487, %180
+  %490 = sext i32 %489 to i64
+  %491 = getelementptr inbounds i8, ptr %486, i64 %490
+  %492 = getelementptr inbounds i8, ptr %491, i64 %162
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %492, ptr noundef nonnull readonly align 1 dereferenceable(3) %488, i64 3, i1 false)
   ret void
 }
 
@@ -5745,1122 +5638,1075 @@ define void @stbhw__corner_process_v_rect(ptr noundef readonly captures(none) %0
 ._crit_edge.i:                                    ; preds = %39, %9
   %43 = sub nsw i32 %33, %31
   %44 = icmp slt i32 %43, 2
-  br i1 %44, label %45, label %49
+  br i1 %44, label %.thread.i, label %.lr.ph32.i
 
-45:                                               ; preds = %._crit_edge.i
-  %46 = sdiv i32 %19, 2
-  %47 = add nsw i32 %46, -1
-  %48 = and i32 %19, 1
-  %spec.select.v.i = add nuw nsw i32 %48, 1
-  %spec.select.i = add nsw i32 %spec.select.v.i, %46
-  br label %49
+.thread.i:                                        ; preds = %._crit_edge.i
+  %45 = sdiv i32 %19, 2
+  %46 = add nsw i32 %45, -1
+  %47 = and i32 %19, 1
+  %spec.select.v.i = add nuw nsw i32 %47, 1
+  %spec.select.i = add nsw i32 %spec.select.v.i, %45
+  br label %.lr.ph32.i
 
-49:                                               ; preds = %45, %._crit_edge.i
-  %.026.i = phi i32 [ %31, %._crit_edge.i ], [ %47, %45 ]
-  %.0.i = phi i32 [ %33, %._crit_edge.i ], [ %spec.select.i, %45 ]
-  %50 = icmp slt i32 %.026.i, %.0.i
-  br i1 %50, label %.lr.ph32.i, label %stbhw__draw_hline.exit
+.lr.ph32.i:                                       ; preds = %._crit_edge.i, %.thread.i
+  %.044.i = phi i32 [ %spec.select.i, %.thread.i ], [ %33, %._crit_edge.i ]
+  %.02643.i = phi i32 [ %46, %.thread.i ], [ %31, %._crit_edge.i ]
+  %48 = sext i32 %29 to i64
+  %49 = getelementptr inbounds [3 x i8], ptr @stbhw__color, i64 %48
+  %50 = mul nsw i32 %23, %2
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds i8, ptr %21, i64 %51
+  %53 = sext i32 %.02643.i to i64
+  %54 = sext i32 %24 to i64
+  %wide.trip.count38.i = sext i32 %.044.i to i64
+  br label %55
 
-.lr.ph32.i:                                       ; preds = %49
-  %51 = sext i32 %29 to i64
-  %52 = getelementptr inbounds [3 x i8], ptr @stbhw__color, i64 %51
-  %53 = mul nsw i32 %23, %2
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i8, ptr %21, i64 %54
-  %56 = sext i32 %.026.i to i64
-  %57 = sext i32 %24 to i64
-  %wide.trip.count38.i = sext i32 %.0.i to i64
-  br label %58
-
-58:                                               ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i, %.lr.ph32.i
-  %indvars.iv35.i = phi i64 [ %56, %.lr.ph32.i ], [ %indvars.iv.next36.i, %stbhw__stbhw__set_pixel_whiten.exit.i ]
+55:                                               ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i, %.lr.ph32.i
+  %indvars.iv35.i = phi i64 [ %53, %.lr.ph32.i ], [ %indvars.iv.next36.i, %stbhw__stbhw__set_pixel_whiten.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  br label %59
+  br label %56
 
-59:                                               ; preds = %59, %58
-  %indvars.iv.i.i = phi i64 [ 0, %58 ], [ %indvars.iv.next.i.i, %59 ]
-  %60 = getelementptr inbounds nuw i8, ptr %52, i64 %indvars.iv.i.i
-  %61 = load i8, ptr %60, align 1, !tbaa !58
-  %62 = zext i8 %61 to i16
-  %63 = shl nuw nsw i16 %62, 1
-  %64 = add nuw nsw i16 %63, 255
-  %65 = udiv i16 %64, 3
-  %66 = trunc nuw i16 %65 to i8
-  %67 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv.i.i
-  store i8 %66, ptr %67, align 1, !tbaa !58
+56:                                               ; preds = %56, %55
+  %indvars.iv.i.i = phi i64 [ 0, %55 ], [ %indvars.iv.next.i.i, %56 ]
+  %57 = getelementptr inbounds nuw i8, ptr %49, i64 %indvars.iv.i.i
+  %58 = load i8, ptr %57, align 1, !tbaa !58
+  %59 = zext i8 %58 to i16
+  %60 = shl nuw nsw i16 %59, 1
+  %61 = add nuw nsw i16 %60, 255
+  %62 = udiv i16 %61, 3
+  %63 = trunc nuw i16 %62 to i8
+  %64 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv.i.i
+  store i8 %63, ptr %64, align 1, !tbaa !58
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %stbhw__stbhw__set_pixel_whiten.exit.i, label %59, !llvm.loop !102
+  br i1 %exitcond.not.i.i, label %stbhw__stbhw__set_pixel_whiten.exit.i, label %56, !llvm.loop !102
 
-stbhw__stbhw__set_pixel_whiten.exit.i:            ; preds = %59
-  %68 = add nsw i64 %indvars.iv35.i, %57
-  %69 = mul nsw i64 %68, 3
-  %70 = getelementptr inbounds i8, ptr %55, i64 %69
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %70, ptr noundef nonnull align 1 dereferenceable(3) %15, i64 3, i1 false)
+stbhw__stbhw__set_pixel_whiten.exit.i:            ; preds = %56
+  %65 = add nsw i64 %indvars.iv35.i, %54
+  %66 = mul nsw i64 %65, 3
+  %67 = getelementptr inbounds i8, ptr %52, i64 %66
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %67, ptr noundef nonnull align 1 dereferenceable(3) %15, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %indvars.iv.next36.i = add nsw i64 %indvars.iv35.i, 1
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next36.i, %wide.trip.count38.i
-  br i1 %exitcond39.not.i, label %stbhw__draw_hline.exit, label %58, !llvm.loop !104
+  br i1 %exitcond39.not.i, label %stbhw__draw_hline.exit, label %55, !llvm.loop !104
 
-stbhw__draw_hline.exit:                           ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i, %49
-  %71 = load ptr, ptr %20, align 8, !tbaa !88
-  %72 = load i32, ptr %22, align 8, !tbaa !89
-  %73 = add i32 %2, 1
-  %74 = sext i32 %4 to i64
-  %75 = getelementptr inbounds i32, ptr %26, i64 %74
-  %76 = load i32, ptr %75, align 4, !tbaa !32
-  br i1 %34, label %.lr.ph.i154, label %._crit_edge.i144
+stbhw__draw_hline.exit:                           ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i
+  %68 = load ptr, ptr %20, align 8, !tbaa !88
+  %69 = load i32, ptr %22, align 8, !tbaa !89
+  %70 = add i32 %2, 1
+  %71 = sext i32 %4 to i64
+  %72 = getelementptr inbounds i32, ptr %26, i64 %71
+  %73 = load i32, ptr %72, align 4, !tbaa !32
+  br i1 %34, label %.lr.ph.i153, label %._crit_edge.i144
 
-.lr.ph.i154:                                      ; preds = %stbhw__draw_hline.exit
-  %77 = mul nsw i32 %1, 3
-  %78 = sext i32 %77 to i64
-  %invariant.gep.i = getelementptr i8, ptr %71, i64 %78
-  %79 = sext i32 %73 to i64
-  %80 = sext i32 %72 to i64
-  %wide.trip.count.i155 = zext nneg i32 %19 to i64
-  br label %81
+.lr.ph.i153:                                      ; preds = %stbhw__draw_hline.exit
+  %74 = mul nsw i32 %1, 3
+  %75 = sext i32 %74 to i64
+  %invariant.gep.i = getelementptr i8, ptr %68, i64 %75
+  %76 = sext i32 %70 to i64
+  %77 = sext i32 %69 to i64
+  %wide.trip.count.i154 = zext nneg i32 %19 to i64
+  br label %78
 
-81:                                               ; preds = %81, %.lr.ph.i154
-  %indvars.iv.i156 = phi i64 [ 0, %.lr.ph.i154 ], [ %indvars.iv.next.i157, %81 ]
-  %82 = add nsw i64 %indvars.iv.i156, %79
-  %83 = mul nsw i64 %82, %80
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %83
+78:                                               ; preds = %78, %.lr.ph.i153
+  %indvars.iv.i155 = phi i64 [ 0, %.lr.ph.i153 ], [ %indvars.iv.next.i156, %78 ]
+  %79 = add nsw i64 %indvars.iv.i155, %76
+  %80 = mul nsw i64 %79, %77
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
-  %indvars.iv.next.i157 = add nuw nsw i64 %indvars.iv.i156, 1
-  %exitcond.not.i158 = icmp eq i64 %indvars.iv.next.i157, %wide.trip.count.i155
-  br i1 %exitcond.not.i158, label %._crit_edge.i144, label %81, !llvm.loop !105
+  %indvars.iv.next.i156 = add nuw nsw i64 %indvars.iv.i155, 1
+  %exitcond.not.i157 = icmp eq i64 %indvars.iv.next.i156, %wide.trip.count.i154
+  br i1 %exitcond.not.i157, label %._crit_edge.i144, label %78, !llvm.loop !105
 
-._crit_edge.i144:                                 ; preds = %81, %stbhw__draw_hline.exit
-  br i1 %44, label %84, label %88
+._crit_edge.i144:                                 ; preds = %78, %stbhw__draw_hline.exit
+  br i1 %44, label %.thread.i150, label %.lr.ph32.i145
 
-84:                                               ; preds = %._crit_edge.i144
-  %85 = sdiv i32 %19, 2
-  %86 = add nsw i32 %85, -1
-  %87 = and i32 %19, 1
-  %spec.select.v.i152 = add nuw nsw i32 %87, 1
-  %spec.select.i153 = add nsw i32 %spec.select.v.i152, %85
-  br label %88
+.thread.i150:                                     ; preds = %._crit_edge.i144
+  %81 = sdiv i32 %19, 2
+  %82 = add nsw i32 %81, -1
+  %83 = and i32 %19, 1
+  %spec.select.v.i151 = add nuw nsw i32 %83, 1
+  %spec.select.i152 = add nsw i32 %spec.select.v.i151, %81
+  br label %.lr.ph32.i145
 
-88:                                               ; preds = %84, %._crit_edge.i144
-  %.026.i145 = phi i32 [ %31, %._crit_edge.i144 ], [ %86, %84 ]
-  %.0.i146 = phi i32 [ %33, %._crit_edge.i144 ], [ %spec.select.i153, %84 ]
-  %89 = icmp slt i32 %.026.i145, %.0.i146
-  br i1 %89, label %.lr.ph32.i147, label %stbhw__draw_vline.exit
+.lr.ph32.i145:                                    ; preds = %._crit_edge.i144, %.thread.i150
+  %.046.i = phi i32 [ %spec.select.i152, %.thread.i150 ], [ %33, %._crit_edge.i144 ]
+  %.02645.i = phi i32 [ %82, %.thread.i150 ], [ %31, %._crit_edge.i144 ]
+  %84 = sext i32 %73 to i64
+  %85 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 120), i64 %84
+  %86 = mul nsw i32 %1, 3
+  %87 = sext i32 %86 to i64
+  %invariant.gep34.i = getelementptr i8, ptr %68, i64 %87
+  %88 = sext i32 %.02645.i to i64
+  %89 = sext i32 %70 to i64
+  %90 = sext i32 %69 to i64
+  %wide.trip.count40.i = sext i32 %.046.i to i64
+  br label %91
 
-.lr.ph32.i147:                                    ; preds = %88
-  %90 = sext i32 %76 to i64
-  %91 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 120), i64 %90
-  %92 = mul nsw i32 %1, 3
-  %93 = sext i32 %92 to i64
-  %invariant.gep34.i = getelementptr i8, ptr %71, i64 %93
-  %94 = sext i32 %.026.i145 to i64
-  %95 = sext i32 %73 to i64
-  %96 = sext i32 %72 to i64
-  %wide.trip.count40.i = sext i32 %.0.i146 to i64
-  br label %97
-
-97:                                               ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i151, %.lr.ph32.i147
-  %indvars.iv37.i = phi i64 [ %94, %.lr.ph32.i147 ], [ %indvars.iv.next38.i, %stbhw__stbhw__set_pixel_whiten.exit.i151 ]
+91:                                               ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i149, %.lr.ph32.i145
+  %indvars.iv37.i = phi i64 [ %88, %.lr.ph32.i145 ], [ %indvars.iv.next38.i, %stbhw__stbhw__set_pixel_whiten.exit.i149 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  br label %98
+  br label %92
 
-98:                                               ; preds = %98, %97
-  %indvars.iv.i.i148 = phi i64 [ 0, %97 ], [ %indvars.iv.next.i.i149, %98 ]
-  %99 = getelementptr inbounds nuw i8, ptr %91, i64 %indvars.iv.i.i148
-  %100 = load i8, ptr %99, align 1, !tbaa !58
-  %101 = zext i8 %100 to i16
-  %102 = shl nuw nsw i16 %101, 1
-  %103 = add nuw nsw i16 %102, 255
-  %104 = udiv i16 %103, 3
-  %105 = trunc nuw i16 %104 to i8
-  %106 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv.i.i148
-  store i8 %105, ptr %106, align 1, !tbaa !58
-  %indvars.iv.next.i.i149 = add nuw nsw i64 %indvars.iv.i.i148, 1
-  %exitcond.not.i.i150 = icmp eq i64 %indvars.iv.next.i.i149, 3
-  br i1 %exitcond.not.i.i150, label %stbhw__stbhw__set_pixel_whiten.exit.i151, label %98, !llvm.loop !102
+92:                                               ; preds = %92, %91
+  %indvars.iv.i.i146 = phi i64 [ 0, %91 ], [ %indvars.iv.next.i.i147, %92 ]
+  %93 = getelementptr inbounds nuw i8, ptr %85, i64 %indvars.iv.i.i146
+  %94 = load i8, ptr %93, align 1, !tbaa !58
+  %95 = zext i8 %94 to i16
+  %96 = shl nuw nsw i16 %95, 1
+  %97 = add nuw nsw i16 %96, 255
+  %98 = udiv i16 %97, 3
+  %99 = trunc nuw i16 %98 to i8
+  %100 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv.i.i146
+  store i8 %99, ptr %100, align 1, !tbaa !58
+  %indvars.iv.next.i.i147 = add nuw nsw i64 %indvars.iv.i.i146, 1
+  %exitcond.not.i.i148 = icmp eq i64 %indvars.iv.next.i.i147, 3
+  br i1 %exitcond.not.i.i148, label %stbhw__stbhw__set_pixel_whiten.exit.i149, label %92, !llvm.loop !102
 
-stbhw__stbhw__set_pixel_whiten.exit.i151:         ; preds = %98
-  %107 = add nsw i64 %indvars.iv37.i, %95
-  %108 = mul nsw i64 %107, %96
-  %gep35.i = getelementptr i8, ptr %invariant.gep34.i, i64 %108
+stbhw__stbhw__set_pixel_whiten.exit.i149:         ; preds = %92
+  %101 = add nsw i64 %indvars.iv37.i, %89
+  %102 = mul nsw i64 %101, %90
+  %gep35.i = getelementptr i8, ptr %invariant.gep34.i, i64 %102
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep35.i, ptr noundef nonnull align 1 dereferenceable(3) %14, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %indvars.iv.next38.i = add nsw i64 %indvars.iv37.i, 1
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next38.i, %wide.trip.count40.i
-  br i1 %exitcond41.not.i, label %stbhw__draw_vline.exit, label %97, !llvm.loop !106
+  br i1 %exitcond41.not.i, label %stbhw__draw_vline.exit, label %91, !llvm.loop !106
 
-stbhw__draw_vline.exit:                           ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i151, %88
-  %109 = load ptr, ptr %20, align 8, !tbaa !88
-  %110 = load i32, ptr %22, align 8, !tbaa !89
-  %111 = add i32 %19, 1
-  %112 = add i32 %111, %1
-  %113 = getelementptr inbounds [4 x i32], ptr @stbhw__corner_colors_to_edge_color, i64 %27
-  %114 = sext i32 %7 to i64
-  %115 = getelementptr inbounds i32, ptr %113, i64 %114
-  %116 = load i32, ptr %115, align 4, !tbaa !32
-  br i1 %34, label %.lr.ph.i175, label %._crit_edge.i159
+stbhw__draw_vline.exit:                           ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i149
+  %103 = load ptr, ptr %20, align 8, !tbaa !88
+  %104 = load i32, ptr %22, align 8, !tbaa !89
+  %105 = add i32 %19, 1
+  %106 = add i32 %105, %1
+  %107 = getelementptr inbounds [4 x i32], ptr @stbhw__corner_colors_to_edge_color, i64 %27
+  %108 = sext i32 %7 to i64
+  %109 = getelementptr inbounds i32, ptr %107, i64 %108
+  %110 = load i32, ptr %109, align 4, !tbaa !32
+  br i1 %34, label %.lr.ph.i175, label %._crit_edge.i158
 
 .lr.ph.i175:                                      ; preds = %stbhw__draw_vline.exit
-  %117 = mul nsw i32 %112, 3
-  %118 = sext i32 %117 to i64
-  %invariant.gep.i176 = getelementptr i8, ptr %109, i64 %118
-  %119 = sext i32 %73 to i64
-  %120 = sext i32 %110 to i64
+  %111 = mul nsw i32 %106, 3
+  %112 = sext i32 %111 to i64
+  %invariant.gep.i176 = getelementptr i8, ptr %103, i64 %112
+  %113 = sext i32 %104 to i64
   %wide.trip.count.i177 = zext nneg i32 %19 to i64
-  br label %121
+  br label %114
 
-121:                                              ; preds = %121, %.lr.ph.i175
-  %indvars.iv.i178 = phi i64 [ 0, %.lr.ph.i175 ], [ %indvars.iv.next.i180, %121 ]
-  %122 = add nsw i64 %indvars.iv.i178, %119
-  %123 = mul nsw i64 %122, %120
-  %gep.i179 = getelementptr i8, ptr %invariant.gep.i176, i64 %123
+114:                                              ; preds = %114, %.lr.ph.i175
+  %indvars.iv.i178 = phi i64 [ 0, %.lr.ph.i175 ], [ %indvars.iv.next.i180, %114 ]
+  %115 = add nsw i64 %indvars.iv.i178, %89
+  %116 = mul nsw i64 %115, %113
+  %gep.i179 = getelementptr i8, ptr %invariant.gep.i176, i64 %116
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i179, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i180 = add nuw nsw i64 %indvars.iv.i178, 1
   %exitcond.not.i181 = icmp eq i64 %indvars.iv.next.i180, %wide.trip.count.i177
-  br i1 %exitcond.not.i181, label %._crit_edge.i159, label %121, !llvm.loop !105
+  br i1 %exitcond.not.i181, label %._crit_edge.i158, label %114, !llvm.loop !105
 
-._crit_edge.i159:                                 ; preds = %121, %stbhw__draw_vline.exit
-  br i1 %44, label %124, label %128
+._crit_edge.i158:                                 ; preds = %114, %stbhw__draw_vline.exit
+  br i1 %44, label %.thread.i172, label %.lr.ph32.i159
 
-124:                                              ; preds = %._crit_edge.i159
-  %125 = sdiv i32 %19, 2
-  %126 = add nsw i32 %125, -1
-  %127 = and i32 %19, 1
-  %spec.select.v.i173 = add nuw nsw i32 %127, 1
-  %spec.select.i174 = add nsw i32 %spec.select.v.i173, %125
-  br label %128
+.thread.i172:                                     ; preds = %._crit_edge.i158
+  %117 = sdiv i32 %19, 2
+  %118 = add nsw i32 %117, -1
+  %119 = and i32 %19, 1
+  %spec.select.v.i173 = add nuw nsw i32 %119, 1
+  %spec.select.i174 = add nsw i32 %spec.select.v.i173, %117
+  br label %.lr.ph32.i159
 
-128:                                              ; preds = %124, %._crit_edge.i159
-  %.026.i160 = phi i32 [ %31, %._crit_edge.i159 ], [ %126, %124 ]
-  %.0.i161 = phi i32 [ %33, %._crit_edge.i159 ], [ %spec.select.i174, %124 ]
-  %129 = icmp slt i32 %.026.i160, %.0.i161
-  br i1 %129, label %.lr.ph32.i162, label %stbhw__draw_vline.exit182
+.lr.ph32.i159:                                    ; preds = %._crit_edge.i158, %.thread.i172
+  %.046.i160 = phi i32 [ %spec.select.i174, %.thread.i172 ], [ %33, %._crit_edge.i158 ]
+  %.02645.i161 = phi i32 [ %118, %.thread.i172 ], [ %31, %._crit_edge.i158 ]
+  %120 = sext i32 %110 to i64
+  %121 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 24), i64 %120
+  %122 = mul nsw i32 %106, 3
+  %123 = sext i32 %122 to i64
+  %invariant.gep34.i162 = getelementptr i8, ptr %103, i64 %123
+  %124 = sext i32 %.02645.i161 to i64
+  %125 = sext i32 %104 to i64
+  %wide.trip.count40.i163 = sext i32 %.046.i160 to i64
+  br label %126
 
-.lr.ph32.i162:                                    ; preds = %128
-  %130 = sext i32 %116 to i64
-  %131 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 24), i64 %130
-  %132 = mul nsw i32 %112, 3
-  %133 = sext i32 %132 to i64
-  %invariant.gep34.i163 = getelementptr i8, ptr %109, i64 %133
-  %134 = sext i32 %.026.i160 to i64
-  %135 = sext i32 %73 to i64
-  %136 = sext i32 %110 to i64
-  %wide.trip.count40.i164 = sext i32 %.0.i161 to i64
-  br label %137
-
-137:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i169, %.lr.ph32.i162
-  %indvars.iv37.i165 = phi i64 [ %134, %.lr.ph32.i162 ], [ %indvars.iv.next38.i171, %stbhw__stbhw__set_pixel_whiten.exit.i169 ]
+126:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i168, %.lr.ph32.i159
+  %indvars.iv37.i164 = phi i64 [ %124, %.lr.ph32.i159 ], [ %indvars.iv.next38.i170, %stbhw__stbhw__set_pixel_whiten.exit.i168 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  br label %138
+  br label %127
 
-138:                                              ; preds = %138, %137
-  %indvars.iv.i.i166 = phi i64 [ 0, %137 ], [ %indvars.iv.next.i.i167, %138 ]
-  %139 = getelementptr inbounds nuw i8, ptr %131, i64 %indvars.iv.i.i166
-  %140 = load i8, ptr %139, align 1, !tbaa !58
-  %141 = zext i8 %140 to i16
-  %142 = shl nuw nsw i16 %141, 1
-  %143 = add nuw nsw i16 %142, 255
-  %144 = udiv i16 %143, 3
-  %145 = trunc nuw i16 %144 to i8
-  %146 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i.i166
-  store i8 %145, ptr %146, align 1, !tbaa !58
-  %indvars.iv.next.i.i167 = add nuw nsw i64 %indvars.iv.i.i166, 1
-  %exitcond.not.i.i168 = icmp eq i64 %indvars.iv.next.i.i167, 3
-  br i1 %exitcond.not.i.i168, label %stbhw__stbhw__set_pixel_whiten.exit.i169, label %138, !llvm.loop !102
+127:                                              ; preds = %127, %126
+  %indvars.iv.i.i165 = phi i64 [ 0, %126 ], [ %indvars.iv.next.i.i166, %127 ]
+  %128 = getelementptr inbounds nuw i8, ptr %121, i64 %indvars.iv.i.i165
+  %129 = load i8, ptr %128, align 1, !tbaa !58
+  %130 = zext i8 %129 to i16
+  %131 = shl nuw nsw i16 %130, 1
+  %132 = add nuw nsw i16 %131, 255
+  %133 = udiv i16 %132, 3
+  %134 = trunc nuw i16 %133 to i8
+  %135 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i.i165
+  store i8 %134, ptr %135, align 1, !tbaa !58
+  %indvars.iv.next.i.i166 = add nuw nsw i64 %indvars.iv.i.i165, 1
+  %exitcond.not.i.i167 = icmp eq i64 %indvars.iv.next.i.i166, 3
+  br i1 %exitcond.not.i.i167, label %stbhw__stbhw__set_pixel_whiten.exit.i168, label %127, !llvm.loop !102
 
-stbhw__stbhw__set_pixel_whiten.exit.i169:         ; preds = %138
-  %147 = add nsw i64 %indvars.iv37.i165, %135
-  %148 = mul nsw i64 %147, %136
-  %gep35.i170 = getelementptr i8, ptr %invariant.gep34.i163, i64 %148
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep35.i170, ptr noundef nonnull align 1 dereferenceable(3) %13, i64 3, i1 false)
+stbhw__stbhw__set_pixel_whiten.exit.i168:         ; preds = %127
+  %136 = add nsw i64 %indvars.iv37.i164, %89
+  %137 = mul nsw i64 %136, %125
+  %gep35.i169 = getelementptr i8, ptr %invariant.gep34.i162, i64 %137
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep35.i169, ptr noundef nonnull align 1 dereferenceable(3) %13, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %indvars.iv.next38.i171 = add nsw i64 %indvars.iv37.i165, 1
-  %exitcond41.not.i172 = icmp eq i64 %indvars.iv.next38.i171, %wide.trip.count40.i164
-  br i1 %exitcond41.not.i172, label %stbhw__draw_vline.exit182, label %137, !llvm.loop !106
+  %indvars.iv.next38.i170 = add nsw i64 %indvars.iv37.i164, 1
+  %exitcond41.not.i171 = icmp eq i64 %indvars.iv.next38.i170, %wide.trip.count40.i163
+  br i1 %exitcond41.not.i171, label %stbhw__draw_vline.exit182, label %126, !llvm.loop !106
 
-stbhw__draw_vline.exit182:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i169, %128
-  %149 = load ptr, ptr %20, align 8, !tbaa !88
-  %150 = load i32, ptr %22, align 8, !tbaa !89
-  %151 = add nsw i32 %19, %2
-  %152 = add nsw i32 %151, 1
-  %153 = getelementptr inbounds [4 x i32], ptr @stbhw__corner_colors_to_edge_color, i64 %74
-  %154 = sext i32 %5 to i64
-  %155 = getelementptr inbounds i32, ptr %153, i64 %154
-  %156 = load i32, ptr %155, align 4, !tbaa !32
-  br i1 %34, label %.lr.ph.i199, label %._crit_edge.i183
+stbhw__draw_vline.exit182:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i168
+  %138 = load ptr, ptr %20, align 8, !tbaa !88
+  %139 = load i32, ptr %22, align 8, !tbaa !89
+  %140 = add nsw i32 %19, %2
+  %141 = add nsw i32 %140, 1
+  %142 = getelementptr inbounds [4 x i32], ptr @stbhw__corner_colors_to_edge_color, i64 %71
+  %143 = sext i32 %5 to i64
+  %144 = getelementptr inbounds i32, ptr %142, i64 %143
+  %145 = load i32, ptr %144, align 4, !tbaa !32
+  br i1 %34, label %.lr.ph.i200, label %._crit_edge.i183
 
-.lr.ph.i199:                                      ; preds = %stbhw__draw_vline.exit182
-  %157 = mul nsw i32 %1, 3
-  %158 = sext i32 %157 to i64
-  %invariant.gep.i200 = getelementptr i8, ptr %149, i64 %158
-  %159 = sext i32 %152 to i64
-  %160 = sext i32 %150 to i64
-  %wide.trip.count.i201 = zext nneg i32 %19 to i64
-  br label %161
+.lr.ph.i200:                                      ; preds = %stbhw__draw_vline.exit182
+  %invariant.gep.i201 = getelementptr i8, ptr %138, i64 %87
+  %146 = sext i32 %141 to i64
+  %147 = sext i32 %139 to i64
+  %wide.trip.count.i202 = zext nneg i32 %19 to i64
+  br label %148
 
-161:                                              ; preds = %161, %.lr.ph.i199
-  %indvars.iv.i202 = phi i64 [ 0, %.lr.ph.i199 ], [ %indvars.iv.next.i204, %161 ]
-  %162 = add nsw i64 %indvars.iv.i202, %159
-  %163 = mul nsw i64 %162, %160
-  %gep.i203 = getelementptr i8, ptr %invariant.gep.i200, i64 %163
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i203, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
-  %indvars.iv.next.i204 = add nuw nsw i64 %indvars.iv.i202, 1
-  %exitcond.not.i205 = icmp eq i64 %indvars.iv.next.i204, %wide.trip.count.i201
-  br i1 %exitcond.not.i205, label %._crit_edge.i183, label %161, !llvm.loop !105
+148:                                              ; preds = %148, %.lr.ph.i200
+  %indvars.iv.i203 = phi i64 [ 0, %.lr.ph.i200 ], [ %indvars.iv.next.i205, %148 ]
+  %149 = add nsw i64 %indvars.iv.i203, %146
+  %150 = mul nsw i64 %149, %147
+  %gep.i204 = getelementptr i8, ptr %invariant.gep.i201, i64 %150
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i204, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  %indvars.iv.next.i205 = add nuw nsw i64 %indvars.iv.i203, 1
+  %exitcond.not.i206 = icmp eq i64 %indvars.iv.next.i205, %wide.trip.count.i202
+  br i1 %exitcond.not.i206, label %._crit_edge.i183, label %148, !llvm.loop !105
 
-._crit_edge.i183:                                 ; preds = %161, %stbhw__draw_vline.exit182
-  br i1 %44, label %164, label %168
+._crit_edge.i183:                                 ; preds = %148, %stbhw__draw_vline.exit182
+  br i1 %44, label %.thread.i197, label %.lr.ph32.i184
 
-164:                                              ; preds = %._crit_edge.i183
-  %165 = sdiv i32 %19, 2
-  %166 = add nsw i32 %165, -1
-  %167 = and i32 %19, 1
-  %spec.select.v.i197 = add nuw nsw i32 %167, 1
-  %spec.select.i198 = add nsw i32 %spec.select.v.i197, %165
-  br label %168
+.thread.i197:                                     ; preds = %._crit_edge.i183
+  %151 = sdiv i32 %19, 2
+  %152 = add nsw i32 %151, -1
+  %153 = and i32 %19, 1
+  %spec.select.v.i198 = add nuw nsw i32 %153, 1
+  %spec.select.i199 = add nsw i32 %spec.select.v.i198, %151
+  br label %.lr.ph32.i184
 
-168:                                              ; preds = %164, %._crit_edge.i183
-  %.026.i184 = phi i32 [ %31, %._crit_edge.i183 ], [ %166, %164 ]
-  %.0.i185 = phi i32 [ %33, %._crit_edge.i183 ], [ %spec.select.i198, %164 ]
-  %169 = icmp slt i32 %.026.i184, %.0.i185
-  br i1 %169, label %.lr.ph32.i186, label %stbhw__draw_vline.exit206
+.lr.ph32.i184:                                    ; preds = %._crit_edge.i183, %.thread.i197
+  %.046.i185 = phi i32 [ %spec.select.i199, %.thread.i197 ], [ %33, %._crit_edge.i183 ]
+  %.02645.i186 = phi i32 [ %152, %.thread.i197 ], [ %31, %._crit_edge.i183 ]
+  %154 = sext i32 %145 to i64
+  %155 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 96), i64 %154
+  %invariant.gep34.i187 = getelementptr i8, ptr %138, i64 %87
+  %156 = sext i32 %.02645.i186 to i64
+  %157 = sext i32 %141 to i64
+  %158 = sext i32 %139 to i64
+  %wide.trip.count40.i188 = sext i32 %.046.i185 to i64
+  br label %159
 
-.lr.ph32.i186:                                    ; preds = %168
-  %170 = sext i32 %156 to i64
-  %171 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 96), i64 %170
-  %172 = mul nsw i32 %1, 3
-  %173 = sext i32 %172 to i64
-  %invariant.gep34.i187 = getelementptr i8, ptr %149, i64 %173
-  %174 = sext i32 %.026.i184 to i64
-  %175 = sext i32 %152 to i64
-  %176 = sext i32 %150 to i64
-  %wide.trip.count40.i188 = sext i32 %.0.i185 to i64
-  br label %177
-
-177:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i193, %.lr.ph32.i186
-  %indvars.iv37.i189 = phi i64 [ %174, %.lr.ph32.i186 ], [ %indvars.iv.next38.i195, %stbhw__stbhw__set_pixel_whiten.exit.i193 ]
+159:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i193, %.lr.ph32.i184
+  %indvars.iv37.i189 = phi i64 [ %156, %.lr.ph32.i184 ], [ %indvars.iv.next38.i195, %stbhw__stbhw__set_pixel_whiten.exit.i193 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  br label %178
+  br label %160
 
-178:                                              ; preds = %178, %177
-  %indvars.iv.i.i190 = phi i64 [ 0, %177 ], [ %indvars.iv.next.i.i191, %178 ]
-  %179 = getelementptr inbounds nuw i8, ptr %171, i64 %indvars.iv.i.i190
-  %180 = load i8, ptr %179, align 1, !tbaa !58
-  %181 = zext i8 %180 to i16
-  %182 = shl nuw nsw i16 %181, 1
-  %183 = add nuw nsw i16 %182, 255
-  %184 = udiv i16 %183, 3
-  %185 = trunc nuw i16 %184 to i8
-  %186 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv.i.i190
-  store i8 %185, ptr %186, align 1, !tbaa !58
+160:                                              ; preds = %160, %159
+  %indvars.iv.i.i190 = phi i64 [ 0, %159 ], [ %indvars.iv.next.i.i191, %160 ]
+  %161 = getelementptr inbounds nuw i8, ptr %155, i64 %indvars.iv.i.i190
+  %162 = load i8, ptr %161, align 1, !tbaa !58
+  %163 = zext i8 %162 to i16
+  %164 = shl nuw nsw i16 %163, 1
+  %165 = add nuw nsw i16 %164, 255
+  %166 = udiv i16 %165, 3
+  %167 = trunc nuw i16 %166 to i8
+  %168 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv.i.i190
+  store i8 %167, ptr %168, align 1, !tbaa !58
   %indvars.iv.next.i.i191 = add nuw nsw i64 %indvars.iv.i.i190, 1
   %exitcond.not.i.i192 = icmp eq i64 %indvars.iv.next.i.i191, 3
-  br i1 %exitcond.not.i.i192, label %stbhw__stbhw__set_pixel_whiten.exit.i193, label %178, !llvm.loop !102
+  br i1 %exitcond.not.i.i192, label %stbhw__stbhw__set_pixel_whiten.exit.i193, label %160, !llvm.loop !102
 
-stbhw__stbhw__set_pixel_whiten.exit.i193:         ; preds = %178
-  %187 = add nsw i64 %indvars.iv37.i189, %175
-  %188 = mul nsw i64 %187, %176
-  %gep35.i194 = getelementptr i8, ptr %invariant.gep34.i187, i64 %188
+stbhw__stbhw__set_pixel_whiten.exit.i193:         ; preds = %160
+  %169 = add nsw i64 %indvars.iv37.i189, %157
+  %170 = mul nsw i64 %169, %158
+  %gep35.i194 = getelementptr i8, ptr %invariant.gep34.i187, i64 %170
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep35.i194, ptr noundef nonnull align 1 dereferenceable(3) %12, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %indvars.iv.next38.i195 = add nsw i64 %indvars.iv37.i189, 1
   %exitcond41.not.i196 = icmp eq i64 %indvars.iv.next38.i195, %wide.trip.count40.i188
-  br i1 %exitcond41.not.i196, label %stbhw__draw_vline.exit206, label %177, !llvm.loop !106
+  br i1 %exitcond41.not.i196, label %stbhw__draw_vline.exit207, label %159, !llvm.loop !106
 
-stbhw__draw_vline.exit206:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i193, %168
-  %189 = load ptr, ptr %20, align 8, !tbaa !88
-  %190 = load i32, ptr %22, align 8, !tbaa !89
-  %191 = getelementptr inbounds [4 x i32], ptr @stbhw__corner_colors_to_edge_color, i64 %114
-  %192 = sext i32 %8 to i64
-  %193 = getelementptr inbounds i32, ptr %191, i64 %192
-  %194 = load i32, ptr %193, align 4, !tbaa !32
-  br i1 %34, label %.lr.ph.i223, label %._crit_edge.i207
+stbhw__draw_vline.exit207:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i193
+  %171 = load ptr, ptr %20, align 8, !tbaa !88
+  %172 = load i32, ptr %22, align 8, !tbaa !89
+  %173 = getelementptr inbounds [4 x i32], ptr @stbhw__corner_colors_to_edge_color, i64 %108
+  %174 = sext i32 %8 to i64
+  %175 = getelementptr inbounds i32, ptr %173, i64 %174
+  %176 = load i32, ptr %175, align 4, !tbaa !32
+  br i1 %34, label %.lr.ph.i225, label %._crit_edge.i208
 
-.lr.ph.i223:                                      ; preds = %stbhw__draw_vline.exit206
-  %195 = mul nsw i32 %112, 3
-  %196 = sext i32 %195 to i64
-  %invariant.gep.i224 = getelementptr i8, ptr %189, i64 %196
-  %197 = sext i32 %152 to i64
-  %198 = sext i32 %190 to i64
-  %wide.trip.count.i225 = zext nneg i32 %19 to i64
-  br label %199
+.lr.ph.i225:                                      ; preds = %stbhw__draw_vline.exit207
+  %invariant.gep.i226 = getelementptr i8, ptr %171, i64 %123
+  %177 = sext i32 %172 to i64
+  %wide.trip.count.i227 = zext nneg i32 %19 to i64
+  br label %178
 
-199:                                              ; preds = %199, %.lr.ph.i223
-  %indvars.iv.i226 = phi i64 [ 0, %.lr.ph.i223 ], [ %indvars.iv.next.i228, %199 ]
-  %200 = add nsw i64 %indvars.iv.i226, %197
-  %201 = mul nsw i64 %200, %198
-  %gep.i227 = getelementptr i8, ptr %invariant.gep.i224, i64 %201
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i227, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
-  %indvars.iv.next.i228 = add nuw nsw i64 %indvars.iv.i226, 1
-  %exitcond.not.i229 = icmp eq i64 %indvars.iv.next.i228, %wide.trip.count.i225
-  br i1 %exitcond.not.i229, label %._crit_edge.i207, label %199, !llvm.loop !105
+178:                                              ; preds = %178, %.lr.ph.i225
+  %indvars.iv.i228 = phi i64 [ 0, %.lr.ph.i225 ], [ %indvars.iv.next.i230, %178 ]
+  %179 = add nsw i64 %indvars.iv.i228, %157
+  %180 = mul nsw i64 %179, %177
+  %gep.i229 = getelementptr i8, ptr %invariant.gep.i226, i64 %180
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep.i229, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  %indvars.iv.next.i230 = add nuw nsw i64 %indvars.iv.i228, 1
+  %exitcond.not.i231 = icmp eq i64 %indvars.iv.next.i230, %wide.trip.count.i227
+  br i1 %exitcond.not.i231, label %._crit_edge.i208, label %178, !llvm.loop !105
 
-._crit_edge.i207:                                 ; preds = %199, %stbhw__draw_vline.exit206
-  br i1 %44, label %202, label %206
+._crit_edge.i208:                                 ; preds = %178, %stbhw__draw_vline.exit207
+  br i1 %44, label %.thread.i222, label %.lr.ph32.i209
 
-202:                                              ; preds = %._crit_edge.i207
-  %203 = sdiv i32 %19, 2
-  %204 = add nsw i32 %203, -1
-  %205 = and i32 %19, 1
-  %spec.select.v.i221 = add nuw nsw i32 %205, 1
-  %spec.select.i222 = add nsw i32 %spec.select.v.i221, %203
-  br label %206
+.thread.i222:                                     ; preds = %._crit_edge.i208
+  %181 = sdiv i32 %19, 2
+  %182 = add nsw i32 %181, -1
+  %183 = and i32 %19, 1
+  %spec.select.v.i223 = add nuw nsw i32 %183, 1
+  %spec.select.i224 = add nsw i32 %spec.select.v.i223, %181
+  br label %.lr.ph32.i209
 
-206:                                              ; preds = %202, %._crit_edge.i207
-  %.026.i208 = phi i32 [ %31, %._crit_edge.i207 ], [ %204, %202 ]
-  %.0.i209 = phi i32 [ %33, %._crit_edge.i207 ], [ %spec.select.i222, %202 ]
-  %207 = icmp slt i32 %.026.i208, %.0.i209
-  br i1 %207, label %.lr.ph32.i210, label %stbhw__draw_vline.exit230
+.lr.ph32.i209:                                    ; preds = %._crit_edge.i208, %.thread.i222
+  %.046.i210 = phi i32 [ %spec.select.i224, %.thread.i222 ], [ %33, %._crit_edge.i208 ]
+  %.02645.i211 = phi i32 [ %182, %.thread.i222 ], [ %31, %._crit_edge.i208 ]
+  %184 = sext i32 %176 to i64
+  %185 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 120), i64 %184
+  %invariant.gep34.i212 = getelementptr i8, ptr %171, i64 %123
+  %186 = sext i32 %.02645.i211 to i64
+  %187 = sext i32 %172 to i64
+  %wide.trip.count40.i213 = sext i32 %.046.i210 to i64
+  br label %188
 
-.lr.ph32.i210:                                    ; preds = %206
-  %208 = sext i32 %194 to i64
-  %209 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 120), i64 %208
-  %210 = mul nsw i32 %112, 3
-  %211 = sext i32 %210 to i64
-  %invariant.gep34.i211 = getelementptr i8, ptr %189, i64 %211
-  %212 = sext i32 %.026.i208 to i64
-  %213 = sext i32 %152 to i64
-  %214 = sext i32 %190 to i64
-  %wide.trip.count40.i212 = sext i32 %.0.i209 to i64
-  br label %215
-
-215:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i217, %.lr.ph32.i210
-  %indvars.iv37.i213 = phi i64 [ %212, %.lr.ph32.i210 ], [ %indvars.iv.next38.i219, %stbhw__stbhw__set_pixel_whiten.exit.i217 ]
+188:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i218, %.lr.ph32.i209
+  %indvars.iv37.i214 = phi i64 [ %186, %.lr.ph32.i209 ], [ %indvars.iv.next38.i220, %stbhw__stbhw__set_pixel_whiten.exit.i218 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  br label %216
+  br label %189
 
-216:                                              ; preds = %216, %215
-  %indvars.iv.i.i214 = phi i64 [ 0, %215 ], [ %indvars.iv.next.i.i215, %216 ]
-  %217 = getelementptr inbounds nuw i8, ptr %209, i64 %indvars.iv.i.i214
-  %218 = load i8, ptr %217, align 1, !tbaa !58
-  %219 = zext i8 %218 to i16
-  %220 = shl nuw nsw i16 %219, 1
-  %221 = add nuw nsw i16 %220, 255
-  %222 = udiv i16 %221, 3
-  %223 = trunc nuw i16 %222 to i8
-  %224 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i.i214
-  store i8 %223, ptr %224, align 1, !tbaa !58
-  %indvars.iv.next.i.i215 = add nuw nsw i64 %indvars.iv.i.i214, 1
-  %exitcond.not.i.i216 = icmp eq i64 %indvars.iv.next.i.i215, 3
-  br i1 %exitcond.not.i.i216, label %stbhw__stbhw__set_pixel_whiten.exit.i217, label %216, !llvm.loop !102
+189:                                              ; preds = %189, %188
+  %indvars.iv.i.i215 = phi i64 [ 0, %188 ], [ %indvars.iv.next.i.i216, %189 ]
+  %190 = getelementptr inbounds nuw i8, ptr %185, i64 %indvars.iv.i.i215
+  %191 = load i8, ptr %190, align 1, !tbaa !58
+  %192 = zext i8 %191 to i16
+  %193 = shl nuw nsw i16 %192, 1
+  %194 = add nuw nsw i16 %193, 255
+  %195 = udiv i16 %194, 3
+  %196 = trunc nuw i16 %195 to i8
+  %197 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i.i215
+  store i8 %196, ptr %197, align 1, !tbaa !58
+  %indvars.iv.next.i.i216 = add nuw nsw i64 %indvars.iv.i.i215, 1
+  %exitcond.not.i.i217 = icmp eq i64 %indvars.iv.next.i.i216, 3
+  br i1 %exitcond.not.i.i217, label %stbhw__stbhw__set_pixel_whiten.exit.i218, label %189, !llvm.loop !102
 
-stbhw__stbhw__set_pixel_whiten.exit.i217:         ; preds = %216
-  %225 = add nsw i64 %indvars.iv37.i213, %213
-  %226 = mul nsw i64 %225, %214
-  %gep35.i218 = getelementptr i8, ptr %invariant.gep34.i211, i64 %226
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep35.i218, ptr noundef nonnull align 1 dereferenceable(3) %11, i64 3, i1 false)
+stbhw__stbhw__set_pixel_whiten.exit.i218:         ; preds = %189
+  %198 = add nsw i64 %indvars.iv37.i214, %157
+  %199 = mul nsw i64 %198, %187
+  %gep35.i219 = getelementptr i8, ptr %invariant.gep34.i212, i64 %199
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep35.i219, ptr noundef nonnull align 1 dereferenceable(3) %11, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %indvars.iv.next38.i219 = add nsw i64 %indvars.iv37.i213, 1
-  %exitcond41.not.i220 = icmp eq i64 %indvars.iv.next38.i219, %wide.trip.count40.i212
-  br i1 %exitcond41.not.i220, label %stbhw__draw_vline.exit230, label %215, !llvm.loop !106
+  %indvars.iv.next38.i220 = add nsw i64 %indvars.iv37.i214, 1
+  %exitcond41.not.i221 = icmp eq i64 %indvars.iv.next38.i220, %wide.trip.count40.i213
+  br i1 %exitcond41.not.i221, label %stbhw__draw_vline.exit232, label %188, !llvm.loop !106
 
-stbhw__draw_vline.exit230:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i217, %206
-  %227 = load ptr, ptr %20, align 8, !tbaa !88
-  %228 = load i32, ptr %22, align 8, !tbaa !89
-  %229 = shl nsw i32 %19, 1
-  %230 = add i32 %73, %229
-  %231 = getelementptr inbounds [4 x i32], ptr @stbhw__corner_colors_to_edge_color, i64 %154
-  %232 = getelementptr inbounds i32, ptr %231, i64 %192
-  %233 = load i32, ptr %232, align 4, !tbaa !32
-  br i1 %34, label %.lr.ph.i245, label %._crit_edge.i231
+stbhw__draw_vline.exit232:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i218
+  %200 = load ptr, ptr %20, align 8, !tbaa !88
+  %201 = load i32, ptr %22, align 8, !tbaa !89
+  %202 = shl nsw i32 %19, 1
+  %203 = add i32 %70, %202
+  %204 = getelementptr inbounds [4 x i32], ptr @stbhw__corner_colors_to_edge_color, i64 %143
+  %205 = getelementptr inbounds i32, ptr %204, i64 %174
+  %206 = load i32, ptr %205, align 4, !tbaa !32
+  br i1 %34, label %.lr.ph.i248, label %._crit_edge.i233
 
-.lr.ph.i245:                                      ; preds = %stbhw__draw_vline.exit230
-  %234 = mul nsw i32 %228, %230
-  %235 = sext i32 %234 to i64
-  %236 = getelementptr inbounds i8, ptr %227, i64 %235
-  %237 = sext i32 %24 to i64
-  %wide.trip.count.i246 = zext nneg i32 %19 to i64
-  br label %238
+.lr.ph.i248:                                      ; preds = %stbhw__draw_vline.exit232
+  %207 = mul nsw i32 %201, %203
+  %208 = sext i32 %207 to i64
+  %209 = getelementptr inbounds i8, ptr %200, i64 %208
+  %wide.trip.count.i249 = zext nneg i32 %19 to i64
+  br label %210
 
-238:                                              ; preds = %238, %.lr.ph.i245
-  %indvars.iv.i247 = phi i64 [ 0, %.lr.ph.i245 ], [ %indvars.iv.next.i248, %238 ]
-  %239 = add nsw i64 %indvars.iv.i247, %237
-  %240 = mul nsw i64 %239, 3
-  %241 = getelementptr inbounds i8, ptr %236, i64 %240
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %241, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
-  %indvars.iv.next.i248 = add nuw nsw i64 %indvars.iv.i247, 1
-  %exitcond.not.i249 = icmp eq i64 %indvars.iv.next.i248, %wide.trip.count.i246
-  br i1 %exitcond.not.i249, label %._crit_edge.i231, label %238, !llvm.loop !103
+210:                                              ; preds = %210, %.lr.ph.i248
+  %indvars.iv.i250 = phi i64 [ 0, %.lr.ph.i248 ], [ %indvars.iv.next.i251, %210 ]
+  %211 = add nsw i64 %indvars.iv.i250, %54
+  %212 = mul nsw i64 %211, 3
+  %213 = getelementptr inbounds i8, ptr %209, i64 %212
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %213, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+  %indvars.iv.next.i251 = add nuw nsw i64 %indvars.iv.i250, 1
+  %exitcond.not.i252 = icmp eq i64 %indvars.iv.next.i251, %wide.trip.count.i249
+  br i1 %exitcond.not.i252, label %._crit_edge.i233, label %210, !llvm.loop !103
 
-._crit_edge.i231:                                 ; preds = %238, %stbhw__draw_vline.exit230
-  br i1 %44, label %242, label %246
+._crit_edge.i233:                                 ; preds = %210, %stbhw__draw_vline.exit232
+  br i1 %44, label %.thread.i245, label %.lr.ph32.i234
 
-242:                                              ; preds = %._crit_edge.i231
-  %243 = sdiv i32 %19, 2
-  %244 = add nsw i32 %243, -1
-  %245 = and i32 %19, 1
-  %spec.select.v.i243 = add nuw nsw i32 %245, 1
-  %spec.select.i244 = add nsw i32 %spec.select.v.i243, %243
-  br label %246
+.thread.i245:                                     ; preds = %._crit_edge.i233
+  %214 = sdiv i32 %19, 2
+  %215 = add nsw i32 %214, -1
+  %216 = and i32 %19, 1
+  %spec.select.v.i246 = add nuw nsw i32 %216, 1
+  %spec.select.i247 = add nsw i32 %spec.select.v.i246, %214
+  br label %.lr.ph32.i234
 
-246:                                              ; preds = %242, %._crit_edge.i231
-  %.026.i232 = phi i32 [ %31, %._crit_edge.i231 ], [ %244, %242 ]
-  %.0.i233 = phi i32 [ %33, %._crit_edge.i231 ], [ %spec.select.i244, %242 ]
-  %247 = icmp slt i32 %.026.i232, %.0.i233
-  br i1 %247, label %.lr.ph32.i234, label %stbhw__draw_hline.exit250
+.lr.ph32.i234:                                    ; preds = %._crit_edge.i233, %.thread.i245
+  %.044.i235 = phi i32 [ %spec.select.i247, %.thread.i245 ], [ %33, %._crit_edge.i233 ]
+  %.02643.i236 = phi i32 [ %215, %.thread.i245 ], [ %31, %._crit_edge.i233 ]
+  %217 = sext i32 %206 to i64
+  %218 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 72), i64 %217
+  %219 = mul nsw i32 %201, %203
+  %220 = sext i32 %219 to i64
+  %221 = getelementptr inbounds i8, ptr %200, i64 %220
+  %222 = sext i32 %.02643.i236 to i64
+  %wide.trip.count38.i237 = sext i32 %.044.i235 to i64
+  br label %223
 
-.lr.ph32.i234:                                    ; preds = %246
-  %248 = sext i32 %233 to i64
-  %249 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__color, i64 72), i64 %248
-  %250 = mul nsw i32 %228, %230
-  %251 = sext i32 %250 to i64
-  %252 = getelementptr inbounds i8, ptr %227, i64 %251
-  %253 = sext i32 %.026.i232 to i64
-  %254 = sext i32 %24 to i64
-  %wide.trip.count38.i235 = sext i32 %.0.i233 to i64
-  br label %255
-
-255:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i240, %.lr.ph32.i234
-  %indvars.iv35.i236 = phi i64 [ %253, %.lr.ph32.i234 ], [ %indvars.iv.next36.i241, %stbhw__stbhw__set_pixel_whiten.exit.i240 ]
+223:                                              ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i242, %.lr.ph32.i234
+  %indvars.iv35.i238 = phi i64 [ %222, %.lr.ph32.i234 ], [ %indvars.iv.next36.i243, %stbhw__stbhw__set_pixel_whiten.exit.i242 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  br label %256
+  br label %224
 
-256:                                              ; preds = %256, %255
-  %indvars.iv.i.i237 = phi i64 [ 0, %255 ], [ %indvars.iv.next.i.i238, %256 ]
-  %257 = getelementptr inbounds nuw i8, ptr %249, i64 %indvars.iv.i.i237
-  %258 = load i8, ptr %257, align 1, !tbaa !58
-  %259 = zext i8 %258 to i16
-  %260 = shl nuw nsw i16 %259, 1
-  %261 = add nuw nsw i16 %260, 255
-  %262 = udiv i16 %261, 3
-  %263 = trunc nuw i16 %262 to i8
-  %264 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv.i.i237
-  store i8 %263, ptr %264, align 1, !tbaa !58
-  %indvars.iv.next.i.i238 = add nuw nsw i64 %indvars.iv.i.i237, 1
-  %exitcond.not.i.i239 = icmp eq i64 %indvars.iv.next.i.i238, 3
-  br i1 %exitcond.not.i.i239, label %stbhw__stbhw__set_pixel_whiten.exit.i240, label %256, !llvm.loop !102
+224:                                              ; preds = %224, %223
+  %indvars.iv.i.i239 = phi i64 [ 0, %223 ], [ %indvars.iv.next.i.i240, %224 ]
+  %225 = getelementptr inbounds nuw i8, ptr %218, i64 %indvars.iv.i.i239
+  %226 = load i8, ptr %225, align 1, !tbaa !58
+  %227 = zext i8 %226 to i16
+  %228 = shl nuw nsw i16 %227, 1
+  %229 = add nuw nsw i16 %228, 255
+  %230 = udiv i16 %229, 3
+  %231 = trunc nuw i16 %230 to i8
+  %232 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv.i.i239
+  store i8 %231, ptr %232, align 1, !tbaa !58
+  %indvars.iv.next.i.i240 = add nuw nsw i64 %indvars.iv.i.i239, 1
+  %exitcond.not.i.i241 = icmp eq i64 %indvars.iv.next.i.i240, 3
+  br i1 %exitcond.not.i.i241, label %stbhw__stbhw__set_pixel_whiten.exit.i242, label %224, !llvm.loop !102
 
-stbhw__stbhw__set_pixel_whiten.exit.i240:         ; preds = %256
-  %265 = add nsw i64 %indvars.iv35.i236, %254
-  %266 = mul nsw i64 %265, 3
-  %267 = getelementptr inbounds i8, ptr %252, i64 %266
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %267, ptr noundef nonnull align 1 dereferenceable(3) %10, i64 3, i1 false)
+stbhw__stbhw__set_pixel_whiten.exit.i242:         ; preds = %224
+  %233 = add nsw i64 %indvars.iv35.i238, %54
+  %234 = mul nsw i64 %233, 3
+  %235 = getelementptr inbounds i8, ptr %221, i64 %234
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %235, ptr noundef nonnull align 1 dereferenceable(3) %10, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %indvars.iv.next36.i241 = add nsw i64 %indvars.iv35.i236, 1
-  %exitcond39.not.i242 = icmp eq i64 %indvars.iv.next36.i241, %wide.trip.count38.i235
-  br i1 %exitcond39.not.i242, label %stbhw__draw_hline.exit250, label %255, !llvm.loop !104
+  %indvars.iv.next36.i243 = add nsw i64 %indvars.iv35.i238, 1
+  %exitcond39.not.i244 = icmp eq i64 %indvars.iv.next36.i243, %wide.trip.count38.i237
+  br i1 %exitcond39.not.i244, label %stbhw__draw_hline.exit253, label %223, !llvm.loop !104
 
-stbhw__draw_hline.exit250:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i240, %246
-  %268 = load ptr, ptr %16, align 8, !tbaa !12
-  %269 = getelementptr inbounds nuw i8, ptr %268, i64 40
-  %270 = getelementptr inbounds i32, ptr %269, i64 %25
-  %271 = load i32, ptr %270, align 4, !tbaa !32
-  %.not = icmp eq i32 %271, 0
-  %.pre366.pre369.pre373.pre377.pre381.pre385 = load ptr, ptr %20, align 8, !tbaa !88
-  %.pre368.pre371.pre375.pre379.pre383.pre387 = load i32, ptr %22, align 8, !tbaa !89
-  br i1 %.not, label %stbhw__draw_clipped_corner.exit, label %272
+stbhw__draw_hline.exit253:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i242
+  %236 = load ptr, ptr %16, align 8, !tbaa !12
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 40
+  %238 = getelementptr inbounds i32, ptr %237, i64 %25
+  %239 = load i32, ptr %238, align 4, !tbaa !32
+  %.not = icmp eq i32 %239, 0
+  %.pre369.pre372.pre376.pre380.pre384.pre388 = load ptr, ptr %20, align 8, !tbaa !88
+  %.pre371.pre374.pre378.pre382.pre386.pre390 = load i32, ptr %22, align 8, !tbaa !89
+  br i1 %.not, label %stbhw__draw_clipped_corner.exit, label %240
 
-272:                                              ; preds = %stbhw__draw_hline.exit250
-  %273 = sext i32 %19 to i64
-  %274 = sext i32 %24 to i64
-  %275 = sext i32 %73 to i64
-  %276 = sext i32 %.pre368.pre371.pre375.pre379.pre383.pre387 to i64
+240:                                              ; preds = %stbhw__draw_hline.exit253
+  %241 = sext i32 %19 to i64
+  %242 = sext i32 %.pre371.pre374.pre378.pre382.pre386.pre390 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %.split.us.i, %272
-  %indvars.iv45.i = phi i64 [ -2, %272 ], [ %indvars.iv.next46.i, %.split.us.i ]
+.preheader.i:                                     ; preds = %.split.us.i, %240
+  %indvars.iv45.i = phi i64 [ -2, %240 ], [ %indvars.iv.next46.i, %.split.us.i ]
   %indvars47.i = trunc i64 %indvars.iv45.i to i32
-  %277 = add i32 %indvars47.i, 1
-  %278 = icmp ugt i32 %indvars47.i, 2147483646
-  %279 = icmp sgt i32 %277, %229
-  %or.cond31.i = or i1 %278, %279
-  %280 = add nsw i64 %indvars.iv45.i, %275
-  %281 = mul nsw i64 %280, %276
-  %282 = getelementptr inbounds i8, ptr %.pre366.pre369.pre373.pre377.pre381.pre385, i64 %281
+  %243 = add i32 %indvars47.i, 1
+  %244 = icmp ugt i32 %indvars47.i, 2147483646
+  %245 = icmp sgt i32 %243, %202
+  %or.cond31.i = or i1 %244, %245
+  %246 = add nsw i64 %indvars.iv45.i, %89
+  %247 = mul nsw i64 %246, %242
+  %248 = getelementptr inbounds i8, ptr %.pre369.pre372.pre376.pre380.pre384.pre388, i64 %247
   br i1 %or.cond31.i, label %.split.us.i, label %.preheader.split.i
 
 .preheader.split.i:                               ; preds = %.preheader.i
-  %cond392 = icmp eq i32 %indvars47.i, 1
-  br i1 %cond392, label %.preheader.split.split.us.i, label %.preheader.split.split.i
+  %cond395 = icmp eq i32 %indvars47.i, 1
+  br i1 %cond395, label %.preheader.split.split.us.i, label %.preheader.split.split.i
 
-.preheader.split.split.us.i:                      ; preds = %.preheader.split.i, %291
-  %indvars.iv.i251 = phi i64 [ %indvars.iv.next.i252, %291 ], [ -2, %.preheader.split.i ]
-  %283 = trunc nsw i64 %indvars.iv.i251 to i32
-  switch i32 %283, label %284 [
-    i32 -2, label %291
-    i32 1, label %291
+.preheader.split.split.us.i:                      ; preds = %.preheader.split.i, %257
+  %indvars.iv.i254 = phi i64 [ %indvars.iv.next.i255, %257 ], [ -2, %.preheader.split.i ]
+  %249 = trunc nsw i64 %indvars.iv.i254 to i32
+  switch i32 %249, label %250 [
+    i32 -2, label %257
+    i32 1, label %257
   ]
 
-284:                                              ; preds = %.preheader.split.split.us.i
-  %285 = icmp slt i64 %indvars.iv.i251, 0
-  %286 = icmp sge i64 %indvars.iv.i251, %273
-  %or.cond.us34.i = or i1 %285, %286
-  br i1 %or.cond.us34.i, label %291, label %287
+250:                                              ; preds = %.preheader.split.split.us.i
+  %251 = icmp slt i64 %indvars.iv.i254, 0
+  %252 = icmp sge i64 %indvars.iv.i254, %241
+  %or.cond.us34.i = or i1 %251, %252
+  br i1 %or.cond.us34.i, label %257, label %253
 
-287:                                              ; preds = %284
-  %288 = add nsw i64 %indvars.iv.i251, %274
-  %289 = mul nsw i64 %288, 3
-  %290 = getelementptr inbounds i8, ptr %282, i64 %289
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %290, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
-  br label %291
+253:                                              ; preds = %250
+  %254 = add nsw i64 %indvars.iv.i254, %54
+  %255 = mul nsw i64 %254, 3
+  %256 = getelementptr inbounds i8, ptr %248, i64 %255
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %256, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  br label %257
 
-291:                                              ; preds = %287, %284, %.preheader.split.split.us.i, %.preheader.split.split.us.i
-  %indvars.iv.next.i252 = add nsw i64 %indvars.iv.i251, 1
-  %exitcond.not.i253 = icmp eq i64 %indvars.iv.next.i252, 2
-  br i1 %exitcond.not.i253, label %.split.us.i, label %.preheader.split.split.us.i, !llvm.loop !107
+257:                                              ; preds = %253, %250, %.preheader.split.split.us.i, %.preheader.split.split.us.i
+  %indvars.iv.next.i255 = add nsw i64 %indvars.iv.i254, 1
+  %exitcond.not.i256 = icmp eq i64 %indvars.iv.next.i255, 2
+  br i1 %exitcond.not.i256, label %.split.us.i, label %.preheader.split.split.us.i, !llvm.loop !107
 
-.preheader.split.split.i:                         ; preds = %.preheader.split.i, %299
-  %indvars.iv41.i = phi i64 [ %292, %299 ], [ -2, %.preheader.split.i ]
-  %292 = add nsw i64 %indvars.iv41.i, 1
-  %293 = icmp slt i64 %indvars.iv41.i, 0
-  %294 = icmp sge i64 %indvars.iv41.i, %273
-  %or.cond.i = or i1 %293, %294
-  br i1 %or.cond.i, label %299, label %295
+.preheader.split.split.i:                         ; preds = %.preheader.split.i, %265
+  %indvars.iv41.i = phi i64 [ %258, %265 ], [ -2, %.preheader.split.i ]
+  %258 = add nsw i64 %indvars.iv41.i, 1
+  %259 = icmp slt i64 %indvars.iv41.i, 0
+  %260 = icmp sge i64 %indvars.iv41.i, %241
+  %or.cond.i = or i1 %259, %260
+  br i1 %or.cond.i, label %265, label %261
 
-295:                                              ; preds = %.preheader.split.split.i
-  %296 = add nsw i64 %indvars.iv41.i, %274
-  %297 = mul nsw i64 %296, 3
-  %298 = getelementptr inbounds i8, ptr %282, i64 %297
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %298, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
-  br label %299
+261:                                              ; preds = %.preheader.split.split.i
+  %262 = add nsw i64 %indvars.iv41.i, %54
+  %263 = mul nsw i64 %262, 3
+  %264 = getelementptr inbounds i8, ptr %248, i64 %263
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %264, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  br label %265
 
-299:                                              ; preds = %295, %.preheader.split.split.i
-  %exitcond44.not.i = icmp eq i64 %292, 2
+265:                                              ; preds = %261, %.preheader.split.split.i
+  %exitcond44.not.i = icmp eq i64 %258, 2
   br i1 %exitcond44.not.i, label %.split.us.i, label %.preheader.split.split.i, !llvm.loop !107
 
-.split.us.i:                                      ; preds = %299, %291, %.preheader.i
+.split.us.i:                                      ; preds = %265, %257, %.preheader.i
   %indvars.iv.next46.i = add nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 2
   br i1 %exitcond48.not.i, label %stbhw__draw_clipped_corner.exit.loopexit, label %.preheader.i, !llvm.loop !108
 
 stbhw__draw_clipped_corner.exit.loopexit:         ; preds = %.split.us.i
   %.pre = load ptr, ptr %16, align 8, !tbaa !12
-  %.pre366.pre369.pre373.pre377.pre381.pre = load ptr, ptr %20, align 8, !tbaa !88
-  %.pre368.pre371.pre375.pre379.pre383.pre = load i32, ptr %22, align 8, !tbaa !89
+  %.pre369.pre372.pre376.pre380.pre384.pre = load ptr, ptr %20, align 8, !tbaa !88
+  %.pre371.pre374.pre378.pre382.pre386.pre = load i32, ptr %22, align 8, !tbaa !89
   br label %stbhw__draw_clipped_corner.exit
 
-stbhw__draw_clipped_corner.exit:                  ; preds = %stbhw__draw_clipped_corner.exit.loopexit, %stbhw__draw_hline.exit250
-  %.pre368.pre371.pre375.pre379.pre383 = phi i32 [ %.pre368.pre371.pre375.pre379.pre383.pre, %stbhw__draw_clipped_corner.exit.loopexit ], [ %.pre368.pre371.pre375.pre379.pre383.pre387, %stbhw__draw_hline.exit250 ]
-  %.pre366.pre369.pre373.pre377.pre381 = phi ptr [ %.pre366.pre369.pre373.pre377.pre381.pre, %stbhw__draw_clipped_corner.exit.loopexit ], [ %.pre366.pre369.pre373.pre377.pre381.pre385, %stbhw__draw_hline.exit250 ]
-  %300 = phi ptr [ %.pre, %stbhw__draw_clipped_corner.exit.loopexit ], [ %268, %stbhw__draw_hline.exit250 ]
-  %301 = getelementptr inbounds nuw i8, ptr %300, i64 88
-  %302 = getelementptr inbounds i32, ptr %301, i64 %74
-  %303 = load i32, ptr %302, align 4, !tbaa !32
-  %.not139 = icmp eq i32 %303, 0
-  br i1 %.not139, label %stbhw__draw_clipped_corner.exit272, label %304
+stbhw__draw_clipped_corner.exit:                  ; preds = %stbhw__draw_clipped_corner.exit.loopexit, %stbhw__draw_hline.exit253
+  %.pre371.pre374.pre378.pre382.pre386 = phi i32 [ %.pre371.pre374.pre378.pre382.pre386.pre, %stbhw__draw_clipped_corner.exit.loopexit ], [ %.pre371.pre374.pre378.pre382.pre386.pre390, %stbhw__draw_hline.exit253 ]
+  %.pre369.pre372.pre376.pre380.pre384 = phi ptr [ %.pre369.pre372.pre376.pre380.pre384.pre, %stbhw__draw_clipped_corner.exit.loopexit ], [ %.pre369.pre372.pre376.pre380.pre384.pre388, %stbhw__draw_hline.exit253 ]
+  %266 = phi ptr [ %.pre, %stbhw__draw_clipped_corner.exit.loopexit ], [ %236, %stbhw__draw_hline.exit253 ]
+  %267 = getelementptr inbounds nuw i8, ptr %266, i64 88
+  %268 = getelementptr inbounds i32, ptr %267, i64 %71
+  %269 = load i32, ptr %268, align 4, !tbaa !32
+  %.not139 = icmp eq i32 %269, 0
+  br i1 %.not139, label %stbhw__draw_clipped_corner.exit275, label %270
 
-304:                                              ; preds = %stbhw__draw_clipped_corner.exit
-  %305 = add nsw i32 %111, %2
-  %306 = sext i32 %19 to i64
-  %307 = sext i32 %24 to i64
-  %308 = sext i32 %305 to i64
-  %309 = sext i32 %.pre368.pre371.pre375.pre379.pre383 to i64
-  br label %.preheader.i254
+270:                                              ; preds = %stbhw__draw_clipped_corner.exit
+  %271 = add nsw i32 %105, %2
+  %272 = sext i32 %19 to i64
+  %273 = sext i32 %271 to i64
+  %274 = sext i32 %.pre371.pre374.pre378.pre382.pre386 to i64
+  br label %.preheader.i257
 
-.preheader.i254:                                  ; preds = %.split.us.i263, %304
-  %indvars.iv45.i255 = phi i64 [ -2, %304 ], [ %indvars.iv.next46.i264, %.split.us.i263 ]
-  %indvars47.i256 = trunc i64 %indvars.iv45.i255 to i32
-  %310 = add i32 %111, %indvars47.i256
-  %311 = icmp slt i32 %310, 1
-  %312 = icmp sgt i32 %310, %229
-  %or.cond31.i257 = or i1 %311, %312
-  %313 = add nsw i64 %indvars.iv45.i255, %308
-  %314 = mul nsw i64 %313, %309
-  %315 = getelementptr inbounds i8, ptr %.pre366.pre369.pre373.pre377.pre381, i64 %314
-  br i1 %or.cond31.i257, label %.split.us.i263, label %.preheader.split.i258
+.preheader.i257:                                  ; preds = %.split.us.i266, %270
+  %indvars.iv45.i258 = phi i64 [ -2, %270 ], [ %indvars.iv.next46.i267, %.split.us.i266 ]
+  %indvars47.i259 = trunc i64 %indvars.iv45.i258 to i32
+  %275 = add i32 %105, %indvars47.i259
+  %276 = icmp slt i32 %275, 1
+  %277 = icmp sgt i32 %275, %202
+  %or.cond31.i260 = or i1 %276, %277
+  %278 = add nsw i64 %indvars.iv45.i258, %273
+  %279 = mul nsw i64 %278, %274
+  %280 = getelementptr inbounds i8, ptr %.pre369.pre372.pre376.pre380.pre384, i64 %279
+  br i1 %or.cond31.i260, label %.split.us.i266, label %.preheader.split.i261
 
-.preheader.split.i258:                            ; preds = %.preheader.i254
-  switch i32 %indvars47.i256, label %.preheader.split.split.i267 [
-    i32 -2, label %.preheader.split.split.us.i259.preheader
-    i32 1, label %.preheader.split.split.us.i259.preheader
+.preheader.split.i261:                            ; preds = %.preheader.i257
+  switch i32 %indvars47.i259, label %.preheader.split.split.i270 [
+    i32 -2, label %.preheader.split.split.us.i262.preheader
+    i32 1, label %.preheader.split.split.us.i262.preheader
   ]
 
-.preheader.split.split.us.i259.preheader:         ; preds = %.preheader.split.i258, %.preheader.split.i258
-  br label %.preheader.split.split.us.i259
+.preheader.split.split.us.i262.preheader:         ; preds = %.preheader.split.i261, %.preheader.split.i261
+  br label %.preheader.split.split.us.i262
 
-.preheader.split.split.us.i259:                   ; preds = %.preheader.split.split.us.i259.preheader, %324
-  %indvars.iv.i260 = phi i64 [ %indvars.iv.next.i261, %324 ], [ -2, %.preheader.split.split.us.i259.preheader ]
-  %316 = trunc nsw i64 %indvars.iv.i260 to i32
-  switch i32 %316, label %317 [
-    i32 -2, label %324
-    i32 1, label %324
+.preheader.split.split.us.i262:                   ; preds = %.preheader.split.split.us.i262.preheader, %289
+  %indvars.iv.i263 = phi i64 [ %indvars.iv.next.i264, %289 ], [ -2, %.preheader.split.split.us.i262.preheader ]
+  %281 = trunc nsw i64 %indvars.iv.i263 to i32
+  switch i32 %281, label %282 [
+    i32 -2, label %289
+    i32 1, label %289
   ]
 
-317:                                              ; preds = %.preheader.split.split.us.i259
-  %318 = icmp slt i64 %indvars.iv.i260, 0
-  %319 = icmp sge i64 %indvars.iv.i260, %306
-  %or.cond.us34.i266 = or i1 %318, %319
-  br i1 %or.cond.us34.i266, label %324, label %320
+282:                                              ; preds = %.preheader.split.split.us.i262
+  %283 = icmp slt i64 %indvars.iv.i263, 0
+  %284 = icmp sge i64 %indvars.iv.i263, %272
+  %or.cond.us34.i269 = or i1 %283, %284
+  br i1 %or.cond.us34.i269, label %289, label %285
 
-320:                                              ; preds = %317
-  %321 = add nsw i64 %indvars.iv.i260, %307
-  %322 = mul nsw i64 %321, 3
-  %323 = getelementptr inbounds i8, ptr %315, i64 %322
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %323, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
-  br label %324
+285:                                              ; preds = %282
+  %286 = add nsw i64 %indvars.iv.i263, %54
+  %287 = mul nsw i64 %286, 3
+  %288 = getelementptr inbounds i8, ptr %280, i64 %287
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %288, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  br label %289
 
-324:                                              ; preds = %320, %317, %.preheader.split.split.us.i259, %.preheader.split.split.us.i259
-  %indvars.iv.next.i261 = add nsw i64 %indvars.iv.i260, 1
-  %exitcond.not.i262 = icmp eq i64 %indvars.iv.next.i261, 2
-  br i1 %exitcond.not.i262, label %.split.us.i263, label %.preheader.split.split.us.i259, !llvm.loop !107
+289:                                              ; preds = %285, %282, %.preheader.split.split.us.i262, %.preheader.split.split.us.i262
+  %indvars.iv.next.i264 = add nsw i64 %indvars.iv.i263, 1
+  %exitcond.not.i265 = icmp eq i64 %indvars.iv.next.i264, 2
+  br i1 %exitcond.not.i265, label %.split.us.i266, label %.preheader.split.split.us.i262, !llvm.loop !107
 
-.preheader.split.split.i267:                      ; preds = %.preheader.split.i258, %332
-  %indvars.iv41.i268 = phi i64 [ %325, %332 ], [ -2, %.preheader.split.i258 ]
-  %325 = add nsw i64 %indvars.iv41.i268, 1
-  %326 = icmp slt i64 %indvars.iv41.i268, 0
-  %327 = icmp sge i64 %indvars.iv41.i268, %306
-  %or.cond.i269 = or i1 %326, %327
-  br i1 %or.cond.i269, label %332, label %328
+.preheader.split.split.i270:                      ; preds = %.preheader.split.i261, %297
+  %indvars.iv41.i271 = phi i64 [ %290, %297 ], [ -2, %.preheader.split.i261 ]
+  %290 = add nsw i64 %indvars.iv41.i271, 1
+  %291 = icmp slt i64 %indvars.iv41.i271, 0
+  %292 = icmp sge i64 %indvars.iv41.i271, %272
+  %or.cond.i272 = or i1 %291, %292
+  br i1 %or.cond.i272, label %297, label %293
 
-328:                                              ; preds = %.preheader.split.split.i267
-  %329 = add nsw i64 %indvars.iv41.i268, %307
-  %330 = mul nsw i64 %329, 3
-  %331 = getelementptr inbounds i8, ptr %315, i64 %330
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %331, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
-  br label %332
+293:                                              ; preds = %.preheader.split.split.i270
+  %294 = add nsw i64 %indvars.iv41.i271, %54
+  %295 = mul nsw i64 %294, 3
+  %296 = getelementptr inbounds i8, ptr %280, i64 %295
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %296, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  br label %297
 
-332:                                              ; preds = %328, %.preheader.split.split.i267
-  %exitcond44.not.i271 = icmp eq i64 %325, 2
-  br i1 %exitcond44.not.i271, label %.split.us.i263, label %.preheader.split.split.i267, !llvm.loop !107
+297:                                              ; preds = %293, %.preheader.split.split.i270
+  %exitcond44.not.i274 = icmp eq i64 %290, 2
+  br i1 %exitcond44.not.i274, label %.split.us.i266, label %.preheader.split.split.i270, !llvm.loop !107
 
-.split.us.i263:                                   ; preds = %324, %332, %.preheader.i254
-  %indvars.iv.next46.i264 = add nsw i64 %indvars.iv45.i255, 1
-  %exitcond48.not.i265 = icmp eq i64 %indvars.iv.next46.i264, 2
-  br i1 %exitcond48.not.i265, label %stbhw__draw_clipped_corner.exit272.loopexit, label %.preheader.i254, !llvm.loop !108
+.split.us.i266:                                   ; preds = %289, %297, %.preheader.i257
+  %indvars.iv.next46.i267 = add nsw i64 %indvars.iv45.i258, 1
+  %exitcond48.not.i268 = icmp eq i64 %indvars.iv.next46.i267, 2
+  br i1 %exitcond48.not.i268, label %stbhw__draw_clipped_corner.exit275.loopexit, label %.preheader.i257, !llvm.loop !108
 
-stbhw__draw_clipped_corner.exit272.loopexit:      ; preds = %.split.us.i263
-  %.pre361 = load ptr, ptr %16, align 8, !tbaa !12
-  %.pre366.pre369.pre373.pre377.pre = load ptr, ptr %20, align 8, !tbaa !88
-  %.pre368.pre371.pre375.pre379.pre = load i32, ptr %22, align 8, !tbaa !89
-  br label %stbhw__draw_clipped_corner.exit272
-
-stbhw__draw_clipped_corner.exit272:               ; preds = %stbhw__draw_clipped_corner.exit272.loopexit, %stbhw__draw_clipped_corner.exit
-  %.pre368.pre371.pre375.pre379 = phi i32 [ %.pre368.pre371.pre375.pre379.pre, %stbhw__draw_clipped_corner.exit272.loopexit ], [ %.pre368.pre371.pre375.pre379.pre383, %stbhw__draw_clipped_corner.exit ]
-  %.pre366.pre369.pre373.pre377 = phi ptr [ %.pre366.pre369.pre373.pre377.pre, %stbhw__draw_clipped_corner.exit272.loopexit ], [ %.pre366.pre369.pre373.pre377.pre381, %stbhw__draw_clipped_corner.exit ]
-  %333 = phi ptr [ %.pre361, %stbhw__draw_clipped_corner.exit272.loopexit ], [ %300, %stbhw__draw_clipped_corner.exit ]
-  %334 = getelementptr inbounds nuw i8, ptr %333, i64 72
-  %335 = getelementptr inbounds i32, ptr %334, i64 %154
-  %336 = load i32, ptr %335, align 4, !tbaa !32
-  %.not140 = icmp eq i32 %336, 0
-  br i1 %.not140, label %stbhw__draw_clipped_corner.exit291, label %337
-
-337:                                              ; preds = %stbhw__draw_clipped_corner.exit272
-  %338 = or disjoint i32 %229, 1
-  %339 = add nsw i32 %338, %2
-  %340 = sext i32 %19 to i64
-  %341 = sext i32 %24 to i64
-  %342 = sext i32 %339 to i64
-  %343 = sext i32 %.pre368.pre371.pre375.pre379 to i64
-  br label %.preheader.i273
-
-.preheader.i273:                                  ; preds = %.split.us.i282, %337
-  %indvars.iv45.i274 = phi i64 [ -2, %337 ], [ %indvars.iv.next46.i283, %.split.us.i282 ]
-  %indvars47.i275 = trunc i64 %indvars.iv45.i274 to i32
-  %344 = add i32 %338, %indvars47.i275
-  %345 = icmp slt i32 %344, 1
-  %346 = icmp sgt i32 %344, %229
-  %or.cond31.i276 = or i1 %345, %346
-  %347 = add nsw i64 %indvars.iv45.i274, %342
-  %348 = mul nsw i64 %347, %343
-  %349 = getelementptr inbounds i8, ptr %.pre366.pre369.pre373.pre377, i64 %348
-  br i1 %or.cond31.i276, label %.split.us.i282, label %.preheader.split.i277
-
-.preheader.split.i277:                            ; preds = %.preheader.i273
-  switch i32 %indvars47.i275, label %.preheader.split.split.i286 [
-    i32 -2, label %.preheader.split.split.us.i278.preheader
-    i32 1, label %.preheader.split.split.us.i278.preheader
-  ]
-
-.preheader.split.split.us.i278.preheader:         ; preds = %.preheader.split.i277, %.preheader.split.i277
-  br label %.preheader.split.split.us.i278
-
-.preheader.split.split.us.i278:                   ; preds = %.preheader.split.split.us.i278.preheader, %358
-  %indvars.iv.i279 = phi i64 [ %indvars.iv.next.i280, %358 ], [ -2, %.preheader.split.split.us.i278.preheader ]
-  %350 = trunc nsw i64 %indvars.iv.i279 to i32
-  switch i32 %350, label %351 [
-    i32 -2, label %358
-    i32 1, label %358
-  ]
-
-351:                                              ; preds = %.preheader.split.split.us.i278
-  %352 = icmp slt i64 %indvars.iv.i279, 0
-  %353 = icmp sge i64 %indvars.iv.i279, %340
-  %or.cond.us34.i285 = or i1 %352, %353
-  br i1 %or.cond.us34.i285, label %358, label %354
-
-354:                                              ; preds = %351
-  %355 = add nsw i64 %indvars.iv.i279, %341
-  %356 = mul nsw i64 %355, 3
-  %357 = getelementptr inbounds i8, ptr %349, i64 %356
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %357, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
-  br label %358
-
-358:                                              ; preds = %354, %351, %.preheader.split.split.us.i278, %.preheader.split.split.us.i278
-  %indvars.iv.next.i280 = add nsw i64 %indvars.iv.i279, 1
-  %exitcond.not.i281 = icmp eq i64 %indvars.iv.next.i280, 2
-  br i1 %exitcond.not.i281, label %.split.us.i282, label %.preheader.split.split.us.i278, !llvm.loop !107
-
-.preheader.split.split.i286:                      ; preds = %.preheader.split.i277, %366
-  %indvars.iv41.i287 = phi i64 [ %359, %366 ], [ -2, %.preheader.split.i277 ]
-  %359 = add nsw i64 %indvars.iv41.i287, 1
-  %360 = icmp slt i64 %indvars.iv41.i287, 0
-  %361 = icmp sge i64 %indvars.iv41.i287, %340
-  %or.cond.i288 = or i1 %360, %361
-  br i1 %or.cond.i288, label %366, label %362
-
-362:                                              ; preds = %.preheader.split.split.i286
-  %363 = add nsw i64 %indvars.iv41.i287, %341
-  %364 = mul nsw i64 %363, 3
-  %365 = getelementptr inbounds i8, ptr %349, i64 %364
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %365, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
-  br label %366
-
-366:                                              ; preds = %362, %.preheader.split.split.i286
-  %exitcond44.not.i290 = icmp eq i64 %359, 2
-  br i1 %exitcond44.not.i290, label %.split.us.i282, label %.preheader.split.split.i286, !llvm.loop !107
-
-.split.us.i282:                                   ; preds = %358, %366, %.preheader.i273
-  %indvars.iv.next46.i283 = add nsw i64 %indvars.iv45.i274, 1
-  %exitcond48.not.i284 = icmp eq i64 %indvars.iv.next46.i283, 2
-  br i1 %exitcond48.not.i284, label %stbhw__draw_clipped_corner.exit291.loopexit, label %.preheader.i273, !llvm.loop !108
-
-stbhw__draw_clipped_corner.exit291.loopexit:      ; preds = %.split.us.i282
-  %.pre362 = load ptr, ptr %16, align 8, !tbaa !12
-  %.pre366.pre369.pre373.pre = load ptr, ptr %20, align 8, !tbaa !88
-  %.pre368.pre371.pre375.pre = load i32, ptr %22, align 8, !tbaa !89
-  br label %stbhw__draw_clipped_corner.exit291
-
-stbhw__draw_clipped_corner.exit291:               ; preds = %stbhw__draw_clipped_corner.exit291.loopexit, %stbhw__draw_clipped_corner.exit272
-  %.pre368.pre371.pre375 = phi i32 [ %.pre368.pre371.pre375.pre, %stbhw__draw_clipped_corner.exit291.loopexit ], [ %.pre368.pre371.pre375.pre379, %stbhw__draw_clipped_corner.exit272 ]
-  %.pre366.pre369.pre373 = phi ptr [ %.pre366.pre369.pre373.pre, %stbhw__draw_clipped_corner.exit291.loopexit ], [ %.pre366.pre369.pre373.pre377, %stbhw__draw_clipped_corner.exit272 ]
-  %367 = phi ptr [ %.pre362, %stbhw__draw_clipped_corner.exit291.loopexit ], [ %333, %stbhw__draw_clipped_corner.exit272 ]
-  %368 = getelementptr inbounds nuw i8, ptr %367, i64 56
-  %369 = getelementptr inbounds i32, ptr %368, i64 %27
-  %370 = load i32, ptr %369, align 4, !tbaa !32
-  %.not141 = icmp eq i32 %370, 0
-  br i1 %.not141, label %stbhw__draw_clipped_corner.exit310, label %371
-
-371:                                              ; preds = %stbhw__draw_clipped_corner.exit291
-  %372 = sext i32 %111 to i64
-  %373 = sext i32 %19 to i64
-  %374 = sext i32 %112 to i64
-  %375 = sext i32 %73 to i64
-  %376 = sext i32 %.pre368.pre371.pre375 to i64
-  br label %.preheader.i292
-
-.preheader.i292:                                  ; preds = %.split.us.i301, %371
-  %indvars.iv45.i293 = phi i64 [ -2, %371 ], [ %indvars.iv.next46.i302, %.split.us.i301 ]
-  %indvars47.i294 = trunc i64 %indvars.iv45.i293 to i32
-  %377 = add i32 %indvars47.i294, 1
-  %378 = icmp ugt i32 %indvars47.i294, 2147483646
-  %379 = icmp sgt i32 %377, %229
-  %or.cond31.i295 = or i1 %378, %379
-  %380 = add nsw i64 %indvars.iv45.i293, %375
-  %381 = mul nsw i64 %380, %376
-  %382 = getelementptr inbounds i8, ptr %.pre366.pre369.pre373, i64 %381
-  br i1 %or.cond31.i295, label %.split.us.i301, label %.preheader.split.i296
-
-.preheader.split.i296:                            ; preds = %.preheader.i292
-  %cond = icmp eq i32 %indvars47.i294, 1
-  br i1 %cond, label %.preheader.split.split.us.i297, label %.preheader.split.split.i305
-
-.preheader.split.split.us.i297:                   ; preds = %.preheader.split.i296, %392
-  %indvars.iv.i298 = phi i64 [ %indvars.iv.next.i299, %392 ], [ -2, %.preheader.split.i296 ]
-  %383 = trunc nsw i64 %indvars.iv.i298 to i32
-  switch i32 %383, label %384 [
-    i32 -2, label %392
-    i32 1, label %392
-  ]
-
-384:                                              ; preds = %.preheader.split.split.us.i297
-  %385 = add nsw i64 %indvars.iv.i298, %372
-  %386 = icmp slt i64 %385, 1
-  %387 = icmp sgt i64 %385, %373
-  %or.cond.us34.i304 = or i1 %386, %387
-  br i1 %or.cond.us34.i304, label %392, label %388
-
-388:                                              ; preds = %384
-  %389 = add nsw i64 %indvars.iv.i298, %374
-  %390 = mul nsw i64 %389, 3
-  %391 = getelementptr inbounds i8, ptr %382, i64 %390
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %391, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
-  br label %392
-
-392:                                              ; preds = %388, %384, %.preheader.split.split.us.i297, %.preheader.split.split.us.i297
-  %indvars.iv.next.i299 = add nsw i64 %indvars.iv.i298, 1
-  %exitcond.not.i300 = icmp eq i64 %indvars.iv.next.i299, 2
-  br i1 %exitcond.not.i300, label %.split.us.i301, label %.preheader.split.split.us.i297, !llvm.loop !107
-
-.preheader.split.split.i305:                      ; preds = %.preheader.split.i296, %400
-  %indvars.iv41.i306 = phi i64 [ %indvars.iv.next42.i308, %400 ], [ -2, %.preheader.split.i296 ]
-  %393 = add nsw i64 %indvars.iv41.i306, %372
-  %394 = icmp slt i64 %393, 1
-  %395 = icmp sgt i64 %393, %373
-  %or.cond.i307 = or i1 %394, %395
-  br i1 %or.cond.i307, label %400, label %396
-
-396:                                              ; preds = %.preheader.split.split.i305
-  %397 = add nsw i64 %indvars.iv41.i306, %374
-  %398 = mul nsw i64 %397, 3
-  %399 = getelementptr inbounds i8, ptr %382, i64 %398
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %399, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
-  br label %400
-
-400:                                              ; preds = %396, %.preheader.split.split.i305
-  %indvars.iv.next42.i308 = add nsw i64 %indvars.iv41.i306, 1
-  %exitcond44.not.i309 = icmp eq i64 %indvars.iv.next42.i308, 2
-  br i1 %exitcond44.not.i309, label %.split.us.i301, label %.preheader.split.split.i305, !llvm.loop !107
-
-.split.us.i301:                                   ; preds = %400, %392, %.preheader.i292
-  %indvars.iv.next46.i302 = add nsw i64 %indvars.iv45.i293, 1
-  %exitcond48.not.i303 = icmp eq i64 %indvars.iv.next46.i302, 2
-  br i1 %exitcond48.not.i303, label %stbhw__draw_clipped_corner.exit310.loopexit, label %.preheader.i292, !llvm.loop !108
-
-stbhw__draw_clipped_corner.exit310.loopexit:      ; preds = %.split.us.i301
-  %.pre363 = load ptr, ptr %16, align 8, !tbaa !12
-  %.pre366.pre369.pre = load ptr, ptr %20, align 8, !tbaa !88
-  %.pre368.pre371.pre = load i32, ptr %22, align 8, !tbaa !89
-  br label %stbhw__draw_clipped_corner.exit310
-
-stbhw__draw_clipped_corner.exit310:               ; preds = %stbhw__draw_clipped_corner.exit310.loopexit, %stbhw__draw_clipped_corner.exit291
-  %.pre368.pre371 = phi i32 [ %.pre368.pre371.pre, %stbhw__draw_clipped_corner.exit310.loopexit ], [ %.pre368.pre371.pre375, %stbhw__draw_clipped_corner.exit291 ]
-  %.pre366.pre369 = phi ptr [ %.pre366.pre369.pre, %stbhw__draw_clipped_corner.exit310.loopexit ], [ %.pre366.pre369.pre373, %stbhw__draw_clipped_corner.exit291 ]
-  %401 = phi ptr [ %.pre363, %stbhw__draw_clipped_corner.exit310.loopexit ], [ %367, %stbhw__draw_clipped_corner.exit291 ]
-  %402 = getelementptr inbounds nuw i8, ptr %401, i64 40
-  %403 = getelementptr inbounds i32, ptr %402, i64 %114
-  %404 = load i32, ptr %403, align 4, !tbaa !32
-  %.not142 = icmp eq i32 %404, 0
-  br i1 %.not142, label %stbhw__draw_clipped_corner.exit329, label %405
-
-405:                                              ; preds = %stbhw__draw_clipped_corner.exit310
-  %406 = add nsw i32 %111, %2
-  %407 = sext i32 %111 to i64
-  %408 = sext i32 %19 to i64
-  %409 = sext i32 %112 to i64
-  %410 = sext i32 %406 to i64
-  %411 = sext i32 %.pre368.pre371 to i64
-  br label %.preheader.i311
-
-.preheader.i311:                                  ; preds = %.split.us.i320, %405
-  %indvars.iv45.i312 = phi i64 [ -2, %405 ], [ %indvars.iv.next46.i321, %.split.us.i320 ]
-  %indvars47.i313 = trunc i64 %indvars.iv45.i312 to i32
-  %412 = add i32 %111, %indvars47.i313
-  %413 = icmp slt i32 %412, 1
-  %414 = icmp sgt i32 %412, %229
-  %or.cond31.i314 = or i1 %413, %414
-  %415 = add nsw i64 %indvars.iv45.i312, %410
-  %416 = mul nsw i64 %415, %411
-  %417 = getelementptr inbounds i8, ptr %.pre366.pre369, i64 %416
-  br i1 %or.cond31.i314, label %.split.us.i320, label %.preheader.split.i315
-
-.preheader.split.i315:                            ; preds = %.preheader.i311
-  switch i32 %indvars47.i313, label %.preheader.split.split.i324 [
-    i32 -2, label %.preheader.split.split.us.i316.preheader
-    i32 1, label %.preheader.split.split.us.i316.preheader
-  ]
-
-.preheader.split.split.us.i316.preheader:         ; preds = %.preheader.split.i315, %.preheader.split.i315
-  br label %.preheader.split.split.us.i316
-
-.preheader.split.split.us.i316:                   ; preds = %.preheader.split.split.us.i316.preheader, %427
-  %indvars.iv.i317 = phi i64 [ %indvars.iv.next.i318, %427 ], [ -2, %.preheader.split.split.us.i316.preheader ]
-  %418 = trunc nsw i64 %indvars.iv.i317 to i32
-  switch i32 %418, label %419 [
-    i32 -2, label %427
-    i32 1, label %427
-  ]
-
-419:                                              ; preds = %.preheader.split.split.us.i316
-  %420 = add nsw i64 %indvars.iv.i317, %407
-  %421 = icmp slt i64 %420, 1
-  %422 = icmp sgt i64 %420, %408
-  %or.cond.us34.i323 = or i1 %421, %422
-  br i1 %or.cond.us34.i323, label %427, label %423
-
-423:                                              ; preds = %419
-  %424 = add nsw i64 %indvars.iv.i317, %409
-  %425 = mul nsw i64 %424, 3
-  %426 = getelementptr inbounds i8, ptr %417, i64 %425
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %426, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
-  br label %427
-
-427:                                              ; preds = %423, %419, %.preheader.split.split.us.i316, %.preheader.split.split.us.i316
-  %indvars.iv.next.i318 = add nsw i64 %indvars.iv.i317, 1
-  %exitcond.not.i319 = icmp eq i64 %indvars.iv.next.i318, 2
-  br i1 %exitcond.not.i319, label %.split.us.i320, label %.preheader.split.split.us.i316, !llvm.loop !107
-
-.preheader.split.split.i324:                      ; preds = %.preheader.split.i315, %435
-  %indvars.iv41.i325 = phi i64 [ %indvars.iv.next42.i327, %435 ], [ -2, %.preheader.split.i315 ]
-  %428 = add nsw i64 %indvars.iv41.i325, %407
-  %429 = icmp slt i64 %428, 1
-  %430 = icmp sgt i64 %428, %408
-  %or.cond.i326 = or i1 %429, %430
-  br i1 %or.cond.i326, label %435, label %431
-
-431:                                              ; preds = %.preheader.split.split.i324
-  %432 = add nsw i64 %indvars.iv41.i325, %409
-  %433 = mul nsw i64 %432, 3
-  %434 = getelementptr inbounds i8, ptr %417, i64 %433
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %434, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
-  br label %435
-
-435:                                              ; preds = %431, %.preheader.split.split.i324
-  %indvars.iv.next42.i327 = add nsw i64 %indvars.iv41.i325, 1
-  %exitcond44.not.i328 = icmp eq i64 %indvars.iv.next42.i327, 2
-  br i1 %exitcond44.not.i328, label %.split.us.i320, label %.preheader.split.split.i324, !llvm.loop !107
-
-.split.us.i320:                                   ; preds = %427, %435, %.preheader.i311
-  %indvars.iv.next46.i321 = add nsw i64 %indvars.iv45.i312, 1
-  %exitcond48.not.i322 = icmp eq i64 %indvars.iv.next46.i321, 2
-  br i1 %exitcond48.not.i322, label %stbhw__draw_clipped_corner.exit329.loopexit, label %.preheader.i311, !llvm.loop !108
-
-stbhw__draw_clipped_corner.exit329.loopexit:      ; preds = %.split.us.i320
+stbhw__draw_clipped_corner.exit275.loopexit:      ; preds = %.split.us.i266
   %.pre364 = load ptr, ptr %16, align 8, !tbaa !12
-  %.pre366.pre = load ptr, ptr %20, align 8, !tbaa !88
-  %.pre368.pre = load i32, ptr %22, align 8, !tbaa !89
-  br label %stbhw__draw_clipped_corner.exit329
+  %.pre369.pre372.pre376.pre380.pre = load ptr, ptr %20, align 8, !tbaa !88
+  %.pre371.pre374.pre378.pre382.pre = load i32, ptr %22, align 8, !tbaa !89
+  br label %stbhw__draw_clipped_corner.exit275
 
-stbhw__draw_clipped_corner.exit329:               ; preds = %stbhw__draw_clipped_corner.exit329.loopexit, %stbhw__draw_clipped_corner.exit310
-  %.pre368 = phi i32 [ %.pre368.pre, %stbhw__draw_clipped_corner.exit329.loopexit ], [ %.pre368.pre371, %stbhw__draw_clipped_corner.exit310 ]
-  %.pre366 = phi ptr [ %.pre366.pre, %stbhw__draw_clipped_corner.exit329.loopexit ], [ %.pre366.pre369, %stbhw__draw_clipped_corner.exit310 ]
-  %436 = phi ptr [ %.pre364, %stbhw__draw_clipped_corner.exit329.loopexit ], [ %401, %stbhw__draw_clipped_corner.exit310 ]
-  %437 = getelementptr inbounds nuw i8, ptr %436, i64 88
-  %438 = getelementptr inbounds i32, ptr %437, i64 %192
-  %439 = load i32, ptr %438, align 4, !tbaa !32
-  %.not143 = icmp eq i32 %439, 0
-  br i1 %.not143, label %stbhw__draw_clipped_corner.exit348, label %440
+stbhw__draw_clipped_corner.exit275:               ; preds = %stbhw__draw_clipped_corner.exit275.loopexit, %stbhw__draw_clipped_corner.exit
+  %.pre371.pre374.pre378.pre382 = phi i32 [ %.pre371.pre374.pre378.pre382.pre, %stbhw__draw_clipped_corner.exit275.loopexit ], [ %.pre371.pre374.pre378.pre382.pre386, %stbhw__draw_clipped_corner.exit ]
+  %.pre369.pre372.pre376.pre380 = phi ptr [ %.pre369.pre372.pre376.pre380.pre, %stbhw__draw_clipped_corner.exit275.loopexit ], [ %.pre369.pre372.pre376.pre380.pre384, %stbhw__draw_clipped_corner.exit ]
+  %298 = phi ptr [ %.pre364, %stbhw__draw_clipped_corner.exit275.loopexit ], [ %266, %stbhw__draw_clipped_corner.exit ]
+  %299 = getelementptr inbounds nuw i8, ptr %298, i64 72
+  %300 = getelementptr inbounds i32, ptr %299, i64 %143
+  %301 = load i32, ptr %300, align 4, !tbaa !32
+  %.not140 = icmp eq i32 %301, 0
+  br i1 %.not140, label %stbhw__draw_clipped_corner.exit294, label %302
 
-440:                                              ; preds = %stbhw__draw_clipped_corner.exit329
-  %441 = or disjoint i32 %229, 1
-  %442 = add nsw i32 %441, %2
-  %443 = sext i32 %111 to i64
-  %444 = sext i32 %19 to i64
-  %445 = sext i32 %112 to i64
-  %446 = sext i32 %442 to i64
-  %447 = sext i32 %.pre368 to i64
-  br label %.preheader.i330
+302:                                              ; preds = %stbhw__draw_clipped_corner.exit275
+  %303 = or disjoint i32 %202, 1
+  %304 = add nsw i32 %303, %2
+  %305 = sext i32 %19 to i64
+  %306 = sext i32 %304 to i64
+  %307 = sext i32 %.pre371.pre374.pre378.pre382 to i64
+  br label %.preheader.i276
 
-.preheader.i330:                                  ; preds = %.split.us.i339, %440
-  %indvars.iv45.i331 = phi i64 [ -2, %440 ], [ %indvars.iv.next46.i340, %.split.us.i339 ]
-  %indvars47.i332 = trunc i64 %indvars.iv45.i331 to i32
-  %448 = add i32 %441, %indvars47.i332
-  %449 = icmp slt i32 %448, 1
-  %450 = icmp sgt i32 %448, %229
-  %or.cond31.i333 = or i1 %449, %450
-  %451 = add nsw i64 %indvars.iv45.i331, %446
-  %452 = mul nsw i64 %451, %447
-  %453 = getelementptr inbounds i8, ptr %.pre366, i64 %452
-  br i1 %or.cond31.i333, label %.split.us.i339, label %.preheader.split.i334
+.preheader.i276:                                  ; preds = %.split.us.i285, %302
+  %indvars.iv45.i277 = phi i64 [ -2, %302 ], [ %indvars.iv.next46.i286, %.split.us.i285 ]
+  %indvars47.i278 = trunc i64 %indvars.iv45.i277 to i32
+  %308 = add i32 %303, %indvars47.i278
+  %309 = icmp slt i32 %308, 1
+  %310 = icmp sgt i32 %308, %202
+  %or.cond31.i279 = or i1 %309, %310
+  %311 = add nsw i64 %indvars.iv45.i277, %306
+  %312 = mul nsw i64 %311, %307
+  %313 = getelementptr inbounds i8, ptr %.pre369.pre372.pre376.pre380, i64 %312
+  br i1 %or.cond31.i279, label %.split.us.i285, label %.preheader.split.i280
 
-.preheader.split.i334:                            ; preds = %.preheader.i330
-  switch i32 %indvars47.i332, label %.preheader.split.split.i343 [
-    i32 -2, label %.preheader.split.split.us.i335.preheader
-    i32 1, label %.preheader.split.split.us.i335.preheader
+.preheader.split.i280:                            ; preds = %.preheader.i276
+  switch i32 %indvars47.i278, label %.preheader.split.split.i289 [
+    i32 -2, label %.preheader.split.split.us.i281.preheader
+    i32 1, label %.preheader.split.split.us.i281.preheader
   ]
 
-.preheader.split.split.us.i335.preheader:         ; preds = %.preheader.split.i334, %.preheader.split.i334
-  br label %.preheader.split.split.us.i335
+.preheader.split.split.us.i281.preheader:         ; preds = %.preheader.split.i280, %.preheader.split.i280
+  br label %.preheader.split.split.us.i281
 
-.preheader.split.split.us.i335:                   ; preds = %.preheader.split.split.us.i335.preheader, %463
-  %indvars.iv.i336 = phi i64 [ %indvars.iv.next.i337, %463 ], [ -2, %.preheader.split.split.us.i335.preheader ]
-  %454 = trunc nsw i64 %indvars.iv.i336 to i32
-  switch i32 %454, label %455 [
-    i32 -2, label %463
-    i32 1, label %463
+.preheader.split.split.us.i281:                   ; preds = %.preheader.split.split.us.i281.preheader, %322
+  %indvars.iv.i282 = phi i64 [ %indvars.iv.next.i283, %322 ], [ -2, %.preheader.split.split.us.i281.preheader ]
+  %314 = trunc nsw i64 %indvars.iv.i282 to i32
+  switch i32 %314, label %315 [
+    i32 -2, label %322
+    i32 1, label %322
   ]
 
-455:                                              ; preds = %.preheader.split.split.us.i335
-  %456 = add nsw i64 %indvars.iv.i336, %443
-  %457 = icmp slt i64 %456, 1
-  %458 = icmp sgt i64 %456, %444
-  %or.cond.us34.i342 = or i1 %457, %458
-  br i1 %or.cond.us34.i342, label %463, label %459
+315:                                              ; preds = %.preheader.split.split.us.i281
+  %316 = icmp slt i64 %indvars.iv.i282, 0
+  %317 = icmp sge i64 %indvars.iv.i282, %305
+  %or.cond.us34.i288 = or i1 %316, %317
+  br i1 %or.cond.us34.i288, label %322, label %318
 
-459:                                              ; preds = %455
-  %460 = add nsw i64 %indvars.iv.i336, %445
-  %461 = mul nsw i64 %460, 3
-  %462 = getelementptr inbounds i8, ptr %453, i64 %461
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %462, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
-  br label %463
+318:                                              ; preds = %315
+  %319 = add nsw i64 %indvars.iv.i282, %54
+  %320 = mul nsw i64 %319, 3
+  %321 = getelementptr inbounds i8, ptr %313, i64 %320
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %321, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  br label %322
 
-463:                                              ; preds = %459, %455, %.preheader.split.split.us.i335, %.preheader.split.split.us.i335
-  %indvars.iv.next.i337 = add nsw i64 %indvars.iv.i336, 1
-  %exitcond.not.i338 = icmp eq i64 %indvars.iv.next.i337, 2
-  br i1 %exitcond.not.i338, label %.split.us.i339, label %.preheader.split.split.us.i335, !llvm.loop !107
+322:                                              ; preds = %318, %315, %.preheader.split.split.us.i281, %.preheader.split.split.us.i281
+  %indvars.iv.next.i283 = add nsw i64 %indvars.iv.i282, 1
+  %exitcond.not.i284 = icmp eq i64 %indvars.iv.next.i283, 2
+  br i1 %exitcond.not.i284, label %.split.us.i285, label %.preheader.split.split.us.i281, !llvm.loop !107
 
-.preheader.split.split.i343:                      ; preds = %.preheader.split.i334, %471
-  %indvars.iv41.i344 = phi i64 [ %indvars.iv.next42.i346, %471 ], [ -2, %.preheader.split.i334 ]
-  %464 = add nsw i64 %indvars.iv41.i344, %443
-  %465 = icmp slt i64 %464, 1
-  %466 = icmp sgt i64 %464, %444
-  %or.cond.i345 = or i1 %465, %466
-  br i1 %or.cond.i345, label %471, label %467
+.preheader.split.split.i289:                      ; preds = %.preheader.split.i280, %330
+  %indvars.iv41.i290 = phi i64 [ %323, %330 ], [ -2, %.preheader.split.i280 ]
+  %323 = add nsw i64 %indvars.iv41.i290, 1
+  %324 = icmp slt i64 %indvars.iv41.i290, 0
+  %325 = icmp sge i64 %indvars.iv41.i290, %305
+  %or.cond.i291 = or i1 %324, %325
+  br i1 %or.cond.i291, label %330, label %326
 
-467:                                              ; preds = %.preheader.split.split.i343
-  %468 = add nsw i64 %indvars.iv41.i344, %445
-  %469 = mul nsw i64 %468, 3
-  %470 = getelementptr inbounds i8, ptr %453, i64 %469
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %470, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
-  br label %471
+326:                                              ; preds = %.preheader.split.split.i289
+  %327 = add nsw i64 %indvars.iv41.i290, %54
+  %328 = mul nsw i64 %327, 3
+  %329 = getelementptr inbounds i8, ptr %313, i64 %328
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %329, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  br label %330
 
-471:                                              ; preds = %467, %.preheader.split.split.i343
-  %indvars.iv.next42.i346 = add nsw i64 %indvars.iv41.i344, 1
-  %exitcond44.not.i347 = icmp eq i64 %indvars.iv.next42.i346, 2
-  br i1 %exitcond44.not.i347, label %.split.us.i339, label %.preheader.split.split.i343, !llvm.loop !107
+330:                                              ; preds = %326, %.preheader.split.split.i289
+  %exitcond44.not.i293 = icmp eq i64 %323, 2
+  br i1 %exitcond44.not.i293, label %.split.us.i285, label %.preheader.split.split.i289, !llvm.loop !107
 
-.split.us.i339:                                   ; preds = %463, %471, %.preheader.i330
-  %indvars.iv.next46.i340 = add nsw i64 %indvars.iv45.i331, 1
-  %exitcond48.not.i341 = icmp eq i64 %indvars.iv.next46.i340, 2
-  br i1 %exitcond48.not.i341, label %stbhw__draw_clipped_corner.exit348.loopexit, label %.preheader.i330, !llvm.loop !108
+.split.us.i285:                                   ; preds = %322, %330, %.preheader.i276
+  %indvars.iv.next46.i286 = add nsw i64 %indvars.iv45.i277, 1
+  %exitcond48.not.i287 = icmp eq i64 %indvars.iv.next46.i286, 2
+  br i1 %exitcond48.not.i287, label %stbhw__draw_clipped_corner.exit294.loopexit, label %.preheader.i276, !llvm.loop !108
 
-stbhw__draw_clipped_corner.exit348.loopexit:      ; preds = %.split.us.i339
-  %.pre365 = load ptr, ptr %20, align 8, !tbaa !88
-  %.pre367 = load i32, ptr %22, align 8, !tbaa !89
-  br label %stbhw__draw_clipped_corner.exit348
+stbhw__draw_clipped_corner.exit294.loopexit:      ; preds = %.split.us.i285
+  %.pre365 = load ptr, ptr %16, align 8, !tbaa !12
+  %.pre369.pre372.pre376.pre = load ptr, ptr %20, align 8, !tbaa !88
+  %.pre371.pre374.pre378.pre = load i32, ptr %22, align 8, !tbaa !89
+  br label %stbhw__draw_clipped_corner.exit294
 
-stbhw__draw_clipped_corner.exit348:               ; preds = %stbhw__draw_clipped_corner.exit348.loopexit, %stbhw__draw_clipped_corner.exit329
-  %472 = phi i32 [ %.pre367, %stbhw__draw_clipped_corner.exit348.loopexit ], [ %.pre368, %stbhw__draw_clipped_corner.exit329 ]
-  %473 = phi ptr [ %.pre365, %stbhw__draw_clipped_corner.exit348.loopexit ], [ %.pre366, %stbhw__draw_clipped_corner.exit329 ]
-  %474 = getelementptr inbounds [3 x i8], ptr @stbhw__corner_colors, i64 %25
-  %475 = mul nsw i32 %472, %2
-  %476 = sext i32 %475 to i64
-  %477 = getelementptr inbounds i8, ptr %473, i64 %476
-  %478 = mul nsw i32 %1, 3
-  %479 = sext i32 %478 to i64
-  %480 = getelementptr inbounds i8, ptr %477, i64 %479
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %480, ptr noundef nonnull readonly align 1 dereferenceable(3) %474, i64 3, i1 false)
-  %481 = load ptr, ptr %20, align 8, !tbaa !88
-  %482 = load i32, ptr %22, align 8, !tbaa !89
-  %483 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__corner_colors, i64 36), i64 %74
-  %484 = mul nsw i32 %482, %151
-  %485 = sext i32 %484 to i64
-  %486 = getelementptr inbounds i8, ptr %481, i64 %485
-  %487 = getelementptr inbounds i8, ptr %486, i64 %479
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %487, ptr noundef nonnull readonly align 1 dereferenceable(3) %483, i64 3, i1 false)
-  %488 = load ptr, ptr %20, align 8, !tbaa !88
-  %489 = load i32, ptr %22, align 8, !tbaa !89
-  %490 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__corner_colors, i64 24), i64 %154
-  %491 = mul nsw i32 %489, %230
-  %492 = sext i32 %491 to i64
-  %493 = getelementptr inbounds i8, ptr %488, i64 %492
-  %494 = getelementptr inbounds i8, ptr %493, i64 %479
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %494, ptr noundef nonnull readonly align 1 dereferenceable(3) %490, i64 3, i1 false)
-  %495 = load ptr, ptr %20, align 8, !tbaa !88
-  %496 = load i32, ptr %22, align 8, !tbaa !89
-  %497 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__corner_colors, i64 12), i64 %27
-  %498 = mul nsw i32 %496, %2
-  %499 = sext i32 %498 to i64
-  %500 = getelementptr inbounds i8, ptr %495, i64 %499
-  %501 = mul nsw i32 %112, 3
-  %502 = sext i32 %501 to i64
-  %503 = getelementptr inbounds i8, ptr %500, i64 %502
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %503, ptr noundef nonnull readonly align 1 dereferenceable(3) %497, i64 3, i1 false)
-  %504 = load ptr, ptr %20, align 8, !tbaa !88
-  %505 = load i32, ptr %22, align 8, !tbaa !89
-  %506 = getelementptr inbounds [3 x i8], ptr @stbhw__corner_colors, i64 %114
-  %507 = mul nsw i32 %505, %151
-  %508 = sext i32 %507 to i64
-  %509 = getelementptr inbounds i8, ptr %504, i64 %508
-  %510 = getelementptr inbounds i8, ptr %509, i64 %502
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %510, ptr noundef nonnull readonly align 1 dereferenceable(3) %506, i64 3, i1 false)
-  %511 = load ptr, ptr %20, align 8, !tbaa !88
-  %512 = load i32, ptr %22, align 8, !tbaa !89
-  %513 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__corner_colors, i64 36), i64 %192
-  %514 = mul nsw i32 %512, %230
-  %515 = sext i32 %514 to i64
-  %516 = getelementptr inbounds i8, ptr %511, i64 %515
-  %517 = getelementptr inbounds i8, ptr %516, i64 %502
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %517, ptr noundef nonnull readonly align 1 dereferenceable(3) %513, i64 3, i1 false)
+stbhw__draw_clipped_corner.exit294:               ; preds = %stbhw__draw_clipped_corner.exit294.loopexit, %stbhw__draw_clipped_corner.exit275
+  %.pre371.pre374.pre378 = phi i32 [ %.pre371.pre374.pre378.pre, %stbhw__draw_clipped_corner.exit294.loopexit ], [ %.pre371.pre374.pre378.pre382, %stbhw__draw_clipped_corner.exit275 ]
+  %.pre369.pre372.pre376 = phi ptr [ %.pre369.pre372.pre376.pre, %stbhw__draw_clipped_corner.exit294.loopexit ], [ %.pre369.pre372.pre376.pre380, %stbhw__draw_clipped_corner.exit275 ]
+  %331 = phi ptr [ %.pre365, %stbhw__draw_clipped_corner.exit294.loopexit ], [ %298, %stbhw__draw_clipped_corner.exit275 ]
+  %332 = getelementptr inbounds nuw i8, ptr %331, i64 56
+  %333 = getelementptr inbounds i32, ptr %332, i64 %27
+  %334 = load i32, ptr %333, align 4, !tbaa !32
+  %.not141 = icmp eq i32 %334, 0
+  br i1 %.not141, label %stbhw__draw_clipped_corner.exit313, label %335
+
+335:                                              ; preds = %stbhw__draw_clipped_corner.exit294
+  %336 = sext i32 %105 to i64
+  %337 = sext i32 %19 to i64
+  %338 = sext i32 %106 to i64
+  %339 = sext i32 %.pre371.pre374.pre378 to i64
+  br label %.preheader.i295
+
+.preheader.i295:                                  ; preds = %.split.us.i304, %335
+  %indvars.iv45.i296 = phi i64 [ -2, %335 ], [ %indvars.iv.next46.i305, %.split.us.i304 ]
+  %indvars47.i297 = trunc i64 %indvars.iv45.i296 to i32
+  %340 = add i32 %indvars47.i297, 1
+  %341 = icmp ugt i32 %indvars47.i297, 2147483646
+  %342 = icmp sgt i32 %340, %202
+  %or.cond31.i298 = or i1 %341, %342
+  %343 = add nsw i64 %indvars.iv45.i296, %89
+  %344 = mul nsw i64 %343, %339
+  %345 = getelementptr inbounds i8, ptr %.pre369.pre372.pre376, i64 %344
+  br i1 %or.cond31.i298, label %.split.us.i304, label %.preheader.split.i299
+
+.preheader.split.i299:                            ; preds = %.preheader.i295
+  %cond = icmp eq i32 %indvars47.i297, 1
+  br i1 %cond, label %.preheader.split.split.us.i300, label %.preheader.split.split.i308
+
+.preheader.split.split.us.i300:                   ; preds = %.preheader.split.i299, %355
+  %indvars.iv.i301 = phi i64 [ %indvars.iv.next.i302, %355 ], [ -2, %.preheader.split.i299 ]
+  %346 = trunc nsw i64 %indvars.iv.i301 to i32
+  switch i32 %346, label %347 [
+    i32 -2, label %355
+    i32 1, label %355
+  ]
+
+347:                                              ; preds = %.preheader.split.split.us.i300
+  %348 = add nsw i64 %indvars.iv.i301, %336
+  %349 = icmp slt i64 %348, 1
+  %350 = icmp sgt i64 %348, %337
+  %or.cond.us34.i307 = or i1 %349, %350
+  br i1 %or.cond.us34.i307, label %355, label %351
+
+351:                                              ; preds = %347
+  %352 = add nsw i64 %indvars.iv.i301, %338
+  %353 = mul nsw i64 %352, 3
+  %354 = getelementptr inbounds i8, ptr %345, i64 %353
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %354, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  br label %355
+
+355:                                              ; preds = %351, %347, %.preheader.split.split.us.i300, %.preheader.split.split.us.i300
+  %indvars.iv.next.i302 = add nsw i64 %indvars.iv.i301, 1
+  %exitcond.not.i303 = icmp eq i64 %indvars.iv.next.i302, 2
+  br i1 %exitcond.not.i303, label %.split.us.i304, label %.preheader.split.split.us.i300, !llvm.loop !107
+
+.preheader.split.split.i308:                      ; preds = %.preheader.split.i299, %363
+  %indvars.iv41.i309 = phi i64 [ %indvars.iv.next42.i311, %363 ], [ -2, %.preheader.split.i299 ]
+  %356 = add nsw i64 %indvars.iv41.i309, %336
+  %357 = icmp slt i64 %356, 1
+  %358 = icmp sgt i64 %356, %337
+  %or.cond.i310 = or i1 %357, %358
+  br i1 %or.cond.i310, label %363, label %359
+
+359:                                              ; preds = %.preheader.split.split.i308
+  %360 = add nsw i64 %indvars.iv41.i309, %338
+  %361 = mul nsw i64 %360, 3
+  %362 = getelementptr inbounds i8, ptr %345, i64 %361
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %362, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  br label %363
+
+363:                                              ; preds = %359, %.preheader.split.split.i308
+  %indvars.iv.next42.i311 = add nsw i64 %indvars.iv41.i309, 1
+  %exitcond44.not.i312 = icmp eq i64 %indvars.iv.next42.i311, 2
+  br i1 %exitcond44.not.i312, label %.split.us.i304, label %.preheader.split.split.i308, !llvm.loop !107
+
+.split.us.i304:                                   ; preds = %363, %355, %.preheader.i295
+  %indvars.iv.next46.i305 = add nsw i64 %indvars.iv45.i296, 1
+  %exitcond48.not.i306 = icmp eq i64 %indvars.iv.next46.i305, 2
+  br i1 %exitcond48.not.i306, label %stbhw__draw_clipped_corner.exit313.loopexit, label %.preheader.i295, !llvm.loop !108
+
+stbhw__draw_clipped_corner.exit313.loopexit:      ; preds = %.split.us.i304
+  %.pre366 = load ptr, ptr %16, align 8, !tbaa !12
+  %.pre369.pre372.pre = load ptr, ptr %20, align 8, !tbaa !88
+  %.pre371.pre374.pre = load i32, ptr %22, align 8, !tbaa !89
+  br label %stbhw__draw_clipped_corner.exit313
+
+stbhw__draw_clipped_corner.exit313:               ; preds = %stbhw__draw_clipped_corner.exit313.loopexit, %stbhw__draw_clipped_corner.exit294
+  %.pre371.pre374 = phi i32 [ %.pre371.pre374.pre, %stbhw__draw_clipped_corner.exit313.loopexit ], [ %.pre371.pre374.pre378, %stbhw__draw_clipped_corner.exit294 ]
+  %.pre369.pre372 = phi ptr [ %.pre369.pre372.pre, %stbhw__draw_clipped_corner.exit313.loopexit ], [ %.pre369.pre372.pre376, %stbhw__draw_clipped_corner.exit294 ]
+  %364 = phi ptr [ %.pre366, %stbhw__draw_clipped_corner.exit313.loopexit ], [ %331, %stbhw__draw_clipped_corner.exit294 ]
+  %365 = getelementptr inbounds nuw i8, ptr %364, i64 40
+  %366 = getelementptr inbounds i32, ptr %365, i64 %108
+  %367 = load i32, ptr %366, align 4, !tbaa !32
+  %.not142 = icmp eq i32 %367, 0
+  br i1 %.not142, label %stbhw__draw_clipped_corner.exit332, label %368
+
+368:                                              ; preds = %stbhw__draw_clipped_corner.exit313
+  %369 = add nsw i32 %105, %2
+  %370 = sext i32 %105 to i64
+  %371 = sext i32 %19 to i64
+  %372 = sext i32 %106 to i64
+  %373 = sext i32 %369 to i64
+  %374 = sext i32 %.pre371.pre374 to i64
+  br label %.preheader.i314
+
+.preheader.i314:                                  ; preds = %.split.us.i323, %368
+  %indvars.iv45.i315 = phi i64 [ -2, %368 ], [ %indvars.iv.next46.i324, %.split.us.i323 ]
+  %indvars47.i316 = trunc i64 %indvars.iv45.i315 to i32
+  %375 = add i32 %105, %indvars47.i316
+  %376 = icmp slt i32 %375, 1
+  %377 = icmp sgt i32 %375, %202
+  %or.cond31.i317 = or i1 %376, %377
+  %378 = add nsw i64 %indvars.iv45.i315, %373
+  %379 = mul nsw i64 %378, %374
+  %380 = getelementptr inbounds i8, ptr %.pre369.pre372, i64 %379
+  br i1 %or.cond31.i317, label %.split.us.i323, label %.preheader.split.i318
+
+.preheader.split.i318:                            ; preds = %.preheader.i314
+  switch i32 %indvars47.i316, label %.preheader.split.split.i327 [
+    i32 -2, label %.preheader.split.split.us.i319.preheader
+    i32 1, label %.preheader.split.split.us.i319.preheader
+  ]
+
+.preheader.split.split.us.i319.preheader:         ; preds = %.preheader.split.i318, %.preheader.split.i318
+  br label %.preheader.split.split.us.i319
+
+.preheader.split.split.us.i319:                   ; preds = %.preheader.split.split.us.i319.preheader, %390
+  %indvars.iv.i320 = phi i64 [ %indvars.iv.next.i321, %390 ], [ -2, %.preheader.split.split.us.i319.preheader ]
+  %381 = trunc nsw i64 %indvars.iv.i320 to i32
+  switch i32 %381, label %382 [
+    i32 -2, label %390
+    i32 1, label %390
+  ]
+
+382:                                              ; preds = %.preheader.split.split.us.i319
+  %383 = add nsw i64 %indvars.iv.i320, %370
+  %384 = icmp slt i64 %383, 1
+  %385 = icmp sgt i64 %383, %371
+  %or.cond.us34.i326 = or i1 %384, %385
+  br i1 %or.cond.us34.i326, label %390, label %386
+
+386:                                              ; preds = %382
+  %387 = add nsw i64 %indvars.iv.i320, %372
+  %388 = mul nsw i64 %387, 3
+  %389 = getelementptr inbounds i8, ptr %380, i64 %388
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %389, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  br label %390
+
+390:                                              ; preds = %386, %382, %.preheader.split.split.us.i319, %.preheader.split.split.us.i319
+  %indvars.iv.next.i321 = add nsw i64 %indvars.iv.i320, 1
+  %exitcond.not.i322 = icmp eq i64 %indvars.iv.next.i321, 2
+  br i1 %exitcond.not.i322, label %.split.us.i323, label %.preheader.split.split.us.i319, !llvm.loop !107
+
+.preheader.split.split.i327:                      ; preds = %.preheader.split.i318, %398
+  %indvars.iv41.i328 = phi i64 [ %indvars.iv.next42.i330, %398 ], [ -2, %.preheader.split.i318 ]
+  %391 = add nsw i64 %indvars.iv41.i328, %370
+  %392 = icmp slt i64 %391, 1
+  %393 = icmp sgt i64 %391, %371
+  %or.cond.i329 = or i1 %392, %393
+  br i1 %or.cond.i329, label %398, label %394
+
+394:                                              ; preds = %.preheader.split.split.i327
+  %395 = add nsw i64 %indvars.iv41.i328, %372
+  %396 = mul nsw i64 %395, 3
+  %397 = getelementptr inbounds i8, ptr %380, i64 %396
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %397, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  br label %398
+
+398:                                              ; preds = %394, %.preheader.split.split.i327
+  %indvars.iv.next42.i330 = add nsw i64 %indvars.iv41.i328, 1
+  %exitcond44.not.i331 = icmp eq i64 %indvars.iv.next42.i330, 2
+  br i1 %exitcond44.not.i331, label %.split.us.i323, label %.preheader.split.split.i327, !llvm.loop !107
+
+.split.us.i323:                                   ; preds = %390, %398, %.preheader.i314
+  %indvars.iv.next46.i324 = add nsw i64 %indvars.iv45.i315, 1
+  %exitcond48.not.i325 = icmp eq i64 %indvars.iv.next46.i324, 2
+  br i1 %exitcond48.not.i325, label %stbhw__draw_clipped_corner.exit332.loopexit, label %.preheader.i314, !llvm.loop !108
+
+stbhw__draw_clipped_corner.exit332.loopexit:      ; preds = %.split.us.i323
+  %.pre367 = load ptr, ptr %16, align 8, !tbaa !12
+  %.pre369.pre = load ptr, ptr %20, align 8, !tbaa !88
+  %.pre371.pre = load i32, ptr %22, align 8, !tbaa !89
+  br label %stbhw__draw_clipped_corner.exit332
+
+stbhw__draw_clipped_corner.exit332:               ; preds = %stbhw__draw_clipped_corner.exit332.loopexit, %stbhw__draw_clipped_corner.exit313
+  %.pre371 = phi i32 [ %.pre371.pre, %stbhw__draw_clipped_corner.exit332.loopexit ], [ %.pre371.pre374, %stbhw__draw_clipped_corner.exit313 ]
+  %.pre369 = phi ptr [ %.pre369.pre, %stbhw__draw_clipped_corner.exit332.loopexit ], [ %.pre369.pre372, %stbhw__draw_clipped_corner.exit313 ]
+  %399 = phi ptr [ %.pre367, %stbhw__draw_clipped_corner.exit332.loopexit ], [ %364, %stbhw__draw_clipped_corner.exit313 ]
+  %400 = getelementptr inbounds nuw i8, ptr %399, i64 88
+  %401 = getelementptr inbounds i32, ptr %400, i64 %174
+  %402 = load i32, ptr %401, align 4, !tbaa !32
+  %.not143 = icmp eq i32 %402, 0
+  br i1 %.not143, label %stbhw__draw_clipped_corner.exit351, label %403
+
+403:                                              ; preds = %stbhw__draw_clipped_corner.exit332
+  %404 = or disjoint i32 %202, 1
+  %405 = add nsw i32 %404, %2
+  %406 = sext i32 %105 to i64
+  %407 = sext i32 %19 to i64
+  %408 = sext i32 %106 to i64
+  %409 = sext i32 %405 to i64
+  %410 = sext i32 %.pre371 to i64
+  br label %.preheader.i333
+
+.preheader.i333:                                  ; preds = %.split.us.i342, %403
+  %indvars.iv45.i334 = phi i64 [ -2, %403 ], [ %indvars.iv.next46.i343, %.split.us.i342 ]
+  %indvars47.i335 = trunc i64 %indvars.iv45.i334 to i32
+  %411 = add i32 %404, %indvars47.i335
+  %412 = icmp slt i32 %411, 1
+  %413 = icmp sgt i32 %411, %202
+  %or.cond31.i336 = or i1 %412, %413
+  %414 = add nsw i64 %indvars.iv45.i334, %409
+  %415 = mul nsw i64 %414, %410
+  %416 = getelementptr inbounds i8, ptr %.pre369, i64 %415
+  br i1 %or.cond31.i336, label %.split.us.i342, label %.preheader.split.i337
+
+.preheader.split.i337:                            ; preds = %.preheader.i333
+  switch i32 %indvars47.i335, label %.preheader.split.split.i346 [
+    i32 -2, label %.preheader.split.split.us.i338.preheader
+    i32 1, label %.preheader.split.split.us.i338.preheader
+  ]
+
+.preheader.split.split.us.i338.preheader:         ; preds = %.preheader.split.i337, %.preheader.split.i337
+  br label %.preheader.split.split.us.i338
+
+.preheader.split.split.us.i338:                   ; preds = %.preheader.split.split.us.i338.preheader, %426
+  %indvars.iv.i339 = phi i64 [ %indvars.iv.next.i340, %426 ], [ -2, %.preheader.split.split.us.i338.preheader ]
+  %417 = trunc nsw i64 %indvars.iv.i339 to i32
+  switch i32 %417, label %418 [
+    i32 -2, label %426
+    i32 1, label %426
+  ]
+
+418:                                              ; preds = %.preheader.split.split.us.i338
+  %419 = add nsw i64 %indvars.iv.i339, %406
+  %420 = icmp slt i64 %419, 1
+  %421 = icmp sgt i64 %419, %407
+  %or.cond.us34.i345 = or i1 %420, %421
+  br i1 %or.cond.us34.i345, label %426, label %422
+
+422:                                              ; preds = %418
+  %423 = add nsw i64 %indvars.iv.i339, %408
+  %424 = mul nsw i64 %423, 3
+  %425 = getelementptr inbounds i8, ptr %416, i64 %424
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %425, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  br label %426
+
+426:                                              ; preds = %422, %418, %.preheader.split.split.us.i338, %.preheader.split.split.us.i338
+  %indvars.iv.next.i340 = add nsw i64 %indvars.iv.i339, 1
+  %exitcond.not.i341 = icmp eq i64 %indvars.iv.next.i340, 2
+  br i1 %exitcond.not.i341, label %.split.us.i342, label %.preheader.split.split.us.i338, !llvm.loop !107
+
+.preheader.split.split.i346:                      ; preds = %.preheader.split.i337, %434
+  %indvars.iv41.i347 = phi i64 [ %indvars.iv.next42.i349, %434 ], [ -2, %.preheader.split.i337 ]
+  %427 = add nsw i64 %indvars.iv41.i347, %406
+  %428 = icmp slt i64 %427, 1
+  %429 = icmp sgt i64 %427, %407
+  %or.cond.i348 = or i1 %428, %429
+  br i1 %or.cond.i348, label %434, label %430
+
+430:                                              ; preds = %.preheader.split.split.i346
+  %431 = add nsw i64 %indvars.iv41.i347, %408
+  %432 = mul nsw i64 %431, 3
+  %433 = getelementptr inbounds i8, ptr %416, i64 %432
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %433, ptr noundef nonnull readonly align 1 dereferenceable(3) @__const.stbhw__draw_clipped_corner.template_color, i64 3, i1 false)
+  br label %434
+
+434:                                              ; preds = %430, %.preheader.split.split.i346
+  %indvars.iv.next42.i349 = add nsw i64 %indvars.iv41.i347, 1
+  %exitcond44.not.i350 = icmp eq i64 %indvars.iv.next42.i349, 2
+  br i1 %exitcond44.not.i350, label %.split.us.i342, label %.preheader.split.split.i346, !llvm.loop !107
+
+.split.us.i342:                                   ; preds = %426, %434, %.preheader.i333
+  %indvars.iv.next46.i343 = add nsw i64 %indvars.iv45.i334, 1
+  %exitcond48.not.i344 = icmp eq i64 %indvars.iv.next46.i343, 2
+  br i1 %exitcond48.not.i344, label %stbhw__draw_clipped_corner.exit351.loopexit, label %.preheader.i333, !llvm.loop !108
+
+stbhw__draw_clipped_corner.exit351.loopexit:      ; preds = %.split.us.i342
+  %.pre368 = load ptr, ptr %20, align 8, !tbaa !88
+  %.pre370 = load i32, ptr %22, align 8, !tbaa !89
+  br label %stbhw__draw_clipped_corner.exit351
+
+stbhw__draw_clipped_corner.exit351:               ; preds = %stbhw__draw_clipped_corner.exit351.loopexit, %stbhw__draw_clipped_corner.exit332
+  %435 = phi i32 [ %.pre370, %stbhw__draw_clipped_corner.exit351.loopexit ], [ %.pre371, %stbhw__draw_clipped_corner.exit332 ]
+  %436 = phi ptr [ %.pre368, %stbhw__draw_clipped_corner.exit351.loopexit ], [ %.pre369, %stbhw__draw_clipped_corner.exit332 ]
+  %437 = getelementptr inbounds [3 x i8], ptr @stbhw__corner_colors, i64 %25
+  %438 = mul nsw i32 %435, %2
+  %439 = sext i32 %438 to i64
+  %440 = getelementptr inbounds i8, ptr %436, i64 %439
+  %441 = getelementptr inbounds i8, ptr %440, i64 %87
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %441, ptr noundef nonnull readonly align 1 dereferenceable(3) %437, i64 3, i1 false)
+  %442 = load ptr, ptr %20, align 8, !tbaa !88
+  %443 = load i32, ptr %22, align 8, !tbaa !89
+  %444 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__corner_colors, i64 36), i64 %71
+  %445 = mul nsw i32 %443, %140
+  %446 = sext i32 %445 to i64
+  %447 = getelementptr inbounds i8, ptr %442, i64 %446
+  %448 = getelementptr inbounds i8, ptr %447, i64 %87
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %448, ptr noundef nonnull readonly align 1 dereferenceable(3) %444, i64 3, i1 false)
+  %449 = load ptr, ptr %20, align 8, !tbaa !88
+  %450 = load i32, ptr %22, align 8, !tbaa !89
+  %451 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__corner_colors, i64 24), i64 %143
+  %452 = mul nsw i32 %450, %203
+  %453 = sext i32 %452 to i64
+  %454 = getelementptr inbounds i8, ptr %449, i64 %453
+  %455 = getelementptr inbounds i8, ptr %454, i64 %87
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %455, ptr noundef nonnull readonly align 1 dereferenceable(3) %451, i64 3, i1 false)
+  %456 = load ptr, ptr %20, align 8, !tbaa !88
+  %457 = load i32, ptr %22, align 8, !tbaa !89
+  %458 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__corner_colors, i64 12), i64 %27
+  %459 = mul nsw i32 %457, %2
+  %460 = sext i32 %459 to i64
+  %461 = getelementptr inbounds i8, ptr %456, i64 %460
+  %462 = getelementptr inbounds i8, ptr %461, i64 %123
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %462, ptr noundef nonnull readonly align 1 dereferenceable(3) %458, i64 3, i1 false)
+  %463 = load ptr, ptr %20, align 8, !tbaa !88
+  %464 = load i32, ptr %22, align 8, !tbaa !89
+  %465 = getelementptr inbounds [3 x i8], ptr @stbhw__corner_colors, i64 %108
+  %466 = mul nsw i32 %464, %140
+  %467 = sext i32 %466 to i64
+  %468 = getelementptr inbounds i8, ptr %463, i64 %467
+  %469 = getelementptr inbounds i8, ptr %468, i64 %123
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %469, ptr noundef nonnull readonly align 1 dereferenceable(3) %465, i64 3, i1 false)
+  %470 = load ptr, ptr %20, align 8, !tbaa !88
+  %471 = load i32, ptr %22, align 8, !tbaa !89
+  %472 = getelementptr inbounds [3 x i8], ptr getelementptr inbounds nuw (i8, ptr @stbhw__corner_colors, i64 36), i64 %174
+  %473 = mul nsw i32 %471, %203
+  %474 = sext i32 %473 to i64
+  %475 = getelementptr inbounds i8, ptr %470, i64 %474
+  %476 = getelementptr inbounds i8, ptr %475, i64 %123
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %476, ptr noundef nonnull readonly align 1 dereferenceable(3) %472, i64 3, i1 false)
   ret void
 }
 

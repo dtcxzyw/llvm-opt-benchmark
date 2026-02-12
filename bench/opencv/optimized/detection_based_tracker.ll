@@ -4933,8 +4933,7 @@ define { i64, i64 } @_ZNK2cv21DetectionBasedTracker31calcTrackedObjectPositionTo
 .lr.ph.preheader:                                 ; preds = %42
   %.sroa.speculated186 = tail call i32 @llvm.smin.i32(i32 %51, i32 %39)
   %62 = and i64 %38, 2147483647
-  %smax = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated186, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %.sroa.speculated186 to i64
   %63 = getelementptr %"class.cv::Rect_", ptr %34, i64 %62
   br label %.lr.ph
 
@@ -4990,8 +4989,7 @@ define { i64, i64 } @_ZNK2cv21DetectionBasedTracker31calcTrackedObjectPositionTo
 
 .lr.ph209.preheader:                              ; preds = %94
   %96 = and i64 %38, 2147483647
-  %smax220 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated, i32 1)
-  %wide.trip.count221 = zext nneg i32 %smax220 to i64
+  %wide.trip.count221 = zext nneg i32 %.sroa.speculated to i64
   %97 = getelementptr %"class.cv::Rect_", ptr %34, i64 %96
   br label %.lr.ph209
 

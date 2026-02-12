@@ -1005,7 +1005,6 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE7reserveEm.exit207: ; 
   %417 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %418 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %419 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %smax = call i32 @llvm.smax.i32(i32 %18, i32 1)
   br label %420
 
 420:                                              ; preds = %.lr.ph322, %._crit_edge320
@@ -1636,7 +1635,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit2
 
 ._crit_edge320:                                   ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit236, %.preheader
   %700 = add nuw nsw i32 %.0113321, 1
-  %exitcond335.not = icmp eq i32 %700, %smax
+  %exitcond335.not = icmp eq i32 %700, %18
   br i1 %exitcond335.not, label %._crit_edge323, label %420, !llvm.loop !15
 
 ._crit_edge323:                                   ; preds = %._crit_edge320, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE7reserveEm.exit207
@@ -2258,9 +2257,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smax.i16(i16, i16) #11
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

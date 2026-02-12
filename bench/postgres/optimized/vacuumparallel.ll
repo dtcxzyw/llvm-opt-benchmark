@@ -230,8 +230,7 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
   %113 = getelementptr inbounds nuw i8, ptr %43, i64 80
   %114 = getelementptr inbounds nuw i8, ptr %43, i64 84
   %115 = getelementptr inbounds nuw i8, ptr %43, i64 88
-  %smax = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %2 to i64
   br label %127
 
 ._crit_edge:                                      ; preds = %156

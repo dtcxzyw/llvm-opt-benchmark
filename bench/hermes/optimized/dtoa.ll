@@ -3452,8 +3452,7 @@ if.end239:                                        ; preds = %for.end234, %if.the
   br i1 %cmp247856, label %bump_up, label %if.end250.preheader
 
 if.end250.preheader:                              ; preds = %if.end239
-  %smax = tail call i32 @llvm.smax.i32(i32 %ilim.2, i32 1)
-  %59 = add nuw i32 %smax, 4
+  %59 = add nuw i32 %ilim.2, 4
   %wide.trip.count = zext i32 %59 to i64
   br label %if.end250
 
@@ -6769,8 +6768,7 @@ if.end239:                                        ; preds = %for.end234, %if.the
   br i1 %cmp247810, label %bump_up, label %if.end250.preheader
 
 if.end250.preheader:                              ; preds = %if.end239
-  %smax = tail call i32 @llvm.smax.i32(i32 %ilim.2, i32 1)
-  %59 = add nuw i32 %smax, 4
+  %59 = add nuw i32 %ilim.2, 4
   %wide.trip.count = zext i32 %59 to i64
   br label %if.end250
 

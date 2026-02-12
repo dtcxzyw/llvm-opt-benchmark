@@ -492,7 +492,7 @@ _ZN4YAML6detail13fp_formatting14ConvertToCharsEPcS2_mi.exit162: ; preds = %.preh
 .lr.ph204.preheader:                              ; preds = %.preheader192
   %155 = tail call i32 @llvm.umin.i32(i32 %.0180, i32 %115)
   %156 = zext nneg i32 %155 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0100, ptr noundef nonnull align 1 dereferenceable(1) %8, i64 %156, i1 false), !tbaa !3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0100, ptr nonnull align 1 %8, i64 %156, i1 false), !tbaa !3
   %scevgep = getelementptr i8, ptr %8, i64 %156
   %scevgep236 = getelementptr i8, ptr %.0100, i64 %156
   br label %.preheader190
@@ -984,7 +984,7 @@ _ZN4YAML6detail13fp_formatting14ConvertToCharsEPcS2_mi.exit157: ; preds = %.preh
 .lr.ph199.preheader:                              ; preds = %.preheader187
   %156 = tail call i32 @llvm.umin.i32(i32 %.0175, i32 %116)
   %157 = zext nneg i32 %156 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.094, ptr noundef nonnull align 1 dereferenceable(1) %8, i64 %157, i1 false), !tbaa !3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.094, ptr nonnull align 1 %8, i64 %157, i1 false), !tbaa !3
   %scevgep = getelementptr i8, ptr %8, i64 %157
   %scevgep231 = getelementptr i8, ptr %.094, i64 %157
   br label %.preheader185

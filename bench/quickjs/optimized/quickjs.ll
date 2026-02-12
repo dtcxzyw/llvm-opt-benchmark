@@ -82060,7 +82060,7 @@ js_ecvt.exit:                                     ; preds = %158, %164
 176:                                              ; preds = %174, %js_ecvt.exit
   %.091 = phi ptr [ %175, %174 ], [ %0, %js_ecvt.exit ]
   %.not106 = icmp samesign ult i32 %4, 4
-  br i1 %.not106, label %177, label %206
+  br i1 %.not106, label %177, label %209
 
 177:                                              ; preds = %176
   %178 = icmp ugt i32 %172, 2147483646
@@ -82129,7 +82129,7 @@ js_ecvt.exit:                                     ; preds = %158, %164
 
 199:                                              ; preds = %177
   %or.cond3 = icmp ugt i32 %172, -7
-  br i1 %or.cond3, label %200, label %206
+  br i1 %or.cond3, label %200, label %209
 
 200:                                              ; preds = %199
   %201 = getelementptr inbounds nuw i8, ptr %.091, i64 1
@@ -82140,61 +82140,62 @@ js_ecvt.exit:                                     ; preds = %158, %164
   br i1 %.not146, label %._crit_edge144, label %.lr.ph143.preheader
 
 .lr.ph143.preheader:                              ; preds = %200
-  %smax = and i64 %171, 7
-  %203 = xor i64 %smax, 7
-  tail call void @llvm.memset.p0.i64(ptr align 1 %202, i8 48, i64 %203, i1 false), !tbaa !46
-  %narrow170 = sub nsw i64 1, %171
-  %204 = and i64 %narrow170, 15
-  %scevgep160 = getelementptr i8, ptr %.091, i64 %204
+  %203 = and i64 %171, 7
+  %204 = xor i64 %203, 7
+  tail call void @llvm.memset.p0.i64(ptr align 1 %202, i8 48, i64 %204, i1 false), !tbaa !46
+  %205 = sub i64 4294967294, %171
+  %206 = and i64 %205, 4294967295
+  %207 = getelementptr i8, ptr %.091, i64 %206
+  %scevgep160 = getelementptr i8, ptr %207, i64 3
   br label %._crit_edge144
 
 ._crit_edge144:                                   ; preds = %.lr.ph143.preheader, %200
   %.3.lcssa = phi ptr [ %202, %200 ], [ %scevgep160, %.lr.ph143.preheader ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.3.lcssa, ptr nonnull align 16 %12, i64 %168, i1 false)
-  %205 = getelementptr inbounds i8, ptr %.3.lcssa, i64 %168
-  store i8 0, ptr %205, align 1, !tbaa !46
+  %208 = getelementptr inbounds i8, ptr %.3.lcssa, i64 %168
+  store i8 0, ptr %208, align 1, !tbaa !46
   br label %js_fcvt.exit
 
-206:                                              ; preds = %199, %176
-  %207 = load i8, ptr %12, align 16, !tbaa !46
-  %208 = getelementptr inbounds nuw i8, ptr %.091, i64 1
-  store i8 %207, ptr %.091, align 1, !tbaa !46
+209:                                              ; preds = %199, %176
+  %210 = load i8, ptr %12, align 16, !tbaa !46
+  %211 = getelementptr inbounds nuw i8, ptr %.091, i64 1
+  store i8 %210, ptr %.091, align 1, !tbaa !46
   br i1 %163, label %.loopexit.loopexit, label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %206
-  %209 = getelementptr i8, ptr %.091, i64 2
-  store i8 46, ptr %208, align 1, !tbaa !46
+.loopexit.loopexit:                               ; preds = %209
+  %212 = getelementptr i8, ptr %.091, i64 2
+  store i8 46, ptr %211, align 1, !tbaa !46
   %scevgep154 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %210 = add nsw i32 %.13761.i, -1
-  %211 = zext nneg i32 %210 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %209, ptr nonnull align 1 %scevgep154, i64 %211, i1 false), !tbaa !46
+  %213 = add nsw i32 %.13761.i, -1
+  %214 = zext nneg i32 %213 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %212, ptr nonnull align 1 %scevgep154, i64 %214, i1 false), !tbaa !46
   %narrow = add nuw i32 %.13761.i, 1
-  %212 = zext i32 %narrow to i64
-  %scevgep157 = getelementptr i8, ptr %.091, i64 %212
+  %215 = zext i32 %narrow to i64
+  %scevgep157 = getelementptr i8, ptr %.091, i64 %215
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %206
-  %.4 = phi ptr [ %208, %206 ], [ %scevgep157, %.loopexit.loopexit ]
-  %213 = getelementptr inbounds nuw i8, ptr %.4, i64 1
+.loopexit:                                        ; preds = %.loopexit.loopexit, %209
+  %.4 = phi ptr [ %211, %209 ], [ %scevgep157, %.loopexit.loopexit ]
+  %216 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   store i8 101, ptr %.4, align 1, !tbaa !46
-  %214 = icmp sgt i32 %172, -1
-  br i1 %214, label %215, label %217
+  %217 = icmp sgt i32 %172, -1
+  br i1 %217, label %218, label %220
 
-215:                                              ; preds = %.loopexit
-  %216 = getelementptr inbounds nuw i8, ptr %.4, i64 2
-  store i8 43, ptr %213, align 1, !tbaa !46
-  br label %217
+218:                                              ; preds = %.loopexit
+  %219 = getelementptr inbounds nuw i8, ptr %.4, i64 2
+  store i8 43, ptr %216, align 1, !tbaa !46
+  br label %220
 
-217:                                              ; preds = %215, %.loopexit
-  %.6 = phi ptr [ %216, %215 ], [ %213, %.loopexit ]
-  %218 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %219 = ptrtoint ptr %218 to i64
-  %220 = ptrtoint ptr %.6 to i64
-  %221 = sub i64 %219, %220
-  %222 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.6, i64 noundef %221, ptr noundef nonnull @.str.63, i32 noundef %172) #43
+220:                                              ; preds = %218, %.loopexit
+  %.6 = phi ptr [ %219, %218 ], [ %216, %.loopexit ]
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %222 = ptrtoint ptr %221 to i64
+  %223 = ptrtoint ptr %.6 to i64
+  %224 = sub i64 %222, %223
+  %225 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.6, i64 noundef %224, ptr noundef nonnull @.str.63, i32 noundef %172) #43
   br label %js_fcvt.exit
 
-js_fcvt.exit:                                     ; preds = %71, %.thread.i, %47, %._crit_edge136, %._crit_edge, %217, %._crit_edge144, %17, %21, %20
+js_fcvt.exit:                                     ; preds = %71, %.thread.i, %47, %._crit_edge136, %._crit_edge, %220, %._crit_edge144, %17, %21, %20
   ret void
 }
 

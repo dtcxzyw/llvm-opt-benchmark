@@ -920,8 +920,7 @@ define void @png_set_pCAL(ptr noalias noundef %0, ptr noalias noundef captures(a
   br i1 %.not100, label %._crit_edge99, label %.lr.ph98.preheader
 
 .lr.ph98.preheader:                               ; preds = %59
-  %smax = tail call i32 @llvm.smax.i32(i32 %6, i32 1)
-  %wide.trip.count106 = zext nneg i32 %smax to i64
+  %wide.trip.count106 = zext nneg i32 %6 to i64
   br label %.lr.ph98
 
 .lr.ph98:                                         ; preds = %.lr.ph98.preheader, %68
@@ -2746,9 +2745,6 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

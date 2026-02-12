@@ -2264,13 +2264,20 @@ bits_read_signed_nz_le.exit298.i:                 ; preds = %bits_priv_refill_32
   br label %.lr.ph358.split.us.i, !llvm.loop !104
 
 .lr.ph346.us.i:                                   ; preds = %.lr.ph358.split.us.i
-  %smax411.i = tail call i32 @llvm.smax.i32(i32 %574, i32 1)
-  %wide.trip.count412.i = zext nneg i32 %smax411.i to i64
-  br i1 %.not212.i, label %.lr.ph340.us.us.us.i, label %.lr.ph340.us.us.i
+  br i1 %.not212.i, label %.lr.ph340.us.us.us.preheader.i, label %.lr.ph340.us.us.preheader.i
 
-.lr.ph340.us.us.us.i:                             ; preds = %.lr.ph346.us.i, %._crit_edge341.us.us.us.i
-  %indvars.iv408.i = phi i64 [ %indvars.iv.next409.i, %._crit_edge341.us.us.us.i ], [ 0, %.lr.ph346.us.i ]
-  %.3344.us.us.us.i = phi ptr [ %616, %._crit_edge341.us.us.us.i ], [ %.2356.us.i, %.lr.ph346.us.i ]
+.lr.ph340.us.us.preheader.i:                      ; preds = %.lr.ph346.us.i
+  %smax.i = tail call i32 @llvm.smax.i32(i32 %574, i32 1)
+  %wide.trip.count404.i = zext nneg i32 %smax.i to i64
+  br label %.lr.ph340.us.us.i
+
+.lr.ph340.us.us.us.preheader.i:                   ; preds = %.lr.ph346.us.i
+  %wide.trip.count412.i = zext nneg i32 %574 to i64
+  br label %.lr.ph340.us.us.us.i
+
+.lr.ph340.us.us.us.i:                             ; preds = %._crit_edge341.us.us.us.i, %.lr.ph340.us.us.us.preheader.i
+  %indvars.iv408.i = phi i64 [ 0, %.lr.ph340.us.us.us.preheader.i ], [ %indvars.iv.next409.i, %._crit_edge341.us.us.us.i ]
+  %.3344.us.us.us.i = phi ptr [ %.2356.us.i, %.lr.ph340.us.us.us.preheader.i ], [ %616, %._crit_edge341.us.us.us.i ]
   %invariant.gep541.i = getelementptr inbounds nuw i16, ptr %187, i64 %indvars.iv408.i
   br label %578
 
@@ -2330,9 +2337,9 @@ bits_read_signed_nz_le.exit298.i:                 ; preds = %bits_priv_refill_32
   %exitcond413.not.i = icmp eq i64 %indvars.iv.next409.i, %wide.trip.count412.i
   br i1 %exitcond413.not.i, label %._crit_edge347.split.us.us.i, label %.lr.ph340.us.us.us.i, !llvm.loop !106
 
-.lr.ph340.us.us.i:                                ; preds = %.lr.ph346.us.i, %._crit_edge341.us.us.i
-  %indvars.iv401.i = phi i64 [ %indvars.iv.next402.i, %._crit_edge341.us.us.i ], [ 0, %.lr.ph346.us.i ]
-  %.3344.us.us.i = phi ptr [ %661, %._crit_edge341.us.us.i ], [ %.2356.us.i, %.lr.ph346.us.i ]
+.lr.ph340.us.us.i:                                ; preds = %._crit_edge341.us.us.i, %.lr.ph340.us.us.preheader.i
+  %indvars.iv401.i = phi i64 [ 0, %.lr.ph340.us.us.preheader.i ], [ %indvars.iv.next402.i, %._crit_edge341.us.us.i ]
+  %.3344.us.us.i = phi ptr [ %.2356.us.i, %.lr.ph340.us.us.preheader.i ], [ %661, %._crit_edge341.us.us.i ]
   %619 = load ptr, ptr %188, align 8, !tbaa !107
   %620 = getelementptr inbounds nuw i16, ptr %187, i64 %indvars.iv401.i
   %621 = tail call i32 %619(ptr noundef nonnull %620, ptr noundef nonnull %186, i32 noundef %561) #12
@@ -2392,7 +2399,7 @@ bits_read_signed_nz_le.exit298.i:                 ; preds = %bits_priv_refill_32
   %gep540.i = getelementptr inbounds nuw i16, ptr %invariant.gep539.i, i64 %indvars.iv401.i
   store i16 %663, ptr %gep540.i, align 2, !tbaa !78
   %indvars.iv.next402.i = add nuw nsw i64 %indvars.iv401.i, 1
-  %exitcond405.not.i = icmp eq i64 %indvars.iv.next402.i, %wide.trip.count412.i
+  %exitcond405.not.i = icmp eq i64 %indvars.iv.next402.i, %wide.trip.count404.i
   br i1 %exitcond405.not.i, label %._crit_edge347.split.us.us.i, label %.lr.ph340.us.us.i, !llvm.loop !106
 
 .lr.ph358.split.i:                                ; preds = %684, %.lr.ph358.split.preheader.i
@@ -2402,13 +2409,20 @@ bits_read_signed_nz_le.exit298.i:                 ; preds = %bits_priv_refill_32
   br i1 %573, label %.lr.ph346.i, label %._crit_edge347.split.i
 
 .lr.ph346.i:                                      ; preds = %.lr.ph358.split.i
-  %smax423.i = tail call i32 @llvm.smax.i32(i32 %664, i32 1)
-  %wide.trip.count424.i = zext nneg i32 %smax423.i to i64
-  br i1 %.not212.i, label %.lr.ph346.split.split.us.i, label %.lr.ph346.split.split.i
+  br i1 %.not212.i, label %.lr.ph346.split.split.us.preheader.i, label %.lr.ph346.split.split.preheader.i
 
-.lr.ph346.split.split.us.i:                       ; preds = %.lr.ph346.i, %.lr.ph346.split.split.us.i
-  %indvars.iv420.i = phi i64 [ %indvars.iv.next421.i, %.lr.ph346.split.split.us.i ], [ 0, %.lr.ph346.i ]
-  %.3344.us349.i = phi ptr [ %667, %.lr.ph346.split.split.us.i ], [ %.2356.i, %.lr.ph346.i ]
+.lr.ph346.split.split.preheader.i:                ; preds = %.lr.ph346.i
+  %smax417.i = tail call i32 @llvm.smax.i32(i32 %664, i32 1)
+  %wide.trip.count418.i = zext nneg i32 %smax417.i to i64
+  br label %.lr.ph346.split.split.i
+
+.lr.ph346.split.split.us.preheader.i:             ; preds = %.lr.ph346.i
+  %wide.trip.count424.i = zext nneg i32 %664 to i64
+  br label %.lr.ph346.split.split.us.i
+
+.lr.ph346.split.split.us.i:                       ; preds = %.lr.ph346.split.split.us.i, %.lr.ph346.split.split.us.preheader.i
+  %indvars.iv420.i = phi i64 [ 0, %.lr.ph346.split.split.us.preheader.i ], [ %indvars.iv.next421.i, %.lr.ph346.split.split.us.i ]
+  %.3344.us349.i = phi ptr [ %.2356.i, %.lr.ph346.split.split.us.preheader.i ], [ %667, %.lr.ph346.split.split.us.i ]
   %665 = load i32, ptr %.3344.us349.i, align 4, !tbaa !72
   %666 = sub i32 %564, %665
   %667 = getelementptr inbounds nuw i8, ptr %.3344.us349.i, i64 4
@@ -2421,9 +2435,9 @@ bits_read_signed_nz_le.exit298.i:                 ; preds = %bits_priv_refill_32
   %exitcond425.not.i = icmp eq i64 %indvars.iv.next421.i, %wide.trip.count424.i
   br i1 %exitcond425.not.i, label %._crit_edge347.split.i, label %.lr.ph346.split.split.us.i, !llvm.loop !106
 
-.lr.ph346.split.split.i:                          ; preds = %.lr.ph346.i, %.lr.ph346.split.split.i
-  %indvars.iv414.i = phi i64 [ %indvars.iv.next415.i, %.lr.ph346.split.split.i ], [ 0, %.lr.ph346.i ]
-  %.3344.i = phi ptr [ %679, %.lr.ph346.split.split.i ], [ %.2356.i, %.lr.ph346.i ]
+.lr.ph346.split.split.i:                          ; preds = %.lr.ph346.split.split.i, %.lr.ph346.split.split.preheader.i
+  %indvars.iv414.i = phi i64 [ 0, %.lr.ph346.split.split.preheader.i ], [ %indvars.iv.next415.i, %.lr.ph346.split.split.i ]
+  %.3344.i = phi ptr [ %.2356.i, %.lr.ph346.split.split.preheader.i ], [ %679, %.lr.ph346.split.split.i ]
   %670 = load ptr, ptr %188, align 8, !tbaa !107
   %671 = getelementptr inbounds nuw i16, ptr %187, i64 %indvars.iv414.i
   %672 = tail call i32 %670(ptr noundef nonnull %671, ptr noundef nonnull %186, i32 noundef %224) #12
@@ -2441,7 +2455,7 @@ bits_read_signed_nz_le.exit298.i:                 ; preds = %bits_priv_refill_32
   %gep546.i = getelementptr inbounds nuw i16, ptr %invariant.gep545.i, i64 %indvars.iv414.i
   store i16 %681, ptr %gep546.i, align 2, !tbaa !78
   %indvars.iv.next415.i = add nuw nsw i64 %indvars.iv414.i, 1
-  %exitcond419.not.i = icmp eq i64 %indvars.iv.next415.i, %wide.trip.count424.i
+  %exitcond419.not.i = icmp eq i64 %indvars.iv.next415.i, %wide.trip.count418.i
   br i1 %exitcond419.not.i, label %._crit_edge347.split.i, label %.lr.ph346.split.split.i, !llvm.loop !106
 
 ._crit_edge347.split.i:                           ; preds = %.lr.ph346.split.split.i, %.lr.ph346.split.split.us.i, %.lr.ph358.split.i

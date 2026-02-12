@@ -18628,8 +18628,7 @@ av_isspace.exit.thread.i277:                      ; preds = %.lr.ph.i275, %.lr.p
   br i1 %exitcond.not, label %.lr.ph433.preheader, label %.lr.ph430, !llvm.loop !229
 
 .lr.ph433.preheader:                              ; preds = %67
-  %smax = call i32 @llvm.smax.i32(i32 %47, i32 1)
-  %wide.trip.count480 = zext nneg i32 %smax to i64
+  %wide.trip.count480 = and i64 %46, 131071
   br label %.lr.ph433
 
 .lr.ph430:                                        ; preds = %.lr.ph430.preheader, %67

@@ -8087,20 +8087,16 @@ define noundef i32 @_Z10find_groupPKcN3gmx8ArrayRefIK10IndexGroupEE(ptr noundef 
   %10 = trunc i64 %9 to i32
   %11 = sdiv exact i64 %8, 56
   %12 = icmp sgt i64 %8, 0
-  br i1 %12, label %.lr.ph.preheader.i, label %._crit_edge65.thread.i
-
-.lr.ph.preheader.i:                               ; preds = %3
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %11, i64 1)
-  br label %.lr.ph.i
+  br i1 %12, label %.lr.ph.i, label %._crit_edge65.thread.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %13 = icmp eq i32 %.1.i, -1
   br i1 %13, label %.lr.ph64.i, label %.thread.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.02558.i = phi i64 [ %19, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %.02657.i = phi i32 [ %.1.i, %.lr.ph.i ], [ -1, %.lr.ph.preheader.i ]
-  %.02756.i = phi i1 [ %.229.i, %.lr.ph.i ], [ false, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %3, %.lr.ph.i
+  %.02558.i = phi i64 [ %19, %.lr.ph.i ], [ 0, %3 ]
+  %.02657.i = phi i32 [ %.1.i, %.lr.ph.i ], [ -1, %3 ]
+  %.02756.i = phi i1 [ %.229.i, %.lr.ph.i ], [ false, %3 ]
   %14 = getelementptr inbounds nuw %struct.IndexGroup, ptr %1, i64 %.02558.i
   %.val.i = load ptr, ptr %14, align 8, !tbaa !11
   %15 = tail call noundef i32 @_Z18gmx_strcasecmp_minPKcS0_(ptr noundef nonnull %0, ptr noundef %.val.i)
@@ -8111,7 +8107,7 @@ define noundef i32 @_Z10find_groupPKcN3gmx8ArrayRefIK10IndexGroupEE(ptr noundef 
   %.229.i = select i1 %18, i1 true, i1 %.02756.i
   %.1.i = select i1 %16, i32 %17, i32 %.02657.i
   %19 = add nuw nsw i64 %.02558.i, 1
-  %exitcond.not.i = icmp eq i64 %19, %smax.i
+  %exitcond.not.i = icmp eq i64 %19, %11
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !181
 
 .lr.ph64.i:                                       ; preds = %._crit_edge.i, %.lr.ph64.i
@@ -8128,7 +8124,7 @@ define noundef i32 @_Z10find_groupPKcN3gmx8ArrayRefIK10IndexGroupEE(ptr noundef 
   %.633.i = select i1 %24, i1 true, i1 %.43161.i
   %.4.i = select i1 %22, i32 %23, i32 %.362.i
   %25 = add nuw nsw i64 %.02463.i, 1
-  %exitcond77.not.i = icmp eq i64 %25, %smax.i
+  %exitcond77.not.i = icmp eq i64 %25, %11
   br i1 %exitcond77.not.i, label %._crit_edge65.i, label %.lr.ph64.i, !llvm.loop !182
 
 ._crit_edge65.i:                                  ; preds = %.lr.ph64.i
@@ -8167,11 +8163,7 @@ define noundef i32 @_Z10find_groupPKcN3gmx8ArrayRefIK10IndexGroupEE(ptr noundef 
   br i1 %39, label %.lr.ph.i.i, label %_ZL9minstringPc.exit.i, !llvm.loop !183
 
 _ZL9minstringPc.exit.i:                           ; preds = %36, %._crit_edge65.thread.i
-  br i1 %12, label %.lr.ph71.preheader.i, label %._crit_edge72.i
-
-.lr.ph71.preheader.i:                             ; preds = %_ZL9minstringPc.exit.i
-  %smax78.i = call i64 @llvm.smax.i64(i64 %11, i64 1)
-  br label %.lr.ph71.i
+  br i1 %12, label %.lr.ph71.i, label %._crit_edge72.i
 
 ._crit_edge72.i:                                  ; preds = %_ZL9minstringPc.exit49.i, %_ZL9minstringPc.exit.i
   %.835.lcssa.i = phi i1 [ %.431.lcssa87.i, %_ZL9minstringPc.exit.i ], [ %.10.i, %_ZL9minstringPc.exit49.i ]
@@ -8179,10 +8171,10 @@ _ZL9minstringPc.exit.i:                           ; preds = %36, %._crit_edge65.
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.835.lcssa.i, label %56, label %_ZL18findGroupTemplatedIK10IndexGroupEiPKcN3gmx8ArrayRefIT_EE.exit
 
-.lr.ph71.i:                                       ; preds = %_ZL9minstringPc.exit49.i, %.lr.ph71.preheader.i
-  %.070.i = phi i64 [ %55, %_ZL9minstringPc.exit49.i ], [ 0, %.lr.ph71.preheader.i ]
-  %.669.i = phi i32 [ %.7.i, %_ZL9minstringPc.exit49.i ], [ -1, %.lr.ph71.preheader.i ]
-  %.83568.i = phi i1 [ %.10.i, %_ZL9minstringPc.exit49.i ], [ %.431.lcssa87.i, %.lr.ph71.preheader.i ]
+.lr.ph71.i:                                       ; preds = %_ZL9minstringPc.exit.i, %_ZL9minstringPc.exit49.i
+  %.070.i = phi i64 [ %55, %_ZL9minstringPc.exit49.i ], [ 0, %_ZL9minstringPc.exit.i ]
+  %.669.i = phi i32 [ %.7.i, %_ZL9minstringPc.exit49.i ], [ -1, %_ZL9minstringPc.exit.i ]
+  %.83568.i = phi i1 [ %.10.i, %_ZL9minstringPc.exit49.i ], [ %.431.lcssa87.i, %_ZL9minstringPc.exit.i ]
   %40 = getelementptr inbounds nuw %struct.IndexGroup, ptr %1, i64 %.070.i
   %.val42.i = load ptr, ptr %40, align 8, !tbaa !11
   %41 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.val42.i, i64 noundef 4095) #23
@@ -8220,7 +8212,7 @@ _ZL9minstringPc.exit49.i:                         ; preds = %49, %.lr.ph71.i
   %.10.i = select i1 %.not75.i, i1 true, i1 %.83568.i
   %.7.i = select i1 %.not.i, i32 %54, i32 %.669.i
   %55 = add nuw nsw i64 %.070.i, 1
-  %exitcond79.not.i = icmp eq i64 %55, %smax78.i
+  %exitcond79.not.i = icmp eq i64 %55, %11
   br i1 %exitcond79.not.i, label %._crit_edge72.i, label %.lr.ph71.i, !llvm.loop !184
 
 .thread.i:                                        ; preds = %._crit_edge65.i, %._crit_edge.i
@@ -8625,11 +8617,7 @@ define internal fastcc void @_ZL9rd_groupsN3gmx8ArrayRefIK10IndexGroupEEPPciPiPS
   %14 = sub i64 %12, %13
   %15 = sdiv exact i64 %14, 56
   %16 = icmp sgt i64 %14, 0
-  br i1 %16, label %.lr.ph.preheader, label %.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader51
-  %smax = tail call i64 @llvm.smax.i64(i64 %15, i64 1)
-  br label %.lr.ph
+  br i1 %16, label %.lr.ph, label %.preheader
 
 17:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -8775,8 +8763,8 @@ common.resume:                                    ; preds = %110, %19
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %90
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.03454 = phi i64 [ %89, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader51, %.lr.ph
+  %.03454 = phi i64 [ %89, %.lr.ph ], [ 0, %.preheader51 ]
   %77 = load ptr, ptr @stderr, align 8, !tbaa !16
   %78 = getelementptr inbounds nuw %struct.IndexGroup, ptr %0, i64 %.03454
   %79 = load ptr, ptr %78, align 8, !tbaa !11
@@ -8790,7 +8778,7 @@ common.resume:                                    ; preds = %110, %19
   %87 = ashr exact i64 %86, 2
   %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %77, ptr noundef nonnull @.str.89, i64 noundef %.03454, ptr noundef %79, i64 noundef %87) #25
   %89 = add nuw nsw i64 %.03454, 1
-  %exitcond.not = icmp eq i64 %89, %smax
+  %exitcond.not = icmp eq i64 %89, %15
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !199
 
 ._crit_edge60:                                    ; preds = %._crit_edge, %._crit_edge.us, %.preheader
@@ -9863,9 +9851,6 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #20
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #20
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

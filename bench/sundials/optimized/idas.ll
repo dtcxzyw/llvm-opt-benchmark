@@ -2513,8 +2513,7 @@ define range(i32 -28, 1) i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 no
 .lr.ph:                                           ; preds = %239, %256
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 2040
   %261 = load ptr, ptr %260, align 8, !tbaa !122
-  %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %1 to i64
   br label %262
 
 262:                                              ; preds = %.lr.ph, %262
@@ -2557,8 +2556,7 @@ define range(i32 -28, 1) i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 no
   store i64 0, ptr %278, align 8, !tbaa !184
   %279 = load ptr, ptr %213, align 8, !tbaa !88
   %280 = load ptr, ptr %187, align 8, !tbaa !86
-  %smax142 = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
-  %wide.trip.count143 = zext nneg i32 %smax142 to i64
+  %wide.trip.count143 = zext nneg i32 %1 to i64
   br label %281
 
 281:                                              ; preds = %.lr.ph136, %281

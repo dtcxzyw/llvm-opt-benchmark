@@ -325,8 +325,7 @@ define void @PQprint(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
 
 .lr.ph322.preheader:                              ; preds = %142
   %143 = zext nneg i32 %7 to i64
-  %smax357 = call i32 @llvm.smax.i32(i32 %7, i32 1)
-  %wide.trip.count358 = zext nneg i32 %smax357 to i64
+  %wide.trip.count358 = zext nneg i32 %7 to i64
   br label %.lr.ph322
 
 144:                                              ; preds = %142
@@ -423,8 +422,7 @@ define void @PQprint(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %188 = getelementptr inbounds nuw i8, ptr %1, i64 156
   %189 = sub i32 %spec.select, %13
   %190 = zext nneg i32 %7 to i64
-  %smax363 = call i32 @llvm.smax.i32(i32 %7, i32 1)
-  %wide.trip.count364 = zext nneg i32 %smax363 to i64
+  %wide.trip.count364 = zext nneg i32 %7 to i64
   br label %191
 
 191:                                              ; preds = %.lr.ph338, %279

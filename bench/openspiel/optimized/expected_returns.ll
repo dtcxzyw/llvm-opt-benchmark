@@ -3715,8 +3715,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit129: ; pr
   br i1 %.not.i.i.i.i, label %._crit_edge204, label %.lr.ph203.preheader
 
 .lr.ph203.preheader:                              ; preds = %.preheader179
-  %smax226 = call i32 @llvm.smax.i32(i32 %37, i32 1)
-  %wide.trip.count227 = zext nneg i32 %smax226 to i64
+  %wide.trip.count227 = zext nneg i32 %37 to i64
   %290 = load ptr, ptr %22, align 8
   br label %.lr.ph203
 

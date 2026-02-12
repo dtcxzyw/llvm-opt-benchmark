@@ -1370,7 +1370,6 @@ get_block_info.exit319.i..preheader.preheader.i_crit_edge: ; preds = %get_block_
   %660 = icmp sgt i32 %655, 0
   %661 = icmp slt i32 %655, 4
   %smax278.i = tail call i32 @llvm.smax.i32(i32 %656, i32 1)
-  %smax281.i = tail call i32 @llvm.smax.i32(i32 %653, i32 1)
   %wide.trip.count.i = zext nneg i32 %smax278.i to i64
   %.pre304.i.pre.pre = load i32, ptr %25, align 8, !tbaa !42
   %.pre305.i.pre.pre = load i32, ptr %36, align 4, !tbaa !41
@@ -1456,7 +1455,7 @@ put_bits.exit331.i:                               ; preds = %688, %680, %670
   %.pre306.pre.i408 = phi i32 [ %.026.i.i329.i, %.preheader86.i ], [ %.026.i.i333.i, %put_bits.exit335.i ]
   %690 = getelementptr inbounds i16, ptr %.0163214.i, i64 %84
   %691 = add nuw nsw i32 %.0157215.i, 1
-  %exitcond282.not.i = icmp eq i32 %691, %smax281.i
+  %exitcond282.not.i = icmp eq i32 %691, %653
   br i1 %exitcond282.not.i, label %.preheader88.i, label %.preheader87.i, !llvm.loop !75
 
 .lr.ph213.i:                                      ; preds = %.lr.ph213.i.preheader, %put_bits.exit335.i
@@ -1709,16 +1708,10 @@ put_bits.exit51.i.i:                              ; preds = %802, %794, %784
 .preheader72.lr.ph.i.i:                           ; preds = %put_bits.exit51.i.i
   %823 = icmp sgt i32 %739, 0
   %824 = icmp slt i32 %739, 4
-  br i1 %823, label %.preheader72.us.preheader.i.i, label %.preheader72.us79.preheader.i.i
-
-.preheader72.us79.preheader.i.i:                  ; preds = %.preheader72.lr.ph.i.i
-  %smax.i.i = tail call i32 @llvm.smax.i32(i32 %spec.select.i.i, i32 1)
-  br label %.preheader72.us79.i.i
+  br i1 %823, label %.preheader72.us.preheader.i.i, label %.preheader72.us79.i.i
 
 .preheader72.us.preheader.i.i:                    ; preds = %.preheader72.lr.ph.i.i
-  %smax94.i.i = tail call i32 @llvm.smax.i32(i32 %740, i32 1)
-  %smax97.i.i = tail call i32 @llvm.smax.i32(i32 %spec.select.i.i, i32 1)
-  %wide.trip.count.i344.i = zext nneg i32 %smax94.i.i to i64
+  %wide.trip.count.i344.i = zext nneg i32 %740 to i64
   br label %.preheader72.us.i.i
 
 .preheader72.us.i.i:                              ; preds = %._crit_edge.us.i347.i, %.preheader72.us.preheader.i.i
@@ -1733,7 +1726,7 @@ put_bits.exit51.i.i:                              ; preds = %802, %794, %784
   %828 = phi i32 [ %.026.i.i54.us.i.i, %..preheader71_crit_edge.us.i.i ], [ %.026.i.i58.us.i.i, %put_bits.exit60.us.i.i ]
   %829 = getelementptr inbounds i16, ptr %.04376.us.i.i, i64 %84
   %830 = add nuw nsw i32 %.04178.us.i.i, 1
-  %exitcond98.not.i.i = icmp eq i32 %830, %smax97.i.i
+  %exitcond98.not.i.i = icmp eq i32 %830, %spec.select.i.i
   br i1 %exitcond98.not.i.i, label %.preheader70.i.i, label %.preheader72.us.i.i, !llvm.loop !79
 
 .lr.ph75.us.i.i:                                  ; preds = %..preheader71_crit_edge.us.i.i, %put_bits.exit60.us.i.i
@@ -1892,10 +1885,10 @@ put_bits.exit56.us.i.i:                           ; preds = %911, %903, %902
 ..preheader71_crit_edge.us.i.i:                   ; preds = %put_bits.exit56.us.i.i
   br i1 %824, label %.lr.ph75.us.i.i, label %._crit_edge.us.i347.i
 
-.preheader72.us79.i.i:                            ; preds = %._crit_edge.us86.i.i, %.preheader72.us79.preheader.i.i
-  %915 = phi i32 [ %934, %._crit_edge.us86.i.i ], [ %803, %.preheader72.us79.preheader.i.i ]
-  %916 = phi i32 [ -1, %._crit_edge.us86.i.i ], [ %.026.i.i49.i.i, %.preheader72.us79.preheader.i.i ]
-  %.04178.us80.i.i = phi i32 [ %936, %._crit_edge.us86.i.i ], [ 0, %.preheader72.us79.preheader.i.i ]
+.preheader72.us79.i.i:                            ; preds = %.preheader72.lr.ph.i.i, %._crit_edge.us86.i.i
+  %915 = phi i32 [ %934, %._crit_edge.us86.i.i ], [ %803, %.preheader72.lr.ph.i.i ]
+  %916 = phi i32 [ -1, %._crit_edge.us86.i.i ], [ %.026.i.i49.i.i, %.preheader72.lr.ph.i.i ]
+  %.04178.us80.i.i = phi i32 [ %936, %._crit_edge.us86.i.i ], [ 0, %.preheader72.lr.ph.i.i ]
   br label %917
 
 917:                                              ; preds = %put_bits.exit60.us83.i.i, %.preheader72.us79.i.i
@@ -1938,7 +1931,7 @@ put_bits.exit60.us83.i.i:                         ; preds = %929, %928, %917
 
 ._crit_edge.us86.i.i:                             ; preds = %put_bits.exit60.us83.i.i
   %936 = add nuw nsw i32 %.04178.us80.i.i, 1
-  %exitcond92.not.i.i = icmp eq i32 %936, %smax.i.i
+  %exitcond92.not.i.i = icmp eq i32 %936, %spec.select.i.i
   br i1 %exitcond92.not.i.i, label %.preheader70.i.i, label %.preheader72.us79.i.i, !llvm.loop !79
 
 .preheader70.i.i:                                 ; preds = %._crit_edge.us86.i.i, %._crit_edge.us.i347.i

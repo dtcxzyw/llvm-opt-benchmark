@@ -8195,8 +8195,7 @@ _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.
 
 .lr.ph248:                                        ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit, %226
   %232 = zext nneg i32 %214 to i64
-  %smax = call i32 @llvm.smax.i32(i32 %214, i32 1)
-  %wide.trip.count272 = zext nneg i32 %smax to i64
+  %wide.trip.count272 = zext nneg i32 %214 to i64
   br label %292
 
 233:                                              ; preds = %218
@@ -11437,8 +11436,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %104, %106, %108, %1
 
 .preheader.lr.ph:                                 ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
   %111 = load ptr, ptr %1, align 8, !tbaa !271
-  %smax164 = tail call i32 @llvm.smax.i32(i32 %13, i32 1)
-  %wide.trip.count165 = zext nneg i32 %smax164 to i64
+  %wide.trip.count165 = and i64 %12, 2147483647
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %126

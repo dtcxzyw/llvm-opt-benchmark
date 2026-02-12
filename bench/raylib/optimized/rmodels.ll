@@ -11612,9 +11612,9 @@ Vox_AllocArray.exit:                              ; preds = %.preheader103, %Vox
   br i1 %152, label %.loopexit, label %.preheader101
 
 .preheader101:                                    ; preds = %.preheader101.lr.ph, %._crit_edge118
-  %153 = phi i32 [ %604, %._crit_edge118 ], [ %144, %.preheader101.lr.ph ]
-  %154 = phi i32 [ %605, %._crit_edge118 ], [ %151, %.preheader101.lr.ph ]
-  %155 = phi i32 [ %606, %._crit_edge118 ], [ %151, %.preheader101.lr.ph ]
+  %153 = phi i32 [ %606, %._crit_edge118 ], [ %144, %.preheader101.lr.ph ]
+  %154 = phi i32 [ %607, %._crit_edge118 ], [ %151, %.preheader101.lr.ph ]
+  %155 = phi i32 [ %608, %._crit_edge118 ], [ %151, %.preheader101.lr.ph ]
   %.077120 = phi i32 [ %.pre-phi, %._crit_edge118 ], [ 0, %.preheader101.lr.ph ]
   %.not84116 = icmp slt i32 %155, 0
   br i1 %.not84116, label %.preheader101.._crit_edge118_crit_edge, label %.preheader.lr.ph
@@ -11642,9 +11642,9 @@ Vox_AllocArray.exit:                              ; preds = %.preheader103, %Vox
   br i1 %169, label %._crit_edge118, label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge115
-  %170 = phi i32 [ %601, %._crit_edge115 ], [ %154, %.preheader.lr.ph ]
-  %171 = phi i32 [ %602, %._crit_edge115 ], [ %168, %.preheader.lr.ph ]
-  %172 = phi i32 [ %603, %._crit_edge115 ], [ %168, %.preheader.lr.ph ]
+  %170 = phi i32 [ %603, %._crit_edge115 ], [ %154, %.preheader.lr.ph ]
+  %171 = phi i32 [ %604, %._crit_edge115 ], [ %168, %.preheader.lr.ph ]
+  %172 = phi i32 [ %605, %._crit_edge115 ], [ %168, %.preheader.lr.ph ]
   %.075117 = phi i32 [ %.pre-phi133, %._crit_edge115 ], [ 0, %.preheader.lr.ph ]
   %.not85112 = icmp slt i32 %172, 0
   br i1 %.not85112, label %.preheader.._crit_edge115_crit_edge, label %.lr.ph114
@@ -11675,9 +11675,9 @@ Vox_AllocArray.exit:                              ; preds = %.preheader103, %Vox
   br label %190
 
 190:                                              ; preds = %.lr.ph114, %Vox_Build_Voxel.exit
-  %191 = phi i32 [ %171, %.lr.ph114 ], [ %599, %Vox_Build_Voxel.exit ]
-  %192 = phi i32 [ %172, %.lr.ph114 ], [ %599, %Vox_Build_Voxel.exit ]
-  %.076113 = phi i32 [ 0, %.lr.ph114 ], [ %600, %Vox_Build_Voxel.exit ]
+  %191 = phi i32 [ %171, %.lr.ph114 ], [ %601, %Vox_Build_Voxel.exit ]
+  %192 = phi i32 [ %172, %.lr.ph114 ], [ %601, %Vox_Build_Voxel.exit ]
+  %.076113 = phi i32 [ 0, %.lr.ph114 ], [ %602, %Vox_Build_Voxel.exit ]
   %193 = load i32, ptr %2, align 8
   %.not.i = icmp slt i32 %.077120, %193
   %.not38.i = icmp slt i32 %.076113, %192
@@ -11714,9 +11714,7 @@ Vox_GetVoxel.exit:                                ; preds = %196
   br i1 %.not86, label %Vox_Build_Voxel.exit, label %214
 
 214:                                              ; preds = %Vox_GetVoxel.exit
-  %.not.i.not.i.i.not = icmp sgt i32 %.077120, %193
-  %or.cond202 = or i1 %or.cond3.not.i.i.i.not, %.not.i.not.i.i.not
-  br i1 %or.cond202, label %Vox_GetVoxel.exit.i.i, label %215
+  br i1 %or.cond3.not.i.i.i.not, label %Vox_GetVoxel.exit.i.i, label %215
 
 215:                                              ; preds = %214
   %216 = mul nsw i32 %198, %160
@@ -11761,10 +11759,10 @@ Vox_GetVoxel.exit.i.i:                            ; preds = %223, %215, %214
   br label %Vox_GetVoxel.exit41.i.i
 
 Vox_GetVoxel.exit41.i.i:                          ; preds = %238, %230, %Vox_GetVoxel.exit.i.i
-  %.0.i37.i.i = phi i1 [ true, %Vox_GetVoxel.exit.i.i ], [ %243, %238 ], [ true, %230 ]
+  %.0.i37.i.i = phi i1 [ true, %Vox_GetVoxel.exit.i.i ], [ true, %230 ], [ %243, %238 ]
   %244 = add nsw i32 %.076113, -1
   %or.cond3.not.i42.i.i.not = icmp eq i32 %.076113, 0
-  br i1 %or.cond3.not.i42.i.i.not, label %Vox_GetVoxel.exit47.i.i, label %245
+  br i1 %or.cond3.not.i42.i.i.not, label %260, label %245
 
 245:                                              ; preds = %Vox_GetVoxel.exit41.i.i
   %246 = lshr i32 %244, 4
@@ -11774,7 +11772,7 @@ Vox_GetVoxel.exit41.i.i:                          ; preds = %238, %230, %Vox_Get
   %250 = getelementptr inbounds %struct.CubeChunk3D, ptr %204, i64 %249
   %251 = load ptr, ptr %250, align 8
   %252 = icmp eq ptr %251, null
-  br i1 %252, label %Vox_GetVoxel.exit47.i.i, label %253
+  br i1 %252, label %260, label %253
 
 253:                                              ; preds = %245
   %254 = and i32 %244, 15
@@ -11783,679 +11781,679 @@ Vox_GetVoxel.exit41.i.i:                          ; preds = %238, %230, %Vox_Get
   %257 = getelementptr inbounds nuw i8, ptr %251, i64 %256
   %258 = load i8, ptr %257, align 1
   %259 = icmp eq i8 %258, 0
-  br label %Vox_GetVoxel.exit47.i.i
+  br label %260
 
-Vox_GetVoxel.exit47.i.i:                          ; preds = %253, %245, %Vox_GetVoxel.exit41.i.i
-  %.0.i43.i.i = phi i1 [ %259, %253 ], [ true, %Vox_GetVoxel.exit41.i.i ], [ true, %245 ]
-  %260 = add nuw nsw i32 %.076113, 1
-  %.not38.i51.i.i = icmp slt i32 %260, %192
-  br i1 %.not38.i51.i.i, label %261, label %Vox_GetVoxel.exit53.i.i
+260:                                              ; preds = %Vox_GetVoxel.exit41.i.i, %245, %253
+  %.0.i43.i.i = phi i1 [ true, %245 ], [ true, %Vox_GetVoxel.exit41.i.i ], [ %259, %253 ]
+  %261 = add nuw nsw i32 %.076113, 1
+  %.not38.i51.i.i = icmp slt i32 %261, %192
+  br i1 %.not38.i51.i.i, label %262, label %Vox_GetVoxel.exit53.i.i
 
-261:                                              ; preds = %Vox_GetVoxel.exit47.i.i
-  %262 = lshr i32 %260, 4
-  %263 = add i32 %199, %262
-  %264 = add i32 %263, %201
-  %265 = sext i32 %264 to i64
-  %266 = getelementptr inbounds %struct.CubeChunk3D, ptr %204, i64 %265
-  %267 = load ptr, ptr %266, align 8
-  %268 = icmp eq ptr %267, null
-  br i1 %268, label %Vox_GetVoxel.exit53.i.i, label %269
+262:                                              ; preds = %260
+  %263 = lshr i32 %261, 4
+  %264 = add i32 %199, %263
+  %265 = add i32 %264, %201
+  %266 = sext i32 %265 to i64
+  %267 = getelementptr inbounds %struct.CubeChunk3D, ptr %204, i64 %266
+  %268 = load ptr, ptr %267, align 8
+  %269 = icmp eq ptr %268, null
+  br i1 %269, label %Vox_GetVoxel.exit53.i.i, label %270
 
-269:                                              ; preds = %261
-  %270 = and i32 %260, 15
-  %271 = or disjoint i32 %176, %270
-  %272 = zext nneg i32 %271 to i64
-  %273 = getelementptr inbounds nuw i8, ptr %267, i64 %272
-  %274 = load i8, ptr %273, align 1
-  %275 = icmp eq i8 %274, 0
+270:                                              ; preds = %262
+  %271 = and i32 %261, 15
+  %272 = or disjoint i32 %176, %271
+  %273 = zext nneg i32 %272 to i64
+  %274 = getelementptr inbounds nuw i8, ptr %268, i64 %273
+  %275 = load i8, ptr %274, align 1
+  %276 = icmp eq i8 %275, 0
   br label %Vox_GetVoxel.exit53.i.i
 
-Vox_GetVoxel.exit53.i.i:                          ; preds = %269, %261, %Vox_GetVoxel.exit47.i.i
-  %.0.i49.i.i = phi i1 [ true, %Vox_GetVoxel.exit47.i.i ], [ %275, %269 ], [ true, %261 ]
+Vox_GetVoxel.exit53.i.i:                          ; preds = %270, %262, %260
+  %.0.i49.i.i = phi i1 [ %276, %270 ], [ true, %262 ], [ true, %260 ]
   %.not39.i58.not.i.i = icmp sgt i32 %.075117, %195
-  %or.cond203 = or i1 %or.cond3.not.i54.i.i.not, %.not39.i58.not.i.i
-  br i1 %or.cond203, label %Vox_GetVoxel.exit59.i.i, label %276
+  %or.cond202 = or i1 %or.cond3.not.i54.i.i.not, %.not39.i58.not.i.i
+  br i1 %or.cond202, label %290, label %277
 
-276:                                              ; preds = %Vox_GetVoxel.exit53.i.i
-  %277 = mul nsw i32 %200, %180
-  %278 = add i32 %202, %277
-  %279 = sext i32 %278 to i64
-  %280 = getelementptr inbounds %struct.CubeChunk3D, ptr %204, i64 %279
-  %281 = load ptr, ptr %280, align 8
-  %282 = icmp eq ptr %281, null
-  br i1 %282, label %Vox_GetVoxel.exit59.i.i, label %283
+277:                                              ; preds = %Vox_GetVoxel.exit53.i.i
+  %278 = mul nsw i32 %200, %180
+  %279 = add i32 %202, %278
+  %280 = sext i32 %279 to i64
+  %281 = getelementptr inbounds %struct.CubeChunk3D, ptr %204, i64 %280
+  %282 = load ptr, ptr %281, align 8
+  %283 = icmp eq ptr %282, null
+  br i1 %283, label %290, label %284
 
-283:                                              ; preds = %276
-  %284 = or disjoint i32 %183, %209
-  %285 = zext nneg i32 %284 to i64
-  %286 = getelementptr inbounds nuw i8, ptr %281, i64 %285
-  %287 = load i8, ptr %286, align 1
-  %288 = icmp eq i8 %287, 0
-  br label %Vox_GetVoxel.exit59.i.i
+284:                                              ; preds = %277
+  %285 = or disjoint i32 %183, %209
+  %286 = zext nneg i32 %285 to i64
+  %287 = getelementptr inbounds nuw i8, ptr %282, i64 %286
+  %288 = load i8, ptr %287, align 1
+  %289 = icmp eq i8 %288, 0
+  br label %290
 
-Vox_GetVoxel.exit59.i.i:                          ; preds = %Vox_GetVoxel.exit53.i.i, %276, %283
-  %.0.i55.i.i = phi i1 [ %288, %283 ], [ true, %Vox_GetVoxel.exit53.i.i ], [ true, %276 ]
+290:                                              ; preds = %Vox_GetVoxel.exit53.i.i, %277, %284
+  %.0.i55.i.i = phi i1 [ true, %277 ], [ true, %Vox_GetVoxel.exit53.i.i ], [ %289, %284 ]
   %.not39.i64.i.i = icmp slt i32 %184, %195
-  br i1 %.not39.i64.i.i, label %289, label %Vox_CalcFacesVisible.exit.i
+  br i1 %.not39.i64.i.i, label %291, label %Vox_CalcFacesVisible.exit.i
 
-289:                                              ; preds = %Vox_GetVoxel.exit59.i.i
-  %290 = mul nsw i32 %200, %185
-  %291 = add i32 %202, %290
-  %292 = sext i32 %291 to i64
-  %293 = getelementptr inbounds %struct.CubeChunk3D, ptr %204, i64 %292
-  %294 = load ptr, ptr %293, align 8
-  %295 = icmp eq ptr %294, null
-  br i1 %295, label %Vox_CalcFacesVisible.exit.i, label %296
+291:                                              ; preds = %290
+  %292 = mul nsw i32 %200, %185
+  %293 = add i32 %202, %292
+  %294 = sext i32 %293 to i64
+  %295 = getelementptr inbounds %struct.CubeChunk3D, ptr %204, i64 %294
+  %296 = load ptr, ptr %295, align 8
+  %297 = icmp eq ptr %296, null
+  br i1 %297, label %Vox_CalcFacesVisible.exit.i, label %298
 
-296:                                              ; preds = %289
-  %297 = or disjoint i32 %188, %209
-  %298 = zext nneg i32 %297 to i64
-  %299 = getelementptr inbounds nuw i8, ptr %294, i64 %298
-  %300 = load i8, ptr %299, align 1
-  %.fr.i.i = freeze i8 %300
-  %301 = icmp eq i8 %.fr.i.i, 0
+298:                                              ; preds = %291
+  %299 = or disjoint i32 %188, %209
+  %300 = zext nneg i32 %299 to i64
+  %301 = getelementptr inbounds nuw i8, ptr %296, i64 %300
+  %302 = load i8, ptr %301, align 1
+  %.fr.i.i = freeze i8 %302
+  %303 = icmp eq i8 %.fr.i.i, 0
   br label %Vox_CalcFacesVisible.exit.i
 
-Vox_CalcFacesVisible.exit.i:                      ; preds = %296, %289, %Vox_GetVoxel.exit59.i.i
-  %.0.i61.i.i = phi i1 [ true, %289 ], [ %301, %296 ], [ true, %Vox_GetVoxel.exit59.i.i ]
-  %302 = or disjoint i8 %.0.i.i.i, 2
-  %.1.i.i = select i1 %.0.i37.i.i, i8 %302, i8 %.0.i.i.i
-  %303 = or disjoint i8 %.1.i.i, 4
-  %.2.i.i = select i1 %.0.i43.i.i, i8 %303, i8 %.1.i.i
-  %304 = or i8 %.2.i.i, 8
-  %.3.i.i = select i1 %.0.i49.i.i, i8 %304, i8 %.2.i.i
-  %305 = or i8 %.3.i.i, 16
-  %.4.i.i = select i1 %.0.i55.i.i, i8 %305, i8 %.3.i.i
-  br i1 %.0.i61.i.i, label %.thread.i, label %307
+Vox_CalcFacesVisible.exit.i:                      ; preds = %298, %291, %290
+  %.0.i61.i.i = phi i1 [ %303, %298 ], [ true, %291 ], [ true, %290 ]
+  %304 = or disjoint i8 %.0.i.i.i, 2
+  %.1.i.i = select i1 %.0.i37.i.i, i8 %304, i8 %.0.i.i.i
+  %305 = or disjoint i8 %.1.i.i, 4
+  %.2.i.i = select i1 %.0.i43.i.i, i8 %305, i8 %.1.i.i
+  %306 = or i8 %.2.i.i, 8
+  %.3.i.i = select i1 %.0.i49.i.i, i8 %306, i8 %.2.i.i
+  %307 = or i8 %.3.i.i, 16
+  %.4.i.i = select i1 %.0.i55.i.i, i8 %307, i8 %.3.i.i
+  br i1 %.0.i61.i.i, label %.thread.i, label %309
 
 .thread.i:                                        ; preds = %Vox_CalcFacesVisible.exit.i
-  %306 = or i8 %.4.i.i, 32
-  br label %309
+  %308 = or i8 %.4.i.i, 32
+  br label %311
 
-307:                                              ; preds = %Vox_CalcFacesVisible.exit.i
-  %308 = icmp eq i8 %.4.i.i, 0
-  br i1 %308, label %Vox_Build_Voxel.exit, label %309
+309:                                              ; preds = %Vox_CalcFacesVisible.exit.i
+  %310 = icmp eq i8 %.4.i.i, 0
+  br i1 %310, label %Vox_Build_Voxel.exit, label %311
 
-309:                                              ; preds = %307, %.thread.i
-  %.in.i = phi i8 [ %306, %.thread.i ], [ %.4.i.i, %307 ]
-  %310 = zext nneg i8 %.in.i to i32
+311:                                              ; preds = %309, %.thread.i
+  %.in.i = phi i8 [ %308, %.thread.i ], [ %.4.i.i, %309 ]
+  %312 = zext nneg i8 %.in.i to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %4, i8 0, i64 96, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  %311 = uitofp nneg i32 %.076113 to float
-  br label %314
+  %313 = uitofp nneg i32 %.076113 to float
+  br label %316
 
 .preheader.i:                                     ; preds = %.loopexit.i
-  %312 = zext i8 %213 to i64
-  %313 = getelementptr inbounds nuw %struct.VoxColor, ptr %150, i64 %312
-  br label %336
+  %314 = zext i8 %213 to i64
+  %315 = getelementptr inbounds nuw %struct.VoxColor, ptr %150, i64 %314
+  br label %338
 
-314:                                              ; preds = %.loopexit.i, %309
-  %indvars.iv145.i = phi i64 [ 0, %309 ], [ %indvars.iv.next146.i, %.loopexit.i ]
-  %315 = trunc nuw nsw i64 %indvars.iv145.i to i32
-  %316 = shl nuw nsw i32 1, %315
-  %317 = and i32 %316, %310
-  %.not.i90 = icmp eq i32 %317, 0
+316:                                              ; preds = %.loopexit.i, %311
+  %indvars.iv145.i = phi i64 [ 0, %311 ], [ %indvars.iv.next146.i, %.loopexit.i ]
+  %317 = trunc nuw nsw i64 %indvars.iv145.i to i32
+  %318 = shl nuw nsw i32 1, %317
+  %319 = and i32 %318, %312
+  %.not.i90 = icmp eq i32 %319, 0
   br i1 %.not.i90, label %.loopexit.i, label %.preheader140.i
 
-.preheader140.i:                                  ; preds = %314
-  %318 = getelementptr inbounds nuw [4 x i32], ptr @fv, i64 %indvars.iv145.i
-  br label %319
+.preheader140.i:                                  ; preds = %316
+  %320 = getelementptr inbounds nuw [4 x i32], ptr @fv, i64 %indvars.iv145.i
+  br label %321
 
-319:                                              ; preds = %335, %.preheader140.i
-  %indvars.iv.i91 = phi i64 [ 0, %.preheader140.i ], [ %indvars.iv.next.i92, %335 ]
-  %320 = getelementptr inbounds nuw i32, ptr %318, i64 %indvars.iv.i91
-  %321 = load i32, ptr %320, align 4
-  %322 = sext i32 %321 to i64
-  %323 = getelementptr inbounds i32, ptr %5, i64 %322
-  %324 = load i32, ptr %323, align 4
-  %325 = icmp eq i32 %324, 0
-  br i1 %325, label %326, label %335
+321:                                              ; preds = %337, %.preheader140.i
+  %indvars.iv.i91 = phi i64 [ 0, %.preheader140.i ], [ %indvars.iv.next.i92, %337 ]
+  %322 = getelementptr inbounds nuw i32, ptr %320, i64 %indvars.iv.i91
+  %323 = load i32, ptr %322, align 4
+  %324 = sext i32 %323 to i64
+  %325 = getelementptr inbounds i32, ptr %5, i64 %324
+  %326 = load i32, ptr %325, align 4
+  %327 = icmp eq i32 %326, 0
+  br i1 %327, label %328, label %337
 
-326:                                              ; preds = %319
-  store i32 1, ptr %323, align 4
-  %327 = getelementptr inbounds %struct.VoxVector3, ptr %4, i64 %322
-  %328 = getelementptr inbounds %struct.VoxVector3, ptr @SolidVertex, i64 %322
-  %.sroa.06.0.copyload.i.i = load <2 x float>, ptr %328, align 4
-  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %328, i64 8
+328:                                              ; preds = %321
+  store i32 1, ptr %325, align 4
+  %329 = getelementptr inbounds %struct.VoxVector3, ptr %4, i64 %324
+  %330 = getelementptr inbounds %struct.VoxVector3, ptr @SolidVertex, i64 %324
+  %.sroa.06.0.copyload.i.i = load <2 x float>, ptr %330, align 4
+  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %330, i64 8
   %.sroa.6.0.copyload.i.i = load float, ptr %.sroa.6.0..sroa_idx.i.i, align 4
   %.sroa.06.0.vec.extract.i.i = extractelement <2 x float> %.sroa.06.0.copyload.i.i, i64 0
-  %329 = fadd float %.sroa.06.0.vec.extract.i.i, %167
-  %330 = fmul float %329, 2.500000e-01
-  %.sroa.06.0.vec.insert.i.i = insertelement <2 x float> poison, float %330, i64 0
-  %.sroa.06.4.vec.extract.i.i = extractelement <2 x float> %.sroa.06.0.copyload.i.i, i64 1
-  %331 = fadd float %.sroa.06.4.vec.extract.i.i, %311
+  %331 = fadd float %.sroa.06.0.vec.extract.i.i, %167
   %332 = fmul float %331, 2.500000e-01
-  %.sroa.06.4.vec.insert.i.i = insertelement <2 x float> %.sroa.06.0.vec.insert.i.i, float %332, i64 1
-  %333 = fadd float %.sroa.6.0.copyload.i.i, %189
+  %.sroa.06.0.vec.insert.i.i = insertelement <2 x float> poison, float %332, i64 0
+  %.sroa.06.4.vec.extract.i.i = extractelement <2 x float> %.sroa.06.0.copyload.i.i, i64 1
+  %333 = fadd float %.sroa.06.4.vec.extract.i.i, %313
   %334 = fmul float %333, 2.500000e-01
-  store <2 x float> %.sroa.06.4.vec.insert.i.i, ptr %327, align 4
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %327, i64 8
-  store float %334, ptr %.sroa.4.0..sroa_idx.i, align 4
-  br label %335
+  %.sroa.06.4.vec.insert.i.i = insertelement <2 x float> %.sroa.06.0.vec.insert.i.i, float %334, i64 1
+  %335 = fadd float %.sroa.6.0.copyload.i.i, %189
+  %336 = fmul float %335, 2.500000e-01
+  store <2 x float> %.sroa.06.4.vec.insert.i.i, ptr %329, align 4
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %329, i64 8
+  store float %336, ptr %.sroa.4.0..sroa_idx.i, align 4
+  br label %337
 
-335:                                              ; preds = %326, %319
+337:                                              ; preds = %328, %321
   %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i91, 1
   %exitcond.not.i93 = icmp eq i64 %indvars.iv.next.i92, 4
-  br i1 %exitcond.not.i93, label %.loopexit.i, label %319
+  br i1 %exitcond.not.i93, label %.loopexit.i, label %321
 
-.loopexit.i:                                      ; preds = %335, %314
+.loopexit.i:                                      ; preds = %337, %316
   %indvars.iv.next146.i = add nuw nsw i64 %indvars.iv145.i, 1
   %exitcond148.not.i = icmp eq i64 %indvars.iv.next146.i, 6
-  br i1 %exitcond148.not.i, label %.preheader.i, label %314
+  br i1 %exitcond148.not.i, label %.preheader.i, label %316
 
-336:                                              ; preds = %597, %.preheader.i
-  %indvars.iv149.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next150.i, %597 ]
-  %337 = trunc nuw nsw i64 %indvars.iv149.i to i32
-  %338 = shl nuw nsw i32 1, %337
-  %339 = and i32 %338, %310
-  %340 = icmp eq i32 %339, 0
-  br i1 %340, label %597, label %341
+338:                                              ; preds = %599, %.preheader.i
+  %indvars.iv149.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next150.i, %599 ]
+  %339 = trunc nuw nsw i64 %indvars.iv149.i to i32
+  %340 = shl nuw nsw i32 1, %339
+  %341 = and i32 %340, %312
+  %342 = icmp eq i32 %341, 0
+  br i1 %342, label %599, label %343
 
-341:                                              ; preds = %336
-  %342 = getelementptr inbounds nuw [4 x i32], ptr @fv, i64 %indvars.iv149.i
-  %343 = load i32, ptr %342, align 16
-  %344 = getelementptr inbounds nuw i8, ptr %342, i64 4
-  %345 = load i32, ptr %344, align 4
-  %346 = getelementptr inbounds nuw i8, ptr %342, i64 8
-  %347 = load i32, ptr %346, align 8
-  %348 = getelementptr inbounds nuw i8, ptr %342, i64 12
-  %349 = load i32, ptr %348, align 4
-  %350 = load i32, ptr %130, align 8
-  %351 = sext i32 %343 to i64
-  %352 = getelementptr inbounds %struct.VoxVector3, ptr %4, i64 %351
-  %.sroa.017.0.copyload.i = load <2 x float>, ptr %352, align 4
-  %.sroa.218.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %352, i64 8
+343:                                              ; preds = %338
+  %344 = getelementptr inbounds nuw [4 x i32], ptr @fv, i64 %indvars.iv149.i
+  %345 = load i32, ptr %344, align 16
+  %346 = getelementptr inbounds nuw i8, ptr %344, i64 4
+  %347 = load i32, ptr %346, align 4
+  %348 = getelementptr inbounds nuw i8, ptr %344, i64 8
+  %349 = load i32, ptr %348, align 8
+  %350 = getelementptr inbounds nuw i8, ptr %344, i64 12
+  %351 = load i32, ptr %350, align 4
+  %352 = load i32, ptr %130, align 8
+  %353 = sext i32 %345 to i64
+  %354 = getelementptr inbounds %struct.VoxVector3, ptr %4, i64 %353
+  %.sroa.017.0.copyload.i = load <2 x float>, ptr %354, align 4
+  %.sroa.218.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %354, i64 8
   %.sroa.218.0.copyload.i = load float, ptr %.sroa.218.0..sroa_idx.i, align 4
-  %353 = load i32, ptr %131, align 4
-  %354 = icmp eq i32 %350, %353
+  %355 = load i32, ptr %131, align 4
+  %356 = icmp eq i32 %352, %355
   %.pre.i.i = load ptr, ptr %128, align 8
-  br i1 %354, label %355, label %insertArrayVector3.exit.i
+  br i1 %356, label %357, label %insertArrayVector3.exit.i
 
-355:                                              ; preds = %341
-  %356 = shl nsw i32 %350, 1
-  store i32 %356, ptr %131, align 4
-  %357 = sext i32 %356 to i64
-  %358 = mul nsw i64 %357, 12
-  %359 = tail call ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %358) #61
-  store ptr %359, ptr %128, align 8
+357:                                              ; preds = %343
+  %358 = shl nsw i32 %352, 1
+  store i32 %358, ptr %131, align 4
+  %359 = sext i32 %358 to i64
+  %360 = mul nsw i64 %359, 12
+  %361 = tail call ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %360) #61
+  store ptr %361, ptr %128, align 8
   %.pre10.i.i = load i32, ptr %130, align 8
   br label %insertArrayVector3.exit.i
 
-insertArrayVector3.exit.i:                        ; preds = %355, %341
-  %360 = phi i32 [ %.pre10.i.i, %355 ], [ %350, %341 ]
-  %361 = phi ptr [ %359, %355 ], [ %.pre.i.i, %341 ]
-  %362 = add nsw i32 %360, 1
-  store i32 %362, ptr %130, align 8
-  %363 = sext i32 %360 to i64
-  %364 = getelementptr inbounds %struct.VoxVector3, ptr %361, i64 %363
-  store <2 x float> %.sroa.017.0.copyload.i, ptr %364, align 4
-  %.sroa.29.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %364, i64 8
+insertArrayVector3.exit.i:                        ; preds = %357, %343
+  %362 = phi i32 [ %.pre10.i.i, %357 ], [ %352, %343 ]
+  %363 = phi ptr [ %361, %357 ], [ %.pre.i.i, %343 ]
+  %364 = add nsw i32 %362, 1
+  store i32 %364, ptr %130, align 8
+  %365 = sext i32 %362 to i64
+  %366 = getelementptr inbounds %struct.VoxVector3, ptr %363, i64 %365
+  store <2 x float> %.sroa.017.0.copyload.i, ptr %366, align 4
+  %.sroa.29.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %366, i64 8
   store float %.sroa.218.0.copyload.i, ptr %.sroa.29.0..sroa_idx.i.i, align 4
-  %365 = sext i32 %345 to i64
-  %366 = getelementptr inbounds %struct.VoxVector3, ptr %4, i64 %365
-  %.sroa.015.0.copyload.i = load <2 x float>, ptr %366, align 4
-  %.sroa.216.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %366, i64 8
+  %367 = sext i32 %347 to i64
+  %368 = getelementptr inbounds %struct.VoxVector3, ptr %4, i64 %367
+  %.sroa.015.0.copyload.i = load <2 x float>, ptr %368, align 4
+  %.sroa.216.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %368, i64 8
   %.sroa.216.0.copyload.i = load float, ptr %.sroa.216.0..sroa_idx.i, align 4
-  %367 = load i32, ptr %130, align 8
-  %368 = load i32, ptr %131, align 4
-  %369 = icmp eq i32 %367, %368
+  %369 = load i32, ptr %130, align 8
+  %370 = load i32, ptr %131, align 4
+  %371 = icmp eq i32 %369, %370
   %.pre.i85.i = load ptr, ptr %128, align 8
-  br i1 %369, label %370, label %insertArrayVector3.exit88.i
+  br i1 %371, label %372, label %insertArrayVector3.exit88.i
 
-370:                                              ; preds = %insertArrayVector3.exit.i
-  %371 = shl nsw i32 %367, 1
-  store i32 %371, ptr %131, align 4
-  %372 = sext i32 %371 to i64
-  %373 = mul nsw i64 %372, 12
-  %374 = tail call ptr @realloc(ptr noundef %.pre.i85.i, i64 noundef %373) #61
-  store ptr %374, ptr %128, align 8
+372:                                              ; preds = %insertArrayVector3.exit.i
+  %373 = shl nsw i32 %369, 1
+  store i32 %373, ptr %131, align 4
+  %374 = sext i32 %373 to i64
+  %375 = mul nsw i64 %374, 12
+  %376 = tail call ptr @realloc(ptr noundef %.pre.i85.i, i64 noundef %375) #61
+  store ptr %376, ptr %128, align 8
   %.pre10.i87.i = load i32, ptr %130, align 8
   br label %insertArrayVector3.exit88.i
 
-insertArrayVector3.exit88.i:                      ; preds = %370, %insertArrayVector3.exit.i
-  %375 = phi i32 [ %.pre10.i87.i, %370 ], [ %367, %insertArrayVector3.exit.i ]
-  %376 = phi ptr [ %374, %370 ], [ %.pre.i85.i, %insertArrayVector3.exit.i ]
-  %377 = add nsw i32 %375, 1
-  store i32 %377, ptr %130, align 8
-  %378 = sext i32 %375 to i64
-  %379 = getelementptr inbounds %struct.VoxVector3, ptr %376, i64 %378
-  store <2 x float> %.sroa.015.0.copyload.i, ptr %379, align 4
-  %.sroa.29.0..sroa_idx.i86.i = getelementptr inbounds nuw i8, ptr %379, i64 8
+insertArrayVector3.exit88.i:                      ; preds = %372, %insertArrayVector3.exit.i
+  %377 = phi i32 [ %.pre10.i87.i, %372 ], [ %369, %insertArrayVector3.exit.i ]
+  %378 = phi ptr [ %376, %372 ], [ %.pre.i85.i, %insertArrayVector3.exit.i ]
+  %379 = add nsw i32 %377, 1
+  store i32 %379, ptr %130, align 8
+  %380 = sext i32 %377 to i64
+  %381 = getelementptr inbounds %struct.VoxVector3, ptr %378, i64 %380
+  store <2 x float> %.sroa.015.0.copyload.i, ptr %381, align 4
+  %.sroa.29.0..sroa_idx.i86.i = getelementptr inbounds nuw i8, ptr %381, i64 8
   store float %.sroa.216.0.copyload.i, ptr %.sroa.29.0..sroa_idx.i86.i, align 4
-  %380 = sext i32 %347 to i64
-  %381 = getelementptr inbounds %struct.VoxVector3, ptr %4, i64 %380
-  %.sroa.013.0.copyload.i = load <2 x float>, ptr %381, align 4
-  %.sroa.214.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %381, i64 8
+  %382 = sext i32 %349 to i64
+  %383 = getelementptr inbounds %struct.VoxVector3, ptr %4, i64 %382
+  %.sroa.013.0.copyload.i = load <2 x float>, ptr %383, align 4
+  %.sroa.214.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %383, i64 8
   %.sroa.214.0.copyload.i = load float, ptr %.sroa.214.0..sroa_idx.i, align 4
-  %382 = load i32, ptr %130, align 8
-  %383 = load i32, ptr %131, align 4
-  %384 = icmp eq i32 %382, %383
+  %384 = load i32, ptr %130, align 8
+  %385 = load i32, ptr %131, align 4
+  %386 = icmp eq i32 %384, %385
   %.pre.i89.i = load ptr, ptr %128, align 8
-  br i1 %384, label %385, label %insertArrayVector3.exit92.i
+  br i1 %386, label %387, label %insertArrayVector3.exit92.i
 
-385:                                              ; preds = %insertArrayVector3.exit88.i
-  %386 = shl nsw i32 %382, 1
-  store i32 %386, ptr %131, align 4
-  %387 = sext i32 %386 to i64
-  %388 = mul nsw i64 %387, 12
-  %389 = tail call ptr @realloc(ptr noundef %.pre.i89.i, i64 noundef %388) #61
-  store ptr %389, ptr %128, align 8
+387:                                              ; preds = %insertArrayVector3.exit88.i
+  %388 = shl nsw i32 %384, 1
+  store i32 %388, ptr %131, align 4
+  %389 = sext i32 %388 to i64
+  %390 = mul nsw i64 %389, 12
+  %391 = tail call ptr @realloc(ptr noundef %.pre.i89.i, i64 noundef %390) #61
+  store ptr %391, ptr %128, align 8
   %.pre10.i91.i = load i32, ptr %130, align 8
   br label %insertArrayVector3.exit92.i
 
-insertArrayVector3.exit92.i:                      ; preds = %385, %insertArrayVector3.exit88.i
-  %390 = phi i32 [ %.pre10.i91.i, %385 ], [ %382, %insertArrayVector3.exit88.i ]
-  %391 = phi ptr [ %389, %385 ], [ %.pre.i89.i, %insertArrayVector3.exit88.i ]
-  %392 = add nsw i32 %390, 1
-  store i32 %392, ptr %130, align 8
-  %393 = sext i32 %390 to i64
-  %394 = getelementptr inbounds %struct.VoxVector3, ptr %391, i64 %393
-  store <2 x float> %.sroa.013.0.copyload.i, ptr %394, align 4
-  %.sroa.29.0..sroa_idx.i90.i = getelementptr inbounds nuw i8, ptr %394, i64 8
+insertArrayVector3.exit92.i:                      ; preds = %387, %insertArrayVector3.exit88.i
+  %392 = phi i32 [ %.pre10.i91.i, %387 ], [ %384, %insertArrayVector3.exit88.i ]
+  %393 = phi ptr [ %391, %387 ], [ %.pre.i89.i, %insertArrayVector3.exit88.i ]
+  %394 = add nsw i32 %392, 1
+  store i32 %394, ptr %130, align 8
+  %395 = sext i32 %392 to i64
+  %396 = getelementptr inbounds %struct.VoxVector3, ptr %393, i64 %395
+  store <2 x float> %.sroa.013.0.copyload.i, ptr %396, align 4
+  %.sroa.29.0..sroa_idx.i90.i = getelementptr inbounds nuw i8, ptr %396, i64 8
   store float %.sroa.214.0.copyload.i, ptr %.sroa.29.0..sroa_idx.i90.i, align 4
-  %395 = sext i32 %349 to i64
-  %396 = getelementptr inbounds %struct.VoxVector3, ptr %4, i64 %395
-  %.sroa.011.0.copyload.i = load <2 x float>, ptr %396, align 4
-  %.sroa.212.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %396, i64 8
+  %397 = sext i32 %351 to i64
+  %398 = getelementptr inbounds %struct.VoxVector3, ptr %4, i64 %397
+  %.sroa.011.0.copyload.i = load <2 x float>, ptr %398, align 4
+  %.sroa.212.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %398, i64 8
   %.sroa.212.0.copyload.i = load float, ptr %.sroa.212.0..sroa_idx.i, align 4
-  %397 = load i32, ptr %130, align 8
-  %398 = load i32, ptr %131, align 4
-  %399 = icmp eq i32 %397, %398
+  %399 = load i32, ptr %130, align 8
+  %400 = load i32, ptr %131, align 4
+  %401 = icmp eq i32 %399, %400
   %.pre.i93.i = load ptr, ptr %128, align 8
-  br i1 %399, label %400, label %insertArrayVector3.exit96.i
+  br i1 %401, label %402, label %insertArrayVector3.exit96.i
 
-400:                                              ; preds = %insertArrayVector3.exit92.i
-  %401 = shl nsw i32 %397, 1
-  store i32 %401, ptr %131, align 4
-  %402 = sext i32 %401 to i64
-  %403 = mul nsw i64 %402, 12
-  %404 = tail call ptr @realloc(ptr noundef %.pre.i93.i, i64 noundef %403) #61
-  store ptr %404, ptr %128, align 8
+402:                                              ; preds = %insertArrayVector3.exit92.i
+  %403 = shl nsw i32 %399, 1
+  store i32 %403, ptr %131, align 4
+  %404 = sext i32 %403 to i64
+  %405 = mul nsw i64 %404, 12
+  %406 = tail call ptr @realloc(ptr noundef %.pre.i93.i, i64 noundef %405) #61
+  store ptr %406, ptr %128, align 8
   %.pre10.i95.i = load i32, ptr %130, align 8
   br label %insertArrayVector3.exit96.i
 
-insertArrayVector3.exit96.i:                      ; preds = %400, %insertArrayVector3.exit92.i
-  %405 = phi i32 [ %.pre10.i95.i, %400 ], [ %397, %insertArrayVector3.exit92.i ]
-  %406 = phi ptr [ %404, %400 ], [ %.pre.i93.i, %insertArrayVector3.exit92.i ]
-  %407 = add nsw i32 %405, 1
-  store i32 %407, ptr %130, align 8
-  %408 = sext i32 %405 to i64
-  %409 = getelementptr inbounds %struct.VoxVector3, ptr %406, i64 %408
-  store <2 x float> %.sroa.011.0.copyload.i, ptr %409, align 4
-  %.sroa.29.0..sroa_idx.i94.i = getelementptr inbounds nuw i8, ptr %409, i64 8
+insertArrayVector3.exit96.i:                      ; preds = %402, %insertArrayVector3.exit92.i
+  %407 = phi i32 [ %.pre10.i95.i, %402 ], [ %399, %insertArrayVector3.exit92.i ]
+  %408 = phi ptr [ %406, %402 ], [ %.pre.i93.i, %insertArrayVector3.exit92.i ]
+  %409 = add nsw i32 %407, 1
+  store i32 %409, ptr %130, align 8
+  %410 = sext i32 %407 to i64
+  %411 = getelementptr inbounds %struct.VoxVector3, ptr %408, i64 %410
+  store <2 x float> %.sroa.011.0.copyload.i, ptr %411, align 4
+  %.sroa.29.0..sroa_idx.i94.i = getelementptr inbounds nuw i8, ptr %411, i64 8
   store float %.sroa.212.0.copyload.i, ptr %.sroa.29.0..sroa_idx.i94.i, align 4
-  %410 = getelementptr inbounds nuw %struct.VoxVector3, ptr @FacesPerSideNormal, i64 %indvars.iv149.i
-  %.sroa.09.0.copyload.i = load <2 x float>, ptr %410, align 4
-  %.sroa.210.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %410, i64 8
+  %412 = getelementptr inbounds nuw %struct.VoxVector3, ptr @FacesPerSideNormal, i64 %indvars.iv149.i
+  %.sroa.09.0.copyload.i = load <2 x float>, ptr %412, align 4
+  %.sroa.210.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %412, i64 8
   %.sroa.210.0.copyload.i = load float, ptr %.sroa.210.0..sroa_idx.i, align 4
-  %411 = load i32, ptr %134, align 8
-  %412 = load i32, ptr %135, align 4
-  %413 = icmp eq i32 %411, %412
+  %413 = load i32, ptr %134, align 8
+  %414 = load i32, ptr %135, align 4
+  %415 = icmp eq i32 %413, %414
   %.pre.i97.i = load ptr, ptr %132, align 8
-  br i1 %413, label %414, label %insertArrayVector3.exit100.i
+  br i1 %415, label %416, label %insertArrayVector3.exit100.i
 
-414:                                              ; preds = %insertArrayVector3.exit96.i
-  %415 = shl nsw i32 %411, 1
-  store i32 %415, ptr %135, align 4
-  %416 = sext i32 %415 to i64
-  %417 = mul nsw i64 %416, 12
-  %418 = tail call ptr @realloc(ptr noundef %.pre.i97.i, i64 noundef %417) #61
-  store ptr %418, ptr %132, align 8
+416:                                              ; preds = %insertArrayVector3.exit96.i
+  %417 = shl nsw i32 %413, 1
+  store i32 %417, ptr %135, align 4
+  %418 = sext i32 %417 to i64
+  %419 = mul nsw i64 %418, 12
+  %420 = tail call ptr @realloc(ptr noundef %.pre.i97.i, i64 noundef %419) #61
+  store ptr %420, ptr %132, align 8
   %.pre10.i99.i = load i32, ptr %134, align 8
   br label %insertArrayVector3.exit100.i
 
-insertArrayVector3.exit100.i:                     ; preds = %414, %insertArrayVector3.exit96.i
-  %419 = phi i32 [ %.pre10.i99.i, %414 ], [ %411, %insertArrayVector3.exit96.i ]
-  %420 = phi ptr [ %418, %414 ], [ %.pre.i97.i, %insertArrayVector3.exit96.i ]
-  %421 = add nsw i32 %419, 1
-  store i32 %421, ptr %134, align 8
-  %422 = sext i32 %419 to i64
-  %423 = getelementptr inbounds %struct.VoxVector3, ptr %420, i64 %422
-  store <2 x float> %.sroa.09.0.copyload.i, ptr %423, align 4
-  %.sroa.29.0..sroa_idx.i98.i = getelementptr inbounds nuw i8, ptr %423, i64 8
+insertArrayVector3.exit100.i:                     ; preds = %416, %insertArrayVector3.exit96.i
+  %421 = phi i32 [ %.pre10.i99.i, %416 ], [ %413, %insertArrayVector3.exit96.i ]
+  %422 = phi ptr [ %420, %416 ], [ %.pre.i97.i, %insertArrayVector3.exit96.i ]
+  %423 = add nsw i32 %421, 1
+  store i32 %423, ptr %134, align 8
+  %424 = sext i32 %421 to i64
+  %425 = getelementptr inbounds %struct.VoxVector3, ptr %422, i64 %424
+  store <2 x float> %.sroa.09.0.copyload.i, ptr %425, align 4
+  %.sroa.29.0..sroa_idx.i98.i = getelementptr inbounds nuw i8, ptr %425, i64 8
   store float %.sroa.210.0.copyload.i, ptr %.sroa.29.0..sroa_idx.i98.i, align 4
-  %424 = load i32, ptr %134, align 8
-  %425 = load i32, ptr %135, align 4
-  %426 = icmp eq i32 %424, %425
+  %426 = load i32, ptr %134, align 8
+  %427 = load i32, ptr %135, align 4
+  %428 = icmp eq i32 %426, %427
   %.pre.i101.i = load ptr, ptr %132, align 8
-  br i1 %426, label %427, label %insertArrayVector3.exit104.i
+  br i1 %428, label %429, label %insertArrayVector3.exit104.i
 
-427:                                              ; preds = %insertArrayVector3.exit100.i
-  %428 = shl nsw i32 %424, 1
-  store i32 %428, ptr %135, align 4
-  %429 = sext i32 %428 to i64
-  %430 = mul nsw i64 %429, 12
-  %431 = tail call ptr @realloc(ptr noundef %.pre.i101.i, i64 noundef %430) #61
-  store ptr %431, ptr %132, align 8
+429:                                              ; preds = %insertArrayVector3.exit100.i
+  %430 = shl nsw i32 %426, 1
+  store i32 %430, ptr %135, align 4
+  %431 = sext i32 %430 to i64
+  %432 = mul nsw i64 %431, 12
+  %433 = tail call ptr @realloc(ptr noundef %.pre.i101.i, i64 noundef %432) #61
+  store ptr %433, ptr %132, align 8
   %.pre10.i103.i = load i32, ptr %134, align 8
   br label %insertArrayVector3.exit104.i
 
-insertArrayVector3.exit104.i:                     ; preds = %427, %insertArrayVector3.exit100.i
-  %432 = phi i32 [ %.pre10.i103.i, %427 ], [ %424, %insertArrayVector3.exit100.i ]
-  %433 = phi ptr [ %431, %427 ], [ %.pre.i101.i, %insertArrayVector3.exit100.i ]
-  %434 = add nsw i32 %432, 1
-  store i32 %434, ptr %134, align 8
-  %435 = sext i32 %432 to i64
-  %436 = getelementptr inbounds %struct.VoxVector3, ptr %433, i64 %435
-  store <2 x float> %.sroa.09.0.copyload.i, ptr %436, align 4
-  %.sroa.29.0..sroa_idx.i102.i = getelementptr inbounds nuw i8, ptr %436, i64 8
+insertArrayVector3.exit104.i:                     ; preds = %429, %insertArrayVector3.exit100.i
+  %434 = phi i32 [ %.pre10.i103.i, %429 ], [ %426, %insertArrayVector3.exit100.i ]
+  %435 = phi ptr [ %433, %429 ], [ %.pre.i101.i, %insertArrayVector3.exit100.i ]
+  %436 = add nsw i32 %434, 1
+  store i32 %436, ptr %134, align 8
+  %437 = sext i32 %434 to i64
+  %438 = getelementptr inbounds %struct.VoxVector3, ptr %435, i64 %437
+  store <2 x float> %.sroa.09.0.copyload.i, ptr %438, align 4
+  %.sroa.29.0..sroa_idx.i102.i = getelementptr inbounds nuw i8, ptr %438, i64 8
   store float %.sroa.210.0.copyload.i, ptr %.sroa.29.0..sroa_idx.i102.i, align 4
-  %437 = load i32, ptr %134, align 8
-  %438 = load i32, ptr %135, align 4
-  %439 = icmp eq i32 %437, %438
+  %439 = load i32, ptr %134, align 8
+  %440 = load i32, ptr %135, align 4
+  %441 = icmp eq i32 %439, %440
   %.pre.i105.i = load ptr, ptr %132, align 8
-  br i1 %439, label %440, label %insertArrayVector3.exit108.i
+  br i1 %441, label %442, label %insertArrayVector3.exit108.i
 
-440:                                              ; preds = %insertArrayVector3.exit104.i
-  %441 = shl nsw i32 %437, 1
-  store i32 %441, ptr %135, align 4
-  %442 = sext i32 %441 to i64
-  %443 = mul nsw i64 %442, 12
-  %444 = tail call ptr @realloc(ptr noundef %.pre.i105.i, i64 noundef %443) #61
-  store ptr %444, ptr %132, align 8
+442:                                              ; preds = %insertArrayVector3.exit104.i
+  %443 = shl nsw i32 %439, 1
+  store i32 %443, ptr %135, align 4
+  %444 = sext i32 %443 to i64
+  %445 = mul nsw i64 %444, 12
+  %446 = tail call ptr @realloc(ptr noundef %.pre.i105.i, i64 noundef %445) #61
+  store ptr %446, ptr %132, align 8
   %.pre10.i107.i = load i32, ptr %134, align 8
   br label %insertArrayVector3.exit108.i
 
-insertArrayVector3.exit108.i:                     ; preds = %440, %insertArrayVector3.exit104.i
-  %445 = phi i32 [ %.pre10.i107.i, %440 ], [ %437, %insertArrayVector3.exit104.i ]
-  %446 = phi ptr [ %444, %440 ], [ %.pre.i105.i, %insertArrayVector3.exit104.i ]
-  %447 = add nsw i32 %445, 1
-  store i32 %447, ptr %134, align 8
-  %448 = sext i32 %445 to i64
-  %449 = getelementptr inbounds %struct.VoxVector3, ptr %446, i64 %448
-  store <2 x float> %.sroa.09.0.copyload.i, ptr %449, align 4
-  %.sroa.29.0..sroa_idx.i106.i = getelementptr inbounds nuw i8, ptr %449, i64 8
+insertArrayVector3.exit108.i:                     ; preds = %442, %insertArrayVector3.exit104.i
+  %447 = phi i32 [ %.pre10.i107.i, %442 ], [ %439, %insertArrayVector3.exit104.i ]
+  %448 = phi ptr [ %446, %442 ], [ %.pre.i105.i, %insertArrayVector3.exit104.i ]
+  %449 = add nsw i32 %447, 1
+  store i32 %449, ptr %134, align 8
+  %450 = sext i32 %447 to i64
+  %451 = getelementptr inbounds %struct.VoxVector3, ptr %448, i64 %450
+  store <2 x float> %.sroa.09.0.copyload.i, ptr %451, align 4
+  %.sroa.29.0..sroa_idx.i106.i = getelementptr inbounds nuw i8, ptr %451, i64 8
   store float %.sroa.210.0.copyload.i, ptr %.sroa.29.0..sroa_idx.i106.i, align 4
-  %450 = load i32, ptr %134, align 8
-  %451 = load i32, ptr %135, align 4
-  %452 = icmp eq i32 %450, %451
+  %452 = load i32, ptr %134, align 8
+  %453 = load i32, ptr %135, align 4
+  %454 = icmp eq i32 %452, %453
   %.pre.i109.i = load ptr, ptr %132, align 8
-  br i1 %452, label %453, label %insertArrayVector3.exit112.i
+  br i1 %454, label %455, label %insertArrayVector3.exit112.i
 
-453:                                              ; preds = %insertArrayVector3.exit108.i
-  %454 = shl nsw i32 %450, 1
-  store i32 %454, ptr %135, align 4
-  %455 = sext i32 %454 to i64
-  %456 = mul nsw i64 %455, 12
-  %457 = tail call ptr @realloc(ptr noundef %.pre.i109.i, i64 noundef %456) #61
-  store ptr %457, ptr %132, align 8
+455:                                              ; preds = %insertArrayVector3.exit108.i
+  %456 = shl nsw i32 %452, 1
+  store i32 %456, ptr %135, align 4
+  %457 = sext i32 %456 to i64
+  %458 = mul nsw i64 %457, 12
+  %459 = tail call ptr @realloc(ptr noundef %.pre.i109.i, i64 noundef %458) #61
+  store ptr %459, ptr %132, align 8
   %.pre10.i111.i = load i32, ptr %134, align 8
   br label %insertArrayVector3.exit112.i
 
-insertArrayVector3.exit112.i:                     ; preds = %453, %insertArrayVector3.exit108.i
-  %458 = phi i32 [ %.pre10.i111.i, %453 ], [ %450, %insertArrayVector3.exit108.i ]
-  %459 = phi ptr [ %457, %453 ], [ %.pre.i109.i, %insertArrayVector3.exit108.i ]
-  %460 = add nsw i32 %458, 1
-  store i32 %460, ptr %134, align 8
-  %461 = sext i32 %458 to i64
-  %462 = getelementptr inbounds %struct.VoxVector3, ptr %459, i64 %461
-  store <2 x float> %.sroa.09.0.copyload.i, ptr %462, align 4
-  %.sroa.29.0..sroa_idx.i110.i = getelementptr inbounds nuw i8, ptr %462, i64 8
+insertArrayVector3.exit112.i:                     ; preds = %455, %insertArrayVector3.exit108.i
+  %460 = phi i32 [ %.pre10.i111.i, %455 ], [ %452, %insertArrayVector3.exit108.i ]
+  %461 = phi ptr [ %459, %455 ], [ %.pre.i109.i, %insertArrayVector3.exit108.i ]
+  %462 = add nsw i32 %460, 1
+  store i32 %462, ptr %134, align 8
+  %463 = sext i32 %460 to i64
+  %464 = getelementptr inbounds %struct.VoxVector3, ptr %461, i64 %463
+  store <2 x float> %.sroa.09.0.copyload.i, ptr %464, align 4
+  %.sroa.29.0..sroa_idx.i110.i = getelementptr inbounds nuw i8, ptr %464, i64 8
   store float %.sroa.210.0.copyload.i, ptr %.sroa.29.0..sroa_idx.i110.i, align 4
-  %.sroa.0.0.copyload.i = load i32, ptr %313, align 4
-  %463 = load i32, ptr %142, align 8
-  %464 = load i32, ptr %143, align 4
-  %465 = icmp eq i32 %463, %464
+  %.sroa.0.0.copyload.i = load i32, ptr %315, align 4
+  %465 = load i32, ptr %142, align 8
+  %466 = load i32, ptr %143, align 4
+  %467 = icmp eq i32 %465, %466
   %.pre.i113.i = load ptr, ptr %140, align 8
-  br i1 %465, label %466, label %insertArrayColor.exit.i
+  br i1 %467, label %468, label %insertArrayColor.exit.i
 
-466:                                              ; preds = %insertArrayVector3.exit112.i
-  %467 = shl nsw i32 %463, 1
-  store i32 %467, ptr %143, align 4
-  %468 = sext i32 %467 to i64
-  %469 = shl nsw i64 %468, 2
-  %470 = tail call ptr @realloc(ptr noundef %.pre.i113.i, i64 noundef %469) #61
-  store ptr %470, ptr %140, align 8
+468:                                              ; preds = %insertArrayVector3.exit112.i
+  %469 = shl nsw i32 %465, 1
+  store i32 %469, ptr %143, align 4
+  %470 = sext i32 %469 to i64
+  %471 = shl nsw i64 %470, 2
+  %472 = tail call ptr @realloc(ptr noundef %.pre.i113.i, i64 noundef %471) #61
+  store ptr %472, ptr %140, align 8
   %.pre8.i.i = load i32, ptr %142, align 8
   br label %insertArrayColor.exit.i
 
-insertArrayColor.exit.i:                          ; preds = %466, %insertArrayVector3.exit112.i
-  %471 = phi i32 [ %.pre8.i.i, %466 ], [ %463, %insertArrayVector3.exit112.i ]
-  %472 = phi ptr [ %470, %466 ], [ %.pre.i113.i, %insertArrayVector3.exit112.i ]
-  %473 = add nsw i32 %471, 1
-  store i32 %473, ptr %142, align 8
-  %474 = sext i32 %471 to i64
-  %475 = getelementptr inbounds %struct.VoxColor, ptr %472, i64 %474
-  store i32 %.sroa.0.0.copyload.i, ptr %475, align 1
-  %476 = load i32, ptr %142, align 8
-  %477 = load i32, ptr %143, align 4
-  %478 = icmp eq i32 %476, %477
+insertArrayColor.exit.i:                          ; preds = %468, %insertArrayVector3.exit112.i
+  %473 = phi i32 [ %.pre8.i.i, %468 ], [ %465, %insertArrayVector3.exit112.i ]
+  %474 = phi ptr [ %472, %468 ], [ %.pre.i113.i, %insertArrayVector3.exit112.i ]
+  %475 = add nsw i32 %473, 1
+  store i32 %475, ptr %142, align 8
+  %476 = sext i32 %473 to i64
+  %477 = getelementptr inbounds %struct.VoxColor, ptr %474, i64 %476
+  store i32 %.sroa.0.0.copyload.i, ptr %477, align 1
+  %478 = load i32, ptr %142, align 8
+  %479 = load i32, ptr %143, align 4
+  %480 = icmp eq i32 %478, %479
   %.pre.i114.i = load ptr, ptr %140, align 8
-  br i1 %478, label %479, label %insertArrayColor.exit116.i
+  br i1 %480, label %481, label %insertArrayColor.exit116.i
 
-479:                                              ; preds = %insertArrayColor.exit.i
-  %480 = shl nsw i32 %476, 1
-  store i32 %480, ptr %143, align 4
-  %481 = sext i32 %480 to i64
-  %482 = shl nsw i64 %481, 2
-  %483 = tail call ptr @realloc(ptr noundef %.pre.i114.i, i64 noundef %482) #61
-  store ptr %483, ptr %140, align 8
+481:                                              ; preds = %insertArrayColor.exit.i
+  %482 = shl nsw i32 %478, 1
+  store i32 %482, ptr %143, align 4
+  %483 = sext i32 %482 to i64
+  %484 = shl nsw i64 %483, 2
+  %485 = tail call ptr @realloc(ptr noundef %.pre.i114.i, i64 noundef %484) #61
+  store ptr %485, ptr %140, align 8
   %.pre8.i115.i = load i32, ptr %142, align 8
   br label %insertArrayColor.exit116.i
 
-insertArrayColor.exit116.i:                       ; preds = %479, %insertArrayColor.exit.i
-  %484 = phi i32 [ %.pre8.i115.i, %479 ], [ %476, %insertArrayColor.exit.i ]
-  %485 = phi ptr [ %483, %479 ], [ %.pre.i114.i, %insertArrayColor.exit.i ]
-  %486 = add nsw i32 %484, 1
-  store i32 %486, ptr %142, align 8
-  %487 = sext i32 %484 to i64
-  %488 = getelementptr inbounds %struct.VoxColor, ptr %485, i64 %487
-  store i32 %.sroa.0.0.copyload.i, ptr %488, align 1
-  %489 = load i32, ptr %142, align 8
-  %490 = load i32, ptr %143, align 4
-  %491 = icmp eq i32 %489, %490
+insertArrayColor.exit116.i:                       ; preds = %481, %insertArrayColor.exit.i
+  %486 = phi i32 [ %.pre8.i115.i, %481 ], [ %478, %insertArrayColor.exit.i ]
+  %487 = phi ptr [ %485, %481 ], [ %.pre.i114.i, %insertArrayColor.exit.i ]
+  %488 = add nsw i32 %486, 1
+  store i32 %488, ptr %142, align 8
+  %489 = sext i32 %486 to i64
+  %490 = getelementptr inbounds %struct.VoxColor, ptr %487, i64 %489
+  store i32 %.sroa.0.0.copyload.i, ptr %490, align 1
+  %491 = load i32, ptr %142, align 8
+  %492 = load i32, ptr %143, align 4
+  %493 = icmp eq i32 %491, %492
   %.pre.i117.i = load ptr, ptr %140, align 8
-  br i1 %491, label %492, label %insertArrayColor.exit119.i
+  br i1 %493, label %494, label %insertArrayColor.exit119.i
 
-492:                                              ; preds = %insertArrayColor.exit116.i
-  %493 = shl nsw i32 %489, 1
-  store i32 %493, ptr %143, align 4
-  %494 = sext i32 %493 to i64
-  %495 = shl nsw i64 %494, 2
-  %496 = tail call ptr @realloc(ptr noundef %.pre.i117.i, i64 noundef %495) #61
-  store ptr %496, ptr %140, align 8
+494:                                              ; preds = %insertArrayColor.exit116.i
+  %495 = shl nsw i32 %491, 1
+  store i32 %495, ptr %143, align 4
+  %496 = sext i32 %495 to i64
+  %497 = shl nsw i64 %496, 2
+  %498 = tail call ptr @realloc(ptr noundef %.pre.i117.i, i64 noundef %497) #61
+  store ptr %498, ptr %140, align 8
   %.pre8.i118.i = load i32, ptr %142, align 8
   br label %insertArrayColor.exit119.i
 
-insertArrayColor.exit119.i:                       ; preds = %492, %insertArrayColor.exit116.i
-  %497 = phi i32 [ %.pre8.i118.i, %492 ], [ %489, %insertArrayColor.exit116.i ]
-  %498 = phi ptr [ %496, %492 ], [ %.pre.i117.i, %insertArrayColor.exit116.i ]
-  %499 = add nsw i32 %497, 1
-  store i32 %499, ptr %142, align 8
-  %500 = sext i32 %497 to i64
-  %501 = getelementptr inbounds %struct.VoxColor, ptr %498, i64 %500
-  store i32 %.sroa.0.0.copyload.i, ptr %501, align 1
-  %502 = load i32, ptr %142, align 8
-  %503 = load i32, ptr %143, align 4
-  %504 = icmp eq i32 %502, %503
+insertArrayColor.exit119.i:                       ; preds = %494, %insertArrayColor.exit116.i
+  %499 = phi i32 [ %.pre8.i118.i, %494 ], [ %491, %insertArrayColor.exit116.i ]
+  %500 = phi ptr [ %498, %494 ], [ %.pre.i117.i, %insertArrayColor.exit116.i ]
+  %501 = add nsw i32 %499, 1
+  store i32 %501, ptr %142, align 8
+  %502 = sext i32 %499 to i64
+  %503 = getelementptr inbounds %struct.VoxColor, ptr %500, i64 %502
+  store i32 %.sroa.0.0.copyload.i, ptr %503, align 1
+  %504 = load i32, ptr %142, align 8
+  %505 = load i32, ptr %143, align 4
+  %506 = icmp eq i32 %504, %505
   %.pre.i120.i = load ptr, ptr %140, align 8
-  br i1 %504, label %505, label %insertArrayColor.exit122.i
+  br i1 %506, label %507, label %insertArrayColor.exit122.i
 
-505:                                              ; preds = %insertArrayColor.exit119.i
-  %506 = shl nsw i32 %502, 1
-  store i32 %506, ptr %143, align 4
-  %507 = sext i32 %506 to i64
-  %508 = shl nsw i64 %507, 2
-  %509 = tail call ptr @realloc(ptr noundef %.pre.i120.i, i64 noundef %508) #61
-  store ptr %509, ptr %140, align 8
+507:                                              ; preds = %insertArrayColor.exit119.i
+  %508 = shl nsw i32 %504, 1
+  store i32 %508, ptr %143, align 4
+  %509 = sext i32 %508 to i64
+  %510 = shl nsw i64 %509, 2
+  %511 = tail call ptr @realloc(ptr noundef %.pre.i120.i, i64 noundef %510) #61
+  store ptr %511, ptr %140, align 8
   %.pre8.i121.i = load i32, ptr %142, align 8
   br label %insertArrayColor.exit122.i
 
-insertArrayColor.exit122.i:                       ; preds = %505, %insertArrayColor.exit119.i
-  %510 = phi i32 [ %.pre8.i121.i, %505 ], [ %502, %insertArrayColor.exit119.i ]
-  %511 = phi ptr [ %509, %505 ], [ %.pre.i120.i, %insertArrayColor.exit119.i ]
-  %512 = add nsw i32 %510, 1
-  store i32 %512, ptr %142, align 8
-  %513 = sext i32 %510 to i64
-  %514 = getelementptr inbounds %struct.VoxColor, ptr %511, i64 %513
-  store i32 %.sroa.0.0.copyload.i, ptr %514, align 1
-  %515 = trunc i32 %350 to i16
-  %516 = load i32, ptr %138, align 8
-  %517 = load i32, ptr %139, align 4
-  %518 = icmp eq i32 %516, %517
+insertArrayColor.exit122.i:                       ; preds = %507, %insertArrayColor.exit119.i
+  %512 = phi i32 [ %.pre8.i121.i, %507 ], [ %504, %insertArrayColor.exit119.i ]
+  %513 = phi ptr [ %511, %507 ], [ %.pre.i120.i, %insertArrayColor.exit119.i ]
+  %514 = add nsw i32 %512, 1
+  store i32 %514, ptr %142, align 8
+  %515 = sext i32 %512 to i64
+  %516 = getelementptr inbounds %struct.VoxColor, ptr %513, i64 %515
+  store i32 %.sroa.0.0.copyload.i, ptr %516, align 1
+  %517 = trunc i32 %352 to i16
+  %518 = load i32, ptr %138, align 8
+  %519 = load i32, ptr %139, align 4
+  %520 = icmp eq i32 %518, %519
   %.pre.i123.i = load ptr, ptr %136, align 8
-  br i1 %518, label %519, label %insertArrayUShort.exit.i
+  br i1 %520, label %521, label %insertArrayUShort.exit.i
 
-519:                                              ; preds = %insertArrayColor.exit122.i
-  %520 = shl nsw i32 %516, 1
-  store i32 %520, ptr %139, align 4
-  %521 = sext i32 %520 to i64
-  %522 = shl nsw i64 %521, 1
-  %523 = tail call ptr @realloc(ptr noundef %.pre.i123.i, i64 noundef %522) #61
-  store ptr %523, ptr %136, align 8
+521:                                              ; preds = %insertArrayColor.exit122.i
+  %522 = shl nsw i32 %518, 1
+  store i32 %522, ptr %139, align 4
+  %523 = sext i32 %522 to i64
+  %524 = shl nsw i64 %523, 1
+  %525 = tail call ptr @realloc(ptr noundef %.pre.i123.i, i64 noundef %524) #61
+  store ptr %525, ptr %136, align 8
   %.pre8.i124.i = load i32, ptr %138, align 8
   br label %insertArrayUShort.exit.i
 
-insertArrayUShort.exit.i:                         ; preds = %519, %insertArrayColor.exit122.i
-  %524 = phi i32 [ %.pre8.i124.i, %519 ], [ %516, %insertArrayColor.exit122.i ]
-  %525 = phi ptr [ %523, %519 ], [ %.pre.i123.i, %insertArrayColor.exit122.i ]
-  %526 = add nsw i32 %524, 1
-  store i32 %526, ptr %138, align 8
-  %527 = sext i32 %524 to i64
-  %528 = getelementptr inbounds i16, ptr %525, i64 %527
-  store i16 %515, ptr %528, align 2
-  %529 = add i16 %515, 2
-  %530 = load i32, ptr %138, align 8
-  %531 = load i32, ptr %139, align 4
-  %532 = icmp eq i32 %530, %531
+insertArrayUShort.exit.i:                         ; preds = %521, %insertArrayColor.exit122.i
+  %526 = phi i32 [ %.pre8.i124.i, %521 ], [ %518, %insertArrayColor.exit122.i ]
+  %527 = phi ptr [ %525, %521 ], [ %.pre.i123.i, %insertArrayColor.exit122.i ]
+  %528 = add nsw i32 %526, 1
+  store i32 %528, ptr %138, align 8
+  %529 = sext i32 %526 to i64
+  %530 = getelementptr inbounds i16, ptr %527, i64 %529
+  store i16 %517, ptr %530, align 2
+  %531 = add i16 %517, 2
+  %532 = load i32, ptr %138, align 8
+  %533 = load i32, ptr %139, align 4
+  %534 = icmp eq i32 %532, %533
   %.pre.i125.i = load ptr, ptr %136, align 8
-  br i1 %532, label %533, label %insertArrayUShort.exit127.i
+  br i1 %534, label %535, label %insertArrayUShort.exit127.i
 
-533:                                              ; preds = %insertArrayUShort.exit.i
-  %534 = shl nsw i32 %530, 1
-  store i32 %534, ptr %139, align 4
-  %535 = sext i32 %534 to i64
-  %536 = shl nsw i64 %535, 1
-  %537 = tail call ptr @realloc(ptr noundef %.pre.i125.i, i64 noundef %536) #61
-  store ptr %537, ptr %136, align 8
+535:                                              ; preds = %insertArrayUShort.exit.i
+  %536 = shl nsw i32 %532, 1
+  store i32 %536, ptr %139, align 4
+  %537 = sext i32 %536 to i64
+  %538 = shl nsw i64 %537, 1
+  %539 = tail call ptr @realloc(ptr noundef %.pre.i125.i, i64 noundef %538) #61
+  store ptr %539, ptr %136, align 8
   %.pre8.i126.i = load i32, ptr %138, align 8
   br label %insertArrayUShort.exit127.i
 
-insertArrayUShort.exit127.i:                      ; preds = %533, %insertArrayUShort.exit.i
-  %538 = phi i32 [ %.pre8.i126.i, %533 ], [ %530, %insertArrayUShort.exit.i ]
-  %539 = phi ptr [ %537, %533 ], [ %.pre.i125.i, %insertArrayUShort.exit.i ]
-  %540 = add nsw i32 %538, 1
-  store i32 %540, ptr %138, align 8
-  %541 = sext i32 %538 to i64
-  %542 = getelementptr inbounds i16, ptr %539, i64 %541
-  store i16 %529, ptr %542, align 2
-  %543 = add i16 %515, 1
-  %544 = load i32, ptr %138, align 8
-  %545 = load i32, ptr %139, align 4
-  %546 = icmp eq i32 %544, %545
+insertArrayUShort.exit127.i:                      ; preds = %535, %insertArrayUShort.exit.i
+  %540 = phi i32 [ %.pre8.i126.i, %535 ], [ %532, %insertArrayUShort.exit.i ]
+  %541 = phi ptr [ %539, %535 ], [ %.pre.i125.i, %insertArrayUShort.exit.i ]
+  %542 = add nsw i32 %540, 1
+  store i32 %542, ptr %138, align 8
+  %543 = sext i32 %540 to i64
+  %544 = getelementptr inbounds i16, ptr %541, i64 %543
+  store i16 %531, ptr %544, align 2
+  %545 = add i16 %517, 1
+  %546 = load i32, ptr %138, align 8
+  %547 = load i32, ptr %139, align 4
+  %548 = icmp eq i32 %546, %547
   %.pre.i128.i = load ptr, ptr %136, align 8
-  br i1 %546, label %547, label %insertArrayUShort.exit130.i
+  br i1 %548, label %549, label %insertArrayUShort.exit130.i
 
-547:                                              ; preds = %insertArrayUShort.exit127.i
-  %548 = shl nsw i32 %544, 1
-  store i32 %548, ptr %139, align 4
-  %549 = sext i32 %548 to i64
-  %550 = shl nsw i64 %549, 1
-  %551 = tail call ptr @realloc(ptr noundef %.pre.i128.i, i64 noundef %550) #61
-  store ptr %551, ptr %136, align 8
+549:                                              ; preds = %insertArrayUShort.exit127.i
+  %550 = shl nsw i32 %546, 1
+  store i32 %550, ptr %139, align 4
+  %551 = sext i32 %550 to i64
+  %552 = shl nsw i64 %551, 1
+  %553 = tail call ptr @realloc(ptr noundef %.pre.i128.i, i64 noundef %552) #61
+  store ptr %553, ptr %136, align 8
   %.pre8.i129.i = load i32, ptr %138, align 8
   br label %insertArrayUShort.exit130.i
 
-insertArrayUShort.exit130.i:                      ; preds = %547, %insertArrayUShort.exit127.i
-  %552 = phi i32 [ %.pre8.i129.i, %547 ], [ %544, %insertArrayUShort.exit127.i ]
-  %553 = phi ptr [ %551, %547 ], [ %.pre.i128.i, %insertArrayUShort.exit127.i ]
-  %554 = add nsw i32 %552, 1
-  store i32 %554, ptr %138, align 8
-  %555 = sext i32 %552 to i64
-  %556 = getelementptr inbounds i16, ptr %553, i64 %555
-  store i16 %543, ptr %556, align 2
-  %557 = load i32, ptr %138, align 8
-  %558 = load i32, ptr %139, align 4
-  %559 = icmp eq i32 %557, %558
+insertArrayUShort.exit130.i:                      ; preds = %549, %insertArrayUShort.exit127.i
+  %554 = phi i32 [ %.pre8.i129.i, %549 ], [ %546, %insertArrayUShort.exit127.i ]
+  %555 = phi ptr [ %553, %549 ], [ %.pre.i128.i, %insertArrayUShort.exit127.i ]
+  %556 = add nsw i32 %554, 1
+  store i32 %556, ptr %138, align 8
+  %557 = sext i32 %554 to i64
+  %558 = getelementptr inbounds i16, ptr %555, i64 %557
+  store i16 %545, ptr %558, align 2
+  %559 = load i32, ptr %138, align 8
+  %560 = load i32, ptr %139, align 4
+  %561 = icmp eq i32 %559, %560
   %.pre.i131.i = load ptr, ptr %136, align 8
-  br i1 %559, label %560, label %insertArrayUShort.exit133.i
+  br i1 %561, label %562, label %insertArrayUShort.exit133.i
 
-560:                                              ; preds = %insertArrayUShort.exit130.i
-  %561 = shl nsw i32 %557, 1
-  store i32 %561, ptr %139, align 4
-  %562 = sext i32 %561 to i64
-  %563 = shl nsw i64 %562, 1
-  %564 = tail call ptr @realloc(ptr noundef %.pre.i131.i, i64 noundef %563) #61
-  store ptr %564, ptr %136, align 8
+562:                                              ; preds = %insertArrayUShort.exit130.i
+  %563 = shl nsw i32 %559, 1
+  store i32 %563, ptr %139, align 4
+  %564 = sext i32 %563 to i64
+  %565 = shl nsw i64 %564, 1
+  %566 = tail call ptr @realloc(ptr noundef %.pre.i131.i, i64 noundef %565) #61
+  store ptr %566, ptr %136, align 8
   %.pre8.i132.i = load i32, ptr %138, align 8
   br label %insertArrayUShort.exit133.i
 
-insertArrayUShort.exit133.i:                      ; preds = %560, %insertArrayUShort.exit130.i
-  %565 = phi i32 [ %.pre8.i132.i, %560 ], [ %557, %insertArrayUShort.exit130.i ]
-  %566 = phi ptr [ %564, %560 ], [ %.pre.i131.i, %insertArrayUShort.exit130.i ]
-  %567 = add nsw i32 %565, 1
-  store i32 %567, ptr %138, align 8
-  %568 = sext i32 %565 to i64
-  %569 = getelementptr inbounds i16, ptr %566, i64 %568
-  store i16 %515, ptr %569, align 2
-  %570 = add i16 %515, 3
-  %571 = load i32, ptr %138, align 8
-  %572 = load i32, ptr %139, align 4
-  %573 = icmp eq i32 %571, %572
+insertArrayUShort.exit133.i:                      ; preds = %562, %insertArrayUShort.exit130.i
+  %567 = phi i32 [ %.pre8.i132.i, %562 ], [ %559, %insertArrayUShort.exit130.i ]
+  %568 = phi ptr [ %566, %562 ], [ %.pre.i131.i, %insertArrayUShort.exit130.i ]
+  %569 = add nsw i32 %567, 1
+  store i32 %569, ptr %138, align 8
+  %570 = sext i32 %567 to i64
+  %571 = getelementptr inbounds i16, ptr %568, i64 %570
+  store i16 %517, ptr %571, align 2
+  %572 = add i16 %517, 3
+  %573 = load i32, ptr %138, align 8
+  %574 = load i32, ptr %139, align 4
+  %575 = icmp eq i32 %573, %574
   %.pre.i134.i = load ptr, ptr %136, align 8
-  br i1 %573, label %574, label %insertArrayUShort.exit136.i
+  br i1 %575, label %576, label %insertArrayUShort.exit136.i
 
-574:                                              ; preds = %insertArrayUShort.exit133.i
-  %575 = shl nsw i32 %571, 1
-  store i32 %575, ptr %139, align 4
-  %576 = sext i32 %575 to i64
-  %577 = shl nsw i64 %576, 1
-  %578 = tail call ptr @realloc(ptr noundef %.pre.i134.i, i64 noundef %577) #61
-  store ptr %578, ptr %136, align 8
+576:                                              ; preds = %insertArrayUShort.exit133.i
+  %577 = shl nsw i32 %573, 1
+  store i32 %577, ptr %139, align 4
+  %578 = sext i32 %577 to i64
+  %579 = shl nsw i64 %578, 1
+  %580 = tail call ptr @realloc(ptr noundef %.pre.i134.i, i64 noundef %579) #61
+  store ptr %580, ptr %136, align 8
   %.pre8.i135.i = load i32, ptr %138, align 8
   br label %insertArrayUShort.exit136.i
 
-insertArrayUShort.exit136.i:                      ; preds = %574, %insertArrayUShort.exit133.i
-  %579 = phi i32 [ %.pre8.i135.i, %574 ], [ %571, %insertArrayUShort.exit133.i ]
-  %580 = phi ptr [ %578, %574 ], [ %.pre.i134.i, %insertArrayUShort.exit133.i ]
-  %581 = add nsw i32 %579, 1
-  store i32 %581, ptr %138, align 8
-  %582 = sext i32 %579 to i64
-  %583 = getelementptr inbounds i16, ptr %580, i64 %582
-  store i16 %570, ptr %583, align 2
-  %584 = load i32, ptr %138, align 8
-  %585 = load i32, ptr %139, align 4
-  %586 = icmp eq i32 %584, %585
+insertArrayUShort.exit136.i:                      ; preds = %576, %insertArrayUShort.exit133.i
+  %581 = phi i32 [ %.pre8.i135.i, %576 ], [ %573, %insertArrayUShort.exit133.i ]
+  %582 = phi ptr [ %580, %576 ], [ %.pre.i134.i, %insertArrayUShort.exit133.i ]
+  %583 = add nsw i32 %581, 1
+  store i32 %583, ptr %138, align 8
+  %584 = sext i32 %581 to i64
+  %585 = getelementptr inbounds i16, ptr %582, i64 %584
+  store i16 %572, ptr %585, align 2
+  %586 = load i32, ptr %138, align 8
+  %587 = load i32, ptr %139, align 4
+  %588 = icmp eq i32 %586, %587
   %.pre.i137.i = load ptr, ptr %136, align 8
-  br i1 %586, label %587, label %insertArrayUShort.exit139.i
+  br i1 %588, label %589, label %insertArrayUShort.exit139.i
 
-587:                                              ; preds = %insertArrayUShort.exit136.i
-  %588 = shl nsw i32 %584, 1
-  store i32 %588, ptr %139, align 4
-  %589 = sext i32 %588 to i64
-  %590 = shl nsw i64 %589, 1
-  %591 = tail call ptr @realloc(ptr noundef %.pre.i137.i, i64 noundef %590) #61
-  store ptr %591, ptr %136, align 8
+589:                                              ; preds = %insertArrayUShort.exit136.i
+  %590 = shl nsw i32 %586, 1
+  store i32 %590, ptr %139, align 4
+  %591 = sext i32 %590 to i64
+  %592 = shl nsw i64 %591, 1
+  %593 = tail call ptr @realloc(ptr noundef %.pre.i137.i, i64 noundef %592) #61
+  store ptr %593, ptr %136, align 8
   %.pre8.i138.i = load i32, ptr %138, align 8
   br label %insertArrayUShort.exit139.i
 
-insertArrayUShort.exit139.i:                      ; preds = %587, %insertArrayUShort.exit136.i
-  %592 = phi i32 [ %.pre8.i138.i, %587 ], [ %584, %insertArrayUShort.exit136.i ]
-  %593 = phi ptr [ %591, %587 ], [ %.pre.i137.i, %insertArrayUShort.exit136.i ]
-  %594 = add nsw i32 %592, 1
-  store i32 %594, ptr %138, align 8
-  %595 = sext i32 %592 to i64
-  %596 = getelementptr inbounds i16, ptr %593, i64 %595
-  store i16 %529, ptr %596, align 2
-  br label %597
+insertArrayUShort.exit139.i:                      ; preds = %589, %insertArrayUShort.exit136.i
+  %594 = phi i32 [ %.pre8.i138.i, %589 ], [ %586, %insertArrayUShort.exit136.i ]
+  %595 = phi ptr [ %593, %589 ], [ %.pre.i137.i, %insertArrayUShort.exit136.i ]
+  %596 = add nsw i32 %594, 1
+  store i32 %596, ptr %138, align 8
+  %597 = sext i32 %594 to i64
+  %598 = getelementptr inbounds i16, ptr %595, i64 %597
+  store i16 %531, ptr %598, align 2
+  br label %599
 
-597:                                              ; preds = %insertArrayUShort.exit139.i, %336
+599:                                              ; preds = %insertArrayUShort.exit139.i, %338
   %indvars.iv.next150.i = add nuw nsw i64 %indvars.iv149.i, 1
   %exitcond152.not.i = icmp eq i64 %indvars.iv.next150.i, 6
-  br i1 %exitcond152.not.i, label %598, label %336
+  br i1 %exitcond152.not.i, label %600, label %338
 
-598:                                              ; preds = %597
+600:                                              ; preds = %599
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load i32, ptr %146, align 4
   br label %Vox_Build_Voxel.exit
 
-Vox_Build_Voxel.exit:                             ; preds = %196, %194, %190, %598, %307, %Vox_GetVoxel.exit
-  %599 = phi i32 [ %191, %196 ], [ %191, %194 ], [ %191, %190 ], [ %.pre, %598 ], [ %191, %307 ], [ %191, %Vox_GetVoxel.exit ]
-  %600 = add nuw nsw i32 %.076113, 1
-  %.not85.not = icmp slt i32 %.076113, %599
+Vox_Build_Voxel.exit:                             ; preds = %194, %196, %190, %600, %309, %Vox_GetVoxel.exit
+  %601 = phi i32 [ %191, %194 ], [ %191, %196 ], [ %191, %190 ], [ %.pre, %600 ], [ %191, %309 ], [ %191, %Vox_GetVoxel.exit ]
+  %602 = add nuw nsw i32 %.076113, 1
+  %.not85.not = icmp slt i32 %.076113, %601
   br i1 %.not85.not, label %190, label %._crit_edge115.loopexit
 
 ._crit_edge115.loopexit:                          ; preds = %Vox_Build_Voxel.exit
@@ -12464,10 +12462,10 @@ Vox_Build_Voxel.exit:                             ; preds = %196, %194, %190, %5
 
 ._crit_edge115:                                   ; preds = %.preheader.._crit_edge115_crit_edge, %._crit_edge115.loopexit
   %.pre-phi133 = phi i32 [ %.pre132, %.preheader.._crit_edge115_crit_edge ], [ %184, %._crit_edge115.loopexit ]
-  %601 = phi i32 [ %170, %.preheader.._crit_edge115_crit_edge ], [ %.pre129, %._crit_edge115.loopexit ]
-  %602 = phi i32 [ %171, %.preheader.._crit_edge115_crit_edge ], [ %599, %._crit_edge115.loopexit ]
-  %603 = phi i32 [ %172, %.preheader.._crit_edge115_crit_edge ], [ %599, %._crit_edge115.loopexit ]
-  %.not84.not = icmp slt i32 %.075117, %601
+  %603 = phi i32 [ %170, %.preheader.._crit_edge115_crit_edge ], [ %.pre129, %._crit_edge115.loopexit ]
+  %604 = phi i32 [ %171, %.preheader.._crit_edge115_crit_edge ], [ %601, %._crit_edge115.loopexit ]
+  %605 = phi i32 [ %172, %.preheader.._crit_edge115_crit_edge ], [ %601, %._crit_edge115.loopexit ]
+  %.not84.not = icmp slt i32 %.075117, %603
   br i1 %.not84.not, label %.preheader, label %._crit_edge118.loopexit122, !llvm.loop !4
 
 ._crit_edge118.loopexit122:                       ; preds = %._crit_edge115
@@ -12476,10 +12474,10 @@ Vox_Build_Voxel.exit:                             ; preds = %196, %194, %190, %5
 
 ._crit_edge118:                                   ; preds = %.preheader.lr.ph, %.preheader101.._crit_edge118_crit_edge, %._crit_edge118.loopexit122
   %.pre-phi = phi i32 [ %.pre131, %.preheader101.._crit_edge118_crit_edge ], [ %163, %._crit_edge118.loopexit122 ], [ %163, %.preheader.lr.ph ]
-  %604 = phi i32 [ %153, %.preheader101.._crit_edge118_crit_edge ], [ %.pre130, %._crit_edge118.loopexit122 ], [ %153, %.preheader.lr.ph ]
-  %605 = phi i32 [ %154, %.preheader101.._crit_edge118_crit_edge ], [ %601, %._crit_edge118.loopexit122 ], [ %154, %.preheader.lr.ph ]
-  %606 = phi i32 [ %155, %.preheader101.._crit_edge118_crit_edge ], [ %601, %._crit_edge118.loopexit122 ], [ %155, %.preheader.lr.ph ]
-  %.not83.not = icmp slt i32 %.077120, %604
+  %606 = phi i32 [ %153, %.preheader101.._crit_edge118_crit_edge ], [ %.pre130, %._crit_edge118.loopexit122 ], [ %153, %.preheader.lr.ph ]
+  %607 = phi i32 [ %154, %.preheader101.._crit_edge118_crit_edge ], [ %603, %._crit_edge118.loopexit122 ], [ %154, %.preheader.lr.ph ]
+  %608 = phi i32 [ %155, %.preheader101.._crit_edge118_crit_edge ], [ %603, %._crit_edge118.loopexit122 ], [ %155, %.preheader.lr.ph ]
+  %.not83.not = icmp slt i32 %.077120, %606
   br i1 %.not83.not, label %.preheader101, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %._crit_edge118, %.preheader101.lr.ph, %._crit_edge, %10, %3
@@ -28851,11 +28849,7 @@ define hidden void @par_shapes_unweld(ptr noundef captures(none) %0, i1 noundef 
   %32 = shl nsw i64 %31, 1
   %33 = tail call noalias ptr @malloc(i64 noundef %32) #65
   %34 = icmp sgt i32 %29, 0
-  br i1 %34, label %.lr.ph41.preheader, label %._crit_edge42
-
-.lr.ph41.preheader:                               ; preds = %28
-  %smax43 = tail call i32 @llvm.smax.i32(i32 %30, i32 1)
-  br label %.lr.ph41
+  br i1 %34, label %.lr.ph41, label %._crit_edge42
 
 ._crit_edge42:                                    ; preds = %.lr.ph41, %28
   %35 = load ptr, ptr %10, align 8
@@ -28863,14 +28857,14 @@ define hidden void @par_shapes_unweld(ptr noundef captures(none) %0, i1 noundef 
   store ptr %33, ptr %10, align 8
   br label %39
 
-.lr.ph41:                                         ; preds = %.lr.ph41.preheader, %.lr.ph41
-  %.039 = phi i32 [ %38, %.lr.ph41 ], [ 0, %.lr.ph41.preheader ]
-  %.03038 = phi ptr [ %37, %.lr.ph41 ], [ %33, %.lr.ph41.preheader ]
+.lr.ph41:                                         ; preds = %28, %.lr.ph41
+  %.039 = phi i32 [ %38, %.lr.ph41 ], [ 0, %28 ]
+  %.03038 = phi ptr [ %37, %.lr.ph41 ], [ %33, %28 ]
   %36 = trunc i32 %.039 to i16
   %37 = getelementptr inbounds nuw i8, ptr %.03038, i64 2
   store i16 %36, ptr %.03038, align 2
   %38 = add nuw nsw i32 %.039, 1
-  %exitcond44.not = icmp eq i32 %38, %smax43
+  %exitcond44.not = icmp eq i32 %38, %30
   br i1 %exitcond44.not, label %._crit_edge42, label %.lr.ph41
 
 39:                                               ; preds = %._crit_edge42, %._crit_edge
@@ -29157,8 +29151,7 @@ par_shapes__subdivide.exit:                       ; preds = %.lr.ph.i24, %.lr.ph
   br i1 %187, label %.lr.ph35.preheader, label %._crit_edge36
 
 .lr.ph35.preheader:                               ; preds = %._crit_edge
-  %smax = tail call i32 @llvm.smax.i32(i32 %183, i32 1)
-  %wide.trip.count43 = zext nneg i32 %smax to i64
+  %wide.trip.count43 = zext nneg i32 %183 to i64
   br label %.lr.ph35
 
 188:                                              ; preds = %.lr.ph32, %par_shapes__normalize3.exit
@@ -45577,8 +45570,7 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias writable sret(%struct.Mesh)
   br i1 %44, label %.lr.ph170.preheader, label %._crit_edge171
 
 .lr.ph170.preheader:                              ; preds = %.preheader
-  %smax = tail call i32 @llvm.smax.i32(i32 %40, i32 1)
-  %wide.trip.count217 = zext nneg i32 %smax to i64
+  %wide.trip.count217 = zext nneg i32 %40 to i64
   br label %.lr.ph170
 
 .lr.ph168:                                        ; preds = %.lr.ph168.preheader, %.lr.ph168

@@ -3082,7 +3082,6 @@ haveTooManyMIMEPartsPerMessage.exit:              ; preds = %.loopexit825
 
 .lr.ph900:                                        ; preds = %400
   %401 = add i32 %3, 1
-  %smax970 = tail call i32 @llvm.smax.i32(i32 %.2555, i32 1)
   br label %402
 
 402:                                              ; preds = %.lr.ph900, %406
@@ -3103,7 +3102,7 @@ haveTooManyMIMEPartsPerMessage.exit:              ; preds = %.loopexit825
 406:                                              ; preds = %402, %405
   %407 = phi i32 [ %404, %402 ], [ 1, %405 ]
   %408 = add nuw nsw i32 %.3580897, 1
-  %exitcond971.not = icmp eq i32 %408, %smax970
+  %exitcond971.not = icmp eq i32 %408, %.2555
   br i1 %exitcond971.not, label %.fold.split, label %402
 
 409:                                              ; preds = %356, %356
@@ -3181,8 +3180,7 @@ haveTooManyMIMEPartsPerMessage.exit:              ; preds = %.loopexit825
   br i1 %348, label %._crit_edge908, label %.lr.ph907.preheader
 
 .lr.ph907.preheader:                              ; preds = %.preheader821
-  %smax975 = tail call i32 @llvm.smax.i32(i32 %.2555, i32 1)
-  %wide.trip.count976 = zext nneg i32 %smax975 to i64
+  %wide.trip.count976 = zext nneg i32 %.2555 to i64
   br label %.lr.ph907
 
 .lr.ph907:                                        ; preds = %.lr.ph907.preheader, %439
@@ -6670,9 +6668,6 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #20
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #20

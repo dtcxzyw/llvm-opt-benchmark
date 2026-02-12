@@ -4293,9 +4293,8 @@ thread-pre-split:                                 ; preds = %34, %37
 
 .preheader211.us.preheader:                       ; preds = %.preheader212
   %80 = zext nneg i32 %10 to i64
-  %smax324 = tail call i32 @llvm.smax.i32(i32 %10, i32 1)
   %wide.trip.count330 = zext nneg i32 %78 to i64
-  %wide.trip.count325 = zext nneg i32 %smax324 to i64
+  %wide.trip.count325 = zext nneg i32 %10 to i64
   %wide.trip.count319 = zext nneg i32 %10 to i64
   br label %.preheader211.us
 
@@ -4365,9 +4364,8 @@ thread-pre-split:                                 ; preds = %34, %37
 .preheader210.lr.ph.split.us:                     ; preds = %95
   %102 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %103 = load ptr, ptr %102, align 8, !tbaa !223
-  %smax335 = tail call i32 @llvm.smax.i32(i32 %10, i32 1)
   %wide.trip.count341 = zext nneg i32 %100 to i64
-  %wide.trip.count336 = zext nneg i32 %smax335 to i64
+  %wide.trip.count336 = zext nneg i32 %10 to i64
   br label %.preheader210.us
 
 .preheader210.us:                                 ; preds = %._crit_edge.us242, %.preheader210.lr.ph.split.us
@@ -4403,8 +4401,7 @@ thread-pre-split:                                 ; preds = %34, %37
   br i1 %exitcond342.not, label %.lr.ph.preheader, label %.preheader210.us
 
 .lr.ph.preheader:                                 ; preds = %._crit_edge.us242, %95
-  %smax346 = tail call i32 @llvm.smax.i32(i32 %10, i32 1)
-  %116 = add nuw i32 %smax346, 1
+  %116 = add nuw i32 %10, 1
   %wide.trip.count347 = zext i32 %116 to i64
   br label %.lr.ph
 
@@ -9028,9 +9025,6 @@ declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unname
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #13
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #13

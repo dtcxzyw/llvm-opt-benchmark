@@ -3639,8 +3639,7 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit:               ; preds = %_ZSt27__uninitializ
   br label %449
 
 .lr.ph.preheader:                                 ; preds = %389
-  %smax = call i32 @llvm.smax.i32(i32 %232, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %232 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %415
@@ -4714,7 +4713,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit222: ; preds = %16
   %168 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %169 = load ptr, ptr %168, align 8, !tbaa !30
   %170 = zext nneg i32 %84 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %169, i8 1, i64 %170, i1 false), !tbaa !34
+  call void @llvm.memset.p0.i64(ptr align 1 %169, i8 1, i64 %170, i1 false), !tbaa !34
   %171 = invoke noundef zeroext i1 @_ZNK2cv12_OutputArray6neededEv(ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %172 unwind label %185
 

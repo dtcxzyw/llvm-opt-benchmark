@@ -2007,8 +2007,7 @@ _ZN4tokuL25remove_row_lock_from_treeEPNS_15concurrent_tree15locked_keyrangeERKNS
   br label %.preheader198
 
 .lr.ph224.preheader:                              ; preds = %_ZNSt3setImSt4lessImESaImEED2Ev.exit
-  %smax253 = call i32 @llvm.smax.i32(i32 %.pre.i, i32 1)
-  %wide.trip.count = zext nneg i32 %smax253 to i64
+  %wide.trip.count = zext nneg i32 %.pre.i to i64
   br label %.lr.ph224
 
 .preheader198:                                    ; preds = %.preheader198.preheader, %_ZNSt3setImSt4lessImESaImEED2Ev.exit

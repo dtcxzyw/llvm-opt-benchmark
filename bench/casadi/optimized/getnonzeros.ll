@@ -3014,7 +3014,6 @@ _ZNK6casadi6MXNode3depEx.exit:                    ; preds = %32
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %53 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %smax = call i64 @llvm.smax.i64(i64 %28, i64 1)
   br label %113
 
 ._crit_edge260:                                   ; preds = %429
@@ -3988,7 +3987,7 @@ _ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit
   %.sroa.9.1 = phi ptr [ %.sroa.9.0255, %_ZN6casadi2MXaSERKS0_.exit ], [ %.sroa.9.0255, %_ZN6casadi2MXaSERKS0_.exit93 ], [ %.sroa.9.2, %_ZN6casadi2MXaSERKS0_.exit118 ], [ %.sroa.9.2, %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit ]
   %.sroa.0.3 = phi ptr [ %.sroa.0.0256, %_ZN6casadi2MXaSERKS0_.exit ], [ %.sroa.0.0256, %_ZN6casadi2MXaSERKS0_.exit93 ], [ %.sroa.0.4, %_ZN6casadi2MXaSERKS0_.exit118 ], [ %.sroa.0.4, %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit ]
   %430 = add nuw nsw i64 %.059257, 1
-  %exitcond332.not = icmp eq i64 %430, %smax
+  %exitcond332.not = icmp eq i64 %430, %28
   br i1 %exitcond332.not, label %._crit_edge260, label %113, !llvm.loop !124
 
 431:                                              ; preds = %.loopexit167, %.loopexit.split-lp168, %.loopexit, %.loopexit.split-lp, %.loopexit172, %.loopexit.split-lp173, %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit121, %402, %172, %151, %138
@@ -4186,7 +4185,6 @@ _ZNK6casadi6MXNode3depEx.exit:                    ; preds = %3
   %46 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %smax = call i64 @llvm.smax.i64(i64 %28, i64 1)
   br label %85
 
 ._crit_edge355:                                   ; preds = %.critedge
@@ -5020,7 +5018,7 @@ _ZN6casadi2MXaSERKS0_.exit100:                    ; preds = %336
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %346 = add nuw nsw i64 %.042352, 1
-  %exitcond.not = icmp eq i64 %346, %smax
+  %exitcond.not = icmp eq i64 %346, %28
   br i1 %exitcond.not, label %._crit_edge355, label %85, !llvm.loop !134
 
 347:                                              ; preds = %.loopexit166, %.loopexit.split-lp, %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit98, %345, %182, %165, %144, %129

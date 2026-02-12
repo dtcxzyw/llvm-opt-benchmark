@@ -4446,8 +4446,7 @@ default.unreachable:                              ; preds = %80
   br i1 %168, label %Bfree.exit717, label %.lr.ph885.preheader
 
 .lr.ph885.preheader:                              ; preds = %160
-  %smax = tail call i32 @llvm.smax.i32(i32 %.2541, i32 1)
-  %169 = add nsw i32 %smax, -1
+  %169 = add nsw i32 %.2541, -1
   br label %.lr.ph885
 
 .lr.ph885:                                        ; preds = %.lr.ph885.preheader, %175

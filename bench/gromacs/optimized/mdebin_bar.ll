@@ -3059,7 +3059,6 @@ define void @_Z38mde_delta_h_coll_restore_energyhistoryP18t_mde_delta_h_collPK17
 
 .lr.ph33:                                         ; preds = %.preheader
   %19 = load ptr, ptr %0, align 8, !tbaa !170
-  %smax = tail call i64 @llvm.smax.i64(i64 %13, i64 1)
   br label %27
 
 20:                                               ; preds = %6
@@ -3100,7 +3099,7 @@ define void @_Z38mde_delta_h_coll_restore_energyhistoryP18t_mde_delta_h_collPK17
 
 ._crit_edge:                                      ; preds = %41, %27
   %40 = add nuw nsw i64 %.02732, 1
-  %exitcond37.not = icmp eq i64 %40, %smax
+  %exitcond37.not = icmp eq i64 %40, %13
   br i1 %exitcond37.not, label %._crit_edge34, label %27, !llvm.loop !279
 
 41:                                               ; preds = %.lr.ph, %41
@@ -3148,9 +3147,6 @@ declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #16
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

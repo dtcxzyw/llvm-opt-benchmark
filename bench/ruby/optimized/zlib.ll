@@ -10001,7 +10001,7 @@ rb_num2long_inline.exit:                          ; preds = %36, %38
 gzfile_fill.exit:                                 ; preds = %61, %71
   %78 = phi i64 [ %74, %71 ], [ %64, %61 ]
   %spec.select.i144 = call i64 @llvm.smin.i64(i64 %.0.i143, i64 %78)
-  %79 = icmp slt i64 %spec.select.i144, 1
+  %79 = icmp slt i64 %78, 1
   br i1 %79, label %gzfile_newstr.exit167, label %80
 
 80:                                               ; preds = %gzfile_fill.exit

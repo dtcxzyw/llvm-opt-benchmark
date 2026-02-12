@@ -14872,8 +14872,7 @@ define internal fastcc void @exr_attr_list_remove(ptr noundef %0, ptr noundef ca
   store i32 %30, ptr %1, align 8
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %36 = load ptr, ptr %35, align 8
-  %smax = tail call i32 @llvm.smax.i32(i32 %15, i32 1)
-  %wide.trip.count81 = zext nneg i32 %smax to i64
+  %wide.trip.count81 = zext nneg i32 %15 to i64
   br label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %44

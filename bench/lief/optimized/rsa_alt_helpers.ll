@@ -16,42 +16,42 @@ define hidden i32 @mbedtls_rsa_deduce_primes(ptr noundef %0, ptr noundef %1, ptr
   %8 = icmp eq ptr %3, null
   %9 = icmp eq ptr %4, null
   %or.cond = or i1 %8, %9
-  br i1 %or.cond, label %86, label %10
+  br i1 %or.cond, label %88, label %10
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %3, align 8, !tbaa !3
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %12, label %86
+  br i1 %.not, label %12, label %88
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %4, align 8, !tbaa !3
   %.not55 = icmp eq ptr %13, null
-  br i1 %.not55, label %14, label %86
+  br i1 %.not55, label %14, label %88
 
 14:                                               ; preds = %12
   %15 = tail call i32 @mbedtls_mpi_cmp_int(ptr noundef %0, i64 noundef 0) #3
   %16 = icmp slt i32 %15, 1
-  br i1 %16, label %86, label %17
+  br i1 %16, label %88, label %17
 
 17:                                               ; preds = %14
   %18 = tail call i32 @mbedtls_mpi_cmp_int(ptr noundef %2, i64 noundef 1) #3
   %19 = icmp slt i32 %18, 1
-  br i1 %19, label %86, label %20
+  br i1 %19, label %88, label %20
 
 20:                                               ; preds = %17
   %21 = tail call i32 @mbedtls_mpi_cmp_mpi(ptr noundef %2, ptr noundef %0) #3
   %22 = icmp sgt i32 %21, -1
-  br i1 %22, label %86, label %23
+  br i1 %22, label %88, label %23
 
 23:                                               ; preds = %20
   %24 = tail call i32 @mbedtls_mpi_cmp_int(ptr noundef %1, i64 noundef 1) #3
   %25 = icmp slt i32 %24, 1
-  br i1 %25, label %86, label %26
+  br i1 %25, label %88, label %26
 
 26:                                               ; preds = %23
   %27 = tail call i32 @mbedtls_mpi_cmp_mpi(ptr noundef %1, ptr noundef %0) #3
   %28 = icmp sgt i32 %27, -1
-  br i1 %28, label %86, label %29
+  br i1 %28, label %88, label %29
 
 29:                                               ; preds = %26
   call void @mbedtls_mpi_init(ptr noundef nonnull %7) #3
@@ -75,120 +75,120 @@ define hidden i32 @mbedtls_rsa_deduce_primes(ptr noundef %0, ptr noundef %1, ptr
   %38 = and i64 %34, 65535
   %39 = call i32 @mbedtls_mpi_shift_r(ptr noundef nonnull %6, i64 noundef %38) #3
   %.not58 = icmp eq i32 %39, 0
-  br i1 %.not58, label %.split.preheader, label %.loopexit
+  br i1 %.not58, label %40, label %.loopexit
 
-.split.preheader:                                 ; preds = %37
-  %40 = load ptr, ptr %0, align 8, !tbaa !3
-  %41 = load i64, ptr %40, align 8, !tbaa !10
-  %42 = and i64 %41, 7
-  %43 = icmp eq i64 %42, 1
-  %44 = trunc i64 %34 to i16
-  %45 = zext i1 %43 to i64
-  %46 = getelementptr inbounds nuw i8, ptr @__const.mbedtls_rsa_deduce_primes.primes, i64 %45
-  %47 = load i8, ptr %46, align 1, !tbaa !12
-  %48 = zext i8 %47 to i64
-  %49 = call i32 @mbedtls_mpi_lset(ptr noundef nonnull %7, i64 noundef %48) #3
-  %.not59103 = icmp eq i32 %49, 0
-  br i1 %.not59103, label %.lr.ph, label %.loopexit
+40:                                               ; preds = %37
+  %41 = load ptr, ptr %0, align 8, !tbaa !3
+  %42 = load i64, ptr %41, align 8, !tbaa !10
+  %43 = and i64 %42, 7
+  %44 = icmp eq i64 %43, 1
+  %45 = trunc i64 %34 to i16
+  %46 = zext i1 %44 to i64
+  %47 = getelementptr inbounds nuw i8, ptr @__const.mbedtls_rsa_deduce_primes.primes, i64 %46
+  %48 = load i8, ptr %47, align 1, !tbaa !12
+  %49 = zext i8 %48 to i64
+  %50 = call i32 @mbedtls_mpi_lset(ptr noundef nonnull %7, i64 noundef %49) #3
+  %.not5997 = icmp eq i32 %50, 0
+  br i1 %.not5997, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.split.preheader
-  %spec.store.select = zext i1 %43 to i16
-  br label %50
+.lr.ph:                                           ; preds = %40
+  %spec.store.select = zext i1 %44 to i16
+  br label %51
 
-50:                                               ; preds = %.lr.ph, %.split.backedge
-  %.03975104 = phi i16 [ %spec.store.select, %.lr.ph ], [ %.03975.be, %.split.backedge ]
-  %51 = call i32 @mbedtls_mpi_gcd(ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef nonnull %0) #3
-  %.not60 = icmp eq i32 %51, 0
-  br i1 %.not60, label %52, label %.loopexit
+51:                                               ; preds = %.lr.ph, %.backedge
+  %.0397398 = phi i16 [ %spec.store.select, %.lr.ph ], [ %.03973.be, %.backedge ]
+  %52 = call i32 @mbedtls_mpi_gcd(ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef nonnull %0) #3
+  %.not60 = icmp eq i32 %52, 0
+  br i1 %.not60, label %53, label %.loopexit
 
-52:                                               ; preds = %50
-  %53 = call i32 @mbedtls_mpi_cmp_int(ptr noundef nonnull %3, i64 noundef 1) #3
-  %.not61 = icmp eq i32 %53, 0
-  br i1 %.not61, label %54, label %80
+53:                                               ; preds = %51
+  %54 = call i32 @mbedtls_mpi_cmp_int(ptr noundef nonnull %3, i64 noundef 1) #3
+  %.not61 = icmp eq i32 %54, 0
+  br i1 %.not61, label %55, label %82
 
-54:                                               ; preds = %52
-  %55 = call i32 @mbedtls_mpi_exp_mod(ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %0, ptr noundef nonnull %4) #3
-  %.not62 = icmp eq i32 %55, 0
+55:                                               ; preds = %53
+  %56 = call i32 @mbedtls_mpi_exp_mod(ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %0, ptr noundef nonnull %4) #3
+  %.not62 = icmp eq i32 %56, 0
   br i1 %.not62, label %.preheader, label %.loopexit
 
-56:                                               ; preds = %76
-  %57 = add i16 %.03873, 1
-  %.not63 = icmp ugt i16 %57, %44
-  br i1 %.not63, label %._crit_edge, label %.preheader, !llvm.loop !13
+57:                                               ; preds = %77
+  %58 = add i16 %.03872, 1
+  %.not63 = icmp ugt i16 %58, %45
+  br i1 %.not63, label %79, label %.preheader, !llvm.loop !13
 
-.preheader:                                       ; preds = %54, %56
-  %.03873 = phi i16 [ %57, %56 ], [ 1, %54 ]
-  %58 = call i32 @mbedtls_mpi_cmp_int(ptr noundef nonnull %7, i64 noundef 1) #3
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %._crit_edge, label %60
+.preheader:                                       ; preds = %55, %57
+  %.03872 = phi i16 [ %58, %57 ], [ 1, %55 ]
+  %59 = call i32 @mbedtls_mpi_cmp_int(ptr noundef nonnull %7, i64 noundef 1) #3
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %79, label %61
 
-60:                                               ; preds = %.preheader
-  %61 = call i32 @mbedtls_mpi_add_int(ptr noundef nonnull %7, ptr noundef nonnull %7, i64 noundef 1) #3
-  %.not64 = icmp eq i32 %61, 0
-  br i1 %.not64, label %62, label %.loopexit
+61:                                               ; preds = %.preheader
+  %62 = call i32 @mbedtls_mpi_add_int(ptr noundef nonnull %7, ptr noundef nonnull %7, i64 noundef 1) #3
+  %.not64 = icmp eq i32 %62, 0
+  br i1 %.not64, label %63, label %.loopexit
 
-62:                                               ; preds = %60
-  %63 = call i32 @mbedtls_mpi_gcd(ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef nonnull %0) #3
-  %.not65 = icmp eq i32 %63, 0
-  br i1 %.not65, label %64, label %.loopexit
+63:                                               ; preds = %61
+  %64 = call i32 @mbedtls_mpi_gcd(ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef nonnull %0) #3
+  %.not65 = icmp eq i32 %64, 0
+  br i1 %.not65, label %65, label %.loopexit
 
-64:                                               ; preds = %62
-  %65 = call i32 @mbedtls_mpi_cmp_int(ptr noundef nonnull %3, i64 noundef 1) #3
-  %66 = icmp eq i32 %65, 1
-  br i1 %66, label %67, label %72
+65:                                               ; preds = %63
+  %66 = call i32 @mbedtls_mpi_cmp_int(ptr noundef nonnull %3, i64 noundef 1) #3
+  %67 = icmp eq i32 %66, 1
+  br i1 %67, label %68, label %73
 
-67:                                               ; preds = %64
-  %68 = call i32 @mbedtls_mpi_cmp_mpi(ptr noundef nonnull %3, ptr noundef nonnull %0) #3
-  %69 = icmp eq i32 %68, -1
-  br i1 %69, label %70, label %72
+68:                                               ; preds = %65
+  %69 = call i32 @mbedtls_mpi_cmp_mpi(ptr noundef nonnull %3, ptr noundef nonnull %0) #3
+  %70 = icmp eq i32 %69, -1
+  br i1 %70, label %71, label %73
 
-70:                                               ; preds = %67
-  %71 = call i32 @mbedtls_mpi_div_mpi(ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull %0, ptr noundef nonnull %3) #3
+71:                                               ; preds = %68
+  %72 = call i32 @mbedtls_mpi_div_mpi(ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull %0, ptr noundef nonnull %3) #3
   br label %.loopexit
 
-72:                                               ; preds = %64, %67
-  %73 = call i32 @mbedtls_mpi_sub_int(ptr noundef nonnull %7, ptr noundef nonnull %7, i64 noundef 1) #3
-  %.not66 = icmp eq i32 %73, 0
-  br i1 %.not66, label %74, label %.loopexit
+73:                                               ; preds = %65, %68
+  %74 = call i32 @mbedtls_mpi_sub_int(ptr noundef nonnull %7, ptr noundef nonnull %7, i64 noundef 1) #3
+  %.not66 = icmp eq i32 %74, 0
+  br i1 %.not66, label %75, label %.loopexit
 
-74:                                               ; preds = %72
-  %75 = call i32 @mbedtls_mpi_mul_mpi(ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef nonnull %7) #3
-  %.not67 = icmp eq i32 %75, 0
-  br i1 %.not67, label %76, label %.loopexit
+75:                                               ; preds = %73
+  %76 = call i32 @mbedtls_mpi_mul_mpi(ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef nonnull %7) #3
+  %.not67 = icmp eq i32 %76, 0
+  br i1 %.not67, label %77, label %.loopexit
 
-76:                                               ; preds = %74
-  %77 = call i32 @mbedtls_mpi_mod_mpi(ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef nonnull %0) #3
-  %.not68 = icmp eq i32 %77, 0
-  br i1 %.not68, label %56, label %.loopexit
+77:                                               ; preds = %75
+  %78 = call i32 @mbedtls_mpi_mod_mpi(ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef nonnull %0) #3
+  %.not68 = icmp eq i32 %78, 0
+  br i1 %.not68, label %57, label %.loopexit
 
-._crit_edge:                                      ; preds = %56, %.preheader
-  %78 = call i32 @mbedtls_mpi_cmp_int(ptr noundef nonnull %7, i64 noundef 1) #3
-  %.not69 = icmp eq i32 %78, 0
-  %79 = icmp samesign ult i16 %.03975104, 53
-  %or.cond80 = and i1 %.not69, %79
-  br i1 %or.cond80, label %.split.backedge, label %.loopexit
+79:                                               ; preds = %.preheader, %57
+  %80 = call i32 @mbedtls_mpi_cmp_int(ptr noundef nonnull %7, i64 noundef 1) #3
+  %.not69 = icmp eq i32 %80, 0
+  %81 = icmp samesign ult i16 %.0397398, 53
+  %or.cond75 = and i1 %.not69, %81
+  br i1 %or.cond75, label %.backedge, label %.loopexit
 
-80:                                               ; preds = %52
-  %.old79 = icmp samesign ult i16 %.03975104, 53
-  br i1 %.old79, label %.split.backedge, label %.loopexit
+82:                                               ; preds = %53
+  %.old74 = icmp samesign ult i16 %.0397398, 53
+  br i1 %.old74, label %.backedge, label %.loopexit
 
-.split.backedge:                                  ; preds = %80, %._crit_edge
-  %.03975.be = add nuw nsw i16 %.03975104, 1
-  %81 = zext nneg i16 %.03975.be to i64
-  %82 = getelementptr inbounds nuw i8, ptr @__const.mbedtls_rsa_deduce_primes.primes, i64 %81
-  %83 = load i8, ptr %82, align 1, !tbaa !12
-  %84 = zext i8 %83 to i64
-  %85 = call i32 @mbedtls_mpi_lset(ptr noundef nonnull %7, i64 noundef %84) #3
-  %.not59 = icmp eq i32 %85, 0
-  br i1 %.not59, label %50, label %.loopexit, !llvm.loop !15
+.backedge:                                        ; preds = %82, %79
+  %.03973.be = add nuw nsw i16 %.0397398, 1
+  %83 = zext nneg i16 %.03973.be to i64
+  %84 = getelementptr inbounds nuw i8, ptr @__const.mbedtls_rsa_deduce_primes.primes, i64 %83
+  %85 = load i8, ptr %84, align 1, !tbaa !12
+  %86 = zext i8 %85 to i64
+  %87 = call i32 @mbedtls_mpi_lset(ptr noundef nonnull %7, i64 noundef %86) #3
+  %.not59 = icmp eq i32 %87, 0
+  br i1 %.not59, label %51, label %.loopexit, !llvm.loop !15
 
-.loopexit:                                        ; preds = %80, %._crit_edge, %54, %50, %.split.backedge, %76, %74, %72, %62, %60, %.split.preheader, %33, %70, %37, %31, %29
-  %.037 = phi i32 [ %30, %29 ], [ %32, %31 ], [ %71, %70 ], [ %39, %37 ], [ %77, %76 ], [ -4, %33 ], [ %49, %.split.preheader ], [ %75, %74 ], [ %73, %72 ], [ %63, %62 ], [ %61, %60 ], [ %85, %.split.backedge ], [ -4, %80 ], [ -4, %._crit_edge ], [ %55, %54 ], [ %51, %50 ]
+.loopexit:                                        ; preds = %.backedge, %51, %55, %79, %82, %77, %75, %73, %63, %61, %40, %33, %71, %37, %31, %29
+  %.037 = phi i32 [ %30, %29 ], [ %32, %31 ], [ %72, %71 ], [ %39, %37 ], [ %78, %77 ], [ -4, %33 ], [ %50, %40 ], [ %76, %75 ], [ %74, %73 ], [ %64, %63 ], [ %62, %61 ], [ -4, %82 ], [ -4, %79 ], [ %56, %55 ], [ %52, %51 ], [ %87, %.backedge ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %7) #3
   call void @mbedtls_mpi_free(ptr noundef nonnull %6) #3
-  br label %86
+  br label %88
 
-86:                                               ; preds = %14, %17, %20, %23, %26, %5, %10, %12, %.loopexit
+88:                                               ; preds = %14, %17, %20, %23, %26, %5, %10, %12, %.loopexit
   %.0 = phi i32 [ %.037, %.loopexit ], [ -4, %5 ], [ -4, %12 ], [ -4, %10 ], [ -4, %26 ], [ -4, %23 ], [ -4, %20 ], [ -4, %17 ], [ -4, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

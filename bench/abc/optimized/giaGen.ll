@@ -2272,14 +2272,10 @@ define void @Gia_ManDumpPlaFiles(ptr noundef captures(none) %0, i32 noundef %1, 
   %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.16, i32 noundef %42) #23
   %44 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 9, i64 1, ptr %37)
   %45 = icmp sgt i32 %34, 0
-  br i1 %45, label %.preheader.preheader, label %._crit_edge
+  br i1 %45, label %.preheader, label %._crit_edge
 
-.preheader.preheader:                             ; preds = %32
-  %smax = tail call i32 @llvm.smax.i32(i32 %42, i32 1)
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.preheader, %.critedge2
-  %.05896 = phi i32 [ %100, %.critedge2 ], [ 0, %.preheader.preheader ]
+.preheader:                                       ; preds = %32, %.critedge2
+  %.05896 = phi i32 [ %100, %.critedge2 ], [ 0, %32 ]
   %46 = load ptr, ptr %26, align 8, !tbaa !22
   %47 = getelementptr i8, ptr %46, i64 4
   %.val6888 = load i32, ptr %47, align 4, !tbaa !41
@@ -2375,7 +2371,7 @@ define void @Gia_ManDumpPlaFiles(ptr noundef captures(none) %0, i32 noundef %1, 
 .critedge2:                                       ; preds = %80, %85, %.critedge
   %fputc67 = tail call i32 @fputc(i32 10, ptr %37)
   %100 = add nuw nsw i32 %.05896, 1
-  %exitcond102.not = icmp eq i32 %100, %smax
+  %exitcond102.not = icmp eq i32 %100, %42
   br i1 %exitcond102.not, label %._crit_edge, label %.preheader, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %.critedge2, %32

@@ -6852,8 +6852,7 @@ tailrecurse.us:                                   ; preds = %28
   %42 = load ptr, ptr %6, align 8, !tbaa !17
   %43 = load ptr, ptr %2, align 8, !tbaa !23
   %44 = sext i32 %39 to i64
-  %smax = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %4 to i64
   %invariant.gep = getelementptr %"class.pbrt::Primitive", ptr %42, i64 %44
   br label %56
 

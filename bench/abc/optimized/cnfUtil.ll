@@ -399,8 +399,7 @@ define ptr @Cnf_RunSolver(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_
   br i1 %exitcond.not, label %.preheader62.us, label %.preheader64, !llvm.loop !27
 
 .lr.ph73.preheader:                               ; preds = %20, %..loopexit_crit_edge.us
-  %smax = call i32 @llvm.smax.i32(i32 %0, i32 1)
-  %wide.trip.count85 = zext nneg i32 %smax to i64
+  %wide.trip.count85 = zext nneg i32 %0 to i64
   br label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %.lr.ph73.preheader, %Vec_IntFreeP.exit

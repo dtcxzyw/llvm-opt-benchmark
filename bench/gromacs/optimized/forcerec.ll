@@ -5262,8 +5262,7 @@ _ZSt8_DestroyIP13bondedtable_tS0_EvT_S2_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_Dest
   %113 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %114 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %115 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %smax96 = tail call i32 @llvm.smax.i32(i32 %.259, i32 1)
-  %wide.trip.count97 = zext nneg i32 %smax96 to i64
+  %wide.trip.count97 = zext nneg i32 %.259 to i64
   br i1 %109, label %.lr.ph75.split.us, label %.lr.ph75.split
 
 .lr.ph75.split.us:                                ; preds = %.lr.ph75, %123
@@ -7247,9 +7246,6 @@ declare i64 @llvm.umin.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #26
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #25
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

@@ -304,7 +304,7 @@ define internal fastcc i32 @vfs_dedupe_file_range_compare(ptr noundef %0, i64 no
   %16 = sub nuw nsw i64 4096, %15
   %17 = tail call i64 @llvm.umin.i64(i64 %14, i64 %16)
   %18 = tail call i64 @llvm.smin.i64(i64 %17, i64 %12)
-  %19 = icmp slt i64 %18, 1
+  %19 = icmp slt i64 %12, 1
   br i1 %19, label %.thread, label %20
 
 20:                                               ; preds = %.lr.ph
@@ -493,7 +493,7 @@ define internal fastcc i32 @vfs_dedupe_file_range_compare(ptr noundef %0, i64 no
 137:                                              ; preds = %136
   %138 = add i64 %18, %10
   %139 = add i64 %18, %11
-  %140 = sub i64 %12, %18
+  %140 = sub nsw i64 %12, %18
   %141 = icmp eq i64 %140, 0
   br i1 %141, label %.thread5, label %.lr.ph
 

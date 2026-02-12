@@ -8508,7 +8508,6 @@ PyMemoTable_Get.exit:                             ; preds = %.preheader.i.i, %st
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %smax = tail call i64 @llvm.smax.i64(i64 %6, i64 1)
   br label %137
 
 137:                                              ; preds = %.lr.ph172, %.lr.ph.i74
@@ -8577,7 +8576,7 @@ PyMemoTable_Get.exit:                             ; preds = %.preheader.i.i, %st
   %167 = add i64 %166, 1
   store i64 %167, ptr %134, align 8, !tbaa !47
   %168 = add nuw nsw i64 %.0171, 1
-  %exitcond182.not = icmp eq i64 %168, %smax
+  %exitcond182.not = icmp eq i64 %168, %6
   br i1 %exitcond182.not, label %._crit_edge, label %137, !llvm.loop !131
 
 ._crit_edge:                                      ; preds = %.lr.ph.i74

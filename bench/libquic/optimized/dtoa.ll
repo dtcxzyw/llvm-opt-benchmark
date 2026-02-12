@@ -4275,8 +4275,7 @@ _ZN6dmg_fpL8rv_allocEi.exit:                      ; preds = %181, %209
   br i1 %294, label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit655.loopexit728, label %.lr.ph834.preheader
 
 .lr.ph834.preheader:                              ; preds = %284
-  %smax = tail call i32 @llvm.smax.i32(i32 %.2463, i32 1)
-  %295 = add nuw i32 %smax, 4
+  %295 = add nuw i32 %.2463, 4
   %wide.trip.count = zext i32 %295 to i64
   br label %.lr.ph834
 

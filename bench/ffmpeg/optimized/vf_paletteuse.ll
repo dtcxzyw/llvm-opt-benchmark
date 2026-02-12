@@ -1551,8 +1551,8 @@ define internal range(i32 -12, 1) i32 @set_frame_none(ptr noundef %0, ptr nounde
   %9 = alloca %struct.color_info, align 8
   %10 = add nsw i32 %5, %3
   %11 = add nsw i32 %6, %4
-  %.not511.i31 = icmp sgt i32 %6, 0
-  br i1 %.not511.i31, label %.preheader.lr.ph, label %set_frame.exit
+  %.not511.i32 = icmp sgt i32 %6, 0
+  br i1 %.not511.i32, label %.preheader.lr.ph, label %set_frame.exit
 
 .preheader.lr.ph:                                 ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -1560,7 +1560,7 @@ define internal range(i32 -12, 1) i32 @set_frame_none(ptr noundef %0, ptr nounde
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %15 = load i32, ptr %14, align 8, !tbaa !33
   %16 = ashr i32 %15, 2
-  %.not.i28 = icmp sgt i32 %5, 0
+  %.not.i29 = icmp sgt i32 %5, 0
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 533612
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 533608
@@ -1568,7 +1568,7 @@ define internal range(i32 -12, 1) i32 @set_frame_none(ptr noundef %0, ptr nounde
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 524392
   %21 = sext i32 %16 to i64
   %22 = sext i32 %13 to i64
-  br i1 %.not.i28, label %.preheader.us.preheader, label %set_frame.exit
+  br i1 %.not.i29, label %.preheader.us.preheader, label %set_frame.exit
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %23 = load ptr, ptr %2, align 8, !tbaa !61
@@ -1583,15 +1583,15 @@ define internal range(i32 -12, 1) i32 @set_frame_none(ptr noundef %0, ptr nounde
   %32 = sext i32 %10 to i64
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %..thread19_crit_edge.us
-  %.0474.i34.us = phi ptr [ %73, %..thread19_crit_edge.us ], [ %26, %.preheader.us.preheader ]
-  %.0475.i33.us = phi ptr [ %74, %..thread19_crit_edge.us ], [ %30, %.preheader.us.preheader ]
-  %.0476.i32.us = phi i32 [ %75, %..thread19_crit_edge.us ], [ %4, %.preheader.us.preheader ]
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %..thread20_crit_edge.us
+  %.0474.i35.us = phi ptr [ %73, %..thread20_crit_edge.us ], [ %26, %.preheader.us.preheader ]
+  %.0475.i34.us = phi ptr [ %74, %..thread20_crit_edge.us ], [ %30, %.preheader.us.preheader ]
+  %.0476.i33.us = phi i32 [ %75, %..thread20_crit_edge.us ], [ %4, %.preheader.us.preheader ]
   br label %33
 
 33:                                               ; preds = %.preheader.us, %69
-  %indvars.iv38 = phi i64 [ %31, %.preheader.us ], [ %indvars.iv.next39, %69 ]
-  %34 = getelementptr inbounds i32, ptr %.0474.i34.us, i64 %indvars.iv38
+  %indvars.iv39 = phi i64 [ %31, %.preheader.us ], [ %indvars.iv.next40, %69 ]
+  %34 = getelementptr inbounds i32, ptr %.0474.i35.us, i64 %indvars.iv39
   %35 = load i32, ptr %34, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %36 = tail call i32 @ff_lowbias32(i32 noundef %35) #13
@@ -1611,8 +1611,8 @@ define internal range(i32 -12, 1) i32 @set_frame_none(ptr noundef %0, ptr nounde
 46:                                               ; preds = %43, %33
   %47 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %48 = load i32, ptr %47, align 8, !tbaa !110
-  %.not.i626.us = icmp sgt i32 %48, 0
-  br i1 %.not.i626.us, label %.lr.ph.us, label %._crit_edge.us
+  %.not.i627.us = icmp sgt i32 %48, 0
+  br i1 %.not.i627.us, label %.lr.ph.us, label %._crit_edge.us
 
 49:                                               ; preds = %61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1669,21 +1669,21 @@ define internal range(i32 -12, 1) i32 @set_frame_none(ptr noundef %0, ptr nounde
   %.0.i8.ph.us = phi i32 [ %44, %43 ], [ %60, %51 ], [ %68, %.thread.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %70 = trunc i32 %.0.i8.ph.us to i8
-  %71 = getelementptr inbounds i8, ptr %.0475.i33.us, i64 %indvars.iv38
+  %71 = getelementptr inbounds i8, ptr %.0475.i34.us, i64 %indvars.iv39
   store i8 %70, ptr %71, align 1, !tbaa !76
-  %indvars.iv.next39 = add nsw i64 %indvars.iv38, 1
-  %.not.i.us = icmp slt i64 %indvars.iv.next39, %32
-  br i1 %.not.i.us, label %33, label %..thread19_crit_edge.us, !llvm.loop !119
+  %indvars.iv.next40 = add nsw i64 %indvars.iv39, 1
+  %.not.i.us = icmp slt i64 %indvars.iv.next40, %32
+  br i1 %.not.i.us, label %33, label %..thread20_crit_edge.us, !llvm.loop !119
 
 .lr.ph.us:                                        ; preds = %46
   %72 = load ptr, ptr %39, align 8, !tbaa !120
   %wide.trip.count = zext nneg i32 %48 to i64
   br label %61
 
-..thread19_crit_edge.us:                          ; preds = %69
-  %73 = getelementptr inbounds i32, ptr %.0474.i34.us, i64 %21
-  %74 = getelementptr inbounds i8, ptr %.0475.i33.us, i64 %22
-  %75 = add nsw i32 %.0476.i32.us, 1
+..thread20_crit_edge.us:                          ; preds = %69
+  %73 = getelementptr inbounds i32, ptr %.0474.i35.us, i64 %21
+  %74 = getelementptr inbounds i8, ptr %.0475.i34.us, i64 %22
+  %75 = add nsw i32 %.0476.i33.us, 1
   %.not511.i.us = icmp slt i32 %75, %11
   br i1 %.not511.i.us, label %.preheader.us, label %set_frame.exit, !llvm.loop !121
 
@@ -1691,8 +1691,8 @@ define internal range(i32 -12, 1) i32 @set_frame_none(ptr noundef %0, ptr nounde
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %set_frame.exit
 
-set_frame.exit:                                   ; preds = %..thread19_crit_edge.us, %.preheader.lr.ph, %7, %.split.us
-  %spec.select.i = phi i32 [ -12, %.split.us ], [ 0, %7 ], [ 0, %.preheader.lr.ph ], [ 0, %..thread19_crit_edge.us ]
+set_frame.exit:                                   ; preds = %..thread20_crit_edge.us, %.preheader.lr.ph, %7, %.split.us
+  %spec.select.i = phi i32 [ -12, %.split.us ], [ 0, %7 ], [ 0, %.preheader.lr.ph ], [ 0, %..thread20_crit_edge.us ]
   ret i32 %spec.select.i
 }
 
@@ -1702,8 +1702,8 @@ define internal range(i32 -12, 1) i32 @set_frame_bayer(ptr noundef %0, ptr nound
   %9 = alloca %struct.color_info, align 8
   %10 = add nsw i32 %5, %3
   %11 = add nsw i32 %6, %4
-  %.not511.i39 = icmp sgt i32 %6, 0
-  br i1 %.not511.i39, label %.preheader.lr.ph, label %set_frame.exit
+  %.not511.i40 = icmp sgt i32 %6, 0
+  br i1 %.not511.i40, label %.preheader.lr.ph, label %set_frame.exit
 
 .preheader.lr.ph:                                 ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -1711,7 +1711,7 @@ define internal range(i32 -12, 1) i32 @set_frame_bayer(ptr noundef %0, ptr nound
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %15 = load i32, ptr %14, align 8, !tbaa !33
   %16 = ashr i32 %15, 2
-  %.not.i36 = icmp sgt i32 %5, 0
+  %.not.i37 = icmp sgt i32 %5, 0
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 533644
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 533612
@@ -1720,7 +1720,7 @@ define internal range(i32 -12, 1) i32 @set_frame_bayer(ptr noundef %0, ptr nound
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 524392
   %22 = sext i32 %16 to i64
   %23 = sext i32 %13 to i64
-  br i1 %.not.i36, label %.preheader.us.preheader, label %set_frame.exit
+  br i1 %.not.i37, label %.preheader.us.preheader, label %set_frame.exit
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %24 = load ptr, ptr %2, align 8, !tbaa !61
@@ -1735,23 +1735,23 @@ define internal range(i32 -12, 1) i32 @set_frame_bayer(ptr noundef %0, ptr nound
   %33 = sext i32 %10 to i64
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %..thread27_crit_edge.us
-  %.0474.i42.us = phi ptr [ %102, %..thread27_crit_edge.us ], [ %27, %.preheader.us.preheader ]
-  %.0475.i41.us = phi ptr [ %103, %..thread27_crit_edge.us ], [ %31, %.preheader.us.preheader ]
-  %.0476.i40.us = phi i32 [ %104, %..thread27_crit_edge.us ], [ %4, %.preheader.us.preheader ]
-  %34 = shl i32 %.0476.i40.us, 3
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %..thread28_crit_edge.us
+  %.0474.i43.us = phi ptr [ %102, %..thread28_crit_edge.us ], [ %27, %.preheader.us.preheader ]
+  %.0475.i42.us = phi ptr [ %103, %..thread28_crit_edge.us ], [ %31, %.preheader.us.preheader ]
+  %.0476.i41.us = phi i32 [ %104, %..thread28_crit_edge.us ], [ %4, %.preheader.us.preheader ]
+  %34 = shl i32 %.0476.i41.us, 3
   %35 = and i32 %34, 56
   br label %36
 
 36:                                               ; preds = %.preheader.us, %98
-  %indvars.iv46 = phi i64 [ %32, %.preheader.us ], [ %indvars.iv.next47, %98 ]
-  %37 = trunc nsw i64 %indvars.iv46 to i32
+  %indvars.iv47 = phi i64 [ %32, %.preheader.us ], [ %indvars.iv.next48, %98 ]
+  %37 = trunc nsw i64 %indvars.iv47 to i32
   %38 = and i32 %37, 7
   %39 = or disjoint i32 %38, %35
   %40 = zext nneg i32 %39 to i64
   %41 = getelementptr inbounds nuw i32, ptr %17, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !33
-  %43 = getelementptr inbounds i32, ptr %.0474.i42.us, i64 %indvars.iv46
+  %43 = getelementptr inbounds i32, ptr %.0474.i43.us, i64 %indvars.iv47
   %44 = load i32, ptr %43, align 4, !tbaa !33
   %45 = and i32 %44, -16777216
   %46 = lshr i32 %44, 16
@@ -1800,8 +1800,8 @@ define internal range(i32 -12, 1) i32 @set_frame_bayer(ptr noundef %0, ptr nound
 75:                                               ; preds = %72, %36
   %76 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %77 = load i32, ptr %76, align 8, !tbaa !110
-  %.not.i1434.us = icmp sgt i32 %77, 0
-  br i1 %.not.i1434.us, label %.lr.ph.us, label %._crit_edge.us
+  %.not.i1435.us = icmp sgt i32 %77, 0
+  br i1 %.not.i1435.us, label %.lr.ph.us, label %._crit_edge.us
 
 78:                                               ; preds = %90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1858,21 +1858,21 @@ define internal range(i32 -12, 1) i32 @set_frame_bayer(ptr noundef %0, ptr nound
   %.0.i16.ph.us = phi i32 [ %73, %72 ], [ %89, %80 ], [ %97, %.thread.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %99 = trunc i32 %.0.i16.ph.us to i8
-  %100 = getelementptr inbounds i8, ptr %.0475.i41.us, i64 %indvars.iv46
+  %100 = getelementptr inbounds i8, ptr %.0475.i42.us, i64 %indvars.iv47
   store i8 %99, ptr %100, align 1, !tbaa !76
-  %indvars.iv.next47 = add nsw i64 %indvars.iv46, 1
-  %.not.i.us = icmp slt i64 %indvars.iv.next47, %33
-  br i1 %.not.i.us, label %36, label %..thread27_crit_edge.us, !llvm.loop !119
+  %indvars.iv.next48 = add nsw i64 %indvars.iv47, 1
+  %.not.i.us = icmp slt i64 %indvars.iv.next48, %33
+  br i1 %.not.i.us, label %36, label %..thread28_crit_edge.us, !llvm.loop !119
 
 .lr.ph.us:                                        ; preds = %75
   %101 = load ptr, ptr %68, align 8, !tbaa !120
   %wide.trip.count = zext nneg i32 %77 to i64
   br label %90
 
-..thread27_crit_edge.us:                          ; preds = %98
-  %102 = getelementptr inbounds i32, ptr %.0474.i42.us, i64 %22
-  %103 = getelementptr inbounds i8, ptr %.0475.i41.us, i64 %23
-  %104 = add nsw i32 %.0476.i40.us, 1
+..thread28_crit_edge.us:                          ; preds = %98
+  %102 = getelementptr inbounds i32, ptr %.0474.i43.us, i64 %22
+  %103 = getelementptr inbounds i8, ptr %.0475.i42.us, i64 %23
+  %104 = add nsw i32 %.0476.i41.us, 1
   %.not511.i.us = icmp slt i32 %104, %11
   br i1 %.not511.i.us, label %.preheader.us, label %set_frame.exit, !llvm.loop !121
 
@@ -1880,8 +1880,8 @@ define internal range(i32 -12, 1) i32 @set_frame_bayer(ptr noundef %0, ptr nound
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %set_frame.exit
 
-set_frame.exit:                                   ; preds = %..thread27_crit_edge.us, %.preheader.lr.ph, %7, %.split.us
-  %spec.select.i = phi i32 [ -12, %.split.us ], [ 0, %7 ], [ 0, %.preheader.lr.ph ], [ 0, %..thread27_crit_edge.us ]
+set_frame.exit:                                   ; preds = %..thread28_crit_edge.us, %.preheader.lr.ph, %7, %.split.us
+  %spec.select.i = phi i32 [ -12, %.split.us ], [ 0, %7 ], [ 0, %.preheader.lr.ph ], [ 0, %..thread28_crit_edge.us ]
   ret i32 %spec.select.i
 }
 
@@ -1891,8 +1891,8 @@ define internal range(i32 -12, 1) i32 @set_frame_heckbert(ptr noundef %0, ptr no
   %9 = alloca %struct.color_info, align 8
   %10 = add nsw i32 %5, %3
   %11 = add nsw i32 %6, %4
-  %.not511.i112 = icmp sgt i32 %6, 0
-  br i1 %.not511.i112, label %.preheader.lr.ph, label %set_frame.exit
+  %.not511.i117 = icmp sgt i32 %6, 0
+  br i1 %.not511.i117, label %.preheader.lr.ph, label %set_frame.exit
 
 .preheader.lr.ph:                                 ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -1900,7 +1900,7 @@ define internal range(i32 -12, 1) i32 @set_frame_heckbert(ptr noundef %0, ptr no
   %14 = ashr i32 %13, 2
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %16 = load i32, ptr %15, align 8, !tbaa !33
-  %.not.i109 = icmp sgt i32 %5, 0
+  %.not.i114 = icmp sgt i32 %5, 0
   %17 = add nsw i32 %11, -1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 533612
@@ -1910,7 +1910,7 @@ define internal range(i32 -12, 1) i32 @set_frame_heckbert(ptr noundef %0, ptr no
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 532584
   %23 = sext i32 %14 to i64
   %24 = sext i32 %16 to i64
-  br i1 %.not.i109, label %.preheader.us.preheader, label %set_frame.exit
+  br i1 %.not.i114, label %.preheader.us.preheader, label %set_frame.exit
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %25 = add nsw i32 %10, -1
@@ -1927,18 +1927,18 @@ define internal range(i32 -12, 1) i32 @set_frame_heckbert(ptr noundef %0, ptr no
   %36 = sext i32 %10 to i64
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %..thread78_crit_edge.us
-  %.0474.i115.us = phi ptr [ %180, %..thread78_crit_edge.us ], [ %29, %.preheader.us.preheader ]
-  %.0475.i114.us = phi ptr [ %181, %..thread78_crit_edge.us ], [ %33, %.preheader.us.preheader ]
-  %.0476.i113.us = phi i32 [ %182, %..thread78_crit_edge.us ], [ %4, %.preheader.us.preheader ]
-  %37 = icmp slt i32 %.0476.i113.us, %17
-  %invariant.gep = getelementptr i32, ptr %.0474.i115.us, i64 %23
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %..thread83_crit_edge.us
+  %.0474.i120.us = phi ptr [ %180, %..thread83_crit_edge.us ], [ %29, %.preheader.us.preheader ]
+  %.0475.i119.us = phi ptr [ %181, %..thread83_crit_edge.us ], [ %33, %.preheader.us.preheader ]
+  %.0476.i118.us = phi i32 [ %182, %..thread83_crit_edge.us ], [ %4, %.preheader.us.preheader ]
+  %37 = icmp slt i32 %.0476.i118.us, %17
+  %invariant.gep = getelementptr i32, ptr %.0474.i120.us, i64 %23
   br label %38
 
 38:                                               ; preds = %.preheader.us, %.thread57.us
-  %indvars.iv119 = phi i64 [ %34, %.preheader.us ], [ %indvars.iv.next120, %.thread57.us ]
-  %39 = icmp slt i64 %indvars.iv119, %35
-  %40 = getelementptr inbounds i32, ptr %.0474.i115.us, i64 %indvars.iv119
+  %indvars.iv124 = phi i64 [ %34, %.preheader.us ], [ %indvars.iv.next125, %.thread57.us ]
+  %39 = icmp slt i64 %indvars.iv124, %35
+  %40 = getelementptr inbounds i32, ptr %.0474.i120.us, i64 %indvars.iv124
   %41 = load i32, ptr %40, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %42 = tail call i32 @ff_lowbias32(i32 noundef %41) #13
@@ -1958,8 +1958,8 @@ define internal range(i32 -12, 1) i32 @set_frame_heckbert(ptr noundef %0, ptr no
 52:                                               ; preds = %49, %38
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %54 = load i32, ptr %53, align 8, !tbaa !110
-  %.not.i.i107.us = icmp sgt i32 %54, 0
-  br i1 %.not.i.i107.us, label %.lr.ph.us, label %._crit_edge.us
+  %.not.i.i112.us = icmp sgt i32 %54, 0
+  br i1 %.not.i.i112.us, label %.lr.ph.us, label %._crit_edge.us
 
 55:                                               ; preds = %67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1969,7 +1969,7 @@ define internal range(i32 -12, 1) i32 @set_frame_heckbert(ptr noundef %0, ptr no
 ._crit_edge.us:                                   ; preds = %55, %52
   %56 = tail call ptr @av_dynarray2_add(ptr noundef nonnull %45, ptr noundef nonnull %53, i64 noundef 8, ptr noundef null) #13
   %.not30.i.i.us = icmp eq ptr %56, null
-  br i1 %.not30.i.i.us, label %.thread59, label %57
+  br i1 %.not30.i.i.us, label %.split.us, label %57
 
 57:                                               ; preds = %._crit_edge.us
   store i32 %41, ptr %56, align 4, !tbaa !114
@@ -2046,7 +2046,7 @@ define internal range(i32 -12, 1) i32 @set_frame_heckbert(ptr noundef %0, ptr no
   %.337.ph.us = phi i16 [ 0, %75 ], [ %96, %78 ]
   %.3.ph.us = phi i16 [ 0, %75 ], [ %97, %78 ]
   %99 = trunc i32 %.0.i.i.ph.us to i8
-  %100 = getelementptr inbounds i8, ptr %.0475.i114.us, i64 %indvars.iv119
+  %100 = getelementptr inbounds i8, ptr %.0475.i119.us, i64 %indvars.iv124
   store i8 %99, ptr %100, align 1, !tbaa !76
   br i1 %39, label %101, label %127
 
@@ -2068,10 +2068,10 @@ define internal range(i32 -12, 1) i32 @set_frame_heckbert(ptr noundef %0, ptr no
   %111 = and i32 %110, 16711680
   %112 = lshr i32 %103, 8
   %113 = and i32 %112, 255
-  %.lhs.trunc87.us = mul nsw i16 %.337.ph.us, 3
-  %114 = sdiv i16 %.lhs.trunc87.us, 8
-  %.sext88.us = sext i16 %114 to i32
-  %115 = add nsw i32 %113, %.sext88.us
+  %.lhs.trunc92.us = mul nsw i16 %.337.ph.us, 3
+  %114 = sdiv i16 %.lhs.trunc92.us, 8
+  %.sext93.us = sext i16 %114 to i32
+  %115 = add nsw i32 %113, %.sext93.us
   %.not.i13.i.us = icmp ult i32 %115, 256
   %isnotneg.i14.i.us = icmp sgt i32 %115, -1
   %116 = sext i1 %isnotneg.i14.i.us to i32
@@ -2079,10 +2079,10 @@ define internal range(i32 -12, 1) i32 @set_frame_heckbert(ptr noundef %0, ptr no
   %117 = shl nsw i32 %.0.i15.i.us, 8
   %118 = and i32 %117, 65280
   %119 = and i32 %103, 255
-  %.lhs.trunc89.us = mul nsw i16 %.3.ph.us, 3
-  %120 = sdiv i16 %.lhs.trunc89.us, 8
-  %.sext90.us = sext i16 %120 to i32
-  %121 = add nsw i32 %119, %.sext90.us
+  %.lhs.trunc94.us = mul nsw i16 %.3.ph.us, 3
+  %120 = sdiv i16 %.lhs.trunc94.us, 8
+  %.sext95.us = sext i16 %120 to i32
+  %121 = add nsw i32 %119, %.sext95.us
   %.not.i.i6.us = icmp ult i32 %121, 256
   %isnotneg.i.i.us = icmp sgt i32 %121, -1
   %122 = sext i1 %isnotneg.i.i.us to i32
@@ -2098,15 +2098,15 @@ define internal range(i32 -12, 1) i32 @set_frame_heckbert(ptr noundef %0, ptr no
   br i1 %37, label %128, label %.thread57.us
 
 128:                                              ; preds = %127
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv119
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv124
   %129 = load i32, ptr %gep, align 4, !tbaa !33
   %130 = and i32 %129, -16777216
   %131 = lshr i32 %129, 16
   %132 = and i32 %131, 255
-  %.lhs.trunc91.us = mul nsw i16 %.341.ph.us, 3
-  %133 = sdiv i16 %.lhs.trunc91.us, 8
-  %.sext92.us = sext i16 %133 to i32
-  %134 = add nsw i32 %132, %.sext92.us
+  %.lhs.trunc96.us = mul nsw i16 %.341.ph.us, 3
+  %133 = sdiv i16 %.lhs.trunc96.us, 8
+  %.sext97.us = sext i16 %133 to i32
+  %134 = add nsw i32 %132, %.sext97.us
   %.not.i16.i8.us = icmp ult i32 %134, 256
   %isnotneg.i17.i9.us = icmp sgt i32 %134, -1
   %135 = sext i1 %isnotneg.i17.i9.us to i32
@@ -2115,10 +2115,10 @@ define internal range(i32 -12, 1) i32 @set_frame_heckbert(ptr noundef %0, ptr no
   %137 = and i32 %136, 16711680
   %138 = lshr i32 %129, 8
   %139 = and i32 %138, 255
-  %.lhs.trunc93.us = mul nsw i16 %.337.ph.us, 3
-  %140 = sdiv i16 %.lhs.trunc93.us, 8
-  %.sext94.us = sext i16 %140 to i32
-  %141 = add nsw i32 %139, %.sext94.us
+  %.lhs.trunc98.us = mul nsw i16 %.337.ph.us, 3
+  %140 = sdiv i16 %.lhs.trunc98.us, 8
+  %.sext99.us = sext i16 %140 to i32
+  %141 = add nsw i32 %139, %.sext99.us
   %.not.i13.i11.us = icmp ult i32 %141, 256
   %isnotneg.i14.i12.us = icmp sgt i32 %141, -1
   %142 = sext i1 %isnotneg.i14.i12.us to i32
@@ -2126,10 +2126,10 @@ define internal range(i32 -12, 1) i32 @set_frame_heckbert(ptr noundef %0, ptr no
   %143 = shl nsw i32 %.0.i15.i13.us, 8
   %144 = and i32 %143, 65280
   %145 = and i32 %129, 255
-  %.lhs.trunc95.us = mul nsw i16 %.3.ph.us, 3
-  %146 = sdiv i16 %.lhs.trunc95.us, 8
-  %.sext96.us = sext i16 %146 to i32
-  %147 = add nsw i32 %145, %.sext96.us
+  %.lhs.trunc100.us = mul nsw i16 %.3.ph.us, 3
+  %146 = sdiv i16 %.lhs.trunc100.us, 8
+  %.sext101.us = sext i16 %146 to i32
+  %147 = add nsw i32 %145, %.sext101.us
   %.not.i.i14.us = icmp ult i32 %147, 256
   %isnotneg.i.i15.us = icmp sgt i32 %147, -1
   %148 = sext i1 %isnotneg.i.i15.us to i32
@@ -2148,8 +2148,8 @@ define internal range(i32 -12, 1) i32 @set_frame_heckbert(ptr noundef %0, ptr no
   %157 = lshr i32 %155, 16
   %158 = and i32 %157, 255
   %159 = sdiv i16 %.341.ph.us, 4
-  %.sext98.us = sext i16 %159 to i32
-  %160 = add nsw i32 %158, %.sext98.us
+  %.sext103.us = sext i16 %159 to i32
+  %160 = add nsw i32 %158, %.sext103.us
   %.not.i16.i17.us = icmp ult i32 %160, 256
   %isnotneg.i17.i18.us = icmp sgt i32 %160, -1
   %161 = sext i1 %isnotneg.i17.i18.us to i32
@@ -2159,8 +2159,8 @@ define internal range(i32 -12, 1) i32 @set_frame_heckbert(ptr noundef %0, ptr no
   %164 = lshr i32 %155, 8
   %165 = and i32 %164, 255
   %166 = sdiv i16 %.337.ph.us, 4
-  %.sext100.us = sext i16 %166 to i32
-  %167 = add nsw i32 %165, %.sext100.us
+  %.sext105.us = sext i16 %166 to i32
+  %167 = add nsw i32 %165, %.sext105.us
   %.not.i13.i20.us = icmp ult i32 %167, 256
   %isnotneg.i14.i21.us = icmp sgt i32 %167, -1
   %168 = sext i1 %isnotneg.i14.i21.us to i32
@@ -2169,8 +2169,8 @@ define internal range(i32 -12, 1) i32 @set_frame_heckbert(ptr noundef %0, ptr no
   %170 = and i32 %169, 65280
   %171 = and i32 %155, 255
   %172 = sdiv i16 %.3.ph.us, 4
-  %.sext102.us = sext i16 %172 to i32
-  %173 = add nsw i32 %171, %.sext102.us
+  %.sext107.us = sext i16 %172 to i32
+  %173 = add nsw i32 %171, %.sext107.us
   %.not.i.i23.us = icmp ult i32 %173, 256
   %isnotneg.i.i24.us = icmp sgt i32 %173, -1
   %174 = sext i1 %isnotneg.i.i24.us to i32
@@ -2183,28 +2183,28 @@ define internal range(i32 -12, 1) i32 @set_frame_heckbert(ptr noundef %0, ptr no
   br label %.thread57.us
 
 .thread57.us:                                     ; preds = %153, %128, %127
-  %indvars.iv.next120 = add nsw i64 %indvars.iv119, 1
-  %.not.i.us = icmp slt i64 %indvars.iv.next120, %36
-  br i1 %.not.i.us, label %38, label %..thread78_crit_edge.us, !llvm.loop !119
+  %indvars.iv.next125 = add nsw i64 %indvars.iv124, 1
+  %.not.i.us = icmp slt i64 %indvars.iv.next125, %36
+  br i1 %.not.i.us, label %38, label %..thread83_crit_edge.us, !llvm.loop !119
 
 .lr.ph.us:                                        ; preds = %52
   %179 = load ptr, ptr %45, align 8, !tbaa !120
   %wide.trip.count = zext nneg i32 %54 to i64
   br label %67
 
-..thread78_crit_edge.us:                          ; preds = %.thread57.us
-  %180 = getelementptr inbounds i32, ptr %.0474.i115.us, i64 %23
-  %181 = getelementptr inbounds i8, ptr %.0475.i114.us, i64 %24
-  %182 = add nsw i32 %.0476.i113.us, 1
+..thread83_crit_edge.us:                          ; preds = %.thread57.us
+  %180 = getelementptr inbounds i32, ptr %.0474.i120.us, i64 %23
+  %181 = getelementptr inbounds i8, ptr %.0475.i119.us, i64 %24
+  %182 = add nsw i32 %.0476.i118.us, 1
   %.not511.i.us = icmp slt i32 %182, %11
   br i1 %.not511.i.us, label %.preheader.us, label %set_frame.exit, !llvm.loop !121
 
-.thread59:                                        ; preds = %._crit_edge.us
+.split.us:                                        ; preds = %._crit_edge.us
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %set_frame.exit
 
-set_frame.exit:                                   ; preds = %..thread78_crit_edge.us, %.preheader.lr.ph, %7, %.thread59
-  %spec.select.i = phi i32 [ -12, %.thread59 ], [ 0, %7 ], [ 0, %.preheader.lr.ph ], [ 0, %..thread78_crit_edge.us ]
+set_frame.exit:                                   ; preds = %..thread83_crit_edge.us, %.preheader.lr.ph, %7, %.split.us
+  %spec.select.i = phi i32 [ -12, %.split.us ], [ 0, %7 ], [ 0, %.preheader.lr.ph ], [ 0, %..thread83_crit_edge.us ]
   ret i32 %spec.select.i
 }
 
@@ -2214,8 +2214,8 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
   %9 = alloca %struct.color_info, align 8
   %10 = add nsw i32 %5, %3
   %11 = add nsw i32 %6, %4
-  %.not511.i130 = icmp sgt i32 %6, 0
-  br i1 %.not511.i130, label %.preheader.lr.ph, label %set_frame.exit
+  %.not511.i135 = icmp sgt i32 %6, 0
+  br i1 %.not511.i135, label %.preheader.lr.ph, label %set_frame.exit
 
 .preheader.lr.ph:                                 ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -2223,7 +2223,7 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
   %14 = ashr i32 %13, 2
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %16 = load i32, ptr %15, align 8, !tbaa !33
-  %.not.i127 = icmp sgt i32 %5, 0
+  %.not.i132 = icmp sgt i32 %5, 0
   %17 = add nsw i32 %11, -1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 533612
@@ -2233,7 +2233,7 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 532584
   %23 = sext i32 %14 to i64
   %24 = sext i32 %16 to i64
-  br i1 %.not.i127, label %.preheader.us.preheader, label %set_frame.exit
+  br i1 %.not.i132, label %.preheader.us.preheader, label %set_frame.exit
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %25 = add nsw i32 %10, -1
@@ -2250,20 +2250,20 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
   %36 = sext i32 %10 to i64
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %..thread90_crit_edge.us
-  %.0474.i133.us = phi ptr [ %208, %..thread90_crit_edge.us ], [ %29, %.preheader.us.preheader ]
-  %.0475.i132.us = phi ptr [ %209, %..thread90_crit_edge.us ], [ %33, %.preheader.us.preheader ]
-  %.0476.i131.us = phi i32 [ %210, %..thread90_crit_edge.us ], [ %4, %.preheader.us.preheader ]
-  %37 = icmp slt i32 %.0476.i131.us, %17
-  %invariant.gep = getelementptr i32, ptr %.0474.i133.us, i64 %23
-  %invariant.gep144 = getelementptr i32, ptr %.0474.i133.us, i64 %23
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %..thread95_crit_edge.us
+  %.0474.i138.us = phi ptr [ %208, %..thread95_crit_edge.us ], [ %29, %.preheader.us.preheader ]
+  %.0475.i137.us = phi ptr [ %209, %..thread95_crit_edge.us ], [ %33, %.preheader.us.preheader ]
+  %.0476.i136.us = phi i32 [ %210, %..thread95_crit_edge.us ], [ %4, %.preheader.us.preheader ]
+  %37 = icmp slt i32 %.0476.i136.us, %17
+  %invariant.gep = getelementptr i32, ptr %.0474.i138.us, i64 %23
+  %invariant.gep149 = getelementptr i32, ptr %.0474.i138.us, i64 %23
   br label %38
 
 38:                                               ; preds = %.preheader.us, %.thread69.us
-  %indvars.iv137 = phi i64 [ %34, %.preheader.us ], [ %indvars.iv.next138, %.thread69.us ]
-  %39 = icmp slt i64 %indvars.iv137, %35
-  %40 = icmp sgt i64 %indvars.iv137, %34
-  %41 = getelementptr inbounds i32, ptr %.0474.i133.us, i64 %indvars.iv137
+  %indvars.iv142 = phi i64 [ %34, %.preheader.us ], [ %indvars.iv.next143, %.thread69.us ]
+  %39 = icmp slt i64 %indvars.iv142, %35
+  %40 = icmp sgt i64 %indvars.iv142, %34
+  %41 = getelementptr inbounds i32, ptr %.0474.i138.us, i64 %indvars.iv142
   %42 = load i32, ptr %41, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %43 = tail call i32 @ff_lowbias32(i32 noundef %42) #13
@@ -2283,8 +2283,8 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
 53:                                               ; preds = %50, %38
   %54 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %55 = load i32, ptr %54, align 8, !tbaa !110
-  %.not.i.i125.us = icmp sgt i32 %55, 0
-  br i1 %.not.i.i125.us, label %.lr.ph.us, label %._crit_edge.us
+  %.not.i.i130.us = icmp sgt i32 %55, 0
+  br i1 %.not.i.i130.us, label %.lr.ph.us, label %._crit_edge.us
 
 56:                                               ; preds = %68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2294,7 +2294,7 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
 ._crit_edge.us:                                   ; preds = %56, %53
   %57 = tail call ptr @av_dynarray2_add(ptr noundef nonnull %46, ptr noundef nonnull %54, i64 noundef 8, ptr noundef null) #13
   %.not30.i.i.us = icmp eq ptr %57, null
-  br i1 %.not30.i.i.us, label %.thread71, label %58
+  br i1 %.not30.i.i.us, label %.split.us, label %58
 
 58:                                               ; preds = %._crit_edge.us
   store i32 %42, ptr %57, align 4, !tbaa !114
@@ -2371,7 +2371,7 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
   %.349.ph.us = phi i16 [ 0, %76 ], [ %97, %79 ]
   %.3.ph.us = phi i16 [ 0, %76 ], [ %98, %79 ]
   %100 = trunc i32 %.0.i.i.ph.us to i8
-  %101 = getelementptr inbounds i8, ptr %.0475.i132.us, i64 %indvars.iv137
+  %101 = getelementptr inbounds i8, ptr %.0475.i137.us, i64 %indvars.iv142
   store i8 %100, ptr %101, align 1, !tbaa !76
   br i1 %39, label %102, label %128
 
@@ -2393,10 +2393,10 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
   %112 = and i32 %111, 16711680
   %113 = lshr i32 %104, 8
   %114 = and i32 %113, 255
-  %.lhs.trunc99.us = mul nsw i16 %.349.ph.us, 7
-  %115 = sdiv i16 %.lhs.trunc99.us, 16
-  %.sext100.us = sext i16 %115 to i32
-  %116 = add nsw i32 %114, %.sext100.us
+  %.lhs.trunc104.us = mul nsw i16 %.349.ph.us, 7
+  %115 = sdiv i16 %.lhs.trunc104.us, 16
+  %.sext105.us = sext i16 %115 to i32
+  %116 = add nsw i32 %114, %.sext105.us
   %.not.i13.i.us = icmp ult i32 %116, 256
   %isnotneg.i14.i.us = icmp sgt i32 %116, -1
   %117 = sext i1 %isnotneg.i14.i.us to i32
@@ -2404,10 +2404,10 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
   %118 = shl nsw i32 %.0.i15.i.us, 8
   %119 = and i32 %118, 65280
   %120 = and i32 %104, 255
-  %.lhs.trunc101.us = mul nsw i16 %.3.ph.us, 7
-  %121 = sdiv i16 %.lhs.trunc101.us, 16
-  %.sext102.us = sext i16 %121 to i32
-  %122 = add nsw i32 %120, %.sext102.us
+  %.lhs.trunc106.us = mul nsw i16 %.3.ph.us, 7
+  %121 = sdiv i16 %.lhs.trunc106.us, 16
+  %.sext107.us = sext i16 %121 to i32
+  %122 = add nsw i32 %120, %.sext107.us
   %.not.i.i6.us = icmp ult i32 %122, 256
   %isnotneg.i.i.us = icmp sgt i32 %122, -1
   %123 = sext i1 %isnotneg.i.i.us to i32
@@ -2424,16 +2424,16 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
   br i1 %or.cond14.i.us, label %129, label %155
 
 129:                                              ; preds = %128
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv137
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv142
   %130 = getelementptr i8, ptr %gep, i64 -4
   %131 = load i32, ptr %130, align 4, !tbaa !33
   %132 = and i32 %131, -16777216
   %133 = lshr i32 %131, 16
   %134 = and i32 %133, 255
-  %.lhs.trunc103.us = mul nsw i16 %.353.ph.us, 3
-  %135 = sdiv i16 %.lhs.trunc103.us, 16
-  %.sext104.us = sext i16 %135 to i32
-  %136 = add nsw i32 %134, %.sext104.us
+  %.lhs.trunc108.us = mul nsw i16 %.353.ph.us, 3
+  %135 = sdiv i16 %.lhs.trunc108.us, 16
+  %.sext109.us = sext i16 %135 to i32
+  %136 = add nsw i32 %134, %.sext109.us
   %.not.i16.i8.us = icmp ult i32 %136, 256
   %isnotneg.i17.i9.us = icmp sgt i32 %136, -1
   %137 = sext i1 %isnotneg.i17.i9.us to i32
@@ -2442,10 +2442,10 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
   %139 = and i32 %138, 16711680
   %140 = lshr i32 %131, 8
   %141 = and i32 %140, 255
-  %.lhs.trunc105.us = mul nsw i16 %.349.ph.us, 3
-  %142 = sdiv i16 %.lhs.trunc105.us, 16
-  %.sext106.us = sext i16 %142 to i32
-  %143 = add nsw i32 %141, %.sext106.us
+  %.lhs.trunc110.us = mul nsw i16 %.349.ph.us, 3
+  %142 = sdiv i16 %.lhs.trunc110.us, 16
+  %.sext111.us = sext i16 %142 to i32
+  %143 = add nsw i32 %141, %.sext111.us
   %.not.i13.i11.us = icmp ult i32 %143, 256
   %isnotneg.i14.i12.us = icmp sgt i32 %143, -1
   %144 = sext i1 %isnotneg.i14.i12.us to i32
@@ -2453,10 +2453,10 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
   %145 = shl nsw i32 %.0.i15.i13.us, 8
   %146 = and i32 %145, 65280
   %147 = and i32 %131, 255
-  %.lhs.trunc107.us = mul nsw i16 %.3.ph.us, 3
-  %148 = sdiv i16 %.lhs.trunc107.us, 16
-  %.sext108.us = sext i16 %148 to i32
-  %149 = add nsw i32 %147, %.sext108.us
+  %.lhs.trunc112.us = mul nsw i16 %.3.ph.us, 3
+  %148 = sdiv i16 %.lhs.trunc112.us, 16
+  %.sext113.us = sext i16 %148 to i32
+  %149 = add nsw i32 %147, %.sext113.us
   %.not.i.i14.us = icmp ult i32 %149, 256
   %isnotneg.i.i15.us = icmp sgt i32 %149, -1
   %150 = sext i1 %isnotneg.i.i15.us to i32
@@ -2472,15 +2472,15 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
   br i1 %37, label %156, label %.thread69.us
 
 156:                                              ; preds = %155
-  %gep145 = getelementptr i32, ptr %invariant.gep144, i64 %indvars.iv137
-  %157 = load i32, ptr %gep145, align 4, !tbaa !33
+  %gep150 = getelementptr i32, ptr %invariant.gep149, i64 %indvars.iv142
+  %157 = load i32, ptr %gep150, align 4, !tbaa !33
   %158 = and i32 %157, -16777216
   %159 = lshr i32 %157, 16
   %160 = and i32 %159, 255
-  %.lhs.trunc109.us = mul nsw i16 %.353.ph.us, 5
-  %161 = sdiv i16 %.lhs.trunc109.us, 16
-  %.sext110.us = sext i16 %161 to i32
-  %162 = add nsw i32 %160, %.sext110.us
+  %.lhs.trunc114.us = mul nsw i16 %.353.ph.us, 5
+  %161 = sdiv i16 %.lhs.trunc114.us, 16
+  %.sext115.us = sext i16 %161 to i32
+  %162 = add nsw i32 %160, %.sext115.us
   %.not.i16.i17.us = icmp ult i32 %162, 256
   %isnotneg.i17.i18.us = icmp sgt i32 %162, -1
   %163 = sext i1 %isnotneg.i17.i18.us to i32
@@ -2489,10 +2489,10 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
   %165 = and i32 %164, 16711680
   %166 = lshr i32 %157, 8
   %167 = and i32 %166, 255
-  %.lhs.trunc111.us = mul nsw i16 %.349.ph.us, 5
-  %168 = sdiv i16 %.lhs.trunc111.us, 16
-  %.sext112.us = sext i16 %168 to i32
-  %169 = add nsw i32 %167, %.sext112.us
+  %.lhs.trunc116.us = mul nsw i16 %.349.ph.us, 5
+  %168 = sdiv i16 %.lhs.trunc116.us, 16
+  %.sext117.us = sext i16 %168 to i32
+  %169 = add nsw i32 %167, %.sext117.us
   %.not.i13.i20.us = icmp ult i32 %169, 256
   %isnotneg.i14.i21.us = icmp sgt i32 %169, -1
   %170 = sext i1 %isnotneg.i14.i21.us to i32
@@ -2500,10 +2500,10 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
   %171 = shl nsw i32 %.0.i15.i22.us, 8
   %172 = and i32 %171, 65280
   %173 = and i32 %157, 255
-  %.lhs.trunc113.us = mul nsw i16 %.3.ph.us, 5
-  %174 = sdiv i16 %.lhs.trunc113.us, 16
-  %.sext114.us = sext i16 %174 to i32
-  %175 = add nsw i32 %173, %.sext114.us
+  %.lhs.trunc118.us = mul nsw i16 %.3.ph.us, 5
+  %174 = sdiv i16 %.lhs.trunc118.us, 16
+  %.sext119.us = sext i16 %174 to i32
+  %175 = add nsw i32 %173, %.sext119.us
   %.not.i.i23.us = icmp ult i32 %175, 256
   %isnotneg.i.i24.us = icmp sgt i32 %175, -1
   %176 = sext i1 %isnotneg.i.i24.us to i32
@@ -2512,18 +2512,18 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
   %178 = or disjoint i32 %177, %158
   %179 = or disjoint i32 %178, %165
   %180 = or disjoint i32 %179, %172
-  store i32 %180, ptr %gep145, align 4, !tbaa !33
+  store i32 %180, ptr %gep150, align 4, !tbaa !33
   br i1 %39, label %181, label %.thread69.us
 
 181:                                              ; preds = %156
-  %182 = getelementptr i8, ptr %gep145, i64 4
+  %182 = getelementptr i8, ptr %gep150, i64 4
   %183 = load i32, ptr %182, align 4, !tbaa !33
   %184 = and i32 %183, -16777216
   %185 = lshr i32 %183, 16
   %186 = and i32 %185, 255
   %187 = sdiv i16 %.353.ph.us, 16
-  %.sext116.us = sext i16 %187 to i32
-  %188 = add nsw i32 %186, %.sext116.us
+  %.sext121.us = sext i16 %187 to i32
+  %188 = add nsw i32 %186, %.sext121.us
   %.not.i16.i26.us = icmp ult i32 %188, 256
   %isnotneg.i17.i27.us = icmp sgt i32 %188, -1
   %189 = sext i1 %isnotneg.i17.i27.us to i32
@@ -2533,8 +2533,8 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
   %192 = lshr i32 %183, 8
   %193 = and i32 %192, 255
   %194 = sdiv i16 %.349.ph.us, 16
-  %.sext118.us = sext i16 %194 to i32
-  %195 = add nsw i32 %193, %.sext118.us
+  %.sext123.us = sext i16 %194 to i32
+  %195 = add nsw i32 %193, %.sext123.us
   %.not.i13.i29.us = icmp ult i32 %195, 256
   %isnotneg.i14.i30.us = icmp sgt i32 %195, -1
   %196 = sext i1 %isnotneg.i14.i30.us to i32
@@ -2543,8 +2543,8 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
   %198 = and i32 %197, 65280
   %199 = and i32 %183, 255
   %200 = sdiv i16 %.3.ph.us, 16
-  %.sext120.us = sext i16 %200 to i32
-  %201 = add nsw i32 %199, %.sext120.us
+  %.sext125.us = sext i16 %200 to i32
+  %201 = add nsw i32 %199, %.sext125.us
   %.not.i.i32.us = icmp ult i32 %201, 256
   %isnotneg.i.i33.us = icmp sgt i32 %201, -1
   %202 = sext i1 %isnotneg.i.i33.us to i32
@@ -2557,28 +2557,28 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
   br label %.thread69.us
 
 .thread69.us:                                     ; preds = %181, %156, %155
-  %indvars.iv.next138 = add nsw i64 %indvars.iv137, 1
-  %.not.i.us = icmp slt i64 %indvars.iv.next138, %36
-  br i1 %.not.i.us, label %38, label %..thread90_crit_edge.us, !llvm.loop !119
+  %indvars.iv.next143 = add nsw i64 %indvars.iv142, 1
+  %.not.i.us = icmp slt i64 %indvars.iv.next143, %36
+  br i1 %.not.i.us, label %38, label %..thread95_crit_edge.us, !llvm.loop !119
 
 .lr.ph.us:                                        ; preds = %53
   %207 = load ptr, ptr %46, align 8, !tbaa !120
   %wide.trip.count = zext nneg i32 %55 to i64
   br label %68
 
-..thread90_crit_edge.us:                          ; preds = %.thread69.us
-  %208 = getelementptr inbounds i32, ptr %.0474.i133.us, i64 %23
-  %209 = getelementptr inbounds i8, ptr %.0475.i132.us, i64 %24
-  %210 = add nsw i32 %.0476.i131.us, 1
+..thread95_crit_edge.us:                          ; preds = %.thread69.us
+  %208 = getelementptr inbounds i32, ptr %.0474.i138.us, i64 %23
+  %209 = getelementptr inbounds i8, ptr %.0475.i137.us, i64 %24
+  %210 = add nsw i32 %.0476.i136.us, 1
   %.not511.i.us = icmp slt i32 %210, %11
   br i1 %.not511.i.us, label %.preheader.us, label %set_frame.exit, !llvm.loop !121
 
-.thread71:                                        ; preds = %._crit_edge.us
+.split.us:                                        ; preds = %._crit_edge.us
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %set_frame.exit
 
-set_frame.exit:                                   ; preds = %..thread90_crit_edge.us, %.preheader.lr.ph, %7, %.thread71
-  %spec.select.i = phi i32 [ -12, %.thread71 ], [ 0, %7 ], [ 0, %.preheader.lr.ph ], [ 0, %..thread90_crit_edge.us ]
+set_frame.exit:                                   ; preds = %..thread95_crit_edge.us, %.preheader.lr.ph, %7, %.split.us
+  %spec.select.i = phi i32 [ -12, %.split.us ], [ 0, %7 ], [ 0, %.preheader.lr.ph ], [ 0, %..thread95_crit_edge.us ]
   ret i32 %spec.select.i
 }
 
@@ -2588,8 +2588,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   %9 = alloca %struct.color_info, align 8
   %10 = add nsw i32 %5, %3
   %11 = add nsw i32 %6, %4
-  %.not511.i188 = icmp sgt i32 %6, 0
-  br i1 %.not511.i188, label %.preheader.lr.ph, label %set_frame.exit
+  %.not511.i193 = icmp sgt i32 %6, 0
+  br i1 %.not511.i193, label %.preheader.lr.ph, label %set_frame.exit
 
 .preheader.lr.ph:                                 ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -2597,7 +2597,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   %14 = ashr i32 %13, 2
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %16 = load i32, ptr %15, align 8, !tbaa !33
-  %.not.i185 = icmp sgt i32 %5, 0
+  %.not.i190 = icmp sgt i32 %5, 0
   %17 = add nsw i32 %11, -1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 533612
@@ -2607,7 +2607,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 532584
   %23 = sext i32 %14 to i64
   %24 = sext i32 %16 to i64
-  br i1 %.not.i185, label %.preheader.us.preheader, label %set_frame.exit
+  br i1 %.not.i190, label %.preheader.us.preheader, label %set_frame.exit
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %25 = add nsw i32 %3, 1
@@ -2628,21 +2628,21 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   %40 = sext i32 %10 to i64
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %..thread124_crit_edge.us
-  %.0474.i191.us = phi ptr [ %298, %..thread124_crit_edge.us ], [ %31, %.preheader.us.preheader ]
-  %.0475.i190.us = phi ptr [ %299, %..thread124_crit_edge.us ], [ %35, %.preheader.us.preheader ]
-  %.0476.i189.us = phi i32 [ %300, %..thread124_crit_edge.us ], [ %4, %.preheader.us.preheader ]
-  %41 = icmp slt i32 %.0476.i189.us, %17
-  %invariant.gep = getelementptr i32, ptr %.0474.i191.us, i64 %23
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %..thread129_crit_edge.us
+  %.0474.i196.us = phi ptr [ %298, %..thread129_crit_edge.us ], [ %31, %.preheader.us.preheader ]
+  %.0475.i195.us = phi ptr [ %299, %..thread129_crit_edge.us ], [ %35, %.preheader.us.preheader ]
+  %.0476.i194.us = phi i32 [ %300, %..thread129_crit_edge.us ], [ %4, %.preheader.us.preheader ]
+  %41 = icmp slt i32 %.0476.i194.us, %17
+  %invariant.gep = getelementptr i32, ptr %.0474.i196.us, i64 %23
   br label %42
 
 42:                                               ; preds = %.preheader.us, %296
-  %indvars.iv195 = phi i64 [ %36, %.preheader.us ], [ %indvars.iv.next196, %296 ]
-  %43 = icmp slt i64 %indvars.iv195, %37
-  %44 = icmp sgt i64 %indvars.iv195, %36
-  %45 = icmp slt i64 %indvars.iv195, %38
-  %46 = icmp sgt i64 %indvars.iv195, %39
-  %47 = getelementptr inbounds i32, ptr %.0474.i191.us, i64 %indvars.iv195
+  %indvars.iv200 = phi i64 [ %36, %.preheader.us ], [ %indvars.iv.next201, %296 ]
+  %43 = icmp slt i64 %indvars.iv200, %37
+  %44 = icmp sgt i64 %indvars.iv200, %36
+  %45 = icmp slt i64 %indvars.iv200, %38
+  %46 = icmp sgt i64 %indvars.iv200, %39
+  %47 = getelementptr inbounds i32, ptr %.0474.i196.us, i64 %indvars.iv200
   %48 = load i32, ptr %47, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %49 = tail call i32 @ff_lowbias32(i32 noundef %48) #13
@@ -2662,8 +2662,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
 59:                                               ; preds = %56, %42
   %60 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %61 = load i32, ptr %60, align 8, !tbaa !110
-  %.not.i.i183.us = icmp sgt i32 %61, 0
-  br i1 %.not.i.i183.us, label %.lr.ph.us, label %._crit_edge.us
+  %.not.i.i188.us = icmp sgt i32 %61, 0
+  br i1 %.not.i.i188.us, label %.lr.ph.us, label %._crit_edge.us
 
 62:                                               ; preds = %74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2673,7 +2673,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
 ._crit_edge.us:                                   ; preds = %62, %59
   %63 = tail call ptr @av_dynarray2_add(ptr noundef nonnull %52, ptr noundef nonnull %60, i64 noundef 8, ptr noundef null) #13
   %.not30.i.i.us = icmp eq ptr %63, null
-  br i1 %.not30.i.i.us, label %.thread105, label %64
+  br i1 %.not30.i.i.us, label %.split.us, label %64
 
 64:                                               ; preds = %._crit_edge.us
   store i32 %48, ptr %63, align 4, !tbaa !114
@@ -2750,7 +2750,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   %.385.ph.us = phi i16 [ 0, %82 ], [ %103, %85 ]
   %.3.ph.us = phi i16 [ 0, %82 ], [ %104, %85 ]
   %106 = trunc i32 %.0.i.i.ph.us to i8
-  %107 = getelementptr inbounds i8, ptr %.0475.i190.us, i64 %indvars.iv195
+  %107 = getelementptr inbounds i8, ptr %.0475.i195.us, i64 %indvars.iv200
   store i8 %106, ptr %107, align 1, !tbaa !76
   br i1 %43, label %108, label %134
 
@@ -2772,8 +2772,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   %119 = lshr i32 %110, 8
   %120 = and i32 %119, 255
   %121 = sdiv i16 %.385.ph.us, 4
-  %.sext134.us = sext i16 %121 to i32
-  %122 = add nsw i32 %120, %.sext134.us
+  %.sext139.us = sext i16 %121 to i32
+  %122 = add nsw i32 %120, %.sext139.us
   %.not.i13.i.us = icmp ult i32 %122, 256
   %isnotneg.i14.i.us = icmp sgt i32 %122, -1
   %123 = sext i1 %isnotneg.i14.i.us to i32
@@ -2782,8 +2782,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   %125 = and i32 %124, 65280
   %126 = and i32 %110, 255
   %127 = sdiv i16 %.3.ph.us, 4
-  %.sext136.us = sext i16 %127 to i32
-  %128 = add nsw i32 %126, %.sext136.us
+  %.sext141.us = sext i16 %127 to i32
+  %128 = add nsw i32 %126, %.sext141.us
   %.not.i.i6.us = icmp ult i32 %128, 256
   %isnotneg.i.i.us = icmp sgt i32 %128, -1
   %129 = sext i1 %isnotneg.i.i.us to i32
@@ -2804,10 +2804,10 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   %138 = and i32 %137, -16777216
   %139 = lshr i32 %137, 16
   %140 = and i32 %139, 255
-  %.lhs.trunc137.us = mul nsw i16 %.389.ph.us, 3
-  %141 = sdiv i16 %.lhs.trunc137.us, 16
-  %.sext138.us = sext i16 %141 to i32
-  %142 = add nsw i32 %140, %.sext138.us
+  %.lhs.trunc142.us = mul nsw i16 %.389.ph.us, 3
+  %141 = sdiv i16 %.lhs.trunc142.us, 16
+  %.sext143.us = sext i16 %141 to i32
+  %142 = add nsw i32 %140, %.sext143.us
   %.not.i16.i8.us = icmp ult i32 %142, 256
   %isnotneg.i17.i9.us = icmp sgt i32 %142, -1
   %143 = sext i1 %isnotneg.i17.i9.us to i32
@@ -2816,10 +2816,10 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   %145 = and i32 %144, 16711680
   %146 = lshr i32 %137, 8
   %147 = and i32 %146, 255
-  %.lhs.trunc139.us = mul nsw i16 %.385.ph.us, 3
-  %148 = sdiv i16 %.lhs.trunc139.us, 16
-  %.sext140.us = sext i16 %148 to i32
-  %149 = add nsw i32 %147, %.sext140.us
+  %.lhs.trunc144.us = mul nsw i16 %.385.ph.us, 3
+  %148 = sdiv i16 %.lhs.trunc144.us, 16
+  %.sext145.us = sext i16 %148 to i32
+  %149 = add nsw i32 %147, %.sext145.us
   %.not.i13.i11.us = icmp ult i32 %149, 256
   %isnotneg.i14.i12.us = icmp sgt i32 %149, -1
   %150 = sext i1 %isnotneg.i14.i12.us to i32
@@ -2827,10 +2827,10 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   %151 = shl nsw i32 %.0.i15.i13.us, 8
   %152 = and i32 %151, 65280
   %153 = and i32 %137, 255
-  %.lhs.trunc141.us = mul nsw i16 %.3.ph.us, 3
-  %154 = sdiv i16 %.lhs.trunc141.us, 16
-  %.sext142.us = sext i16 %154 to i32
-  %155 = add nsw i32 %153, %.sext142.us
+  %.lhs.trunc146.us = mul nsw i16 %.3.ph.us, 3
+  %154 = sdiv i16 %.lhs.trunc146.us, 16
+  %.sext147.us = sext i16 %154 to i32
+  %155 = add nsw i32 %153, %.sext147.us
   %.not.i.i14.us = icmp ult i32 %155, 256
   %isnotneg.i.i15.us = icmp sgt i32 %155, -1
   %156 = sext i1 %isnotneg.i.i15.us to i32
@@ -2849,15 +2849,15 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   br i1 %46, label %163, label %189
 
 163:                                              ; preds = %162
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv195
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv200
   %164 = getelementptr i8, ptr %gep, i64 -8
   %165 = load i32, ptr %164, align 4, !tbaa !33
   %166 = and i32 %165, -16777216
   %167 = lshr i32 %165, 16
   %168 = and i32 %167, 255
   %169 = sdiv i16 %.389.ph.us, 16
-  %.sext144.us = sext i16 %169 to i32
-  %170 = add nsw i32 %168, %.sext144.us
+  %.sext149.us = sext i16 %169 to i32
+  %170 = add nsw i32 %168, %.sext149.us
   %.not.i16.i17.us = icmp ult i32 %170, 256
   %isnotneg.i17.i18.us = icmp sgt i32 %170, -1
   %171 = sext i1 %isnotneg.i17.i18.us to i32
@@ -2867,8 +2867,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   %174 = lshr i32 %165, 8
   %175 = and i32 %174, 255
   %176 = sdiv i16 %.385.ph.us, 16
-  %.sext146.us = sext i16 %176 to i32
-  %177 = add nsw i32 %175, %.sext146.us
+  %.sext151.us = sext i16 %176 to i32
+  %177 = add nsw i32 %175, %.sext151.us
   %.not.i13.i20.us = icmp ult i32 %177, 256
   %isnotneg.i14.i21.us = icmp sgt i32 %177, -1
   %178 = sext i1 %isnotneg.i14.i21.us to i32
@@ -2877,8 +2877,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   %180 = and i32 %179, 65280
   %181 = and i32 %165, 255
   %182 = sdiv i16 %.3.ph.us, 16
-  %.sext148.us = sext i16 %182 to i32
-  %183 = add nsw i32 %181, %.sext148.us
+  %.sext153.us = sext i16 %182 to i32
+  %183 = add nsw i32 %181, %.sext153.us
   %.not.i.i23.us = icmp ult i32 %183, 256
   %isnotneg.i.i24.us = icmp sgt i32 %183, -1
   %184 = sext i1 %isnotneg.i.i24.us to i32
@@ -2891,19 +2891,19 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   br label %189
 
 189:                                              ; preds = %163, %162
-  %190 = add nsw i64 %indvars.iv195, %23
+  %190 = add nsw i64 %indvars.iv200, %23
   br i1 %44, label %191, label %._crit_edge
 
 191:                                              ; preds = %189
-  %192 = getelementptr i32, ptr %.0474.i191.us, i64 %190
+  %192 = getelementptr i32, ptr %.0474.i196.us, i64 %190
   %193 = getelementptr i8, ptr %192, i64 -4
   %194 = load i32, ptr %193, align 4, !tbaa !33
   %195 = and i32 %194, -16777216
   %196 = lshr i32 %194, 16
   %197 = and i32 %196, 255
   %198 = sdiv i16 %.389.ph.us, 8
-  %.sext150.us = sext i16 %198 to i32
-  %199 = add nsw i32 %197, %.sext150.us
+  %.sext155.us = sext i16 %198 to i32
+  %199 = add nsw i32 %197, %.sext155.us
   %.not.i16.i26.us = icmp ult i32 %199, 256
   %isnotneg.i17.i27.us = icmp sgt i32 %199, -1
   %200 = sext i1 %isnotneg.i17.i27.us to i32
@@ -2913,8 +2913,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   %203 = lshr i32 %194, 8
   %204 = and i32 %203, 255
   %205 = sdiv i16 %.385.ph.us, 8
-  %.sext152.us = sext i16 %205 to i32
-  %206 = add nsw i32 %204, %.sext152.us
+  %.sext157.us = sext i16 %205 to i32
+  %206 = add nsw i32 %204, %.sext157.us
   %.not.i13.i29.us = icmp ult i32 %206, 256
   %isnotneg.i14.i30.us = icmp sgt i32 %206, -1
   %207 = sext i1 %isnotneg.i14.i30.us to i32
@@ -2923,8 +2923,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   %209 = and i32 %208, 65280
   %210 = and i32 %194, 255
   %211 = sdiv i16 %.3.ph.us, 8
-  %.sext154.us = sext i16 %211 to i32
-  %212 = add nsw i32 %210, %.sext154.us
+  %.sext159.us = sext i16 %211 to i32
+  %212 = add nsw i32 %210, %.sext159.us
   %.not.i.i32.us = icmp ult i32 %212, 256
   %isnotneg.i.i33.us = icmp sgt i32 %212, -1
   %213 = sext i1 %isnotneg.i.i33.us to i32
@@ -2937,15 +2937,15 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %189, %191
-  %218 = getelementptr inbounds i32, ptr %.0474.i191.us, i64 %190
+  %218 = getelementptr inbounds i32, ptr %.0474.i196.us, i64 %190
   %219 = load i32, ptr %218, align 4, !tbaa !33
   %220 = and i32 %219, -16777216
   %221 = lshr i32 %219, 16
   %222 = and i32 %221, 255
-  %.lhs.trunc155.us = mul nsw i16 %.389.ph.us, 3
-  %223 = sdiv i16 %.lhs.trunc155.us, 16
-  %.sext156.us = sext i16 %223 to i32
-  %224 = add nsw i32 %222, %.sext156.us
+  %.lhs.trunc160.us = mul nsw i16 %.389.ph.us, 3
+  %223 = sdiv i16 %.lhs.trunc160.us, 16
+  %.sext161.us = sext i16 %223 to i32
+  %224 = add nsw i32 %222, %.sext161.us
   %.not.i16.i53.us = icmp ult i32 %224, 256
   %isnotneg.i17.i54.us = icmp sgt i32 %224, -1
   %225 = sext i1 %isnotneg.i17.i54.us to i32
@@ -2954,10 +2954,10 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   %227 = and i32 %226, 16711680
   %228 = lshr i32 %219, 8
   %229 = and i32 %228, 255
-  %.lhs.trunc157.us = mul nsw i16 %.385.ph.us, 3
-  %230 = sdiv i16 %.lhs.trunc157.us, 16
-  %.sext158.us = sext i16 %230 to i32
-  %231 = add nsw i32 %229, %.sext158.us
+  %.lhs.trunc162.us = mul nsw i16 %.385.ph.us, 3
+  %230 = sdiv i16 %.lhs.trunc162.us, 16
+  %.sext163.us = sext i16 %230 to i32
+  %231 = add nsw i32 %229, %.sext163.us
   %.not.i13.i56.us = icmp ult i32 %231, 256
   %isnotneg.i14.i57.us = icmp sgt i32 %231, -1
   %232 = sext i1 %isnotneg.i14.i57.us to i32
@@ -2965,10 +2965,10 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   %233 = shl nsw i32 %.0.i15.i58.us, 8
   %234 = and i32 %233, 65280
   %235 = and i32 %219, 255
-  %.lhs.trunc159.us = mul nsw i16 %.3.ph.us, 3
-  %236 = sdiv i16 %.lhs.trunc159.us, 16
-  %.sext160.us = sext i16 %236 to i32
-  %237 = add nsw i32 %235, %.sext160.us
+  %.lhs.trunc164.us = mul nsw i16 %.3.ph.us, 3
+  %236 = sdiv i16 %.lhs.trunc164.us, 16
+  %.sext165.us = sext i16 %236 to i32
+  %237 = add nsw i32 %235, %.sext165.us
   %.not.i.i59.us = icmp ult i32 %237, 256
   %isnotneg.i.i60.us = icmp sgt i32 %237, -1
   %238 = sext i1 %isnotneg.i.i60.us to i32
@@ -2987,8 +2987,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   %247 = lshr i32 %245, 16
   %248 = and i32 %247, 255
   %249 = sdiv i16 %.389.ph.us, 8
-  %.sext162.us = sext i16 %249 to i32
-  %250 = add nsw i32 %248, %.sext162.us
+  %.sext167.us = sext i16 %249 to i32
+  %250 = add nsw i32 %248, %.sext167.us
   %.not.i16.i35.us = icmp ult i32 %250, 256
   %isnotneg.i17.i36.us = icmp sgt i32 %250, -1
   %251 = sext i1 %isnotneg.i17.i36.us to i32
@@ -2998,8 +2998,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   %254 = lshr i32 %245, 8
   %255 = and i32 %254, 255
   %256 = sdiv i16 %.385.ph.us, 8
-  %.sext164.us = sext i16 %256 to i32
-  %257 = add nsw i32 %255, %.sext164.us
+  %.sext169.us = sext i16 %256 to i32
+  %257 = add nsw i32 %255, %.sext169.us
   %.not.i13.i38.us = icmp ult i32 %257, 256
   %isnotneg.i14.i39.us = icmp sgt i32 %257, -1
   %258 = sext i1 %isnotneg.i14.i39.us to i32
@@ -3008,8 +3008,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   %260 = and i32 %259, 65280
   %261 = and i32 %245, 255
   %262 = sdiv i16 %.3.ph.us, 8
-  %.sext166.us = sext i16 %262 to i32
-  %263 = add nsw i32 %261, %.sext166.us
+  %.sext171.us = sext i16 %262 to i32
+  %263 = add nsw i32 %261, %.sext171.us
   %.not.i.i41.us = icmp ult i32 %263, 256
   %isnotneg.i.i42.us = icmp sgt i32 %263, -1
   %264 = sext i1 %isnotneg.i.i42.us to i32
@@ -3031,8 +3031,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   %274 = lshr i32 %272, 16
   %275 = and i32 %274, 255
   %276 = sdiv i16 %.389.ph.us, 16
-  %.sext168.us = sext i16 %276 to i32
-  %277 = add nsw i32 %275, %.sext168.us
+  %.sext173.us = sext i16 %276 to i32
+  %277 = add nsw i32 %275, %.sext173.us
   %.not.i16.i44.us = icmp ult i32 %277, 256
   %isnotneg.i17.i45.us = icmp sgt i32 %277, -1
   %278 = sext i1 %isnotneg.i17.i45.us to i32
@@ -3042,8 +3042,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   %281 = lshr i32 %272, 8
   %282 = and i32 %281, 255
   %283 = sdiv i16 %.385.ph.us, 16
-  %.sext170.us = sext i16 %283 to i32
-  %284 = add nsw i32 %282, %.sext170.us
+  %.sext175.us = sext i16 %283 to i32
+  %284 = add nsw i32 %282, %.sext175.us
   %.not.i13.i47.us = icmp ult i32 %284, 256
   %isnotneg.i14.i48.us = icmp sgt i32 %284, -1
   %285 = sext i1 %isnotneg.i14.i48.us to i32
@@ -3052,8 +3052,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   %287 = and i32 %286, 65280
   %288 = and i32 %272, 255
   %289 = sdiv i16 %.3.ph.us, 16
-  %.sext172.us = sext i16 %289 to i32
-  %290 = add nsw i32 %288, %.sext172.us
+  %.sext177.us = sext i16 %289 to i32
+  %290 = add nsw i32 %288, %.sext177.us
   %.not.i.i50.us = icmp ult i32 %290, 256
   %isnotneg.i.i51.us = icmp sgt i32 %290, -1
   %291 = sext i1 %isnotneg.i.i51.us to i32
@@ -3066,28 +3066,28 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   br label %296
 
 296:                                              ; preds = %270, %269, %161
-  %indvars.iv.next196 = add nsw i64 %indvars.iv195, 1
-  %.not.i.us = icmp slt i64 %indvars.iv.next196, %40
-  br i1 %.not.i.us, label %42, label %..thread124_crit_edge.us, !llvm.loop !119
+  %indvars.iv.next201 = add nsw i64 %indvars.iv200, 1
+  %.not.i.us = icmp slt i64 %indvars.iv.next201, %40
+  br i1 %.not.i.us, label %42, label %..thread129_crit_edge.us, !llvm.loop !119
 
 .lr.ph.us:                                        ; preds = %59
   %297 = load ptr, ptr %52, align 8, !tbaa !120
   %wide.trip.count = zext nneg i32 %61 to i64
   br label %74
 
-..thread124_crit_edge.us:                         ; preds = %296
-  %298 = getelementptr inbounds i32, ptr %.0474.i191.us, i64 %23
-  %299 = getelementptr inbounds i8, ptr %.0475.i190.us, i64 %24
-  %300 = add nsw i32 %.0476.i189.us, 1
+..thread129_crit_edge.us:                         ; preds = %296
+  %298 = getelementptr inbounds i32, ptr %.0474.i196.us, i64 %23
+  %299 = getelementptr inbounds i8, ptr %.0475.i195.us, i64 %24
+  %300 = add nsw i32 %.0476.i194.us, 1
   %.not511.i.us = icmp slt i32 %300, %11
   br i1 %.not511.i.us, label %.preheader.us, label %set_frame.exit, !llvm.loop !121
 
-.thread105:                                       ; preds = %._crit_edge.us
+.split.us:                                        ; preds = %._crit_edge.us
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %set_frame.exit
 
-set_frame.exit:                                   ; preds = %..thread124_crit_edge.us, %.preheader.lr.ph, %7, %.thread105
-  %spec.select.i = phi i32 [ -12, %.thread105 ], [ 0, %7 ], [ 0, %.preheader.lr.ph ], [ 0, %..thread124_crit_edge.us ]
+set_frame.exit:                                   ; preds = %..thread129_crit_edge.us, %.preheader.lr.ph, %7, %.split.us
+  %spec.select.i = phi i32 [ -12, %.split.us ], [ 0, %7 ], [ 0, %.preheader.lr.ph ], [ 0, %..thread129_crit_edge.us ]
   ret i32 %spec.select.i
 }
 
@@ -3097,8 +3097,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
   %9 = alloca %struct.color_info, align 8
   %10 = add nsw i32 %5, %3
   %11 = add nsw i32 %6, %4
-  %.not511.i110 = icmp sgt i32 %6, 0
-  br i1 %.not511.i110, label %.preheader.lr.ph, label %set_frame.exit
+  %.not511.i115 = icmp sgt i32 %6, 0
+  br i1 %.not511.i115, label %.preheader.lr.ph, label %set_frame.exit
 
 .preheader.lr.ph:                                 ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -3106,7 +3106,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
   %14 = ashr i32 %13, 2
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %16 = load i32, ptr %15, align 8, !tbaa !33
-  %.not.i107 = icmp sgt i32 %5, 0
+  %.not.i112 = icmp sgt i32 %5, 0
   %17 = add nsw i32 %11, -1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 533612
@@ -3116,7 +3116,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 532584
   %23 = sext i32 %14 to i64
   %24 = sext i32 %16 to i64
-  br i1 %.not.i107, label %.preheader.us.preheader, label %set_frame.exit
+  br i1 %.not.i112, label %.preheader.us.preheader, label %set_frame.exit
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %25 = add nsw i32 %10, -1
@@ -3133,19 +3133,19 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
   %36 = sext i32 %10 to i64
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %..thread76_crit_edge.us
-  %.0474.i113.us = phi ptr [ %183, %..thread76_crit_edge.us ], [ %29, %.preheader.us.preheader ]
-  %.0475.i112.us = phi ptr [ %184, %..thread76_crit_edge.us ], [ %33, %.preheader.us.preheader ]
-  %.0476.i111.us = phi i32 [ %185, %..thread76_crit_edge.us ], [ %4, %.preheader.us.preheader ]
-  %37 = icmp slt i32 %.0476.i111.us, %17
-  %invariant.gep = getelementptr i32, ptr %.0474.i113.us, i64 %23
-  %invariant.gep124 = getelementptr i32, ptr %.0474.i113.us, i64 %23
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %..thread81_crit_edge.us
+  %.0474.i118.us = phi ptr [ %183, %..thread81_crit_edge.us ], [ %29, %.preheader.us.preheader ]
+  %.0475.i117.us = phi ptr [ %184, %..thread81_crit_edge.us ], [ %33, %.preheader.us.preheader ]
+  %.0476.i116.us = phi i32 [ %185, %..thread81_crit_edge.us ], [ %4, %.preheader.us.preheader ]
+  %37 = icmp slt i32 %.0476.i116.us, %17
+  %invariant.gep = getelementptr i32, ptr %.0474.i118.us, i64 %23
+  %invariant.gep129 = getelementptr i32, ptr %.0474.i118.us, i64 %23
   br label %38
 
 38:                                               ; preds = %.preheader.us, %181
-  %indvars.iv117 = phi i64 [ %34, %.preheader.us ], [ %indvars.iv.next118, %181 ]
-  %39 = icmp sgt i64 %indvars.iv117, %34
-  %40 = getelementptr inbounds i32, ptr %.0474.i113.us, i64 %indvars.iv117
+  %indvars.iv122 = phi i64 [ %34, %.preheader.us ], [ %indvars.iv.next123, %181 ]
+  %39 = icmp sgt i64 %indvars.iv122, %34
+  %40 = getelementptr inbounds i32, ptr %.0474.i118.us, i64 %indvars.iv122
   %41 = load i32, ptr %40, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %42 = tail call i32 @ff_lowbias32(i32 noundef %41) #13
@@ -3165,8 +3165,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
 52:                                               ; preds = %49, %38
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %54 = load i32, ptr %53, align 8, !tbaa !110
-  %.not.i.i105.us = icmp sgt i32 %54, 0
-  br i1 %.not.i.i105.us, label %.lr.ph.us, label %._crit_edge.us
+  %.not.i.i110.us = icmp sgt i32 %54, 0
+  br i1 %.not.i.i110.us, label %.lr.ph.us, label %._crit_edge.us
 
 55:                                               ; preds = %67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3176,7 +3176,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
 ._crit_edge.us:                                   ; preds = %55, %52
   %56 = tail call ptr @av_dynarray2_add(ptr noundef nonnull %45, ptr noundef nonnull %53, i64 noundef 8, ptr noundef null) #13
   %.not30.i.i.us = icmp eq ptr %56, null
-  br i1 %.not30.i.i.us, label %.thread57, label %57
+  br i1 %.not30.i.i.us, label %.split.us, label %57
 
 57:                                               ; preds = %._crit_edge.us
   store i32 %41, ptr %56, align 4, !tbaa !114
@@ -3252,9 +3252,9 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
   %.341.ph.us = phi i16 [ 0, %75 ], [ %95, %78 ]
   %.337.ph.us = phi i16 [ 0, %75 ], [ %96, %78 ]
   %.3.ph.us = phi i16 [ 0, %75 ], [ %97, %78 ]
-  %99 = icmp slt i64 %indvars.iv117, %35
+  %99 = icmp slt i64 %indvars.iv122, %35
   %100 = trunc i32 %.0.i.i.ph.us to i8
-  %101 = getelementptr inbounds i8, ptr %.0475.i112.us, i64 %indvars.iv117
+  %101 = getelementptr inbounds i8, ptr %.0475.i117.us, i64 %indvars.iv122
   store i8 %100, ptr %101, align 1, !tbaa !76
   br i1 %99, label %102, label %128
 
@@ -3276,8 +3276,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
   %113 = lshr i32 %104, 8
   %114 = and i32 %113, 255
   %115 = sdiv i16 %.337.ph.us, 2
-  %.sext86.us = sext i16 %115 to i32
-  %116 = add nsw i32 %114, %.sext86.us
+  %.sext91.us = sext i16 %115 to i32
+  %116 = add nsw i32 %114, %.sext91.us
   %.not.i13.i.us = icmp ult i32 %116, 256
   %isnotneg.i14.i.us = icmp sgt i32 %116, -1
   %117 = sext i1 %isnotneg.i14.i.us to i32
@@ -3286,8 +3286,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
   %119 = and i32 %118, 65280
   %120 = and i32 %104, 255
   %121 = sdiv i16 %.3.ph.us, 2
-  %.sext88.us = sext i16 %121 to i32
-  %122 = add nsw i32 %120, %.sext88.us
+  %.sext93.us = sext i16 %121 to i32
+  %122 = add nsw i32 %120, %.sext93.us
   %.not.i.i6.us = icmp ult i32 %122, 256
   %isnotneg.i.i.us = icmp sgt i32 %122, -1
   %123 = sext i1 %isnotneg.i.i.us to i32
@@ -3304,15 +3304,15 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
   br i1 %or.cond18.i.us, label %129, label %155
 
 129:                                              ; preds = %128
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv117
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv122
   %130 = getelementptr i8, ptr %gep, i64 -4
   %131 = load i32, ptr %130, align 4, !tbaa !33
   %132 = and i32 %131, -16777216
   %133 = lshr i32 %131, 16
   %134 = and i32 %133, 255
   %135 = sdiv i16 %.341.ph.us, 4
-  %.sext90.us = sext i16 %135 to i32
-  %136 = add nsw i32 %134, %.sext90.us
+  %.sext95.us = sext i16 %135 to i32
+  %136 = add nsw i32 %134, %.sext95.us
   %.not.i16.i8.us = icmp ult i32 %136, 256
   %isnotneg.i17.i9.us = icmp sgt i32 %136, -1
   %137 = sext i1 %isnotneg.i17.i9.us to i32
@@ -3322,8 +3322,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
   %140 = lshr i32 %131, 8
   %141 = and i32 %140, 255
   %142 = sdiv i16 %.337.ph.us, 4
-  %.sext92.us = sext i16 %142 to i32
-  %143 = add nsw i32 %141, %.sext92.us
+  %.sext97.us = sext i16 %142 to i32
+  %143 = add nsw i32 %141, %.sext97.us
   %.not.i13.i11.us = icmp ult i32 %143, 256
   %isnotneg.i14.i12.us = icmp sgt i32 %143, -1
   %144 = sext i1 %isnotneg.i14.i12.us to i32
@@ -3332,8 +3332,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
   %146 = and i32 %145, 65280
   %147 = and i32 %131, 255
   %148 = sdiv i16 %.3.ph.us, 4
-  %.sext94.us = sext i16 %148 to i32
-  %149 = add nsw i32 %147, %.sext94.us
+  %.sext99.us = sext i16 %148 to i32
+  %149 = add nsw i32 %147, %.sext99.us
   %.not.i.i14.us = icmp ult i32 %149, 256
   %isnotneg.i.i15.us = icmp sgt i32 %149, -1
   %150 = sext i1 %isnotneg.i.i15.us to i32
@@ -3349,14 +3349,14 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
   br i1 %37, label %156, label %181
 
 156:                                              ; preds = %155
-  %gep125 = getelementptr i32, ptr %invariant.gep124, i64 %indvars.iv117
-  %157 = load i32, ptr %gep125, align 4, !tbaa !33
+  %gep130 = getelementptr i32, ptr %invariant.gep129, i64 %indvars.iv122
+  %157 = load i32, ptr %gep130, align 4, !tbaa !33
   %158 = and i32 %157, -16777216
   %159 = lshr i32 %157, 16
   %160 = and i32 %159, 255
   %161 = sdiv i16 %.341.ph.us, 4
-  %.sext96.us = sext i16 %161 to i32
-  %162 = add nsw i32 %160, %.sext96.us
+  %.sext101.us = sext i16 %161 to i32
+  %162 = add nsw i32 %160, %.sext101.us
   %.not.i16.i17.us = icmp ult i32 %162, 256
   %isnotneg.i17.i18.us = icmp sgt i32 %162, -1
   %163 = sext i1 %isnotneg.i17.i18.us to i32
@@ -3366,8 +3366,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
   %166 = lshr i32 %157, 8
   %167 = and i32 %166, 255
   %168 = sdiv i16 %.337.ph.us, 4
-  %.sext98.us = sext i16 %168 to i32
-  %169 = add nsw i32 %167, %.sext98.us
+  %.sext103.us = sext i16 %168 to i32
+  %169 = add nsw i32 %167, %.sext103.us
   %.not.i13.i20.us = icmp ult i32 %169, 256
   %isnotneg.i14.i21.us = icmp sgt i32 %169, -1
   %170 = sext i1 %isnotneg.i14.i21.us to i32
@@ -3376,8 +3376,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
   %172 = and i32 %171, 65280
   %173 = and i32 %157, 255
   %174 = sdiv i16 %.3.ph.us, 4
-  %.sext100.us = sext i16 %174 to i32
-  %175 = add nsw i32 %173, %.sext100.us
+  %.sext105.us = sext i16 %174 to i32
+  %175 = add nsw i32 %173, %.sext105.us
   %.not.i.i23.us = icmp ult i32 %175, 256
   %isnotneg.i.i24.us = icmp sgt i32 %175, -1
   %176 = sext i1 %isnotneg.i.i24.us to i32
@@ -3386,32 +3386,32 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
   %178 = or disjoint i32 %177, %158
   %179 = or disjoint i32 %178, %165
   %180 = or disjoint i32 %179, %172
-  store i32 %180, ptr %gep125, align 4, !tbaa !33
+  store i32 %180, ptr %gep130, align 4, !tbaa !33
   br label %181
 
 181:                                              ; preds = %156, %155
-  %indvars.iv.next118 = add nsw i64 %indvars.iv117, 1
-  %.not.i.us = icmp slt i64 %indvars.iv.next118, %36
-  br i1 %.not.i.us, label %38, label %..thread76_crit_edge.us, !llvm.loop !119
+  %indvars.iv.next123 = add nsw i64 %indvars.iv122, 1
+  %.not.i.us = icmp slt i64 %indvars.iv.next123, %36
+  br i1 %.not.i.us, label %38, label %..thread81_crit_edge.us, !llvm.loop !119
 
 .lr.ph.us:                                        ; preds = %52
   %182 = load ptr, ptr %45, align 8, !tbaa !120
   %wide.trip.count = zext nneg i32 %54 to i64
   br label %67
 
-..thread76_crit_edge.us:                          ; preds = %181
-  %183 = getelementptr inbounds i32, ptr %.0474.i113.us, i64 %23
-  %184 = getelementptr inbounds i8, ptr %.0475.i112.us, i64 %24
-  %185 = add nsw i32 %.0476.i111.us, 1
+..thread81_crit_edge.us:                          ; preds = %181
+  %183 = getelementptr inbounds i32, ptr %.0474.i118.us, i64 %23
+  %184 = getelementptr inbounds i8, ptr %.0475.i117.us, i64 %24
+  %185 = add nsw i32 %.0476.i116.us, 1
   %.not511.i.us = icmp slt i32 %185, %11
   br i1 %.not511.i.us, label %.preheader.us, label %set_frame.exit, !llvm.loop !121
 
-.thread57:                                        ; preds = %._crit_edge.us
+.split.us:                                        ; preds = %._crit_edge.us
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %set_frame.exit
 
-set_frame.exit:                                   ; preds = %..thread76_crit_edge.us, %.preheader.lr.ph, %7, %.thread57
-  %spec.select.i = phi i32 [ -12, %.thread57 ], [ 0, %7 ], [ 0, %.preheader.lr.ph ], [ 0, %..thread76_crit_edge.us ]
+set_frame.exit:                                   ; preds = %..thread81_crit_edge.us, %.preheader.lr.ph, %7, %.split.us
+  %spec.select.i = phi i32 [ -12, %.split.us ], [ 0, %7 ], [ 0, %.preheader.lr.ph ], [ 0, %..thread81_crit_edge.us ]
   ret i32 %spec.select.i
 }
 
@@ -3421,8 +3421,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %9 = alloca %struct.color_info, align 8
   %10 = add nsw i32 %5, %3
   %11 = add nsw i32 %6, %4
-  %.not511.i251 = icmp sgt i32 %6, 0
-  br i1 %.not511.i251, label %.preheader.lr.ph, label %set_frame.exit
+  %.not511.i256 = icmp sgt i32 %6, 0
+  br i1 %.not511.i256, label %.preheader.lr.ph, label %set_frame.exit
 
 .preheader.lr.ph:                                 ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -3430,7 +3430,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %14 = ashr i32 %13, 2
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %16 = load i32, ptr %15, align 8, !tbaa !33
-  %.not.i248 = icmp sgt i32 %5, 0
+  %.not.i253 = icmp sgt i32 %5, 0
   %17 = add nsw i32 %11, -1
   %18 = add nsw i32 %11, -2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -3441,7 +3441,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 532584
   %24 = sext i32 %14 to i64
   %25 = sext i32 %16 to i64
-  br i1 %.not.i248, label %.preheader.us.preheader, label %set_frame.exit
+  br i1 %.not.i253, label %.preheader.us.preheader, label %set_frame.exit
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %26 = shl nsw i32 %14, 1
@@ -3464,22 +3464,22 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %43 = sext i32 %10 to i64
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %..thread160_crit_edge.us
-  %.0474.i254.us = phi ptr [ %383, %..thread160_crit_edge.us ], [ %33, %.preheader.us.preheader ]
-  %.0475.i253.us = phi ptr [ %384, %..thread160_crit_edge.us ], [ %37, %.preheader.us.preheader ]
-  %.0476.i252.us = phi i32 [ %385, %..thread160_crit_edge.us ], [ %4, %.preheader.us.preheader ]
-  %44 = icmp slt i32 %.0476.i252.us, %17
-  %45 = icmp slt i32 %.0476.i252.us, %18
-  %invariant.gep = getelementptr i32, ptr %.0474.i254.us, i64 %24
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %..thread165_crit_edge.us
+  %.0474.i259.us = phi ptr [ %383, %..thread165_crit_edge.us ], [ %33, %.preheader.us.preheader ]
+  %.0475.i258.us = phi ptr [ %384, %..thread165_crit_edge.us ], [ %37, %.preheader.us.preheader ]
+  %.0476.i257.us = phi i32 [ %385, %..thread165_crit_edge.us ], [ %4, %.preheader.us.preheader ]
+  %44 = icmp slt i32 %.0476.i257.us, %17
+  %45 = icmp slt i32 %.0476.i257.us, %18
+  %invariant.gep = getelementptr i32, ptr %.0474.i259.us, i64 %24
   br label %46
 
 46:                                               ; preds = %.preheader.us, %381
-  %indvars.iv258 = phi i64 [ %38, %.preheader.us ], [ %indvars.iv.next259, %381 ]
-  %47 = icmp slt i64 %indvars.iv258, %39
-  %48 = icmp sgt i64 %indvars.iv258, %38
-  %49 = icmp slt i64 %indvars.iv258, %40
-  %50 = icmp sgt i64 %indvars.iv258, %41
-  %51 = getelementptr inbounds i32, ptr %.0474.i254.us, i64 %indvars.iv258
+  %indvars.iv263 = phi i64 [ %38, %.preheader.us ], [ %indvars.iv.next264, %381 ]
+  %47 = icmp slt i64 %indvars.iv263, %39
+  %48 = icmp sgt i64 %indvars.iv263, %38
+  %49 = icmp slt i64 %indvars.iv263, %40
+  %50 = icmp sgt i64 %indvars.iv263, %41
+  %51 = getelementptr inbounds i32, ptr %.0474.i259.us, i64 %indvars.iv263
   %52 = load i32, ptr %51, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %53 = tail call i32 @ff_lowbias32(i32 noundef %52) #13
@@ -3499,8 +3499,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
 63:                                               ; preds = %60, %46
   %64 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %65 = load i32, ptr %64, align 8, !tbaa !110
-  %.not.i.i246.us = icmp sgt i32 %65, 0
-  br i1 %.not.i.i246.us, label %.lr.ph.us, label %._crit_edge.us
+  %.not.i.i251.us = icmp sgt i32 %65, 0
+  br i1 %.not.i.i251.us, label %.lr.ph.us, label %._crit_edge.us
 
 66:                                               ; preds = %78
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3510,7 +3510,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
 ._crit_edge.us:                                   ; preds = %66, %63
   %67 = tail call ptr @av_dynarray2_add(ptr noundef nonnull %56, ptr noundef nonnull %64, i64 noundef 8, ptr noundef null) #13
   %.not30.i.i.us = icmp eq ptr %67, null
-  br i1 %.not30.i.i.us, label %.thread141, label %68
+  br i1 %.not30.i.i.us, label %.split.us, label %68
 
 68:                                               ; preds = %._crit_edge.us
   store i32 %52, ptr %67, align 4, !tbaa !114
@@ -3587,7 +3587,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %.3121.ph.us = phi i16 [ 0, %86 ], [ %107, %89 ]
   %.3.ph.us = phi i16 [ 0, %86 ], [ %108, %89 ]
   %110 = trunc i32 %.0.i.i.ph.us to i8
-  %111 = getelementptr inbounds i8, ptr %.0475.i253.us, i64 %indvars.iv258
+  %111 = getelementptr inbounds i8, ptr %.0475.i258.us, i64 %indvars.iv263
   store i8 %110, ptr %111, align 1, !tbaa !76
   br i1 %47, label %112, label %138
 
@@ -3609,10 +3609,10 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %122 = and i32 %121, 16711680
   %123 = lshr i32 %114, 8
   %124 = and i32 %123, 255
-  %.lhs.trunc169.us = mul nsw i16 %.3121.ph.us, 5
-  %125 = sdiv i16 %.lhs.trunc169.us, 32
-  %.sext170.us = sext i16 %125 to i32
-  %126 = add nsw i32 %124, %.sext170.us
+  %.lhs.trunc174.us = mul nsw i16 %.3121.ph.us, 5
+  %125 = sdiv i16 %.lhs.trunc174.us, 32
+  %.sext175.us = sext i16 %125 to i32
+  %126 = add nsw i32 %124, %.sext175.us
   %.not.i13.i.us = icmp ult i32 %126, 256
   %isnotneg.i14.i.us = icmp sgt i32 %126, -1
   %127 = sext i1 %isnotneg.i14.i.us to i32
@@ -3620,10 +3620,10 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %128 = shl nsw i32 %.0.i15.i.us, 8
   %129 = and i32 %128, 65280
   %130 = and i32 %114, 255
-  %.lhs.trunc171.us = mul nsw i16 %.3.ph.us, 5
-  %131 = sdiv i16 %.lhs.trunc171.us, 32
-  %.sext172.us = sext i16 %131 to i32
-  %132 = add nsw i32 %130, %.sext172.us
+  %.lhs.trunc176.us = mul nsw i16 %.3.ph.us, 5
+  %131 = sdiv i16 %.lhs.trunc176.us, 32
+  %.sext177.us = sext i16 %131 to i32
+  %132 = add nsw i32 %130, %.sext177.us
   %.not.i.i6.us = icmp ult i32 %132, 256
   %isnotneg.i.i.us = icmp sgt i32 %132, -1
   %133 = sext i1 %isnotneg.i.i.us to i32
@@ -3644,10 +3644,10 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %142 = and i32 %141, -16777216
   %143 = lshr i32 %141, 16
   %144 = and i32 %143, 255
-  %.lhs.trunc173.us = mul nsw i16 %.3125.ph.us, 3
-  %145 = sdiv i16 %.lhs.trunc173.us, 32
-  %.sext174.us = sext i16 %145 to i32
-  %146 = add nsw i32 %144, %.sext174.us
+  %.lhs.trunc178.us = mul nsw i16 %.3125.ph.us, 3
+  %145 = sdiv i16 %.lhs.trunc178.us, 32
+  %.sext179.us = sext i16 %145 to i32
+  %146 = add nsw i32 %144, %.sext179.us
   %.not.i16.i8.us = icmp ult i32 %146, 256
   %isnotneg.i17.i9.us = icmp sgt i32 %146, -1
   %147 = sext i1 %isnotneg.i17.i9.us to i32
@@ -3656,10 +3656,10 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %149 = and i32 %148, 16711680
   %150 = lshr i32 %141, 8
   %151 = and i32 %150, 255
-  %.lhs.trunc175.us = mul nsw i16 %.3121.ph.us, 3
-  %152 = sdiv i16 %.lhs.trunc175.us, 32
-  %.sext176.us = sext i16 %152 to i32
-  %153 = add nsw i32 %151, %.sext176.us
+  %.lhs.trunc180.us = mul nsw i16 %.3121.ph.us, 3
+  %152 = sdiv i16 %.lhs.trunc180.us, 32
+  %.sext181.us = sext i16 %152 to i32
+  %153 = add nsw i32 %151, %.sext181.us
   %.not.i13.i11.us = icmp ult i32 %153, 256
   %isnotneg.i14.i12.us = icmp sgt i32 %153, -1
   %154 = sext i1 %isnotneg.i14.i12.us to i32
@@ -3667,10 +3667,10 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %155 = shl nsw i32 %.0.i15.i13.us, 8
   %156 = and i32 %155, 65280
   %157 = and i32 %141, 255
-  %.lhs.trunc177.us = mul nsw i16 %.3.ph.us, 3
-  %158 = sdiv i16 %.lhs.trunc177.us, 32
-  %.sext178.us = sext i16 %158 to i32
-  %159 = add nsw i32 %157, %.sext178.us
+  %.lhs.trunc182.us = mul nsw i16 %.3.ph.us, 3
+  %158 = sdiv i16 %.lhs.trunc182.us, 32
+  %.sext183.us = sext i16 %158 to i32
+  %159 = add nsw i32 %157, %.sext183.us
   %.not.i.i14.us = icmp ult i32 %159, 256
   %isnotneg.i.i15.us = icmp sgt i32 %159, -1
   %160 = sext i1 %isnotneg.i.i15.us to i32
@@ -3689,15 +3689,15 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   br i1 %50, label %167, label %193
 
 167:                                              ; preds = %166
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv258
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv263
   %168 = getelementptr i8, ptr %gep, i64 -8
   %169 = load i32, ptr %168, align 4, !tbaa !33
   %170 = and i32 %169, -16777216
   %171 = lshr i32 %169, 16
   %172 = and i32 %171, 255
   %173 = sdiv i16 %.3125.ph.us, 16
-  %.sext180.us = sext i16 %173 to i32
-  %174 = add nsw i32 %172, %.sext180.us
+  %.sext185.us = sext i16 %173 to i32
+  %174 = add nsw i32 %172, %.sext185.us
   %.not.i16.i17.us = icmp ult i32 %174, 256
   %isnotneg.i17.i18.us = icmp sgt i32 %174, -1
   %175 = sext i1 %isnotneg.i17.i18.us to i32
@@ -3707,8 +3707,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %178 = lshr i32 %169, 8
   %179 = and i32 %178, 255
   %180 = sdiv i16 %.3121.ph.us, 16
-  %.sext182.us = sext i16 %180 to i32
-  %181 = add nsw i32 %179, %.sext182.us
+  %.sext187.us = sext i16 %180 to i32
+  %181 = add nsw i32 %179, %.sext187.us
   %.not.i13.i20.us = icmp ult i32 %181, 256
   %isnotneg.i14.i21.us = icmp sgt i32 %181, -1
   %182 = sext i1 %isnotneg.i14.i21.us to i32
@@ -3717,8 +3717,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %184 = and i32 %183, 65280
   %185 = and i32 %169, 255
   %186 = sdiv i16 %.3.ph.us, 16
-  %.sext184.us = sext i16 %186 to i32
-  %187 = add nsw i32 %185, %.sext184.us
+  %.sext189.us = sext i16 %186 to i32
+  %187 = add nsw i32 %185, %.sext189.us
   %.not.i.i23.us = icmp ult i32 %187, 256
   %isnotneg.i.i24.us = icmp sgt i32 %187, -1
   %188 = sext i1 %isnotneg.i.i24.us to i32
@@ -3731,19 +3731,19 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   br label %193
 
 193:                                              ; preds = %167, %166
-  %194 = add nsw i64 %indvars.iv258, %24
-  br i1 %48, label %195, label %._crit_edge261
+  %194 = add nsw i64 %indvars.iv263, %24
+  br i1 %48, label %195, label %._crit_edge266
 
 195:                                              ; preds = %193
-  %196 = getelementptr i32, ptr %.0474.i254.us, i64 %194
+  %196 = getelementptr i32, ptr %.0474.i259.us, i64 %194
   %197 = getelementptr i8, ptr %196, i64 -4
   %198 = load i32, ptr %197, align 4, !tbaa !33
   %199 = and i32 %198, -16777216
   %200 = lshr i32 %198, 16
   %201 = and i32 %200, 255
   %202 = sdiv i16 %.3125.ph.us, 8
-  %.sext186.us = sext i16 %202 to i32
-  %203 = add nsw i32 %201, %.sext186.us
+  %.sext191.us = sext i16 %202 to i32
+  %203 = add nsw i32 %201, %.sext191.us
   %.not.i16.i26.us = icmp ult i32 %203, 256
   %isnotneg.i17.i27.us = icmp sgt i32 %203, -1
   %204 = sext i1 %isnotneg.i17.i27.us to i32
@@ -3753,8 +3753,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %207 = lshr i32 %198, 8
   %208 = and i32 %207, 255
   %209 = sdiv i16 %.3121.ph.us, 8
-  %.sext188.us = sext i16 %209 to i32
-  %210 = add nsw i32 %208, %.sext188.us
+  %.sext193.us = sext i16 %209 to i32
+  %210 = add nsw i32 %208, %.sext193.us
   %.not.i13.i29.us = icmp ult i32 %210, 256
   %isnotneg.i14.i30.us = icmp sgt i32 %210, -1
   %211 = sext i1 %isnotneg.i14.i30.us to i32
@@ -3763,8 +3763,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %213 = and i32 %212, 65280
   %214 = and i32 %198, 255
   %215 = sdiv i16 %.3.ph.us, 8
-  %.sext190.us = sext i16 %215 to i32
-  %216 = add nsw i32 %214, %.sext190.us
+  %.sext195.us = sext i16 %215 to i32
+  %216 = add nsw i32 %214, %.sext195.us
   %.not.i.i32.us = icmp ult i32 %216, 256
   %isnotneg.i.i33.us = icmp sgt i32 %216, -1
   %217 = sext i1 %isnotneg.i.i33.us to i32
@@ -3774,18 +3774,18 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %220 = or disjoint i32 %219, %206
   %221 = or disjoint i32 %220, %213
   store i32 %221, ptr %197, align 4, !tbaa !33
-  br label %._crit_edge261
+  br label %._crit_edge266
 
-._crit_edge261:                                   ; preds = %193, %195
-  %222 = getelementptr inbounds i32, ptr %.0474.i254.us, i64 %194
+._crit_edge266:                                   ; preds = %193, %195
+  %222 = getelementptr inbounds i32, ptr %.0474.i259.us, i64 %194
   %223 = load i32, ptr %222, align 4, !tbaa !33
   %224 = and i32 %223, -16777216
   %225 = lshr i32 %223, 16
   %226 = and i32 %225, 255
-  %.lhs.trunc191.us = mul nsw i16 %.3125.ph.us, 5
-  %227 = sdiv i16 %.lhs.trunc191.us, 32
-  %.sext192.us = sext i16 %227 to i32
-  %228 = add nsw i32 %226, %.sext192.us
+  %.lhs.trunc196.us = mul nsw i16 %.3125.ph.us, 5
+  %227 = sdiv i16 %.lhs.trunc196.us, 32
+  %.sext197.us = sext i16 %227 to i32
+  %228 = add nsw i32 %226, %.sext197.us
   %.not.i16.i80.us = icmp ult i32 %228, 256
   %isnotneg.i17.i81.us = icmp sgt i32 %228, -1
   %229 = sext i1 %isnotneg.i17.i81.us to i32
@@ -3794,10 +3794,10 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %231 = and i32 %230, 16711680
   %232 = lshr i32 %223, 8
   %233 = and i32 %232, 255
-  %.lhs.trunc193.us = mul nsw i16 %.3121.ph.us, 5
-  %234 = sdiv i16 %.lhs.trunc193.us, 32
-  %.sext194.us = sext i16 %234 to i32
-  %235 = add nsw i32 %233, %.sext194.us
+  %.lhs.trunc198.us = mul nsw i16 %.3121.ph.us, 5
+  %234 = sdiv i16 %.lhs.trunc198.us, 32
+  %.sext199.us = sext i16 %234 to i32
+  %235 = add nsw i32 %233, %.sext199.us
   %.not.i13.i83.us = icmp ult i32 %235, 256
   %isnotneg.i14.i84.us = icmp sgt i32 %235, -1
   %236 = sext i1 %isnotneg.i14.i84.us to i32
@@ -3805,10 +3805,10 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %237 = shl nsw i32 %.0.i15.i85.us, 8
   %238 = and i32 %237, 65280
   %239 = and i32 %223, 255
-  %.lhs.trunc195.us = mul nsw i16 %.3.ph.us, 5
-  %240 = sdiv i16 %.lhs.trunc195.us, 32
-  %.sext196.us = sext i16 %240 to i32
-  %241 = add nsw i32 %239, %.sext196.us
+  %.lhs.trunc200.us = mul nsw i16 %.3.ph.us, 5
+  %240 = sdiv i16 %.lhs.trunc200.us, 32
+  %.sext201.us = sext i16 %240 to i32
+  %241 = add nsw i32 %239, %.sext201.us
   %.not.i.i86.us = icmp ult i32 %241, 256
   %isnotneg.i.i87.us = icmp sgt i32 %241, -1
   %242 = sext i1 %isnotneg.i.i87.us to i32
@@ -3820,15 +3820,15 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   store i32 %246, ptr %222, align 4, !tbaa !33
   br i1 %47, label %247, label %273
 
-247:                                              ; preds = %._crit_edge261
+247:                                              ; preds = %._crit_edge266
   %248 = getelementptr i8, ptr %222, i64 4
   %249 = load i32, ptr %248, align 4, !tbaa !33
   %250 = and i32 %249, -16777216
   %251 = lshr i32 %249, 16
   %252 = and i32 %251, 255
   %253 = sdiv i16 %.3125.ph.us, 8
-  %.sext198.us = sext i16 %253 to i32
-  %254 = add nsw i32 %252, %.sext198.us
+  %.sext203.us = sext i16 %253 to i32
+  %254 = add nsw i32 %252, %.sext203.us
   %.not.i16.i35.us = icmp ult i32 %254, 256
   %isnotneg.i17.i36.us = icmp sgt i32 %254, -1
   %255 = sext i1 %isnotneg.i17.i36.us to i32
@@ -3838,8 +3838,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %258 = lshr i32 %249, 8
   %259 = and i32 %258, 255
   %260 = sdiv i16 %.3121.ph.us, 8
-  %.sext200.us = sext i16 %260 to i32
-  %261 = add nsw i32 %259, %.sext200.us
+  %.sext205.us = sext i16 %260 to i32
+  %261 = add nsw i32 %259, %.sext205.us
   %.not.i13.i38.us = icmp ult i32 %261, 256
   %isnotneg.i14.i39.us = icmp sgt i32 %261, -1
   %262 = sext i1 %isnotneg.i14.i39.us to i32
@@ -3848,8 +3848,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %264 = and i32 %263, 65280
   %265 = and i32 %249, 255
   %266 = sdiv i16 %.3.ph.us, 8
-  %.sext202.us = sext i16 %266 to i32
-  %267 = add nsw i32 %265, %.sext202.us
+  %.sext207.us = sext i16 %266 to i32
+  %267 = add nsw i32 %265, %.sext207.us
   %.not.i.i41.us = icmp ult i32 %267, 256
   %isnotneg.i.i42.us = icmp sgt i32 %267, -1
   %268 = sext i1 %isnotneg.i.i42.us to i32
@@ -3861,7 +3861,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   store i32 %272, ptr %248, align 4, !tbaa !33
   br label %273
 
-273:                                              ; preds = %247, %._crit_edge261
+273:                                              ; preds = %247, %._crit_edge266
   br i1 %49, label %274, label %300
 
 274:                                              ; preds = %273
@@ -3871,8 +3871,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %278 = lshr i32 %276, 16
   %279 = and i32 %278, 255
   %280 = sdiv i16 %.3125.ph.us, 16
-  %.sext204.us = sext i16 %280 to i32
-  %281 = add nsw i32 %279, %.sext204.us
+  %.sext209.us = sext i16 %280 to i32
+  %281 = add nsw i32 %279, %.sext209.us
   %.not.i16.i44.us = icmp ult i32 %281, 256
   %isnotneg.i17.i45.us = icmp sgt i32 %281, -1
   %282 = sext i1 %isnotneg.i17.i45.us to i32
@@ -3882,8 +3882,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %285 = lshr i32 %276, 8
   %286 = and i32 %285, 255
   %287 = sdiv i16 %.3121.ph.us, 16
-  %.sext206.us = sext i16 %287 to i32
-  %288 = add nsw i32 %286, %.sext206.us
+  %.sext211.us = sext i16 %287 to i32
+  %288 = add nsw i32 %286, %.sext211.us
   %.not.i13.i47.us = icmp ult i32 %288, 256
   %isnotneg.i14.i48.us = icmp sgt i32 %288, -1
   %289 = sext i1 %isnotneg.i14.i48.us to i32
@@ -3892,8 +3892,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %291 = and i32 %290, 65280
   %292 = and i32 %276, 255
   %293 = sdiv i16 %.3.ph.us, 16
-  %.sext208.us = sext i16 %293 to i32
-  %294 = add nsw i32 %292, %.sext208.us
+  %.sext213.us = sext i16 %293 to i32
+  %294 = add nsw i32 %292, %.sext213.us
   %.not.i.i50.us = icmp ult i32 %294, 256
   %isnotneg.i.i51.us = icmp sgt i32 %294, -1
   %295 = sext i1 %isnotneg.i.i51.us to i32
@@ -3909,19 +3909,19 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   br i1 %45, label %301, label %381
 
 301:                                              ; preds = %300
-  %302 = add nsw i64 %indvars.iv258, %42
+  %302 = add nsw i64 %indvars.iv263, %42
   br i1 %48, label %303, label %._crit_edge
 
 303:                                              ; preds = %301
-  %304 = getelementptr i32, ptr %.0474.i254.us, i64 %302
+  %304 = getelementptr i32, ptr %.0474.i259.us, i64 %302
   %305 = getelementptr i8, ptr %304, i64 -4
   %306 = load i32, ptr %305, align 4, !tbaa !33
   %307 = and i32 %306, -16777216
   %308 = lshr i32 %306, 16
   %309 = and i32 %308, 255
   %310 = sdiv i16 %.3125.ph.us, 16
-  %.sext210.us = sext i16 %310 to i32
-  %311 = add nsw i32 %309, %.sext210.us
+  %.sext215.us = sext i16 %310 to i32
+  %311 = add nsw i32 %309, %.sext215.us
   %.not.i16.i53.us = icmp ult i32 %311, 256
   %isnotneg.i17.i54.us = icmp sgt i32 %311, -1
   %312 = sext i1 %isnotneg.i17.i54.us to i32
@@ -3931,8 +3931,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %315 = lshr i32 %306, 8
   %316 = and i32 %315, 255
   %317 = sdiv i16 %.3121.ph.us, 16
-  %.sext212.us = sext i16 %317 to i32
-  %318 = add nsw i32 %316, %.sext212.us
+  %.sext217.us = sext i16 %317 to i32
+  %318 = add nsw i32 %316, %.sext217.us
   %.not.i13.i56.us = icmp ult i32 %318, 256
   %isnotneg.i14.i57.us = icmp sgt i32 %318, -1
   %319 = sext i1 %isnotneg.i14.i57.us to i32
@@ -3941,8 +3941,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %321 = and i32 %320, 65280
   %322 = and i32 %306, 255
   %323 = sdiv i16 %.3.ph.us, 16
-  %.sext214.us = sext i16 %323 to i32
-  %324 = add nsw i32 %322, %.sext214.us
+  %.sext219.us = sext i16 %323 to i32
+  %324 = add nsw i32 %322, %.sext219.us
   %.not.i.i59.us = icmp ult i32 %324, 256
   %isnotneg.i.i60.us = icmp sgt i32 %324, -1
   %325 = sext i1 %isnotneg.i.i60.us to i32
@@ -3955,15 +3955,15 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %301, %303
-  %330 = getelementptr inbounds i32, ptr %.0474.i254.us, i64 %302
+  %330 = getelementptr inbounds i32, ptr %.0474.i259.us, i64 %302
   %331 = load i32, ptr %330, align 4, !tbaa !33
   %332 = and i32 %331, -16777216
   %333 = lshr i32 %331, 16
   %334 = and i32 %333, 255
-  %.lhs.trunc215.us = mul nsw i16 %.3125.ph.us, 3
-  %335 = sdiv i16 %.lhs.trunc215.us, 32
-  %.sext216.us = sext i16 %335 to i32
-  %336 = add nsw i32 %334, %.sext216.us
+  %.lhs.trunc220.us = mul nsw i16 %.3125.ph.us, 3
+  %335 = sdiv i16 %.lhs.trunc220.us, 32
+  %.sext221.us = sext i16 %335 to i32
+  %336 = add nsw i32 %334, %.sext221.us
   %.not.i16.i71.us = icmp ult i32 %336, 256
   %isnotneg.i17.i72.us = icmp sgt i32 %336, -1
   %337 = sext i1 %isnotneg.i17.i72.us to i32
@@ -3972,10 +3972,10 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %339 = and i32 %338, 16711680
   %340 = lshr i32 %331, 8
   %341 = and i32 %340, 255
-  %.lhs.trunc217.us = mul nsw i16 %.3121.ph.us, 3
-  %342 = sdiv i16 %.lhs.trunc217.us, 32
-  %.sext218.us = sext i16 %342 to i32
-  %343 = add nsw i32 %341, %.sext218.us
+  %.lhs.trunc222.us = mul nsw i16 %.3121.ph.us, 3
+  %342 = sdiv i16 %.lhs.trunc222.us, 32
+  %.sext223.us = sext i16 %342 to i32
+  %343 = add nsw i32 %341, %.sext223.us
   %.not.i13.i74.us = icmp ult i32 %343, 256
   %isnotneg.i14.i75.us = icmp sgt i32 %343, -1
   %344 = sext i1 %isnotneg.i14.i75.us to i32
@@ -3983,10 +3983,10 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %345 = shl nsw i32 %.0.i15.i76.us, 8
   %346 = and i32 %345, 65280
   %347 = and i32 %331, 255
-  %.lhs.trunc219.us = mul nsw i16 %.3.ph.us, 3
-  %348 = sdiv i16 %.lhs.trunc219.us, 32
-  %.sext220.us = sext i16 %348 to i32
-  %349 = add nsw i32 %347, %.sext220.us
+  %.lhs.trunc224.us = mul nsw i16 %.3.ph.us, 3
+  %348 = sdiv i16 %.lhs.trunc224.us, 32
+  %.sext225.us = sext i16 %348 to i32
+  %349 = add nsw i32 %347, %.sext225.us
   %.not.i.i77.us = icmp ult i32 %349, 256
   %isnotneg.i.i78.us = icmp sgt i32 %349, -1
   %350 = sext i1 %isnotneg.i.i78.us to i32
@@ -4005,8 +4005,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %359 = lshr i32 %357, 16
   %360 = and i32 %359, 255
   %361 = sdiv i16 %.3125.ph.us, 16
-  %.sext222.us = sext i16 %361 to i32
-  %362 = add nsw i32 %360, %.sext222.us
+  %.sext227.us = sext i16 %361 to i32
+  %362 = add nsw i32 %360, %.sext227.us
   %.not.i16.i62.us = icmp ult i32 %362, 256
   %isnotneg.i17.i63.us = icmp sgt i32 %362, -1
   %363 = sext i1 %isnotneg.i17.i63.us to i32
@@ -4016,8 +4016,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %366 = lshr i32 %357, 8
   %367 = and i32 %366, 255
   %368 = sdiv i16 %.3121.ph.us, 16
-  %.sext224.us = sext i16 %368 to i32
-  %369 = add nsw i32 %367, %.sext224.us
+  %.sext229.us = sext i16 %368 to i32
+  %369 = add nsw i32 %367, %.sext229.us
   %.not.i13.i65.us = icmp ult i32 %369, 256
   %isnotneg.i14.i66.us = icmp sgt i32 %369, -1
   %370 = sext i1 %isnotneg.i14.i66.us to i32
@@ -4026,8 +4026,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %372 = and i32 %371, 65280
   %373 = and i32 %357, 255
   %374 = sdiv i16 %.3.ph.us, 16
-  %.sext226.us = sext i16 %374 to i32
-  %375 = add nsw i32 %373, %.sext226.us
+  %.sext231.us = sext i16 %374 to i32
+  %375 = add nsw i32 %373, %.sext231.us
   %.not.i.i68.us = icmp ult i32 %375, 256
   %isnotneg.i.i69.us = icmp sgt i32 %375, -1
   %376 = sext i1 %isnotneg.i.i69.us to i32
@@ -4040,28 +4040,28 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   br label %381
 
 381:                                              ; preds = %355, %._crit_edge, %300, %165
-  %indvars.iv.next259 = add nsw i64 %indvars.iv258, 1
-  %.not.i.us = icmp slt i64 %indvars.iv.next259, %43
-  br i1 %.not.i.us, label %46, label %..thread160_crit_edge.us, !llvm.loop !119
+  %indvars.iv.next264 = add nsw i64 %indvars.iv263, 1
+  %.not.i.us = icmp slt i64 %indvars.iv.next264, %43
+  br i1 %.not.i.us, label %46, label %..thread165_crit_edge.us, !llvm.loop !119
 
 .lr.ph.us:                                        ; preds = %63
   %382 = load ptr, ptr %56, align 8, !tbaa !120
   %wide.trip.count = zext nneg i32 %65 to i64
   br label %78
 
-..thread160_crit_edge.us:                         ; preds = %381
-  %383 = getelementptr inbounds i32, ptr %.0474.i254.us, i64 %24
-  %384 = getelementptr inbounds i8, ptr %.0475.i253.us, i64 %25
-  %385 = add nsw i32 %.0476.i252.us, 1
+..thread165_crit_edge.us:                         ; preds = %381
+  %383 = getelementptr inbounds i32, ptr %.0474.i259.us, i64 %24
+  %384 = getelementptr inbounds i8, ptr %.0475.i258.us, i64 %25
+  %385 = add nsw i32 %.0476.i257.us, 1
   %.not511.i.us = icmp slt i32 %385, %11
   br i1 %.not511.i.us, label %.preheader.us, label %set_frame.exit, !llvm.loop !121
 
-.thread141:                                       ; preds = %._crit_edge.us
+.split.us:                                        ; preds = %._crit_edge.us
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %set_frame.exit
 
-set_frame.exit:                                   ; preds = %..thread160_crit_edge.us, %.preheader.lr.ph, %7, %.thread141
-  %spec.select.i = phi i32 [ -12, %.thread141 ], [ 0, %7 ], [ 0, %.preheader.lr.ph ], [ 0, %..thread160_crit_edge.us ]
+set_frame.exit:                                   ; preds = %..thread165_crit_edge.us, %.preheader.lr.ph, %7, %.split.us
+  %spec.select.i = phi i32 [ -12, %.split.us ], [ 0, %7 ], [ 0, %.preheader.lr.ph ], [ 0, %..thread165_crit_edge.us ]
   ret i32 %spec.select.i
 }
 
@@ -4071,8 +4071,8 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   %9 = alloca %struct.color_info, align 8
   %10 = add nsw i32 %5, %3
   %11 = add nsw i32 %6, %4
-  %.not511.i200 = icmp sgt i32 %6, 0
-  br i1 %.not511.i200, label %.preheader.lr.ph, label %set_frame.exit
+  %.not511.i205 = icmp sgt i32 %6, 0
+  br i1 %.not511.i205, label %.preheader.lr.ph, label %set_frame.exit
 
 .preheader.lr.ph:                                 ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -4080,7 +4080,7 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   %14 = ashr i32 %13, 2
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %16 = load i32, ptr %15, align 8, !tbaa !33
-  %.not.i197 = icmp sgt i32 %5, 0
+  %.not.i202 = icmp sgt i32 %5, 0
   %17 = add nsw i32 %11, -1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 533612
@@ -4090,7 +4090,7 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 532584
   %23 = sext i32 %14 to i64
   %24 = sext i32 %16 to i64
-  br i1 %.not.i197, label %.preheader.us.preheader, label %set_frame.exit
+  br i1 %.not.i202, label %.preheader.us.preheader, label %set_frame.exit
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %25 = add nsw i32 %3, 1
@@ -4111,21 +4111,21 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   %40 = sext i32 %10 to i64
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %..thread124_crit_edge.us
-  %.0474.i203.us = phi ptr [ %298, %..thread124_crit_edge.us ], [ %31, %.preheader.us.preheader ]
-  %.0475.i202.us = phi ptr [ %299, %..thread124_crit_edge.us ], [ %35, %.preheader.us.preheader ]
-  %.0476.i201.us = phi i32 [ %300, %..thread124_crit_edge.us ], [ %4, %.preheader.us.preheader ]
-  %41 = icmp slt i32 %.0476.i201.us, %17
-  %invariant.gep = getelementptr i32, ptr %.0474.i203.us, i64 %23
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %..thread129_crit_edge.us
+  %.0474.i208.us = phi ptr [ %298, %..thread129_crit_edge.us ], [ %31, %.preheader.us.preheader ]
+  %.0475.i207.us = phi ptr [ %299, %..thread129_crit_edge.us ], [ %35, %.preheader.us.preheader ]
+  %.0476.i206.us = phi i32 [ %300, %..thread129_crit_edge.us ], [ %4, %.preheader.us.preheader ]
+  %41 = icmp slt i32 %.0476.i206.us, %17
+  %invariant.gep = getelementptr i32, ptr %.0474.i208.us, i64 %23
   br label %42
 
 42:                                               ; preds = %.preheader.us, %296
-  %indvars.iv207 = phi i64 [ %36, %.preheader.us ], [ %indvars.iv.next208, %296 ]
-  %43 = icmp slt i64 %indvars.iv207, %37
-  %44 = icmp sgt i64 %indvars.iv207, %36
-  %45 = icmp slt i64 %indvars.iv207, %38
-  %46 = icmp sgt i64 %indvars.iv207, %39
-  %47 = getelementptr inbounds i32, ptr %.0474.i203.us, i64 %indvars.iv207
+  %indvars.iv212 = phi i64 [ %36, %.preheader.us ], [ %indvars.iv.next213, %296 ]
+  %43 = icmp slt i64 %indvars.iv212, %37
+  %44 = icmp sgt i64 %indvars.iv212, %36
+  %45 = icmp slt i64 %indvars.iv212, %38
+  %46 = icmp sgt i64 %indvars.iv212, %39
+  %47 = getelementptr inbounds i32, ptr %.0474.i208.us, i64 %indvars.iv212
   %48 = load i32, ptr %47, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %49 = tail call i32 @ff_lowbias32(i32 noundef %48) #13
@@ -4145,8 +4145,8 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
 59:                                               ; preds = %56, %42
   %60 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %61 = load i32, ptr %60, align 8, !tbaa !110
-  %.not.i.i195.us = icmp sgt i32 %61, 0
-  br i1 %.not.i.i195.us, label %.lr.ph.us, label %._crit_edge.us
+  %.not.i.i200.us = icmp sgt i32 %61, 0
+  br i1 %.not.i.i200.us, label %.lr.ph.us, label %._crit_edge.us
 
 62:                                               ; preds = %74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4156,7 +4156,7 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
 ._crit_edge.us:                                   ; preds = %62, %59
   %63 = tail call ptr @av_dynarray2_add(ptr noundef nonnull %52, ptr noundef nonnull %60, i64 noundef 8, ptr noundef null) #13
   %.not30.i.i.us = icmp eq ptr %63, null
-  br i1 %.not30.i.i.us, label %.thread105, label %64
+  br i1 %.not30.i.i.us, label %.split.us, label %64
 
 64:                                               ; preds = %._crit_edge.us
   store i32 %48, ptr %63, align 4, !tbaa !114
@@ -4233,7 +4233,7 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   %.385.ph.us = phi i16 [ 0, %82 ], [ %103, %85 ]
   %.3.ph.us = phi i16 [ 0, %82 ], [ %104, %85 ]
   %106 = trunc i32 %.0.i.i.ph.us to i8
-  %107 = getelementptr inbounds i8, ptr %.0475.i202.us, i64 %indvars.iv207
+  %107 = getelementptr inbounds i8, ptr %.0475.i207.us, i64 %indvars.iv212
   store i8 %106, ptr %107, align 1, !tbaa !76
   br i1 %43, label %108, label %134
 
@@ -4255,8 +4255,8 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   %119 = lshr i32 %110, 8
   %120 = and i32 %119, 255
   %121 = sdiv i16 %.385.ph.us, 4
-  %.sext134.us = sext i16 %121 to i32
-  %122 = add nsw i32 %120, %.sext134.us
+  %.sext139.us = sext i16 %121 to i32
+  %122 = add nsw i32 %120, %.sext139.us
   %.not.i13.i.us = icmp ult i32 %122, 256
   %isnotneg.i14.i.us = icmp sgt i32 %122, -1
   %123 = sext i1 %isnotneg.i14.i.us to i32
@@ -4265,8 +4265,8 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   %125 = and i32 %124, 65280
   %126 = and i32 %110, 255
   %127 = sdiv i16 %.3.ph.us, 4
-  %.sext136.us = sext i16 %127 to i32
-  %128 = add nsw i32 %126, %.sext136.us
+  %.sext141.us = sext i16 %127 to i32
+  %128 = add nsw i32 %126, %.sext141.us
   %.not.i.i6.us = icmp ult i32 %128, 256
   %isnotneg.i.i.us = icmp sgt i32 %128, -1
   %129 = sext i1 %isnotneg.i.i.us to i32
@@ -4288,8 +4288,8 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   %139 = lshr i32 %137, 16
   %140 = and i32 %139, 255
   %141 = sdiv i16 %.389.ph.us, 8
-  %.sext138.us = sext i16 %141 to i32
-  %142 = add nsw i32 %140, %.sext138.us
+  %.sext143.us = sext i16 %141 to i32
+  %142 = add nsw i32 %140, %.sext143.us
   %.not.i16.i8.us = icmp ult i32 %142, 256
   %isnotneg.i17.i9.us = icmp sgt i32 %142, -1
   %143 = sext i1 %isnotneg.i17.i9.us to i32
@@ -4299,8 +4299,8 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   %146 = lshr i32 %137, 8
   %147 = and i32 %146, 255
   %148 = sdiv i16 %.385.ph.us, 8
-  %.sext140.us = sext i16 %148 to i32
-  %149 = add nsw i32 %147, %.sext140.us
+  %.sext145.us = sext i16 %148 to i32
+  %149 = add nsw i32 %147, %.sext145.us
   %.not.i13.i11.us = icmp ult i32 %149, 256
   %isnotneg.i14.i12.us = icmp sgt i32 %149, -1
   %150 = sext i1 %isnotneg.i14.i12.us to i32
@@ -4309,8 +4309,8 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   %152 = and i32 %151, 65280
   %153 = and i32 %137, 255
   %154 = sdiv i16 %.3.ph.us, 8
-  %.sext142.us = sext i16 %154 to i32
-  %155 = add nsw i32 %153, %.sext142.us
+  %.sext147.us = sext i16 %154 to i32
+  %155 = add nsw i32 %153, %.sext147.us
   %.not.i.i14.us = icmp ult i32 %155, 256
   %isnotneg.i.i15.us = icmp sgt i32 %155, -1
   %156 = sext i1 %isnotneg.i.i15.us to i32
@@ -4329,15 +4329,15 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   br i1 %46, label %163, label %189
 
 163:                                              ; preds = %162
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv207
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv212
   %164 = getelementptr i8, ptr %gep, i64 -8
   %165 = load i32, ptr %164, align 4, !tbaa !33
   %166 = and i32 %165, -16777216
   %167 = lshr i32 %165, 16
   %168 = and i32 %167, 255
   %169 = sdiv i16 %.389.ph.us, 16
-  %.sext144.us = sext i16 %169 to i32
-  %170 = add nsw i32 %168, %.sext144.us
+  %.sext149.us = sext i16 %169 to i32
+  %170 = add nsw i32 %168, %.sext149.us
   %.not.i16.i17.us = icmp ult i32 %170, 256
   %isnotneg.i17.i18.us = icmp sgt i32 %170, -1
   %171 = sext i1 %isnotneg.i17.i18.us to i32
@@ -4347,8 +4347,8 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   %174 = lshr i32 %165, 8
   %175 = and i32 %174, 255
   %176 = sdiv i16 %.385.ph.us, 16
-  %.sext146.us = sext i16 %176 to i32
-  %177 = add nsw i32 %175, %.sext146.us
+  %.sext151.us = sext i16 %176 to i32
+  %177 = add nsw i32 %175, %.sext151.us
   %.not.i13.i20.us = icmp ult i32 %177, 256
   %isnotneg.i14.i21.us = icmp sgt i32 %177, -1
   %178 = sext i1 %isnotneg.i14.i21.us to i32
@@ -4357,8 +4357,8 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   %180 = and i32 %179, 65280
   %181 = and i32 %165, 255
   %182 = sdiv i16 %.3.ph.us, 16
-  %.sext148.us = sext i16 %182 to i32
-  %183 = add nsw i32 %181, %.sext148.us
+  %.sext153.us = sext i16 %182 to i32
+  %183 = add nsw i32 %181, %.sext153.us
   %.not.i.i23.us = icmp ult i32 %183, 256
   %isnotneg.i.i24.us = icmp sgt i32 %183, -1
   %184 = sext i1 %isnotneg.i.i24.us to i32
@@ -4371,19 +4371,19 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   br label %189
 
 189:                                              ; preds = %163, %162
-  %190 = add nsw i64 %indvars.iv207, %23
+  %190 = add nsw i64 %indvars.iv212, %23
   br i1 %44, label %191, label %._crit_edge
 
 191:                                              ; preds = %189
-  %192 = getelementptr i32, ptr %.0474.i203.us, i64 %190
+  %192 = getelementptr i32, ptr %.0474.i208.us, i64 %190
   %193 = getelementptr i8, ptr %192, i64 -4
   %194 = load i32, ptr %193, align 4, !tbaa !33
   %195 = and i32 %194, -16777216
   %196 = lshr i32 %194, 16
   %197 = and i32 %196, 255
   %198 = sdiv i16 %.389.ph.us, 8
-  %.sext150.us = sext i16 %198 to i32
-  %199 = add nsw i32 %197, %.sext150.us
+  %.sext155.us = sext i16 %198 to i32
+  %199 = add nsw i32 %197, %.sext155.us
   %.not.i16.i26.us = icmp ult i32 %199, 256
   %isnotneg.i17.i27.us = icmp sgt i32 %199, -1
   %200 = sext i1 %isnotneg.i17.i27.us to i32
@@ -4393,8 +4393,8 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   %203 = lshr i32 %194, 8
   %204 = and i32 %203, 255
   %205 = sdiv i16 %.385.ph.us, 8
-  %.sext152.us = sext i16 %205 to i32
-  %206 = add nsw i32 %204, %.sext152.us
+  %.sext157.us = sext i16 %205 to i32
+  %206 = add nsw i32 %204, %.sext157.us
   %.not.i13.i29.us = icmp ult i32 %206, 256
   %isnotneg.i14.i30.us = icmp sgt i32 %206, -1
   %207 = sext i1 %isnotneg.i14.i30.us to i32
@@ -4403,8 +4403,8 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   %209 = and i32 %208, 65280
   %210 = and i32 %194, 255
   %211 = sdiv i16 %.3.ph.us, 8
-  %.sext154.us = sext i16 %211 to i32
-  %212 = add nsw i32 %210, %.sext154.us
+  %.sext159.us = sext i16 %211 to i32
+  %212 = add nsw i32 %210, %.sext159.us
   %.not.i.i32.us = icmp ult i32 %212, 256
   %isnotneg.i.i33.us = icmp sgt i32 %212, -1
   %213 = sext i1 %isnotneg.i.i33.us to i32
@@ -4417,14 +4417,14 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %189, %191
-  %218 = getelementptr inbounds i32, ptr %.0474.i203.us, i64 %190
+  %218 = getelementptr inbounds i32, ptr %.0474.i208.us, i64 %190
   %219 = load i32, ptr %218, align 4, !tbaa !33
   %220 = and i32 %219, -16777216
   %221 = lshr i32 %219, 16
   %222 = and i32 %221, 255
   %223 = sdiv i16 %.389.ph.us, 4
-  %.sext156.us = sext i16 %223 to i32
-  %224 = add nsw i32 %222, %.sext156.us
+  %.sext161.us = sext i16 %223 to i32
+  %224 = add nsw i32 %222, %.sext161.us
   %.not.i16.i53.us = icmp ult i32 %224, 256
   %isnotneg.i17.i54.us = icmp sgt i32 %224, -1
   %225 = sext i1 %isnotneg.i17.i54.us to i32
@@ -4434,8 +4434,8 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   %228 = lshr i32 %219, 8
   %229 = and i32 %228, 255
   %230 = sdiv i16 %.385.ph.us, 4
-  %.sext158.us = sext i16 %230 to i32
-  %231 = add nsw i32 %229, %.sext158.us
+  %.sext163.us = sext i16 %230 to i32
+  %231 = add nsw i32 %229, %.sext163.us
   %.not.i13.i56.us = icmp ult i32 %231, 256
   %isnotneg.i14.i57.us = icmp sgt i32 %231, -1
   %232 = sext i1 %isnotneg.i14.i57.us to i32
@@ -4444,8 +4444,8 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   %234 = and i32 %233, 65280
   %235 = and i32 %219, 255
   %236 = sdiv i16 %.3.ph.us, 4
-  %.sext160.us = sext i16 %236 to i32
-  %237 = add nsw i32 %235, %.sext160.us
+  %.sext165.us = sext i16 %236 to i32
+  %237 = add nsw i32 %235, %.sext165.us
   %.not.i.i59.us = icmp ult i32 %237, 256
   %isnotneg.i.i60.us = icmp sgt i32 %237, -1
   %238 = sext i1 %isnotneg.i.i60.us to i32
@@ -4464,8 +4464,8 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   %247 = lshr i32 %245, 16
   %248 = and i32 %247, 255
   %249 = sdiv i16 %.389.ph.us, 8
-  %.sext162.us = sext i16 %249 to i32
-  %250 = add nsw i32 %248, %.sext162.us
+  %.sext167.us = sext i16 %249 to i32
+  %250 = add nsw i32 %248, %.sext167.us
   %.not.i16.i35.us = icmp ult i32 %250, 256
   %isnotneg.i17.i36.us = icmp sgt i32 %250, -1
   %251 = sext i1 %isnotneg.i17.i36.us to i32
@@ -4475,8 +4475,8 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   %254 = lshr i32 %245, 8
   %255 = and i32 %254, 255
   %256 = sdiv i16 %.385.ph.us, 8
-  %.sext164.us = sext i16 %256 to i32
-  %257 = add nsw i32 %255, %.sext164.us
+  %.sext169.us = sext i16 %256 to i32
+  %257 = add nsw i32 %255, %.sext169.us
   %.not.i13.i38.us = icmp ult i32 %257, 256
   %isnotneg.i14.i39.us = icmp sgt i32 %257, -1
   %258 = sext i1 %isnotneg.i14.i39.us to i32
@@ -4485,8 +4485,8 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   %260 = and i32 %259, 65280
   %261 = and i32 %245, 255
   %262 = sdiv i16 %.3.ph.us, 8
-  %.sext166.us = sext i16 %262 to i32
-  %263 = add nsw i32 %261, %.sext166.us
+  %.sext171.us = sext i16 %262 to i32
+  %263 = add nsw i32 %261, %.sext171.us
   %.not.i.i41.us = icmp ult i32 %263, 256
   %isnotneg.i.i42.us = icmp sgt i32 %263, -1
   %264 = sext i1 %isnotneg.i.i42.us to i32
@@ -4508,8 +4508,8 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   %274 = lshr i32 %272, 16
   %275 = and i32 %274, 255
   %276 = sdiv i16 %.389.ph.us, 16
-  %.sext168.us = sext i16 %276 to i32
-  %277 = add nsw i32 %275, %.sext168.us
+  %.sext173.us = sext i16 %276 to i32
+  %277 = add nsw i32 %275, %.sext173.us
   %.not.i16.i44.us = icmp ult i32 %277, 256
   %isnotneg.i17.i45.us = icmp sgt i32 %277, -1
   %278 = sext i1 %isnotneg.i17.i45.us to i32
@@ -4519,8 +4519,8 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   %281 = lshr i32 %272, 8
   %282 = and i32 %281, 255
   %283 = sdiv i16 %.385.ph.us, 16
-  %.sext170.us = sext i16 %283 to i32
-  %284 = add nsw i32 %282, %.sext170.us
+  %.sext175.us = sext i16 %283 to i32
+  %284 = add nsw i32 %282, %.sext175.us
   %.not.i13.i47.us = icmp ult i32 %284, 256
   %isnotneg.i14.i48.us = icmp sgt i32 %284, -1
   %285 = sext i1 %isnotneg.i14.i48.us to i32
@@ -4529,8 +4529,8 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   %287 = and i32 %286, 65280
   %288 = and i32 %272, 255
   %289 = sdiv i16 %.3.ph.us, 16
-  %.sext172.us = sext i16 %289 to i32
-  %290 = add nsw i32 %288, %.sext172.us
+  %.sext177.us = sext i16 %289 to i32
+  %290 = add nsw i32 %288, %.sext177.us
   %.not.i.i50.us = icmp ult i32 %290, 256
   %isnotneg.i.i51.us = icmp sgt i32 %290, -1
   %291 = sext i1 %isnotneg.i.i51.us to i32
@@ -4543,28 +4543,28 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   br label %296
 
 296:                                              ; preds = %270, %269, %161
-  %indvars.iv.next208 = add nsw i64 %indvars.iv207, 1
-  %.not.i.us = icmp slt i64 %indvars.iv.next208, %40
-  br i1 %.not.i.us, label %42, label %..thread124_crit_edge.us, !llvm.loop !119
+  %indvars.iv.next213 = add nsw i64 %indvars.iv212, 1
+  %.not.i.us = icmp slt i64 %indvars.iv.next213, %40
+  br i1 %.not.i.us, label %42, label %..thread129_crit_edge.us, !llvm.loop !119
 
 .lr.ph.us:                                        ; preds = %59
   %297 = load ptr, ptr %52, align 8, !tbaa !120
   %wide.trip.count = zext nneg i32 %61 to i64
   br label %74
 
-..thread124_crit_edge.us:                         ; preds = %296
-  %298 = getelementptr inbounds i32, ptr %.0474.i203.us, i64 %23
-  %299 = getelementptr inbounds i8, ptr %.0475.i202.us, i64 %24
-  %300 = add nsw i32 %.0476.i201.us, 1
+..thread129_crit_edge.us:                         ; preds = %296
+  %298 = getelementptr inbounds i32, ptr %.0474.i208.us, i64 %23
+  %299 = getelementptr inbounds i8, ptr %.0475.i207.us, i64 %24
+  %300 = add nsw i32 %.0476.i206.us, 1
   %.not511.i.us = icmp slt i32 %300, %11
   br i1 %.not511.i.us, label %.preheader.us, label %set_frame.exit, !llvm.loop !121
 
-.thread105:                                       ; preds = %._crit_edge.us
+.split.us:                                        ; preds = %._crit_edge.us
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %set_frame.exit
 
-set_frame.exit:                                   ; preds = %..thread124_crit_edge.us, %.preheader.lr.ph, %7, %.thread105
-  %spec.select.i = phi i32 [ -12, %.thread105 ], [ 0, %7 ], [ 0, %.preheader.lr.ph ], [ 0, %..thread124_crit_edge.us ]
+set_frame.exit:                                   ; preds = %..thread129_crit_edge.us, %.preheader.lr.ph, %7, %.split.us
+  %spec.select.i = phi i32 [ -12, %.split.us ], [ 0, %7 ], [ 0, %.preheader.lr.ph ], [ 0, %..thread129_crit_edge.us ]
   ret i32 %spec.select.i
 }
 
@@ -4574,8 +4574,8 @@ define internal range(i32 -12, 1) i32 @set_frame_atkinson(ptr noundef %0, ptr no
   %9 = alloca %struct.color_info, align 8
   %10 = add nsw i32 %5, %3
   %11 = add nsw i32 %6, %4
-  %.not511.i152 = icmp sgt i32 %6, 0
-  br i1 %.not511.i152, label %.preheader.lr.ph, label %set_frame.exit
+  %.not511.i157 = icmp sgt i32 %6, 0
+  br i1 %.not511.i157, label %.preheader.lr.ph, label %set_frame.exit
 
 .preheader.lr.ph:                                 ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -4583,7 +4583,7 @@ define internal range(i32 -12, 1) i32 @set_frame_atkinson(ptr noundef %0, ptr no
   %14 = ashr i32 %13, 2
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %16 = load i32, ptr %15, align 8, !tbaa !33
-  %.not.i149 = icmp sgt i32 %5, 0
+  %.not.i154 = icmp sgt i32 %5, 0
   %17 = add nsw i32 %11, -1
   %18 = add nsw i32 %11, -2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -4594,7 +4594,7 @@ define internal range(i32 -12, 1) i32 @set_frame_atkinson(ptr noundef %0, ptr no
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 532584
   %24 = sext i32 %14 to i64
   %25 = sext i32 %16 to i64
-  br i1 %.not.i149, label %.preheader.us.preheader, label %set_frame.exit
+  br i1 %.not.i154, label %.preheader.us.preheader, label %set_frame.exit
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %26 = shl nsw i32 %14, 1
@@ -4615,21 +4615,21 @@ define internal range(i32 -12, 1) i32 @set_frame_atkinson(ptr noundef %0, ptr no
   %41 = sext i32 %10 to i64
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %..thread112_crit_edge.us
-  %.0474.i155.us = phi ptr [ %259, %..thread112_crit_edge.us ], [ %32, %.preheader.us.preheader ]
-  %.0475.i154.us = phi ptr [ %260, %..thread112_crit_edge.us ], [ %36, %.preheader.us.preheader ]
-  %.0476.i153.us = phi i32 [ %261, %..thread112_crit_edge.us ], [ %4, %.preheader.us.preheader ]
-  %42 = icmp slt i32 %.0476.i153.us, %17
-  %43 = icmp slt i32 %.0476.i153.us, %18
-  %invariant.gep = getelementptr i32, ptr %.0474.i155.us, i64 %40
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %..thread117_crit_edge.us
+  %.0474.i160.us = phi ptr [ %259, %..thread117_crit_edge.us ], [ %32, %.preheader.us.preheader ]
+  %.0475.i159.us = phi ptr [ %260, %..thread117_crit_edge.us ], [ %36, %.preheader.us.preheader ]
+  %.0476.i158.us = phi i32 [ %261, %..thread117_crit_edge.us ], [ %4, %.preheader.us.preheader ]
+  %42 = icmp slt i32 %.0476.i158.us, %17
+  %43 = icmp slt i32 %.0476.i158.us, %18
+  %invariant.gep = getelementptr i32, ptr %.0474.i160.us, i64 %40
   br label %44
 
 44:                                               ; preds = %.preheader.us, %257
-  %indvars.iv159 = phi i64 [ %37, %.preheader.us ], [ %indvars.iv.next160, %257 ]
-  %45 = icmp slt i64 %indvars.iv159, %38
-  %46 = icmp sgt i64 %indvars.iv159, %37
-  %47 = icmp slt i64 %indvars.iv159, %39
-  %48 = getelementptr inbounds i32, ptr %.0474.i155.us, i64 %indvars.iv159
+  %indvars.iv164 = phi i64 [ %37, %.preheader.us ], [ %indvars.iv.next165, %257 ]
+  %45 = icmp slt i64 %indvars.iv164, %38
+  %46 = icmp sgt i64 %indvars.iv164, %37
+  %47 = icmp slt i64 %indvars.iv164, %39
+  %48 = getelementptr inbounds i32, ptr %.0474.i160.us, i64 %indvars.iv164
   %49 = load i32, ptr %48, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %50 = tail call i32 @ff_lowbias32(i32 noundef %49) #13
@@ -4649,8 +4649,8 @@ define internal range(i32 -12, 1) i32 @set_frame_atkinson(ptr noundef %0, ptr no
 60:                                               ; preds = %57, %44
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %62 = load i32, ptr %61, align 8, !tbaa !110
-  %.not.i.i147.us = icmp sgt i32 %62, 0
-  br i1 %.not.i.i147.us, label %.lr.ph.us, label %._crit_edge.us
+  %.not.i.i152.us = icmp sgt i32 %62, 0
+  br i1 %.not.i.i152.us, label %.lr.ph.us, label %._crit_edge.us
 
 63:                                               ; preds = %75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4660,7 +4660,7 @@ define internal range(i32 -12, 1) i32 @set_frame_atkinson(ptr noundef %0, ptr no
 ._crit_edge.us:                                   ; preds = %63, %60
   %64 = tail call ptr @av_dynarray2_add(ptr noundef nonnull %53, ptr noundef nonnull %61, i64 noundef 8, ptr noundef null) #13
   %.not30.i.i.us = icmp eq ptr %64, null
-  br i1 %.not30.i.i.us, label %.thread93, label %65
+  br i1 %.not30.i.i.us, label %.split.us, label %65
 
 65:                                               ; preds = %._crit_edge.us
   store i32 %49, ptr %64, align 4, !tbaa !114
@@ -4743,7 +4743,7 @@ define internal range(i32 -12, 1) i32 @set_frame_atkinson(ptr noundef %0, ptr no
   %.373.ph.us = phi i32 [ 0, %83 ], [ %108, %86 ]
   %.3.ph.us = phi i32 [ 0, %83 ], [ %111, %86 ]
   %113 = trunc i32 %.0.i.i.ph.us to i8
-  %114 = getelementptr inbounds i8, ptr %.0475.i154.us, i64 %indvars.iv159
+  %114 = getelementptr inbounds i8, ptr %.0475.i159.us, i64 %indvars.iv164
   store i8 %113, ptr %114, align 1, !tbaa !76
   br i1 %45, label %115, label %138
 
@@ -4824,11 +4824,11 @@ define internal range(i32 -12, 1) i32 @set_frame_atkinson(ptr noundef %0, ptr no
   br i1 %42, label %163, label %257
 
 163:                                              ; preds = %162
-  %164 = add nsw i64 %indvars.iv159, %24
+  %164 = add nsw i64 %indvars.iv164, %24
   br i1 %46, label %165, label %._crit_edge
 
 165:                                              ; preds = %163
-  %166 = getelementptr i32, ptr %.0474.i155.us, i64 %164
+  %166 = getelementptr i32, ptr %.0474.i160.us, i64 %164
   %167 = getelementptr i8, ptr %166, i64 -4
   %168 = load i32, ptr %167, align 4, !tbaa !33
   %169 = and i32 %168, -16777216
@@ -4864,7 +4864,7 @@ define internal range(i32 -12, 1) i32 @set_frame_atkinson(ptr noundef %0, ptr no
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %163, %165
-  %189 = getelementptr inbounds i32, ptr %.0474.i155.us, i64 %164
+  %189 = getelementptr inbounds i32, ptr %.0474.i160.us, i64 %164
   %190 = load i32, ptr %189, align 4, !tbaa !33
   %191 = and i32 %190, -16777216
   %192 = lshr i32 %190, 16
@@ -4937,7 +4937,7 @@ define internal range(i32 -12, 1) i32 @set_frame_atkinson(ptr noundef %0, ptr no
   br i1 %43, label %235, label %257
 
 235:                                              ; preds = %234
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv159
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv164
   %236 = load i32, ptr %gep, align 4, !tbaa !33
   %237 = and i32 %236, -16777216
   %238 = lshr i32 %236, 16
@@ -4972,28 +4972,28 @@ define internal range(i32 -12, 1) i32 @set_frame_atkinson(ptr noundef %0, ptr no
   br label %257
 
 257:                                              ; preds = %235, %234, %162
-  %indvars.iv.next160 = add nsw i64 %indvars.iv159, 1
-  %.not.i.us = icmp slt i64 %indvars.iv.next160, %41
-  br i1 %.not.i.us, label %44, label %..thread112_crit_edge.us, !llvm.loop !119
+  %indvars.iv.next165 = add nsw i64 %indvars.iv164, 1
+  %.not.i.us = icmp slt i64 %indvars.iv.next165, %41
+  br i1 %.not.i.us, label %44, label %..thread117_crit_edge.us, !llvm.loop !119
 
 .lr.ph.us:                                        ; preds = %60
   %258 = load ptr, ptr %53, align 8, !tbaa !120
   %wide.trip.count = zext nneg i32 %62 to i64
   br label %75
 
-..thread112_crit_edge.us:                         ; preds = %257
-  %259 = getelementptr inbounds i32, ptr %.0474.i155.us, i64 %24
-  %260 = getelementptr inbounds i8, ptr %.0475.i154.us, i64 %25
-  %261 = add nsw i32 %.0476.i153.us, 1
+..thread117_crit_edge.us:                         ; preds = %257
+  %259 = getelementptr inbounds i32, ptr %.0474.i160.us, i64 %24
+  %260 = getelementptr inbounds i8, ptr %.0475.i159.us, i64 %25
+  %261 = add nsw i32 %.0476.i158.us, 1
   %.not511.i.us = icmp slt i32 %261, %11
   br i1 %.not511.i.us, label %.preheader.us, label %set_frame.exit, !llvm.loop !121
 
-.thread93:                                        ; preds = %._crit_edge.us
+.split.us:                                        ; preds = %._crit_edge.us
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %set_frame.exit
 
-set_frame.exit:                                   ; preds = %..thread112_crit_edge.us, %.preheader.lr.ph, %7, %.thread93
-  %spec.select.i = phi i32 [ -12, %.thread93 ], [ 0, %7 ], [ 0, %.preheader.lr.ph ], [ 0, %..thread112_crit_edge.us ]
+set_frame.exit:                                   ; preds = %..thread117_crit_edge.us, %.preheader.lr.ph, %7, %.split.us
+  %spec.select.i = phi i32 [ -12, %.split.us ], [ 0, %7 ], [ 0, %.preheader.lr.ph ], [ 0, %..thread117_crit_edge.us ]
   ret i32 %spec.select.i
 }
 

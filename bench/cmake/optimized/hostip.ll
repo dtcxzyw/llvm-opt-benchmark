@@ -340,17 +340,17 @@ define dso_local ptr @Curl_cache_addr(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not4.i.i, label %Curl_shuffle_addr.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %11, %.lr.ph.i.i
-  %indvars.iv80.i = phi i64 [ %indvars.iv.next81.i, %.lr.ph.i.i ], [ 0, %11 ]
+  %indvars.iv76.i = phi i64 [ %indvars.iv.next77.i, %.lr.ph.i.i ], [ 0, %11 ]
   %.035.i.i = phi ptr [ %13, %.lr.ph.i.i ], [ %1, %11 ]
   %12 = getelementptr inbounds nuw i8, ptr %.035.i.i, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !109
-  %indvars.iv.next81.i = add nuw i64 %indvars.iv80.i, 1
+  %indvars.iv.next77.i = add nuw i64 %indvars.iv76.i, 1
   %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %num_addresses.exit.i, label %.lr.ph.i.i, !llvm.loop !110
 
 num_addresses.exit.i:                             ; preds = %.lr.ph.i.i
-  %indvars.le = trunc i64 %indvars.iv.next81.i to i32
-  %14 = and i64 %indvars.iv80.i, 4294967295
+  %indvars.le = trunc i64 %indvars.iv.next77.i to i32
+  %14 = and i64 %indvars.iv76.i, 4294967295
   %.not67.i = icmp eq i64 %14, 0
   br i1 %.not67.i, label %Curl_shuffle_addr.exit.thread, label %15
 
@@ -377,170 +377,170 @@ num_addresses.exit.i:                             ; preds = %.lr.ph.i.i
 
 25:                                               ; preds = %24, %20, %15
   %26 = load ptr, ptr @Curl_cmalloc, align 8, !tbaa !111
-  %27 = and i64 %indvars.iv.next81.i, 4294967295
+  %27 = and i64 %indvars.iv.next77.i, 4294967295
   %28 = shl nuw nsw i64 %27, 3
   %29 = tail call ptr %26(i64 noundef %28) #11
   %.not64.i = icmp eq ptr %29, null
-  br i1 %.not64.i, label %Curl_shuffle_addr.exit.thread49, label %.lr.ph.preheader.i
+  br i1 %.not64.i, label %Curl_shuffle_addr.exit.thread49, label %30
 
-.lr.ph.preheader.i:                               ; preds = %25
+30:                                               ; preds = %25
   store ptr %1, ptr %29, align 8, !tbaa !107
-  br label %.lr.ph.i
+  br label %31
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %30 = getelementptr ptr, ptr %29, i64 %indvars.iv.i
-  %31 = getelementptr i8, ptr %30, i64 -8
-  %32 = load ptr, ptr %31, align 8, !tbaa !107
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  %34 = load ptr, ptr %33, align 8, !tbaa !109
-  store ptr %34, ptr %30, align 8, !tbaa !107
+31:                                               ; preds = %31, %30
+  %indvars.iv.i = phi i64 [ 1, %30 ], [ %indvars.iv.next.i, %31 ]
+  %32 = getelementptr ptr, ptr %29, i64 %indvars.iv.i
+  %33 = getelementptr i8, ptr %32, i64 -8
+  %34 = load ptr, ptr %33, align 8, !tbaa !107
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
+  %36 = load ptr, ptr %35, align 8, !tbaa !109
+  store ptr %36, ptr %32, align 8, !tbaa !107
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %27
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !112
+  br i1 %exitcond.not.i, label %37, label %31, !llvm.loop !112
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %35 = shl nuw nsw i64 %27, 2
-  %36 = load ptr, ptr @Curl_cmalloc, align 8, !tbaa !111
-  %37 = tail call ptr %36(i64 noundef %35) #11
-  %.not65.i = icmp eq ptr %37, null
-  br i1 %.not65.i, label %Curl_shuffle_addr.exit, label %38
+37:                                               ; preds = %31
+  %38 = shl nuw nsw i64 %27, 2
+  %39 = load ptr, ptr @Curl_cmalloc, align 8, !tbaa !111
+  %40 = tail call ptr %39(i64 noundef %38) #11
+  %.not65.i = icmp eq ptr %40, null
+  br i1 %.not65.i, label %Curl_shuffle_addr.exit, label %41
 
-38:                                               ; preds = %._crit_edge.i
-  %39 = tail call i32 @Curl_rand_bytes(ptr noundef nonnull %0, ptr noundef nonnull %37, i64 noundef %35) #11
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %.preheader70.i, label %Curl_shuffle_addr.exit.thread53
+41:                                               ; preds = %37
+  %42 = tail call i32 @Curl_rand_bytes(ptr noundef nonnull %0, ptr noundef nonnull %40, i64 noundef %38) #11
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %.preheader70.i, label %Curl_shuffle_addr.exit.thread53
 
-.preheader70.i:                                   ; preds = %38, %.preheader70.i
-  %indvars.iv82.i = phi i64 [ %indvars.iv.next83.i, %.preheader70.i ], [ %indvars.iv80.i, %38 ]
-  %41 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv82.i
-  %42 = load i32, ptr %41, align 4, !tbaa !113
-  %43 = trunc i64 %indvars.iv82.i to i32
-  %44 = add i32 %43, 1
-  %45 = urem i32 %42, %44
-  %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %29, i64 %46
-  %48 = load ptr, ptr %47, align 8, !tbaa !107
-  %49 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv82.i
-  %50 = load ptr, ptr %49, align 8, !tbaa !107
-  store ptr %50, ptr %47, align 8, !tbaa !107
-  store ptr %48, ptr %49, align 8, !tbaa !107
-  %indvars.iv.next83.i = add nsw i64 %indvars.iv82.i, -1
-  %51 = icmp sgt i64 %indvars.iv82.i, 1
-  br i1 %51, label %.preheader70.i, label %.lr.ph76.i, !llvm.loop !114
-
-.lr.ph76.i:                                       ; preds = %.preheader70.i, %.lr.ph76.i
-  %indvars.iv85.i = phi i64 [ %indvars.iv.next86.i, %.lr.ph76.i ], [ 1, %.preheader70.i ]
-  %52 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv85.i
+.preheader70.i:                                   ; preds = %41, %.preheader70.i
+  %indvars.iv78.i = phi i64 [ %indvars.iv.next79.i, %.preheader70.i ], [ %indvars.iv76.i, %41 ]
+  %44 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv78.i
+  %45 = load i32, ptr %44, align 4, !tbaa !113
+  %46 = trunc i64 %indvars.iv78.i to i32
+  %47 = add i32 %46, 1
+  %48 = urem i32 %45, %47
+  %49 = zext nneg i32 %48 to i64
+  %50 = getelementptr inbounds nuw ptr, ptr %29, i64 %49
+  %51 = load ptr, ptr %50, align 8, !tbaa !107
+  %52 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv78.i
   %53 = load ptr, ptr %52, align 8, !tbaa !107
-  %54 = getelementptr i8, ptr %52, i64 -8
-  %55 = load ptr, ptr %54, align 8, !tbaa !107
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
-  store ptr %53, ptr %56, align 8, !tbaa !109
-  %indvars.iv.next86.i = add nuw nsw i64 %indvars.iv85.i, 1
-  %exitcond91.not.i = icmp eq i64 %indvars.iv.next86.i, %27
-  br i1 %exitcond91.not.i, label %._crit_edge77.i, label %.lr.ph76.i, !llvm.loop !115
+  store ptr %53, ptr %50, align 8, !tbaa !107
+  store ptr %51, ptr %52, align 8, !tbaa !107
+  %indvars.iv.next79.i = add nsw i64 %indvars.iv78.i, -1
+  %54 = icmp sgt i64 %indvars.iv78.i, 1
+  br i1 %54, label %.preheader70.i, label %.preheader.i, !llvm.loop !114
 
-._crit_edge77.i:                                  ; preds = %.lr.ph76.i
-  %57 = and i64 %indvars.iv80.i, 4294967295
-  %58 = getelementptr inbounds nuw ptr, ptr %29, i64 %57
-  %59 = load ptr, ptr %58, align 8, !tbaa !107
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 40
-  store ptr null, ptr %60, align 8, !tbaa !109
-  %61 = load ptr, ptr %29, align 8, !tbaa !107
+.preheader.i:                                     ; preds = %.preheader70.i, %.preheader.i
+  %indvars.iv81.i = phi i64 [ %indvars.iv.next82.i, %.preheader.i ], [ 1, %.preheader70.i ]
+  %55 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv81.i
+  %56 = load ptr, ptr %55, align 8, !tbaa !107
+  %57 = getelementptr i8, ptr %55, i64 -8
+  %58 = load ptr, ptr %57, align 8, !tbaa !107
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
+  store ptr %56, ptr %59, align 8, !tbaa !109
+  %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
+  %exitcond87.not.i = icmp eq i64 %indvars.iv.next82.i, %27
+  br i1 %exitcond87.not.i, label %60, label %.preheader.i, !llvm.loop !115
+
+60:                                               ; preds = %.preheader.i
+  %61 = and i64 %indvars.iv76.i, 4294967295
+  %62 = getelementptr inbounds nuw ptr, ptr %29, i64 %61
+  %63 = load ptr, ptr %62, align 8, !tbaa !107
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
+  store ptr null, ptr %64, align 8, !tbaa !109
+  %65 = load ptr, ptr %29, align 8, !tbaa !107
   br label %Curl_shuffle_addr.exit.thread53
 
-Curl_shuffle_addr.exit.thread53:                  ; preds = %38, %._crit_edge77.i
-  %.145 = phi ptr [ %61, %._crit_edge77.i ], [ %1, %38 ]
-  %62 = load ptr, ptr @Curl_cfree, align 8, !tbaa !111
-  tail call void %62(ptr noundef nonnull %37) #11
-  %63 = load ptr, ptr @Curl_cfree, align 8, !tbaa !111
-  tail call void %63(ptr noundef nonnull %29) #11
+Curl_shuffle_addr.exit.thread53:                  ; preds = %41, %60
+  %.145 = phi ptr [ %65, %60 ], [ %1, %41 ]
+  %66 = load ptr, ptr @Curl_cfree, align 8, !tbaa !111
+  tail call void %66(ptr noundef nonnull %40) #11
+  %67 = load ptr, ptr @Curl_cfree, align 8, !tbaa !111
+  tail call void %67(ptr noundef nonnull %29) #11
   br label %Curl_shuffle_addr.exit.thread
 
-Curl_shuffle_addr.exit:                           ; preds = %._crit_edge.i
-  %64 = load ptr, ptr @Curl_cfree, align 8, !tbaa !111
-  tail call void %64(ptr noundef nonnull %29) #11
+Curl_shuffle_addr.exit:                           ; preds = %37
+  %68 = load ptr, ptr @Curl_cfree, align 8, !tbaa !111
+  tail call void %68(ptr noundef nonnull %29) #11
   br label %Curl_shuffle_addr.exit.thread49
 
 Curl_shuffle_addr.exit.thread:                    ; preds = %11, %num_addresses.exit.i, %Curl_shuffle_addr.exit.thread53, %6
   %.0 = phi ptr [ %1, %6 ], [ %.145, %Curl_shuffle_addr.exit.thread53 ], [ %1, %num_addresses.exit.i ], [ null, %11 ]
   %.not38 = icmp eq i64 %3, 0
-  br i1 %.not38, label %65, label %67
+  br i1 %.not38, label %69, label %71
 
-65:                                               ; preds = %Curl_shuffle_addr.exit.thread
-  %66 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #12
-  br label %67
+69:                                               ; preds = %Curl_shuffle_addr.exit.thread
+  %70 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #12
+  br label %71
 
-67:                                               ; preds = %65, %Curl_shuffle_addr.exit.thread
-  %.033 = phi i64 [ %3, %Curl_shuffle_addr.exit.thread ], [ %66, %65 ]
-  %68 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !111
-  %69 = add i64 %.033, 32
-  %70 = tail call ptr %68(i64 noundef 1, i64 noundef %69) #11
-  %.not39 = icmp eq ptr %70, null
-  br i1 %.not39, label %Curl_shuffle_addr.exit.thread49, label %71
+71:                                               ; preds = %69, %Curl_shuffle_addr.exit.thread
+  %.033 = phi i64 [ %3, %Curl_shuffle_addr.exit.thread ], [ %70, %69 ]
+  %72 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !111
+  %73 = add i64 %.033, 32
+  %74 = tail call ptr %72(i64 noundef 1, i64 noundef %73) #11
+  %.not39 = icmp eq ptr %74, null
+  br i1 %.not39, label %Curl_shuffle_addr.exit.thread49, label %75
 
-71:                                               ; preds = %67
+75:                                               ; preds = %71
   %.not.i42 = icmp eq i64 %.033, 0
-  br i1 %.not.i42, label %72, label %create_hostcache_id.exit
+  br i1 %.not.i42, label %76, label %create_hostcache_id.exit
 
-72:                                               ; preds = %71
-  %73 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #12
+76:                                               ; preds = %75
+  %77 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #12
   br label %create_hostcache_id.exit
 
-create_hostcache_id.exit:                         ; preds = %71, %72
-  %74 = phi i64 [ %73, %72 ], [ %.033, %71 ]
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %74, i64 255)
+create_hostcache_id.exit:                         ; preds = %75, %76
+  %78 = phi i64 [ %77, %76 ], [ %.033, %75 ]
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %78, i64 255)
   call void @Curl_strntolower(ptr noundef nonnull %7, ptr noundef %2, i64 noundef %spec.select.i) #11
-  %75 = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select.i
-  %76 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %75, i64 noundef 7, ptr noundef nonnull @.str.24, i32 noundef %4) #11
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  store i64 1, ptr %78, align 8, !tbaa !91
-  store ptr %.0, ptr %70, align 8, !tbaa !116
-  br i1 %5, label %81, label %79
+  %79 = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select.i
+  %80 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %79, i64 noundef 7, ptr noundef nonnull @.str.24, i32 noundef %4) #11
+  %81 = sext i32 %80 to i64
+  %82 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  store i64 1, ptr %82, align 8, !tbaa !91
+  store ptr %.0, ptr %74, align 8, !tbaa !116
+  br i1 %5, label %85, label %83
 
-79:                                               ; preds = %create_hostcache_id.exit
-  %80 = call i64 @time(ptr noundef null) #11
-  %spec.store.select = call i64 @llvm.umax.i64(i64 %80, i64 1)
-  br label %81
+83:                                               ; preds = %create_hostcache_id.exit
+  %84 = call i64 @time(ptr noundef null) #11
+  %spec.store.select = call i64 @llvm.umax.i64(i64 %84, i64 1)
+  br label %85
 
-81:                                               ; preds = %create_hostcache_id.exit, %79
-  %spec.store.select.sink = phi i64 [ %spec.store.select, %79 ], [ 0, %create_hostcache_id.exit ]
-  %82 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  store i64 %spec.store.select.sink, ptr %82, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  store i32 %4, ptr %83, align 8, !tbaa !117
-  br i1 %.not.i42, label %86, label %84
+85:                                               ; preds = %create_hostcache_id.exit, %83
+  %spec.store.select.sink = phi i64 [ %spec.store.select, %83 ], [ 0, %create_hostcache_id.exit ]
+  %86 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  store i64 %spec.store.select.sink, ptr %86, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %74, i64 24
+  store i32 %4, ptr %87, align 8, !tbaa !117
+  br i1 %.not.i42, label %90, label %88
 
-84:                                               ; preds = %81
-  %85 = getelementptr inbounds nuw i8, ptr %70, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %85, ptr align 1 %2, i64 %.033, i1 false)
-  br label %86
+88:                                               ; preds = %85
+  %89 = getelementptr inbounds nuw i8, ptr %74, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %89, ptr align 1 %2, i64 %.033, i1 false)
+  br label %90
 
-86:                                               ; preds = %84, %81
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %88 = load ptr, ptr %87, align 8, !tbaa !83
-  %89 = add nuw nsw i64 %spec.select.i, 1
-  %90 = add nsw i64 %89, %77
-  %91 = call ptr @Curl_hash_add(ptr noundef %88, ptr noundef nonnull %7, i64 noundef %90, ptr noundef nonnull %70) #11
-  %.not41 = icmp eq ptr %91, null
-  br i1 %.not41, label %92, label %94
+90:                                               ; preds = %88, %85
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %92 = load ptr, ptr %91, align 8, !tbaa !83
+  %93 = add nuw nsw i64 %spec.select.i, 1
+  %94 = add nsw i64 %93, %81
+  %95 = call ptr @Curl_hash_add(ptr noundef %92, ptr noundef nonnull %7, i64 noundef %94, ptr noundef nonnull %74) #11
+  %.not41 = icmp eq ptr %95, null
+  br i1 %.not41, label %96, label %98
 
-92:                                               ; preds = %86
-  %93 = load ptr, ptr @Curl_cfree, align 8, !tbaa !111
-  call void %93(ptr noundef nonnull %70) #11
+96:                                               ; preds = %90
+  %97 = load ptr, ptr @Curl_cfree, align 8, !tbaa !111
+  call void %97(ptr noundef nonnull %74) #11
   br label %Curl_shuffle_addr.exit.thread49
 
-94:                                               ; preds = %86
-  %95 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  %96 = load i64, ptr %95, align 8, !tbaa !91
-  %97 = add i64 %96, 1
-  store i64 %97, ptr %95, align 8, !tbaa !91
+98:                                               ; preds = %90
+  %99 = getelementptr inbounds nuw i8, ptr %95, i64 16
+  %100 = load i64, ptr %99, align 8, !tbaa !91
+  %101 = add i64 %100, 1
+  store i64 %101, ptr %99, align 8, !tbaa !91
   br label %Curl_shuffle_addr.exit.thread49
 
-Curl_shuffle_addr.exit.thread49:                  ; preds = %25, %Curl_shuffle_addr.exit, %67, %94, %92
-  %.1 = phi ptr [ %91, %94 ], [ null, %92 ], [ null, %Curl_shuffle_addr.exit ], [ null, %67 ], [ null, %25 ]
+Curl_shuffle_addr.exit.thread49:                  ; preds = %25, %Curl_shuffle_addr.exit, %71, %98, %96
+  %.1 = phi ptr [ %95, %98 ], [ null, %96 ], [ null, %Curl_shuffle_addr.exit ], [ null, %71 ], [ null, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.1
 }

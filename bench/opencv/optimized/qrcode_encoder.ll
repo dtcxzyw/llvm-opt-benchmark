@@ -10178,8 +10178,7 @@ _ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.
   br i1 %.not182, label %._crit_edge, label %.preheader191.us.preheader
 
 .preheader191.us.preheader:                       ; preds = %.preheader191.lr.ph
-  %smax = tail call i32 @llvm.smax.i32(i32 %34, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %34 to i64
   br label %.preheader191.us
 
 .preheader191.us:                                 ; preds = %.preheader191.us.preheader, %._crit_edge.us
@@ -10280,8 +10279,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.us:       ; preds = %_ZNSt6vectorIhSaIhE
 
 .lr.ph261:                                        ; preds = %.preheader185
   %178 = add nsw i32 %141, 1
-  %smax302 = tail call i32 @llvm.smax.i32(i32 %34, i32 1)
-  %wide.trip.count303 = zext nneg i32 %smax302 to i64
+  %wide.trip.count303 = zext nneg i32 %34 to i64
   br label %225
 
 179:                                              ; preds = %.lr.ph.preheader.i.i.i.i.i
@@ -10316,8 +10314,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.us:       ; preds = %_ZNSt6vectorIhSaIhE
   br i1 %brmerge, label %_ZN2cv29ParallelLoopBodyLambdaWrapperC2ESt8functionIFvRKNS_5RangeEEE.exit.i, label %.preheader184.us.preheader
 
 .preheader184.us.preheader:                       ; preds = %._crit_edge
-  %smax308 = tail call i32 @llvm.smax.i32(i32 %34, i32 1)
-  %wide.trip.count309 = zext nneg i32 %smax308 to i64
+  %wide.trip.count309 = zext nneg i32 %34 to i64
   br label %.preheader184.us
 
 .preheader184.us:                                 ; preds = %.preheader184.us.preheader, %._crit_edge266.us

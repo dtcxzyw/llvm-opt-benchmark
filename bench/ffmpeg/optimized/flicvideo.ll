@@ -648,7 +648,7 @@ bytestream2_get_byte.exit244.i:                   ; preds = %225, %221
 
 .lr.ph.preheader.i:                               ; preds = %.critedge.i260.i, %231
   %scevgep.i = getelementptr i8, ptr %27, i64 %192
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 %.0.i243.i, i64 %229, i1 false), !tbaa !34
+  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 %.0.i243.i, i64 %229, i1 false), !tbaa !34
   %234 = add i64 %.5159413.i, 1
   %235 = add i64 %234, %.0.i237.i
   %236 = xor i32 %197, -1
@@ -1591,7 +1591,7 @@ bytestream2_get_byte.exit424.i:                   ; preds = %655, %650
 
 .lr.ph735.preheader.i:                            ; preds = %.critedge.i458.i, %660
   %scevgep.i40 = getelementptr i8, ptr %286, i64 %621
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i40, i8 %.0.i423.i, i64 %658, i1 false), !tbaa !34
+  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i40, i8 %.0.i423.i, i64 %658, i1 false), !tbaa !34
   %663 = add i64 %.4749.i, 1
   %664 = add i64 %663, %.0.i417.i
   %665 = xor i32 %626, -1

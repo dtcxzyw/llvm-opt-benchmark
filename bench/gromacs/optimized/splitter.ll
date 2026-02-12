@@ -1040,8 +1040,7 @@ _ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread: ; preds = %324
 .lr.ph253.preheader:                              ; preds = %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit, %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread
   %.sink = phi ptr [ %359, %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread ], [ %356, %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit ]
   %360 = call i64 @fwrite(ptr nonnull @.str.1, i64 19, i64 1, ptr nonnull %.sink)
-  %smax365 = call i32 @llvm.smax.i32(i32 %2, i32 1)
-  %wide.trip.count366 = zext nneg i32 %smax365 to i64
+  %wide.trip.count366 = zext nneg i32 %2 to i64
   br label %.lr.ph253
 
 .lr.ph253:                                        ; preds = %.lr.ph253.preheader, %.lr.ph253

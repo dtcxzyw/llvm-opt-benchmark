@@ -921,9 +921,8 @@ define internal fastcc ptr @dotrim(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %5, label %.lr.ph.us215.preheader, label %.thread178
 
 .lr.ph.us215.preheader:                           ; preds = %.loopexit190
-  %smax = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
   %94 = sext i32 %.5138 to i64
-  %wide.trip.count272 = zext nneg i32 %smax to i64
+  %wide.trip.count272 = zext nneg i32 %3 to i64
   br label %.lr.ph.us215
 
 .lr.ph.us215:                                     ; preds = %.lr.ph.us215.preheader, %103

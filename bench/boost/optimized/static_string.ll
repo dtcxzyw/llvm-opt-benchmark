@@ -78833,21 +78833,21 @@ _ZN5boost6detail9test_implEPKcS2_iS2_b.exit.i:    ; preds = %161, %159, %_ZN5boo
 _ZN5boost6detail9test_implEPKcS2_iS2_b.exit68.i:  ; preds = %167, %165, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit.i
   %169 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
   %170 = icmp eq i8 %169, 0
-  br i1 %170, label %171, label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit71.i, !prof !56
+  br i1 %170, label %171, label %_ZN5boost14static_strings19basic_static_stringILm2EcSt11char_traitsIcEEC2ILm5EEERKNS1_IXT_EcS3_EEmm.exit.i, !prof !56
 
 171:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit68.i
   %172 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #35
   %.not.i.i69.i = icmp eq i32 %172, 0
-  br i1 %.not.i.i69.i, label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit71.i, label %173
+  br i1 %.not.i.i69.i, label %_ZN5boost14static_strings19basic_static_stringILm2EcSt11char_traitsIcEEC2ILm5EEERKNS1_IXT_EcS3_EEmm.exit.i, label %173
 
 173:                                              ; preds = %171
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
   %174 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #35
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #35
-  br label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit71.i
+  br label %_ZN5boost14static_strings19basic_static_stringILm2EcSt11char_traitsIcEEC2ILm5EEERKNS1_IXT_EcS3_EEmm.exit.i
 
-_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit71.i: ; preds = %173, %171, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit68.i
+_ZN5boost14static_strings19basic_static_stringILm2EcSt11char_traitsIcEEC2ILm5EEERKNS1_IXT_EcS3_EEmm.exit.i: ; preds = %173, %171, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit68.i
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
   call void @llvm.lifetime.start.p0(ptr nonnull %72)
   store i32 3355138, ptr %72, align 4
@@ -78859,7 +78859,7 @@ _ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.ex
   %179 = icmp eq i8 %178, 0
   br i1 %179, label %180, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit53, !prof !56
 
-180:                                              ; preds = %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit71.i
+180:                                              ; preds = %_ZN5boost14static_strings19basic_static_stringILm2EcSt11char_traitsIcEEC2ILm5EEERKNS1_IXT_EcS3_EEmm.exit.i
   %181 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #35
   %.not.i.i52 = icmp eq i32 %181, 0
   br i1 %.not.i.i52, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit53, label %182
@@ -78871,7 +78871,7 @@ _ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.ex
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #35
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit53
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit53:    ; preds = %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit71.i, %180, %182
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit53:    ; preds = %_ZN5boost14static_strings19basic_static_stringILm2EcSt11char_traitsIcEEC2ILm5EEERKNS1_IXT_EcS3_EEmm.exit.i, %180, %182
   %184 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
   %185 = icmp eq i8 %184, 0
   br i1 %185, label %186, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit80.i, !prof !56

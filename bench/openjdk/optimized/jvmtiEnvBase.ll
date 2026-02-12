@@ -7666,7 +7666,7 @@ _ZN12JvmtiEnvBase11jvmtiMallocEl.exit:            ; preds = %_ZN11MutexLockerC2E
   %32 = shl nuw nsw i64 %31, 3
   %33 = tail call noundef ptr @_ZN2os6mallocEm8MEMFLAGS(i64 noundef %32, i8 noundef zeroext 9) #18
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %_ZN12JvmtiEnvBase11jvmtiMallocEl.exit.thread, label %.lr.ph
+  br i1 %34, label %47, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN12JvmtiEnvBase11jvmtiMallocEl.exit, %_ZNK9OopHandle7resolveEv.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK9OopHandle7resolveEv.exit ], [ 0, %_ZN12JvmtiEnvBase11jvmtiMallocEl.exit ]
@@ -7696,45 +7696,45 @@ _ZNK9OopHandle7resolveEv.exit:                    ; preds = %.lr.ph, %41
   store ptr null, ptr @_ZN18JvmtiModuleClosure4_tblE, align 8
   store ptr %33, ptr %3, align 8
   store i32 %27, ptr %2, align 4
-  br label %_ZN12JvmtiEnvBase11jvmtiMallocEl.exit.thread
+  br label %47
 
-_ZN12JvmtiEnvBase11jvmtiMallocEl.exit.thread:     ; preds = %_ZN12JvmtiEnvBase11jvmtiMallocEl.exit, %._crit_edge
+47:                                               ; preds = %_ZN12JvmtiEnvBase11jvmtiMallocEl.exit, %._crit_edge
   %.014 = phi i32 [ 0, %._crit_edge ], [ 110, %_ZN12JvmtiEnvBase11jvmtiMallocEl.exit ]
-  br i1 %.not.i.i17, label %_ZN11MutexLockerD2Ev.exit, label %47
+  br i1 %.not.i.i17, label %_ZN11MutexLockerD2Ev.exit, label %48
 
-47:                                               ; preds = %_ZN12JvmtiEnvBase11jvmtiMallocEl.exit.thread
+48:                                               ; preds = %47
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %19) #18
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN12JvmtiEnvBase11jvmtiMallocEl.exit.thread, %47
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit21, label %48
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %47, %48
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit21, label %49
 
-48:                                               ; preds = %_ZN11MutexLockerD2Ev.exit
+49:                                               ; preds = %_ZN11MutexLockerD2Ev.exit
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %17) #18
   br label %_ZN11MutexLockerD2Ev.exit21
 
-_ZN11MutexLockerD2Ev.exit21:                      ; preds = %_ZN11MutexLockerD2Ev.exit, %48
-  %49 = load ptr, ptr %10, align 8
-  %.not.i.i.i.i = icmp eq ptr %49, null
-  br i1 %.not.i.i.i.i, label %51, label %50
+_ZN11MutexLockerD2Ev.exit21:                      ; preds = %_ZN11MutexLockerD2Ev.exit, %49
+  %50 = load ptr, ptr %10, align 8
+  %.not.i.i.i.i = icmp eq ptr %50, null
+  br i1 %.not.i.i.i.i, label %52, label %51
 
-50:                                               ; preds = %_ZN11MutexLockerD2Ev.exit21
+51:                                               ; preds = %_ZN11MutexLockerD2Ev.exit21
   tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %16) #18
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %10) #18
-  br label %51
+  br label %52
 
-51:                                               ; preds = %50, %_ZN11MutexLockerD2Ev.exit21
-  %52 = load ptr, ptr %11, align 8
-  %.not8.i.i.i.i = icmp eq ptr %52, %12
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %53
+52:                                               ; preds = %51, %_ZN11MutexLockerD2Ev.exit21
+  %53 = load ptr, ptr %11, align 8
+  %.not8.i.i.i.i = icmp eq ptr %53, %12
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %54
 
-53:                                               ; preds = %51
+54:                                               ; preds = %52
   store ptr %10, ptr %9, align 8
   store ptr %12, ptr %11, align 8
   store ptr %14, ptr %13, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %51, %53
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %52, %54
   ret i32 %.014
 }
 

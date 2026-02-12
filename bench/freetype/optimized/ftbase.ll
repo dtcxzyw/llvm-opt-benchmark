@@ -2520,7 +2520,11 @@ define hidden range(i32 0, 65) i32 @FT_GlyphLoader_CreateExtra(ptr noundef captu
 
 12:                                               ; preds = %9
   %13 = icmp ugt i32 %10, 134217727
-  br i1 %13, label %ft_mem_realloc.exit.thread21, label %14
+  br i1 %13, label %ft_mem_realloc.exit.thread20, label %14
+
+ft_mem_realloc.exit.thread20:                     ; preds = %12
+  store ptr null, ptr %7, align 8, !tbaa !195
+  br label %62
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2528,8 +2532,8 @@ define hidden range(i32 0, 65) i32 @FT_GlyphLoader_CreateExtra(ptr noundef captu
   %17 = shl i32 %4, 5
   %18 = zext i32 %17 to i64
   %19 = tail call ptr %16(ptr noundef %2, i64 noundef %18) #35
-  %.not25 = icmp eq ptr %19, null
-  br i1 %.not25, label %ft_mem_realloc.exit, label %20
+  %.not24 = icmp eq ptr %19, null
+  br i1 %.not24, label %ft_mem_realloc.exit, label %20
 
 20:                                               ; preds = %14
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %19, i8 0, i64 %18, i1 false)
@@ -2551,10 +2555,6 @@ ft_mem_realloc.exit.thread:                       ; preds = %20, %9
   %28 = load ptr, ptr %27, align 8, !tbaa !156
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %34, label %29
-
-ft_mem_realloc.exit.thread21:                     ; preds = %12
-  store ptr null, ptr %7, align 8, !tbaa !195
-  br label %62
 
 ft_mem_realloc.exit:                              ; preds = %14
   store ptr null, ptr %7, align 8, !tbaa !195
@@ -2613,8 +2613,8 @@ FT_GlyphLoader_Adjust_Points.exit:                ; preds = %49, %44
   store ptr %60, ptr %61, align 8, !tbaa !204
   br label %62
 
-62:                                               ; preds = %ft_mem_realloc.exit, %FT_GlyphLoader_Adjust_Points.exit, %ft_mem_realloc.exit.thread21, %1, %6
-  %.0 = phi i32 [ 0, %1 ], [ 0, %6 ], [ 0, %FT_GlyphLoader_Adjust_Points.exit ], [ 64, %ft_mem_realloc.exit ], [ 10, %ft_mem_realloc.exit.thread21 ]
+62:                                               ; preds = %ft_mem_realloc.exit, %FT_GlyphLoader_Adjust_Points.exit, %ft_mem_realloc.exit.thread20, %1, %6
+  %.0 = phi i32 [ 0, %1 ], [ 0, %6 ], [ 0, %FT_GlyphLoader_Adjust_Points.exit ], [ 64, %ft_mem_realloc.exit ], [ 10, %ft_mem_realloc.exit.thread20 ]
   ret i32 %.0
 }
 
@@ -2728,8 +2728,8 @@ define hidden i32 @FT_GlyphLoader_CheckPoints(ptr noundef %0, i32 noundef %1, i3
   %22 = shl i32 %9, 5
   %23 = zext i32 %22 to i64
   %24 = tail call ptr %21(ptr noundef %5, i64 noundef %23) #35
-  %.not25.i = icmp eq ptr %24, null
-  br i1 %.not25.i, label %FT_GlyphLoader_CreateExtra.exit, label %25
+  %.not24.i = icmp eq ptr %24, null
+  br i1 %.not24.i, label %FT_GlyphLoader_CreateExtra.exit, label %25
 
 25:                                               ; preds = %19
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %24, i8 0, i64 %23, i1 false)
@@ -2820,7 +2820,7 @@ FT_GlyphLoader_CreateExtra.exit:                  ; preds = %19, %17
   %74 = add i32 %1, %70
   %75 = add i32 %74, %73
   %.not = icmp ugt i32 %75, %67
-  br i1 %.not, label %76, label %162
+  br i1 %.not, label %76, label %159
 
 76:                                               ; preds = %66
   %77 = icmp ugt i32 %75, 65535
@@ -2853,7 +2853,11 @@ FT_GlyphLoader_CreateExtra.exit:                  ; preds = %19, %17
 
 93:                                               ; preds = %78
   %94 = icmp ugt i32 %spec.store.select, 134217727
-  br i1 %94, label %ft_mem_realloc.exit.thread123, label %95
+  br i1 %94, label %ft_mem_realloc.exit.thread121, label %95
+
+ft_mem_realloc.exit.thread121:                    ; preds = %93
+  store ptr %87, ptr %86, align 8, !tbaa !156
+  br label %FT_GlyphLoader_Adjust_Points.exit.thread
 
 95:                                               ; preds = %93
   %96 = icmp eq i32 %67, 0
@@ -2889,13 +2893,9 @@ ft_mem_qrealloc.exit.i:                           ; preds = %103, %97
   %or.cond18.i = and i1 %111, %or.cond.i
   br i1 %or.cond18.i, label %112, label %ft_mem_realloc.exit
 
-ft_mem_realloc.exit.thread123:                    ; preds = %93
-  store ptr %87, ptr %86, align 8, !tbaa !156
-  br label %FT_GlyphLoader_Adjust_Points.exit.thread
-
 ft_mem_realloc.exit:                              ; preds = %ft_mem_qrealloc.exit.i
   store ptr %.0.i.i, ptr %86, align 8, !tbaa !156
-  br i1 %109, label %.thread168, label %FT_GlyphLoader_Adjust_Points.exit.thread
+  br i1 %109, label %.thread, label %FT_GlyphLoader_Adjust_Points.exit.thread
 
 112:                                              ; preds = %ft_mem_qrealloc.exit.i
   %113 = shl nuw nsw i64 %84, 4
@@ -2904,407 +2904,405 @@ ft_mem_realloc.exit:                              ; preds = %ft_mem_qrealloc.exi
   %116 = shl nsw i64 %115, 4
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %114, i8 0, i64 %116, i1 false)
   store ptr %.0.i.i, ptr %86, align 8, !tbaa !156
-  br label %.thread168
+  br label %.thread
 
-117:                                              ; preds = %89, %90
+117:                                              ; preds = %90, %89
   store ptr null, ptr %86, align 8, !tbaa !156
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %119 = load ptr, ptr %118, align 8, !tbaa !202
-  %.not.i.i.i99 = icmp eq ptr %119, null
-  br i1 %.not.i.i.i99, label %ft_mem_realloc.exit100.thread, label %120
+  %.not.i.i.i98 = icmp eq ptr %119, null
+  br i1 %.not.i.i.i98, label %ft_mem_realloc.exit99.thread, label %120
 
 120:                                              ; preds = %117
   %121 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %122 = load ptr, ptr %121, align 8, !tbaa !61
   tail call void %122(ptr noundef %5, ptr noundef nonnull %119) #35
-  br label %ft_mem_realloc.exit100.thread
+  br label %ft_mem_realloc.exit99.thread
 
-.thread168:                                       ; preds = %ft_mem_realloc.exit, %112
+.thread:                                          ; preds = %ft_mem_realloc.exit, %112
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %124 = icmp eq i32 %67, 0
-  br i1 %124, label %125, label %130
+  br i1 %96, label %124, label %129
 
-125:                                              ; preds = %.thread168
-  %126 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %127 = load ptr, ptr %126, align 8, !tbaa !179
-  %128 = tail call ptr %127(ptr noundef nonnull %5, i64 noundef %85) #35
-  %129 = icmp eq ptr %128, null
-  %spec.select.i.i98 = select i1 %129, i32 64, i32 0
-  br label %ft_mem_qrealloc.exit.i93
+124:                                              ; preds = %.thread
+  %125 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %126 = load ptr, ptr %125, align 8, !tbaa !179
+  %127 = tail call ptr %126(ptr noundef nonnull %5, i64 noundef %85) #35
+  %128 = icmp eq ptr %127, null
+  %spec.select.i.i97 = select i1 %128, i32 64, i32 0
+  br label %ft_mem_qrealloc.exit.i92
 
-130:                                              ; preds = %.thread168
-  %131 = load ptr, ptr %123, align 8, !tbaa !202
-  %132 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %133 = load ptr, ptr %132, align 8, !tbaa !205
-  %134 = tail call ptr %133(ptr noundef nonnull %5, i64 noundef %84, i64 noundef %85, ptr noundef %131) #35
-  %.not.i.i90 = icmp eq ptr %134, null
-  %..i.i91 = select i1 %.not.i.i90, i32 64, i32 0
-  %.42.i.i92 = select i1 %.not.i.i90, ptr %131, ptr %134
-  br label %ft_mem_qrealloc.exit.i93
+129:                                              ; preds = %.thread
+  %130 = load ptr, ptr %123, align 8, !tbaa !202
+  %131 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %132 = load ptr, ptr %131, align 8, !tbaa !205
+  %133 = tail call ptr %132(ptr noundef nonnull %5, i64 noundef %84, i64 noundef %85, ptr noundef %130) #35
+  %.not.i.i89 = icmp eq ptr %133, null
+  %..i.i90 = select i1 %.not.i.i89, i32 64, i32 0
+  %.42.i.i91 = select i1 %.not.i.i89, ptr %130, ptr %133
+  br label %ft_mem_qrealloc.exit.i92
 
-ft_mem_qrealloc.exit.i93:                         ; preds = %130, %125
-  %.033.i.i94 = phi i32 [ %..i.i91, %130 ], [ %spec.select.i.i98, %125 ]
-  %.0.i.i95 = phi ptr [ %.42.i.i92, %130 ], [ %128, %125 ]
-  %135 = icmp eq i32 %.033.i.i94, 0
-  %136 = icmp ne ptr %.0.i.i95, null
-  %or.cond.i96 = select i1 %135, i1 %136, i1 false
-  %137 = icmp ugt i32 %spec.store.select, %67
-  %or.cond18.i97 = and i1 %137, %or.cond.i96
-  br i1 %or.cond18.i97, label %138, label %ft_mem_realloc.exit100
+ft_mem_qrealloc.exit.i92:                         ; preds = %129, %124
+  %.033.i.i93 = phi i32 [ %..i.i90, %129 ], [ %spec.select.i.i97, %124 ]
+  %.0.i.i94 = phi ptr [ %.42.i.i91, %129 ], [ %127, %124 ]
+  %134 = icmp eq i32 %.033.i.i93, 0
+  %135 = icmp ne ptr %.0.i.i94, null
+  %or.cond.i95 = select i1 %134, i1 %135, i1 false
+  %or.cond18.i96 = and i1 %111, %or.cond.i95
+  br i1 %or.cond18.i96, label %136, label %ft_mem_realloc.exit99
 
-138:                                              ; preds = %ft_mem_qrealloc.exit.i93
-  %139 = getelementptr inbounds nuw i8, ptr %.0.i.i95, i64 %84
-  %140 = sub nsw i64 %85, %84
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %139, i8 0, i64 %140, i1 false)
-  br label %ft_mem_realloc.exit100.thread
+136:                                              ; preds = %ft_mem_qrealloc.exit.i92
+  %137 = getelementptr inbounds nuw i8, ptr %.0.i.i94, i64 %84
+  %138 = sub nsw i64 %85, %84
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %137, i8 0, i64 %138, i1 false)
+  br label %ft_mem_realloc.exit99.thread
 
-ft_mem_realloc.exit100.thread:                    ; preds = %138, %120, %117
-  %141 = phi ptr [ %118, %117 ], [ %118, %120 ], [ %123, %138 ]
-  %.0.i25.i88.ph = phi ptr [ null, %117 ], [ null, %120 ], [ %.0.i.i95, %138 ]
+ft_mem_realloc.exit99.thread:                     ; preds = %136, %120, %117
+  %.ph = phi ptr [ %118, %117 ], [ %118, %120 ], [ %123, %136 ]
+  %.0.i25.i87.ph = phi ptr [ null, %117 ], [ null, %120 ], [ %.0.i.i94, %136 ]
   store i32 0, ptr %4, align 4, !tbaa !168
-  store ptr %.0.i25.i88.ph, ptr %141, align 8, !tbaa !202
-  br label %142
+  store ptr %.0.i25.i87.ph, ptr %.ph, align 8, !tbaa !202
+  br label %139
 
-ft_mem_realloc.exit100:                           ; preds = %ft_mem_qrealloc.exit.i93
-  store i32 %.033.i.i94, ptr %4, align 4, !tbaa !168
-  store ptr %.0.i.i95, ptr %123, align 8, !tbaa !202
-  br i1 %135, label %142, label %FT_GlyphLoader_Adjust_Points.exit.thread
+ft_mem_realloc.exit99:                            ; preds = %ft_mem_qrealloc.exit.i92
+  store i32 %.033.i.i93, ptr %4, align 4, !tbaa !168
+  store ptr %.0.i.i94, ptr %123, align 8, !tbaa !202
+  br i1 %134, label %139, label %FT_GlyphLoader_Adjust_Points.exit.thread
 
-142:                                              ; preds = %ft_mem_realloc.exit100.thread, %ft_mem_realloc.exit100
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %144 = load i8, ptr %143, align 4, !tbaa !201
-  %.not79 = icmp eq i8 %144, 0
-  br i1 %.not79, label %161, label %145
+139:                                              ; preds = %ft_mem_realloc.exit99.thread, %ft_mem_realloc.exit99
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %141 = load i8, ptr %140, align 4, !tbaa !201
+  %.not79 = icmp eq i8 %141, 0
+  br i1 %.not79, label %158, label %142
 
-145:                                              ; preds = %142
-  %146 = shl i32 %67, 1
-  %147 = zext i32 %146 to i64
-  %148 = shl nuw nsw i32 %spec.store.select, 1
-  %149 = zext nneg i32 %148 to i64
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %151 = load ptr, ptr %150, align 8, !tbaa !195
-  %152 = call ptr @ft_mem_realloc(ptr noundef %5, i64 noundef 16, i64 noundef %147, i64 noundef %149, ptr noundef %151, ptr noundef nonnull %4)
-  store ptr %152, ptr %150, align 8, !tbaa !195
-  %153 = load i32, ptr %4, align 4, !tbaa !168
-  %.not80 = icmp eq i32 %153, 0
-  br i1 %.not80, label %154, label %FT_GlyphLoader_Adjust_Points.exit.thread
+142:                                              ; preds = %139
+  %143 = shl i32 %67, 1
+  %144 = zext i32 %143 to i64
+  %145 = shl nuw nsw i32 %spec.store.select, 1
+  %146 = zext nneg i32 %145 to i64
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %148 = load ptr, ptr %147, align 8, !tbaa !195
+  %149 = call ptr @ft_mem_realloc(ptr noundef %5, i64 noundef 16, i64 noundef %144, i64 noundef %146, ptr noundef %148, ptr noundef nonnull %4)
+  store ptr %149, ptr %147, align 8, !tbaa !195
+  %150 = load i32, ptr %4, align 4, !tbaa !168
+  %.not80 = icmp eq i32 %150, 0
+  br i1 %.not80, label %151, label %FT_GlyphLoader_Adjust_Points.exit.thread
 
-154:                                              ; preds = %145
-  %155 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %152, i64 %85
-  %156 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %152, i64 %84
-  %157 = shl nuw nsw i64 %84, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %155, ptr align 8 %156, i64 %157, i1 false)
-  %158 = load ptr, ptr %150, align 8, !tbaa !195
-  %159 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %158, i64 %85
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %159, ptr %160, align 8, !tbaa !197
-  br label %161
+151:                                              ; preds = %142
+  %152 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %149, i64 %85
+  %153 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %149, i64 %84
+  %154 = shl nuw nsw i64 %84, 4
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %152, ptr align 8 %153, i64 %154, i1 false)
+  %155 = load ptr, ptr %147, align 8, !tbaa !195
+  %156 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %155, i64 %85
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store ptr %156, ptr %157, align 8, !tbaa !197
+  br label %158
 
-161:                                              ; preds = %154, %142
+158:                                              ; preds = %151, %139
   store i32 %spec.store.select, ptr %8, align 8, !tbaa !198
-  br label %162
+  br label %159
 
-162:                                              ; preds = %161, %66
-  %163 = phi i32 [ %spec.store.select, %161 ], [ %67, %66 ]
-  %164 = load ptr, ptr %0, align 8, !tbaa !180
-  %165 = icmp eq i32 %163, 0
-  br i1 %165, label %218, label %166
+159:                                              ; preds = %158, %66
+  %160 = phi i32 [ %spec.store.select, %158 ], [ %67, %66 ]
+  %161 = load ptr, ptr %0, align 8, !tbaa !180
+  %162 = icmp eq i32 %160, 0
+  br i1 %162, label %215, label %163
 
-166:                                              ; preds = %162
-  %167 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %168 = load ptr, ptr %167, align 8, !tbaa !195
-  %.not.i101 = icmp eq ptr %168, null
-  br i1 %.not.i101, label %169, label %218
+163:                                              ; preds = %159
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %165 = load ptr, ptr %164, align 8, !tbaa !195
+  %.not.i100 = icmp eq ptr %165, null
+  br i1 %.not.i100, label %166, label %215
+
+166:                                              ; preds = %163
+  %167 = shl i32 %160, 1
+  %168 = icmp eq i32 %167, 0
+  br i1 %168, label %ft_mem_realloc.exit.thread.i104, label %169
 
 169:                                              ; preds = %166
-  %170 = shl i32 %163, 1
-  %171 = icmp eq i32 %170, 0
-  br i1 %171, label %ft_mem_realloc.exit.thread.i105, label %172
+  %170 = icmp ugt i32 %167, 134217727
+  br i1 %170, label %FT_GlyphLoader_CreateExtra.exit112, label %171
 
-172:                                              ; preds = %169
-  %173 = icmp ugt i32 %170, 134217727
-  br i1 %173, label %FT_GlyphLoader_CreateExtra.exit113, label %174
+171:                                              ; preds = %169
+  %172 = getelementptr inbounds nuw i8, ptr %161, i64 8
+  %173 = load ptr, ptr %172, align 8, !tbaa !179
+  %174 = shl i32 %160, 5
+  %175 = zext i32 %174 to i64
+  %176 = tail call ptr %173(ptr noundef %161, i64 noundef %175) #35
+  %.not24.i102 = icmp eq ptr %176, null
+  br i1 %.not24.i102, label %FT_GlyphLoader_CreateExtra.exit112, label %177
 
-174:                                              ; preds = %172
-  %175 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  %176 = load ptr, ptr %175, align 8, !tbaa !179
-  %177 = shl i32 %163, 5
-  %178 = zext i32 %177 to i64
-  %179 = tail call ptr %176(ptr noundef %164, i64 noundef %178) #35
-  %.not25.i103 = icmp eq ptr %179, null
-  br i1 %.not25.i103, label %FT_GlyphLoader_CreateExtra.exit113, label %180
+177:                                              ; preds = %171
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %176, i8 0, i64 %175, i1 false)
+  %.pre.i103 = load i32, ptr %8, align 8, !tbaa !198
+  br label %ft_mem_realloc.exit.thread.i104
 
-180:                                              ; preds = %174
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %179, i8 0, i64 %178, i1 false)
-  %.pre.i104 = load i32, ptr %8, align 8, !tbaa !198
-  br label %ft_mem_realloc.exit.thread.i105
+ft_mem_realloc.exit.thread.i104:                  ; preds = %177, %166
+  %178 = phi i32 [ %160, %166 ], [ %.pre.i103, %177 ]
+  %.0.i25.i.ph.i105 = phi ptr [ null, %166 ], [ %176, %177 ]
+  store ptr %.0.i25.i.ph.i105, ptr %164, align 8, !tbaa !195
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 1, ptr %179, align 4, !tbaa !201
+  %180 = zext i32 %178 to i64
+  %181 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %.0.i25.i.ph.i105, i64 %180
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store ptr %181, ptr %182, align 8, !tbaa !197
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %184 = load ptr, ptr %183, align 8, !tbaa !156
+  %.not.i.i106 = icmp eq ptr %184, null
+  br i1 %.not.i.i106, label %189, label %185
 
-ft_mem_realloc.exit.thread.i105:                  ; preds = %180, %169
-  %181 = phi i32 [ %163, %169 ], [ %.pre.i104, %180 ]
-  %.0.i25.i.ph.i106 = phi ptr [ null, %169 ], [ %179, %180 ]
-  store ptr %.0.i25.i.ph.i106, ptr %167, align 8, !tbaa !195
-  %182 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %182, align 4, !tbaa !201
-  %183 = zext i32 %181 to i64
-  %184 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %.0.i25.i.ph.i106, i64 %183
-  %185 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %184, ptr %185, align 8, !tbaa !197
-  %186 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %187 = load ptr, ptr %186, align 8, !tbaa !156
-  %.not.i.i107 = icmp eq ptr %187, null
-  br i1 %.not.i.i107, label %192, label %188
+185:                                              ; preds = %ft_mem_realloc.exit.thread.i104
+  %186 = load i16, ptr %68, align 2, !tbaa !129
+  %187 = zext i16 %186 to i64
+  %188 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %184, i64 %187
+  br label %189
 
-188:                                              ; preds = %ft_mem_realloc.exit.thread.i105
-  %189 = load i16, ptr %68, align 2, !tbaa !129
-  %190 = zext i16 %189 to i64
-  %191 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %187, i64 %190
-  br label %192
+189:                                              ; preds = %185, %ft_mem_realloc.exit.thread.i104
+  %190 = phi ptr [ %188, %185 ], [ null, %ft_mem_realloc.exit.thread.i104 ]
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store ptr %190, ptr %191, align 8, !tbaa !156
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %193 = load ptr, ptr %192, align 8, !tbaa !202
+  %.not23.i.i107 = icmp eq ptr %193, null
+  br i1 %.not23.i.i107, label %198, label %194
 
-192:                                              ; preds = %188, %ft_mem_realloc.exit.thread.i105
-  %193 = phi ptr [ %191, %188 ], [ null, %ft_mem_realloc.exit.thread.i105 ]
-  %194 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr %193, ptr %194, align 8, !tbaa !156
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %196 = load ptr, ptr %195, align 8, !tbaa !202
-  %.not23.i.i108 = icmp eq ptr %196, null
-  br i1 %.not23.i.i108, label %201, label %197
+194:                                              ; preds = %189
+  %195 = load i16, ptr %68, align 2, !tbaa !129
+  %196 = zext i16 %195 to i64
+  %197 = getelementptr inbounds nuw i8, ptr %193, i64 %196
+  br label %198
 
-197:                                              ; preds = %192
-  %198 = load i16, ptr %68, align 2, !tbaa !129
-  %199 = zext i16 %198 to i64
-  %200 = getelementptr inbounds nuw i8, ptr %196, i64 %199
-  br label %201
+198:                                              ; preds = %194, %189
+  %199 = phi ptr [ %197, %194 ], [ null, %189 ]
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr %199, ptr %200, align 8, !tbaa !202
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %202 = load ptr, ptr %201, align 8, !tbaa !131
+  %.not24.i.i108 = icmp eq ptr %202, null
+  br i1 %.not24.i.i108, label %FT_GlyphLoader_Adjust_Points.exit.i109, label %203
 
-201:                                              ; preds = %197, %192
-  %202 = phi ptr [ %200, %197 ], [ null, %192 ]
-  %203 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr %202, ptr %203, align 8, !tbaa !202
-  %204 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %205 = load ptr, ptr %204, align 8, !tbaa !131
-  %.not24.i.i109 = icmp eq ptr %205, null
-  br i1 %.not24.i.i109, label %FT_GlyphLoader_Adjust_Points.exit.i110, label %206
+203:                                              ; preds = %198
+  %204 = load i16, ptr %6, align 8, !tbaa !130
+  %205 = zext i16 %204 to i64
+  %206 = getelementptr inbounds nuw i16, ptr %202, i64 %205
+  br label %FT_GlyphLoader_Adjust_Points.exit.i109
 
-206:                                              ; preds = %201
-  %207 = load i16, ptr %6, align 8, !tbaa !130
-  %208 = zext i16 %207 to i64
-  %209 = getelementptr inbounds nuw i16, ptr %205, i64 %208
-  br label %FT_GlyphLoader_Adjust_Points.exit.i110
+FT_GlyphLoader_Adjust_Points.exit.i109:           ; preds = %203, %198
+  %207 = phi ptr [ %206, %203 ], [ null, %198 ]
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store ptr %207, ptr %208, align 8, !tbaa !131
+  %209 = load i16, ptr %68, align 2, !tbaa !129
+  %210 = zext i16 %209 to i64
+  %211 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %.0.i25.i.ph.i105, i64 %210
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store ptr %211, ptr %212, align 8, !tbaa !203
+  %213 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %181, i64 %210
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store ptr %213, ptr %214, align 8, !tbaa !204
+  br label %215
 
-FT_GlyphLoader_Adjust_Points.exit.i110:           ; preds = %206, %201
-  %210 = phi ptr [ %209, %206 ], [ null, %201 ]
-  %211 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr %210, ptr %211, align 8, !tbaa !131
-  %212 = load i16, ptr %68, align 2, !tbaa !129
-  %213 = zext i16 %212 to i64
-  %214 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %.0.i25.i.ph.i106, i64 %213
-  %215 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr %214, ptr %215, align 8, !tbaa !203
-  %216 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %184, i64 %213
-  %217 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %216, ptr %217, align 8, !tbaa !204
-  br label %218
-
-FT_GlyphLoader_CreateExtra.exit113:               ; preds = %174, %172
-  %.0.i102 = phi i32 [ 10, %172 ], [ 64, %174 ]
-  store ptr null, ptr %167, align 8, !tbaa !195
+FT_GlyphLoader_CreateExtra.exit112:               ; preds = %171, %169
+  %.0.i101 = phi i32 [ 10, %169 ], [ 64, %171 ]
+  store ptr null, ptr %164, align 8, !tbaa !195
   br label %FT_GlyphLoader_Adjust_Points.exit.thread
 
-218:                                              ; preds = %162, %166, %FT_GlyphLoader_Adjust_Points.exit.i110
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %220 = load i32, ptr %219, align 4, !tbaa !199
-  %221 = load i16, ptr %6, align 8, !tbaa !130
-  %222 = zext i16 %221 to i32
-  %223 = load i16, ptr %7, align 8, !tbaa !130
-  %224 = zext i16 %223 to i32
-  %225 = add i32 %2, %222
-  %226 = add i32 %225, %224
-  %227 = icmp ugt i32 %226, %220
-  br i1 %227, label %228, label %242
+215:                                              ; preds = %159, %163, %FT_GlyphLoader_Adjust_Points.exit.i109
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %217 = load i32, ptr %216, align 4, !tbaa !199
+  %218 = load i16, ptr %6, align 8, !tbaa !130
+  %219 = zext i16 %218 to i32
+  %220 = load i16, ptr %7, align 8, !tbaa !130
+  %221 = zext i16 %220 to i32
+  %222 = add i32 %2, %219
+  %223 = add i32 %222, %221
+  %224 = icmp ugt i32 %223, %217
+  br i1 %224, label %225, label %239
 
-228:                                              ; preds = %218
-  %229 = icmp ugt i32 %226, 65535
-  br i1 %229, label %FT_GlyphLoader_Adjust_Points.exit.thread, label %230
+225:                                              ; preds = %215
+  %226 = icmp ugt i32 %223, 65535
+  br i1 %226, label %FT_GlyphLoader_Adjust_Points.exit.thread, label %227
 
-230:                                              ; preds = %228
-  %231 = lshr i32 %220, 1
-  %232 = add i32 %231, %220
-  %spec.select85 = tail call i32 @llvm.umax.i32(i32 %226, i32 %232)
-  %233 = add i32 %spec.select85, 3
-  %234 = and i32 %233, -4
-  %235 = icmp ugt i32 %233, 65535
-  %spec.store.select1 = select i1 %235, i32 65535, i32 %234
-  %236 = zext i32 %220 to i64
-  %237 = zext i32 %spec.store.select1 to i64
-  %238 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %239 = load ptr, ptr %238, align 8, !tbaa !131
-  %240 = call ptr @ft_mem_realloc(ptr noundef %5, i64 noundef 2, i64 noundef %236, i64 noundef %237, ptr noundef %239, ptr noundef nonnull %4)
-  store ptr %240, ptr %238, align 8, !tbaa !131
-  %241 = load i32, ptr %4, align 4, !tbaa !168
-  %.not82 = icmp eq i32 %241, 0
-  br i1 %.not82, label %.thread, label %FT_GlyphLoader_Adjust_Points.exit.thread
+227:                                              ; preds = %225
+  %228 = lshr i32 %217, 1
+  %229 = add i32 %228, %217
+  %spec.select85 = tail call i32 @llvm.umax.i32(i32 %223, i32 %229)
+  %230 = add i32 %spec.select85, 3
+  %231 = and i32 %230, -4
+  %232 = icmp ugt i32 %230, 65535
+  %spec.store.select1 = select i1 %232, i32 65535, i32 %231
+  %233 = zext i32 %217 to i64
+  %234 = zext i32 %spec.store.select1 to i64
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %236 = load ptr, ptr %235, align 8, !tbaa !131
+  %237 = call ptr @ft_mem_realloc(ptr noundef %5, i64 noundef 2, i64 noundef %233, i64 noundef %234, ptr noundef %236, ptr noundef nonnull %4)
+  store ptr %237, ptr %235, align 8, !tbaa !131
+  %238 = load i32, ptr %4, align 4, !tbaa !168
+  %.not82 = icmp eq i32 %238, 0
+  br i1 %.not82, label %.thread132, label %FT_GlyphLoader_Adjust_Points.exit.thread
 
-.thread:                                          ; preds = %230
-  store i32 %spec.store.select1, ptr %219, align 4, !tbaa !199
-  br label %243
+.thread132:                                       ; preds = %227
+  store i32 %spec.store.select1, ptr %216, align 4, !tbaa !199
+  br label %240
 
-242:                                              ; preds = %218
-  br i1 %.not, label %243, label %FT_GlyphLoader_Adjust_Points.exit
+239:                                              ; preds = %215
+  br i1 %.not, label %240, label %FT_GlyphLoader_Adjust_Points.exit
 
-243:                                              ; preds = %.thread, %242
-  %244 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %245 = load ptr, ptr %244, align 8, !tbaa !156
-  %.not.i114 = icmp eq ptr %245, null
-  br i1 %.not.i114, label %250, label %246
+240:                                              ; preds = %.thread132, %239
+  %241 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %242 = load ptr, ptr %241, align 8, !tbaa !156
+  %.not.i113 = icmp eq ptr %242, null
+  br i1 %.not.i113, label %247, label %243
 
-246:                                              ; preds = %243
-  %247 = load i16, ptr %68, align 2, !tbaa !129
-  %248 = zext i16 %247 to i64
-  %249 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %245, i64 %248
-  br label %250
+243:                                              ; preds = %240
+  %244 = load i16, ptr %68, align 2, !tbaa !129
+  %245 = zext i16 %244 to i64
+  %246 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %242, i64 %245
+  br label %247
 
-250:                                              ; preds = %246, %243
-  %251 = phi ptr [ %249, %246 ], [ null, %243 ]
-  %252 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr %251, ptr %252, align 8, !tbaa !156
-  %253 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %254 = load ptr, ptr %253, align 8, !tbaa !202
-  %.not23.i = icmp eq ptr %254, null
-  br i1 %.not23.i, label %259, label %255
+247:                                              ; preds = %243, %240
+  %248 = phi ptr [ %246, %243 ], [ null, %240 ]
+  %249 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store ptr %248, ptr %249, align 8, !tbaa !156
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %251 = load ptr, ptr %250, align 8, !tbaa !202
+  %.not23.i = icmp eq ptr %251, null
+  br i1 %.not23.i, label %256, label %252
 
-255:                                              ; preds = %250
-  %256 = load i16, ptr %68, align 2, !tbaa !129
-  %257 = zext i16 %256 to i64
-  %258 = getelementptr inbounds nuw i8, ptr %254, i64 %257
-  br label %259
+252:                                              ; preds = %247
+  %253 = load i16, ptr %68, align 2, !tbaa !129
+  %254 = zext i16 %253 to i64
+  %255 = getelementptr inbounds nuw i8, ptr %251, i64 %254
+  br label %256
 
-259:                                              ; preds = %255, %250
-  %260 = phi ptr [ %258, %255 ], [ null, %250 ]
-  %261 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr %260, ptr %261, align 8, !tbaa !202
-  %262 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %263 = load ptr, ptr %262, align 8, !tbaa !131
-  %.not24.i = icmp eq ptr %263, null
-  br i1 %.not24.i, label %268, label %264
+256:                                              ; preds = %252, %247
+  %257 = phi ptr [ %255, %252 ], [ null, %247 ]
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr %257, ptr %258, align 8, !tbaa !202
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %260 = load ptr, ptr %259, align 8, !tbaa !131
+  %.not24.i114 = icmp eq ptr %260, null
+  br i1 %.not24.i114, label %265, label %261
 
-264:                                              ; preds = %259
-  %265 = load i16, ptr %6, align 8, !tbaa !130
-  %266 = zext i16 %265 to i64
-  %267 = getelementptr inbounds nuw i16, ptr %263, i64 %266
-  br label %268
+261:                                              ; preds = %256
+  %262 = load i16, ptr %6, align 8, !tbaa !130
+  %263 = zext i16 %262 to i64
+  %264 = getelementptr inbounds nuw i16, ptr %260, i64 %263
+  br label %265
 
-268:                                              ; preds = %264, %259
-  %269 = phi ptr [ %267, %264 ], [ null, %259 ]
-  %270 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr %269, ptr %270, align 8, !tbaa !131
-  %271 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %272 = load i8, ptr %271, align 4, !tbaa !201
-  %.not25.i115 = icmp eq i8 %272, 0
-  br i1 %.not25.i115, label %FT_GlyphLoader_Adjust_Points.exit, label %273
+265:                                              ; preds = %261, %256
+  %266 = phi ptr [ %264, %261 ], [ null, %256 ]
+  %267 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store ptr %266, ptr %267, align 8, !tbaa !131
+  %268 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %269 = load i8, ptr %268, align 4, !tbaa !201
+  %.not25.i = icmp eq i8 %269, 0
+  br i1 %.not25.i, label %FT_GlyphLoader_Adjust_Points.exit, label %270
 
-273:                                              ; preds = %268
-  %274 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %275 = load ptr, ptr %274, align 8, !tbaa !195
-  %276 = load i16, ptr %68, align 2, !tbaa !129
-  %277 = zext i16 %276 to i64
-  %278 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %275, i64 %277
-  %279 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr %278, ptr %279, align 8, !tbaa !203
-  %280 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %281 = load ptr, ptr %280, align 8, !tbaa !197
-  %282 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %281, i64 %277
-  %283 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %282, ptr %283, align 8, !tbaa !204
+270:                                              ; preds = %265
+  %271 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %272 = load ptr, ptr %271, align 8, !tbaa !195
+  %273 = load i16, ptr %68, align 2, !tbaa !129
+  %274 = zext i16 %273 to i64
+  %275 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %272, i64 %274
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store ptr %275, ptr %276, align 8, !tbaa !203
+  %277 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %278 = load ptr, ptr %277, align 8, !tbaa !197
+  %279 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %278, i64 %274
+  %280 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store ptr %279, ptr %280, align 8, !tbaa !204
   br label %FT_GlyphLoader_Adjust_Points.exit
 
-FT_GlyphLoader_Adjust_Points.exit.thread:         ; preds = %228, %76, %ft_mem_realloc.exit100, %ft_mem_realloc.exit, %145, %230, %FT_GlyphLoader_CreateExtra.exit, %ft_mem_realloc.exit.thread123, %FT_GlyphLoader_CreateExtra.exit113
-  %284 = phi i32 [ %.0.i102, %FT_GlyphLoader_CreateExtra.exit113 ], [ 10, %ft_mem_realloc.exit.thread123 ], [ 10, %76 ], [ %.033.i.i94, %ft_mem_realloc.exit100 ], [ %.033.i.i, %ft_mem_realloc.exit ], [ %153, %145 ], [ %241, %230 ], [ %.0.i, %FT_GlyphLoader_CreateExtra.exit ], [ 10, %228 ]
-  %285 = load ptr, ptr %0, align 8, !tbaa !180
-  %286 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %287 = load ptr, ptr %286, align 8, !tbaa !192
-  %.not.i.i116 = icmp eq ptr %287, null
-  br i1 %.not.i.i116, label %ft_mem_free.exit.i, label %288
+FT_GlyphLoader_Adjust_Points.exit.thread:         ; preds = %225, %76, %ft_mem_realloc.exit99, %ft_mem_realloc.exit, %142, %227, %FT_GlyphLoader_CreateExtra.exit, %ft_mem_realloc.exit.thread121, %FT_GlyphLoader_CreateExtra.exit112
+  %281 = phi i32 [ %.0.i101, %FT_GlyphLoader_CreateExtra.exit112 ], [ 10, %ft_mem_realloc.exit.thread121 ], [ 10, %76 ], [ %.033.i.i93, %ft_mem_realloc.exit99 ], [ %.033.i.i, %ft_mem_realloc.exit ], [ %150, %142 ], [ %238, %227 ], [ %.0.i, %FT_GlyphLoader_CreateExtra.exit ], [ 10, %225 ]
+  %282 = load ptr, ptr %0, align 8, !tbaa !180
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %284 = load ptr, ptr %283, align 8, !tbaa !192
+  %.not.i.i115 = icmp eq ptr %284, null
+  br i1 %.not.i.i115, label %ft_mem_free.exit.i, label %285
 
-288:                                              ; preds = %FT_GlyphLoader_Adjust_Points.exit.thread
-  %289 = getelementptr inbounds nuw i8, ptr %285, i64 16
-  %290 = load ptr, ptr %289, align 8, !tbaa !61
-  tail call void %290(ptr noundef %285, ptr noundef nonnull %287) #35
+285:                                              ; preds = %FT_GlyphLoader_Adjust_Points.exit.thread
+  %286 = getelementptr inbounds nuw i8, ptr %282, i64 16
+  %287 = load ptr, ptr %286, align 8, !tbaa !61
+  tail call void %287(ptr noundef %282, ptr noundef nonnull %284) #35
   br label %ft_mem_free.exit.i
 
-ft_mem_free.exit.i:                               ; preds = %288, %FT_GlyphLoader_Adjust_Points.exit.thread
-  store ptr null, ptr %286, align 8, !tbaa !192
-  %291 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %292 = load ptr, ptr %291, align 8, !tbaa !193
-  %.not.i21.i = icmp eq ptr %292, null
-  br i1 %.not.i21.i, label %ft_mem_free.exit22.i, label %293
+ft_mem_free.exit.i:                               ; preds = %285, %FT_GlyphLoader_Adjust_Points.exit.thread
+  store ptr null, ptr %283, align 8, !tbaa !192
+  %288 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %289 = load ptr, ptr %288, align 8, !tbaa !193
+  %.not.i21.i = icmp eq ptr %289, null
+  br i1 %.not.i21.i, label %ft_mem_free.exit22.i, label %290
 
-293:                                              ; preds = %ft_mem_free.exit.i
-  %294 = getelementptr inbounds nuw i8, ptr %285, i64 16
-  %295 = load ptr, ptr %294, align 8, !tbaa !61
-  tail call void %295(ptr noundef %285, ptr noundef nonnull %292) #35
+290:                                              ; preds = %ft_mem_free.exit.i
+  %291 = getelementptr inbounds nuw i8, ptr %282, i64 16
+  %292 = load ptr, ptr %291, align 8, !tbaa !61
+  tail call void %292(ptr noundef %282, ptr noundef nonnull %289) #35
   br label %ft_mem_free.exit22.i
 
-ft_mem_free.exit22.i:                             ; preds = %293, %ft_mem_free.exit.i
-  store ptr null, ptr %291, align 8, !tbaa !193
-  %296 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %297 = load ptr, ptr %296, align 8, !tbaa !194
-  %.not.i23.i = icmp eq ptr %297, null
-  br i1 %.not.i23.i, label %ft_mem_free.exit24.i, label %298
+ft_mem_free.exit22.i:                             ; preds = %290, %ft_mem_free.exit.i
+  store ptr null, ptr %288, align 8, !tbaa !193
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %294 = load ptr, ptr %293, align 8, !tbaa !194
+  %.not.i23.i = icmp eq ptr %294, null
+  br i1 %.not.i23.i, label %ft_mem_free.exit24.i, label %295
 
-298:                                              ; preds = %ft_mem_free.exit22.i
-  %299 = getelementptr inbounds nuw i8, ptr %285, i64 16
-  %300 = load ptr, ptr %299, align 8, !tbaa !61
-  tail call void %300(ptr noundef %285, ptr noundef nonnull %297) #35
+295:                                              ; preds = %ft_mem_free.exit22.i
+  %296 = getelementptr inbounds nuw i8, ptr %282, i64 16
+  %297 = load ptr, ptr %296, align 8, !tbaa !61
+  tail call void %297(ptr noundef %282, ptr noundef nonnull %294) #35
   br label %ft_mem_free.exit24.i
 
-ft_mem_free.exit24.i:                             ; preds = %298, %ft_mem_free.exit22.i
-  store ptr null, ptr %296, align 8, !tbaa !194
-  %301 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %302 = load ptr, ptr %301, align 8, !tbaa !195
-  %.not.i25.i = icmp eq ptr %302, null
-  br i1 %.not.i25.i, label %ft_mem_free.exit26.i, label %303
+ft_mem_free.exit24.i:                             ; preds = %295, %ft_mem_free.exit22.i
+  store ptr null, ptr %293, align 8, !tbaa !194
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %299 = load ptr, ptr %298, align 8, !tbaa !195
+  %.not.i25.i = icmp eq ptr %299, null
+  br i1 %.not.i25.i, label %ft_mem_free.exit26.i, label %300
 
-303:                                              ; preds = %ft_mem_free.exit24.i
-  %304 = getelementptr inbounds nuw i8, ptr %285, i64 16
-  %305 = load ptr, ptr %304, align 8, !tbaa !61
-  tail call void %305(ptr noundef %285, ptr noundef nonnull %302) #35
+300:                                              ; preds = %ft_mem_free.exit24.i
+  %301 = getelementptr inbounds nuw i8, ptr %282, i64 16
+  %302 = load ptr, ptr %301, align 8, !tbaa !61
+  tail call void %302(ptr noundef %282, ptr noundef nonnull %299) #35
   br label %ft_mem_free.exit26.i
 
-ft_mem_free.exit26.i:                             ; preds = %303, %ft_mem_free.exit24.i
-  store ptr null, ptr %301, align 8, !tbaa !195
-  %306 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %307 = load ptr, ptr %306, align 8, !tbaa !196
-  %.not.i27.i = icmp eq ptr %307, null
-  br i1 %.not.i27.i, label %FT_GlyphLoader_Reset.exit, label %308
+ft_mem_free.exit26.i:                             ; preds = %300, %ft_mem_free.exit24.i
+  store ptr null, ptr %298, align 8, !tbaa !195
+  %303 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %304 = load ptr, ptr %303, align 8, !tbaa !196
+  %.not.i27.i = icmp eq ptr %304, null
+  br i1 %.not.i27.i, label %FT_GlyphLoader_Reset.exit, label %305
 
-308:                                              ; preds = %ft_mem_free.exit26.i
-  %309 = getelementptr inbounds nuw i8, ptr %285, i64 16
-  %310 = load ptr, ptr %309, align 8, !tbaa !61
-  tail call void %310(ptr noundef %285, ptr noundef nonnull %307) #35
+305:                                              ; preds = %ft_mem_free.exit26.i
+  %306 = getelementptr inbounds nuw i8, ptr %282, i64 16
+  %307 = load ptr, ptr %306, align 8, !tbaa !61
+  tail call void %307(ptr noundef %282, ptr noundef nonnull %304) #35
   br label %FT_GlyphLoader_Reset.exit
 
-FT_GlyphLoader_Reset.exit:                        ; preds = %ft_mem_free.exit26.i, %308
-  store ptr null, ptr %306, align 8, !tbaa !196
-  %311 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr null, ptr %311, align 8, !tbaa !197
+FT_GlyphLoader_Reset.exit:                        ; preds = %ft_mem_free.exit26.i, %305
+  store ptr null, ptr %303, align 8, !tbaa !196
+  %308 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store ptr null, ptr %308, align 8, !tbaa !197
   store i32 0, ptr %8, align 8, !tbaa !198
-  %312 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %312, align 4, !tbaa !199
-  %313 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %313, align 8, !tbaa !200
-  %314 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  store i16 0, ptr %314, align 2, !tbaa !184
+  %309 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 0, ptr %309, align 4, !tbaa !199
+  %310 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %310, align 8, !tbaa !200
+  %311 = getelementptr inbounds nuw i8, ptr %0, i64 26
+  store i16 0, ptr %311, align 2, !tbaa !184
   store i16 0, ptr %6, align 8, !tbaa !185
-  %315 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %315, align 8, !tbaa !186
-  %316 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 0, ptr %316, align 8, !tbaa !187
+  %312 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %312, align 8, !tbaa !186
+  %313 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i32 0, ptr %313, align 8, !tbaa !187
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %6, i64 72, i1 false), !tbaa.struct !188
   br label %FT_GlyphLoader_Adjust_Points.exit
 
-FT_GlyphLoader_Adjust_Points.exit:                ; preds = %242, %268, %273, %FT_GlyphLoader_Reset.exit
-  %317 = phi i32 [ %284, %FT_GlyphLoader_Reset.exit ], [ 0, %273 ], [ 0, %268 ], [ 0, %242 ]
+FT_GlyphLoader_Adjust_Points.exit:                ; preds = %239, %265, %270, %FT_GlyphLoader_Reset.exit
+  %314 = phi i32 [ %281, %FT_GlyphLoader_Reset.exit ], [ 0, %270 ], [ 0, %265 ], [ 0, %239 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %317
+  ret i32 %314
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -3322,7 +3320,7 @@ define hidden range(i32 0, 65) i32 @FT_GlyphLoader_CheckSubGlyphs(ptr noundef ca
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8, !tbaa !200
   %12 = icmp ugt i32 %9, %11
-  br i1 %12, label %13, label %ft_mem_realloc.exit.thread25
+  br i1 %12, label %13, label %ft_mem_realloc.exit.thread24
 
 13:                                               ; preds = %2
   %14 = add i32 %9, 1
@@ -3346,7 +3344,7 @@ define hidden range(i32 0, 65) i32 @FT_GlyphLoader_CheckSubGlyphs(ptr noundef ca
 
 25:                                               ; preds = %13
   %26 = icmp ugt i32 %15, 44739242
-  br i1 %26, label %ft_mem_realloc.exit.thread25, label %27
+  br i1 %26, label %ft_mem_realloc.exit.thread24, label %27
 
 27:                                               ; preds = %25
   %28 = icmp eq i32 %11, 0
@@ -3397,7 +3395,7 @@ ft_mem_realloc.exit.thread:                       ; preds = %44, %22, %21
 
 ft_mem_realloc.exit:                              ; preds = %ft_mem_qrealloc.exit.i
   store ptr %.0.i.i, ptr %18, align 8, !tbaa !206
-  br i1 %41, label %49, label %ft_mem_realloc.exit.thread25
+  br i1 %41, label %49, label %ft_mem_realloc.exit.thread24
 
 49:                                               ; preds = %ft_mem_realloc.exit.thread, %ft_mem_realloc.exit
   %.0.i25.i22 = phi ptr [ %.0.i25.i.ph, %ft_mem_realloc.exit.thread ], [ %.0.i.i, %ft_mem_realloc.exit ]
@@ -3415,9 +3413,9 @@ FT_GlyphLoader_Adjust_Subglyphs.exit:             ; preds = %49, %50
   %54 = phi ptr [ %53, %50 ], [ null, %49 ]
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %54, ptr %55, align 8, !tbaa !206
-  br label %ft_mem_realloc.exit.thread25
+  br label %ft_mem_realloc.exit.thread24
 
-ft_mem_realloc.exit.thread25:                     ; preds = %25, %2, %FT_GlyphLoader_Adjust_Subglyphs.exit, %ft_mem_realloc.exit
+ft_mem_realloc.exit.thread24:                     ; preds = %25, %2, %FT_GlyphLoader_Adjust_Subglyphs.exit, %ft_mem_realloc.exit
   %.0 = phi i32 [ 0, %FT_GlyphLoader_Adjust_Subglyphs.exit ], [ %.033.i.i, %ft_mem_realloc.exit ], [ 0, %2 ], [ 10, %25 ]
   ret i32 %.0
 }
@@ -3833,6 +3831,10 @@ hash_bucket.exit:                                 ; preds = %.lr.ph.i, %30, %4
   %49 = icmp ugt i32 %45, 268435455
   br i1 %49, label %ft_mem_realloc.exit.thread.i, label %50
 
+ft_mem_realloc.exit.thread.i:                     ; preds = %48
+  store ptr null, ptr %7, align 8, !tbaa !217
+  br label %hash_rehash.exit
+
 50:                                               ; preds = %48
   %51 = load ptr, ptr %34, align 8, !tbaa !179
   %52 = shl i32 %44, 4
@@ -3844,10 +3846,6 @@ hash_bucket.exit:                                 ; preds = %.lr.ph.i, %30, %4
 55:                                               ; preds = %50
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %54, i8 0, i64 %53, i1 false)
   br label %ft_mem_realloc.exit.thread42.i
-
-ft_mem_realloc.exit.thread.i:                     ; preds = %48
-  store ptr null, ptr %7, align 8, !tbaa !217
-  br label %hash_rehash.exit
 
 ft_mem_realloc.exit.thread42.i:                   ; preds = %55, %42
   %.0.i25.i.ph.i = phi ptr [ null, %42 ], [ %54, %55 ]
@@ -13126,123 +13124,122 @@ define i32 @FT_Outline_New(ptr noundef readonly captures(address_is_null) %0, i3
 15:                                               ; preds = %13
   %16 = zext nneg i32 %1 to i64
   %17 = icmp eq i32 %1, 0
-  br i1 %17, label %ft_mem_realloc.exit.thread.thread, label %19
+  br i1 %17, label %27, label %18
 
-ft_mem_realloc.exit.thread.thread:                ; preds = %15
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %ft_mem_realloc.exit42.thread
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !179
+  %21 = shl nuw nsw i64 %16, 4
+  %22 = tail call ptr %20(ptr noundef nonnull %7, i64 noundef %21) #35
+  %.not50 = icmp eq ptr %22, null
+  br i1 %.not50, label %ft_mem_realloc.exit, label %.thread
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !179
-  %22 = shl nuw nsw i64 %16, 4
-  %23 = tail call ptr %21(ptr noundef nonnull %7, i64 noundef %22) #35
-  %.not57 = icmp eq ptr %23, null
-  br i1 %.not57, label %ft_mem_realloc.exit, label %25
+ft_mem_realloc.exit:                              ; preds = %18
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr null, ptr %23, align 8, !tbaa !156
+  br label %43
 
-ft_mem_realloc.exit:                              ; preds = %19
+.thread:                                          ; preds = %18
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %22, i8 0, i64 %21, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr null, ptr %24, align 8, !tbaa !156
-  br label %45
+  store ptr %22, ptr %24, align 8, !tbaa !156
+  %25 = load ptr, ptr %19, align 8, !tbaa !179
+  %26 = tail call ptr %25(ptr noundef nonnull %7, i64 noundef %16) #35
+  %.not51 = icmp eq ptr %26, null
+  br i1 %.not51, label %ft_mem_realloc.exit41, label %29
 
-25:                                               ; preds = %19
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %23, i8 0, i64 %22, i1 false)
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %23, ptr %26, align 8, !tbaa !156
-  %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !179
-  %29 = tail call ptr %28(ptr noundef nonnull %7, i64 noundef %16) #35
-  %.not58 = icmp eq ptr %29, null
-  br i1 %.not58, label %ft_mem_realloc.exit42, label %30
+27:                                               ; preds = %15
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %ft_mem_realloc.exit41.thread
 
-30:                                               ; preds = %25
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %29, i8 0, i64 %16, i1 false)
-  br label %ft_mem_realloc.exit42.thread
+29:                                               ; preds = %.thread
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %26, i8 0, i64 %16, i1 false)
+  br label %ft_mem_realloc.exit41.thread
 
-ft_mem_realloc.exit42.thread:                     ; preds = %ft_mem_realloc.exit.thread.thread, %30
-  %31 = phi ptr [ %18, %ft_mem_realloc.exit.thread.thread ], [ %26, %30 ]
-  %.0.i25.i37.ph = phi ptr [ null, %ft_mem_realloc.exit.thread.thread ], [ %29, %30 ]
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %.0.i25.i37.ph, ptr %32, align 8, !tbaa !202
-  %33 = zext nneg i32 %2 to i64
-  %34 = call ptr @ft_mem_realloc(ptr noundef nonnull %7, i64 noundef 2, i64 noundef 0, i64 noundef %33, ptr noundef null, ptr noundef nonnull %5)
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %34, ptr %35, align 8, !tbaa !131
-  %36 = load i32, ptr %5, align 4, !tbaa !168
-  %.not34 = icmp eq i32 %36, 0
-  br i1 %.not34, label %38, label %45
+ft_mem_realloc.exit41.thread:                     ; preds = %29, %27
+  %.ph = phi ptr [ %28, %27 ], [ %24, %29 ]
+  %.0.i25.i36.ph = phi ptr [ null, %27 ], [ %26, %29 ]
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %.0.i25.i36.ph, ptr %30, align 8, !tbaa !202
+  %31 = zext nneg i32 %2 to i64
+  %32 = call ptr @ft_mem_realloc(ptr noundef nonnull %7, i64 noundef 2, i64 noundef 0, i64 noundef %31, ptr noundef null, ptr noundef nonnull %5)
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr %32, ptr %33, align 8, !tbaa !131
+  %34 = load i32, ptr %5, align 4, !tbaa !168
+  %.not34 = icmp eq i32 %34, 0
+  br i1 %.not34, label %36, label %43
 
-ft_mem_realloc.exit42:                            ; preds = %25
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr null, ptr %37, align 8, !tbaa !202
-  br label %45
+ft_mem_realloc.exit41:                            ; preds = %.thread
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr null, ptr %35, align 8, !tbaa !202
+  br label %43
 
-38:                                               ; preds = %ft_mem_realloc.exit42.thread
-  %39 = trunc nuw i32 %1 to i16
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i16 %39, ptr %40, align 2, !tbaa !129
-  %41 = trunc i32 %2 to i16
-  store i16 %41, ptr %3, align 8, !tbaa !130
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %43 = load i32, ptr %42, align 8, !tbaa !487
-  %44 = or i32 %43, 1
-  store i32 %44, ptr %42, align 8, !tbaa !487
+36:                                               ; preds = %ft_mem_realloc.exit41.thread
+  %37 = trunc nuw i32 %1 to i16
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 %37, ptr %38, align 2, !tbaa !129
+  %39 = trunc i32 %2 to i16
+  store i16 %39, ptr %3, align 8, !tbaa !130
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %41 = load i32, ptr %40, align 8, !tbaa !487
+  %42 = or i32 %41, 1
+  store i32 %42, ptr %40, align 8, !tbaa !487
   br label %FT_Outline_Done.exit
 
-45:                                               ; preds = %ft_mem_realloc.exit42, %ft_mem_realloc.exit, %ft_mem_realloc.exit42.thread
-  %46 = phi i32 [ 64, %ft_mem_realloc.exit ], [ 64, %ft_mem_realloc.exit42 ], [ %36, %ft_mem_realloc.exit42.thread ]
-  %47 = phi ptr [ %24, %ft_mem_realloc.exit ], [ %26, %ft_mem_realloc.exit42 ], [ %31, %ft_mem_realloc.exit42.thread ]
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %49 = load i32, ptr %48, align 8, !tbaa !487
-  %50 = or i32 %49, 1
-  store i32 %50, ptr %48, align 8, !tbaa !487
-  %51 = load ptr, ptr %0, align 8, !tbaa !241
-  %.not19.i = icmp eq ptr %51, null
-  br i1 %.not19.i, label %FT_Outline_Done.exit, label %52
+43:                                               ; preds = %ft_mem_realloc.exit, %ft_mem_realloc.exit41, %ft_mem_realloc.exit41.thread
+  %44 = phi i32 [ 64, %ft_mem_realloc.exit ], [ 64, %ft_mem_realloc.exit41 ], [ %34, %ft_mem_realloc.exit41.thread ]
+  %45 = phi ptr [ %23, %ft_mem_realloc.exit ], [ %24, %ft_mem_realloc.exit41 ], [ %.ph, %ft_mem_realloc.exit41.thread ]
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %47 = load i32, ptr %46, align 8, !tbaa !487
+  %48 = or i32 %47, 1
+  store i32 %48, ptr %46, align 8, !tbaa !487
+  %49 = load ptr, ptr %0, align 8, !tbaa !241
+  %.not19.i = icmp eq ptr %49, null
+  br i1 %.not19.i, label %FT_Outline_Done.exit, label %50
 
-52:                                               ; preds = %45
-  %53 = load ptr, ptr %47, align 8, !tbaa !156
-  %.not.i.i = icmp eq ptr %53, null
-  br i1 %.not.i.i, label %ft_mem_free.exit.i, label %54
+50:                                               ; preds = %43
+  %51 = load ptr, ptr %45, align 8, !tbaa !156
+  %.not.i.i = icmp eq ptr %51, null
+  br i1 %.not.i.i, label %ft_mem_free.exit.i, label %52
 
-54:                                               ; preds = %52
-  %55 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %56 = load ptr, ptr %55, align 8, !tbaa !61
-  tail call void %56(ptr noundef nonnull %51, ptr noundef nonnull %53) #35
+52:                                               ; preds = %50
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %54 = load ptr, ptr %53, align 8, !tbaa !61
+  tail call void %54(ptr noundef nonnull %49, ptr noundef nonnull %51) #35
   br label %ft_mem_free.exit.i
 
-ft_mem_free.exit.i:                               ; preds = %54, %52
-  store ptr null, ptr %47, align 8, !tbaa !156
-  %57 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %58 = load ptr, ptr %57, align 8, !tbaa !202
-  %.not.i21.i = icmp eq ptr %58, null
-  br i1 %.not.i21.i, label %ft_mem_free.exit22.i, label %59
+ft_mem_free.exit.i:                               ; preds = %52, %50
+  store ptr null, ptr %45, align 8, !tbaa !156
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %56 = load ptr, ptr %55, align 8, !tbaa !202
+  %.not.i21.i = icmp eq ptr %56, null
+  br i1 %.not.i21.i, label %ft_mem_free.exit22.i, label %57
 
-59:                                               ; preds = %ft_mem_free.exit.i
-  %60 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %61 = load ptr, ptr %60, align 8, !tbaa !61
-  tail call void %61(ptr noundef nonnull %51, ptr noundef nonnull %58) #35
+57:                                               ; preds = %ft_mem_free.exit.i
+  %58 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %59 = load ptr, ptr %58, align 8, !tbaa !61
+  tail call void %59(ptr noundef nonnull %49, ptr noundef nonnull %56) #35
   br label %ft_mem_free.exit22.i
 
-ft_mem_free.exit22.i:                             ; preds = %59, %ft_mem_free.exit.i
-  store ptr null, ptr %57, align 8, !tbaa !202
-  %62 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %63 = load ptr, ptr %62, align 8, !tbaa !131
-  %.not.i23.i = icmp eq ptr %63, null
-  br i1 %.not.i23.i, label %ft_mem_free.exit24.i, label %64
+ft_mem_free.exit22.i:                             ; preds = %57, %ft_mem_free.exit.i
+  store ptr null, ptr %55, align 8, !tbaa !202
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %61 = load ptr, ptr %60, align 8, !tbaa !131
+  %.not.i23.i = icmp eq ptr %61, null
+  br i1 %.not.i23.i, label %ft_mem_free.exit24.i, label %62
 
-64:                                               ; preds = %ft_mem_free.exit22.i
-  %65 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %66 = load ptr, ptr %65, align 8, !tbaa !61
-  tail call void %66(ptr noundef nonnull %51, ptr noundef nonnull %63) #35
+62:                                               ; preds = %ft_mem_free.exit22.i
+  %63 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %64 = load ptr, ptr %63, align 8, !tbaa !61
+  tail call void %64(ptr noundef nonnull %49, ptr noundef nonnull %61) #35
   br label %ft_mem_free.exit24.i
 
-ft_mem_free.exit24.i:                             ; preds = %64, %ft_mem_free.exit22.i
+ft_mem_free.exit24.i:                             ; preds = %62, %ft_mem_free.exit22.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   br label %FT_Outline_Done.exit
 
-FT_Outline_Done.exit:                             ; preds = %ft_mem_free.exit24.i, %45, %13, %10, %6, %4, %38
-  %.0 = phi i32 [ 6, %6 ], [ 6, %10 ], [ 10, %13 ], [ 0, %38 ], [ 33, %4 ], [ %46, %45 ], [ %46, %ft_mem_free.exit24.i ]
+FT_Outline_Done.exit:                             ; preds = %ft_mem_free.exit24.i, %43, %13, %10, %6, %4, %36
+  %.0 = phi i32 [ 6, %6 ], [ 6, %10 ], [ 10, %13 ], [ 0, %36 ], [ 33, %4 ], [ %44, %43 ], [ %44, %ft_mem_free.exit24.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -15677,78 +15674,78 @@ define range(i32 0, 7) i32 @FT_Get_Sfnt_Name(ptr noundef readonly captures(addre
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !521
   %.not39 = icmp eq ptr %24, null
-  br i1 %.not39, label %25, label %52
+  br i1 %.not39, label %ft_mem_qrealloc.exit, label %52
 
-25:                                               ; preds = %22
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %27 = load ptr, ptr %26, align 8, !tbaa !60
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %29 = load ptr, ptr %28, align 8, !tbaa !343
-  %30 = zext i16 %21 to i64
-  %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !179
-  %33 = tail call ptr %32(ptr noundef %27, i64 noundef %30) #35
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %ft_mem_free.exit, label %35
+ft_mem_qrealloc.exit:                             ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %26 = load ptr, ptr %25, align 8, !tbaa !60
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %28 = load ptr, ptr %27, align 8, !tbaa !343
+  %29 = zext i16 %21 to i64
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !179
+  %32 = tail call ptr %31(ptr noundef %26, i64 noundef %29) #35
+  %.not47 = icmp eq ptr %32, null
+  store ptr %32, ptr %23, align 8, !tbaa !521
+  br i1 %.not47, label %ft_mem_free.exit, label %33
 
-35:                                               ; preds = %25
-  store ptr %33, ptr %23, align 8, !tbaa !521
-  %36 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %37 = load i64, ptr %36, align 8, !tbaa !522
-  %38 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %39 = load ptr, ptr %38, align 8, !tbaa !302
-  %.not.i = icmp eq ptr %39, null
-  br i1 %.not.i, label %42, label %40
+33:                                               ; preds = %ft_mem_qrealloc.exit
+  %34 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %35 = load i64, ptr %34, align 8, !tbaa !522
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 40
+  %37 = load ptr, ptr %36, align 8, !tbaa !302
+  %.not.i = icmp eq ptr %37, null
+  br i1 %.not.i, label %40, label %38
 
-40:                                               ; preds = %35
-  %41 = tail call i64 %39(ptr noundef nonnull %29, i64 noundef %37, ptr noundef null, i64 noundef 0) #35
-  %.not10.i = icmp eq i64 %41, 0
-  %.pr.pre51 = load ptr, ptr %23, align 8, !tbaa !521
-  br i1 %.not10.i, label %._crit_edge, label %FT_Stream_Seek.exit.thread
+38:                                               ; preds = %33
+  %39 = tail call i64 %37(ptr noundef nonnull %28, i64 noundef %35, ptr noundef null, i64 noundef 0) #35
+  %.not10.i = icmp eq i64 %39, 0
+  %.pr.pre48 = load ptr, ptr %23, align 8, !tbaa !521
+  br i1 %.not10.i, label %._crit_edge, label %thread-pre-split
 
-42:                                               ; preds = %35
-  %43 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %44 = load i64, ptr %43, align 8, !tbaa !249
-  %.not17.i = icmp ugt i64 %37, %44
-  br i1 %.not17.i, label %FT_Stream_Seek.exit.thread.thread, label %._crit_edge
+40:                                               ; preds = %33
+  %41 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %42 = load i64, ptr %41, align 8, !tbaa !249
+  %.not17.i = icmp ugt i64 %35, %42
+  br i1 %.not17.i, label %thread-pre-split.thread59, label %._crit_edge
 
-._crit_edge:                                      ; preds = %40, %42
-  %45 = phi ptr [ %33, %42 ], [ %.pr.pre51, %40 ]
-  %46 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  store i64 %37, ptr %46, align 8, !tbaa !255
-  %47 = load i16, ptr %20, align 8, !tbaa !519
-  %48 = zext i16 %47 to i64
-  %49 = tail call i32 @FT_Stream_Read(ptr noundef nonnull %29, ptr noundef %45, i64 noundef %48)
-  %.not42 = icmp eq i32 %49, 0
-  br i1 %.not42, label %._crit_edge53, label %.FT_Stream_Seek.exit.thread_crit_edge
+._crit_edge:                                      ; preds = %38, %40
+  %43 = phi ptr [ %32, %40 ], [ %.pr.pre48, %38 ]
+  %44 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  store i64 %35, ptr %44, align 8, !tbaa !255
+  %45 = load i16, ptr %20, align 8, !tbaa !519
+  %46 = zext i16 %45 to i64
+  %47 = tail call i32 @FT_Stream_Read(ptr noundef nonnull %28, ptr noundef %43, i64 noundef %46)
+  %.not42 = icmp eq i32 %47, 0
+  br i1 %.not42, label %._crit_edge50, label %.thread-pre-split_crit_edge
 
-._crit_edge53:                                    ; preds = %._crit_edge
+._crit_edge50:                                    ; preds = %._crit_edge
   %.pre = load i16, ptr %20, align 8, !tbaa !519
   br label %52
 
-.FT_Stream_Seek.exit.thread_crit_edge:            ; preds = %._crit_edge
+.thread-pre-split_crit_edge:                      ; preds = %._crit_edge
   %.pr.pre = load ptr, ptr %23, align 8, !tbaa !521
-  br label %FT_Stream_Seek.exit.thread
+  br label %thread-pre-split
 
-FT_Stream_Seek.exit.thread:                       ; preds = %.FT_Stream_Seek.exit.thread_crit_edge, %40
-  %.pr = phi ptr [ %.pr.pre, %.FT_Stream_Seek.exit.thread_crit_edge ], [ %.pr.pre51, %40 ]
-  %.not.i43 = icmp eq ptr %.pr, null
-  br i1 %.not.i43, label %ft_mem_free.exit, label %FT_Stream_Seek.exit.thread.thread
+thread-pre-split:                                 ; preds = %38, %.thread-pre-split_crit_edge
+  %48 = phi ptr [ %.pr.pre48, %38 ], [ %.pr.pre, %.thread-pre-split_crit_edge ]
+  %.not.i43 = icmp eq ptr %48, null
+  br i1 %.not.i43, label %ft_mem_free.exit, label %thread-pre-split.thread59
 
-FT_Stream_Seek.exit.thread.thread:                ; preds = %42, %FT_Stream_Seek.exit.thread
-  %.pr62 = phi ptr [ %.pr, %FT_Stream_Seek.exit.thread ], [ %33, %42 ]
-  %50 = getelementptr inbounds nuw i8, ptr %27, i64 16
+thread-pre-split.thread59:                        ; preds = %40, %thread-pre-split
+  %49 = phi ptr [ %48, %thread-pre-split ], [ %32, %40 ]
+  %50 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %51 = load ptr, ptr %50, align 8, !tbaa !61
-  tail call void %51(ptr noundef nonnull %27, ptr noundef nonnull %.pr62) #35
+  tail call void %51(ptr noundef nonnull %26, ptr noundef nonnull %49) #35
   br label %ft_mem_free.exit
 
-ft_mem_free.exit:                                 ; preds = %25, %FT_Stream_Seek.exit.thread, %FT_Stream_Seek.exit.thread.thread
+ft_mem_free.exit:                                 ; preds = %ft_mem_qrealloc.exit, %thread-pre-split, %thread-pre-split.thread59
   store ptr null, ptr %23, align 8, !tbaa !521
   store i16 0, ptr %20, align 8, !tbaa !519
   br label %52
 
-52:                                               ; preds = %._crit_edge53, %ft_mem_free.exit, %22, %15
-  %53 = phi i16 [ %.pre, %._crit_edge53 ], [ 0, %ft_mem_free.exit ], [ %21, %22 ], [ 0, %15 ]
+52:                                               ; preds = %._crit_edge50, %ft_mem_free.exit, %22, %15
+  %53 = phi i16 [ %.pre, %._crit_edge50 ], [ 0, %ft_mem_free.exit ], [ %21, %22 ], [ 0, %15 ]
   %54 = load i16, ptr %19, align 8, !tbaa !523
   store i16 %54, ptr %2, align 8, !tbaa !524
   %55 = getelementptr inbounds nuw i8, ptr %19, i64 2
@@ -15821,78 +15818,78 @@ define range(i32 0, 9) i32 @FT_Get_Sfnt_LangTag(ptr noundef readonly captures(ad
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !539
   %.not38 = icmp eq ptr %28, null
-  br i1 %.not38, label %29, label %56
+  br i1 %.not38, label %ft_mem_qrealloc.exit, label %56
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %31 = load ptr, ptr %30, align 8, !tbaa !60
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %33 = load ptr, ptr %32, align 8, !tbaa !343
-  %34 = zext i16 %25 to i64
-  %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !179
-  %37 = tail call ptr %36(ptr noundef %31, i64 noundef %34) #35
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %ft_mem_free.exit, label %39
+ft_mem_qrealloc.exit:                             ; preds = %26
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %30 = load ptr, ptr %29, align 8, !tbaa !60
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %32 = load ptr, ptr %31, align 8, !tbaa !343
+  %33 = zext i16 %25 to i64
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !179
+  %36 = tail call ptr %35(ptr noundef %30, i64 noundef %33) #35
+  %.not47 = icmp eq ptr %36, null
+  store ptr %36, ptr %27, align 8, !tbaa !539
+  br i1 %.not47, label %ft_mem_free.exit, label %37
 
-39:                                               ; preds = %29
-  store ptr %37, ptr %27, align 8, !tbaa !539
-  %40 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %41 = load i64, ptr %40, align 8, !tbaa !540
-  %42 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  %43 = load ptr, ptr %42, align 8, !tbaa !302
-  %.not.i = icmp eq ptr %43, null
-  br i1 %.not.i, label %46, label %44
+37:                                               ; preds = %ft_mem_qrealloc.exit
+  %38 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %39 = load i64, ptr %38, align 8, !tbaa !540
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 40
+  %41 = load ptr, ptr %40, align 8, !tbaa !302
+  %.not.i = icmp eq ptr %41, null
+  br i1 %.not.i, label %44, label %42
 
-44:                                               ; preds = %39
-  %45 = tail call i64 %43(ptr noundef nonnull %33, i64 noundef %41, ptr noundef null, i64 noundef 0) #35
-  %.not10.i = icmp eq i64 %45, 0
-  %.pr.pre51 = load ptr, ptr %27, align 8, !tbaa !539
-  br i1 %.not10.i, label %._crit_edge, label %FT_Stream_Seek.exit.thread
+42:                                               ; preds = %37
+  %43 = tail call i64 %41(ptr noundef nonnull %32, i64 noundef %39, ptr noundef null, i64 noundef 0) #35
+  %.not10.i = icmp eq i64 %43, 0
+  %.pr.pre48 = load ptr, ptr %27, align 8, !tbaa !539
+  br i1 %.not10.i, label %._crit_edge, label %thread-pre-split
 
-46:                                               ; preds = %39
-  %47 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %48 = load i64, ptr %47, align 8, !tbaa !249
-  %.not17.i = icmp ugt i64 %41, %48
-  br i1 %.not17.i, label %FT_Stream_Seek.exit.thread.thread, label %._crit_edge
+44:                                               ; preds = %37
+  %45 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %46 = load i64, ptr %45, align 8, !tbaa !249
+  %.not17.i = icmp ugt i64 %39, %46
+  br i1 %.not17.i, label %thread-pre-split.thread59, label %._crit_edge
 
-._crit_edge:                                      ; preds = %44, %46
-  %49 = phi ptr [ %37, %46 ], [ %.pr.pre51, %44 ]
-  %50 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store i64 %41, ptr %50, align 8, !tbaa !255
-  %51 = load i16, ptr %24, align 8, !tbaa !537
-  %52 = zext i16 %51 to i64
-  %53 = tail call i32 @FT_Stream_Read(ptr noundef nonnull %33, ptr noundef %49, i64 noundef %52)
-  %.not41 = icmp eq i32 %53, 0
-  br i1 %.not41, label %._crit_edge53, label %.FT_Stream_Seek.exit.thread_crit_edge
+._crit_edge:                                      ; preds = %42, %44
+  %47 = phi ptr [ %36, %44 ], [ %.pr.pre48, %42 ]
+  %48 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  store i64 %39, ptr %48, align 8, !tbaa !255
+  %49 = load i16, ptr %24, align 8, !tbaa !537
+  %50 = zext i16 %49 to i64
+  %51 = tail call i32 @FT_Stream_Read(ptr noundef nonnull %32, ptr noundef %47, i64 noundef %50)
+  %.not41 = icmp eq i32 %51, 0
+  br i1 %.not41, label %._crit_edge50, label %.thread-pre-split_crit_edge
 
-._crit_edge53:                                    ; preds = %._crit_edge
+._crit_edge50:                                    ; preds = %._crit_edge
   %.pre = load i16, ptr %24, align 8, !tbaa !537
   br label %56
 
-.FT_Stream_Seek.exit.thread_crit_edge:            ; preds = %._crit_edge
+.thread-pre-split_crit_edge:                      ; preds = %._crit_edge
   %.pr.pre = load ptr, ptr %27, align 8, !tbaa !539
-  br label %FT_Stream_Seek.exit.thread
+  br label %thread-pre-split
 
-FT_Stream_Seek.exit.thread:                       ; preds = %.FT_Stream_Seek.exit.thread_crit_edge, %44
-  %.pr = phi ptr [ %.pr.pre, %.FT_Stream_Seek.exit.thread_crit_edge ], [ %.pr.pre51, %44 ]
-  %.not.i42 = icmp eq ptr %.pr, null
-  br i1 %.not.i42, label %ft_mem_free.exit, label %FT_Stream_Seek.exit.thread.thread
+thread-pre-split:                                 ; preds = %42, %.thread-pre-split_crit_edge
+  %52 = phi ptr [ %.pr.pre48, %42 ], [ %.pr.pre, %.thread-pre-split_crit_edge ]
+  %.not.i42 = icmp eq ptr %52, null
+  br i1 %.not.i42, label %ft_mem_free.exit, label %thread-pre-split.thread59
 
-FT_Stream_Seek.exit.thread.thread:                ; preds = %46, %FT_Stream_Seek.exit.thread
-  %.pr62 = phi ptr [ %.pr, %FT_Stream_Seek.exit.thread ], [ %37, %46 ]
-  %54 = getelementptr inbounds nuw i8, ptr %31, i64 16
+thread-pre-split.thread59:                        ; preds = %44, %thread-pre-split
+  %53 = phi ptr [ %52, %thread-pre-split ], [ %36, %44 ]
+  %54 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !61
-  tail call void %55(ptr noundef nonnull %31, ptr noundef nonnull %.pr62) #35
+  tail call void %55(ptr noundef nonnull %30, ptr noundef nonnull %53) #35
   br label %ft_mem_free.exit
 
-ft_mem_free.exit:                                 ; preds = %29, %FT_Stream_Seek.exit.thread, %FT_Stream_Seek.exit.thread.thread
+ft_mem_free.exit:                                 ; preds = %ft_mem_qrealloc.exit, %thread-pre-split, %thread-pre-split.thread59
   store ptr null, ptr %27, align 8, !tbaa !539
   store i16 0, ptr %24, align 8, !tbaa !537
   br label %56
 
-56:                                               ; preds = %._crit_edge53, %ft_mem_free.exit, %26, %20
-  %57 = phi i16 [ %.pre, %._crit_edge53 ], [ 0, %ft_mem_free.exit ], [ %25, %26 ], [ 0, %20 ]
+56:                                               ; preds = %._crit_edge50, %ft_mem_free.exit, %26, %20
+  %57 = phi i16 [ %.pre, %._crit_edge50 ], [ 0, %ft_mem_free.exit ], [ %25, %26 ], [ 0, %20 ]
   %58 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !539
   store ptr %59, ptr %2, align 8, !tbaa !541

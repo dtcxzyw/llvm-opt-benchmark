@@ -2567,8 +2567,7 @@ Mop_ManCheckDist1.exit.thread208:                 ; preds = %select.unfold.i.thr
   br i1 %.not.i102, label %54, label %.lr.ph.i108
 
 .lr.ph138.preheader:                              ; preds = %54, %Mop_ManCheckDist1.exit.thread208
-  %smax168 = tail call i32 @llvm.smax.i32(i32 %.val, i32 1)
-  %wide.trip.count169 = zext nneg i32 %smax168 to i64
+  %wide.trip.count169 = zext nneg i32 %.val to i64
   br label %.lr.ph138
 
 .preheader:                                       ; preds = %.lr.ph138
@@ -2674,8 +2673,7 @@ Vec_IntGrow.exit.i:                               ; preds = %80, %78
   br i1 %.not.i110, label %94, label %Mop_ManCheckDist1.exit.thread
 
 .lr.ph136.preheader:                              ; preds = %Mop_ManCheckContain.exit113
-  %smax = tail call i32 @llvm.smax.i32(i32 %.val90, i32 1)
-  %wide.trip.count163 = zext nneg i32 %smax to i64
+  %wide.trip.count163 = zext nneg i32 %.val90 to i64
   br label %.lr.ph136
 
 Mop_ManCheckContain.exit113:                      ; preds = %94, %Mop_ManCheckContain.exit113

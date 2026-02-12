@@ -994,8 +994,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc319
   %.0.i.i.i.i.i947 = phi i64 [ 0, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %333, %._crit_edge644.loopexit ]
   %.sroa.0489.0945 = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %314, %._crit_edge644.loopexit ]
   %.sroa.12.0943 = phi i64 [ 0, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %334, %._crit_edge644.loopexit ]
-  %storemerge.lcssa = phi i32 [ 0, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %.0228, %._crit_edge644.loopexit ]
-  store i32 %storemerge.lcssa, ptr %71, align 4, !tbaa !4
+  store i32 %.0228, ptr %71, align 4, !tbaa !4
   %335 = load i8, ptr %57, align 1, !tbaa !50, !range !52, !noundef !53
   %336 = trunc nuw i8 %335 to i1
   br i1 %336, label %337, label %345

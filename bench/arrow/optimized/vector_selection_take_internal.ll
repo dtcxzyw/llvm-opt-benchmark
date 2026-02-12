@@ -40260,8 +40260,7 @@ _ZN5arrow5DatumD2Ev.exit.i107:                    ; preds = %556
   %568 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %569 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %570 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %smax.i = call i32 @llvm.smax.i32(i32 %526, i32 1)
-  %wide.trip.count.i109 = zext nneg i32 %smax.i to i64
+  %wide.trip.count.i109 = zext nneg i32 %526 to i64
   br label %576
 
 571:                                              ; preds = %_ZN5arrow6ResultISt10shared_ptrINS_9ArrayDataEEED2Ev.exit.i119
@@ -47727,9 +47726,6 @@ declare i32 @llvm.smin.i32(i32, i32) #24
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smax.i16(i16, i16) #24
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #24
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }

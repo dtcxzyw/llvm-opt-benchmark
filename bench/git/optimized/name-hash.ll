@@ -1386,27 +1386,27 @@ define internal fastcc ptr @hash_dir_entry(ptr noundef %0, ptr noundef %1, i32 n
   %19 = call ptr @hashmap_get(ptr noundef nonnull %18, ptr noundef nonnull %4, ptr noundef nonnull %13) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not30 = icmp eq ptr %19, null
-  br i1 %.not30, label %st_add.exit, label %.critedge.thread
+  br i1 %.not30, label %20, label %.critedge.thread
 
-st_add.exit:                                      ; preds = %.critedge
-  %20 = add nuw nsw i64 %14, 33
-  %21 = call ptr @xcalloc(i64 noundef 1, i64 noundef %20) #14
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr nonnull align 4 %13, i64 %14, i1 false)
-  %23 = call i32 @memihash(ptr noundef nonnull %13, i64 noundef %14) #14
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i32 %23, ptr %24, align 8, !tbaa !55
-  store ptr null, ptr %21, align 8, !tbaa !58
-  %25 = getelementptr inbounds nuw i8, ptr %21, i64 28
-  store i32 %10, ptr %25, align 4, !tbaa !4
-  call void @hashmap_add(ptr noundef nonnull %18, ptr noundef nonnull %21) #14
-  %26 = call fastcc ptr @hash_dir_entry(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %10)
-  %27 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store ptr %26, ptr %27, align 8, !tbaa !59
+20:                                               ; preds = %.critedge
+  %21 = add nuw nsw i64 %14, 33
+  %22 = call ptr @xcalloc(i64 noundef 1, i64 noundef %21) #14
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr nonnull align 4 %13, i64 %14, i1 false)
+  %24 = call i32 @memihash(ptr noundef nonnull %13, i64 noundef %14) #14
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store i32 %24, ptr %25, align 8, !tbaa !55
+  store ptr null, ptr %22, align 8, !tbaa !58
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 28
+  store i32 %10, ptr %26, align 4, !tbaa !4
+  call void @hashmap_add(ptr noundef nonnull %18, ptr noundef nonnull %22) #14
+  %27 = call fastcc ptr @hash_dir_entry(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %10)
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store ptr %27, ptr %28, align 8, !tbaa !59
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %11, %3, %.critedge, %st_add.exit
-  %.0 = phi ptr [ %21, %st_add.exit ], [ %19, %.critedge ], [ null, %3 ], [ null, %11 ]
+.critedge.thread:                                 ; preds = %11, %3, %.critedge, %20
+  %.0 = phi ptr [ %22, %20 ], [ %19, %.critedge ], [ null, %3 ], [ null, %11 ]
   ret ptr %.0
 }
 

@@ -2259,8 +2259,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i87.i: ; preds = %.noexc92.
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %213, i8 0, i64 %.idx.i.i.i.i.i31.i, i1 false), !tbaa !35
   %.idx528 = shl nuw nsw i64 %210, 2
   %214 = getelementptr inbounds nuw i8, ptr %212, i64 %.idx528
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %195, i32 1)
-  %wide.trip.count.i = zext nneg i32 %smax.i to i64
+  %wide.trip.count.i = zext nneg i32 %195 to i64
   br label %276
 
 _ZNSt6vectorIdSaIdEED2Ev.exit98.thread.i:         ; preds = %203
@@ -2812,9 +2811,6 @@ declare i64 @llvm.umin.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #21
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

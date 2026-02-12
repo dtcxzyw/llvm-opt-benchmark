@@ -325,7 +325,7 @@ define void @Dss_NtkPrint_rec(ptr noundef readonly captures(none) %0, ptr nounde
   %7 = lshr i32 %4, 11
   %8 = and i32 %7, 255
   %9 = add nuw nsw i32 %8, 97
-  br label %84
+  br label %85
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr @stdout, align 8, !tbaa !31
@@ -334,7 +334,7 @@ define void @Dss_NtkPrint_rec(ptr noundef readonly captures(none) %0, ptr nounde
   %14 = zext nneg i32 %13 to i64
   %15 = getelementptr inbounds nuw i64, ptr %1, i64 %14
   %16 = icmp ult i32 %4, 268435456
-  br i1 %16, label %17, label %.lr.ph.us.preheader.i
+  br i1 %16, label %17, label %.lr.ph.i
 
 17:                                               ; preds = %10
   %18 = load i64, ptr %15, align 8, !tbaa !33
@@ -347,7 +347,7 @@ define void @Dss_NtkPrint_rec(ptr noundef readonly captures(none) %0, ptr nounde
   %fputc17.i = tail call i32 @fputc(i32 %.0.i.i, ptr %11)
   br label %Abc_TtPrintHexRev.exit
 
-.lr.ph.us.preheader.i:                            ; preds = %10
+.lr.ph.i:                                         ; preds = %10
   %24 = lshr i32 %4, 27
   %25 = add nsw i32 %24, -2
   %26 = icmp ugt i32 %4, 805306367
@@ -355,111 +355,111 @@ define void @Dss_NtkPrint_rec(ptr noundef readonly captures(none) %0, ptr nounde
   %28 = add nsw i32 %24, -6
   %29 = shl nuw nsw i32 1, %28
   %30 = select i1 %27, i32 1, i32 %29
+  %31 = zext nneg i32 %30 to i64
+  %.idx.i = shl nuw nsw i64 %31, 3
+  %32 = getelementptr i8, ptr %15, i64 %.idx.i
+  %.021.i = getelementptr i8, ptr %32, i64 -8
   %notmask.i = shl nsw i32 -1, %25
-  %31 = xor i32 %notmask.i, -1
-  %32 = select i1 %26, i32 15, i32 %31
-  %33 = zext nneg i32 %30 to i64
-  %.idx.i = shl nuw nsw i64 %33, 3
-  %34 = getelementptr i8, ptr %15, i64 %.idx.i
-  %.021.i = getelementptr i8, ptr %34, i64 -8
-  %35 = zext nneg i32 %32 to i64
-  br label %.lr.ph.us.i
-
-.lr.ph.us.i:                                      ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %.023.us.i = phi ptr [ %.0.us.i, %..loopexit_crit_edge.us.i ], [ %.021.i, %.lr.ph.us.preheader.i ]
+  %33 = xor i32 %notmask.i, -1
+  %34 = select i1 %26, i32 15, i32 %33
+  %35 = zext nneg i32 %34 to i64
   br label %36
 
-36:                                               ; preds = %36, %.lr.ph.us.i
-  %indvars.iv.i = phi i64 [ %35, %.lr.ph.us.i ], [ %indvars.iv.next.i, %36 ]
-  %37 = load i64, ptr %.023.us.i, align 8, !tbaa !33
-  %38 = shl i64 %indvars.iv.i, 2
-  %39 = and i64 %38, 4294967292
-  %40 = lshr i64 %37, %39
-  %41 = trunc i64 %40 to i32
-  %42 = and i32 %41, 15
-  %43 = icmp samesign ult i32 %42, 10
-  %44 = or disjoint i32 %42, 48
-  %45 = add nuw nsw i32 %42, 55
-  %.0.i18.us.i = select i1 %43, i32 %44, i32 %45
-  %fputc.us.i = tail call i32 @fputc(i32 %.0.i18.us.i, ptr %11)
+.loopexit.i:                                      ; preds = %37
+  %.0.i = getelementptr inbounds i8, ptr %.023.i, i64 -8
+  %.not.i = icmp ult ptr %.0.i, %15
+  br i1 %.not.i, label %Abc_TtPrintHexRev.exit, label %36, !llvm.loop !35
+
+36:                                               ; preds = %.loopexit.i, %.lr.ph.i
+  %.023.i = phi ptr [ %.021.i, %.lr.ph.i ], [ %.0.i, %.loopexit.i ]
+  br label %37
+
+37:                                               ; preds = %37, %36
+  %indvars.iv.i = phi i64 [ %35, %36 ], [ %indvars.iv.next.i, %37 ]
+  %38 = load i64, ptr %.023.i, align 8, !tbaa !33
+  %39 = shl i64 %indvars.iv.i, 2
+  %40 = and i64 %39, 4294967292
+  %41 = lshr i64 %38, %40
+  %42 = trunc i64 %41 to i32
+  %43 = and i32 %42, 15
+  %44 = icmp samesign ult i32 %43, 10
+  %45 = or disjoint i32 %43, 48
+  %46 = add nuw nsw i32 %43, 55
+  %.0.i18.i = select i1 %44, i32 %45, i32 %46
+  %fputc.i = tail call i32 @fputc(i32 %.0.i18.i, ptr %11)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %46 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %46, label %36, label %..loopexit_crit_edge.us.i, !llvm.loop !35
+  %47 = icmp sgt i64 %indvars.iv.i, 0
+  br i1 %47, label %37, label %.loopexit.i, !llvm.loop !36
 
-..loopexit_crit_edge.us.i:                        ; preds = %36
-  %.0.us.i = getelementptr inbounds i8, ptr %.023.us.i, i64 -8
-  %.not.us.i = icmp ult ptr %.0.us.i, %15
-  br i1 %.not.us.i, label %Abc_TtPrintHexRev.exit, label %.lr.ph.us.i, !llvm.loop !36
-
-Abc_TtPrintHexRev.exit:                           ; preds = %..loopexit_crit_edge.us.i, %17, %2
-  %47 = load i32, ptr %3, align 4
-  %48 = and i32 %47, 7
-  %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw i8, ptr @__const.Dss_ManPrint_rec.OpenType, i64 %49
-  %51 = load i8, ptr %50, align 1, !tbaa !37
-  %52 = sext i8 %51 to i32
-  %putchar = tail call i32 @putchar(i32 %52)
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
+Abc_TtPrintHexRev.exit:                           ; preds = %.loopexit.i, %17, %2
+  %48 = load i32, ptr %3, align 4
+  %49 = and i32 %48, 7
+  %50 = zext nneg i32 %49 to i64
+  %51 = getelementptr inbounds nuw i8, ptr @__const.Dss_ManPrint_rec.OpenType, i64 %50
+  %52 = load i8, ptr %51, align 1, !tbaa !37
+  %53 = sext i8 %52 to i32
+  %putchar = tail call i32 @putchar(i32 %53)
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val22 = load i32, ptr %3, align 4
   %.not27 = icmp ult i32 %.val22, 134217728
   br i1 %.not27, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Abc_TtPrintHexRev.exit
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %55 = load ptr, ptr %53, align 8, !tbaa !13
-  %56 = getelementptr i8, ptr %55, i64 8
-  %.val2130 = load ptr, ptr %56, align 8, !tbaa !19
-  %57 = load i32, ptr %54, align 4, !tbaa !25
-  %58 = ashr i32 %57, 1
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds ptr, ptr %.val2130, i64 %59
-  %61 = load ptr, ptr %60, align 8, !tbaa !20
-  %.not31 = icmp eq ptr %61, null
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %56 = load ptr, ptr %54, align 8, !tbaa !13
+  %57 = getelementptr i8, ptr %56, i64 8
+  %.val2130 = load ptr, ptr %57, align 8, !tbaa !19
+  %58 = load i32, ptr %55, align 4, !tbaa !25
+  %59 = ashr i32 %58, 1
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds ptr, ptr %.val2130, i64 %60
+  %62 = load ptr, ptr %61, align 8, !tbaa !20
+  %.not31 = icmp eq ptr %62, null
   br i1 %.not31, label %.critedge, label %.lr.ph33
 
-62:                                               ; preds = %.lr.ph33
-  %63 = load ptr, ptr %53, align 8, !tbaa !13
-  %64 = getelementptr i8, ptr %63, i64 8
-  %.val21 = load ptr, ptr %64, align 8, !tbaa !19
-  %65 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.next
-  %66 = load i32, ptr %65, align 4, !tbaa !25
-  %67 = ashr i32 %66, 1
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds ptr, ptr %.val21, i64 %68
-  %70 = load ptr, ptr %69, align 8, !tbaa !20
-  %.not = icmp eq ptr %70, null
+63:                                               ; preds = %.lr.ph33
+  %64 = load ptr, ptr %54, align 8, !tbaa !13
+  %65 = getelementptr i8, ptr %64, i64 8
+  %.val21 = load ptr, ptr %65, align 8, !tbaa !19
+  %66 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv.next
+  %67 = load i32, ptr %66, align 4, !tbaa !25
+  %68 = ashr i32 %67, 1
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds ptr, ptr %.val21, i64 %69
+  %71 = load ptr, ptr %70, align 8, !tbaa !20
+  %.not = icmp eq ptr %71, null
   br i1 %.not, label %.critedge, label %.lr.ph33, !llvm.loop !38
 
-.lr.ph33:                                         ; preds = %.lr.ph, %62
-  %71 = phi ptr [ %70, %62 ], [ %61, %.lr.ph ]
-  %72 = phi i32 [ %66, %62 ], [ %57, %.lr.ph ]
-  %indvars.iv32 = phi i64 [ %indvars.iv.next, %62 ], [ 0, %.lr.ph ]
-  %73 = and i32 %72, 1
-  %.not19 = icmp eq i32 %73, 0
-  %74 = select i1 %.not19, ptr @.str.3, ptr @.str.2
-  %75 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %74)
-  tail call void @Dss_NtkPrint_rec(ptr noundef nonnull %0, ptr noundef nonnull %71)
+.lr.ph33:                                         ; preds = %.lr.ph, %63
+  %72 = phi ptr [ %71, %63 ], [ %62, %.lr.ph ]
+  %73 = phi i32 [ %67, %63 ], [ %58, %.lr.ph ]
+  %indvars.iv32 = phi i64 [ %indvars.iv.next, %63 ], [ 0, %.lr.ph ]
+  %74 = and i32 %73, 1
+  %.not19 = icmp eq i32 %74, 0
+  %75 = select i1 %.not19, ptr @.str.3, ptr @.str.2
+  %76 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %75)
+  tail call void @Dss_NtkPrint_rec(ptr noundef nonnull %0, ptr noundef nonnull %72)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv32, 1
   %.val = load i32, ptr %3, align 4
-  %76 = lshr i32 %.val, 27
-  %77 = zext nneg i32 %76 to i64
-  %78 = icmp samesign ult i64 %indvars.iv.next, %77
-  br i1 %78, label %62, label %..critedge.loopexit_crit_edge, !llvm.loop !38
+  %77 = lshr i32 %.val, 27
+  %78 = zext nneg i32 %77 to i64
+  %79 = icmp samesign ult i64 %indvars.iv.next, %78
+  br i1 %79, label %63, label %..critedge.loopexit_crit_edge, !llvm.loop !38
 
 ..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph33
   br label %.critedge, !llvm.loop !38
 
-.critedge:                                        ; preds = %62, %.lr.ph, %..critedge.loopexit_crit_edge, %Abc_TtPrintHexRev.exit
-  %.val.lcssa = phi i32 [ %.val22, %Abc_TtPrintHexRev.exit ], [ %.val22, %.lr.ph ], [ %.val, %..critedge.loopexit_crit_edge ], [ %.val, %62 ]
-  %79 = and i32 %.val.lcssa, 7
-  %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw i8, ptr @__const.Dss_ManPrint_rec.CloseType, i64 %80
-  %82 = load i8, ptr %81, align 1, !tbaa !37
-  %83 = sext i8 %82 to i32
-  br label %84
+.critedge:                                        ; preds = %63, %.lr.ph, %..critedge.loopexit_crit_edge, %Abc_TtPrintHexRev.exit
+  %.val.lcssa = phi i32 [ %.val22, %Abc_TtPrintHexRev.exit ], [ %.val22, %.lr.ph ], [ %.val, %..critedge.loopexit_crit_edge ], [ %.val, %63 ]
+  %80 = and i32 %.val.lcssa, 7
+  %81 = zext nneg i32 %80 to i64
+  %82 = getelementptr inbounds nuw i8, ptr @__const.Dss_ManPrint_rec.CloseType, i64 %81
+  %83 = load i8, ptr %82, align 1, !tbaa !37
+  %84 = sext i8 %83 to i32
+  br label %85
 
-84:                                               ; preds = %.critedge, %6
-  %.sink = phi i32 [ %83, %.critedge ], [ %9, %6 ]
+85:                                               ; preds = %.critedge, %6
+  %.sink = phi i32 [ %84, %.critedge ], [ %9, %6 ]
   %putchar18 = tail call i32 @putchar(i32 %.sink)
   ret void
 }
@@ -2735,7 +2735,7 @@ define void @Dss_ManPrint_rec(ptr noundef captures(none) %0, ptr noundef readonl
 
 9:                                                ; preds = %5
   %fputc38 = tail call i32 @fputc(i32 48, ptr %0)
-  br label %98
+  br label %99
 
 10:                                               ; preds = %5
   %.not36 = icmp eq ptr %3, null
@@ -2762,7 +2762,7 @@ define void @Dss_ManPrint_rec(ptr noundef captures(none) %0, ptr noundef readonl
   %23 = ashr i32 %20, 1
   %24 = add nsw i32 %23, 97
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef nonnull %22, i32 noundef %24) #31
-  br label %98
+  br label %99
 
 26:                                               ; preds = %5
   %27 = lshr i32 %7, 19
@@ -2770,7 +2770,7 @@ define void @Dss_ManPrint_rec(ptr noundef captures(none) %0, ptr noundef readonl
   %29 = zext nneg i32 %28 to i64
   %30 = getelementptr inbounds nuw i64, ptr %2, i64 %29
   %31 = icmp ult i32 %7, 268435456
-  br i1 %31, label %32, label %.lr.ph.us.preheader.i
+  br i1 %31, label %32, label %.lr.ph.i
 
 32:                                               ; preds = %26
   %33 = load i64, ptr %30, align 8, !tbaa !33
@@ -2783,7 +2783,7 @@ define void @Dss_ManPrint_rec(ptr noundef captures(none) %0, ptr noundef readonl
   %fputc17.i = tail call i32 @fputc(i32 %.0.i.i, ptr %0)
   br label %Abc_TtPrintHexRev.exit
 
-.lr.ph.us.preheader.i:                            ; preds = %26
+.lr.ph.i:                                         ; preds = %26
   %39 = lshr i32 %7, 27
   %40 = add nsw i32 %39, -2
   %41 = icmp ugt i32 %7, 805306367
@@ -2791,111 +2791,111 @@ define void @Dss_ManPrint_rec(ptr noundef captures(none) %0, ptr noundef readonl
   %43 = add nsw i32 %39, -6
   %44 = shl nuw nsw i32 1, %43
   %45 = select i1 %42, i32 1, i32 %44
+  %46 = zext nneg i32 %45 to i64
+  %.idx.i = shl nuw nsw i64 %46, 3
+  %47 = getelementptr i8, ptr %30, i64 %.idx.i
+  %.021.i = getelementptr i8, ptr %47, i64 -8
   %notmask.i = shl nsw i32 -1, %40
-  %46 = xor i32 %notmask.i, -1
-  %47 = select i1 %41, i32 15, i32 %46
-  %48 = zext nneg i32 %45 to i64
-  %.idx.i = shl nuw nsw i64 %48, 3
-  %49 = getelementptr i8, ptr %30, i64 %.idx.i
-  %.021.i = getelementptr i8, ptr %49, i64 -8
-  %50 = zext nneg i32 %47 to i64
-  br label %.lr.ph.us.i
-
-.lr.ph.us.i:                                      ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %.023.us.i = phi ptr [ %.0.us.i, %..loopexit_crit_edge.us.i ], [ %.021.i, %.lr.ph.us.preheader.i ]
+  %48 = xor i32 %notmask.i, -1
+  %49 = select i1 %41, i32 15, i32 %48
+  %50 = zext nneg i32 %49 to i64
   br label %51
 
-51:                                               ; preds = %51, %.lr.ph.us.i
-  %indvars.iv.i = phi i64 [ %50, %.lr.ph.us.i ], [ %indvars.iv.next.i, %51 ]
-  %52 = load i64, ptr %.023.us.i, align 8, !tbaa !33
-  %53 = shl i64 %indvars.iv.i, 2
-  %54 = and i64 %53, 4294967292
-  %55 = lshr i64 %52, %54
-  %56 = trunc i64 %55 to i32
-  %57 = and i32 %56, 15
-  %58 = icmp samesign ult i32 %57, 10
-  %59 = or disjoint i32 %57, 48
-  %60 = add nuw nsw i32 %57, 55
-  %.0.i18.us.i = select i1 %58, i32 %59, i32 %60
-  %fputc.us.i = tail call i32 @fputc(i32 %.0.i18.us.i, ptr %0)
+.loopexit.i:                                      ; preds = %52
+  %.0.i = getelementptr inbounds i8, ptr %.023.i, i64 -8
+  %.not.i = icmp ult ptr %.0.i, %30
+  br i1 %.not.i, label %Abc_TtPrintHexRev.exit, label %51, !llvm.loop !35
+
+51:                                               ; preds = %.loopexit.i, %.lr.ph.i
+  %.023.i = phi ptr [ %.021.i, %.lr.ph.i ], [ %.0.i, %.loopexit.i ]
+  br label %52
+
+52:                                               ; preds = %52, %51
+  %indvars.iv.i = phi i64 [ %50, %51 ], [ %indvars.iv.next.i, %52 ]
+  %53 = load i64, ptr %.023.i, align 8, !tbaa !33
+  %54 = shl i64 %indvars.iv.i, 2
+  %55 = and i64 %54, 4294967292
+  %56 = lshr i64 %53, %55
+  %57 = trunc i64 %56 to i32
+  %58 = and i32 %57, 15
+  %59 = icmp samesign ult i32 %58, 10
+  %60 = or disjoint i32 %58, 48
+  %61 = add nuw nsw i32 %58, 55
+  %.0.i18.i = select i1 %59, i32 %60, i32 %61
+  %fputc.i = tail call i32 @fputc(i32 %.0.i18.i, ptr %0)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %61 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %61, label %51, label %..loopexit_crit_edge.us.i, !llvm.loop !35
+  %62 = icmp sgt i64 %indvars.iv.i, 0
+  br i1 %62, label %52, label %.loopexit.i, !llvm.loop !36
 
-..loopexit_crit_edge.us.i:                        ; preds = %51
-  %.0.us.i = getelementptr inbounds i8, ptr %.023.us.i, i64 -8
-  %.not.us.i = icmp ult ptr %.0.us.i, %30
-  br i1 %.not.us.i, label %Abc_TtPrintHexRev.exit, label %.lr.ph.us.i, !llvm.loop !36
-
-Abc_TtPrintHexRev.exit:                           ; preds = %..loopexit_crit_edge.us.i, %32, %5
-  %62 = load i32, ptr %6, align 4
-  %63 = and i32 %62, 7
-  %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr inbounds nuw i8, ptr @__const.Dss_ManPrint_rec.OpenType, i64 %64
-  %66 = load i8, ptr %65, align 1, !tbaa !37
-  %67 = sext i8 %66 to i32
-  %fputc = tail call i32 @fputc(i32 %67, ptr %0)
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 32
+Abc_TtPrintHexRev.exit:                           ; preds = %.loopexit.i, %32, %5
+  %63 = load i32, ptr %6, align 4
+  %64 = and i32 %63, 7
+  %65 = zext nneg i32 %64 to i64
+  %66 = getelementptr inbounds nuw i8, ptr @__const.Dss_ManPrint_rec.OpenType, i64 %65
+  %67 = load i8, ptr %66, align 1, !tbaa !37
+  %68 = sext i8 %67 to i32
+  %fputc = tail call i32 @fputc(i32 %68, ptr %0)
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val40 = load i32, ptr %6, align 4
   %.not45 = icmp ult i32 %.val40, 134217728
   br i1 %.not45, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Abc_TtPrintHexRev.exit
-  %69 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %70 = load ptr, ptr %68, align 8, !tbaa !62
-  %71 = getelementptr i8, ptr %70, i64 8
-  %.val3949 = load ptr, ptr %71, align 8, !tbaa !19
-  %72 = load i32, ptr %69, align 4, !tbaa !25
-  %73 = ashr i32 %72, 1
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds ptr, ptr %.val3949, i64 %74
-  %76 = load ptr, ptr %75, align 8, !tbaa !20
-  %.not50 = icmp eq ptr %76, null
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %71 = load ptr, ptr %69, align 8, !tbaa !62
+  %72 = getelementptr i8, ptr %71, i64 8
+  %.val3949 = load ptr, ptr %72, align 8, !tbaa !19
+  %73 = load i32, ptr %70, align 4, !tbaa !25
+  %74 = ashr i32 %73, 1
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds ptr, ptr %.val3949, i64 %75
+  %77 = load ptr, ptr %76, align 8, !tbaa !20
+  %.not50 = icmp eq ptr %77, null
   br i1 %.not50, label %.critedge, label %.lr.ph52
 
-77:                                               ; preds = %.lr.ph52
-  %78 = load ptr, ptr %68, align 8, !tbaa !62
-  %79 = getelementptr i8, ptr %78, i64 8
-  %.val39 = load ptr, ptr %79, align 8, !tbaa !19
-  %80 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv.next
-  %81 = load i32, ptr %80, align 4, !tbaa !25
-  %82 = ashr i32 %81, 1
-  %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds ptr, ptr %.val39, i64 %83
-  %85 = load ptr, ptr %84, align 8, !tbaa !20
-  %.not = icmp eq ptr %85, null
+78:                                               ; preds = %.lr.ph52
+  %79 = load ptr, ptr %69, align 8, !tbaa !62
+  %80 = getelementptr i8, ptr %79, i64 8
+  %.val39 = load ptr, ptr %80, align 8, !tbaa !19
+  %81 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv.next
+  %82 = load i32, ptr %81, align 4, !tbaa !25
+  %83 = ashr i32 %82, 1
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds ptr, ptr %.val39, i64 %84
+  %86 = load ptr, ptr %85, align 8, !tbaa !20
+  %.not = icmp eq ptr %86, null
   br i1 %.not, label %.critedge, label %.lr.ph52, !llvm.loop !102
 
-.lr.ph52:                                         ; preds = %.lr.ph, %77
-  %86 = phi ptr [ %85, %77 ], [ %76, %.lr.ph ]
-  %87 = phi i32 [ %81, %77 ], [ %72, %.lr.ph ]
-  %indvars.iv51 = phi i64 [ %indvars.iv.next, %77 ], [ 0, %.lr.ph ]
-  %88 = and i32 %87, 1
-  %.not35 = icmp eq i32 %88, 0
-  %89 = select i1 %.not35, ptr @.str.3, ptr @.str.2
-  %fputs = tail call i32 @fputs(ptr nonnull %89, ptr %0)
-  tail call void @Dss_ManPrint_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %86, ptr noundef %3, ptr noundef %4)
+.lr.ph52:                                         ; preds = %.lr.ph, %78
+  %87 = phi ptr [ %86, %78 ], [ %77, %.lr.ph ]
+  %88 = phi i32 [ %82, %78 ], [ %73, %.lr.ph ]
+  %indvars.iv51 = phi i64 [ %indvars.iv.next, %78 ], [ 0, %.lr.ph ]
+  %89 = and i32 %88, 1
+  %.not35 = icmp eq i32 %89, 0
+  %90 = select i1 %.not35, ptr @.str.3, ptr @.str.2
+  %fputs = tail call i32 @fputs(ptr nonnull %90, ptr %0)
+  tail call void @Dss_ManPrint_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %87, ptr noundef %3, ptr noundef %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv51, 1
   %.val = load i32, ptr %6, align 4
-  %90 = lshr i32 %.val, 27
-  %91 = zext nneg i32 %90 to i64
-  %92 = icmp samesign ult i64 %indvars.iv.next, %91
-  br i1 %92, label %77, label %..critedge.loopexit_crit_edge, !llvm.loop !102
+  %91 = lshr i32 %.val, 27
+  %92 = zext nneg i32 %91 to i64
+  %93 = icmp samesign ult i64 %indvars.iv.next, %92
+  br i1 %93, label %78, label %..critedge.loopexit_crit_edge, !llvm.loop !102
 
 ..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph52
   br label %.critedge, !llvm.loop !102
 
-.critedge:                                        ; preds = %77, %.lr.ph, %..critedge.loopexit_crit_edge, %Abc_TtPrintHexRev.exit
-  %.val.lcssa = phi i32 [ %.val40, %Abc_TtPrintHexRev.exit ], [ %.val40, %.lr.ph ], [ %.val, %..critedge.loopexit_crit_edge ], [ %.val, %77 ]
-  %93 = and i32 %.val.lcssa, 7
-  %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds nuw i8, ptr @__const.Dss_ManPrint_rec.CloseType, i64 %94
-  %96 = load i8, ptr %95, align 1, !tbaa !37
-  %97 = sext i8 %96 to i32
-  %fputc34 = tail call i32 @fputc(i32 %97, ptr %0)
-  br label %98
+.critedge:                                        ; preds = %78, %.lr.ph, %..critedge.loopexit_crit_edge, %Abc_TtPrintHexRev.exit
+  %.val.lcssa = phi i32 [ %.val40, %Abc_TtPrintHexRev.exit ], [ %.val40, %.lr.ph ], [ %.val, %..critedge.loopexit_crit_edge ], [ %.val, %78 ]
+  %94 = and i32 %.val.lcssa, 7
+  %95 = zext nneg i32 %94 to i64
+  %96 = getelementptr inbounds nuw i8, ptr @__const.Dss_ManPrint_rec.CloseType, i64 %95
+  %97 = load i8, ptr %96, align 1, !tbaa !37
+  %98 = sext i8 %97 to i32
+  %fputc34 = tail call i32 @fputc(i32 %98, ptr %0)
+  br label %99
 
-98:                                               ; preds = %.critedge, %19, %9
+99:                                               ; preds = %.critedge, %19, %9
   ret void
 }
 
@@ -3008,11 +3008,11 @@ define void @Dss_ManDump(ptr noundef readonly captures(none) %0) local_unnamed_a
 
 9:                                                ; preds = %1
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.15)
-  br label %82
+  br label %83
 
-.lr.ph:                                           ; preds = %.preheader, %76
-  %11 = phi ptr [ %77, %76 ], [ %6, %.preheader ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %76 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %77
+  %11 = phi ptr [ %78, %77 ], [ %6, %.preheader ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %77 ], [ 0, %.preheader ]
   %12 = getelementptr i8, ptr %11, i64 8
   %.val18 = load ptr, ptr %12, align 8, !tbaa !19
   %13 = getelementptr inbounds nuw ptr, ptr %.val18, i64 %indvars.iv
@@ -3021,7 +3021,7 @@ define void @Dss_ManDump(ptr noundef readonly captures(none) %0) local_unnamed_a
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 7
   %.not = icmp eq i32 %17, 6
-  br i1 %.not, label %.lr.ph18.preheader.i, label %76
+  br i1 %.not, label %.lr.ph18.preheader.i, label %77
 
 .lr.ph18.preheader.i:                             ; preds = %.lr.ph
   %18 = lshr i32 %16, 19
@@ -3099,64 +3099,64 @@ Abc_TtStretch6.exit:                              ; preds = %41, %.lr.ph18.prehe
   %58 = shl nuw i32 1, %57
   %59 = select i1 %56, i32 1, i32 %58
   %.not22.i = icmp slt i32 %59, 1
-  br i1 %.not22.i, label %Abc_TtPrintHexRev.exit, label %.lr.ph.us.preheader.i
+  br i1 %.not22.i, label %Abc_TtPrintHexRev.exit, label %.lr.ph.i
 
-.lr.ph.us.preheader.i:                            ; preds = %55
+.lr.ph.i:                                         ; preds = %55
+  %60 = zext nneg i32 %59 to i64
+  %.idx.i = shl nuw nsw i64 %60, 3
+  %61 = getelementptr i8, ptr %2, i64 %.idx.i
+  %.021.i = getelementptr i8, ptr %61, i64 -8
   %notmask.i = shl nsw i32 -1, %46
-  %60 = xor i32 %notmask.i, -1
-  %61 = select i1 %45, i32 15, i32 %60
-  %62 = zext nneg i32 %59 to i64
-  %.idx.i = shl nuw nsw i64 %62, 3
-  %63 = getelementptr i8, ptr %2, i64 %.idx.i
-  %.021.i = getelementptr i8, ptr %63, i64 -8
-  %64 = zext nneg i32 %61 to i64
-  br label %.lr.ph.us.i
-
-.lr.ph.us.i:                                      ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %.023.us.i = phi ptr [ %.0.us.i, %..loopexit_crit_edge.us.i ], [ %.021.i, %.lr.ph.us.preheader.i ]
+  %62 = xor i32 %notmask.i, -1
+  %63 = select i1 %45, i32 15, i32 %62
+  %64 = zext nneg i32 %63 to i64
   br label %65
 
-65:                                               ; preds = %65, %.lr.ph.us.i
-  %indvars.iv.i19 = phi i64 [ %64, %.lr.ph.us.i ], [ %indvars.iv.next.i20, %65 ]
-  %66 = load i64, ptr %.023.us.i, align 8, !tbaa !33
-  %67 = shl i64 %indvars.iv.i19, 2
-  %68 = and i64 %67, 4294967292
-  %69 = lshr i64 %66, %68
-  %70 = trunc i64 %69 to i32
-  %71 = and i32 %70, 15
-  %72 = icmp samesign ult i32 %71, 10
-  %73 = or disjoint i32 %71, 48
-  %74 = add nuw nsw i32 %71, 55
-  %.0.i18.us.i = select i1 %72, i32 %73, i32 %74
-  %fputc.us.i = call i32 @fputc(i32 %.0.i18.us.i, ptr nonnull %3)
+.loopexit.i:                                      ; preds = %66
+  %.0.i = getelementptr inbounds i8, ptr %.023.i, i64 -8
+  %.not.i = icmp ult ptr %.0.i, %2
+  br i1 %.not.i, label %Abc_TtPrintHexRev.exit, label %65, !llvm.loop !35
+
+65:                                               ; preds = %.loopexit.i, %.lr.ph.i
+  %.023.i = phi ptr [ %.021.i, %.lr.ph.i ], [ %.0.i, %.loopexit.i ]
+  br label %66
+
+66:                                               ; preds = %66, %65
+  %indvars.iv.i19 = phi i64 [ %64, %65 ], [ %indvars.iv.next.i20, %66 ]
+  %67 = load i64, ptr %.023.i, align 8, !tbaa !33
+  %68 = shl i64 %indvars.iv.i19, 2
+  %69 = and i64 %68, 4294967292
+  %70 = lshr i64 %67, %69
+  %71 = trunc i64 %70 to i32
+  %72 = and i32 %71, 15
+  %73 = icmp samesign ult i32 %72, 10
+  %74 = or disjoint i32 %72, 48
+  %75 = add nuw nsw i32 %72, 55
+  %.0.i18.i = select i1 %73, i32 %74, i32 %75
+  %fputc.i = call i32 @fputc(i32 %.0.i18.i, ptr nonnull %3)
   %indvars.iv.next.i20 = add nsw i64 %indvars.iv.i19, -1
-  %75 = icmp sgt i64 %indvars.iv.i19, 0
-  br i1 %75, label %65, label %..loopexit_crit_edge.us.i, !llvm.loop !35
+  %76 = icmp sgt i64 %indvars.iv.i19, 0
+  br i1 %76, label %66, label %.loopexit.i, !llvm.loop !36
 
-..loopexit_crit_edge.us.i:                        ; preds = %65
-  %.0.us.i = getelementptr inbounds i8, ptr %.023.us.i, i64 -8
-  %.not.us.i = icmp ult ptr %.0.us.i, %2
-  br i1 %.not.us.i, label %Abc_TtPrintHexRev.exit, label %.lr.ph.us.i, !llvm.loop !36
-
-Abc_TtPrintHexRev.exit:                           ; preds = %..loopexit_crit_edge.us.i, %48, %55
+Abc_TtPrintHexRev.exit:                           ; preds = %.loopexit.i, %48, %55
   %fputc = call i32 @fputc(i32 10, ptr nonnull %3)
   %.pre = load ptr, ptr %5, align 8, !tbaa !62
-  br label %76
+  br label %77
 
-76:                                               ; preds = %.lr.ph, %Abc_TtPrintHexRev.exit
-  %77 = phi ptr [ %11, %.lr.ph ], [ %.pre, %Abc_TtPrintHexRev.exit ]
+77:                                               ; preds = %.lr.ph, %Abc_TtPrintHexRev.exit
+  %78 = phi ptr [ %11, %.lr.ph ], [ %.pre, %Abc_TtPrintHexRev.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %78 = getelementptr i8, ptr %77, i64 4
-  %.val = load i32, ptr %78, align 4, !tbaa !14
-  %79 = sext i32 %.val to i64
-  %80 = icmp slt i64 %indvars.iv.next, %79
-  br i1 %80, label %.lr.ph, label %.critedge, !llvm.loop !106
+  %79 = getelementptr i8, ptr %78, i64 4
+  %.val = load i32, ptr %79, align 4, !tbaa !14
+  %80 = sext i32 %.val to i64
+  %81 = icmp slt i64 %indvars.iv.next, %80
+  br i1 %81, label %.lr.ph, label %.critedge, !llvm.loop !106
 
-.critedge:                                        ; preds = %76, %.preheader
-  %81 = call i32 @fclose(ptr noundef nonnull %3)
-  br label %82
+.critedge:                                        ; preds = %77, %.preheader
+  %82 = call i32 @fclose(ptr noundef nonnull %3)
+  br label %83
 
-82:                                               ; preds = %.critedge, %9
+83:                                               ; preds = %.critedge, %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }

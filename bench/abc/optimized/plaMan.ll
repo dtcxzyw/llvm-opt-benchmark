@@ -961,7 +961,6 @@ Pla_GenRandom.exit70:                             ; preds = %.split.us33.i, %Vec
 .lr.ph93:                                         ; preds = %Pla_GenRandom.exit70
   %97 = getelementptr i8, ptr %7, i64 32
   %98 = getelementptr i8, ptr %7, i64 96
-  %smax104 = call i32 @llvm.smax.i32(i32 %1, i32 1)
   %smax106 = call i32 @llvm.smax.i32(i32 %75, i32 1)
   br label %99
 
@@ -1004,7 +1003,7 @@ Pla_GenRandom.exit70:                             ; preds = %.split.us33.i, %Vec
   %122 = or i64 %121, %117
   store i64 %122, ptr %120, align 8, !tbaa !35
   %123 = add nuw nsw i32 %.14887, 1
-  %exitcond105.not = icmp eq i32 %123, %smax104
+  %exitcond105.not = icmp eq i32 %123, %1
   br i1 %exitcond105.not, label %.loopexit, label %.lr.ph89, !llvm.loop !50
 
 .loopexit:                                        ; preds = %.lr.ph89, %99

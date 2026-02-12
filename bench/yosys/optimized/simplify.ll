@@ -40184,22 +40184,16 @@ _ZN5Yosys7hashlib12hash_obj_ops4hashINS_3AST7AstNodeEEENS0_11HasherDJB32EPKT_.ex
   %76 = getelementptr inbounds nuw %"struct.Yosys::hashlib::pool<Yosys::AST::AstNode *>::entry_t", ptr %72, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !458
   %78 = icmp eq ptr %77, %73
-  br i1 %78, label %_ZNK5Yosys7hashlib4poolIPNS_3AST7AstNodeENS0_8hash_opsIS4_EEE9do_lookupERKS4_Rj.exit.loopexit, label %79
+  br i1 %78, label %_ZNK5Yosys7hashlib4poolIPNS_3AST7AstNodeENS0_8hash_opsIS4_EEE9do_lookupERKS4_Rj.exit, label %79
 
 79:                                               ; preds = %74
   %80 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %81 = load i32, ptr %80, align 8, !tbaa !460
   %82 = icmp sgt i32 %81, -1
-  br i1 %82, label %74, label %_ZNK5Yosys7hashlib4poolIPNS_3AST7AstNodeENS0_8hash_opsIS4_EEE9do_lookupERKS4_Rj.exit.loopexit, !llvm.loop !461
+  br i1 %82, label %74, label %_ZNK5Yosys7hashlib4poolIPNS_3AST7AstNodeENS0_8hash_opsIS4_EEE9do_lookupERKS4_Rj.exit, !llvm.loop !461
 
-_ZNK5Yosys7hashlib4poolIPNS_3AST7AstNodeENS0_8hash_opsIS4_EEE9do_lookupERKS4_Rj.exit.loopexit: ; preds = %79, %74
-  %.011.i.ph = phi i32 [ %.013.i, %74 ], [ %81, %79 ]
-  %83 = icmp sgt i32 %.011.i.ph, -1
-  %84 = zext i1 %83 to i32
-  br label %_ZNK5Yosys7hashlib4poolIPNS_3AST7AstNodeENS0_8hash_opsIS4_EEE9do_lookupERKS4_Rj.exit
-
-_ZNK5Yosys7hashlib4poolIPNS_3AST7AstNodeENS0_8hash_opsIS4_EEE9do_lookupERKS4_Rj.exit: ; preds = %_ZNK5Yosys7hashlib4poolIPNS_3AST7AstNodeENS0_8hash_opsIS4_EEE9do_lookupERKS4_Rj.exit.loopexit, %2, %._crit_edge.i
-  %.011.i = phi i32 [ 0, %2 ], [ 0, %._crit_edge.i ], [ %84, %_ZNK5Yosys7hashlib4poolIPNS_3AST7AstNodeENS0_8hash_opsIS4_EEE9do_lookupERKS4_Rj.exit.loopexit ]
+_ZNK5Yosys7hashlib4poolIPNS_3AST7AstNodeENS0_8hash_opsIS4_EEE9do_lookupERKS4_Rj.exit: ; preds = %74, %79, %2, %._crit_edge.i
+  %.011.i = phi i32 [ 0, %2 ], [ 0, %._crit_edge.i ], [ 0, %79 ], [ 1, %74 ]
   ret i32 %.011.i
 }
 
@@ -53088,22 +53082,16 @@ define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE5cou
   %65 = getelementptr inbounds nuw %"struct.Yosys::hashlib::pool<int>::entry_t", ptr %61, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !61
   %67 = icmp eq i32 %66, %62
-  br i1 %67, label %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE9do_lookupERKiRj.exit.loopexit, label %68
+  br i1 %67, label %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE9do_lookupERKiRj.exit, label %68
 
 68:                                               ; preds = %63
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %70 = load i32, ptr %69, align 4, !tbaa !269
   %71 = icmp sgt i32 %70, -1
-  br i1 %71, label %63, label %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE9do_lookupERKiRj.exit.loopexit, !llvm.loop !271
+  br i1 %71, label %63, label %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE9do_lookupERKiRj.exit, !llvm.loop !271
 
-_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE9do_lookupERKiRj.exit.loopexit: ; preds = %68, %63
-  %.011.i.ph = phi i32 [ %.013.i, %63 ], [ %70, %68 ]
-  %72 = icmp sgt i32 %.011.i.ph, -1
-  %73 = zext i1 %72 to i32
-  br label %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE9do_lookupERKiRj.exit
-
-_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE9do_lookupERKiRj.exit: ; preds = %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE9do_lookupERKiRj.exit.loopexit, %2, %._crit_edge.i
-  %.011.i = phi i32 [ 0, %2 ], [ 0, %._crit_edge.i ], [ %73, %_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE9do_lookupERKiRj.exit.loopexit ]
+_ZNK5Yosys7hashlib4poolIiNS0_8hash_opsIiEEE9do_lookupERKiRj.exit: ; preds = %63, %68, %2, %._crit_edge.i
+  %.011.i = phi i32 [ 0, %2 ], [ 0, %._crit_edge.i ], [ 0, %68 ], [ 1, %63 ]
   ret i32 %.011.i
 }
 

@@ -28,7 +28,7 @@ define internal void @pmix_bitmap_destruct(ptr noundef captures(none) %0) #1 {
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %3) #15
+  tail call void @free(ptr noundef nonnull %3) #14
   store ptr null, ptr %2, align 8, !tbaa !3
   br label %5
 
@@ -79,7 +79,7 @@ define range(i32 -29, 1) i32 @pmix_bitmap_init(ptr noundef captures(address_is_n
   br i1 %.not, label %20, label %15
 
 15:                                               ; preds = %9
-  tail call void @free(ptr noundef nonnull %14) #15
+  tail call void @free(ptr noundef nonnull %14) #14
   %16 = load i32, ptr %6, align 4, !tbaa !14
   %17 = load i32, ptr %12, align 8, !tbaa !13
   %18 = icmp slt i32 %16, %17
@@ -164,7 +164,7 @@ define range(i32 -29, 1) i32 @pmix_bitmap_set_bit(ptr noundef captures(address_i
   %17 = load ptr, ptr %16, align 8, !tbaa !3
   %18 = zext nneg i32 %spec.select to i64
   %19 = shl nuw nsw i64 %18, 3
-  %20 = tail call ptr @realloc(ptr noundef %17, i64 noundef %19) #16
+  %20 = tail call ptr @realloc(ptr noundef %17, i64 noundef %19) #15
   store ptr %20, ptr %16, align 8, !tbaa !3
   %21 = icmp eq ptr %20, null
   br i1 %21, label %37, label %22
@@ -359,7 +359,7 @@ define range(i32 -29, 1) i32 @pmix_bitmap_find_and_set_first_unset_bit(ptr nound
   %29 = load ptr, ptr %28, align 8, !tbaa !3
   %30 = zext nneg i32 %spec.select.i to i64
   %31 = shl nuw nsw i64 %30, 3
-  %32 = tail call ptr @realloc(ptr noundef %29, i64 noundef %31) #16
+  %32 = tail call ptr @realloc(ptr noundef %29, i64 noundef %31) #15
   store ptr %32, ptr %28, align 8, !tbaa !3
   %33 = icmp eq ptr %32, null
   br i1 %33, label %pmix_bitmap_set_bit.exit, label %34
@@ -606,7 +606,7 @@ define noalias noundef ptr @pmix_bitmap_get_string(ptr noundef readonly captures
   %6 = shl nsw i32 %5, 6
   %7 = or disjoint i32 %6, 1
   %8 = sext i32 %7 to i64
-  %9 = tail call noalias ptr @malloc(i64 noundef %8) #17
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #16
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %11
 
@@ -620,8 +620,7 @@ define noalias noundef ptr @pmix_bitmap_get_string(ptr noundef readonly captures
 pmix_bitmap_is_set_bit.exit.lr.ph:                ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %16 = load ptr, ptr %15, align 8, !tbaa !3
-  %smax = tail call i32 @llvm.smax.i32(i32 %6, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %6 to i64
   br label %pmix_bitmap_is_set_bit.exit
 
 pmix_bitmap_is_set_bit.exit:                      ; preds = %pmix_bitmap_is_set_bit.exit.lr.ph, %pmix_bitmap_is_set_bit.exit
@@ -756,9 +755,6 @@ define noundef zeroext i1 @pmix_bitmap_is_clear(ptr noundef readonly captures(no
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13
 
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #14
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -773,10 +769,9 @@ attributes #10 = { nofree norecurse nosync nounwind memory(readwrite, inaccessib
 attributes #11 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind allocsize(1) }
-attributes #17 = { nounwind allocsize(0) }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind allocsize(1) }
+attributes #16 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

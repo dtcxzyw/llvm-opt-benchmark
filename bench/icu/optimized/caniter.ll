@@ -763,9 +763,9 @@ _ZN6icu_779HashtableC2ER10UErrorCode.exit90.thread: ; preds = %.noexc, %_ZN6icu_
 
 _ZN6icu_779HashtableC2ER10UErrorCode.exit90:      ; preds = %29
   %.pr119.pre = load i32, ptr %3, align 4, !tbaa !23
+  %31 = icmp slt i32 %.pr119.pre, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !39
-  %31 = icmp slt i32 %.pr119.pre, 1
   br i1 %31, label %32, label %_ZN6icu_779HashtableD2Ev.exit
 
 32:                                               ; preds = %_ZN6icu_779HashtableC2ER10UErrorCode.exit90

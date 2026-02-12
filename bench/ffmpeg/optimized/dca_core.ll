@@ -6423,7 +6423,7 @@ define range(i32 -2147483648, 1) i32 @ff_dca_core_filter_frame(ptr noundef initi
   %175 = add nsw i32 %.02639.i.i, 1
   %176 = zext i32 %.02639.i.i to i64
   %177 = icmp eq i64 %indvars.iv157.i, %176
-  br i1 %177, label %map_prm_ch_to_spkr.exit.i, label %178
+  br i1 %177, label %.preheader.i, label %178
 
 178:                                              ; preds = %174, %171
   %.1.i.i = phi i32 [ %175, %174 ], [ %.02639.i.i, %171 ]
@@ -6431,13 +6431,12 @@ define range(i32 -2147483648, 1) i32 @ff_dca_core_filter_frame(ptr noundef initi
   %exitcond.not.i.i = icmp eq i32 %179, %138
   br i1 %exitcond.not.i.i, label %filter_frame_fixed.exit.thread, label %171, !llvm.loop !224
 
-map_prm_ch_to_spkr.exit.i:                        ; preds = %174, %153, %146
-  %.027.i.i = phi i32 [ %150, %146 ], [ %150, %153 ], [ %.040.i.i, %174 ]
-  %180 = icmp sgt i32 %.027.i.i, -1
+map_prm_ch_to_spkr.exit.i:                        ; preds = %153, %146
+  %180 = icmp sgt i8 %149, -1
   br i1 %180, label %.preheader.i, label %filter_frame_fixed.exit.thread
 
-.preheader.i:                                     ; preds = %map_prm_ch_to_spkr.exit.i, %163, %160, %157
-  %.027.i182.i = phi i32 [ %.027.i.i, %map_prm_ch_to_spkr.exit.i ], [ 10, %160 ], [ 9, %157 ], [ 6, %163 ]
+.preheader.i:                                     ; preds = %174, %map_prm_ch_to_spkr.exit.i, %163, %160, %157
+  %.027.i182.i = phi i32 [ %150, %map_prm_ch_to_spkr.exit.i ], [ 6, %163 ], [ 10, %160 ], [ 9, %157 ], [ %.040.i.i, %174 ]
   %181 = icmp sgt i32 %138, 0
   br i1 %181, label %.lr.ph137.i, label %._crit_edge.i
 
@@ -7140,7 +7139,7 @@ map_prm_ch_to_spkr.exit.thread229.i:              ; preds = %420, %map_prm_ch_to
   %571 = add nsw i32 %.02639.i215.i, 1
   %572 = zext i32 %.02639.i215.i to i64
   %573 = icmp eq i64 %indvars.iv294.i, %572
-  br i1 %573, label %map_prm_ch_to_spkr.exit226.i, label %574
+  br i1 %573, label %.preheader235.i, label %574
 
 574:                                              ; preds = %570, %567
   %.1.i217.i = phi i32 [ %571, %570 ], [ %.02639.i215.i, %567 ]
@@ -7148,13 +7147,12 @@ map_prm_ch_to_spkr.exit.thread229.i:              ; preds = %420, %map_prm_ch_to
   %exitcond.not.i218.i = icmp eq i32 %575, %564
   br i1 %exitcond.not.i218.i, label %filter_frame_fixed.exit.thread89, label %567, !llvm.loop !224
 
-map_prm_ch_to_spkr.exit226.i:                     ; preds = %570, %548, %541
-  %.027.i212.i = phi i32 [ %545, %541 ], [ %545, %548 ], [ %.040.i214.i, %570 ]
-  %576 = icmp sgt i32 %.027.i212.i, -1
+map_prm_ch_to_spkr.exit226.i:                     ; preds = %548, %541
+  %576 = icmp sgt i8 %544, -1
   br i1 %576, label %.preheader235.i, label %filter_frame_fixed.exit.thread89
 
-.preheader235.i:                                  ; preds = %map_prm_ch_to_spkr.exit226.i, %558, %555, %552
-  %.027.i212328.i = phi i32 [ %.027.i212.i, %map_prm_ch_to_spkr.exit226.i ], [ 10, %555 ], [ 9, %552 ], [ 6, %558 ]
+.preheader235.i:                                  ; preds = %570, %map_prm_ch_to_spkr.exit226.i, %558, %555, %552
+  %.027.i212328.i = phi i32 [ %545, %map_prm_ch_to_spkr.exit226.i ], [ 6, %558 ], [ 10, %555 ], [ 9, %552 ], [ %.040.i214.i, %570 ]
   %577 = load i32, ptr %521, align 4, !tbaa !122
   %578 = icmp sgt i32 %577, 0
   br i1 %578, label %.lr.ph262.i, label %._crit_edge263.i

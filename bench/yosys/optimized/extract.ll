@@ -40020,8 +40020,8 @@ declare void @_ZN5Yosys5RTLIL7SigSpecC1ENS0_5StateEi(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5Yosys6SigSetISt4pairINS_5RTLIL8IdStringEiESt4lessIS4_EE3hasERKNS2_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 8, !tbaa !372
-  %.not3751.not = icmp eq i32 %3, 0
-  br i1 %.not3751.not, label %.loopexit, label %.lr.ph
+  %.not3549.not = icmp eq i32 %3, 0
+  br i1 %.not3549.not, label %_ZNK5Yosys7hashlib4dictINS_6SigSetISt4pairINS_5RTLIL8IdStringEiESt4lessIS6_EE8bitDef_tESt3setIS6_S8_SaIS6_EENS0_8hash_opsISA_EEE5countERKSA_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -40121,8 +40121,8 @@ _ZNK5Yosys7hashlib4dictINS_6SigSetISt4pairINS_5RTLIL8IdStringEiESt4lessIS6_EE8bi
   %52 = phi ptr [ %30, %.thread.i.i.i.i21 ], [ %30, %36 ], [ %30, %45 ], [ %.pre.i19, %._ZN5Yosys7hashlib8hash_opsINS_6SigSetISt4pairINS_5RTLIL8IdStringEiESt4lessIS6_EE8bitDef_tEE4hashERKSA_.exit_crit_edge.i18 ]
   %53 = phi i32 [ %35, %.thread.i.i.i.i21 ], [ %42, %36 ], [ %42, %45 ], [ %42, %._ZN5Yosys7hashlib8hash_opsINS_6SigSetISt4pairINS_5RTLIL8IdStringEiESt4lessIS6_EE8bitDef_tEE4hashERKSA_.exit_crit_edge.i18 ]
   %.pre = load ptr, ptr %0, align 8, !tbaa !138
-  %.pre65 = load ptr, ptr %8, align 8, !tbaa !138
-  %54 = icmp eq ptr %.pre, %.pre65
+  %.pre63 = load ptr, ptr %8, align 8, !tbaa !138
+  %54 = icmp eq ptr %.pre, %.pre63
   br i1 %54, label %.critedge12, label %55
 
 55:                                               ; preds = %_ZNK5Yosys7hashlib4dictINS_6SigSetISt4pairINS_5RTLIL8IdStringEiESt4lessIS6_EE8bitDef_tESt3setIS6_S8_SaIS6_EENS0_8hash_opsISA_EEE7do_hashERKSA_.exit22
@@ -40158,7 +40158,7 @@ _ZNK5Yosys7hashlib4dictINS_6SigSetISt4pairINS_5RTLIL8IdStringEiESt4lessIS6_EE8bi
   %85 = sub i64 %83, %84
   %86 = sdiv exact i64 %85, 72
   %87 = shl nsw i64 %86, 1
-  %88 = ptrtoint ptr %.pre65 to i64
+  %88 = ptrtoint ptr %.pre63 to i64
   %89 = ptrtoint ptr %.pre to i64
   %90 = sub i64 %88, %89
   %91 = ashr exact i64 %90, 2
@@ -40269,7 +40269,7 @@ _ZN5Yosys7hashlib8hash_opsINS_6SigSetISt4pairINS_5RTLIL8IdStringEiESt4lessIS6_EE
   %157 = load i32, ptr %156, align 8
   %158 = icmp eq i32 %157, %28
   %159 = select i1 %155, i1 %158, i1 false
-  br i1 %159, label %.loopexit, label %160
+  br i1 %159, label %_ZNK5Yosys7hashlib4dictINS_6SigSetISt4pairINS_5RTLIL8IdStringEiESt4lessIS6_EE8bitDef_tESt3setIS6_S8_SaIS6_EENS0_8hash_opsISA_EEE5countERKSA_.exit, label %160
 
 160:                                              ; preds = %151
   %161 = getelementptr inbounds nuw i8, ptr %153, i64 64
@@ -40279,12 +40279,12 @@ _ZN5Yosys7hashlib8hash_opsINS_6SigSetISt4pairINS_5RTLIL8IdStringEiESt4lessIS6_EE
 
 .critedge12:                                      ; preds = %160, %26, %._crit_edge.i.i, %_ZNK5Yosys7hashlib4dictINS_6SigSetISt4pairINS_5RTLIL8IdStringEiESt4lessIS6_EE8bitDef_tESt3setIS6_S8_SaIS6_EENS0_8hash_opsISA_EEE7do_hashERKSA_.exit22, %_ZNK5Yosys5RTLIL20SigSpecConstIteratordeEv.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not37.not = icmp eq i64 %indvars.iv.next, %11
-  br i1 %.not37.not, label %.loopexit, label %12
+  %.not35.not = icmp eq i64 %indvars.iv.next, %11
+  br i1 %.not35.not, label %_ZNK5Yosys7hashlib4dictINS_6SigSetISt4pairINS_5RTLIL8IdStringEiESt4lessIS6_EE8bitDef_tESt3setIS6_S8_SaIS6_EENS0_8hash_opsISA_EEE5countERKSA_.exit, label %12
 
-.loopexit:                                        ; preds = %.critedge12, %151, %2
-  %.not3743 = phi i1 [ true, %151 ], [ false, %2 ], [ false, %.critedge12 ]
-  ret i1 %.not3743
+_ZNK5Yosys7hashlib4dictINS_6SigSetISt4pairINS_5RTLIL8IdStringEiESt4lessIS6_EE8bitDef_tESt3setIS6_S8_SaIS6_EENS0_8hash_opsISA_EEE5countERKSA_.exit: ; preds = %.critedge12, %151, %2
+  %.not3541 = phi i1 [ true, %151 ], [ false, %2 ], [ false, %.critedge12 ]
+  ret i1 %.not3541
 }
 
 declare void @_ZN5Yosys5RTLIL7SigSpecC1ERKNS0_6SigBitEi(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(12), i32 noundef) unnamed_addr #0

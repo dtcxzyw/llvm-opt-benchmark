@@ -1037,8 +1037,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit45:          ; preds = %57, %55, %53, %51
 .lr.ph63:                                         ; preds = %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit45
   %58 = load ptr, ptr %26, align 8, !tbaa !18
   %59 = load ptr, ptr %42, align 8, !tbaa !18
-  %smax = call i32 @llvm.smax.i32(i32 %8, i32 1)
-  %wide.trip.count71 = zext nneg i32 %smax to i64
+  %wide.trip.count71 = zext nneg i32 %8 to i64
   br label %67
 
 ._crit_edge64:                                    ; preds = %67, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit45
@@ -3194,9 +3193,6 @@ declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #15
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

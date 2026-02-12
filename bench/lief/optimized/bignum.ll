@@ -5574,8 +5574,8 @@ define internal fastcc range(i32 -14, 2) i32 @mpi_check_small_factors(ptr nounde
 
 52:                                               ; preds = %50
   %53 = load i16, ptr %7, align 8, !tbaa !10
-  %or.cond = icmp sgt i16 %53, -1
-  br i1 %or.cond, label %.preheader.preheader.i.i, label %mbedtls_mpi_mod_int.exit
+  %or.cond = icmp slt i16 %53, 0
+  br i1 %or.cond, label %mbedtls_mpi_mod_int.exit, label %.preheader.preheader.i.i
 
 .preheader.preheader.i.i:                         ; preds = %52
   %54 = icmp eq i64 %.035.lcssa.i.i, 0

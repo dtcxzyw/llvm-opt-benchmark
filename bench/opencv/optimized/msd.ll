@@ -477,8 +477,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %.not.i.i.i.i, label %.preheader488, label %.lr.ph498.preheader
 
 .lr.ph498.preheader:                              ; preds = %.preheader489
-  %smax = tail call i32 @llvm.smax.i32(i32 %.fr650, i32 1)
-  %wide.trip.count674 = zext nneg i32 %smax to i64
+  %wide.trip.count674 = zext nneg i32 %.fr650 to i64
   br label %.lr.ph498
 
 42:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit

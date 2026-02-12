@@ -1168,7 +1168,7 @@ define range(i32 -1, 2) i32 @ZPdr_ManDown(ptr noundef %0, i32 noundef %1, ptr no
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load i32, ptr %64, align 8, !tbaa !51
   %66 = icmp sgt i32 %65, 0
-  br i1 %66, label %.lr.ph123, label %._crit_edge124
+  br i1 %66, label %.lr.ph123, label %.lr.ph129.preheader
 
 .lr.ph123:                                        ; preds = %62
   %67 = load ptr, ptr %18, align 8, !tbaa !79
@@ -1210,25 +1210,25 @@ define range(i32 -1, 2) i32 @ZPdr_ManDown(ptr noundef %0, i32 noundef %1, ptr no
   %88 = load i32, ptr %64, align 8, !tbaa !51
   %89 = sext i32 %88 to i64
   %90 = icmp slt i64 %indvars.iv.next, %89
-  br i1 %90, label %70, label %._crit_edge124, !llvm.loop !104
+  br i1 %90, label %70, label %.lr.ph129.preheader, !llvm.loop !104
 
-._crit_edge124:                                   ; preds = %83, %62
+.lr.ph129.preheader:                              ; preds = %83, %62
   %91 = load ptr, ptr %21, align 8, !tbaa !66
   call fastcc void @Vec_VecPush(ptr noundef %91, i32 noundef %.089.lcssa, ptr noundef nonnull %63)
   %92 = load i32, ptr %22, align 8, !tbaa !105
   %93 = add nsw i32 %92, 1
   store i32 %93, ptr %22, align 8, !tbaa !105
-  %.not97126 = icmp slt i32 %.089.lcssa, 1
-  br i1 %.not97126, label %._crit_edge130, label %.lr.ph129
+  %smax = call i32 @llvm.smax.i32(i32 %.089.lcssa, i32 1)
+  br label %.lr.ph129
 
-.lr.ph129:                                        ; preds = %._crit_edge124, %.lr.ph129
-  %.2127 = phi i32 [ %94, %.lr.ph129 ], [ 1, %._crit_edge124 ]
+.lr.ph129:                                        ; preds = %.lr.ph129.preheader, %.lr.ph129
+  %.2127 = phi i32 [ %94, %.lr.ph129 ], [ 1, %.lr.ph129.preheader ]
   call void @Pdr_ManSolverAddClause(ptr noundef nonnull %0, i32 noundef %.2127, ptr noundef nonnull %63) #21
   %94 = add nuw i32 %.2127, 1
-  %exitcond136.not = icmp eq i32 %.2127, %.089.lcssa
+  %exitcond136.not = icmp eq i32 %.2127, %smax
   br i1 %exitcond136.not, label %._crit_edge130, label %.lr.ph129, !llvm.loop !106
 
-._crit_edge130:                                   ; preds = %.lr.ph129, %._crit_edge124
+._crit_edge130:                                   ; preds = %.lr.ph129
   %95 = load ptr, ptr %8, align 8, !tbaa !85
   call void @Pdr_SetDeref(ptr noundef %95) #21
   %96 = load ptr, ptr %2, align 8, !tbaa !85

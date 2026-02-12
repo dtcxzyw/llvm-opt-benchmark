@@ -8048,8 +8048,7 @@ printProgressReport.exit:                         ; preds = %1723, %1725
   br i1 %.b174.pr, label %.lr.ph471.preheader, label %.lr.ph.preheader.i198
 
 .lr.ph471.preheader:                              ; preds = %advanceConnectionState.exit, %.thread343thread-pre-split
-  %smax = call i32 @llvm.smax.i32(i32 %37, i32 1)
-  %wide.trip.count550 = zext nneg i32 %smax to i64
+  %wide.trip.count550 = zext nneg i32 %37 to i64
   br label %.lr.ph471
 
 .thread343:                                       ; preds = %.lr.ph471
@@ -12509,9 +12508,6 @@ declare i64 @llvm.smin.i64(i64, i64) #24
 declare i64 @llvm.abs.i64(i64, i1 immarg) #25
 
 declare double @exp2(double) local_unnamed_addr
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #24
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

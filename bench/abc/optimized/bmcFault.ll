@@ -5831,8 +5831,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 
 .lr.ph115:                                        ; preds = %81, %.critedge4
   %.2 = phi i32 [ %82, %.critedge4 ], [ %.0117, %81 ]
-  %smax = tail call i32 @llvm.smax.i32(i32 %.val85.pre, i32 1)
-  %wide.trip.count132 = zext nneg i32 %smax to i64
+  %wide.trip.count132 = zext nneg i32 %.val85.pre to i64
   br label %92
 
 92:                                               ; preds = %.lr.ph115, %99

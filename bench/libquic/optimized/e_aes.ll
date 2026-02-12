@@ -1516,7 +1516,7 @@ define internal range(i32 0, 2) i32 @aead_aes_key_wrap_seal(ptr noundef readonly
 
 15:                                               ; preds = %10
   tail call void @ERR_put_error(i32 noundef 30, i32 noundef 0, i32 noundef 118, ptr noundef nonnull @.str, i32 noundef 1246) #10
-  br label %68
+  br label %72
 
 16:                                               ; preds = %10
   %17 = icmp eq i64 %5, 0
@@ -1528,7 +1528,7 @@ define internal range(i32 0, 2) i32 @aead_aes_key_wrap_seal(ptr noundef readonly
 
 18:                                               ; preds = %16
   tail call void @ERR_put_error(i32 noundef 30, i32 noundef 0, i32 noundef 121, ptr noundef nonnull @.str, i32 noundef 1256) #10
-  br label %68
+  br label %72
 
 19:                                               ; preds = %16, %16
   %20 = and i64 %7, 7
@@ -1537,7 +1537,7 @@ define internal range(i32 0, 2) i32 @aead_aes_key_wrap_seal(ptr noundef readonly
 
 21:                                               ; preds = %19
   tail call void @ERR_put_error(i32 noundef 30, i32 noundef 0, i32 noundef 119, ptr noundef nonnull @.str, i32 noundef 1261) #10
-  br label %68
+  br label %72
 
 22:                                               ; preds = %19
   %23 = icmp ugt i64 %7, 4294967280
@@ -1545,7 +1545,7 @@ define internal range(i32 0, 2) i32 @aead_aes_key_wrap_seal(ptr noundef readonly
 
 24:                                               ; preds = %22
   tail call void @ERR_put_error(i32 noundef 30, i32 noundef 0, i32 noundef 117, ptr noundef nonnull @.str, i32 noundef 1270) #10
-  br label %68
+  br label %72
 
 25:                                               ; preds = %22
   %26 = lshr exact i64 %7, 3
@@ -1554,7 +1554,7 @@ define internal range(i32 0, 2) i32 @aead_aes_key_wrap_seal(ptr noundef readonly
 
 28:                                               ; preds = %25
   tail call void @ERR_put_error(i32 noundef 30, i32 noundef 0, i32 noundef 119, ptr noundef nonnull @.str, i32 noundef 1277) #10
-  br label %68
+  br label %72
 
 29:                                               ; preds = %25
   %30 = add nuw nsw i64 %7, 8
@@ -1563,82 +1563,82 @@ define internal range(i32 0, 2) i32 @aead_aes_key_wrap_seal(ptr noundef readonly
 
 32:                                               ; preds = %29
   tail call void @ERR_put_error(i32 noundef 30, i32 noundef 0, i32 noundef 103, ptr noundef nonnull @.str, i32 noundef 1287) #10
-  br label %68
+  br label %72
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %35 = load i32, ptr %34, align 4, !tbaa !45
   %36 = call i32 @AES_set_encrypt_key(ptr noundef %14, i32 noundef %35, ptr noundef nonnull %11) #10
   %37 = icmp slt i32 %36, 0
-  br i1 %37, label %38, label %.preheader.preheader
+  br i1 %37, label %38, label %39
 
 38:                                               ; preds = %33
   call void @ERR_put_error(i32 noundef 30, i32 noundef 0, i32 noundef 100, ptr noundef nonnull @.str, i32 noundef 1292) #10
-  br label %68
+  br label %72
 
-.preheader.preheader:                             ; preds = %33
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %39, ptr align 1 %6, i64 %7, i1 false)
-  %40 = load i64, ptr %spec.select48, align 1
-  store i64 %40, ptr %12, align 16
-  %41 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %42 = getelementptr inbounds nuw i8, ptr %12, i64 7
-  %43 = getelementptr inbounds nuw i8, ptr %12, i64 6
-  %44 = getelementptr inbounds nuw i8, ptr %12, i64 5
-  %45 = getelementptr inbounds nuw i8, ptr %12, i64 4
+39:                                               ; preds = %33
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %40, ptr align 1 %6, i64 %7, i1 false)
+  %41 = load i64, ptr %spec.select48, align 1
+  store i64 %41, ptr %12, align 16
+  %42 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %12, i64 7
+  %44 = getelementptr inbounds nuw i8, ptr %12, i64 6
+  %45 = getelementptr inbounds nuw i8, ptr %12, i64 5
+  %46 = getelementptr inbounds nuw i8, ptr %12, i64 4
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
-  %indvars.iv57 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next58, %._crit_edge ]
-  %46 = mul nuw nsw i64 %indvars.iv57, %26
-  br label %47
+.preheader:                                       ; preds = %39, %69
+  %indvars.iv53 = phi i64 [ 0, %39 ], [ %indvars.iv.next54, %69 ]
+  %47 = mul nuw nsw i64 %indvars.iv53, %26
+  br label %48
 
-47:                                               ; preds = %.preheader, %47
-  %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %47 ]
-  %48 = shl nuw i64 %indvars.iv, 3
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 %48
-  %50 = load i64, ptr %49, align 1
-  store i64 %50, ptr %41, align 8
+48:                                               ; preds = %.preheader, %48
+  %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %48 ]
+  %49 = shl nuw i64 %indvars.iv, 3
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 %49
+  %51 = load i64, ptr %50, align 1
+  store i64 %51, ptr %42, align 8
   call void @AES_encrypt(ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %11) #10
-  %51 = add nuw nsw i64 %indvars.iv, %46
-  %52 = load i8, ptr %42, align 1, !tbaa !20
-  %53 = trunc i64 %51 to i8
-  %54 = xor i8 %52, %53
-  store i8 %54, ptr %42, align 1, !tbaa !20
-  %55 = load i8, ptr %43, align 2, !tbaa !20
-  %56 = lshr i64 %51, 8
-  %57 = trunc i64 %56 to i8
-  %58 = xor i8 %55, %57
-  store i8 %58, ptr %43, align 2, !tbaa !20
-  %59 = load i8, ptr %44, align 1, !tbaa !20
-  %60 = lshr i64 %51, 16
-  %61 = trunc i64 %60 to i8
-  %62 = xor i8 %59, %61
-  store i8 %62, ptr %44, align 1, !tbaa !20
-  %63 = load i8, ptr %45, align 4, !tbaa !20
-  %64 = lshr i64 %51, 24
-  %65 = trunc i64 %64 to i8
-  %66 = xor i8 %63, %65
-  store i8 %66, ptr %45, align 4, !tbaa !20
-  %67 = load i64, ptr %41, align 8
-  store i64 %67, ptr %49, align 1
+  %52 = add nuw nsw i64 %indvars.iv, %47
+  %53 = load i8, ptr %43, align 1, !tbaa !20
+  %54 = trunc i64 %52 to i8
+  %55 = xor i8 %53, %54
+  store i8 %55, ptr %43, align 1, !tbaa !20
+  %56 = load i8, ptr %44, align 2, !tbaa !20
+  %57 = lshr i64 %52, 8
+  %58 = trunc i64 %57 to i8
+  %59 = xor i8 %56, %58
+  store i8 %59, ptr %44, align 2, !tbaa !20
+  %60 = load i8, ptr %45, align 1, !tbaa !20
+  %61 = lshr i64 %52, 16
+  %62 = trunc i64 %61 to i8
+  %63 = xor i8 %60, %62
+  store i8 %63, ptr %45, align 1, !tbaa !20
+  %64 = load i8, ptr %46, align 4, !tbaa !20
+  %65 = lshr i64 %52, 24
+  %66 = trunc i64 %65 to i8
+  %67 = xor i8 %64, %66
+  store i8 %67, ptr %46, align 4, !tbaa !20
+  %68 = load i64, ptr %42, align 8
+  store i64 %68, ptr %50, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv, %26
-  br i1 %exitcond.not, label %._crit_edge, label %47, !llvm.loop !47
+  br i1 %exitcond.not, label %69, label %48, !llvm.loop !47
 
-._crit_edge:                                      ; preds = %47
-  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %exitcond60.not = icmp eq i64 %indvars.iv.next58, 6
-  br i1 %exitcond60.not, label %.split54.us, label %.preheader, !llvm.loop !48
+69:                                               ; preds = %48
+  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
+  %exitcond56.not = icmp eq i64 %indvars.iv.next54, 6
+  br i1 %exitcond56.not, label %70, label %.preheader, !llvm.loop !48
 
-.split54.us:                                      ; preds = %._crit_edge
-  %.pre = load i64, ptr %12, align 16
-  store i64 %.pre, ptr %1, align 1
+70:                                               ; preds = %69
+  %71 = load i64, ptr %12, align 16
+  store i64 %71, ptr %1, align 1
   store i64 %30, ptr %2, align 8, !tbaa !43
-  br label %68
+  br label %72
 
-68:                                               ; preds = %.split54.us, %38, %32, %28, %24, %21, %18, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %18 ], [ 0, %21 ], [ 0, %24 ], [ 0, %28 ], [ 1, %.split54.us ], [ 0, %32 ], [ 0, %38 ]
+72:                                               ; preds = %70, %38, %32, %28, %24, %21, %18, %15
+  %.0 = phi i32 [ 0, %15 ], [ 0, %18 ], [ 0, %21 ], [ 0, %24 ], [ 0, %28 ], [ 1, %70 ], [ 0, %32 ], [ 0, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0

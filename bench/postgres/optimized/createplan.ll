@@ -8814,8 +8814,7 @@ list_length.exit:                                 ; preds = %2
   br i1 %39, label %15, label %.lr.ph79.preheader, !llvm.loop !17
 
 .lr.ph82.preheader:                               ; preds = %.thread
-  %smax92 = call i32 @llvm.smax.i32(i32 %5, i32 1)
-  %wide.trip.count93 = zext nneg i32 %smax92 to i64
+  %wide.trip.count93 = zext nneg i32 %5 to i64
   br label %.lr.ph82
 
 .lr.ph79:                                         ; preds = %.lr.ph79.preheader, %.thread

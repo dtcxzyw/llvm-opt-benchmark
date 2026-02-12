@@ -4767,17 +4767,17 @@ data_type_to_string.exit:                         ; preds = %3, %switch.lookup
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_data_match_dict(ptr noundef nonnull %0, ptr noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_data_match_dict(ptr noundef nonnull %0, ptr noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 65283
-  br i1 %.not, label %6, label %76
+  br i1 %.not, label %6, label %data_dict_for_each_const.exit
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %.not14 = icmp eq i32 %8, 65283
-  br i1 %.not14, label %9, label %76
+  br i1 %.not14, label %9, label %data_dict_for_each_const.exit
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4789,7 +4789,7 @@ define internal fastcc zeroext i1 @_data_match_dict(ptr noundef nonnull %0, ptr 
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i64, ptr %16, align 8
   %.not15 = icmp eq i64 %13, %17
-  br i1 %.not15, label %.preheader.preheader, label %76
+  br i1 %.not15, label %.preheader.preheader, label %data_dict_for_each_const.exit
 
 .preheader.preheader:                             ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -4803,8 +4803,7 @@ define internal fastcc zeroext i1 @_data_match_dict(ptr noundef nonnull %0, ptr 
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.thread.i
-  %.01837.i = phi ptr [ %74, %.thread.i ], [ %19, %.lr.ph.i.preheader ]
-  %.01936.i = phi i32 [ %72, %.thread.i ], [ 0, %.lr.ph.i.preheader ]
+  %.01837.i = phi ptr [ %71, %.thread.i ], [ %19, %.lr.ph.i.preheader ]
   %22 = getelementptr inbounds nuw i8, ptr %.01837.i, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %.01837.i, i64 16
@@ -4906,7 +4905,7 @@ tailrecurse.i.i:                                  ; preds = %.preheader.i.i, %59
   %.tr.i.i.in = phi ptr [ %60, %59 ], [ %63, %.preheader.i.i ]
   %.tr.i.i = load i32, ptr %.tr.i.i.in, align 4
   %61 = icmp ult i32 %.tr.i.i, 9
-  br i1 %61, label %switch.lookup120, label %.preheader.i.i
+  br i1 %61, label %switch.lookup106, label %.preheader.i.i
 
 62:                                               ; preds = %.preheader.i.i
   %indvars.iv.next.i.i17 = add nuw nsw i64 %indvars.iv.i.i16, 1
@@ -4921,39 +4920,29 @@ tailrecurse.i.i:                                  ; preds = %.preheader.i.i, %59
   %66 = icmp eq i32 %65, %.tr.i.i
   br i1 %66, label %tailrecurse.i.i, label %62
 
-switch.lookup120:                                 ; preds = %tailrecurse.i.i
+switch.lookup106:                                 ; preds = %tailrecurse.i.i
   %67 = zext nneg i32 %.tr.i.i to i64
-  %switch.gep121 = getelementptr inbounds nuw ptr, ptr @switch.table.data_get_type_string, i64 %67
-  %switch.load122 = load ptr, ptr %switch.gep121, align 8
+  %switch.gep107 = getelementptr inbounds nuw ptr, ptr @switch.table.data_get_type_string, i64 %67
+  %switch.load108 = load ptr, ptr %switch.gep107, align 8
   br label %_type_to_string.exit
 
-_type_to_string.exit:                             ; preds = %62, %switch.lookup120, %_type_to_string.exit32
-  %68 = phi ptr [ %switch.load122, %switch.lookup120 ], [ @.str.70, %_type_to_string.exit32 ], [ @.str.70, %62 ]
+_type_to_string.exit:                             ; preds = %62, %switch.lookup106, %_type_to_string.exit32
+  %68 = phi ptr [ %switch.load108, %switch.lookup106 ], [ @.str.70, %_type_to_string.exit32 ], [ @.str.70, %62 ]
   %69 = ptrtoint ptr %.015.i to i64
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.101, ptr noundef %23, i64 noundef %20, ptr noundef nonnull %.08.i.i21, i64 noundef %57, ptr noundef nonnull %58, ptr noundef %23, i64 noundef %21, ptr noundef nonnull %68, i64 noundef %69) #15
   br label %_find_dict_match.exit
 
 _find_dict_match.exit:                            ; preds = %data_key_get_const.exit, %45, %_type_to_string.exit
-  br i1 %42, label %.thread.i, label %70
-
-70:                                               ; preds = %_find_dict_match.exit
-  %71 = xor i32 %.01936.i, -1
-  br label %data_dict_for_each_const.exit
+  br i1 %42, label %.thread.i, label %data_dict_for_each_const.exit
 
 .thread.i:                                        ; preds = %_find_dict_match.exit
-  %72 = add nuw nsw i32 %.01936.i, 1
-  %73 = getelementptr inbounds nuw i8, ptr %.01837.i, i64 8
-  %74 = load ptr, ptr %73, align 8
-  %.not24.i = icmp eq ptr %74, null
+  %70 = getelementptr inbounds nuw i8, ptr %.01837.i, i64 8
+  %71 = load ptr, ptr %70, align 8
+  %.not24.i = icmp eq ptr %71, null
   br i1 %.not24.i, label %data_dict_for_each_const.exit, label %.lr.ph.i, !llvm.loop !26
 
-data_dict_for_each_const.exit:                    ; preds = %.thread.i, %.preheader.preheader, %70
-  %.0.i = phi i32 [ 0, %.preheader.preheader ], [ %71, %70 ], [ %72, %.thread.i ]
-  %75 = icmp sgt i32 %.0.i, -1
-  br label %76
-
-76:                                               ; preds = %9, %6, %3, %data_dict_for_each_const.exit
-  %.0 = phi i1 [ %75, %data_dict_for_each_const.exit ], [ false, %3 ], [ false, %6 ], [ false, %9 ]
+data_dict_for_each_const.exit:                    ; preds = %.thread.i, %_find_dict_match.exit, %.preheader.preheader, %9, %6, %3
+  %.0 = phi i1 [ false, %9 ], [ false, %3 ], [ false, %6 ], [ true, %.preheader.preheader ], [ %42, %_find_dict_match.exit ], [ %42, %.thread.i ]
   ret i1 %.0
 }
 

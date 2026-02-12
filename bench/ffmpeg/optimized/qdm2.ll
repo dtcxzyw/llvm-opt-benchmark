@@ -3670,15 +3670,10 @@ qdm2_synthesis_filter.exit.i:                     ; preds = %._crit_edge68.us.i.
   %1774 = srem i32 %1773, 16
   store i32 %1774, ptr %33, align 16, !tbaa !63
   %.not145.i = icmp eq i32 %91, 0
-  br i1 %.not145.i, label %qdm2_decode.exit, label %.lr.ph144.preheader.i
+  br i1 %.not145.i, label %qdm2_decode.exit, label %.lr.ph144.i
 
-.lr.ph144.preheader.i:                            ; preds = %1770
-  %smax.i = call i32 @llvm.smax.i32(i32 %91, i32 1)
-  %wide.trip.count.i = zext nneg i32 %smax.i to i64
-  br label %.lr.ph144.i
-
-.lr.ph144.i:                                      ; preds = %1798, %.lr.ph144.preheader.i
-  %indvars.iv179.i = phi i64 [ 0, %.lr.ph144.preheader.i ], [ %indvars.iv.next180.i, %1798 ]
+.lr.ph144.i:                                      ; preds = %1770, %1798
+  %indvars.iv179.i = phi i64 [ %indvars.iv.next180.i, %1798 ], [ 0, %1770 ]
   %1775 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv179.i
   %1776 = load float, ptr %1775, align 4, !tbaa !27
   %1777 = fptosi float %1776 to i32
@@ -3720,7 +3715,7 @@ qdm2_synthesis_filter.exit.i:                     ; preds = %._crit_edge68.us.i.
   %1800 = getelementptr inbounds nuw i16, ptr %.02368, i64 %indvars.iv179.i
   store i16 %1799, ptr %1800, align 2, !tbaa !166
   %indvars.iv.next180.i = add nuw nsw i64 %indvars.iv179.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next180.i, %wide.trip.count.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next180.i, %95
   br i1 %exitcond.not.i, label %qdm2_decode.exit, label %.lr.ph144.i, !llvm.loop !167
 
 qdm2_decode.exit:                                 ; preds = %1798, %1770

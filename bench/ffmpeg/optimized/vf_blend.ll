@@ -1412,31 +1412,31 @@ define internal void @blend_divide_8bit(ptr noundef readonly captures(none) %0, 
   %14 = icmp sgt i64 %7, 0
   %15 = icmp sgt i64 %6, 0
   %or.cond = and i1 %14, %15
-  br i1 %or.cond, label %.preheader.us, label %._crit_edge46
+  br i1 %or.cond, label %.preheader.us, label %._crit_edge45
 
 .preheader.us:                                    ; preds = %10, %._crit_edge.us
-  %indvars.iv50 = phi i64 [ %indvars.iv.next51, %._crit_edge.us ], [ 0, %10 ]
-  %.03244.us = phi ptr [ %35, %._crit_edge.us ], [ %4, %10 ]
-  %.03343.us = phi ptr [ %37, %._crit_edge.us ], [ %2, %10 ]
-  %.03442.us = phi ptr [ %36, %._crit_edge.us ], [ %0, %10 ]
+  %indvars.iv49 = phi i64 [ %indvars.iv.next50, %._crit_edge.us ], [ 0, %10 ]
+  %.03243.us = phi ptr [ %35, %._crit_edge.us ], [ %4, %10 ]
+  %.03342.us = phi ptr [ %37, %._crit_edge.us ], [ %2, %10 ]
+  %.03441.us = phi ptr [ %36, %._crit_edge.us ], [ %0, %10 ]
   br label %16
 
 16:                                               ; preds = %.preheader.us, %.thread.us
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %.thread.us ]
-  %17 = getelementptr inbounds nuw i8, ptr %.03442.us, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %.03441.us, i64 %indvars.iv
   %18 = load i8, ptr %17, align 1, !tbaa !89
   %.fr.us = freeze i8 %18
   %19 = uitofp i8 %.fr.us to float
-  %20 = getelementptr inbounds nuw i8, ptr %.03343.us, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %.03342.us, i64 %indvars.iv
   %21 = load i8, ptr %20, align 1, !tbaa !89
-  %.fr40.us = freeze i8 %21
-  %22 = icmp eq i8 %.fr40.us, 0
+  %.fr39.us = freeze i8 %21
+  %22 = icmp eq i8 %.fr39.us, 0
   br i1 %22, label %.thread.us, label %23
 
 23:                                               ; preds = %16
   %24 = zext i8 %.fr.us to i16
   %.lhs.trunc.us = mul nuw i16 %24, 255
-  %.rhs.trunc.us = zext i8 %.fr40.us to i16
+  %.rhs.trunc.us = zext i8 %.fr39.us to i16
   %25 = udiv i16 %.lhs.trunc.us, %.rhs.trunc.us
   %26 = tail call i16 @llvm.umin.i16(i16 %25, i16 255)
   %27 = zext nneg i16 %26 to i32
@@ -1449,21 +1449,21 @@ define internal void @blend_divide_8bit(ptr noundef readonly captures(none) %0, 
   %31 = sitofp i32 %30 to float
   %32 = tail call nsz float @llvm.fmuladd.f32(float %31, float %13, float %19)
   %33 = fptoui float %32 to i8
-  %34 = getelementptr inbounds nuw i8, ptr %.03244.us, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i8, ptr %.03243.us, i64 %indvars.iv
   store i8 %33, ptr %34, align 1, !tbaa !89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
   br i1 %exitcond.not, label %._crit_edge.us, label %16, !llvm.loop !108
 
 ._crit_edge.us:                                   ; preds = %.thread.us
-  %35 = getelementptr inbounds i8, ptr %.03244.us, i64 %5
-  %36 = getelementptr inbounds i8, ptr %.03442.us, i64 %1
-  %37 = getelementptr inbounds i8, ptr %.03343.us, i64 %3
-  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %exitcond53.not = icmp eq i64 %indvars.iv.next51, %7
-  br i1 %exitcond53.not, label %._crit_edge46, label %.preheader.us, !llvm.loop !109
+  %35 = getelementptr inbounds i8, ptr %.03243.us, i64 %5
+  %36 = getelementptr inbounds i8, ptr %.03441.us, i64 %1
+  %37 = getelementptr inbounds i8, ptr %.03342.us, i64 %3
+  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
+  %exitcond52.not = icmp eq i64 %indvars.iv.next50, %7
+  br i1 %exitcond52.not, label %._crit_edge45, label %.preheader.us, !llvm.loop !109
 
-._crit_edge46:                                    ; preds = %._crit_edge.us, %10
+._crit_edge45:                                    ; preds = %._crit_edge.us, %10
   ret void
 }
 

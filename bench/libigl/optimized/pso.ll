@@ -271,9 +271,8 @@ _ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit.i.i.i.i.i: ; preds = %_ZN
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %smax798 = call i32 @llvm.smax.i32(i32 %5, i32 1)
   %smax801 = call i32 @llvm.smax.i32(i32 %4, i32 1)
-  %wide.trip.count799 = zext nneg i32 %smax798 to i64
+  %wide.trip.count799 = zext nneg i32 %5 to i64
   %wide.trip.count791 = and i64 %12, 2147483647
   br label %.lr.ph747.us
 

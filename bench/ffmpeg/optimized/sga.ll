@@ -994,7 +994,6 @@ bytestream2_get_byte.exit:                        ; preds = %81, %82
 .lr.ph.preheader:                                 ; preds = %.preheader
   %105 = zext nneg i32 %.15513 to i64
   %106 = zext nneg i32 %spec.store.select to i64
-  %smax = tail call i32 @llvm.smax.i32(i32 %101, i32 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1007,7 +1006,7 @@ bytestream2_get_byte.exit:                        ; preds = %81, %82
   store i8 %109, ptr %110, align 1, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %111 = add nuw nsw i32 %.012, 1
-  %exitcond.not = icmp eq i32 %111, %smax
+  %exitcond.not = icmp eq i32 %111, %101
   br i1 %exitcond.not, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !80
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
@@ -1720,9 +1719,6 @@ declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #11
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #11

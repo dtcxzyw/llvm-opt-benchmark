@@ -4170,11 +4170,7 @@ define weak_odr void @_ZN6casadi6MatrixIdEC2ERKSt6vectorIS2_IdSaIdEESaIS4_EE(ptr
   %41 = ashr exact i64 %40, 3
   store i64 %41, ptr %4, align 8, !tbaa !57
   %42 = icmp sgt i64 %31, 0
-  br i1 %42, label %.lr.ph.preheader, label %._crit_edge
-
-.lr.ph.preheader:                                 ; preds = %34
-  %smax = tail call i64 @llvm.smax.i64(i64 %32, i64 1)
-  br label %.lr.ph
+  br i1 %42, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %190, %.thread, %34
   %43 = phi i64 [ 1, %.thread ], [ %41, %34 ], [ %41, %190 ]
@@ -4182,8 +4178,8 @@ define weak_odr void @_ZN6casadi6MatrixIdEC2ERKSt6vectorIS2_IdSaIdEESaIS4_EE(ptr
   invoke void @_ZN6casadi8Sparsity5denseExx(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Sparsity") align 8 %23, i64 noundef %32, i64 noundef %43)
           to label %192 unwind label %229
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %190
-  %.054133 = phi i64 [ %191, %190 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %34, %190
+  %.054133 = phi i64 [ %191, %190 ], [ 0, %34 ]
   %44 = getelementptr inbounds nuw %"class.std::vector", ptr %28, i64 %.054133
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !11
@@ -4628,7 +4624,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114: ; preds = %_Z
 
 190:                                              ; preds = %.lr.ph
   %191 = add nuw nsw i64 %.054133, 1
-  %exitcond.not = icmp eq i64 %191, %smax
+  %exitcond.not = icmp eq i64 %191, %32
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
 
 192:                                              ; preds = %._crit_edge

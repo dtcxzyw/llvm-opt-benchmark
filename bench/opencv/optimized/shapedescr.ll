@@ -2414,8 +2414,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %.noexc272, %85
   br label %194
 
 .lr.ph332.preheader:                              ; preds = %196
-  %smax372 = call i32 @llvm.smax.i32(i32 %51, i32 1)
-  %wide.trip.count373 = zext nneg i32 %smax372 to i64
+  %wide.trip.count373 = zext nneg i32 %51 to i64
   br label %.lr.ph332
 
 194:                                              ; preds = %.lr.ph330, %196
@@ -2714,8 +2713,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %.noexc272, %85
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %41) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   %312 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %smax378 = call i32 @llvm.smax.i32(i32 %51, i32 1)
-  %wide.trip.count379 = zext nneg i32 %smax378 to i64
+  %wide.trip.count379 = zext nneg i32 %51 to i64
   %.pre = load double, ptr %10, align 16, !tbaa !58
   %.pre381 = load double, ptr %312, align 8, !tbaa !58
   br label %313
@@ -5741,9 +5739,6 @@ declare float @llvm.sqrt.f32(float) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #15
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

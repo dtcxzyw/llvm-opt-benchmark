@@ -464,9 +464,8 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit286: ; preds = %_ZNSt6ve
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %160 = zext nneg i32 %40 to i64
-  %smax = call i32 @llvm.smax.i32(i32 %41, i32 1)
   %wide.trip.count1667 = and i64 %11, 2147483647
-  %wide.trip.count1662 = zext nneg i32 %smax to i64
+  %wide.trip.count1662 = zext nneg i32 %41 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us1637
@@ -1188,9 +1187,8 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit286: ; preds = %_ZNSt6ve
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %160 = zext nneg i32 %40 to i64
-  %smax = call i32 @llvm.smax.i32(i32 %41, i32 1)
   %wide.trip.count1667 = and i64 %11, 2147483647
-  %wide.trip.count1662 = zext nneg i32 %smax to i64
+  %wide.trip.count1662 = zext nneg i32 %41 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us1637

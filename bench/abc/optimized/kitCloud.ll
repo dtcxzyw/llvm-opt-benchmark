@@ -96,7 +96,7 @@ tailrecurse:                                      ; preds = %32, %4
 56:                                               ; preds = %54, %50
   %.0 = phi ptr [ %53, %50 ], [ %55, %54 ]
   %57 = sub nsw i32 %3, %46
-  %58 = tail call ptr @Cloud_MakeNode(ptr noundef %0, i32 noundef %57, ptr noundef %.0, ptr noundef %49) #9
+  %58 = tail call ptr @Cloud_MakeNode(ptr noundef %0, i32 noundef %57, ptr noundef %.0, ptr noundef %49) #8
   br label %59
 
 59:                                               ; preds = %56, %22, %15, %9, %6
@@ -220,7 +220,7 @@ Kit_TruthIsOpposite.exit:                         ; preds = %select.unfold.i54
   %.043 = phi ptr [ %56, %Kit_TruthIsOpposite.exit ], [ %59, %57 ]
   %.042 = phi ptr [ %53, %Kit_TruthIsOpposite.exit ], [ %58, %57 ]
   %61 = sub nsw i32 %3, %.tr6774
-  %62 = tail call ptr @Cloud_MakeNode(ptr noundef %0, i32 noundef %61, ptr noundef %.043, ptr noundef %.042) #9
+  %62 = tail call ptr @Cloud_MakeNode(ptr noundef %0, i32 noundef %61, ptr noundef %.043, ptr noundef %.042) #8
   br label %63
 
 63:                                               ; preds = %60, %Kit_TruthIsConst1.exit, %Kit_TruthIsConst0.exit, %tailrecurse._crit_edge
@@ -236,7 +236,7 @@ define ptr @Kit_TruthToCloud(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Kit_CreateCloud(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @Cloud_DagCollect(ptr noundef %0, ptr noundef %1) #9
+  %4 = tail call i32 @Cloud_DagCollect(ptr noundef %0, ptr noundef %1) #8
   %5 = icmp sgt i32 %4, 4095
   br i1 %5, label %.loopexit, label %6
 
@@ -254,12 +254,12 @@ define range(i32 0, 2) i32 @Kit_CreateCloud(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not9.i.i, label %15, label %13
 
 13:                                               ; preds = %12
-  %14 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %11, i64 noundef 64) #10
+  %14 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %11, i64 noundef 64) #9
   %.pre.pre = load i32, ptr %7, align 4, !tbaa !20
   br label %Vec_IntGrow.exit.i
 
 15:                                               ; preds = %12
-  %16 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #11
+  %16 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #10
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %15, %13
@@ -352,7 +352,7 @@ Vec_IntPush.exit43.sink.split:                    ; preds = %36
   %74 = shl nuw nsw i64 %73, 2
   %.sink61 = select i1 %71, i64 64, i64 %74
   %.sink = select i1 %71, i32 16, i32 %72
-  %75 = tail call ptr @realloc(ptr noundef nonnull %37, i64 noundef %.sink61) #10
+  %75 = tail call ptr @realloc(ptr noundef nonnull %37, i64 noundef %.sink61) #9
   store ptr %75, ptr %.phi.trans.insert.i38, align 8, !tbaa !24
   store i32 %.sink, ptr %2, align 8, !tbaa !23
   br label %Vec_IntPush.exit43
@@ -387,7 +387,7 @@ declare i32 @Cloud_DagCollect(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Kit_CreateCloudFromTruth(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) initializes((4, 8)) %3) local_unnamed_addr #0 {
-  tail call void @Cloud_Restart(ptr noundef %0) #9
+  tail call void @Cloud_Restart(ptr noundef %0) #8
   %5 = tail call ptr @Kit_TruthToCloud_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %2)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %6, align 4, !tbaa !20
@@ -449,7 +449,7 @@ Kit_TruthFill.exit:                               ; preds = %4, %select.unfold.p
   %32 = add i32 %1, %31
   %33 = lshr i32 %17, 30
   %34 = and i32 %33, 1
-  tail call void @Kit_TruthMuxVarPhase(ptr noundef %29, ptr noundef %22, ptr noundef %27, i32 noundef %1, i32 noundef %32, i32 noundef %34) #9
+  tail call void @Kit_TruthMuxVarPhase(ptr noundef %29, ptr noundef %22, ptr noundef %27, i32 noundef %1, i32 noundef %32, i32 noundef %34) #8
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %.val33.us = load i32, ptr %13, align 4, !tbaa !20
   %35 = sext i32 %.val33.us to i64
@@ -477,7 +477,7 @@ Kit_TruthFill.exit:                               ; preds = %4, %select.unfold.p
   %51 = and i32 %38, 63
   %52 = lshr i32 %38, 30
   %53 = and i32 %52, 1
-  tail call void @Kit_TruthMuxVarPhase(ptr noundef %50, ptr noundef %43, ptr noundef %48, i32 noundef %1, i32 noundef %51, i32 noundef %53) #9
+  tail call void @Kit_TruthMuxVarPhase(ptr noundef %50, ptr noundef %43, ptr noundef %48, i32 noundef %1, i32 noundef %51, i32 noundef %53) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val33 = load i32, ptr %13, align 4, !tbaa !20
   %54 = sext i32 %.val33 to i64
@@ -516,7 +516,7 @@ declare void @Kit_TruthMuxVarPhase(ptr noundef, ptr noundef, ptr noundef, i32 no
 
 ; Function Attrs: nounwind uwtable
 define ptr @Kit_TruthCompose(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6) local_unnamed_addr #0 {
-  tail call void @Cloud_Restart(ptr noundef %0) #9
+  tail call void @Cloud_Restart(ptr noundef %0) #8
   %8 = tail call ptr @Kit_TruthToCloud_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %2)
   %9 = tail call i32 @Kit_CreateCloud(ptr noundef %0, ptr noundef %8, ptr noundef %6)
   %10 = icmp eq i32 %9, 0
@@ -688,11 +688,11 @@ define void @Kit_TruthCofSupports(ptr noundef readonly captures(none) %0, ptr no
   br i1 %.not9.i, label %20, label %18
 
 18:                                               ; preds = %13
-  %19 = tail call ptr @realloc(ptr noundef nonnull %15, i64 noundef %17) #10
+  %19 = tail call ptr @realloc(ptr noundef nonnull %15, i64 noundef %17) #9
   br label %22
 
 20:                                               ; preds = %13
-  %21 = tail call noalias ptr @malloc(i64 noundef %17) #11
+  %21 = tail call noalias ptr @malloc(i64 noundef %17) #10
   br label %22
 
 22:                                               ; preds = %20, %18
@@ -718,9 +718,8 @@ Vec_IntGrow.exit:                                 ; preds = %22, %11, %5
   br i1 %29, label %.lr.ph.us.preheader, label %.lr.ph126.split
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph126
-  %smax = tail call i32 @llvm.smax.i32(i32 %6, i32 1)
   %30 = zext nneg i32 %6 to i64
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %6 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -838,11 +837,11 @@ Vec_IntGrow.exit:                                 ; preds = %22, %11, %5
   br i1 %.not9.i121, label %104, label %102
 
 102:                                              ; preds = %99
-  %103 = tail call ptr @realloc(ptr noundef nonnull %.val119.pre167, i64 noundef %101) #10
+  %103 = tail call ptr @realloc(ptr noundef nonnull %.val119.pre167, i64 noundef %101) #9
   br label %106
 
 104:                                              ; preds = %99
-  %105 = tail call noalias ptr @malloc(i64 noundef %101) #11
+  %105 = tail call noalias ptr @malloc(i64 noundef %101) #10
   br label %106
 
 106:                                              ; preds = %104, %102
@@ -865,9 +864,8 @@ Vec_IntGrow.exit122:                              ; preds = %.critedge.Vec_IntGr
   br i1 %110, label %.lr.ph.us132.preheader, label %.lr.ph130.split
 
 .lr.ph.us132.preheader:                           ; preds = %.lr.ph130
-  %smax155 = tail call i32 @llvm.smax.i32(i32 %6, i32 1)
   %111 = zext nneg i32 %6 to i64
-  %wide.trip.count156 = zext nneg i32 %smax155 to i64
+  %wide.trip.count156 = zext nneg i32 %6 to i64
   br label %.lr.ph.us132
 
 .lr.ph.us132:                                     ; preds = %.lr.ph.us132.preheader, %._crit_edge.us133
@@ -927,8 +925,7 @@ Vec_IntGrow.exit122:                              ; preds = %.critedge.Vec_IntGr
   br i1 %146, label %.critedge2.preheader136, label %.critedge2._crit_edge
 
 .critedge2.preheader136:                          ; preds = %.critedge2.preheader
-  %smax164 = tail call i32 @llvm.smax.i32(i32 %6, i32 1)
-  %wide.trip.count165 = zext nneg i32 %smax164 to i64
+  %wide.trip.count165 = zext nneg i32 %6 to i64
   br label %.critedge2
 
 .lr.ph130.split:                                  ; preds = %.lr.ph130, %.lr.ph130.split
@@ -998,9 +995,6 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -1009,10 +1003,9 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind }
-attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind allocsize(1) }
-attributes #11 = { nounwind allocsize(0) }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind allocsize(1) }
+attributes #10 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

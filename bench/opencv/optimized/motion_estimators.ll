@@ -1885,8 +1885,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc127, %_ZNSt6v
 
 .preheader:                                       ; preds = %132, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
   call void @llvm.assume(i1 %.not.i.i.i.i125)
-  %smax = call i32 @llvm.smax.i32(i32 %0, i32 1)
-  %wide.trip.count447 = zext nneg i32 %smax to i64
+  %wide.trip.count447 = zext nneg i32 %0 to i64
   br label %.lr.ph373
 
 94:                                               ; preds = %83, %82
@@ -2080,8 +2079,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %174 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %175 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %176 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %smax452 = call i32 @llvm.smax.i32(i32 %0, i32 1)
-  %wide.trip.count453 = zext nneg i32 %smax452 to i64
+  %wide.trip.count453 = zext nneg i32 %0 to i64
   br label %181
 
 ._crit_edge382:                                   ; preds = %._crit_edge, %.noexc139
@@ -2671,8 +2669,7 @@ _ZNK2cv6detail5Graph16walkBreadthFirstIN12_GLOBAL__N_111IncDistanceEEET_iS5_.exi
 .lr.ph391:                                        ; preds = %428, %._crit_edge388
   %429 = phi ptr [ %427, %._crit_edge388 ], [ %425, %428 ]
   %430 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %smax465 = call i32 @llvm.smax.i32(i32 %0, i32 1)
-  %wide.trip.count466 = zext nneg i32 %smax465 to i64
+  %wide.trip.count466 = zext nneg i32 %0 to i64
   br label %437
 
 .lr.ph387:                                        ; preds = %.lr.ph387.preheader, %.lr.ph387

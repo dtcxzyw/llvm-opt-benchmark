@@ -6252,8 +6252,7 @@ _ZNSt6vectorIP8CVertexOSaIS1_EEC2EmRKS2_.exit:    ; preds = %_ZSt6fill_nIPP8CVer
   br i1 %87, label %.lr.ph372.us.preheader, label %._crit_edge379
 
 .lr.ph372.us.preheader:                           ; preds = %.lr.ph376
-  %smax = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
-  %wide.trip.count434 = zext nneg i32 %smax to i64
+  %wide.trip.count434 = zext nneg i32 %2 to i64
   br label %.lr.ph372.us
 
 .lr.ph372.us:                                     ; preds = %.lr.ph372.us.preheader, %._crit_edge373.us

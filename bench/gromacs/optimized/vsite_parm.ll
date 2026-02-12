@@ -242,7 +242,6 @@ _ZL13gmx_snew_implIbEvPKcS1_iRPT_m.exit.preheader.i: ; preds = %_ZNSt12_Vector_b
   br i1 %54, label %.lr.ph.us.preheader.i, label %_ZL13gmx_snew_implIbEvPKcS1_iRPT_m.exit.i
 
 .lr.ph.us.preheader.i:                            ; preds = %.lr.ph84.i
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %50, i64 1)
   %wide.trip.count.i = zext nneg i32 %53 to i64
   br label %.lr.ph.us.i
 
@@ -265,7 +264,7 @@ _ZL13gmx_snew_implIbEvPKcS1_iRPT_m.exit.preheader.i: ; preds = %_ZNSt12_Vector_b
 
 ._crit_edge.us.i:                                 ; preds = %57
   %indvars.iv.next100.i = add nuw nsw i64 %indvars.iv99.i, 1
-  %exitcond102.not.i = icmp eq i64 %indvars.iv.next100.i, %smax.i
+  %exitcond102.not.i = icmp eq i64 %indvars.iv.next100.i, %50
   br i1 %exitcond102.not.i, label %_ZL13gmx_snew_implIbEvPKcS1_iRPT_m.exit.i, label %.lr.ph.us.i, !llvm.loop !40
 
 _ZL13gmx_snew_implIbEvPKcS1_iRPT_m.exit.i:        ; preds = %._crit_edge.us.i, %.lr.ph84.i, %.preheader80.i, %_ZL13gmx_snew_implIbEvPKcS1_iRPT_m.exit.preheader.i
@@ -5651,7 +5650,6 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i.i: ; preds 
   br i1 %156, label %.lr.ph.us.preheader.i, label %.loopexit163.i
 
 .lr.ph.us.preheader.i:                            ; preds = %.lr.ph166.i
-  %smax.i = call i64 @llvm.smax.i64(i64 %152, i64 1)
   %wide.trip.count.i = zext nneg i32 %155 to i64
   br label %.lr.ph.us.i
 
@@ -5684,7 +5682,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i.i: ; preds 
 
 ._crit_edge.us.i:                                 ; preds = %159
   %indvars.iv.next175.i = add nuw nsw i64 %indvars.iv174.i, 1
-  %exitcond177.not.i = icmp eq i64 %indvars.iv.next175.i, %smax.i
+  %exitcond177.not.i = icmp eq i64 %indvars.iv.next175.i, %152
   br i1 %exitcond177.not.i, label %.loopexit163.i, label %.lr.ph.us.i, !llvm.loop !152
 
 .loopexit163.i:                                   ; preds = %._crit_edge.us.i, %.lr.ph166.i, %.preheader162.i, %138
@@ -8477,9 +8475,6 @@ declare i64 @llvm.umin.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #23
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #22

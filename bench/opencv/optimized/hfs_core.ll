@@ -2186,8 +2186,7 @@ _ZNSt6vectorIN2cv3VecIfLi3EEESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %._crit_edge
   br i1 %.not646, label %._crit_edge615, label %.lr.ph614.preheader
 
 .lr.ph614.preheader:                              ; preds = %.preheader558
-  %smax = tail call i32 @llvm.smax.i32(i32 %214, i32 1)
-  %wide.trip.count691 = zext nneg i32 %smax to i64
+  %wide.trip.count691 = zext nneg i32 %214 to i64
   br label %.lr.ph614
 
 271:                                              ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %242
@@ -2579,8 +2578,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %425, %427
   %429 = load ptr, ptr %13, align 8, !tbaa !131
   %430 = load ptr, ptr %428, align 8, !tbaa !163
   %431 = getelementptr inbounds nuw i8, ptr %428, i64 24
-  %smax708 = call i32 @llvm.smax.i32(i32 %.0187.lcssa781783, i32 1)
-  %wide.trip.count709 = zext nneg i32 %smax708 to i64
+  %wide.trip.count709 = zext nneg i32 %.0187.lcssa781783 to i64
   br label %448
 
 ._crit_edge633:                                   ; preds = %506, %_ZNSt6vectorIiSaIiEED2Ev.exit
@@ -3875,8 +3873,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %233, %235
   %237 = load ptr, ptr %19, align 8, !tbaa !131
   %238 = load ptr, ptr %236, align 8, !tbaa !163
   %239 = getelementptr inbounds nuw i8, ptr %236, i64 24
-  %smax = call i32 @llvm.smax.i32(i32 %50, i32 1)
-  %wide.trip.count370 = zext nneg i32 %smax to i64
+  %wide.trip.count370 = zext nneg i32 %50 to i64
   br label %256
 
 ._crit_edge327:                                   ; preds = %314, %_ZNSt6vectorIiSaIiEED2Ev.exit
@@ -4576,8 +4573,7 @@ _ZN2cvpLIfhLi3EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit.us: ; preds = %40
   br i1 %.not.i.i.i.i, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader101
-  %smax = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
-  %wide.trip.count124 = zext nneg i32 %smax to i64
+  %wide.trip.count124 = zext nneg i32 %3 to i64
   br label %.lr.ph
 
 _ZNSt6vectorIN2cv3VecIfLi3EEESaIS2_EED2Ev.exit70.thread: ; preds = %.noexc58

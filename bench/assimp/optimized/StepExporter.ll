@@ -3527,7 +3527,6 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit669: ; preds = %_ZSt
 
 .lr.ph1021.preheader:                             ; preds = %790
   %792 = add i32 %.41044, 15
-  %smax = call i32 @llvm.smax.i32(i32 %475, i32 1)
   br label %.lr.ph1021
 
 ._crit_edge1022:                                  ; preds = %804
@@ -3559,7 +3558,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit675: ; preds = %.lr.
 
 804:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit675
   %805 = add nuw nsw i32 %.02071020, 1
-  %exitcond1126.not = icmp eq i32 %805, %smax
+  %exitcond1126.not = icmp eq i32 %805, %475
   br i1 %exitcond1126.not, label %._crit_edge1022, label %.lr.ph1021, !llvm.loop !29
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit673: ; preds = %._crit_edge1022
@@ -3570,14 +3569,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit673: ; preds = %._cr
 
 .lr.ph1024.preheader:                             ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit673
   %809 = add nsw i32 %475, %792
-  %smax1127 = call i32 @llvm.smax.i32(i32 %475, i32 1)
   br label %.lr.ph1024
 
 .lr.ph1028:                                       ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit687
   %810 = add nsw i32 %809, %475
   %811 = getelementptr inbounds nuw i8, ptr %480, i64 4
-  %smax1132 = call i32 @llvm.smax.i32(i32 %475, i32 1)
-  %wide.trip.count1133 = zext nneg i32 %smax1132 to i64
+  %wide.trip.count1133 = zext nneg i32 %475 to i64
   br label %830
 
 812:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit673, %._crit_edge1022
@@ -3616,7 +3613,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit685: ; preds = %821
 
 _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit687: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit685
   %826 = add nuw nsw i32 %.02001023, 1
-  %exitcond1128.not = icmp eq i32 %826, %smax1127
+  %exitcond1128.not = icmp eq i32 %826, %475
   br i1 %exitcond1128.not, label %.lr.ph1028, label %.lr.ph1024, !llvm.loop !30
 
 827:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit685, %821, %817, %.lr.ph1024, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit683, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit681
@@ -3626,8 +3623,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
 
 .lr.ph1032.preheader:                             ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit699
   %829 = add nsw i32 %810, %475
-  %smax1138 = call i32 @llvm.smax.i32(i32 %475, i32 1)
-  %wide.trip.count1139 = zext nneg i32 %smax1138 to i64
+  %wide.trip.count1139 = zext nneg i32 %475 to i64
   br label %.lr.ph1032
 
 830:                                              ; preds = %.lr.ph1028, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit699
@@ -3796,7 +3792,6 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
 
 .lr.ph1036.preheader:                             ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit733
   %909 = add nsw i32 %829, %475
-  %smax1141 = call i32 @llvm.smax.i32(i32 %475, i32 1)
   br label %.lr.ph1036
 
 .lr.ph1032:                                       ; preds = %.lr.ph1032.preheader, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit733
@@ -3851,8 +3846,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   br label %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit763
 
 .lr.ph1038.preheader:                             ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit741
-  %smax1146 = call i32 @llvm.smax.i32(i32 %475, i32 1)
-  %wide.trip.count1147 = zext nneg i32 %smax1146 to i64
+  %wide.trip.count1147 = zext nneg i32 %475 to i64
   br label %.lr.ph1038
 
 .lr.ph1036:                                       ; preds = %.lr.ph1036.preheader, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit741
@@ -3886,7 +3880,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit739: ; preds = %938
 
 _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit741: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit739
   %943 = add nuw nsw i32 %.01951034, 1
-  %exitcond1142.not = icmp eq i32 %943, %smax1141
+  %exitcond1142.not = icmp eq i32 %943, %475
   br i1 %exitcond1142.not, label %.lr.ph1038.preheader, label %.lr.ph1036, !llvm.loop !33
 
 944:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit739, %938, %934, %.lr.ph1036, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit737, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit735
@@ -5150,9 +5144,6 @@ declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #23
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #23
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

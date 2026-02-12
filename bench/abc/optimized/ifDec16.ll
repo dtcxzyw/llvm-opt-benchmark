@@ -5409,8 +5409,7 @@ If_CluDetectSpecialCaseCofs.exit:                 ; preds = %135
   br i1 %148, label %.lr.ph109, label %.lr.ph111.preheader
 
 .lr.ph111.preheader:                              ; preds = %.lr.ph109, %If_CluDetectSpecialCaseCofs.exit
-  %smax = tail call i32 @llvm.smax.i32(i32 %.0114, i32 1)
-  %wide.trip.count142 = zext nneg i32 %smax to i64
+  %wide.trip.count142 = zext nneg i32 %.0114 to i64
   br label %.lr.ph111
 
 .lr.ph109:                                        ; preds = %If_CluDetectSpecialCaseCofs.exit, %.lr.ph109

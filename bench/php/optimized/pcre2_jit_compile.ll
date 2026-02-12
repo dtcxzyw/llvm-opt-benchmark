@@ -17815,8 +17815,7 @@ check_fast_forward_char_pair_simd.exit:           ; preds = %._crit_edge.i
 .lr.ph684.preheader:                              ; preds = %._crit_edge, %.loopexit.loopexit
   %.0152 = phi i64 [ 0, %._crit_edge ], [ %752, %.loopexit.loopexit ]
   %753 = zext i32 %.1156 to i64
-  %smax736 = call i32 @llvm.smax.i32(i32 %565, i32 1)
-  %wide.trip.count737 = zext nneg i32 %smax736 to i64
+  %wide.trip.count737 = and i64 %564, 2147483647
   br label %.lr.ph684
 
 .lr.ph684:                                        ; preds = %.lr.ph684.preheader, %773

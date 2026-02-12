@@ -1464,8 +1464,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIdSaId
   %128 = sext i32 %105 to i64
   %129 = sext i32 %100 to i64
   %130 = sext i32 %.sroa.0372.0.copyload to i64
-  %smax479 = call i32 @llvm.smax.i32(i32 %40, i32 1)
-  %wide.trip.count480 = zext nneg i32 %smax479 to i64
+  %wide.trip.count480 = zext nneg i32 %40 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge428.us

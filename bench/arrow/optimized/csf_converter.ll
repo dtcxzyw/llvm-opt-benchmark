@@ -1301,11 +1301,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %434
   br i1 %exitcond654.not.i, label %.critedge210.preheader.i, label %.lr.ph624.i, !llvm.loop !137
 
 .critedge210.preheader.i:                         ; preds = %444
-  br i1 %.not.i.i.i.i277.i, label %.critedge213.i, label %.lr.ph627.preheader.i
-
-.lr.ph627.preheader.i:                            ; preds = %.critedge210.preheader.i
-  %smax655.i = call i64 @llvm.smax.i64(i64 %142, i64 1)
-  br label %.lr.ph627.i
+  br i1 %.not.i.i.i.i277.i, label %.critedge213.i, label %.lr.ph627.i
 
 446:                                              ; preds = %.lr.ph.preheader.i.i.i.i.i.i, %401
   %447 = landingpad { ptr, i32 }
@@ -1348,11 +1344,11 @@ _ZN5arrow6StatusD2Ev.exit296.i:                   ; preds = %.lr.ph624.i
 
 .critedge210.i:                                   ; preds = %_ZN5arrow6StatusD2Ev.exit300.i
   %460 = add nuw nsw i64 %.0106626.i, 1
-  %exitcond656.not.i = icmp eq i64 %460, %smax655.i
+  %exitcond656.not.i = icmp eq i64 %460, %142
   br i1 %exitcond656.not.i, label %.critedge213.i, label %.lr.ph627.i, !llvm.loop !142
 
-.lr.ph627.i:                                      ; preds = %.critedge210.i, %.lr.ph627.preheader.i
-  %.0106626.i = phi i64 [ %460, %.critedge210.i ], [ 0, %.lr.ph627.preheader.i ]
+.lr.ph627.i:                                      ; preds = %.critedge210.preheader.i, %.critedge210.i
+  %.0106626.i = phi i64 [ %460, %.critedge210.i ], [ 0, %.critedge210.preheader.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !21
   %461 = load ptr, ptr %18, align 8, !tbaa !81, !noalias !21
   %462 = getelementptr inbounds nuw %"class.arrow::BufferBuilder", ptr %461, i64 %.0106626.i

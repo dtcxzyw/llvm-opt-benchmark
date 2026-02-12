@@ -68279,11 +68279,7 @@ _ZNSt12_Vector_baseIxSaIxEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIxSaI
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.0.i.i.i.i.i.i.i, ptr %101, align 8, !tbaa !287
   %102 = icmp sgt i64 %63, 0
-  br i1 %102, label %.lr.ph162.preheader, label %._crit_edge163
-
-.lr.ph162.preheader:                              ; preds = %.loopexit
-  %smax = call i64 @llvm.smax.i64(i64 %64, i64 1)
-  br label %.lr.ph162
+  br i1 %102, label %.lr.ph162, label %._crit_edge163
 
 ._crit_edge163:                                   ; preds = %_ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit, %.loopexit
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -68303,8 +68299,8 @@ _ZNSt12_Vector_baseIxSaIxEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIxSaI
           cleanup
   br label %_ZNSt6vectorIxSaIxEED2Ev.exit141
 
-.lr.ph162:                                        ; preds = %.lr.ph162.preheader, %_ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit
-  %.067160 = phi i64 [ %123, %_ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit ], [ 0, %.lr.ph162.preheader ]
+.lr.ph162:                                        ; preds = %.loopexit, %_ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit
+  %.067160 = phi i64 [ %123, %_ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit ], [ 0, %.loopexit ]
   %107 = load ptr, ptr %1, align 8, !tbaa !557
   %108 = getelementptr inbounds nuw %"class.std::vector", ptr %107, i64 %.067160
   %109 = load ptr, ptr %108, align 8, !tbaa !23
@@ -68354,7 +68350,7 @@ _ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit: ; preds = %.noexc97
   %124 = load ptr, ptr %11, align 8, !tbaa !289
   %125 = getelementptr inbounds nuw i64, ptr %124, i64 %123
   store i64 %122, ptr %125, align 8, !tbaa !174
-  %exitcond.not = icmp eq i64 %123, %smax
+  %exitcond.not = icmp eq i64 %123, %64
   br i1 %exitcond.not, label %._crit_edge163, label %.lr.ph162, !llvm.loop !1041
 
 126:                                              ; preds = %.lr.ph162
@@ -68550,11 +68546,7 @@ _ZSt8_DestroyIPSt6vectorIN6casadi2MXESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i.i: ; pred
   br label %_ZNSt6vectorIS_IN6casadi2MXESaIS1_EESaIS3_EE6resizeEm.exit
 
 _ZNSt6vectorIS_IN6casadi2MXESaIS1_EESaIS3_EE6resizeEm.exit: ; preds = %175, %177, %179, %_ZSt8_DestroyIPSt6vectorIN6casadi2MXESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i.i
-  br i1 %102, label %.lr.ph165.preheader, label %._crit_edge166
-
-.lr.ph165.preheader:                              ; preds = %_ZNSt6vectorIS_IN6casadi2MXESaIS1_EESaIS3_EE6resizeEm.exit
-  %smax174 = call i64 @llvm.smax.i64(i64 %64, i64 1)
-  br label %.lr.ph165
+  br i1 %102, label %.lr.ph165, label %._crit_edge166
 
 ._crit_edge166:                                   ; preds = %_ZN6casadi2MXaSERKS0_.exit139, %_ZNSt6vectorIS_IN6casadi2MXESaIS1_EESaIS3_EE6resizeEm.exit
   %193 = load ptr, ptr %11, align 8, !tbaa !289
@@ -68702,8 +68694,8 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit132:    ; preds = %_ZSt8_DestroyIPN6ca
           cleanup
   br label %265
 
-.lr.ph165:                                        ; preds = %.lr.ph165.preheader, %_ZN6casadi2MXaSERKS0_.exit139
-  %.0164 = phi i64 [ %262, %_ZN6casadi2MXaSERKS0_.exit139 ], [ 0, %.lr.ph165.preheader ]
+.lr.ph165:                                        ; preds = %_ZNSt6vectorIS_IN6casadi2MXESaIS1_EESaIS3_EE6resizeEm.exit, %_ZN6casadi2MXaSERKS0_.exit139
+  %.0164 = phi i64 [ %262, %_ZN6casadi2MXaSERKS0_.exit139 ], [ 0, %_ZNSt6vectorIS_IN6casadi2MXESaIS1_EESaIS3_EE6resizeEm.exit ]
   %239 = load ptr, ptr %2, align 8, !tbaa !557
   %240 = getelementptr inbounds nuw %"class.std::vector", ptr %239, i64 %.0164
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
@@ -68752,7 +68744,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EE6resizeEm.exit:  ; preds = %_ZSt8_DestroyIPN6ca
 
 _ZN6casadi2MXaSERKS0_.exit139:                    ; preds = %_ZNSt6vectorIN6casadi2MXESaIS1_EE6resizeEm.exit
   %262 = add nuw nsw i64 %.0164, 1
-  %exitcond175.not = icmp eq i64 %262, %smax174
+  %exitcond175.not = icmp eq i64 %262, %64
   br i1 %exitcond175.not, label %._crit_edge166, label %.lr.ph165, !llvm.loop !1042
 
 263:                                              ; preds = %_ZNSt6vectorIN6casadi2MXESaIS1_EE6resizeEm.exit, %249
@@ -69020,11 +69012,7 @@ _ZNSt12_Vector_baseIxSaIxEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIxSaI
   %105 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %.0.i.i.i.i.i.i.i, ptr %105, align 8, !tbaa !287
   %106 = icmp sgt i64 %67, 0
-  br i1 %106, label %.lr.ph180.preheader, label %._crit_edge181
-
-.lr.ph180.preheader:                              ; preds = %.loopexit
-  %smax = call i64 @llvm.smax.i64(i64 %68, i64 1)
-  br label %.lr.ph180
+  br i1 %106, label %.lr.ph180, label %._crit_edge181
 
 ._crit_edge181:                                   ; preds = %_ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit, %.loopexit
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -69044,8 +69032,8 @@ _ZNSt12_Vector_baseIxSaIxEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIxSaI
           cleanup
   br label %_ZNSt6vectorIxSaIxEED2Ev.exit159
 
-.lr.ph180:                                        ; preds = %.lr.ph180.preheader, %_ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit
-  %.047178 = phi i64 [ %125, %_ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit ], [ 0, %.lr.ph180.preheader ]
+.lr.ph180:                                        ; preds = %.loopexit, %_ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit
+  %.047178 = phi i64 [ %125, %_ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit ], [ 0, %.loopexit ]
   %111 = load ptr, ptr %1, align 8, !tbaa !557
   %112 = getelementptr inbounds nuw %"class.std::vector", ptr %111, i64 %.047178
   %113 = load ptr, ptr %112, align 8, !tbaa !23
@@ -69073,7 +69061,7 @@ _ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit: ; preds = %.noexc99
   %126 = load ptr, ptr %13, align 8, !tbaa !289
   %127 = getelementptr inbounds nuw i64, ptr %126, i64 %125
   store i64 %124, ptr %127, align 8, !tbaa !174
-  %exitcond.not = icmp eq i64 %125, %smax
+  %exitcond.not = icmp eq i64 %125, %68
   br i1 %exitcond.not, label %._crit_edge181, label %.lr.ph180, !llvm.loop !1045
 
 128:                                              ; preds = %.noexc99, %_ZN6casadi2MXaSERKS0_.exit98, %.lr.ph180
@@ -69231,11 +69219,7 @@ _ZSt8_DestroyIPSt6vectorIN6casadi2MXESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i.i: ; pred
   br label %_ZNSt6vectorIS_IN6casadi2MXESaIS1_EESaIS3_EE6resizeEm.exit
 
 _ZNSt6vectorIS_IN6casadi2MXESaIS1_EESaIS3_EE6resizeEm.exit: ; preds = %166, %168, %170, %_ZSt8_DestroyIPSt6vectorIN6casadi2MXESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i.i
-  br i1 %106, label %.lr.ph183.preheader, label %._crit_edge184
-
-.lr.ph183.preheader:                              ; preds = %_ZNSt6vectorIS_IN6casadi2MXESaIS1_EESaIS3_EE6resizeEm.exit
-  %smax193 = call i64 @llvm.smax.i64(i64 %68, i64 1)
-  br label %.lr.ph183
+  br i1 %106, label %.lr.ph183, label %._crit_edge184
 
 ._crit_edge184:                                   ; preds = %_ZN6casadi2MXaSERKS0_.exit153, %_ZNSt6vectorIS_IN6casadi2MXESaIS1_EESaIS3_EE6resizeEm.exit
   %184 = load ptr, ptr %13, align 8, !tbaa !289
@@ -69383,8 +69367,8 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit134:    ; preds = %_ZSt8_DestroyIPN6ca
           cleanup
   br label %308
 
-.lr.ph183:                                        ; preds = %.lr.ph183.preheader, %_ZN6casadi2MXaSERKS0_.exit153
-  %.0182 = phi i64 [ %306, %_ZN6casadi2MXaSERKS0_.exit153 ], [ 0, %.lr.ph183.preheader ]
+.lr.ph183:                                        ; preds = %_ZNSt6vectorIS_IN6casadi2MXESaIS1_EESaIS3_EE6resizeEm.exit, %_ZN6casadi2MXaSERKS0_.exit153
+  %.0182 = phi i64 [ %306, %_ZN6casadi2MXaSERKS0_.exit153 ], [ 0, %_ZNSt6vectorIS_IN6casadi2MXESaIS1_EESaIS3_EE6resizeEm.exit ]
   %230 = load ptr, ptr %2, align 8, !tbaa !557
   %231 = getelementptr inbounds nuw %"class.std::vector", ptr %230, i64 %.0182
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 8
@@ -69621,7 +69605,7 @@ _ZN6casadi2MXaSERKS0_.exit153:                    ; preds = %300, %_ZN6casadi17G
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #34
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %306 = add nuw nsw i64 %.0182, 1
-  %exitcond194.not = icmp eq i64 %306, %smax193
+  %exitcond194.not = icmp eq i64 %306, %68
   br i1 %exitcond194.not, label %._crit_edge184, label %.lr.ph183, !llvm.loop !1046
 
 .body:                                            ; preds = %288, %304, %284, %283
@@ -72939,11 +72923,7 @@ _ZNSt12_Vector_baseIxSaIxEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIxSaI
   %100 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.0.i.i.i.i.i.i.i, ptr %100, align 8, !tbaa !287
   %101 = icmp sgt i64 %62, 0
-  br i1 %101, label %.lr.ph160.preheader, label %._crit_edge161
-
-.lr.ph160.preheader:                              ; preds = %.loopexit
-  %smax = call i64 @llvm.smax.i64(i64 %63, i64 1)
-  br label %.lr.ph160
+  br i1 %101, label %.lr.ph160, label %._crit_edge161
 
 ._crit_edge161:                                   ; preds = %_ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit, %.loopexit
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -72963,8 +72943,8 @@ _ZNSt12_Vector_baseIxSaIxEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIxSaI
           cleanup
   br label %_ZNSt6vectorIxSaIxEED2Ev.exit139
 
-.lr.ph160:                                        ; preds = %.lr.ph160.preheader, %_ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit
-  %.066158 = phi i64 [ %121, %_ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit ], [ 0, %.lr.ph160.preheader ]
+.lr.ph160:                                        ; preds = %.loopexit, %_ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit
+  %.066158 = phi i64 [ %121, %_ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit ], [ 0, %.loopexit ]
   %106 = load ptr, ptr %1, align 8, !tbaa !557
   %107 = getelementptr inbounds nuw %"class.std::vector", ptr %106, i64 %.066158
   %108 = load ptr, ptr %107, align 8, !tbaa !23
@@ -73007,7 +72987,7 @@ _ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit: ; preds = %.noexc95
   %122 = load ptr, ptr %11, align 8, !tbaa !289
   %123 = getelementptr inbounds nuw i64, ptr %122, i64 %121
   store i64 %120, ptr %123, align 8, !tbaa !174
-  %exitcond.not = icmp eq i64 %121, %smax
+  %exitcond.not = icmp eq i64 %121, %63
   br i1 %exitcond.not, label %._crit_edge161, label %.lr.ph160, !llvm.loop !1089
 
 124:                                              ; preds = %.lr.ph160
@@ -73192,11 +73172,7 @@ _ZSt8_DestroyIPSt6vectorIN6casadi2MXESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i.i: ; pred
   br label %_ZNSt6vectorIS_IN6casadi2MXESaIS1_EESaIS3_EE6resizeEm.exit
 
 _ZNSt6vectorIS_IN6casadi2MXESaIS1_EESaIS3_EE6resizeEm.exit: ; preds = %170, %172, %174, %_ZSt8_DestroyIPSt6vectorIN6casadi2MXESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i.i
-  br i1 %101, label %.lr.ph163.preheader, label %._crit_edge164
-
-.lr.ph163.preheader:                              ; preds = %_ZNSt6vectorIS_IN6casadi2MXESaIS1_EESaIS3_EE6resizeEm.exit
-  %smax172 = call i64 @llvm.smax.i64(i64 %63, i64 1)
-  br label %.lr.ph163
+  br i1 %101, label %.lr.ph163, label %._crit_edge164
 
 ._crit_edge164:                                   ; preds = %_ZN6casadi2MXaSERKS0_.exit137, %_ZNSt6vectorIS_IN6casadi2MXESaIS1_EESaIS3_EE6resizeEm.exit
   %188 = load ptr, ptr %11, align 8, !tbaa !289
@@ -73344,8 +73320,8 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit130:    ; preds = %_ZSt8_DestroyIPN6ca
           cleanup
   br label %260
 
-.lr.ph163:                                        ; preds = %.lr.ph163.preheader, %_ZN6casadi2MXaSERKS0_.exit137
-  %.0162 = phi i64 [ %257, %_ZN6casadi2MXaSERKS0_.exit137 ], [ 0, %.lr.ph163.preheader ]
+.lr.ph163:                                        ; preds = %_ZNSt6vectorIS_IN6casadi2MXESaIS1_EESaIS3_EE6resizeEm.exit, %_ZN6casadi2MXaSERKS0_.exit137
+  %.0162 = phi i64 [ %257, %_ZN6casadi2MXaSERKS0_.exit137 ], [ 0, %_ZNSt6vectorIS_IN6casadi2MXESaIS1_EESaIS3_EE6resizeEm.exit ]
   %234 = load ptr, ptr %2, align 8, !tbaa !557
   %235 = getelementptr inbounds nuw %"class.std::vector", ptr %234, i64 %.0162
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 8
@@ -73394,7 +73370,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EE6resizeEm.exit:  ; preds = %_ZSt8_DestroyIPN6ca
 
 _ZN6casadi2MXaSERKS0_.exit137:                    ; preds = %_ZNSt6vectorIN6casadi2MXESaIS1_EE6resizeEm.exit
   %257 = add nuw nsw i64 %.0162, 1
-  %exitcond173.not = icmp eq i64 %257, %smax172
+  %exitcond173.not = icmp eq i64 %257, %63
   br i1 %exitcond173.not, label %._crit_edge164, label %.lr.ph163, !llvm.loop !1090
 
 258:                                              ; preds = %_ZNSt6vectorIN6casadi2MXESaIS1_EE6resizeEm.exit, %244
@@ -73662,11 +73638,7 @@ _ZNSt12_Vector_baseIxSaIxEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIxSaI
   %105 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %.0.i.i.i.i.i.i.i, ptr %105, align 8, !tbaa !287
   %106 = icmp sgt i64 %67, 0
-  br i1 %106, label %.lr.ph180.preheader, label %._crit_edge181
-
-.lr.ph180.preheader:                              ; preds = %.loopexit
-  %smax = call i64 @llvm.smax.i64(i64 %68, i64 1)
-  br label %.lr.ph180
+  br i1 %106, label %.lr.ph180, label %._crit_edge181
 
 ._crit_edge181:                                   ; preds = %_ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit, %.loopexit
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -73686,8 +73658,8 @@ _ZNSt12_Vector_baseIxSaIxEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIxSaI
           cleanup
   br label %_ZNSt6vectorIxSaIxEED2Ev.exit159
 
-.lr.ph180:                                        ; preds = %.lr.ph180.preheader, %_ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit
-  %.047178 = phi i64 [ %125, %_ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit ], [ 0, %.lr.ph180.preheader ]
+.lr.ph180:                                        ; preds = %.loopexit, %_ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit
+  %.047178 = phi i64 [ %125, %_ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit ], [ 0, %.loopexit ]
   %111 = load ptr, ptr %1, align 8, !tbaa !557
   %112 = getelementptr inbounds nuw %"class.std::vector", ptr %111, i64 %.047178
   %113 = load ptr, ptr %112, align 8, !tbaa !23
@@ -73715,7 +73687,7 @@ _ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit: ; preds = %.noexc99
   %126 = load ptr, ptr %13, align 8, !tbaa !289
   %127 = getelementptr inbounds nuw i64, ptr %126, i64 %125
   store i64 %124, ptr %127, align 8, !tbaa !174
-  %exitcond.not = icmp eq i64 %125, %smax
+  %exitcond.not = icmp eq i64 %125, %68
   br i1 %exitcond.not, label %._crit_edge181, label %.lr.ph180, !llvm.loop !1093
 
 128:                                              ; preds = %.noexc99, %_ZN6casadi2MXaSERKS0_.exit98, %.lr.ph180
@@ -73873,11 +73845,7 @@ _ZSt8_DestroyIPSt6vectorIN6casadi2MXESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i.i: ; pred
   br label %_ZNSt6vectorIS_IN6casadi2MXESaIS1_EESaIS3_EE6resizeEm.exit
 
 _ZNSt6vectorIS_IN6casadi2MXESaIS1_EESaIS3_EE6resizeEm.exit: ; preds = %166, %168, %170, %_ZSt8_DestroyIPSt6vectorIN6casadi2MXESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i.i
-  br i1 %106, label %.lr.ph183.preheader, label %._crit_edge184
-
-.lr.ph183.preheader:                              ; preds = %_ZNSt6vectorIS_IN6casadi2MXESaIS1_EESaIS3_EE6resizeEm.exit
-  %smax193 = call i64 @llvm.smax.i64(i64 %68, i64 1)
-  br label %.lr.ph183
+  br i1 %106, label %.lr.ph183, label %._crit_edge184
 
 ._crit_edge184:                                   ; preds = %_ZN6casadi2MXaSERKS0_.exit153, %_ZNSt6vectorIS_IN6casadi2MXESaIS1_EESaIS3_EE6resizeEm.exit
   %184 = load ptr, ptr %13, align 8, !tbaa !289
@@ -74025,8 +73993,8 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit134:    ; preds = %_ZSt8_DestroyIPN6ca
           cleanup
   br label %308
 
-.lr.ph183:                                        ; preds = %.lr.ph183.preheader, %_ZN6casadi2MXaSERKS0_.exit153
-  %.0182 = phi i64 [ %306, %_ZN6casadi2MXaSERKS0_.exit153 ], [ 0, %.lr.ph183.preheader ]
+.lr.ph183:                                        ; preds = %_ZNSt6vectorIS_IN6casadi2MXESaIS1_EESaIS3_EE6resizeEm.exit, %_ZN6casadi2MXaSERKS0_.exit153
+  %.0182 = phi i64 [ %306, %_ZN6casadi2MXaSERKS0_.exit153 ], [ 0, %_ZNSt6vectorIS_IN6casadi2MXESaIS1_EESaIS3_EE6resizeEm.exit ]
   %230 = load ptr, ptr %2, align 8, !tbaa !557
   %231 = getelementptr inbounds nuw %"class.std::vector", ptr %230, i64 %.0182
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 8
@@ -74263,7 +74231,7 @@ _ZN6casadi2MXaSERKS0_.exit153:                    ; preds = %300, %_ZN6casadi17G
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #34
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %306 = add nuw nsw i64 %.0182, 1
-  %exitcond194.not = icmp eq i64 %306, %smax193
+  %exitcond194.not = icmp eq i64 %306, %68
   br i1 %exitcond194.not, label %._crit_edge184, label %.lr.ph183, !llvm.loop !1094
 
 .body:                                            ; preds = %288, %304, %284, %283
@@ -82541,7 +82509,6 @@ define linkonce_odr void @_ZNK6casadi11SetNonzerosILb0EE10ad_forwardERKSt6vector
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %smax = call i64 @llvm.smax.i64(i64 %29, i64 1)
   br label %106
 
 ._crit_edge674:                                   ; preds = %.critedge
@@ -83918,7 +83885,7 @@ _ZN6casadi2MXaSERKS0_.exit183:                    ; preds = %572
   %.sroa.0302.5 = phi ptr [ %.sroa.0302.0669, %_ZN6casadi2MXaSERKS0_.exit151 ], [ %.sroa.0302.4, %_ZN6casadi2MXaSERKS0_.exit183 ], [ %.sroa.0302.4, %._crit_edge652 ], [ %.sroa.0302.4, %417 ]
   %.397 = phi i1 [ %.094671, %_ZN6casadi2MXaSERKS0_.exit151 ], [ false, %_ZN6casadi2MXaSERKS0_.exit183 ], [ false, %._crit_edge652 ], [ false, %417 ]
   %579 = add nuw nsw i64 %.098670, 1
-  %exitcond979.not = icmp eq i64 %579, %smax
+  %exitcond979.not = icmp eq i64 %579, %29
   br i1 %exitcond979.not, label %._crit_edge674, label %106, !llvm.loop !1168
 
 580:                                              ; preds = %.loopexit326, %.loopexit.split-lp327, %.loopexit319, %.loopexit.split-lp, %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit181, %578, %428, %336, %204, %202, %200, %149, %144
@@ -84137,7 +84104,6 @@ define linkonce_odr void @_ZNK6casadi11SetNonzerosILb0EE10ad_reverseERKSt6vector
   %66 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %68 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %smax = call i64 @llvm.smax.i64(i64 %35, i64 1)
   br label %135
 
 ._crit_edge731:                                   ; preds = %676
@@ -85712,7 +85678,7 @@ _ZN6casadi17GenericExpressionINS_2MXEEpLERKS1_.exit197: ; preds = %.noexc194
   %.sroa.0295.5 = phi ptr [ %.sroa.0295.0726, %175 ], [ %.sroa.0295.4, %_ZN6casadi17GenericExpressionINS_2MXEEpLERKS1_.exit197 ], [ %.sroa.0295.4, %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit ]
   %.298 = phi i1 [ %.096728, %175 ], [ false, %_ZN6casadi17GenericExpressionINS_2MXEEpLERKS1_.exit197 ], [ false, %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit ]
   %677 = add nuw nsw i64 %.099727, 1
-  %exitcond1104.not = icmp eq i64 %677, %smax
+  %exitcond1104.not = icmp eq i64 %677, %35
   br i1 %exitcond1104.not, label %._crit_edge731, label %135, !llvm.loop !1175
 
 .body195:                                         ; preds = %.loopexit309, %.loopexit.split-lp310, %.loopexit, %.loopexit.split-lp, %.loopexit315, %.loopexit.split-lp316, %674, %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit193, %374, %242, %240, %238, %188, %180
@@ -93949,7 +93915,6 @@ define linkonce_odr void @_ZNK6casadi11SetNonzerosILb1EE10ad_forwardERKSt6vector
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %smax = call i64 @llvm.smax.i64(i64 %25, i64 1)
   br label %101
 
 ._crit_edge528:                                   ; preds = %.critedge
@@ -95074,7 +95039,7 @@ _ZN6casadi2MXaSERKS0_.exit147:                    ; preds = %478
   %.sroa.0249.5 = phi ptr [ %.sroa.0249.0523, %_ZN6casadi2MXaSERKS0_.exit124 ], [ %.sroa.0249.4, %_ZN6casadi2MXaSERKS0_.exit147 ], [ %.sroa.0249.4, %._crit_edge506 ], [ %.sroa.0249.4, %331 ]
   %.379 = phi i1 [ %.076525, %_ZN6casadi2MXaSERKS0_.exit124 ], [ false, %_ZN6casadi2MXaSERKS0_.exit147 ], [ false, %._crit_edge506 ], [ false, %331 ]
   %485 = add nuw nsw i64 %.080524, 1
-  %exitcond743.not = icmp eq i64 %485, %smax
+  %exitcond743.not = icmp eq i64 %485, %25
   br i1 %exitcond743.not, label %._crit_edge528, label %101, !llvm.loop !1253
 
 486:                                              ; preds = %.loopexit269, %.loopexit.split-lp270, %.loopexit266, %.loopexit.split-lp, %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit145, %484, %316, %184, %182, %180, %129
@@ -95290,7 +95255,6 @@ define linkonce_odr void @_ZNK6casadi11SetNonzerosILb1EE10ad_reverseERKSt6vector
   %62 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %64 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %smax = call i64 @llvm.smax.i64(i64 %31, i64 1)
   br label %131
 
 ._crit_edge641:                                   ; preds = %644
@@ -96766,7 +96730,7 @@ _ZN6casadi17GenericExpressionINS_2MXEEpLERKS1_.exit185: ; preds = %.noexc182
   %.sroa.0283.5 = phi ptr [ %.sroa.0283.0636, %_ZN6casadi17GenericExpressionINS_2MXEEpLERKS1_.exit137 ], [ %.sroa.0283.4, %_ZN6casadi17GenericExpressionINS_2MXEEpLERKS1_.exit185 ], [ %.sroa.0283.4, %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit ]
   %.293 = phi i1 [ %.091638, %_ZN6casadi17GenericExpressionINS_2MXEEpLERKS1_.exit137 ], [ false, %_ZN6casadi17GenericExpressionINS_2MXEEpLERKS1_.exit185 ], [ false, %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit ]
   %645 = add nuw nsw i64 %.094637, 1
-  %exitcond936.not = icmp eq i64 %645, %smax
+  %exitcond936.not = icmp eq i64 %645, %31
   br i1 %exitcond936.not, label %._crit_edge641, label %131, !llvm.loop !1260
 
 .body135:                                         ; preds = %.loopexit297, %.loopexit.split-lp298, %.loopexit, %.loopexit.split-lp, %.loopexit303, %.loopexit.split-lp304, %163, %642, %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit181, %355, %223, %221, %219, %169

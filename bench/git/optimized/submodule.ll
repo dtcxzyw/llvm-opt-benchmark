@@ -4401,9 +4401,9 @@ define dso_local range(i32 -1, 1) i32 @validate_submodule_git_dir(ptr noundef %0
 15:                                               ; preds = %.preheader
   store i8 0, ptr %.029, align 1, !tbaa !51
   %16 = tail call i32 @is_git_directory(ptr noundef nonnull %0) #18
-  %.not37.not = icmp eq i32 %16, 0
+  %.not37 = icmp eq i32 %16, 0
   store i8 47, ptr %.029, align 1, !tbaa !51
-  br i1 %.not37.not, label %.critedge, label %17
+  br i1 %.not37, label %.critedge, label %17
 
 17:                                               ; preds = %15
   %18 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !28

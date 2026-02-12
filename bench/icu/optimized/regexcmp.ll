@@ -5293,7 +5293,7 @@ define void @_ZN6icu_7712RegexCompile9stripNOPsEv(ptr noundef nonnull readonly a
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %4, align 8, !tbaa !15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i16 2, ptr %17, align 8, !tbaa !17
-  br label %._crit_edge88
+  br label %._crit_edge83
 
 .lr.ph:                                           ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -5304,7 +5304,7 @@ define void @_ZN6icu_7712RegexCompile9stripNOPsEv(ptr noundef nonnull readonly a
 
 21:                                               ; preds = %.lr.ph, %_ZNK6icu_779UVector6410elementAtiEi.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK6icu_779UVector6410elementAtiEi.exit ]
-  %.03682 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %_ZNK6icu_779UVector6410elementAtiEi.exit ]
+  %.03677 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %_ZNK6icu_779UVector6410elementAtiEi.exit ]
   %22 = load i32, ptr %18, align 8, !tbaa !110
   %23 = icmp slt i32 %22, -1
   %24 = load i32, ptr %19, align 4
@@ -5331,7 +5331,7 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i: ; preds = %_Z
   %29 = load ptr, ptr %20, align 8, !tbaa !111
   %30 = sext i32 %28 to i64
   %31 = getelementptr inbounds i32, ptr %29, i64 %30
-  store i32 %.03682, ptr %31, align 4, !tbaa !12
+  store i32 %.03677, ptr %31, align 4, !tbaa !12
   %32 = load i32, ptr %18, align 8, !tbaa !110
   %33 = add nsw i32 %32, 1
   store i32 %33, ptr %18, align 8, !tbaa !110
@@ -5359,7 +5359,7 @@ _ZN6icu_779UVector3210addElementEiR10UErrorCode.exit: ; preds = %_ZN6icu_779UVec
 
 _ZNK6icu_779UVector6410elementAtiEi.exit:         ; preds = %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit, %41
   %.mask54 = phi i32 [ %48, %41 ], [ 0, %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit ]
-  %spec.select = add nuw nsw i32 %.mask54, %.03682
+  %spec.select = add nuw nsw i32 %.mask54, %.03677
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !132
@@ -5380,25 +5380,25 @@ _ZNK6icu_779UVector6410elementAtiEi.exit:         ; preds = %_ZN6icu_779UVector3
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %wide.trip.count93 = zext nneg i32 %15 to i64
+  %wide.trip.count88 = zext nneg i32 %15 to i64
   br label %58
 
 58:                                               ; preds = %._crit_edge, %_ZN6icu_7712RegexCompile5errorE10UErrorCode.exit
-  %indvars.iv90 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next91, %_ZN6icu_7712RegexCompile5errorE10UErrorCode.exit ]
-  %.03985 = phi i32 [ 0, %._crit_edge ], [ %.140, %_ZN6icu_7712RegexCompile5errorE10UErrorCode.exit ]
+  %indvars.iv85 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next86, %_ZN6icu_7712RegexCompile5errorE10UErrorCode.exit ]
+  %.03980 = phi i32 [ 0, %._crit_edge ], [ %.140, %_ZN6icu_7712RegexCompile5errorE10UErrorCode.exit ]
   %59 = load ptr, ptr %10, align 8, !tbaa !33
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %61 = load ptr, ptr %60, align 8, !tbaa !79
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load i32, ptr %62, align 8
   %64 = sext i32 %63 to i64
-  %65 = icmp slt i64 %indvars.iv90, %64
-  br i1 %65, label %_ZNK6icu_779UVector6410elementAtiEi.exit56, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
+  %65 = icmp slt i64 %indvars.iv85, %64
+  br i1 %65, label %_ZNK6icu_779UVector6410elementAtiEi.exit55, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
 
-_ZNK6icu_779UVector6410elementAtiEi.exit56:       ; preds = %58
+_ZNK6icu_779UVector6410elementAtiEi.exit55:       ; preds = %58
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %67 = load ptr, ptr %66, align 8, !tbaa !115
-  %68 = getelementptr inbounds nuw i64, ptr %67, i64 %indvars.iv90
+  %68 = getelementptr inbounds nuw i64, ptr %67, i64 %indvars.iv85
   %69 = load i64, ptr %68, align 8, !tbaa !116
   %70 = trunc i64 %69 to i32
   %71 = lshr i64 %69, 24
@@ -5415,58 +5415,58 @@ _ZNK6icu_779UVector6410elementAtiEi.exit56:       ; preds = %58
     i8 18, label %72
     i8 34, label %100
     i8 41, label %100
-    i8 0, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 -1, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 1, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 2, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 3, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 4, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 5, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 8, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 9, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 10, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 49, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 11, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 12, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 14, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 16, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 53, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 17, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 19, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 20, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 21, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 22, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 23, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 24, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 25, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 26, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 27, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 32, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 33, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 35, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 37, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 38, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 39, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 40, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 42, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 43, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 30, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 44, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 45, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 46, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 47, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 48, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 50, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 52, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 51, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 54, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 55, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 56, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 57, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-    i8 58, label %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
+    i8 0, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 -1, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 1, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 2, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 3, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 4, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 5, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 8, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 9, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 10, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 49, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 11, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 12, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 14, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 16, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 53, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 17, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 19, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 20, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 21, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 22, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 23, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 24, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 25, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 26, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 27, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 32, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 33, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 35, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 37, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 38, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 39, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 40, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 42, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 43, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 30, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 44, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 45, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 46, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 47, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 48, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 50, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 52, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 51, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 54, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 55, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 56, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 57, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+    i8 58, label %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
   ]
 
-72:                                               ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56
+72:                                               ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55
   %73 = and i32 %70, 16777215
   %74 = load i32, ptr %56, align 8
   %75 = icmp sgt i32 %74, %73
@@ -5511,11 +5511,11 @@ _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %72, %76
 
 _ZN6icu_7712RegexCompile7buildOpEii.exit:         ; preds = %92, %_ZNK6icu_779UVector3210elementAtiEi.exit
   %.0.i = phi i64 [ %95, %92 ], [ 0, %_ZNK6icu_779UVector3210elementAtiEi.exit ]
-  invoke void @_ZN6icu_779UVector6412setElementAtEli(ptr noundef nonnull align 8 dereferenceable(32) %61, i64 noundef %.0.i, i32 noundef %.03985)
+  invoke void @_ZN6icu_779UVector6412setElementAtEli(ptr noundef nonnull align 8 dereferenceable(32) %61, i64 noundef %.0.i, i32 noundef %.03980)
           to label %96 unwind label %98
 
 96:                                               ; preds = %_ZN6icu_7712RegexCompile7buildOpEii.exit
-  %97 = add nsw i32 %.03985, 1
+  %97 = add nsw i32 %.03980, 1
   br label %_ZN6icu_7712RegexCompile5errorE10UErrorCode.exit
 
 98:                                               ; preds = %_ZN6icu_7712RegexCompile7buildOpEii.exit
@@ -5523,7 +5523,7 @@ _ZN6icu_7712RegexCompile7buildOpEii.exit:         ; preds = %92, %_ZNK6icu_779UV
           cleanup
   br label %186
 
-100:                                              ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56
+100:                                              ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55
   %101 = and i32 %70, 16777215
   %102 = getelementptr inbounds nuw i8, ptr %59, i64 136
   %103 = load ptr, ptr %102, align 8, !tbaa !113
@@ -5579,9 +5579,9 @@ _ZN6icu_7712RegexCompile7buildOpEii.exit:         ; preds = %92, %_ZNK6icu_779UV
   %132 = load ptr, ptr %54, align 8, !tbaa !58
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %134 = invoke i32 @utext_extract_77(ptr noundef %129, i64 noundef %131, i64 noundef %130, ptr noundef nonnull %133, i32 noundef 16, ptr noundef nonnull %2)
-          to label %.noexc60 unwind label %143
+          to label %.noexc56 unwind label %143
 
-.noexc60:                                         ; preds = %122
+.noexc56:                                         ; preds = %122
   %135 = load ptr, ptr %10, align 8, !tbaa !33
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %137 = load ptr, ptr %136, align 8, !tbaa !62
@@ -5590,22 +5590,22 @@ _ZN6icu_7712RegexCompile7buildOpEii.exit:         ; preds = %92, %_ZNK6icu_779UV
   %140 = load ptr, ptr %54, align 8, !tbaa !58
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 40
   %142 = invoke i32 @utext_extract_77(ptr noundef %137, i64 noundef %138, i64 noundef %139, ptr noundef nonnull %141, i32 noundef 16, ptr noundef nonnull %2)
-          to label %.noexc61 unwind label %143
+          to label %.noexc57 unwind label %143
 
-.noexc61:                                         ; preds = %.noexc60
+.noexc57:                                         ; preds = %.noexc56
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN6icu_7712RegexCompile5errorE10UErrorCode.exit
 
-143:                                              ; preds = %.noexc60, %122, %_ZN6icu_7712RegexCompile7buildOpEii.exit71
+143:                                              ; preds = %.noexc56, %122, %_ZN6icu_7712RegexCompile7buildOpEii.exit66
   %144 = landingpad { ptr, i32 }
           cleanup
   br label %186
 
 145:                                              ; preds = %100
   %.not = icmp eq i32 %101, 0
-  br i1 %.not, label %_ZNK6icu_779UVector3210elementAtiEi.exit63.thread, label %_ZNK6icu_779UVector3210elementAtiEi.exit63
+  br i1 %.not, label %_ZNK6icu_779UVector3210elementAtiEi.exit58.thread, label %_ZNK6icu_779UVector3210elementAtiEi.exit58
 
-_ZNK6icu_779UVector3210elementAtiEi.exit63:       ; preds = %145
+_ZNK6icu_779UVector3210elementAtiEi.exit58:       ; preds = %145
   %146 = getelementptr inbounds nuw i8, ptr %103, i64 24
   %147 = load ptr, ptr %146, align 8, !tbaa !111
   %148 = and i64 %69, 16777215
@@ -5615,15 +5615,15 @@ _ZNK6icu_779UVector3210elementAtiEi.exit63:       ; preds = %145
   %152 = load ptr, ptr %5, align 8, !tbaa !18
   %153 = load i32, ptr %152, align 4, !tbaa !13
   %154 = icmp slt i32 %153, 1
-  br i1 %154, label %158, label %_ZN6icu_7712RegexCompile7buildOpEii.exit71
+  br i1 %154, label %158, label %_ZN6icu_7712RegexCompile7buildOpEii.exit66
 
-_ZNK6icu_779UVector3210elementAtiEi.exit63.thread: ; preds = %145
+_ZNK6icu_779UVector3210elementAtiEi.exit58.thread: ; preds = %145
   %155 = load ptr, ptr %5, align 8, !tbaa !18
   %156 = load i32, ptr %155, align 4, !tbaa !13
   %157 = icmp slt i32 %156, 1
-  br i1 %157, label %.thread73, label %_ZN6icu_7712RegexCompile7buildOpEii.exit71
+  br i1 %157, label %.thread68, label %_ZN6icu_7712RegexCompile7buildOpEii.exit66
 
-158:                                              ; preds = %_ZNK6icu_779UVector3210elementAtiEi.exit63
+158:                                              ; preds = %_ZNK6icu_779UVector3210elementAtiEi.exit58
   %159 = icmp sgt i32 %151, 16777215
   br i1 %159, label %160, label %161
 
@@ -5633,58 +5633,58 @@ _ZNK6icu_779UVector3210elementAtiEi.exit63.thread: ; preds = %145
 
 161:                                              ; preds = %158
   %162 = icmp slt i32 %151, 0
-  br i1 %162, label %163, label %.thread73
+  br i1 %162, label %163, label %.thread68
 
 163:                                              ; preds = %161
   call void @abort() #17
   unreachable
 
-.thread73:                                        ; preds = %_ZNK6icu_779UVector3210elementAtiEi.exit63.thread, %161
-  %164 = phi i32 [ %151, %161 ], [ 0, %_ZNK6icu_779UVector3210elementAtiEi.exit63.thread ]
+.thread68:                                        ; preds = %_ZNK6icu_779UVector3210elementAtiEi.exit58.thread, %161
+  %164 = phi i32 [ %151, %161 ], [ 0, %_ZNK6icu_779UVector3210elementAtiEi.exit58.thread ]
   %165 = and i32 %70, -16777216
   %166 = or i32 %164, %165
   %167 = sext i32 %166 to i64
-  br label %_ZN6icu_7712RegexCompile7buildOpEii.exit71
+  br label %_ZN6icu_7712RegexCompile7buildOpEii.exit66
 
-_ZN6icu_7712RegexCompile7buildOpEii.exit71:       ; preds = %.thread73, %_ZNK6icu_779UVector3210elementAtiEi.exit63, %_ZNK6icu_779UVector3210elementAtiEi.exit63.thread
-  %.0.i64 = phi i64 [ %167, %.thread73 ], [ 0, %_ZNK6icu_779UVector3210elementAtiEi.exit63 ], [ 0, %_ZNK6icu_779UVector3210elementAtiEi.exit63.thread ]
-  invoke void @_ZN6icu_779UVector6412setElementAtEli(ptr noundef nonnull align 8 dereferenceable(32) %61, i64 noundef %.0.i64, i32 noundef %.03985)
+_ZN6icu_7712RegexCompile7buildOpEii.exit66:       ; preds = %.thread68, %_ZNK6icu_779UVector3210elementAtiEi.exit58, %_ZNK6icu_779UVector3210elementAtiEi.exit58.thread
+  %.0.i59 = phi i64 [ %167, %.thread68 ], [ 0, %_ZNK6icu_779UVector3210elementAtiEi.exit58 ], [ 0, %_ZNK6icu_779UVector3210elementAtiEi.exit58.thread ]
+  invoke void @_ZN6icu_779UVector6412setElementAtEli(ptr noundef nonnull align 8 dereferenceable(32) %61, i64 noundef %.0.i59, i32 noundef %.03980)
           to label %168 unwind label %143
 
-168:                                              ; preds = %_ZN6icu_7712RegexCompile7buildOpEii.exit71
-  %169 = add nsw i32 %.03985, 1
+168:                                              ; preds = %_ZN6icu_7712RegexCompile7buildOpEii.exit66
+  %169 = add nsw i32 %.03980, 1
   %170 = load ptr, ptr %10, align 8, !tbaa !33
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 184
   store i8 1, ptr %171, align 8, !tbaa !133
   br label %_ZN6icu_7712RegexCompile5errorE10UErrorCode.exit
 
-_ZNK6icu_779UVector6410elementAtiEi.exit56.thread: ; preds = %58, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56, %_ZNK6icu_779UVector6410elementAtiEi.exit56
-  %172 = phi i64 [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ 0, %58 ]
+_ZNK6icu_779UVector6410elementAtiEi.exit55.thread: ; preds = %58, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55, %_ZNK6icu_779UVector6410elementAtiEi.exit55
+  %172 = phi i64 [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %69, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ 0, %58 ]
   %sext = shl i64 %172, 32
   %173 = ashr exact i64 %sext, 32
-  invoke void @_ZN6icu_779UVector6412setElementAtEli(ptr noundef nonnull align 8 dereferenceable(32) %61, i64 noundef %173, i32 noundef %.03985)
+  invoke void @_ZN6icu_779UVector6412setElementAtEli(ptr noundef nonnull align 8 dereferenceable(32) %61, i64 noundef %173, i32 noundef %.03980)
           to label %174 unwind label %176
 
-174:                                              ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
-  %175 = add nsw i32 %.03985, 1
+174:                                              ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
+  %175 = add nsw i32 %.03980, 1
   br label %_ZN6icu_7712RegexCompile5errorE10UErrorCode.exit
 
-176:                                              ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit56.thread
+176:                                              ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit55.thread
   %177 = landingpad { ptr, i32 }
           cleanup
   br label %186
 
-178:                                              ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit56
+178:                                              ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit55
   call void @abort() #17
   unreachable
 
-_ZN6icu_7712RegexCompile5errorE10UErrorCode.exit: ; preds = %.noexc61, %107, %168, %174, %96, %_ZNK6icu_779UVector6410elementAtiEi.exit56
-  %.140 = phi i32 [ %.03985, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %97, %96 ], [ %175, %174 ], [ %169, %168 ], [ %.03985, %107 ], [ %.03985, %.noexc61 ]
-  %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
-  %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
-  br i1 %exitcond94.not, label %._crit_edge88, label %58, !llvm.loop !134
+_ZN6icu_7712RegexCompile5errorE10UErrorCode.exit: ; preds = %.noexc57, %107, %168, %174, %96, %_ZNK6icu_779UVector6410elementAtiEi.exit55
+  %.140 = phi i32 [ %.03980, %_ZNK6icu_779UVector6410elementAtiEi.exit55 ], [ %97, %96 ], [ %175, %174 ], [ %169, %168 ], [ %.03980, %107 ], [ %.03980, %.noexc57 ]
+  %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
+  %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
+  br i1 %exitcond89.not, label %._crit_edge83, label %58, !llvm.loop !134
 
-._crit_edge88:                                    ; preds = %_ZN6icu_7712RegexCompile5errorE10UErrorCode.exit, %._crit_edge.thread
+._crit_edge83:                                    ; preds = %_ZN6icu_7712RegexCompile5errorE10UErrorCode.exit, %._crit_edge.thread
   %.039.lcssa = phi i32 [ 0, %._crit_edge.thread ], [ %.140, %_ZN6icu_7712RegexCompile5errorE10UErrorCode.exit ]
   %179 = load ptr, ptr %10, align 8, !tbaa !33
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 32
@@ -5692,7 +5692,7 @@ _ZN6icu_7712RegexCompile5errorE10UErrorCode.exit: ; preds = %.noexc61, %107, %16
   invoke void @_ZN6icu_779UVector647setSizeEi(ptr noundef nonnull align 8 dereferenceable(32) %181, i32 noundef %.039.lcssa)
           to label %182 unwind label %184
 
-182:                                              ; preds = %._crit_edge88
+182:                                              ; preds = %._crit_edge83
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN6icu_779UVector32D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
@@ -5702,7 +5702,7 @@ _ZN6icu_7712RegexCompile5errorE10UErrorCode.exit: ; preds = %.noexc61, %107, %16
 183:                                              ; preds = %1, %182
   ret void
 
-184:                                              ; preds = %._crit_edge88
+184:                                              ; preds = %._crit_edge83
   %185 = landingpad { ptr, i32 }
           cleanup
   br label %186
@@ -9002,7 +9002,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit.lr.ph:   ; preds = %_ZN6icu_7712RegexCo
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit
 
-.preheader:                                       ; preds = %switch.early.test.thread, %_ZN6icu_7712RegexCompile7buildOpEii.exit
+.preheader:                                       ; preds = %42, %_ZN6icu_7712RegexCompile7buildOpEii.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %15 = load i32, ptr %14, align 8, !tbaa !110
@@ -9013,9 +9013,9 @@ _ZNK6icu_779UVector3210elementAtiEi.exit.lr.ph:   ; preds = %.preheader
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 392
   br label %_ZNK6icu_779UVector3210elementAtiEi.exit
 
-_ZNK6icu_779UVector6410elementAtiEi.exit:         ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit.lr.ph, %switch.early.test.thread
-  %18 = phi i32 [ %10, %_ZNK6icu_779UVector6410elementAtiEi.exit.lr.ph ], [ %42, %switch.early.test.thread ]
-  %indvars.iv = phi i64 [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit.lr.ph ], [ %indvars.iv.next, %switch.early.test.thread ]
+_ZNK6icu_779UVector6410elementAtiEi.exit:         ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit.lr.ph, %42
+  %18 = phi i32 [ %10, %_ZNK6icu_779UVector6410elementAtiEi.exit.lr.ph ], [ %43, %42 ]
+  %indvars.iv = phi i64 [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit.lr.ph ], [ %indvars.iv.next, %42 ]
   %19 = load ptr, ptr %12, align 8, !tbaa !115
   %20 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv
   %21 = load i64, ptr %20, align 8, !tbaa !116
@@ -9028,7 +9028,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit:         ; preds = %_ZNK6icu_779UVector
 switch.early.test:                                ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit
   %26 = lshr i64 %21, 24
   %trunc = trunc i64 %26 to i8
-  switch i8 %trunc, label %switch.early.test.thread [
+  switch i8 %trunc, label %42 [
     i8 36, label %27
     i8 31, label %27
     i8 18, label %27
@@ -9039,14 +9039,14 @@ switch.early.test:                                ; preds = %_ZNK6icu_779UVector
 
 27:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %_ZNK6icu_779UVector6410elementAtiEi.exit
   %28 = icmp sgt i32 %23, %1
-  br i1 %28, label %29, label %switch.early.test.thread
+  br i1 %28, label %29, label %42
 
 29:                                               ; preds = %27
   %30 = add nuw nsw i32 %23, 1
   %31 = load ptr, ptr %6, align 8, !tbaa !18
   %32 = load i32, ptr %31, align 4, !tbaa !13
   %33 = icmp slt i32 %32, 1
-  br i1 %33, label %34, label %_ZN6icu_7712RegexCompile7buildOpEii.exit55
+  br i1 %33, label %34, label %_ZN6icu_7712RegexCompile7buildOpEii.exit54
 
 34:                                               ; preds = %29
   %35 = icmp eq i32 %23, 16777215
@@ -9060,68 +9060,68 @@ switch.early.test:                                ; preds = %_ZNK6icu_779UVector
   %38 = and i32 %22, -16777216
   %39 = or i32 %30, %38
   %40 = sext i32 %39 to i64
-  br label %_ZN6icu_7712RegexCompile7buildOpEii.exit55
+  br label %_ZN6icu_7712RegexCompile7buildOpEii.exit54
 
-_ZN6icu_7712RegexCompile7buildOpEii.exit55:       ; preds = %29, %37
+_ZN6icu_7712RegexCompile7buildOpEii.exit54:       ; preds = %29, %37
   %.0.i53 = phi i64 [ %40, %37 ], [ 0, %29 ]
   %41 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @_ZN6icu_779UVector6412setElementAtEli(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %.0.i53, i32 noundef %41)
   %.pre = load i32, ptr %9, align 8, !tbaa !80
-  br label %switch.early.test.thread
+  br label %42
 
-switch.early.test.thread:                         ; preds = %switch.early.test, %_ZN6icu_7712RegexCompile7buildOpEii.exit55, %27
-  %42 = phi i32 [ %18, %switch.early.test ], [ %.pre, %_ZN6icu_7712RegexCompile7buildOpEii.exit55 ], [ %18, %27 ]
+42:                                               ; preds = %switch.early.test, %_ZN6icu_7712RegexCompile7buildOpEii.exit54, %27
+  %43 = phi i32 [ %18, %switch.early.test ], [ %.pre, %_ZN6icu_7712RegexCompile7buildOpEii.exit54 ], [ %18, %27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %43 = sext i32 %42 to i64
-  %44 = icmp slt i64 %indvars.iv.next, %43
-  br i1 %44, label %_ZNK6icu_779UVector6410elementAtiEi.exit, label %.preheader, !llvm.loop !149
+  %44 = sext i32 %43 to i64
+  %45 = icmp slt i64 %indvars.iv.next, %44
+  br i1 %45, label %_ZNK6icu_779UVector6410elementAtiEi.exit, label %.preheader, !llvm.loop !149
 
-_ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %_ZNK6icu_779UVector3210elementAtiEi.exit.lr.ph, %53
-  %45 = phi i32 [ %15, %_ZNK6icu_779UVector3210elementAtiEi.exit.lr.ph ], [ %54, %53 ]
-  %indvars.iv60 = phi i64 [ 0, %_ZNK6icu_779UVector3210elementAtiEi.exit.lr.ph ], [ %indvars.iv.next61, %53 ]
-  %46 = load ptr, ptr %17, align 8, !tbaa !111
-  %47 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv60
-  %48 = load i32, ptr %47, align 4, !tbaa !12
-  %49 = icmp sgt i32 %48, %1
-  br i1 %49, label %50, label %53
+_ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %_ZNK6icu_779UVector3210elementAtiEi.exit.lr.ph, %54
+  %46 = phi i32 [ %15, %_ZNK6icu_779UVector3210elementAtiEi.exit.lr.ph ], [ %55, %54 ]
+  %indvars.iv58 = phi i64 [ 0, %_ZNK6icu_779UVector3210elementAtiEi.exit.lr.ph ], [ %indvars.iv.next59, %54 ]
+  %47 = load ptr, ptr %17, align 8, !tbaa !111
+  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv58
+  %49 = load i32, ptr %48, align 4, !tbaa !12
+  %50 = icmp sgt i32 %49, %1
+  br i1 %50, label %51, label %54
 
-50:                                               ; preds = %_ZNK6icu_779UVector3210elementAtiEi.exit
-  %51 = add nsw i32 %48, 1
-  %52 = trunc nuw nsw i64 %indvars.iv60 to i32
-  tail call void @_ZN6icu_779UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef %51, i32 noundef %52)
-  %.pre63 = load i32, ptr %14, align 8, !tbaa !110
-  br label %53
+51:                                               ; preds = %_ZNK6icu_779UVector3210elementAtiEi.exit
+  %52 = add nsw i32 %49, 1
+  %53 = trunc nuw nsw i64 %indvars.iv58 to i32
+  tail call void @_ZN6icu_779UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef %52, i32 noundef %53)
+  %.pre61 = load i32, ptr %14, align 8, !tbaa !110
+  br label %54
 
-53:                                               ; preds = %50, %_ZNK6icu_779UVector3210elementAtiEi.exit
-  %54 = phi i32 [ %.pre63, %50 ], [ %45, %_ZNK6icu_779UVector3210elementAtiEi.exit ]
-  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
-  %55 = sext i32 %54 to i64
-  %56 = icmp slt i64 %indvars.iv.next61, %55
-  br i1 %56, label %_ZNK6icu_779UVector3210elementAtiEi.exit, label %._crit_edge, !llvm.loop !150
+54:                                               ; preds = %51, %_ZNK6icu_779UVector3210elementAtiEi.exit
+  %55 = phi i32 [ %.pre61, %51 ], [ %46, %_ZNK6icu_779UVector3210elementAtiEi.exit ]
+  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
+  %56 = sext i32 %55 to i64
+  %57 = icmp slt i64 %indvars.iv.next59, %56
+  br i1 %57, label %_ZNK6icu_779UVector3210elementAtiEi.exit, label %._crit_edge, !llvm.loop !150
 
-._crit_edge:                                      ; preds = %53, %.preheader
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 404
-  %58 = load i32, ptr %57, align 4, !tbaa !53
-  %59 = icmp sgt i32 %58, %1
-  br i1 %59, label %60, label %62
+._crit_edge:                                      ; preds = %54, %.preheader
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 404
+  %59 = load i32, ptr %58, align 4, !tbaa !53
+  %60 = icmp sgt i32 %59, %1
+  br i1 %60, label %61, label %63
 
-60:                                               ; preds = %._crit_edge
-  %61 = add nsw i32 %58, 1
-  store i32 %61, ptr %57, align 4, !tbaa !53
-  br label %62
+61:                                               ; preds = %._crit_edge
+  %62 = add nsw i32 %59, 1
+  store i32 %62, ptr %58, align 4, !tbaa !53
+  br label %63
 
-62:                                               ; preds = %60, %._crit_edge
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %64 = load i32, ptr %63, align 8, !tbaa !52
-  %65 = icmp sgt i32 %64, %1
-  br i1 %65, label %66, label %68
+63:                                               ; preds = %61, %._crit_edge
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %65 = load i32, ptr %64, align 8, !tbaa !52
+  %66 = icmp sgt i32 %65, %1
+  br i1 %66, label %67, label %69
 
-66:                                               ; preds = %62
-  %67 = add nsw i32 %64, 1
-  store i32 %67, ptr %63, align 8, !tbaa !52
-  br label %68
+67:                                               ; preds = %63
+  %68 = add nsw i32 %65, 1
+  store i32 %68, ptr %64, align 8, !tbaa !52
+  br label %69
 
-68:                                               ; preds = %66, %62
+69:                                               ; preds = %67, %63
   ret void
 }
 

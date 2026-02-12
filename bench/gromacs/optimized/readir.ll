@@ -25551,8 +25551,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit833: ; preds = %82
           to label %.lr.ph1771.preheader unwind label %849
 
 .lr.ph1771.preheader:                             ; preds = %839
-  %smax = call i32 @llvm.smax.i32(i32 %425, i32 1)
-  %wide.trip.count1874 = zext nneg i32 %smax to i64
+  %wide.trip.count1874 = and i64 %424, 2147483647
   %.pre1934 = load ptr, ptr %705, align 8, !tbaa !597
   br label %.lr.ph1771
 
@@ -25967,8 +25966,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit869:            ; preds = %_ZSt6fill_nIPfmfET_
 .preheader1652.lr.ph:                             ; preds = %998
   %1005 = load ptr, ptr %705, align 8, !tbaa !597
   %1006 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %smax1888 = call i32 @llvm.smax.i32(i32 %425, i32 1)
-  %wide.trip.count1889 = zext nneg i32 %smax1888 to i64
+  %wide.trip.count1889 = and i64 %424, 2147483647
   br label %.preheader1652
 
 .preheader1652:                                   ; preds = %.preheader1652.lr.ph, %._crit_edge1777
@@ -25991,8 +25989,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit869:            ; preds = %_ZSt6fill_nIPfmfET_
   br label %1017
 
 .lr.ph1787.preheader:                             ; preds = %._crit_edge1777
-  %smax1897 = call i32 @llvm.smax.i32(i32 %425, i32 1)
-  %wide.trip.count1898 = zext nneg i32 %smax1897 to i64
+  %wide.trip.count1898 = and i64 %424, 2147483647
   br label %.lr.ph1787
 
 1017:                                             ; preds = %.lr.ph1776, %1081
@@ -29465,7 +29462,7 @@ _ZL39checkAndUpdateVcmFreezeGroupConsistencyP16SimulationGroupsiRK9t_grpoptsP14W
 
 .loopexit340.us.preheader.i:                      ; preds = %.lr.ph380.split.split.us.i
   %2502 = shl nuw i64 %2497, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %2209, i8 0, i64 %2502, i1 false), !tbaa !185
+  call void @llvm.memset.p0.i64(ptr align 8 %2209, i8 0, i64 %2502, i1 false), !tbaa !185
   br label %.preheader339.i
 
 .lr.ph376.us.us.preheader.i:                      ; preds = %.lr.ph380.split.split.us.i

@@ -901,7 +901,7 @@ switch.lookup:                                    ; preds = %83
   %.0115.lcssa = phi i32 [ %127, %._crit_edge195.loopexit.split.loop.exit ], [ %27, %.preheader172 ], [ -1, %125 ]
   %128 = icmp eq i32 %.0115.lcssa, %27
   %129 = sext i1 %128 to i32
-  %.1 = add nsw i32 %.0115.lcssa, %129
+  %.1 = add i32 %.0115.lcssa, %129
   %130 = icmp slt i32 %.0116.lcssa255, %.1
   br i1 %130, label %.lr.ph201.preheader, label %._crit_edge202
 
@@ -924,7 +924,7 @@ switch.lookup:                                    ; preds = %83
   %141 = load i32, ptr %140, align 4, !tbaa !49
   %142 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %133, ptr noundef nonnull @.str.17, i32 noundef %.sroa.speculated, i32 noundef %137, i32 noundef %141) #22
   %143 = icmp eq i32 %.sroa.speculated, 0
-  br i1 %143, label %154, label %.preheader171
+  br i1 %143, label %156, label %.preheader171
 
 .preheader171:                                    ; preds = %._crit_edge202
   %.not169203 = icmp slt i32 %131, 0
@@ -932,54 +932,58 @@ switch.lookup:                                    ; preds = %83
 
 .lr.ph206.preheader:                              ; preds = %.preheader171
   %umax238 = zext i32 %.0116.lcssa255 to i64
-  %wide.trip.count242 = zext nneg i32 %.sroa.speculated to i64
+  %144 = add i32 %.1, 1
+  %145 = sub i32 %144, %.0116.lcssa255
+  %wide.trip.count242 = zext i32 %145 to i64
   br label %.lr.ph206
 
 .lr.ph201:                                        ; preds = %.lr.ph201.preheader, %.lr.ph201
   %indvars.iv233 = phi i64 [ %umax, %.lr.ph201.preheader ], [ %indvars.iv.next234, %.lr.ph201 ]
-  %144 = getelementptr %struct.t_bb, ptr %32, i64 %indvars.iv233
-  %145 = getelementptr i8, ptr %144, i64 -44
-  %146 = load i32, ptr %145, align 4, !tbaa !61
-  %147 = getelementptr inbounds nuw i8, ptr %144, i64 48
-  store i32 %146, ptr %147, align 4, !tbaa !65
+  %146 = getelementptr %struct.t_bb, ptr %32, i64 %indvars.iv233
+  %147 = getelementptr i8, ptr %146, i64 -44
+  %148 = load i32, ptr %147, align 4, !tbaa !61
+  %149 = getelementptr inbounds nuw i8, ptr %146, i64 48
+  store i32 %148, ptr %149, align 4, !tbaa !65
   %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
-  %148 = getelementptr inbounds nuw %struct.t_bb, ptr %32, i64 %indvars.iv.next234
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 52
-  %150 = load i32, ptr %149, align 4, !tbaa !59
-  %151 = getelementptr inbounds nuw i8, ptr %144, i64 72
-  store i32 %150, ptr %151, align 4, !tbaa !66
-  %152 = trunc nuw i64 %indvars.iv.next234 to i32
-  %153 = icmp sgt i32 %.1, %152
-  br i1 %153, label %.lr.ph201, label %._crit_edge202, !llvm.loop !67
+  %150 = getelementptr inbounds nuw %struct.t_bb, ptr %32, i64 %indvars.iv.next234
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 52
+  %152 = load i32, ptr %151, align 4, !tbaa !59
+  %153 = getelementptr inbounds nuw i8, ptr %146, i64 72
+  store i32 %152, ptr %153, align 4, !tbaa !66
+  %154 = trunc nuw i64 %indvars.iv.next234 to i32
+  %155 = icmp sgt i32 %.1, %154
+  br i1 %155, label %.lr.ph201, label %._crit_edge202, !llvm.loop !67
 
-154:                                              ; preds = %._crit_edge202
+156:                                              ; preds = %._crit_edge202
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZNSt10filesystem7__cxx114pathC2IA124_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 1 dereferenceable(124) @.str.14, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %12, i32 noundef 427, ptr noundef nonnull @.str.18) #24
-          to label %155 unwind label %156
+          to label %157 unwind label %158
 
-155:                                              ; preds = %154
+157:                                              ; preds = %156
   unreachable
 
-156:                                              ; preds = %154
-  %157 = landingpad { ptr, i32 }
+158:                                              ; preds = %156
+  %159 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  resume { ptr, i32 } %157
+  resume { ptr, i32 } %159
 
 .lr.ph209.preheader:                              ; preds = %.lr.ph206
-  %wide.trip.count247 = zext nneg i32 %.sroa.speculated to i64
+  %160 = add i32 %.1, 1
+  %161 = sub i32 %160, %.0116.lcssa255
+  %wide.trip.count247 = zext i32 %161 to i64
   br label %.lr.ph209
 
 .lr.ph206:                                        ; preds = %.lr.ph206.preheader, %.lr.ph206
   %indvars.iv239 = phi i64 [ %umax238, %.lr.ph206.preheader ], [ %indvars.iv.next240, %.lr.ph206 ]
   %indvars.iv236 = phi i64 [ 0, %.lr.ph206.preheader ], [ %indvars.iv.next237, %.lr.ph206 ]
-  %158 = getelementptr inbounds nuw %struct.t_bb, ptr %32, i64 %indvars.iv239
-  %159 = getelementptr inbounds nuw %struct.t_bb, ptr %32, i64 %indvars.iv236
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %159, ptr noundef nonnull align 4 dereferenceable(108) %158, i64 108, i1 false), !tbaa.struct !68
+  %162 = getelementptr inbounds nuw %struct.t_bb, ptr %32, i64 %indvars.iv239
+  %163 = getelementptr inbounds nuw %struct.t_bb, ptr %32, i64 %indvars.iv236
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %163, ptr noundef nonnull align 4 dereferenceable(108) %162, i64 108, i1 false), !tbaa.struct !68
   %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
   %indvars.iv.next240 = add nuw nsw i64 %indvars.iv239, 1
   %exitcond243.not = icmp eq i64 %indvars.iv.next237, %wide.trip.count242
@@ -987,29 +991,29 @@ switch.lookup:                                    ; preds = %83
 
 ._crit_edge210:                                   ; preds = %.lr.ph209, %.preheader171
   store i32 %.sroa.speculated, ptr %1, align 4, !tbaa !20
-  %160 = mul nsw i32 %.sroa.speculated, 6
-  store i32 %160, ptr %2, align 4, !tbaa !20
+  %164 = mul nsw i32 %.sroa.speculated, 6
+  store i32 %164, ptr %2, align 4, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret ptr %32
 
 .lr.ph209:                                        ; preds = %.lr.ph209.preheader, %.lr.ph209
   %indvars.iv244 = phi i64 [ 0, %.lr.ph209.preheader ], [ %indvars.iv.next245, %.lr.ph209 ]
-  %161 = getelementptr inbounds nuw %struct.t_bb, ptr %32, i64 %indvars.iv244
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 60
-  %163 = load i32, ptr %162, align 4, !tbaa !60
-  %164 = sext i32 %163 to i64
-  %165 = getelementptr inbounds %struct.t_atom, ptr %7, i64 %164
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 24
-  %167 = load i32, ptr %166, align 4, !tbaa !47
-  %168 = getelementptr inbounds nuw i8, ptr %161, i64 76
-  %169 = sext i32 %167 to i64
-  %170 = getelementptr inbounds %struct.t_resinfo, ptr %8, i64 %169
-  %171 = load ptr, ptr %170, align 8, !tbaa !51
-  %172 = load ptr, ptr %171, align 8, !tbaa !43
-  %173 = getelementptr inbounds nuw i8, ptr %170, i64 8
-  %174 = load i32, ptr %173, align 8, !tbaa !72
-  %175 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %168, ptr noundef nonnull dereferenceable(1) @.str.19, ptr noundef %172, i32 noundef %174) #20
+  %165 = getelementptr inbounds nuw %struct.t_bb, ptr %32, i64 %indvars.iv244
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 60
+  %167 = load i32, ptr %166, align 4, !tbaa !60
+  %168 = sext i32 %167 to i64
+  %169 = getelementptr inbounds %struct.t_atom, ptr %7, i64 %168
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 24
+  %171 = load i32, ptr %170, align 4, !tbaa !47
+  %172 = getelementptr inbounds nuw i8, ptr %165, i64 76
+  %173 = sext i32 %171 to i64
+  %174 = getelementptr inbounds %struct.t_resinfo, ptr %8, i64 %173
+  %175 = load ptr, ptr %174, align 8, !tbaa !51
+  %176 = load ptr, ptr %175, align 8, !tbaa !43
+  %177 = getelementptr inbounds nuw i8, ptr %174, i64 8
+  %178 = load i32, ptr %177, align 8, !tbaa !72
+  %179 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %172, ptr noundef nonnull dereferenceable(1) @.str.19, ptr noundef %176, i32 noundef %178) #20
   %indvars.iv.next245 = add nuw nsw i64 %indvars.iv244, 1
   %exitcond248.not = icmp eq i64 %indvars.iv.next245, %wide.trip.count247
   br i1 %exitcond248.not, label %._crit_edge210, label %.lr.ph209, !llvm.loop !73

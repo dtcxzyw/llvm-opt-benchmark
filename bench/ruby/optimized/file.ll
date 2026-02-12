@@ -2932,8 +2932,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %59
 
 .lr.ph.preheader:                                 ; preds = %61, %rb_alloc_tmp_buffer2.exit
   %66 = phi ptr [ %63, %61 ], [ %65, %rb_alloc_tmp_buffer2.exit ]
-  %smax = call i32 @llvm.smax.i32(i32 %1, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
 .preheader78:                                     ; preds = %.lr.ph
@@ -12051,9 +12050,6 @@ declare i32 @llvm.cttz.i32(i32, i1 immarg) #20
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #21
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #22

@@ -211,8 +211,7 @@ Vec_PtrPush.exit:                                 ; preds = %91, %75, %Fra_SmlCo
   br i1 %.not121, label %135, label %.lr.ph124
 
 .lr.ph124:                                        ; preds = %Vec_PtrPush.exit
-  %smax = tail call i32 @llvm.smax.i32(i32 %52, i32 1)
-  %102 = add nuw nsw i32 %smax, 1
+  %102 = or disjoint i32 %52, 1
   %wide.trip.count150 = zext nneg i32 %102 to i64
   br label %103
 

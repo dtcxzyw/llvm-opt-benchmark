@@ -4204,8 +4204,7 @@ rv_alloc.exit:                                    ; preds = %175, %185
   br i1 %287, label %.loopexit734, label %.lr.ph856.preheader
 
 .lr.ph856.preheader:                              ; preds = %280
-  %smax = tail call i32 @llvm.smax.i32(i32 %.2470, i32 1)
-  %288 = add nuw i32 %smax, 4
+  %288 = add nuw i32 %.2470, 4
   %wide.trip.count = zext i32 %288 to i64
   br label %.lr.ph856
 

@@ -16034,8 +16034,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %328 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %329 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %smax = call i32 @llvm.smax.i32(i32 %37, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %37 to i64
   br label %334
 
 330:                                              ; preds = %._crit_edge.i.i214
@@ -27823,8 +27822,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %104, 
   %117 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %118 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %119 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %smax = call i32 @llvm.smax.i32(i32 %60, i32 1)
-  %wide.trip.count675 = zext nneg i32 %smax to i64
+  %wide.trip.count675 = zext nneg i32 %60 to i64
   br label %559
 
 120:                                              ; preds = %109
@@ -29708,8 +29706,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit550: ; preds = %73
   %739 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %740 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %741 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %smax680 = call i32 @llvm.smax.i32(i32 %60, i32 1)
-  %wide.trip.count681 = zext nneg i32 %smax680 to i64
+  %wide.trip.count681 = zext nneg i32 %60 to i64
   br label %745
 
 ._crit_edge:                                      ; preds = %_ZN2cv3dnn14dnn4_v2024122312_GLOBAL__N_13PinD2Ev.exit589
@@ -73957,9 +73954,6 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #26
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #26
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

@@ -30452,7 +30452,7 @@ define internal fastcc noundef zeroext i1 @construct_match_selected_string(ptr n
   %62 = load i32, ptr %61, align 8
   %63 = tail call i32 @tvb_captured_length_remaining(ptr noundef %57, i32 noundef %62)
   %spec.select = tail call i32 @llvm.smin.i32(i32 %44, i32 %63)
-  %64 = icmp slt i32 %spec.select, 1
+  %64 = icmp slt i32 %63, 1
   br i1 %64, label %.loopexit, label %65
 
 65:                                               ; preds = %60

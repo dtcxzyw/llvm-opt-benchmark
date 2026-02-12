@@ -1223,8 +1223,7 @@ define internal fastcc void @fic_draw_cursor(ptr noundef readonly captures(none)
   br i1 %115, label %.lr.ph.preheader, label %fic_alpha_blend.exit89
 
 .lr.ph.preheader:                                 ; preds = %105
-  %smax = tail call i32 @llvm.smax.i32(i32 %spec.select83, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %spec.select83 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1257,8 +1256,7 @@ define internal fastcc void @fic_draw_cursor(ptr noundef readonly captures(none)
   %134 = or disjoint i64 %112, 32
   %135 = getelementptr inbounds i8, ptr %5, i64 %134
   %136 = getelementptr inbounds i8, ptr %12, i64 %134
-  %smax142 = tail call i32 @llvm.smax.i32(i32 %spec.select83, i32 1)
-  %wide.trip.count143 = zext nneg i32 %smax142 to i64
+  %wide.trip.count143 = zext nneg i32 %spec.select83 to i64
   br label %.lr.ph105
 
 .lr.ph105:                                        ; preds = %.lr.ph105.preheader, %.lr.ph105

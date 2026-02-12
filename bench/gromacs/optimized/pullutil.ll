@@ -3519,14 +3519,10 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %17, ptr %18, align 8, !tbaa !187
   %19 = icmp sgt i64 %9, 0
-  br i1 %19, label %.preheader.lr.ph, label %._crit_edge
+  br i1 %19, label %.preheader, label %._crit_edge
 
-.preheader.lr.ph:                                 ; preds = %.loopexit
-  %smax = tail call i64 @llvm.smax.i64(i64 %10, i64 1)
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.lr.ph, %23
-  %.01316 = phi i64 [ 0, %.preheader.lr.ph ], [ %24, %23 ]
+.preheader:                                       ; preds = %.loopexit, %23
+  %.01316 = phi i64 [ %24, %23 ], [ 0, %.loopexit ]
   %20 = getelementptr inbounds nuw %struct.pull_group_work_t, ptr %6, i64 %.01316
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 248
   %.idx = mul nuw nsw i64 %.01316, 24
@@ -3535,7 +3531,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
 
 23:                                               ; preds = %25
   %24 = add nuw nsw i64 %.01316, 1
-  %exitcond19.not = icmp eq i64 %24, %smax
+  %exitcond19.not = icmp eq i64 %24, %10
   br i1 %exitcond19.not, label %._crit_edge, label %.preheader, !llvm.loop !254
 
 25:                                               ; preds = %.preheader, %25
@@ -3572,18 +3568,14 @@ define void @_Z18setPrevStepPullComP6pull_tN3gmx8ArrayRefIKdEE(ptr noundef reado
 
 .preheader12:                                     ; preds = %3
   %17 = icmp sgt i64 %14, 0
-  br i1 %17, label %.preheader.preheader, label %._crit_edge
-
-.preheader.preheader:                             ; preds = %.preheader12
-  %smax = tail call i64 @llvm.smax.i64(i64 %15, i64 1)
-  br label %.preheader
+  br i1 %17, label %.preheader, label %._crit_edge
 
 18:                                               ; preds = %3
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZ18setPrevStepPullComP6pull_tN3gmx8ArrayRefIKdEEENK3$_0clEv", ptr noundef nonnull @.str.5, i32 noundef 1065) #23
   unreachable
 
-.preheader:                                       ; preds = %.preheader.preheader, %22
-  %.01014 = phi i64 [ %23, %22 ], [ 0, %.preheader.preheader ]
+.preheader:                                       ; preds = %.preheader12, %22
+  %.01014 = phi i64 [ %23, %22 ], [ 0, %.preheader12 ]
   %.idx = mul nuw nsw i64 %.01014, 24
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %20 = getelementptr inbounds nuw %struct.pull_group_work_t, ptr %11, i64 %.01014
@@ -3595,7 +3587,7 @@ define void @_Z18setPrevStepPullComP6pull_tN3gmx8ArrayRefIKdEE(ptr noundef reado
 
 22:                                               ; preds = %24
   %23 = add nuw nsw i64 %.01014, 1
-  %exitcond17.not = icmp eq i64 %23, %smax
+  %exitcond17.not = icmp eq i64 %23, %15
   br i1 %exitcond17.not, label %._crit_edge, label %.preheader, !llvm.loop !256
 
 24:                                               ; preds = %.preheader, %24
@@ -4363,9 +4355,6 @@ declare i64 @llvm.umin.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #21
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #21
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

@@ -3720,7 +3720,7 @@ _ZN6icu_775units12_GLOBAL__N_124extractFactorConversionsENS_11StringPieceER10UEr
   store ptr %85, ptr %13, align 8, !noalias !94
   store i32 %87, ptr %32, align 8, !noalias !94
   %88 = icmp sgt i32 %87, 0
-  br i1 %88, label %.lr.ph.preheader.i.i, label %.thread.i.i
+  br i1 %88, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZN6icu_775units12_GLOBAL__N_124extractFactorConversionsENS_11StringPieceER10UErrorCode.exit.i
   %wide.trip.count.i30.i = zext nneg i32 %87 to i64
@@ -3736,7 +3736,7 @@ _ZN6icu_775units12_GLOBAL__N_124extractFactorConversionsENS_11StringPieceER10UEr
 92:                                               ; preds = %.lr.ph.i31.i
   %indvars.iv.next.i33.i = add nuw nsw i64 %indvars.iv.i32.i, 1
   %exitcond.not.i34.i = icmp eq i64 %indvars.iv.next.i33.i, %wide.trip.count.i30.i
-  br i1 %exitcond.not.i34.i, label %.thread.i.i, label %.lr.ph.i31.i, !llvm.loop !102
+  br i1 %exitcond.not.i34.i, label %._crit_edge.i.i, label %.lr.ph.i31.i, !llvm.loop !102
 
 93:                                               ; preds = %.lr.ph.i31.i
   %94 = trunc nuw nsw i64 %indvars.iv.i32.i to i32
@@ -3792,7 +3792,7 @@ _ZN6icu_775units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit2
   %102 = fdiv double %95, %99
   br label %_ZN6icu_775units12_GLOBAL__N_116loadSingleFactorENS_11StringPieceERKNS0_15ConversionRatesER10UErrorCode.exit
 
-.thread.i.i:                                      ; preds = %92, %_ZN6icu_775units12_GLOBAL__N_124extractFactorConversionsENS_11StringPieceER10UErrorCode.exit.i
+._crit_edge.i.i:                                  ; preds = %92, %_ZN6icu_775units12_GLOBAL__N_124extractFactorConversionsENS_11StringPieceER10UErrorCode.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !94
   store i32 0, ptr %5, align 8, !tbaa !27, !noalias !94
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false), !noalias !94
@@ -3805,11 +3805,11 @@ _ZN6icu_775units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit2
   %.not.i30.i.i = icmp eq i32 %104, %87
   br i1 %.not.i30.i.i, label %_ZN6icu_775units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit31.i.i, label %105
 
-105:                                              ; preds = %.thread.i.i
+105:                                              ; preds = %._crit_edge.i.i
   store i32 3, ptr %3, align 4, !tbaa !13, !noalias !94
   br label %_ZN6icu_775units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit31.i.i
 
-_ZN6icu_775units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit31.i.i: ; preds = %105, %.thread.i.i
+_ZN6icu_775units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit31.i.i: ; preds = %105, %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !94
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !94
   br label %_ZN6icu_775units12_GLOBAL__N_116loadSingleFactorENS_11StringPieceERKNS0_15ConversionRatesER10UErrorCode.exit
@@ -4460,7 +4460,7 @@ define internal fastcc void @_ZN6icu_775units12_GLOBAL__N_116addFactorElementERN
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %2, ptr %11, align 8
   %12 = icmp sgt i32 %2, 0
-  br i1 %12, label %.lr.ph.preheader, label %.thread
+  br i1 %12, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %5
   %wide.trip.count = zext nneg i32 %2 to i64
@@ -4476,7 +4476,7 @@ define internal fastcc void @_ZN6icu_775units12_GLOBAL__N_116addFactorElementERN
 16:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !117
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !117
 
 17:                                               ; preds = %.lr.ph
   %18 = trunc nuw nsw i64 %indvars.iv to i32
@@ -4518,9 +4518,9 @@ _ZN6icu_775units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit:
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %28 = fptosi double %25 to i32
-  br label %.thread
+  br label %.loopexit
 
-.thread:                                          ; preds = %16, %5, %_ZN6icu_775units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit
+.loopexit:                                        ; preds = %16, %5, %_ZN6icu_775units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit
   %.sroa.032.0 = phi ptr [ %.fca.0.load.i, %_ZN6icu_775units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit ], [ %1, %5 ], [ %1, %16 ]
   %.sroa.633.0 = phi i32 [ %.fca.1.load.i, %_ZN6icu_775units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit ], [ %2, %5 ], [ %2, %16 ]
   %.0 = phi i32 [ %28, %_ZN6icu_775units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit ], [ 1, %5 ], [ 1, %16 ]

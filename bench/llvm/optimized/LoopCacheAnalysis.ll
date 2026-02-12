@@ -4147,43 +4147,43 @@ define dso_local { i64, i32 } @_ZNK4llvm9CacheCost20computeLoopCacheCostERKNS_4L
   %10 = zext i32 %9 to i64
   %.idx = shl nuw nsw i64 %10, 4
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
-  %.not42 = icmp eq i32 %9, 0
-  br i1 %.not42, label %._crit_edge.thread, label %.lr.ph
+  %.not41 = icmp eq i32 %9, 0
+  br i1 %.not41, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4llvm15InstructionCostmLEl.exit
   %12 = load ptr, ptr %2, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !26
   %15 = zext i32 %14 to i64
-  %.idx72 = mul nuw nsw i64 %15, 80
-  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx72
-  %.not2945 = icmp eq i32 %14, 0
-  br i1 %.not2945, label %.loopexit, label %.lr.ph50
+  %.idx71 = mul nuw nsw i64 %15, 80
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx71
+  %.not2944 = icmp eq i32 %14, 0
+  br i1 %.not2944, label %.loopexit, label %.lr.ph49
 
 ._crit_edge.thread:                               ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !26
-  %.not294577 = icmp eq i32 %18, 0
-  br i1 %.not294577, label %.loopexit, label %.lr.ph50.thread
+  %.not294476 = icmp eq i32 %18, 0
+  br i1 %.not294476, label %.loopexit, label %.lr.ph49.thread
 
-.lr.ph50.thread:                                  ; preds = %._crit_edge.thread
+.lr.ph49.thread:                                  ; preds = %._crit_edge.thread
   %19 = load ptr, ptr %2, align 8, !tbaa !25
   %20 = zext i32 %18 to i64
-  %.idx7276 = mul nuw nsw i64 %20, 80
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx7276
+  %.idx7175 = mul nuw nsw i64 %20, 80
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx7175
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  br label %.lr.ph50.split.split.us.preheader
+  br label %.lr.ph49.split.split.us.preheader
 
-.lr.ph50:                                         ; preds = %._crit_edge
+.lr.ph49:                                         ; preds = %._crit_edge
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %24 = icmp sgt i64 %62, 0
-  br i1 %24, label %.lr.ph50.split.split.us.preheader, label %.lr.ph50.split.us
+  br i1 %24, label %.lr.ph49.split.split.us.preheader, label %.lr.ph49.split.us
 
-.lr.ph50.split.us:                                ; preds = %.lr.ph50, %.lr.ph50.split.us
-  %.02848.us = phi ptr [ %35, %.lr.ph50.split.us ], [ %12, %.lr.ph50 ]
-  %.sroa.5.147.us = phi i32 [ %spec.select41.us, %.lr.ph50.split.us ], [ 0, %.lr.ph50 ]
-  %.sroa.039.146.us = phi i64 [ %.0.i.us, %.lr.ph50.split.us ], [ 0, %.lr.ph50 ]
-  %25 = load ptr, ptr %.02848.us, align 8, !tbaa !25
+.lr.ph49.split.us:                                ; preds = %.lr.ph49, %.lr.ph49.split.us
+  %.02847.us = phi ptr [ %35, %.lr.ph49.split.us ], [ %12, %.lr.ph49 ]
+  %.sroa.5.146.us = phi i32 [ %spec.select40.us, %.lr.ph49.split.us ], [ 0, %.lr.ph49 ]
+  %.sroa.038.145.us = phi i64 [ %.0.i.us, %.lr.ph49.split.us ], [ 0, %.lr.ph49 ]
+  %25 = load ptr, ptr %.02847.us, align 8, !tbaa !25
   %26 = load ptr, ptr %25, align 8, !tbaa !188
   %27 = load ptr, ptr %23, align 8, !tbaa !281
   %28 = tail call noundef i32 @_ZNK4llvm19TargetTransformInfo16getCacheLineSizeEv(ptr noundef nonnull align 8 dereferenceable(8) %27) #19
@@ -4195,80 +4195,80 @@ define dso_local { i64, i32 } @_ZNK4llvm9CacheCost20computeLoopCacheCostERKNS_4L
   %32 = extractvalue { i64, i1 } %30, 0
   %33 = and i64 %.fca.0.extract1.us, %62
   %or.cond7.i.i.us.not = icmp sgt i64 %33, -1
-  %spec.select.i.i32.us = select i1 %or.cond7.i.i.us.not, i64 -9223372036854775808, i64 9223372036854775807
-  %.0.i.i30.us = select i1 %31, i64 %spec.select.i.i32.us, i64 %32
+  %spec.select.i.i.us = select i1 %or.cond7.i.i.us.not, i64 -9223372036854775808, i64 9223372036854775807
+  %.0.i.i30.us = select i1 %31, i64 %spec.select.i.i.us, i64 %32
   %34 = icmp eq i32 %.fca.1.extract2.us, 1
-  %spec.select41.us = select i1 %34, i32 1, i32 %.sroa.5.147.us
-  %.0.i.us = tail call i64 @llvm.sadd.sat.i64(i64 %.sroa.039.146.us, i64 %.0.i.i30.us)
-  %35 = getelementptr inbounds nuw i8, ptr %.02848.us, i64 80
+  %spec.select40.us = select i1 %34, i32 1, i32 %.sroa.5.146.us
+  %.0.i.us = tail call i64 @llvm.sadd.sat.i64(i64 %.sroa.038.145.us, i64 %.0.i.i30.us)
+  %35 = getelementptr inbounds nuw i8, ptr %.02847.us, i64 80
   %.not29.us = icmp eq ptr %35, %16
-  br i1 %.not29.us, label %.loopexit, label %.lr.ph50.split.us
+  br i1 %.not29.us, label %.loopexit, label %.lr.ph49.split.us
 
-.lr.ph50.split.split.us.preheader:                ; preds = %.lr.ph50, %.lr.ph50.thread
-  %36 = phi ptr [ %22, %.lr.ph50.thread ], [ %23, %.lr.ph50 ]
-  %.sroa.036.0.lcssa7880 = phi i64 [ 1, %.lr.ph50.thread ], [ %62, %.lr.ph50 ]
-  %37 = phi ptr [ %19, %.lr.ph50.thread ], [ %12, %.lr.ph50 ]
-  %38 = phi ptr [ %21, %.lr.ph50.thread ], [ %16, %.lr.ph50 ]
-  br label %.lr.ph50.split.split.us
+.lr.ph49.split.split.us.preheader:                ; preds = %.lr.ph49, %.lr.ph49.thread
+  %36 = phi ptr [ %22, %.lr.ph49.thread ], [ %23, %.lr.ph49 ]
+  %.sroa.035.0.lcssa7779 = phi i64 [ 1, %.lr.ph49.thread ], [ %62, %.lr.ph49 ]
+  %37 = phi ptr [ %19, %.lr.ph49.thread ], [ %12, %.lr.ph49 ]
+  %38 = phi ptr [ %21, %.lr.ph49.thread ], [ %16, %.lr.ph49 ]
+  br label %.lr.ph49.split.split.us
 
-.lr.ph50.split.split.us:                          ; preds = %.lr.ph50.split.split.us.preheader, %.lr.ph50.split.split.us
-  %.02848.us54 = phi ptr [ %49, %.lr.ph50.split.split.us ], [ %37, %.lr.ph50.split.split.us.preheader ]
-  %.sroa.5.147.us55 = phi i32 [ %spec.select41.us62, %.lr.ph50.split.split.us ], [ 0, %.lr.ph50.split.split.us.preheader ]
-  %.sroa.039.146.us56 = phi i64 [ %.0.i.us63, %.lr.ph50.split.split.us ], [ 0, %.lr.ph50.split.split.us.preheader ]
-  %39 = load ptr, ptr %.02848.us54, align 8, !tbaa !25
+.lr.ph49.split.split.us:                          ; preds = %.lr.ph49.split.split.us.preheader, %.lr.ph49.split.split.us
+  %.02847.us53 = phi ptr [ %49, %.lr.ph49.split.split.us ], [ %37, %.lr.ph49.split.split.us.preheader ]
+  %.sroa.5.146.us54 = phi i32 [ %spec.select40.us61, %.lr.ph49.split.split.us ], [ 0, %.lr.ph49.split.split.us.preheader ]
+  %.sroa.038.145.us55 = phi i64 [ %.0.i.us62, %.lr.ph49.split.split.us ], [ 0, %.lr.ph49.split.split.us.preheader ]
+  %39 = load ptr, ptr %.02847.us53, align 8, !tbaa !25
   %40 = load ptr, ptr %39, align 8, !tbaa !188
   %41 = load ptr, ptr %36, align 8, !tbaa !281
   %42 = tail call noundef i32 @_ZNK4llvm19TargetTransformInfo16getCacheLineSizeEv(ptr noundef nonnull align 8 dereferenceable(8) %41) #19
   %43 = tail call { i64, i32 } @_ZNK4llvm16IndexedReference14computeRefCostERKNS_4LoopEj(ptr noundef nonnull align 8 dereferenceable(112) %40, ptr noundef nonnull align 8 dereferenceable(144) %1, i32 noundef %42)
-  %.fca.0.extract1.us57 = extractvalue { i64, i32 } %43, 0
-  %.fca.1.extract2.us58 = extractvalue { i64, i32 } %43, 1
-  %44 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.fca.0.extract1.us57, i64 %.sroa.036.0.lcssa7880)
+  %.fca.0.extract1.us56 = extractvalue { i64, i32 } %43, 0
+  %.fca.1.extract2.us57 = extractvalue { i64, i32 } %43, 1
+  %44 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.fca.0.extract1.us56, i64 %.sroa.035.0.lcssa7779)
   %45 = extractvalue { i64, i1 } %44, 1
   %46 = extractvalue { i64, i1 } %44, 0
-  %47 = icmp sgt i64 %.fca.0.extract1.us57, 0
-  %spec.select70 = select i1 %47, i64 9223372036854775807, i64 -9223372036854775808
-  %.0.i.i30.us61 = select i1 %45, i64 %spec.select70, i64 %46
-  %48 = icmp eq i32 %.fca.1.extract2.us58, 1
-  %spec.select41.us62 = select i1 %48, i32 1, i32 %.sroa.5.147.us55
-  %.0.i.us63 = tail call i64 @llvm.sadd.sat.i64(i64 %.sroa.039.146.us56, i64 %.0.i.i30.us61)
-  %49 = getelementptr inbounds nuw i8, ptr %.02848.us54, i64 80
-  %.not29.us64 = icmp eq ptr %49, %38
-  br i1 %.not29.us64, label %.loopexit, label %.lr.ph50.split.split.us
+  %47 = icmp sgt i64 %.fca.0.extract1.us56, 0
+  %spec.select69 = select i1 %47, i64 9223372036854775807, i64 -9223372036854775808
+  %.0.i.i30.us60 = select i1 %45, i64 %spec.select69, i64 %46
+  %48 = icmp eq i32 %.fca.1.extract2.us57, 1
+  %spec.select40.us61 = select i1 %48, i32 1, i32 %.sroa.5.146.us54
+  %.0.i.us62 = tail call i64 @llvm.sadd.sat.i64(i64 %.sroa.038.145.us55, i64 %.0.i.i30.us60)
+  %49 = getelementptr inbounds nuw i8, ptr %.02847.us53, i64 80
+  %.not29.us63 = icmp eq ptr %49, %38
+  br i1 %.not29.us63, label %.loopexit, label %.lr.ph49.split.split.us
 
 .lr.ph:                                           ; preds = %5, %_ZN4llvm15InstructionCostmLEl.exit
-  %.044 = phi ptr [ %63, %_ZN4llvm15InstructionCostmLEl.exit ], [ %7, %5 ]
-  %.sroa.036.043 = phi i64 [ %62, %_ZN4llvm15InstructionCostmLEl.exit ], [ 1, %5 ]
-  %50 = load ptr, ptr %.044, align 8, !tbaa !315
+  %.043 = phi ptr [ %63, %_ZN4llvm15InstructionCostmLEl.exit ], [ %7, %5 ]
+  %.sroa.035.042 = phi i64 [ %62, %_ZN4llvm15InstructionCostmLEl.exit ], [ 1, %5 ]
+  %50 = load ptr, ptr %.043, align 8, !tbaa !315
   %51 = icmp eq ptr %50, %1
   br i1 %51, label %_ZN4llvm15InstructionCostmLEl.exit, label %52
 
 52:                                               ; preds = %.lr.ph
-  %53 = getelementptr inbounds nuw i8, ptr %.044, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.043, i64 8
   %54 = load i32, ptr %53, align 8, !tbaa !317
   %55 = zext i32 %54 to i64
-  %56 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.036.043, i64 %55)
+  %56 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.035.042, i64 %55)
   %57 = extractvalue { i64, i1 } %56, 1
   %58 = extractvalue { i64, i1 } %56, 0
   br i1 %57, label %59, label %_ZN4llvm15InstructionCostmLEl.exit
 
 59:                                               ; preds = %52
-  %60 = icmp sgt i64 %.sroa.036.043, 0
+  %60 = icmp sgt i64 %.sroa.035.042, 0
   %61 = icmp ne i32 %54, 0
   %or.cond.i.i = and i1 %60, %61
   %spec.select = select i1 %or.cond.i.i, i64 9223372036854775807, i64 -9223372036854775808
   br label %_ZN4llvm15InstructionCostmLEl.exit
 
 _ZN4llvm15InstructionCostmLEl.exit:               ; preds = %59, %52, %.lr.ph
-  %.sroa.036.1 = phi i64 [ %.sroa.036.043, %.lr.ph ], [ %58, %52 ], [ %spec.select, %59 ]
-  %62 = freeze i64 %.sroa.036.1
-  %63 = getelementptr inbounds nuw i8, ptr %.044, i64 16
+  %.sroa.035.1 = phi i64 [ %.sroa.035.042, %.lr.ph ], [ %58, %52 ], [ %spec.select, %59 ]
+  %62 = freeze i64 %.sroa.035.1
+  %63 = getelementptr inbounds nuw i8, ptr %.043, i64 16
   %.not = icmp eq ptr %63, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.loopexit:                                        ; preds = %.lr.ph50.split.us, %.lr.ph50.split.split.us, %._crit_edge.thread, %._crit_edge, %3
-  %.sroa.039.0 = phi i64 [ 0, %3 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %.0.i.us63, %.lr.ph50.split.split.us ], [ %.0.i.us, %.lr.ph50.split.us ]
-  %.sroa.5.0 = phi i32 [ 1, %3 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %spec.select41.us62, %.lr.ph50.split.split.us ], [ %spec.select41.us, %.lr.ph50.split.us ]
-  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.039.0, 0
+.loopexit:                                        ; preds = %.lr.ph49.split.us, %.lr.ph49.split.split.us, %._crit_edge.thread, %._crit_edge, %3
+  %.sroa.038.0 = phi i64 [ 0, %3 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %.0.i.us62, %.lr.ph49.split.split.us ], [ %.0.i.us, %.lr.ph49.split.us ]
+  %.sroa.5.0 = phi i32 [ 1, %3 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %spec.select40.us61, %.lr.ph49.split.split.us ], [ %spec.select40.us, %.lr.ph49.split.us ]
+  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.038.0, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.5.0, 1
   ret { i64, i32 } %.fca.1.insert
 }

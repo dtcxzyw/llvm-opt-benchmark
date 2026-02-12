@@ -344,23 +344,23 @@ bytestream2_get_le32.exit73:                      ; preds = %84, %86
   br i1 %or.cond133.i, label %bytestream2_init.exit134.i, label %.thread
 
 bytestream2_init.exit134.i:                       ; preds = %121
-  %156 = zext i16 %145 to i64
+  %156 = zext i16 %148 to i64
   %157 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 %156
-  %158 = zext i16 %148 to i64
-  %159 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 %158
-  %160 = sub nuw nsw i32 %.lcssa130, %149
-  %161 = zext nneg i32 %160 to i64
-  %162 = getelementptr inbounds nuw i8, ptr %159, i64 %161
-  %163 = zext i16 %151 to i64
-  %164 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 %163
-  %165 = sub nuw nsw i32 %.lcssa130, %152
-  %166 = zext nneg i32 %165 to i64
-  %167 = getelementptr inbounds nuw i8, ptr %164, i64 %166
+  %158 = sub nuw nsw i32 %.lcssa130, %149
+  %159 = zext nneg i32 %158 to i64
+  %160 = getelementptr inbounds nuw i8, ptr %157, i64 %159
+  %161 = zext i16 %151 to i64
+  %162 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 %161
+  %163 = sub nuw nsw i32 %.lcssa130, %152
+  %164 = zext i16 %145 to i64
+  %165 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 %164
+  %166 = zext nneg i32 %163 to i64
+  %167 = getelementptr inbounds nuw i8, ptr %162, i64 %166
   %168 = zext i16 %154 to i64
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 %168
   %170 = sub nuw nsw i32 %.lcssa130, %146
-  %171 = getelementptr inbounds nuw i8, ptr %157, i64 1
-  %172 = load i8, ptr %157, align 1, !tbaa !43
+  %171 = getelementptr inbounds nuw i8, ptr %165, i64 1
+  %172 = load i8, ptr %165, align 1, !tbaa !43
   %173 = zext i8 %172 to i32
   %174 = add i8 %172, 22
   %175 = shl nuw nsw i32 %173, 1
@@ -698,7 +698,7 @@ xan_unpack.exit.i:                                ; preds = %348, %xan_unpack.ex
   br i1 %354, label %.lr.ph.lr.ph.i, label %xan_wc3_decode_frame.exit
 
 .lr.ph.lr.ph.i:                                   ; preds = %xan_unpack.exit.i
-  %355 = ptrtoint ptr %162 to i64
+  %355 = ptrtoint ptr %160 to i64
   %356 = ptrtoint ptr %167 to i64
   %357 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %358 = getelementptr i8, ptr %1, i64 64
@@ -712,8 +712,8 @@ xan_unpack.exit.i:                                ; preds = %348, %xan_unpack.ex
   %.0115.ph256.i = phi i32 [ 0, %.lr.ph.lr.ph.i ], [ %545, %xan_wc3_copy_pixel_run.exit.i ]
   %.0116.ph255.i = phi ptr [ %140, %.lr.ph.lr.ph.i ], [ %359, %xan_wc3_copy_pixel_run.exit.i ]
   %.1118.ph254.i = phi ptr [ %.0117.i, %.lr.ph.lr.ph.i ], [ %.2119.i, %xan_wc3_copy_pixel_run.exit.i ]
-  %.sroa.0.0.ph253.i = phi ptr [ %164, %.lr.ph.lr.ph.i ], [ %.sroa.0.1.i, %xan_wc3_copy_pixel_run.exit.i ]
-  %.sroa.0173.0.ph252.i = phi ptr [ %159, %.lr.ph.lr.ph.i ], [ %.sroa.0173.1.i, %xan_wc3_copy_pixel_run.exit.i ]
+  %.sroa.0.0.ph253.i = phi ptr [ %162, %.lr.ph.lr.ph.i ], [ %.sroa.0.1.i, %xan_wc3_copy_pixel_run.exit.i ]
+  %.sroa.0173.0.ph252.i = phi ptr [ %157, %.lr.ph.lr.ph.i ], [ %.sroa.0173.1.i, %xan_wc3_copy_pixel_run.exit.i ]
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %361, %.lr.ph.split.preheader.i
@@ -823,7 +823,7 @@ xan_unpack.exit.i:                                ; preds = %348, %xan_unpack.ex
   br label %bytestream2_get_byte.exit.i
 
 bytestream2_get_byte.exit.i:                      ; preds = %.lr.ph.split.i, %394, %392, %383, %381, %373, %371, %.split232.us.i, %.split.us.i
-  %.sroa.0173.1.i = phi ptr [ %162, %392 ], [ %.sroa.0173.0.ph252.i, %.split.us.i ], [ %.sroa.0173.0.ph252.i, %.split232.us.i ], [ %162, %381 ], [ %162, %371 ], [ %374, %373 ], [ %384, %383 ], [ %395, %394 ], [ %.sroa.0173.0.ph252.i, %.lr.ph.split.i ]
+  %.sroa.0173.1.i = phi ptr [ %160, %392 ], [ %.sroa.0173.0.ph252.i, %.split.us.i ], [ %.sroa.0173.0.ph252.i, %.split232.us.i ], [ %160, %381 ], [ %160, %371 ], [ %374, %373 ], [ %384, %383 ], [ %395, %394 ], [ %.sroa.0173.0.ph252.i, %.lr.ph.split.i ]
   %.0113.i = phi i32 [ 0, %392 ], [ %364, %.split.us.i ], [ %366, %.split232.us.i ], [ 0, %381 ], [ 0, %371 ], [ %376, %373 ], [ %387, %383 ], [ %407, %394 ], [ 0, %.lr.ph.split.i ]
   %408 = icmp sgt i32 %.0113.i, %.0109.ph259.i
   br i1 %408, label %xan_wc3_decode_frame.exit, label %409

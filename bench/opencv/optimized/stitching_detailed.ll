@@ -8031,8 +8031,7 @@ _ZNSolsEPFRSoS_E.exit758:                         ; preds = %_ZStlsISt11char_tra
   %2565 = getelementptr inbounds nuw i8, ptr %173, i64 24
   %2566 = getelementptr inbounds nuw i8, ptr %172, i64 16
   %2567 = getelementptr inbounds nuw i8, ptr %172, i64 8
-  %smax1619 = call i32 @llvm.smax.i32(i32 %2070, i32 1)
-  %wide.trip.count1620 = zext nneg i32 %smax1619 to i64
+  %wide.trip.count1620 = and i64 %2069, 2147483647
   br label %2582
 
 ._crit_edge1555:                                  ; preds = %2598
@@ -8751,8 +8750,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %2865 = getelementptr inbounds nuw i8, ptr %201, i64 8
   %2866 = getelementptr inbounds nuw i8, ptr %202, i64 8
   %2867 = getelementptr inbounds nuw i8, ptr %202, i64 16
-  %smax1625 = call i32 @llvm.smax.i32(i32 %2070, i32 1)
-  %wide.trip.count1626 = zext nneg i32 %smax1625 to i64
+  %wide.trip.count1626 = and i64 %2069, 2147483647
   br label %2870
 
 ._crit_edge1558:                                  ; preds = %2929
@@ -8955,8 +8953,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   call void @llvm.lifetime.end.p0(ptr nonnull %204)
   %2940 = getelementptr inbounds nuw i8, ptr %205, i64 8
   %2941 = getelementptr inbounds nuw i8, ptr %205, i64 16
-  %smax1631 = call i32 @llvm.smax.i32(i32 %2070, i32 1)
-  %wide.trip.count1632 = zext nneg i32 %smax1631 to i64
+  %wide.trip.count1632 = and i64 %2069, 2147483647
   br label %2945
 
 ._crit_edge1562:                                  ; preds = %2950
@@ -9561,8 +9558,7 @@ _ZNSolsEPFRSoS_E.exit855:                         ; preds = %_ZStlsISt11char_tra
   %3221 = getelementptr inbounds nuw i8, ptr %269, i64 16
   %3222 = getelementptr inbounds nuw i8, ptr %269, i64 20
   %3223 = getelementptr inbounds nuw i8, ptr %269, i64 8
-  %smax1637 = call i32 @llvm.smax.i32(i32 %2070, i32 1)
-  %wide.trip.count1643 = zext nneg i32 %smax1637 to i64
+  %wide.trip.count1643 = and i64 %2069, 2147483647
   br label %3226
 
 ._crit_edge1571:                                  ; preds = %3830

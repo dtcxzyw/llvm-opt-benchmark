@@ -1764,21 +1764,21 @@ describeDumpableObject.exit.i.i:                  ; preds = %824, %820, %816, %8
   br label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %836, %832, %456, %452, %435, %422, %404, %394, %379, %365, %357, %347, %341, %329, %311, %299, %287, %276, %265, %261, %250, %229, %202, %183, %162, %157, %152, %145, %140, %135
-  %wide.trip.count.i16 = zext nneg i32 %125 to i64
-  br label %.lr.ph.i17
+  %wide.trip.count.i15 = zext nneg i32 %125 to i64
+  br label %.lr.ph.i16
 
-.lr.ph.i17:                                       ; preds = %.lr.ph.i17, %.lr.ph.preheader.i
-  %indvars.iv.i18 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i19, %.lr.ph.i17 ]
-  %839 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv.i18
+.lr.ph.i16:                                       ; preds = %.lr.ph.i16, %.lr.ph.preheader.i
+  %indvars.iv.i17 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i18, %.lr.ph.i16 ]
+  %839 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv.i17
   %840 = load ptr, ptr %839, align 8
   %841 = getelementptr inbounds nuw i8, ptr %840, i64 12
   %842 = load i32, ptr %841, align 4
   %843 = sext i32 %842 to i64
   %844 = getelementptr inbounds i8, ptr %111, i64 %843
   store i8 1, ptr %844, align 1
-  %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i18, 1
-  %exitcond.not.i20 = icmp eq i64 %indvars.iv.next.i19, %wide.trip.count.i16
-  br i1 %exitcond.not.i20, label %.loopexit.thread.i, label %.lr.ph.i17, !llvm.loop !29
+  %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i17, 1
+  %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, %wide.trip.count.i15
+  br i1 %exitcond.not.i19, label %.loopexit.thread.i, label %.lr.ph.i16, !llvm.loop !29
 
 .loopexit.i12:                                    ; preds = %120
   %845 = load i32, ptr %123, align 4
@@ -1789,7 +1789,7 @@ describeDumpableObject.exit.i.i:                  ; preds = %824, %820, %816, %8
   %exitcond95.not.i = icmp eq i64 %indvars.iv.next93.i, %wide.trip.count94.i
   br i1 %exitcond95.not.i, label %._crit_edge.i13, label %120, !llvm.loop !30
 
-.loopexit.thread.i:                               ; preds = %.lr.ph.i17
+.loopexit.thread.i:                               ; preds = %.lr.ph.i16
   %indvars.iv.next93123.i = add nuw nsw i64 %indvars.iv92.i, 1
   %exitcond95.not124.i = icmp eq i64 %indvars.iv.next93123.i, %wide.trip.count94.i
   br i1 %exitcond95.not124.i, label %findDependencyLoops.exit, label %.outer.i, !llvm.loop !30

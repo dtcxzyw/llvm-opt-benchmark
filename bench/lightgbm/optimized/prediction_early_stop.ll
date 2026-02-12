@@ -146,7 +146,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i: ; preds = %.noexc1
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i, %.noexc18.i.i.i
   %.0.i.i.i.i.i45.i.i.i = phi ptr [ %13, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i ], [ %10, %.noexc18.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %9, ptr noundef nonnull readonly align 8 dereferenceable(1) %.val, i64 %8, i1 false), !tbaa !18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %9, ptr readonly align 8 %.val, i64 %8, i1 false), !tbaa !18
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.preheader.i.i.i, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i

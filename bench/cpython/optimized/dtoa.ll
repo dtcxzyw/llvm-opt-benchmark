@@ -4835,8 +4835,7 @@ rv_alloc.exit:                                    ; preds = %284, %316
   br i1 %399, label %.critedge, label %.lr.ph1099.preheader
 
 .lr.ph1099.preheader:                             ; preds = %391
-  %smax = tail call i32 @llvm.smax.i32(i32 %.2492, i32 1)
-  %400 = add nsw i32 %smax, -1
+  %400 = add nsw i32 %.2492, -1
   br label %.lr.ph1099
 
 .lr.ph1099:                                       ; preds = %.lr.ph1099.preheader, %406

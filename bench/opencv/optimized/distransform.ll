@@ -578,7 +578,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit.i:          ; preds = %.noexc133, %165
 .lr.ph104.preheader.i:                            ; preds = %.preheader98.i
   %203 = zext nneg i32 %170 to i64
   %204 = shl nuw nsw i64 %203, 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %189, i8 0, i64 %204, i1 false), !tbaa !27
+  call void @llvm.memset.p0.i64(ptr align 4 %189, i8 0, i64 %204, i1 false), !tbaa !27
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph104.preheader.i, %.preheader98.i

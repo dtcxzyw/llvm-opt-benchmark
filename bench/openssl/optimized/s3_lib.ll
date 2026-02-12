@@ -2472,10 +2472,6 @@ define ptr @ssl3_choose_cipher(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %35 = icmp slt i32 %.1129208, %24
   br i1 %35, label %.lr.ph210, label %.lr.ph212.preheader
 
-.lr.ph212.preheader:                              ; preds = %42, %33
-  %smax = tail call i32 @llvm.smax.i32(i32 %24, i32 1)
-  br label %.lr.ph212
-
 .lr.ph210:                                        ; preds = %33, %42
   %.1129209 = phi i32 [ %.1129, %42 ], [ %.1129208, %33 ]
   %36 = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %.1129209) #18
@@ -2493,6 +2489,9 @@ define ptr @ssl3_choose_cipher(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %exitcond231.not = icmp eq i32 %.1129, %24
   br i1 %exitcond231.not, label %.lr.ph212.preheader, label %.lr.ph210, !llvm.loop !208
 
+.lr.ph212.preheader:                              ; preds = %42, %33
+  br label %.lr.ph212
+
 .lr.ph212:                                        ; preds = %.lr.ph212.preheader, %48
   %.2130211 = phi i32 [ %49, %48 ], [ 0, %.lr.ph212.preheader ]
   %43 = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %.2130211) #18
@@ -2507,7 +2506,7 @@ define ptr @ssl3_choose_cipher(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 
 48:                                               ; preds = %.lr.ph212, %46
   %49 = add nuw nsw i32 %.2130211, 1
-  %exitcond232.not = icmp eq i32 %49, %smax
+  %exitcond232.not = icmp eq i32 %49, %24
   br i1 %exitcond232.not, label %.critedge184, label %.lr.ph212, !llvm.loop !209
 
 .critedge184:                                     ; preds = %29, %48, %23, %9, %31, %3, %18, %15, %13
@@ -4431,9 +4430,6 @@ declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #17
 
 attributes #0 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -81,17 +81,17 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %40, i1 false), !tbaa !7
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond.not = icmp eq i64 %indvar.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge627, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.lr.ph631, label %.lr.ph, !llvm.loop !9
 
-._crit_edge627:                                   ; preds = %.lr.ph
+.lr.ph631:                                        ; preds = %.lr.ph
   %43 = tail call i32 @llvm.umin.i32(i32 %20, i32 %23)
   %44 = add i32 %16, 1
   %45 = add nuw i32 %43, 1
   %wide.trip.count668 = zext i32 %45 to i64
   br label %46
 
-46:                                               ; preds = %._crit_edge627, %46
-  %indvars.iv = phi i64 [ 1, %._crit_edge627 ], [ %indvars.iv.next, %46 ]
+46:                                               ; preds = %.lr.ph631, %46
+  %indvars.iv = phi i64 [ 1, %.lr.ph631 ], [ %indvars.iv.next, %46 ]
   %47 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv
   %48 = load double, ptr %47, align 8, !tbaa !7
   %49 = trunc nuw nsw i64 %indvars.iv to i32

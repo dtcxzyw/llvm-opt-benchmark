@@ -2135,8 +2135,7 @@ _ZN2cvL22intersectConvexConvex_EPKNS_6Point_IfEEiS3_iPS1_iPf.exit.thread: ; pred
   %609 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %.sroa.0.0.insert.insert.i216 = or disjoint i64 %105, 4294967296
   %610 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %smax = call i32 @llvm.smax.i32(i32 %74, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %74 to i64
   br label %615
 
 611:                                              ; preds = %608
@@ -2151,8 +2150,7 @@ _ZN2cvL22intersectConvexConvex_EPKNS_6Point_IfEEiS3_iPS1_iPf.exit.thread: ; pred
   %613 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %.sroa.0.0.insert.insert.i218 = or disjoint i64 %107, 4294967296
   %614 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %smax297 = call i32 @llvm.smax.i32(i32 %70, i32 1)
-  %wide.trip.count298 = zext nneg i32 %smax297 to i64
+  %wide.trip.count298 = zext nneg i32 %70 to i64
   br label %625
 
 615:                                              ; preds = %.lr.ph270, %618

@@ -1107,7 +1107,7 @@ _ZNSt6vectorIN8LightGBM24RecursiveHalvingNodeTypeESaIS1_EE17_S_check_init_lenEmR
 .lr.ph286.preheader:                              ; preds = %.lr.ph.preheader.i.i.i.i.i.i.i.i.i, %.noexc158
   %81 = zext nneg i32 %2 to i64
   %82 = shl nuw nsw i64 %81, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %77, i8 0, i64 %82, i1 false), !tbaa !33
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %77, i8 0, i64 %82, i1 false), !tbaa !33
   br label %.preheader271
 
 .preheader271:                                    ; preds = %_ZNSt6vectorIN8LightGBM24RecursiveHalvingNodeTypeESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i, %.lr.ph286.preheader

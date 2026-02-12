@@ -29617,20 +29617,15 @@ _ZNK6casadi13GenericMatrixINS_6MatrixIxEEE6colindEx.exit515: ; preds = %.noexc51
 
 _ZNSt6vectorIxSaIxEE6resizeEmRKx.exit:            ; preds = %832, %830, %828, %826
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
-  br i1 %.not.i.i.i.i, label %._crit_edge749, label %.lr.ph746.preheader
-
-.lr.ph746.preheader:                              ; preds = %_ZNSt6vectorIxSaIxEE6resizeEmRKx.exit
-  %smax760 = call i64 @llvm.smax.i64(i64 %83, i64 1)
-  br label %.lr.ph746
+  br i1 %.not.i.i.i.i, label %._crit_edge749, label %.lr.ph746
 
 .loopexit697:                                     ; preds = %879
-  %exitcond761.not = icmp eq i64 %869, %smax760
+  %exitcond761.not = icmp eq i64 %869, %83
   br i1 %exitcond761.not, label %.lr.ph748, label %.lr.ph746, !llvm.loop !459
 
 .lr.ph748:                                        ; preds = %.loopexit697
   %.promoted = load i64, ptr %813, align 8
   %866 = load ptr, ptr %1, align 8, !tbaa !425
-  %smax762 = call i64 @llvm.smax.i64(i64 %83, i64 1)
   br label %891
 
 867:                                              ; preds = %826
@@ -29639,8 +29634,8 @@ _ZNSt6vectorIxSaIxEE6resizeEmRKx.exit:            ; preds = %832, %830, %828, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
   br label %955
 
-.lr.ph746:                                        ; preds = %.lr.ph746.preheader, %.loopexit697
-  %.0123745 = phi i64 [ %869, %.loopexit697 ], [ 0, %.lr.ph746.preheader ]
+.lr.ph746:                                        ; preds = %_ZNSt6vectorIxSaIxEE6resizeEmRKx.exit, %.loopexit697
+  %.0123745 = phi i64 [ %869, %.loopexit697 ], [ 0, %_ZNSt6vectorIxSaIxEE6resizeEmRKx.exit ]
   %869 = add nuw nsw i64 %.0123745, 1
   %870 = load ptr, ptr %1, align 8, !tbaa !425
   %871 = getelementptr inbounds nuw i64, ptr %870, i64 %869
@@ -29705,7 +29700,7 @@ _ZNSt6vectorIxSaIxEE6resizeEmRKx.exit:            ; preds = %832, %830, %828, %8
   %898 = sub nsw i64 %895, %897
   %.sroa.speculated = call i64 @llvm.smax.i64(i64 %892, i64 %898)
   store i64 %.sroa.speculated, ptr %813, align 8, !tbaa !452
-  %exitcond763.not = icmp eq i64 %893, %smax762
+  %exitcond763.not = icmp eq i64 %893, %83
   br i1 %exitcond763.not, label %._crit_edge749, label %891, !llvm.loop !461
 
 899:                                              ; preds = %._crit_edge749

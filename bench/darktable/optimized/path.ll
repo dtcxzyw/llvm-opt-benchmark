@@ -2256,47 +2256,47 @@ _path_bounding_box_raw.exit:                      ; preds = %.lr.ph107.i, %._cri
   %268 = add nuw nsw i32 %266, 1
   br label %269
 
-269:                                              ; preds = %.thread265.i, %._crit_edge.i369
-  %.0223311.i = phi i32 [ -1, %._crit_edge.i369 ], [ %.2225.i, %.thread265.i ]
-  %.0226310.i = phi i32 [ -1, %._crit_edge.i369 ], [ %.2228.i, %.thread265.i ]
-  %.0240309.i = phi i32 [ 0, %._crit_edge.i369 ], [ %317, %.thread265.i ]
-  %270 = add nuw nsw i32 %.0240309.i, %266
+269:                                              ; preds = %.thread263.i, %._crit_edge.i369
+  %.0223306.i = phi i32 [ -1, %._crit_edge.i369 ], [ %.2225.i, %.thread263.i ]
+  %.0226305.i = phi i32 [ -1, %._crit_edge.i369 ], [ %.2228.i, %.thread263.i ]
+  %.0240304.i = phi i32 [ 0, %._crit_edge.i369 ], [ %317, %.thread263.i ]
+  %270 = add nuw nsw i32 %.0240304.i, %266
   %271 = urem i32 %270, %249
-  %272 = icmp slt i32 %.0223311.i, 0
+  %272 = icmp slt i32 %.0223306.i, 0
   %273 = shl nuw nsw i32 %271, 1
   %274 = zext nneg i32 %273 to i64
   %275 = getelementptr inbounds nuw float, ptr %248, i64 %274
   %276 = load float, ptr %275, align 8, !tbaa !6
-  br i1 %272, label %277, label %.thread.i
+  br i1 %272, label %277, label %._crit_edge354.i
 
 277:                                              ; preds = %269
   %278 = fcmp reassoc nsz arcp contract afn olt float %276, 0.000000e+00
-  br i1 %278, label %.thread.i, label %.thread265.i
+  br i1 %278, label %._crit_edge354.i, label %.thread263.i
 
-.thread.i:                                        ; preds = %269, %277
-  %.1224262.i = phi i32 [ %.0240309.i, %277 ], [ %.0223311.i, %269 ]
+._crit_edge354.i:                                 ; preds = %269, %277
+  %.1224.ph.i = phi i32 [ %.0240304.i, %277 ], [ %.0223306.i, %269 ]
   %279 = fcmp reassoc nsz arcp contract afn ult float %276, 0.000000e+00
-  %280 = add nsw i32 %.0240309.i, -1
-  %.1227.i = select i1 %279, i32 %.0226310.i, i32 %280
+  %280 = add nsw i32 %.0240304.i, -1
+  %.1227.i = select i1 %279, i32 %.0226305.i, i32 %280
   %281 = icmp sgt i32 %.1227.i, -1
-  br i1 %281, label %282, label %.thread265.i
+  br i1 %281, label %282, label %.thread263.i
 
-282:                                              ; preds = %.thread.i
-  %283 = add i32 %.1224262.i, %267
+282:                                              ; preds = %._crit_edge354.i
+  %283 = add i32 %.1224.ph.i, %267
   %284 = srem i32 %283, %249
-  %285 = icmp eq i32 %.1227.i, %.1224262.i
-  br i1 %285, label %.thread398.i, label %286
+  %285 = icmp eq i32 %.1227.i, %.1224.ph.i
+  br i1 %285, label %.thread.i, label %286
 
-.thread398.i:                                     ; preds = %282
-  %.pre358.i = shl nsw i32 %284, 1
-  %.pre360.i = sext i32 %.pre358.i to i64
-  %.pn.i.phi.trans.insert = getelementptr float, ptr %248, i64 %.pre360.i
+.thread.i:                                        ; preds = %282
+  %.pre357.i = shl nsw i32 %284, 1
+  %.pre359.i = sext i32 %.pre357.i to i64
+  %.pn.i.phi.trans.insert = getelementptr float, ptr %248, i64 %.pre359.i
   %.in.i.phi.trans.insert = getelementptr i8, ptr %.pn.i.phi.trans.insert, i64 4
   %.pre537 = load float, ptr %.in.i.phi.trans.insert, align 4, !tbaa !6
-  br label %.lr.ph308.i
+  br label %.lr.ph303.i
 
 286:                                              ; preds = %282
-  %287 = sub nsw i32 %.1227.i, %.1224262.i
+  %287 = sub nsw i32 %.1227.i, %.1224.ph.i
   %288 = add nuw nsw i32 %.1227.i, %268
   %289 = urem i32 %288, %249
   %290 = shl nuw nsw i32 %289, 1
@@ -2312,81 +2312,81 @@ _path_bounding_box_raw.exit:                      ; preds = %.lr.ph107.i, %._cri
   %300 = fsub reassoc nsz arcp contract afn float %294, %299
   %301 = uitofp nneg i32 %287 to float
   %302 = fdiv reassoc nsz arcp contract afn float %300, %301
-  %.not253305.i = icmp slt i32 %287, 0
-  br i1 %.not253305.i, label %.thread265.i, label %.lr.ph308.i
+  %.not253300.i = icmp slt i32 %287, 0
+  br i1 %.not253300.i, label %.thread263.i, label %.lr.ph303.i
 
-.lr.ph308.i:                                      ; preds = %286, %.thread398.i
-  %reass.sub.pre-phi = phi i32 [ %287, %286 ], [ 0, %.thread398.i ]
-  %303 = phi float [ %299, %286 ], [ %.pre537, %.thread398.i ]
-  %304 = phi float [ %302, %286 ], [ 0.000000e+00, %.thread398.i ]
-  %305 = add nuw nsw i32 %.1224262.i, %266
+.lr.ph303.i:                                      ; preds = %286, %.thread.i
+  %reass.sub.pre-phi = phi i32 [ %287, %286 ], [ 0, %.thread.i ]
+  %303 = phi float [ %299, %286 ], [ %.pre537, %.thread.i ]
+  %304 = phi float [ %302, %286 ], [ 0.000000e+00, %.thread.i ]
+  %305 = add nuw nsw i32 %.1224.ph.i, %266
   br label %306
 
-306:                                              ; preds = %306, %.lr.ph308.i
-  %.0242306.i = phi i32 [ 0, %.lr.ph308.i ], [ %316, %306 ]
-  %307 = add nuw nsw i32 %305, %.0242306.i
-  %308 = srem i32 %307, %249
+306:                                              ; preds = %306, %.lr.ph303.i
+  %.0242301.i = phi i32 [ 0, %.lr.ph303.i ], [ %316, %306 ]
+  %307 = add nuw nsw i32 %305, %.0242301.i
+  %308 = urem i32 %307, %249
   %309 = shl nuw nsw i32 %308, 1
   %310 = zext nneg i32 %309 to i64
   %311 = getelementptr inbounds nuw float, ptr %248, i64 %310
   store float 0.000000e+00, ptr %311, align 8, !tbaa !6
-  %312 = uitofp nneg i32 %.0242306.i to float
+  %312 = uitofp nneg i32 %.0242301.i to float
   %313 = fmul reassoc nsz arcp contract afn float %304, %312
   %314 = fadd reassoc nsz arcp contract afn float %313, %303
   %315 = getelementptr inbounds nuw i8, ptr %311, i64 4
   store float %314, ptr %315, align 4, !tbaa !6
-  %316 = add nuw i32 %.0242306.i, 1
-  %exitcond344.not.i = icmp eq i32 %.0242306.i, %reass.sub.pre-phi
-  br i1 %exitcond344.not.i, label %.thread265.i, label %306
+  %316 = add nuw i32 %.0242301.i, 1
+  %exitcond339.not.i = icmp eq i32 %.0242301.i, %reass.sub.pre-phi
+  br i1 %exitcond339.not.i, label %.thread263.i, label %306
 
-.thread265.i:                                     ; preds = %306, %286, %.thread.i, %277
-  %.2228.i = phi i32 [ %.1227.i, %.thread.i ], [ -1, %286 ], [ %.0226310.i, %277 ], [ -1, %306 ]
-  %.2225.i = phi i32 [ %.1224262.i, %.thread.i ], [ -1, %286 ], [ %.0223311.i, %277 ], [ -1, %306 ]
-  %317 = add nuw nsw i32 %.0240309.i, 1
-  %exitcond345.not.i = icmp eq i32 %317, %249
-  br i1 %exitcond345.not.i, label %.preheader300.i, label %269
+.thread263.i:                                     ; preds = %306, %286, %._crit_edge354.i, %277
+  %.2228.i = phi i32 [ %.1227.i, %._crit_edge354.i ], [ %.0226305.i, %277 ], [ -1, %286 ], [ -1, %306 ]
+  %.2225.i = phi i32 [ %.1224.ph.i, %._crit_edge354.i ], [ %.0223306.i, %277 ], [ -1, %286 ], [ -1, %306 ]
+  %317 = add nuw nsw i32 %.0240304.i, 1
+  %exitcond340.not.i = icmp eq i32 %317, %249
+  br i1 %exitcond340.not.i, label %.preheader295.i, label %269
 
-.preheader300.i:                                  ; preds = %.thread265.i, %.thread275.i
-  %.3321.i = phi i32 [ %.5.i, %.thread275.i ], [ %.2225.i, %.thread265.i ]
-  %.3229320.i = phi i32 [ %.5231.i, %.thread275.i ], [ %.2228.i, %.thread265.i ]
-  %.0244319.i = phi i32 [ %365, %.thread275.i ], [ 0, %.thread265.i ]
-  %318 = add nuw nsw i32 %.0244319.i, %266
+.preheader295.i:                                  ; preds = %.thread263.i, %.thread272.i
+  %.3316.i = phi i32 [ %.5.i, %.thread272.i ], [ %.2225.i, %.thread263.i ]
+  %.3229315.i = phi i32 [ %.5231.i, %.thread272.i ], [ %.2228.i, %.thread263.i ]
+  %.0244314.i = phi i32 [ %365, %.thread272.i ], [ 0, %.thread263.i ]
+  %318 = add nuw nsw i32 %.0244314.i, %266
   %319 = urem i32 %318, %249
-  %320 = icmp slt i32 %.3321.i, 0
+  %320 = icmp slt i32 %.3316.i, 0
   %321 = shl nuw nsw i32 %319, 1
   %322 = zext nneg i32 %321 to i64
   %323 = getelementptr inbounds nuw float, ptr %248, i64 %322
   %324 = load float, ptr %323, align 8, !tbaa !6
-  br i1 %320, label %325, label %.thread269.i
+  br i1 %320, label %325, label %._crit_edge352.i
 
-325:                                              ; preds = %.preheader300.i
+325:                                              ; preds = %.preheader295.i
   %326 = fcmp reassoc nsz arcp contract afn ogt float %324, %251
-  br i1 %326, label %.thread269.i, label %.thread275.i
+  br i1 %326, label %._crit_edge352.i, label %.thread272.i
 
-.thread269.i:                                     ; preds = %.preheader300.i, %325
-  %.4272.i = phi i32 [ %.0244319.i, %325 ], [ %.3321.i, %.preheader300.i ]
+._crit_edge352.i:                                 ; preds = %.preheader295.i, %325
+  %.4.ph.i = phi i32 [ %.0244314.i, %325 ], [ %.3316.i, %.preheader295.i ]
   %327 = fcmp reassoc nsz arcp contract afn ugt float %324, %251
-  %328 = add nsw i32 %.0244319.i, -1
-  %.4230.i = select i1 %327, i32 %.3229320.i, i32 %328
+  %328 = add nsw i32 %.0244314.i, -1
+  %.4230.i = select i1 %327, i32 %.3229315.i, i32 %328
   %329 = icmp sgt i32 %.4230.i, -1
-  br i1 %329, label %330, label %.thread275.i
+  br i1 %329, label %330, label %.thread272.i
 
-330:                                              ; preds = %.thread269.i
-  %331 = add i32 %.4272.i, %267
+330:                                              ; preds = %._crit_edge352.i
+  %331 = add i32 %.4.ph.i, %267
   %332 = srem i32 %331, %249
-  %333 = icmp eq i32 %.4230.i, %.4272.i
-  br i1 %333, label %.thread406.i, label %334
+  %333 = icmp eq i32 %.4230.i, %.4.ph.i
+  br i1 %333, label %.thread398.i, label %334
 
-.thread406.i:                                     ; preds = %330
-  %.pre366.i = shl nsw i32 %332, 1
-  %.pre368.i = sext i32 %.pre366.i to i64
-  %.pn426.i.phi.trans.insert = getelementptr float, ptr %248, i64 %.pre368.i
-  %.in425.i.phi.trans.insert = getelementptr i8, ptr %.pn426.i.phi.trans.insert, i64 4
-  %.pre540 = load float, ptr %.in425.i.phi.trans.insert, align 4, !tbaa !6
-  br label %.lr.ph318.i
+.thread398.i:                                     ; preds = %330
+  %.pre365.i = shl nsw i32 %332, 1
+  %.pre367.i = sext i32 %.pre365.i to i64
+  %.pn412.i.phi.trans.insert = getelementptr float, ptr %248, i64 %.pre367.i
+  %.in411.i.phi.trans.insert = getelementptr i8, ptr %.pn412.i.phi.trans.insert, i64 4
+  %.pre540 = load float, ptr %.in411.i.phi.trans.insert, align 4, !tbaa !6
+  br label %.lr.ph313.i
 
 334:                                              ; preds = %330
-  %335 = sub nsw i32 %.4230.i, %.4272.i
+  %335 = sub nsw i32 %.4230.i, %.4.ph.i
   %336 = add nuw nsw i32 %.4230.i, %268
   %337 = urem i32 %336, %249
   %338 = shl nuw nsw i32 %337, 1
@@ -2402,81 +2402,81 @@ _path_bounding_box_raw.exit:                      ; preds = %.lr.ph107.i, %._cri
   %348 = fsub reassoc nsz arcp contract afn float %342, %347
   %349 = uitofp nneg i32 %335 to float
   %350 = fdiv reassoc nsz arcp contract afn float %348, %349
-  %.not252315.i = icmp slt i32 %335, 0
-  br i1 %.not252315.i, label %.thread275.i, label %.lr.ph318.i
+  %.not252310.i = icmp slt i32 %335, 0
+  br i1 %.not252310.i, label %.thread272.i, label %.lr.ph313.i
 
-.lr.ph318.i:                                      ; preds = %334, %.thread406.i
-  %reass.sub487.pre-phi = phi i32 [ %335, %334 ], [ 0, %.thread406.i ]
-  %351 = phi float [ %347, %334 ], [ %.pre540, %.thread406.i ]
-  %352 = phi float [ %350, %334 ], [ 0.000000e+00, %.thread406.i ]
-  %353 = add nuw nsw i32 %.4272.i, %266
+.lr.ph313.i:                                      ; preds = %334, %.thread398.i
+  %reass.sub487.pre-phi = phi i32 [ %335, %334 ], [ 0, %.thread398.i ]
+  %351 = phi float [ %347, %334 ], [ %.pre540, %.thread398.i ]
+  %352 = phi float [ %350, %334 ], [ 0.000000e+00, %.thread398.i ]
+  %353 = add nuw nsw i32 %.4.ph.i, %266
   br label %354
 
-354:                                              ; preds = %354, %.lr.ph318.i
-  %.0245316.i = phi i32 [ 0, %.lr.ph318.i ], [ %364, %354 ]
-  %355 = add nuw nsw i32 %353, %.0245316.i
-  %356 = srem i32 %355, %249
+354:                                              ; preds = %354, %.lr.ph313.i
+  %.0245311.i = phi i32 [ 0, %.lr.ph313.i ], [ %364, %354 ]
+  %355 = add nuw nsw i32 %353, %.0245311.i
+  %356 = urem i32 %355, %249
   %357 = shl nuw nsw i32 %356, 1
   %358 = zext nneg i32 %357 to i64
   %359 = getelementptr inbounds nuw float, ptr %248, i64 %358
   store float %251, ptr %359, align 8, !tbaa !6
-  %360 = uitofp nneg i32 %.0245316.i to float
+  %360 = uitofp nneg i32 %.0245311.i to float
   %361 = fmul reassoc nsz arcp contract afn float %352, %360
   %362 = fadd reassoc nsz arcp contract afn float %361, %351
   %363 = getelementptr inbounds nuw i8, ptr %359, i64 4
   store float %362, ptr %363, align 4, !tbaa !6
-  %364 = add nuw i32 %.0245316.i, 1
-  %exitcond346.not.i = icmp eq i32 %.0245316.i, %reass.sub487.pre-phi
-  br i1 %exitcond346.not.i, label %.thread275.i, label %354
+  %364 = add nuw i32 %.0245311.i, 1
+  %exitcond341.not.i = icmp eq i32 %.0245311.i, %reass.sub487.pre-phi
+  br i1 %exitcond341.not.i, label %.thread272.i, label %354
 
-.thread275.i:                                     ; preds = %354, %334, %.thread269.i, %325
-  %.5231.i = phi i32 [ %.4230.i, %.thread269.i ], [ -1, %334 ], [ %.3229320.i, %325 ], [ -1, %354 ]
-  %.5.i = phi i32 [ %.4272.i, %.thread269.i ], [ -1, %334 ], [ %.3321.i, %325 ], [ -1, %354 ]
-  %365 = add nuw nsw i32 %.0244319.i, 1
-  %exitcond347.not.i = icmp eq i32 %365, %249
-  br i1 %exitcond347.not.i, label %.preheader299.i, label %.preheader300.i
+.thread272.i:                                     ; preds = %354, %334, %._crit_edge352.i, %325
+  %.5231.i = phi i32 [ %.4230.i, %._crit_edge352.i ], [ %.3229315.i, %325 ], [ -1, %334 ], [ -1, %354 ]
+  %.5.i = phi i32 [ %.4.ph.i, %._crit_edge352.i ], [ %.3316.i, %325 ], [ -1, %334 ], [ -1, %354 ]
+  %365 = add nuw nsw i32 %.0244314.i, 1
+  %exitcond342.not.i = icmp eq i32 %365, %249
+  br i1 %exitcond342.not.i, label %.preheader294.i, label %.preheader295.i
 
-.preheader299.i:                                  ; preds = %.thread275.i, %.thread285.i
-  %.6331.i = phi i32 [ %.8.i, %.thread285.i ], [ %.5.i, %.thread275.i ]
-  %.6232330.i = phi i32 [ %.8234.i, %.thread285.i ], [ %.5231.i, %.thread275.i ]
-  %.0246329.i = phi i32 [ %414, %.thread285.i ], [ 0, %.thread275.i ]
-  %366 = add nuw nsw i32 %.0246329.i, %266
+.preheader294.i:                                  ; preds = %.thread272.i, %.thread281.i
+  %.6326.i = phi i32 [ %.8.i, %.thread281.i ], [ %.5.i, %.thread272.i ]
+  %.6232325.i = phi i32 [ %.8234.i, %.thread281.i ], [ %.5231.i, %.thread272.i ]
+  %.0246324.i = phi i32 [ %414, %.thread281.i ], [ 0, %.thread272.i ]
+  %366 = add nuw nsw i32 %.0246324.i, %266
   %367 = urem i32 %366, %249
-  %368 = icmp slt i32 %.6331.i, 0
+  %368 = icmp slt i32 %.6326.i, 0
   %369 = shl nuw nsw i32 %367, 1
   %370 = zext nneg i32 %369 to i64
   %371 = getelementptr inbounds nuw float, ptr %248, i64 %370
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 4
   %373 = load float, ptr %372, align 4, !tbaa !6
-  br i1 %368, label %374, label %.thread279.i
+  br i1 %368, label %374, label %._crit_edge350.i
 
-374:                                              ; preds = %.preheader299.i
+374:                                              ; preds = %.preheader294.i
   %375 = fcmp reassoc nsz arcp contract afn olt float %373, 0.000000e+00
-  br i1 %375, label %.thread279.i, label %.thread285.i
+  br i1 %375, label %._crit_edge350.i, label %.thread281.i
 
-.thread279.i:                                     ; preds = %.preheader299.i, %374
-  %.7282.i = phi i32 [ %.0246329.i, %374 ], [ %.6331.i, %.preheader299.i ]
+._crit_edge350.i:                                 ; preds = %.preheader294.i, %374
+  %.7.ph.i = phi i32 [ %.0246324.i, %374 ], [ %.6326.i, %.preheader294.i ]
   %376 = fcmp reassoc nsz arcp contract afn ult float %373, 0.000000e+00
-  %377 = add nsw i32 %.0246329.i, -1
-  %.7233.i = select i1 %376, i32 %.6232330.i, i32 %377
+  %377 = add nsw i32 %.0246324.i, -1
+  %.7233.i = select i1 %376, i32 %.6232325.i, i32 %377
   %378 = icmp sgt i32 %.7233.i, -1
-  br i1 %378, label %379, label %.thread285.i
+  br i1 %378, label %379, label %.thread281.i
 
-379:                                              ; preds = %.thread279.i
-  %380 = add i32 %.7282.i, %267
+379:                                              ; preds = %._crit_edge350.i
+  %380 = add i32 %.7.ph.i, %267
   %381 = srem i32 %380, %249
-  %382 = icmp eq i32 %.7233.i, %.7282.i
-  br i1 %382, label %.thread414.i, label %385
+  %382 = icmp eq i32 %.7233.i, %.7.ph.i
+  br i1 %382, label %.thread403.i, label %385
 
-.thread414.i:                                     ; preds = %379
-  %.pre374.i = shl nsw i32 %381, 1
-  %.pre376.i = sext i32 %.pre374.i to i64
-  %383 = getelementptr inbounds float, ptr %248, i64 %.pre376.i
+.thread403.i:                                     ; preds = %379
+  %.pre373.i = shl nsw i32 %381, 1
+  %.pre375.i = sext i32 %.pre373.i to i64
+  %383 = getelementptr inbounds float, ptr %248, i64 %.pre375.i
   %384 = load float, ptr %383, align 8, !tbaa !6
-  br label %.lr.ph328.i
+  br label %.lr.ph323.i
 
 385:                                              ; preds = %379
-  %386 = sub nsw i32 %.7233.i, %.7282.i
+  %386 = sub nsw i32 %.7233.i, %.7.ph.i
   %387 = add nuw nsw i32 %.7233.i, %268
   %388 = urem i32 %387, %249
   %389 = shl nuw nsw i32 %388, 1
@@ -2490,21 +2490,21 @@ _path_bounding_box_raw.exit:                      ; preds = %.lr.ph107.i, %._cri
   %397 = fsub reassoc nsz arcp contract afn float %392, %396
   %398 = uitofp nneg i32 %386 to float
   %399 = fdiv reassoc nsz arcp contract afn float %397, %398
-  %.not251325.i = icmp slt i32 %386, 0
-  br i1 %.not251325.i, label %.thread285.i, label %.lr.ph328.i
+  %.not251320.i = icmp slt i32 %386, 0
+  br i1 %.not251320.i, label %.thread281.i, label %.lr.ph323.i
 
-.lr.ph328.i:                                      ; preds = %385, %.thread414.i
-  %reass.sub488.pre-phi = phi i32 [ %386, %385 ], [ 0, %.thread414.i ]
-  %400 = phi float [ %396, %385 ], [ %384, %.thread414.i ]
-  %401 = phi float [ %399, %385 ], [ 0.000000e+00, %.thread414.i ]
-  %402 = add nuw nsw i32 %.7282.i, %266
+.lr.ph323.i:                                      ; preds = %385, %.thread403.i
+  %reass.sub488.pre-phi = phi i32 [ %386, %385 ], [ 0, %.thread403.i ]
+  %400 = phi float [ %396, %385 ], [ %384, %.thread403.i ]
+  %401 = phi float [ %399, %385 ], [ 0.000000e+00, %.thread403.i ]
+  %402 = add nuw nsw i32 %.7.ph.i, %266
   br label %403
 
-403:                                              ; preds = %403, %.lr.ph328.i
-  %.0243326.i = phi i32 [ 0, %.lr.ph328.i ], [ %413, %403 ]
-  %404 = add nuw nsw i32 %402, %.0243326.i
-  %405 = srem i32 %404, %249
-  %406 = uitofp nneg i32 %.0243326.i to float
+403:                                              ; preds = %403, %.lr.ph323.i
+  %.0243321.i = phi i32 [ 0, %.lr.ph323.i ], [ %413, %403 ]
+  %404 = add nuw nsw i32 %402, %.0243321.i
+  %405 = urem i32 %404, %249
+  %406 = uitofp nneg i32 %.0243321.i to float
   %407 = fmul reassoc nsz arcp contract afn float %401, %406
   %408 = fadd reassoc nsz arcp contract afn float %407, %400
   %409 = shl nuw nsw i32 %405, 1
@@ -2513,58 +2513,58 @@ _path_bounding_box_raw.exit:                      ; preds = %.lr.ph107.i, %._cri
   store float %408, ptr %411, align 8, !tbaa !6
   %412 = getelementptr inbounds nuw i8, ptr %411, i64 4
   store float 0.000000e+00, ptr %412, align 4, !tbaa !6
-  %413 = add nuw i32 %.0243326.i, 1
-  %exitcond348.not.i = icmp eq i32 %.0243326.i, %reass.sub488.pre-phi
-  br i1 %exitcond348.not.i, label %.thread285.i, label %403
+  %413 = add nuw i32 %.0243321.i, 1
+  %exitcond343.not.i = icmp eq i32 %.0243321.i, %reass.sub488.pre-phi
+  br i1 %exitcond343.not.i, label %.thread281.i, label %403
 
-.thread285.i:                                     ; preds = %403, %385, %.thread279.i, %374
-  %.8234.i = phi i32 [ %.7233.i, %.thread279.i ], [ -1, %385 ], [ %.6232330.i, %374 ], [ -1, %403 ]
-  %.8.i = phi i32 [ %.7282.i, %.thread279.i ], [ -1, %385 ], [ %.6331.i, %374 ], [ -1, %403 ]
-  %414 = add nuw nsw i32 %.0246329.i, 1
-  %exitcond349.not.i = icmp eq i32 %414, %249
-  br i1 %exitcond349.not.i, label %.preheader.i, label %.preheader299.i
+.thread281.i:                                     ; preds = %403, %385, %._crit_edge350.i, %374
+  %.8234.i = phi i32 [ %.7233.i, %._crit_edge350.i ], [ %.6232325.i, %374 ], [ -1, %385 ], [ -1, %403 ]
+  %.8.i = phi i32 [ %.7.ph.i, %._crit_edge350.i ], [ %.6326.i, %374 ], [ -1, %385 ], [ -1, %403 ]
+  %414 = add nuw nsw i32 %.0246324.i, 1
+  %exitcond344.not.i = icmp eq i32 %414, %249
+  br i1 %exitcond344.not.i, label %.preheader.i, label %.preheader294.i
 
-.preheader.i:                                     ; preds = %.thread285.i, %.thread295.i
-  %.9341.i = phi i32 [ %.11.i, %.thread295.i ], [ %.8.i, %.thread285.i ]
-  %.9235340.i = phi i32 [ %.11237.i, %.thread295.i ], [ %.8234.i, %.thread285.i ]
-  %.0241339.i = phi i32 [ %463, %.thread295.i ], [ 0, %.thread285.i ]
-  %415 = add nuw nsw i32 %.0241339.i, %266
+.preheader.i:                                     ; preds = %.thread281.i, %.thread290.i
+  %.9336.i = phi i32 [ %.11.i, %.thread290.i ], [ %.8.i, %.thread281.i ]
+  %.9235335.i = phi i32 [ %.11237.i, %.thread290.i ], [ %.8234.i, %.thread281.i ]
+  %.0241334.i = phi i32 [ %463, %.thread290.i ], [ 0, %.thread281.i ]
+  %415 = add nuw nsw i32 %.0241334.i, %266
   %416 = urem i32 %415, %249
-  %417 = icmp slt i32 %.9341.i, 0
+  %417 = icmp slt i32 %.9336.i, 0
   %418 = shl nuw nsw i32 %416, 1
   %419 = zext nneg i32 %418 to i64
   %420 = getelementptr inbounds nuw float, ptr %248, i64 %419
   %421 = getelementptr inbounds nuw i8, ptr %420, i64 4
   %422 = load float, ptr %421, align 4, !tbaa !6
-  br i1 %417, label %423, label %.thread289.i
+  br i1 %417, label %423, label %._crit_edge348.i
 
 423:                                              ; preds = %.preheader.i
   %424 = fcmp reassoc nsz arcp contract afn ogt float %422, %252
-  br i1 %424, label %.thread289.i, label %.thread295.i
+  br i1 %424, label %._crit_edge348.i, label %.thread290.i
 
-.thread289.i:                                     ; preds = %.preheader.i, %423
-  %.10292.i = phi i32 [ %.0241339.i, %423 ], [ %.9341.i, %.preheader.i ]
+._crit_edge348.i:                                 ; preds = %.preheader.i, %423
+  %.10.ph.i = phi i32 [ %.0241334.i, %423 ], [ %.9336.i, %.preheader.i ]
   %425 = fcmp reassoc nsz arcp contract afn ugt float %422, %252
-  %426 = add nsw i32 %.0241339.i, -1
-  %.10236.i = select i1 %425, i32 %.9235340.i, i32 %426
+  %426 = add nsw i32 %.0241334.i, -1
+  %.10236.i = select i1 %425, i32 %.9235335.i, i32 %426
   %427 = icmp sgt i32 %.10236.i, -1
-  br i1 %427, label %428, label %.thread295.i
+  br i1 %427, label %428, label %.thread290.i
 
-428:                                              ; preds = %.thread289.i
-  %429 = add i32 %.10292.i, %267
+428:                                              ; preds = %._crit_edge348.i
+  %429 = add i32 %.10.ph.i, %267
   %430 = srem i32 %429, %249
-  %431 = icmp eq i32 %.10236.i, %.10292.i
-  br i1 %431, label %.thread420.i, label %434
+  %431 = icmp eq i32 %.10236.i, %.10.ph.i
+  br i1 %431, label %.thread406.i, label %434
 
-.thread420.i:                                     ; preds = %428
-  %.pre382.i = shl nsw i32 %430, 1
-  %.pre384.i = sext i32 %.pre382.i to i64
-  %432 = getelementptr inbounds float, ptr %248, i64 %.pre384.i
+.thread406.i:                                     ; preds = %428
+  %.pre381.i = shl nsw i32 %430, 1
+  %.pre383.i = sext i32 %.pre381.i to i64
+  %432 = getelementptr inbounds float, ptr %248, i64 %.pre383.i
   %433 = load float, ptr %432, align 8, !tbaa !6
-  br label %.lr.ph338.i
+  br label %.lr.ph333.i
 
 434:                                              ; preds = %428
-  %435 = sub nsw i32 %.10236.i, %.10292.i
+  %435 = sub nsw i32 %.10236.i, %.10.ph.i
   %436 = add nuw nsw i32 %.10236.i, %268
   %437 = urem i32 %436, %249
   %438 = shl nuw nsw i32 %437, 1
@@ -2578,21 +2578,21 @@ _path_bounding_box_raw.exit:                      ; preds = %.lr.ph107.i, %._cri
   %446 = fsub reassoc nsz arcp contract afn float %441, %445
   %447 = uitofp nneg i32 %435 to float
   %448 = fdiv reassoc nsz arcp contract afn float %446, %447
-  %.not335.i = icmp slt i32 %435, 0
-  br i1 %.not335.i, label %.thread295.i, label %.lr.ph338.i
+  %.not330.i = icmp slt i32 %435, 0
+  br i1 %.not330.i, label %.thread290.i, label %.lr.ph333.i
 
-.lr.ph338.i:                                      ; preds = %434, %.thread420.i
-  %reass.sub489.pre-phi = phi i32 [ %435, %434 ], [ 0, %.thread420.i ]
-  %449 = phi float [ %445, %434 ], [ %433, %.thread420.i ]
-  %450 = phi float [ %448, %434 ], [ 0.000000e+00, %.thread420.i ]
-  %451 = add nuw nsw i32 %.10292.i, %266
+.lr.ph333.i:                                      ; preds = %434, %.thread406.i
+  %reass.sub489.pre-phi = phi i32 [ %435, %434 ], [ 0, %.thread406.i ]
+  %449 = phi float [ %445, %434 ], [ %433, %.thread406.i ]
+  %450 = phi float [ %448, %434 ], [ 0.000000e+00, %.thread406.i ]
+  %451 = add nuw nsw i32 %.10.ph.i, %266
   br label %452
 
-452:                                              ; preds = %452, %.lr.ph338.i
-  %.0221336.i = phi i32 [ 0, %.lr.ph338.i ], [ %462, %452 ]
-  %453 = add nuw nsw i32 %451, %.0221336.i
-  %454 = srem i32 %453, %249
-  %455 = uitofp nneg i32 %.0221336.i to float
+452:                                              ; preds = %452, %.lr.ph333.i
+  %.0221331.i = phi i32 [ 0, %.lr.ph333.i ], [ %462, %452 ]
+  %453 = add nuw nsw i32 %451, %.0221331.i
+  %454 = urem i32 %453, %249
+  %455 = uitofp nneg i32 %.0221331.i to float
   %456 = fmul reassoc nsz arcp contract afn float %450, %455
   %457 = fadd reassoc nsz arcp contract afn float %456, %449
   %458 = shl nuw nsw i32 %454, 1
@@ -2601,19 +2601,19 @@ _path_bounding_box_raw.exit:                      ; preds = %.lr.ph107.i, %._cri
   store float %457, ptr %460, align 8, !tbaa !6
   %461 = getelementptr inbounds nuw i8, ptr %460, i64 4
   store float %252, ptr %461, align 4, !tbaa !6
-  %462 = add nuw i32 %.0221336.i, 1
-  %exitcond350.not.i = icmp eq i32 %.0221336.i, %reass.sub489.pre-phi
-  br i1 %exitcond350.not.i, label %.thread295.i, label %452
+  %462 = add nuw i32 %.0221331.i, 1
+  %exitcond345.not.i = icmp eq i32 %.0221331.i, %reass.sub489.pre-phi
+  br i1 %exitcond345.not.i, label %.thread290.i, label %452
 
-.thread295.i:                                     ; preds = %452, %434, %.thread289.i, %423
-  %.11237.i = phi i32 [ %.10236.i, %.thread289.i ], [ -1, %434 ], [ %.9235340.i, %423 ], [ -1, %452 ]
-  %.11.i = phi i32 [ %.10292.i, %.thread289.i ], [ -1, %434 ], [ %.9341.i, %423 ], [ -1, %452 ]
-  %463 = add nuw nsw i32 %.0241339.i, 1
-  %exitcond351.not.i = icmp eq i32 %463, %249
-  br i1 %exitcond351.not.i, label %_path_crop_to_roi.exit, label %.preheader.i
+.thread290.i:                                     ; preds = %452, %434, %._crit_edge348.i, %423
+  %.11237.i = phi i32 [ %.10236.i, %._crit_edge348.i ], [ %.9235335.i, %423 ], [ -1, %434 ], [ -1, %452 ]
+  %.11.i = phi i32 [ %.10.ph.i, %._crit_edge348.i ], [ %.9336.i, %423 ], [ -1, %434 ], [ -1, %452 ]
+  %463 = add nuw nsw i32 %.0241334.i, 1
+  %exitcond346.not.i = icmp eq i32 %463, %249
+  br i1 %exitcond346.not.i, label %_path_crop_to_roi.exit, label %.preheader.i
 
-_path_crop_to_roi.exit:                           ; preds = %265, %.thread295.i, %245
-  %.not320 = phi i1 [ false, %.thread295.i ], [ true, %245 ], [ true, %265 ]
+_path_crop_to_roi.exit:                           ; preds = %265, %.thread290.i, %245
+  %.not320 = phi i1 [ false, %.thread290.i ], [ true, %245 ], [ true, %265 ]
   %464 = icmp ne i32 %.0263, 0
   %465 = or i1 %464, %.not320
   %466 = zext i1 %465 to i32

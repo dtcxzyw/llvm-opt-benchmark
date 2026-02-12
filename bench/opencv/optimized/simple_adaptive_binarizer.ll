@@ -498,8 +498,7 @@ define hidden noundef i32 @_ZN5zxing23SimpleAdaptiveBinarizer10qrBinarizeEPKhPh(
   %29 = shl nuw nsw i64 %28, 2
   %30 = tail call noalias ptr @malloc(i64 noundef %29) #14
   %31 = add nsw i32 %.053.lcssa, -1
-  %smax = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %5 to i64
   br label %44
 
 .preheader116:                                    ; preds = %44
@@ -509,8 +508,7 @@ define hidden noundef i32 @_ZN5zxing23SimpleAdaptiveBinarizer10qrBinarizeEPKhPh(
 
 .lr.ph124.us.preheader:                           ; preds = %.preheader116
   %34 = add nsw i32 %9, -1
-  %smax152 = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
-  %wide.trip.count153 = zext nneg i32 %smax152 to i64
+  %wide.trip.count153 = zext nneg i32 %5 to i64
   br label %.lr.ph124.us
 
 .lr.ph124.us:                                     ; preds = %.lr.ph124.us.preheader, %._crit_edge.us

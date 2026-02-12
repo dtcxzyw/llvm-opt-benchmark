@@ -2855,8 +2855,7 @@ _ZN3gmxL20isConstraintFlexibleENS_8ArrayRefIK9t_iparamsEEi.exit.thread: ; preds 
   %82 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx.i.i.i.i.i.i.i72
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %82, ptr %83, align 8, !tbaa !57
-  %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %1 to i64
   br label %100
 
 ._crit_edge:                                      ; preds = %100, %.thread
@@ -7253,9 +7252,6 @@ declare i64 @llvm.umax.i64(i64, i64) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #31
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #30
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #30

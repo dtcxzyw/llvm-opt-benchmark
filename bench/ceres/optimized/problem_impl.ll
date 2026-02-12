@@ -4160,8 +4160,7 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi32EEERS2_RAT__Kc.exit: ; pr
   br i1 %or.cond167, label %.lr.ph166.preheader, label %.loopexit
 
 .lr.ph166.preheader:                              ; preds = %210
-  %smax190 = call i32 @llvm.smax.i32(i32 %4, i32 1)
-  %wide.trip.count191 = zext nneg i32 %smax190 to i64
+  %wide.trip.count191 = zext nneg i32 %4 to i64
   br label %.lr.ph166
 
 215:                                              ; preds = %_ZNKSt6vectorIPN5ceres8internal13ResidualBlockESaIS3_EE12_M_check_lenEmPKc.exit.i.i, %239, %322, %310, %.loopexit152
@@ -27217,9 +27216,6 @@ declare i64 @llvm.umax.i64(i64, i64) #35
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #35
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #35
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #35

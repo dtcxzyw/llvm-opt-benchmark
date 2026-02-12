@@ -2441,8 +2441,7 @@ define linkonce_odr noundef i32 @_ZN8LightGBM12GOSSStrategy6HelperEiiPiPfS2_(ptr
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %61 = load ptr, ptr %59, align 8
   %62 = sext i32 %1 to i64
-  %smax = call i32 @llvm.smax.i32(i32 %2, i32 1)
-  %wide.trip.count136 = zext nneg i32 %smax to i64
+  %wide.trip.count136 = zext nneg i32 %2 to i64
   br label %67
 
 ._crit_edge114:                                   ; preds = %.loopexit

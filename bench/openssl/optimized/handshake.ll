@@ -2326,13 +2326,13 @@ define internal fastcc range(i32 0, 2) i32 @parse_protos(ptr noundef readonly ca
 6:                                                ; preds = %3
   store ptr null, ptr %1, align 8, !tbaa !28
   store i64 0, ptr %2, align 8, !tbaa !29
-  br label %41
+  br label %44
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8, !tbaa !28
   %9 = tail call i32 @test_ptr_null(ptr noundef nonnull @.str, i32 noundef 359, ptr noundef nonnull @.str.37, ptr noundef %8) #10
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %41, label %10
+  br i1 %.not, label %44, label %10
 
 10:                                               ; preds = %7
   %11 = add i64 %4, 1
@@ -2340,69 +2340,69 @@ define internal fastcc range(i32 0, 2) i32 @parse_protos(ptr noundef readonly ca
   store ptr %12, ptr %1, align 8, !tbaa !28
   %13 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 361, ptr noundef nonnull @.str.38, ptr noundef %12) #10
   %.not36 = icmp eq i32 %13, 0
-  br i1 %.not36, label %41, label %.lr.ph.preheader
+  br i1 %.not36, label %44, label %14
 
-.lr.ph.preheader:                                 ; preds = %10
+14:                                               ; preds = %10
   store i64 %11, ptr %2, align 8, !tbaa !29
-  %14 = load ptr, ptr %1, align 8, !tbaa !28
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull align 1 %0, i64 %4, i1 false)
-  br label %.lr.ph
+  %15 = load ptr, ptr %1, align 8, !tbaa !28
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %0, i64 %4, i1 false)
+  br label %17
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %30
-  %.043 = phi i64 [ %.1, %30 ], [ 0, %.lr.ph.preheader ]
-  %.03342 = phi i64 [ %31, %30 ], [ 1, %.lr.ph.preheader ]
-  %16 = load ptr, ptr %1, align 8, !tbaa !28
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.03342
-  %18 = load i8, ptr %17, align 1, !tbaa !153
-  %19 = icmp eq i8 %18, 44
-  br i1 %19, label %20, label %30
+17:                                               ; preds = %14, %32
+  %.042 = phi i64 [ 0, %14 ], [ %.1, %32 ]
+  %.03341 = phi i64 [ 1, %14 ], [ %33, %32 ]
+  %18 = load ptr, ptr %1, align 8, !tbaa !28
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %.03341
+  %20 = load i8, ptr %19, align 1, !tbaa !153
+  %21 = icmp eq i8 %20, 44
+  br i1 %21, label %22, label %32
 
-20:                                               ; preds = %.lr.ph
-  %21 = add i64 %.03342, -1
-  %22 = trunc i64 %21 to i32
-  %23 = trunc i64 %.043 to i32
-  %24 = tail call i32 @test_int_gt(ptr noundef nonnull @.str, i32 noundef 375, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef %22, i32 noundef %23) #10
-  %.not39 = icmp eq i32 %24, 0
-  br i1 %.not39, label %.loopexit, label %25
+22:                                               ; preds = %17
+  %23 = add i64 %.03341, -1
+  %24 = trunc i64 %23 to i32
+  %25 = trunc i64 %.042 to i32
+  %26 = tail call i32 @test_int_gt(ptr noundef nonnull @.str, i32 noundef 375, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef %24, i32 noundef %25) #10
+  %.not39 = icmp eq i32 %26, 0
+  br i1 %.not39, label %.loopexit, label %27
 
-25:                                               ; preds = %20
-  %26 = sub i64 %21, %.043
-  %27 = trunc i64 %26 to i8
-  %28 = load ptr, ptr %1, align 8, !tbaa !28
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %.043
-  store i8 %27, ptr %29, align 1, !tbaa !153
-  br label %30
+27:                                               ; preds = %22
+  %28 = sub i64 %23, %.042
+  %29 = trunc i64 %28 to i8
+  %30 = load ptr, ptr %1, align 8, !tbaa !28
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %.042
+  store i8 %29, ptr %31, align 1, !tbaa !153
+  br label %32
 
-30:                                               ; preds = %25, %.lr.ph
-  %.1 = phi i64 [ %.03342, %25 ], [ %.043, %.lr.ph ]
-  %31 = add i64 %.03342, 1
-  %.not37 = icmp ugt i64 %31, %4
-  br i1 %.not37, label %._crit_edge, label %.lr.ph, !llvm.loop !154
+32:                                               ; preds = %27, %17
+  %.1 = phi i64 [ %.03341, %27 ], [ %.042, %17 ]
+  %33 = add i64 %.03341, 1
+  %.not37 = icmp ugt i64 %33, %4
+  br i1 %.not37, label %34, label %17, !llvm.loop !154
 
-._crit_edge:                                      ; preds = %30
-  %32 = trunc i64 %4 to i32
-  %33 = trunc i64 %.1 to i32
-  %34 = tail call i32 @test_int_gt(ptr noundef nonnull @.str, i32 noundef 382, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.40, i32 noundef %32, i32 noundef %33) #10
-  %.not38 = icmp eq i32 %34, 0
-  br i1 %.not38, label %.loopexit, label %35
+34:                                               ; preds = %32
+  %35 = trunc i64 %4 to i32
+  %36 = trunc i64 %.1 to i32
+  %37 = tail call i32 @test_int_gt(ptr noundef nonnull @.str, i32 noundef 382, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.40, i32 noundef %35, i32 noundef %36) #10
+  %.not38 = icmp eq i32 %37, 0
+  br i1 %.not38, label %.loopexit, label %38
 
-35:                                               ; preds = %._crit_edge
-  %36 = sub i64 %4, %.1
-  %37 = trunc i64 %36 to i8
-  %38 = load ptr, ptr %1, align 8, !tbaa !28
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 %.1
-  store i8 %37, ptr %39, align 1, !tbaa !153
-  br label %41
+38:                                               ; preds = %34
+  %39 = sub i64 %4, %.1
+  %40 = trunc i64 %39 to i8
+  %41 = load ptr, ptr %1, align 8, !tbaa !28
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %.1
+  store i8 %40, ptr %42, align 1, !tbaa !153
+  br label %44
 
-.loopexit:                                        ; preds = %20, %._crit_edge
-  %40 = load ptr, ptr %1, align 8, !tbaa !28
-  tail call void @CRYPTO_free(ptr noundef %40, ptr noundef nonnull @.str, i32 noundef 388) #10
+.loopexit:                                        ; preds = %22, %34
+  %43 = load ptr, ptr %1, align 8, !tbaa !28
+  tail call void @CRYPTO_free(ptr noundef %43, ptr noundef nonnull @.str, i32 noundef 388) #10
   store ptr null, ptr %1, align 8, !tbaa !28
-  br label %41
+  br label %44
 
-41:                                               ; preds = %7, %10, %.loopexit, %35, %6
-  %.034 = phi i32 [ 1, %6 ], [ 0, %.loopexit ], [ 1, %35 ], [ 0, %10 ], [ 0, %7 ]
+44:                                               ; preds = %7, %10, %.loopexit, %38, %6
+  %.034 = phi i32 [ 1, %6 ], [ 0, %.loopexit ], [ 1, %38 ], [ 0, %10 ], [ 0, %7 ]
   ret i32 %.034
 }
 

@@ -199,34 +199,34 @@ define dso_local ptr @mem_pool_strfmt(ptr noundef captures(none) %0, ptr noundef
   %16 = call i32 @vsnprintf(ptr noundef %14, i64 noundef %15, ptr noundef %1, ptr noundef nonnull %3) #17
   call void @llvm.va_end.p0(ptr nonnull %3)
   %17 = icmp slt i32 %16, 0
-  br i1 %17, label %18, label %st_add.exit.i
+  br i1 %17, label %18, label %20
 
 18:                                               ; preds = %.thread.i
   %19 = call fastcc ptr @_()
   call void (ptr, ...) @die(ptr noundef %19, ptr noundef %1) #16
   unreachable
 
-st_add.exit.i:                                    ; preds = %.thread.i
+20:                                               ; preds = %.thread.i
   %narrow.i = add nuw i32 %16, 1
-  %20 = zext i32 %narrow.i to i64
-  %21 = call ptr @mem_pool_alloc(ptr noundef nonnull %0, i64 noundef %20)
-  %22 = icmp eq ptr %21, %14
-  br i1 %22, label %mem_pool_strvfmt.exit, label %23
+  %21 = zext i32 %narrow.i to i64
+  %22 = call ptr @mem_pool_alloc(ptr noundef nonnull %0, i64 noundef %21)
+  %23 = icmp eq ptr %22, %14
+  br i1 %23, label %mem_pool_strvfmt.exit, label %24
 
-23:                                               ; preds = %st_add.exit.i
-  %24 = call i32 @vsnprintf(ptr noundef %21, i64 noundef %20, ptr noundef %1, ptr noundef nonnull %4) #17
-  %.not27.i = icmp eq i32 %24, %16
-  br i1 %.not27.i, label %mem_pool_strvfmt.exit, label %25
+24:                                               ; preds = %20
+  %25 = call i32 @vsnprintf(ptr noundef %22, i64 noundef %21, ptr noundef %1, ptr noundef nonnull %4) #17
+  %.not27.i = icmp eq i32 %25, %16
+  br i1 %.not27.i, label %mem_pool_strvfmt.exit, label %26
 
-25:                                               ; preds = %23
+26:                                               ; preds = %24
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.2, i32 noundef 139, ptr noundef nonnull @.str.3) #16
   unreachable
 
-mem_pool_strvfmt.exit:                            ; preds = %st_add.exit.i, %23
+mem_pool_strvfmt.exit:                            ; preds = %20, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret ptr %21
+  ret ptr %22
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn

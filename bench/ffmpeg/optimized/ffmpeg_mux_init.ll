@@ -1371,14 +1371,14 @@ create_streams.exit:                              ; preds = %475, %._crit_edge31
   %552 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %553 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %554 = load i32, ptr %553, align 8, !tbaa !188
-  %.not63183.i = icmp sgt i32 %554, 0
-  br i1 %.not63183.i, label %.lr.ph.i178, label %.thread107.i
+  %.not63185.i = icmp sgt i32 %554, 0
+  br i1 %.not63185.i, label %.lr.ph.i178, label %.thread107.i
 
-.lr.ph.i178:                                      ; preds = %542, %.loopexit127.i
-  %indvars.iv.i179 = phi i64 [ %indvars.iv.next.i183, %.loopexit127.i ], [ 0, %542 ]
-  %.076186.i = phi i32 [ %.379.i, %.loopexit127.i ], [ 0, %542 ]
-  %.080185.i = phi i32 [ %.383.i, %.loopexit127.i ], [ 0, %542 ]
-  %.085184.i = phi i32 [ %.388.i, %.loopexit127.i ], [ 0, %542 ]
+.lr.ph.i178:                                      ; preds = %542, %.loopexit129.i
+  %indvars.iv.i179 = phi i64 [ %indvars.iv.next.i183, %.loopexit129.i ], [ 0, %542 ]
+  %.076188.i = phi i32 [ %.379.i, %.loopexit129.i ], [ 0, %542 ]
+  %.080187.i = phi i32 [ %.383.i, %.loopexit129.i ], [ 0, %542 ]
+  %.085186.i = phi i32 [ %.388.i, %.loopexit129.i ], [ 0, %542 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %555 = load ptr, ptr %552, align 8, !tbaa !189
   %556 = getelementptr inbounds nuw %struct.SpecifierOpt, ptr %555, i64 %indvars.iv.i179
@@ -1457,7 +1457,7 @@ create_streams.exit:                              ; preds = %475, %._crit_edge31
   br label %595
 
 595:                                              ; preds = %594, %590
-  %.388.i = phi i32 [ 1, %594 ], [ %.085184.i, %590 ]
+  %.388.i = phi i32 [ 1, %594 ], [ %.085186.i, %590 ]
   %596 = icmp eq i8 %586, 115
   %597 = icmp eq i8 %588, 115
   %or.cond7.i.i = select i1 %596, i1 true, i1 %597
@@ -1474,7 +1474,7 @@ create_streams.exit:                              ; preds = %475, %._crit_edge31
   br label %603
 
 603:                                              ; preds = %602, %598
-  %.383.i = phi i32 [ 1, %602 ], [ %.080185.i, %598 ]
+  %.383.i = phi i32 [ 1, %602 ], [ %.080187.i, %598 ]
   %604 = icmp eq i8 %586, 99
   %605 = icmp eq i8 %588, 99
   %or.cond12.i.i = select i1 %604, i1 true, i1 %605
@@ -1491,9 +1491,9 @@ create_streams.exit:                              ; preds = %475, %._crit_edge31
   br label %611
 
 611:                                              ; preds = %610, %606
-  %.379.i = phi i32 [ 1, %610 ], [ %.076186.i, %606 ]
+  %.379.i = phi i32 [ 1, %610 ], [ %.076188.i, %606 ]
   %.not.i.i182 = icmp eq ptr %572, null
-  br i1 %.not.i.i182, label %.loopexit127.i, label %612
+  br i1 %.not.i.i182, label %.loopexit129.i, label %612
 
 612:                                              ; preds = %611
   switch i8 %586, label %643 [
@@ -1666,7 +1666,7 @@ create_streams.exit:                              ; preds = %475, %._crit_edge31
 
 695:                                              ; preds = %685
   %696 = icmp slt i32 %689, 0
-  br i1 %696, label %.loopexit126.i, label %681
+  br i1 %696, label %.loopexit128.i, label %681
 
 ._crit_edge.i.i188:                               ; preds = %681, %.preheader94.i.i
   %.not89.i.i189 = icmp eq ptr %.074.i.i, null
@@ -1675,7 +1675,7 @@ create_streams.exit:                              ; preds = %475, %._crit_edge31
 697:                                              ; preds = %._crit_edge.i.i188
   %698 = load ptr, ptr %37, align 8, !tbaa !139
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %54, i32 noundef 8, ptr noundef nonnull @.str.157, ptr noundef %698) #16
-  br label %.loopexit126.i
+  br label %.loopexit128.i
 
 699:                                              ; preds = %._crit_edge.i.i188, %.thread91.i.i, %676
   %.175.i.i = phi ptr [ %.074.i.i, %._crit_edge.i.i188 ], [ %.074.i.i, %676 ], [ %694, %.thread91.i.i ]
@@ -1685,7 +1685,7 @@ create_streams.exit:                              ; preds = %475, %._crit_edge31
   %700 = getelementptr inbounds nuw i8, ptr %579, i64 44
   %701 = load i32, ptr %700, align 4, !tbaa !161
   %.not107.i.i = icmp eq i32 %701, 0
-  br i1 %.not107.i.i, label %.loopexit127.i, label %.lr.ph103.i.i
+  br i1 %.not107.i.i, label %.loopexit129.i, label %.lr.ph103.i.i
 
 .lr.ph103.i.i:                                    ; preds = %.preheader.i.i184
   %702 = getelementptr inbounds nuw i8, ptr %579, i64 48
@@ -1712,21 +1712,21 @@ create_streams.exit:                              ; preds = %475, %._crit_edge31
 
 717:                                              ; preds = %704
   %718 = icmp slt i32 %708, 0
-  br i1 %718, label %.loopexit126.i, label %719
+  br i1 %718, label %.loopexit128.i, label %719
 
 719:                                              ; preds = %717, %710
   %indvars.iv.next116.i.i = add nuw nsw i64 %indvars.iv115.i.i, 1
   %720 = load i32, ptr %700, align 4, !tbaa !161
   %721 = zext i32 %720 to i64
   %722 = icmp samesign ult i64 %indvars.iv.next116.i.i, %721
-  br i1 %722, label %704, label %.loopexit127.i, !llvm.loop !206
+  br i1 %722, label %704, label %.loopexit129.i, !llvm.loop !206
 
 723:                                              ; preds = %699
   %724 = load ptr, ptr %.175.i.i, align 8, !tbaa !205
   %725 = call i32 @av_dict_copy(ptr noundef %.073.i.i, ptr noundef %724, i32 noundef 16) #16
-  br label %.loopexit127.i
+  br label %.loopexit129.i
 
-.loopexit127.i:                                   ; preds = %719, %723, %.preheader.i.i184, %611
+.loopexit129.i:                                   ; preds = %719, %723, %.preheader.i.i184, %611
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
@@ -1751,7 +1751,7 @@ create_streams.exit:                              ; preds = %475, %._crit_edge31
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %mux_alloc.exit.thread
 
-.loopexit126.i:                                   ; preds = %695, %717, %697
+.loopexit128.i:                                   ; preds = %695, %717, %697
   %.076.i.ph.i = phi i32 [ %708, %717 ], [ -22, %697 ], [ %689, %695 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
@@ -1762,7 +1762,7 @@ create_streams.exit:                              ; preds = %475, %._crit_edge31
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %mux_alloc.exit.thread
 
-.thread107.loopexit.i:                            ; preds = %.loopexit127.i
+.thread107.loopexit.i:                            ; preds = %.loopexit129.i
   %728 = icmp eq i32 %.379.i, 0
   %729 = icmp eq i32 %.388.i, 0
   %730 = icmp eq i32 %.383.i, 0
@@ -1774,53 +1774,57 @@ create_streams.exit:                              ; preds = %475, %._crit_edge31
   %.076.lcssa.i = phi i1 [ true, %542 ], [ %728, %.thread107.loopexit.i ]
   %731 = load i32, ptr @nb_input_files, align 4, !tbaa !4
   %.not64.i = icmp slt i32 %551, %731
-  br i1 %.not64.i, label %.loopexit125.i, label %732
+  br i1 %.not64.i, label %745, label %732
 
 732:                                              ; preds = %.thread107.i
   %733 = icmp eq i32 %551, 2147483647
-  br i1 %733, label %.preheader123.i, label %744
+  br i1 %733, label %.preheader126.i, label %744
 
-.preheader123.i:                                  ; preds = %732
+.preheader126.i:                                  ; preds = %732
   %734 = icmp sgt i32 %731, 0
-  br i1 %734, label %.lr.ph191.i, label %copy_chapters.exit.i
+  br i1 %734, label %.lr.ph193.i, label %copy_chapters.exit.i
 
-.lr.ph191.i:                                      ; preds = %.preheader123.i
+.lr.ph193.i:                                      ; preds = %.preheader126.i
   %735 = load ptr, ptr @input_files, align 8, !tbaa !110
-  %wide.trip.count.i175 = zext nneg i32 %731 to i64
+  %wide.trip.count.i174 = zext nneg i32 %731 to i64
   br label %736
 
-736:                                              ; preds = %743, %.lr.ph191.i
-  %indvars.iv246.i = phi i64 [ 0, %.lr.ph191.i ], [ %indvars.iv.next247.i, %743 ]
-  %737 = getelementptr inbounds nuw ptr, ptr %735, i64 %indvars.iv246.i
+736:                                              ; preds = %743, %.lr.ph193.i
+  %indvars.iv248.i = phi i64 [ 0, %.lr.ph193.i ], [ %indvars.iv.next249.i, %743 ]
+  %737 = getelementptr inbounds nuw ptr, ptr %735, i64 %indvars.iv248.i
   %738 = load ptr, ptr %737, align 8, !tbaa !113
   %739 = getelementptr inbounds nuw i8, ptr %738, i64 16
   %740 = load ptr, ptr %739, align 8, !tbaa !190
   %741 = getelementptr inbounds nuw i8, ptr %740, i64 72
   %742 = load i32, ptr %741, align 8, !tbaa !194
   %.not65.i = icmp eq i32 %742, 0
-  br i1 %.not65.i, label %743, label %.loopexit125.loopexit.i
+  br i1 %.not65.i, label %743, label %.thread121.loopexit.i
 
 743:                                              ; preds = %736
-  %indvars.iv.next247.i = add nuw nsw i64 %indvars.iv246.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next247.i, %wide.trip.count.i175
+  %indvars.iv.next249.i = add nuw nsw i64 %indvars.iv248.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next249.i, %wide.trip.count.i174
   br i1 %exitcond.not.i, label %copy_chapters.exit.i, label %736, !llvm.loop !208
 
 744:                                              ; preds = %732
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %54, i32 noundef 8, ptr noundef nonnull @.str.148, i32 noundef %551) #16
   br label %mux_alloc.exit.thread
 
-.loopexit125.loopexit.i:                          ; preds = %736
-  %745 = trunc nuw nsw i64 %indvars.iv246.i to i32
-  br label %.loopexit125.i
+745:                                              ; preds = %.thread107.i
+  %746 = icmp sgt i32 %551, -1
+  br i1 %746, label %..thread121_crit_edge.i, label %copy_chapters.exit.i
 
-.loopexit125.i:                                   ; preds = %.loopexit125.loopexit.i, %.thread107.i
-  %.051.i = phi i32 [ %551, %.thread107.i ], [ %745, %.loopexit125.loopexit.i ]
-  %746 = icmp sgt i32 %.051.i, -1
-  br i1 %746, label %747, label %copy_chapters.exit.i
+..thread121_crit_edge.i:                          ; preds = %745
+  %.pre.i177 = load ptr, ptr @input_files, align 8, !tbaa !110
+  br label %.thread121.i
 
-747:                                              ; preds = %.loopexit125.i
-  %748 = load ptr, ptr @input_files, align 8, !tbaa !110
-  %749 = zext nneg i32 %.051.i to i64
+.thread121.loopexit.i:                            ; preds = %736
+  %747 = trunc nuw nsw i64 %indvars.iv248.i to i32
+  br label %.thread121.i
+
+.thread121.i:                                     ; preds = %.thread121.loopexit.i, %..thread121_crit_edge.i
+  %748 = phi ptr [ %.pre.i177, %..thread121_crit_edge.i ], [ %735, %.thread121.loopexit.i ]
+  %.051123.i = phi i32 [ %551, %..thread121_crit_edge.i ], [ %747, %.thread121.loopexit.i ]
+  %749 = zext nneg i32 %.051123.i to i64
   %750 = getelementptr inbounds nuw ptr, ptr %748, i64 %749
   %751 = load ptr, ptr %750, align 8, !tbaa !113
   %752 = getelementptr inbounds nuw i8, ptr %751, i64 16
@@ -1837,11 +1841,11 @@ create_streams.exit:                              ; preds = %475, %._crit_edge31
   %.not.i70.i = icmp eq ptr %762, null
   br i1 %.not.i70.i, label %copy_chapters.exit.i, label %763
 
-763:                                              ; preds = %747
+763:                                              ; preds = %.thread121.i
   store ptr %762, ptr %754, align 8, !tbaa !195
   %764 = load i32, ptr %756, align 8, !tbaa !194
-  %.not82.i.i176 = icmp eq i32 %764, 0
-  br i1 %.not82.i.i176, label %copy_chapters.exit.i, label %.lr.ph.i71.i
+  %.not82.i.i175 = icmp eq i32 %764, 0
+  br i1 %.not82.i.i175, label %copy_chapters.exit.i, label %.lr.ph.i71.i
 
 .lr.ph.i71.i:                                     ; preds = %763
   %765 = getelementptr inbounds nuw i8, ptr %753, i64 80
@@ -1864,7 +1868,7 @@ create_streams.exit:                              ; preds = %475, %._crit_edge31
   %778 = call i64 @av_rescale_q(i64 noundef %775, i64 4294967296000001, i64 %777) #19
   %779 = load i64, ptr %71, align 8, !tbaa !40
   %780 = icmp eq i64 %779, 9223372036854775807
-  br i1 %780, label %.thread.i.i177, label %781
+  br i1 %780, label %.thread.i.i176, label %781
 
 781:                                              ; preds = %767
   %782 = call i64 @av_rescale_q(i64 noundef %779, i64 4294967296000001, i64 %777) #19
@@ -1873,7 +1877,7 @@ create_streams.exit:                              ; preds = %475, %._crit_edge31
   %785 = icmp slt i64 %784, %778
   br i1 %785, label %821, label %789
 
-.thread.i.i177:                                   ; preds = %767
+.thread.i.i176:                                   ; preds = %767
   %786 = getelementptr inbounds nuw i8, ptr %771, i64 24
   %787 = load i64, ptr %786, align 8, !tbaa !210
   %788 = icmp slt i64 %787, %778
@@ -1890,9 +1894,9 @@ create_streams.exit:                              ; preds = %475, %._crit_edge31
   %794 = icmp sgt i64 %792, %793
   br i1 %794, label %copy_chapters.exit.i, label %.thread70.i.i
 
-.thread70.i.i:                                    ; preds = %790, %789, %.thread.i.i177
-  %795 = phi i64 [ 9223372036854775807, %789 ], [ %782, %790 ], [ 9223372036854775807, %.thread.i.i177 ]
-  %796 = phi ptr [ %783, %789 ], [ %783, %790 ], [ %786, %.thread.i.i177 ]
+.thread70.i.i:                                    ; preds = %790, %789, %.thread.i.i176
+  %795 = phi i64 [ 9223372036854775807, %789 ], [ %782, %790 ], [ 9223372036854775807, %.thread.i.i176 ]
+  %796 = phi ptr [ %783, %789 ], [ %783, %790 ], [ %786, %.thread.i.i176 ]
   %797 = call noalias ptr @av_mallocz(i64 noundef 40) #16
   %.not66.i.i = icmp eq ptr %797, null
   br i1 %.not66.i.i, label %copy_chapters.exit.i, label %798
@@ -1934,14 +1938,14 @@ create_streams.exit:                              ; preds = %475, %._crit_edge31
   %.pre.i.i = load i32, ptr %756, align 8, !tbaa !194
   br label %821
 
-821:                                              ; preds = %815, %.thread.i.i177, %781
-  %822 = phi i32 [ %768, %781 ], [ %.pre.i.i, %815 ], [ %768, %.thread.i.i177 ]
+821:                                              ; preds = %815, %.thread.i.i176, %781
+  %822 = phi i32 [ %768, %781 ], [ %.pre.i.i, %815 ], [ %768, %.thread.i.i176 ]
   %indvars.iv.next.i73.i = add nuw nsw i64 %indvars.iv.i72.i, 1
   %823 = zext i32 %822 to i64
   %824 = icmp samesign ult i64 %indvars.iv.next.i73.i, %823
   br i1 %824, label %767, label %copy_chapters.exit.i, !llvm.loop !215
 
-copy_chapters.exit.i:                             ; preds = %743, %821, %.thread70.i.i, %790, %763, %747, %.loopexit125.i, %.preheader123.i
+copy_chapters.exit.i:                             ; preds = %743, %821, %.thread70.i.i, %790, %763, %.thread121.i, %745, %.preheader126.i
   %825 = load i32, ptr @nb_input_files, align 4
   %826 = icmp ne i32 %825, 0
   %or.cond.i172 = select i1 %.085.lcssa.i, i1 %826, i1 false
@@ -1977,17 +1981,17 @@ copy_chapters.exit.i:                             ; preds = %743, %821, %.thread
 .preheader.i173:                                  ; preds = %844
   %845 = load i32, ptr %.phi.trans.insert.i, align 8, !tbaa !217
   %846 = icmp sgt i32 %845, 0
-  br i1 %846, label %.lr.ph193.i, label %copy_meta.exit
+  br i1 %846, label %.lr.ph195.i, label %copy_meta.exit
 
-.lr.ph193.i:                                      ; preds = %.preheader.i173
+.lr.ph195.i:                                      ; preds = %.preheader.i173
   %847 = getelementptr inbounds nuw i8, ptr %54, i64 24
   br label %848
 
-848:                                              ; preds = %864, %.lr.ph193.i
-  %849 = phi i32 [ %845, %.lr.ph193.i ], [ %865, %864 ]
-  %indvars.iv249.i = phi i64 [ 0, %.lr.ph193.i ], [ %indvars.iv.next250.i, %864 ]
+848:                                              ; preds = %864, %.lr.ph195.i
+  %849 = phi i32 [ %845, %.lr.ph195.i ], [ %865, %864 ]
+  %indvars.iv251.i = phi i64 [ 0, %.lr.ph195.i ], [ %indvars.iv.next252.i, %864 ]
   %850 = load ptr, ptr %847, align 8, !tbaa !218
-  %851 = getelementptr inbounds nuw ptr, ptr %850, i64 %indvars.iv249.i
+  %851 = getelementptr inbounds nuw ptr, ptr %850, i64 %indvars.iv251.i
   %852 = load ptr, ptr %851, align 8, !tbaa !141
   %853 = getelementptr inbounds nuw i8, ptr %852, i64 32
   %854 = load ptr, ptr %853, align 8, !tbaa !219
@@ -2003,14 +2007,14 @@ copy_chapters.exit.i:                             ; preds = %743, %821, %.thread
   %861 = getelementptr inbounds nuw i8, ptr %860, i64 80
   %862 = load ptr, ptr %861, align 8, !tbaa !220
   %863 = call i32 @av_dict_copy(ptr noundef nonnull %858, ptr noundef %862, i32 noundef 16) #16
-  %.pre.i174 = load i32, ptr %.phi.trans.insert.i, align 8, !tbaa !217
+  %.pre254.i = load i32, ptr %.phi.trans.insert.i, align 8, !tbaa !217
   br label %864
 
 864:                                              ; preds = %855, %848
-  %865 = phi i32 [ %849, %848 ], [ %.pre.i174, %855 ]
-  %indvars.iv.next250.i = add nuw nsw i64 %indvars.iv249.i, 1
+  %865 = phi i32 [ %849, %848 ], [ %.pre254.i, %855 ]
+  %indvars.iv.next252.i = add nuw nsw i64 %indvars.iv251.i, 1
   %866 = sext i32 %865 to i64
-  %867 = icmp slt i64 %indvars.iv.next250.i, %866
+  %867 = icmp slt i64 %indvars.iv.next252.i, %866
   br i1 %867, label %848, label %copy_meta.exit, !llvm.loop !221
 
 copy_meta.exit:                                   ; preds = %864, %.preheader.i173, %844
@@ -3504,8 +3508,8 @@ of_add_groups.exit.thread:                        ; preds = %876, %copy_meta.exi
   %.not167 = icmp slt i64 %indvars.iv.next, %1485
   br i1 %.not167, label %1473, label %mux_alloc.exit.thread, !llvm.loop !294
 
-mux_alloc.exit.thread:                            ; preds = %187, %.thread97.i.i, %296, %204, %460, %.loopexit.i198, %1480, %1483, %1469, %.thread102.i, %.thread116.i, %744, %.loopexit126.i, %289, %294, %265, %481, %of_add_attachments.exit.thread.i, %._crit_edge115.i.i, %3, %of_add_groups.exit.thread230, %70, %1447, %of_add_groups.exit.thread, %531, %514, %create_streams.exit, %126, %1468, %1458, %1454, %523, %504, %92
-  %.0 = phi i32 [ %.076.i.ph.i, %.loopexit126.i ], [ %135, %126 ], [ -12, %3 ], [ %532, %531 ], [ -22, %._crit_edge115.i.i ], [ %896, %of_add_groups.exit.thread230 ], [ %1445, %of_add_groups.exit.thread ], [ %1452, %1454 ], [ %1456, %1458 ], [ %1466, %1468 ], [ %1449, %1447 ], [ %207, %204 ], [ %515, %514 ], [ %491, %create_streams.exit ], [ %521, %523 ], [ -22, %504 ], [ %90, %92 ], [ -22, %70 ], [ %.178.i.i, %.loopexit.i198 ], [ -22, %744 ], [ -22, %289 ], [ -22, %294 ], [ -22, %265 ], [ %243, %.thread97.i.i ], [ 0, %1483 ], [ -12, %460 ], [ -22, %481 ], [ %.2.ph.i.i, %of_add_attachments.exit.thread.i ], [ -22, %.thread102.i ], [ %.076.i.ph.ph.i, %.thread116.i ], [ 0, %1469 ], [ %1481, %1480 ], [ %phi.call.i.i, %296 ], [ %189, %187 ]
+mux_alloc.exit.thread:                            ; preds = %187, %.thread97.i.i, %296, %204, %460, %.loopexit.i198, %1480, %1483, %1469, %.thread102.i, %.thread116.i, %744, %.loopexit128.i, %289, %294, %265, %481, %of_add_attachments.exit.thread.i, %._crit_edge115.i.i, %3, %of_add_groups.exit.thread230, %70, %1447, %of_add_groups.exit.thread, %531, %514, %create_streams.exit, %126, %1468, %1458, %1454, %523, %504, %92
+  %.0 = phi i32 [ %.076.i.ph.i, %.loopexit128.i ], [ %135, %126 ], [ -12, %3 ], [ %532, %531 ], [ -22, %._crit_edge115.i.i ], [ %896, %of_add_groups.exit.thread230 ], [ %1445, %of_add_groups.exit.thread ], [ %1452, %1454 ], [ %1456, %1458 ], [ %1466, %1468 ], [ %1449, %1447 ], [ %207, %204 ], [ %515, %514 ], [ %491, %create_streams.exit ], [ %521, %523 ], [ -22, %504 ], [ %90, %92 ], [ -22, %70 ], [ %.178.i.i, %.loopexit.i198 ], [ -22, %744 ], [ -22, %289 ], [ -22, %294 ], [ -22, %265 ], [ %243, %.thread97.i.i ], [ 0, %1483 ], [ -12, %460 ], [ -22, %481 ], [ %.2.ph.i.i, %of_add_attachments.exit.thread.i ], [ -22, %.thread102.i ], [ %.076.i.ph.ph.i, %.thread116.i ], [ 0, %1469 ], [ %1481, %1480 ], [ %phi.call.i.i, %296 ], [ %189, %187 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   ret i32 %.0
 }

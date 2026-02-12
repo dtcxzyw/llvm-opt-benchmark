@@ -1749,14 +1749,10 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit571:    ; preds = %.lr.ph913, %_ZL13gm
 .preheader845:                                    ; preds = %.split.us919, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit571.preheader, %.loopexit848
   %.01193 = phi ptr [ %649, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit571.preheader ], [ %337, %.loopexit848 ], [ %.01194, %.split.us919 ]
   %690 = icmp sgt i32 %338, 0
-  br i1 %690, label %.preheader844.preheader, label %._crit_edge926
+  br i1 %690, label %.preheader844, label %._crit_edge926
 
-.preheader844.preheader:                          ; preds = %.preheader845
-  %smax = call i64 @llvm.smax.i64(i64 %340, i64 1)
-  br label %.preheader844
-
-.preheader844:                                    ; preds = %.preheader844.preheader, %699
-  %.2402922 = phi i64 [ %700, %699 ], [ 0, %.preheader844.preheader ]
+.preheader844:                                    ; preds = %.preheader845, %699
+  %.2402922 = phi i64 [ %700, %699 ], [ 0, %.preheader845 ]
   %invariant.gep = getelementptr float, ptr %353, i64 %.2402922
   %691 = mul nuw nsw i64 %.2402922, %340
   %692 = getelementptr float, ptr %353, i64 %691
@@ -1764,7 +1760,6 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit571:    ; preds = %.lr.ph913, %_ZL13gm
 
 .lr.ph925:                                        ; preds = %699
   %.12418497 = add nuw nsw i64 %340, 1
-  %smax1023 = call i64 @llvm.smax.i64(i64 %340, i64 1)
   br label %701
 
 693:                                              ; preds = %.preheader844, %693
@@ -1780,7 +1775,7 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit571:    ; preds = %.lr.ph913, %_ZL13gm
 
 699:                                              ; preds = %693
   %700 = add nuw nsw i64 %.2402922, 1
-  %exitcond1022.not = icmp eq i64 %700, %smax
+  %exitcond1022.not = icmp eq i64 %700, %340
   br i1 %exitcond1022.not, label %.lr.ph925, label %.preheader844, !llvm.loop !83
 
 701:                                              ; preds = %.lr.ph925, %701
@@ -1791,7 +1786,7 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit571:    ; preds = %.lr.ph913, %_ZL13gm
   %704 = load float, ptr %703, align 4, !tbaa !50
   %705 = fadd float %.0392924, %704
   %706 = add nuw nsw i64 %.12418923, 1
-  %exitcond1024.not = icmp eq i64 %706, %smax1023
+  %exitcond1024.not = icmp eq i64 %706, %340
   br i1 %exitcond1024.not, label %._crit_edge926, label %701, !llvm.loop !84
 
 ._crit_edge926:                                   ; preds = %701, %.preheader845
@@ -1840,14 +1835,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNSt10filesystem7__cxx114pathD2Ev.exit576:       ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i573, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i574
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
-  br i1 %690, label %.preheader842.us.preheader, label %._crit_edge932
+  br i1 %690, label %.preheader842.us, label %._crit_edge932
 
-.preheader842.us.preheader:                       ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit576
-  %smax1025 = call i64 @llvm.smax.i64(i64 %340, i64 1)
-  br label %.preheader842.us
-
-.preheader842.us:                                 ; preds = %.preheader842.us.preheader, %._crit_edge930.us
-  %.3403931.us = phi i64 [ %741, %._crit_edge930.us ], [ 0, %.preheader842.us.preheader ]
+.preheader842.us:                                 ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit576, %._crit_edge930.us
+  %.3403931.us = phi i64 [ %741, %._crit_edge930.us ], [ 0, %_ZNSt10filesystem7__cxx114pathD2Ev.exit576 ]
   %726 = mul nuw nsw i64 %.3403931.us, %340
   %727 = getelementptr float, ptr %353, i64 %726
   br label %728
@@ -1870,7 +1861,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit576:       ; preds = %_ZNSt10filesystem7_
 
 ._crit_edge930.us:                                ; preds = %728
   %741 = add nuw nsw i64 %.3403931.us, 1
-  %exitcond1026.not = icmp eq i64 %741, %smax1025
+  %exitcond1026.not = icmp eq i64 %741, %340
   br i1 %exitcond1026.not, label %._crit_edge932, label %.preheader842.us, !llvm.loop !86
 
 742:                                              ; preds = %714
@@ -1903,17 +1894,13 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit576:       ; preds = %_ZNSt10filesystem7_
           to label %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit.preheader unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit.preheader: ; preds = %750
-  br i1 %690, label %.lr.ph939.preheader, label %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit._crit_edge
+  br i1 %690, label %.lr.ph939, label %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit._crit_edge
 
-.lr.ph939.preheader:                              ; preds = %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit.preheader
-  %smax1030 = call i64 @llvm.smax.i64(i64 %340, i64 1)
-  br label %.lr.ph939
-
-.lr.ph939:                                        ; preds = %.lr.ph939.preheader, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit
-  %indvars.iv1027 = phi i64 [ 1, %.lr.ph939.preheader ], [ %indvars.iv.next1028, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit ]
-  %.0394938 = phi float [ 0.000000e+00, %.lr.ph939.preheader ], [ %.2396, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit ]
-  %.4404937 = phi i64 [ 0, %.lr.ph939.preheader ], [ %763, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit ]
-  %.0429936 = phi float [ 0.000000e+00, %.lr.ph939.preheader ], [ %.2431, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit ]
+.lr.ph939:                                        ; preds = %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit.preheader, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit
+  %indvars.iv1027 = phi i64 [ %indvars.iv.next1028, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit ], [ 1, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit.preheader ]
+  %.0394938 = phi float [ %.2396, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit ], [ 0.000000e+00, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit.preheader ]
+  %.4404937 = phi i64 [ %763, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit ], [ 0, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit.preheader ]
+  %.0429936 = phi float [ %.2431, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit ], [ 0.000000e+00, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit.preheader ]
   %752 = mul nuw nsw i64 %.4404937, %340
   %753 = getelementptr inbounds nuw float, ptr %353, i64 %752
   %754 = getelementptr inbounds nuw ptr, ptr %751, i64 %.4404937
@@ -1939,7 +1926,7 @@ _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit.preheader: ; preds = %750
 _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit:         ; preds = %757
   %763 = add nuw nsw i64 %.4404937, 1
   %indvars.iv.next1028 = add nuw nsw i64 %indvars.iv1027, 1
-  %exitcond1031.not = icmp eq i64 %763, %smax1030
+  %exitcond1031.not = icmp eq i64 %763, %340
   br i1 %exitcond1031.not, label %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit._crit_edge, label %.lr.ph939, !llvm.loop !88
 
 _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit._crit_edge: ; preds = %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit.preheader
@@ -1949,19 +1936,15 @@ _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit._crit_edge: ; preds = %_ZL13gmx_snew_im
           to label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit579.preheader unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit579.preheader: ; preds = %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit._crit_edge
-  br i1 %690, label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit579.preheader975, label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit579._crit_edge
+  br i1 %690, label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit579, label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit579._crit_edge
 
-_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit579.preheader975: ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit579.preheader
-  %smax1032 = call i64 @llvm.smax.i64(i64 %340, i64 1)
-  br label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit579
-
-_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit579:       ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit579.preheader975, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit579
-  %.15421942 = phi i64 [ %765, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit579 ], [ 0, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit579.preheader975 ]
+_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit579:       ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit579.preheader, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit579
+  %.15421942 = phi i64 [ %765, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit579 ], [ 0, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit579.preheader ]
   %765 = add nuw nsw i64 %.15421942, 1
   %766 = uitofp nneg i64 %765 to float
   %767 = getelementptr inbounds nuw float, ptr %764, i64 %.15421942
   store float %766, ptr %767, align 4, !tbaa !50
-  %exitcond1033.not = icmp eq i64 %765, %smax1032
+  %exitcond1033.not = icmp eq i64 %765, %340
   br i1 %exitcond1033.not, label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit579._crit_edge, label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit579, !llvm.loop !89
 
 _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit579._crit_edge: ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit579, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit579.preheader
@@ -2547,20 +2530,16 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit687:       ; preds = %_ZL13gmx_snew_implI
           to label %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit689.preheader unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit689.preheader: ; preds = %949
-  br i1 %690, label %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit689.preheader973, label %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit689._crit_edge
+  br i1 %690, label %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit689, label %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit689._crit_edge
 
-_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit689.preheader973: ; preds = %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit689.preheader
-  %smax1049 = call i64 @llvm.smax.i64(i64 %340, i64 1)
-  br label %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit689
-
-_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit689:        ; preds = %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit689.preheader973, %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit689
-  %.0391963 = phi float [ %952, %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit689 ], [ 0.000000e+00, %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit689.preheader973 ]
-  %.20426962 = phi i64 [ %953, %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit689 ], [ 0, %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit689.preheader973 ]
+_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit689:        ; preds = %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit689.preheader, %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit689
+  %.0391963 = phi float [ %952, %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit689 ], [ 0.000000e+00, %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit689.preheader ]
+  %.20426962 = phi i64 [ %953, %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit689 ], [ 0, %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit689.preheader ]
   %950 = getelementptr inbounds nuw float, ptr %942, i64 %.20426962
   %951 = load float, ptr %950, align 4, !tbaa !50
   %952 = fadd float %.0391963, %951
   %953 = add nuw nsw i64 %.20426962, 1
-  %exitcond1050.not = icmp eq i64 %953, %smax1049
+  %exitcond1050.not = icmp eq i64 %953, %340
   br i1 %exitcond1050.not, label %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit689._crit_edge, label %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit689, !llvm.loop !98
 
 _ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit689._crit_edge: ; preds = %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit689, %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit689.preheader

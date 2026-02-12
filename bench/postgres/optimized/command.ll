@@ -8043,22 +8043,22 @@ define internal fastcc range(i32 2, 6) i32 @exec_command_watch(ptr noundef %0, i
   %11 = alloca [128 x i8], align 16
   %12 = alloca i32, align 4
   %13 = alloca ptr, align 8
-  br i1 %1, label %.preheader.preheader, label %254
+  br i1 %1, label %.preheader.preheader, label %255
 
 .preheader.preheader:                             ; preds = %4
   %14 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %.not295 = icmp eq ptr %14, null
-  br i1 %.not295, label %109, label %.lr.ph
+  %.not294 = icmp eq ptr %14, null
+  br i1 %.not294, label %109, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader.preheader, %.preheader
   %15 = phi ptr [ %105, %.preheader ], [ %14, %.preheader.preheader ]
-  %.061109301 = phi i8 [ %.263, %.preheader ], [ 0, %.preheader.preheader ]
-  %.058110300 = phi i1 [ %.260, %.preheader ], [ false, %.preheader.preheader ]
-  %.055111299 = phi i1 [ %.257, %.preheader ], [ false, %.preheader.preheader ]
-  %.051112298 = phi double [ %.354, %.preheader ], [ 2.000000e+00, %.preheader.preheader ]
-  %.047113297 = phi i32 [ %.350, %.preheader ], [ 0, %.preheader.preheader ]
-  %.043114296 = phi i32 [ %.346, %.preheader ], [ 0, %.preheader.preheader ]
+  %.061109300 = phi i8 [ %.263, %.preheader ], [ 0, %.preheader.preheader ]
+  %.058110299 = phi i1 [ %.260, %.preheader ], [ false, %.preheader.preheader ]
+  %.055111298 = phi i1 [ %.257, %.preheader ], [ false, %.preheader.preheader ]
+  %.051112297 = phi double [ %.354, %.preheader ], [ 2.000000e+00, %.preheader.preheader ]
+  %.047113296 = phi i32 [ %.350, %.preheader ], [ 0, %.preheader.preheader ]
+  %.043114295 = phi i32 [ %.346, %.preheader ], [ 0, %.preheader.preheader ]
   %16 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %15, i32 noundef 61) #18
   %.not70 = icmp eq ptr %16, null
   br i1 %.not70, label %91, label %sub_0
@@ -8089,7 +8089,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %29, label %30, label %sub_090
 
 30:                                               ; preds = %27, %.tail
-  %31 = trunc nuw i8 %.061109301 to i1
+  %31 = trunc nuw i8 %.061109300 to i1
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %30
@@ -8141,7 +8141,7 @@ sub_191:                                          ; preds = %sub_090
   br i1 %53, label %54, label %sub_094
 
 54:                                               ; preds = %51, %.tail89
-  br i1 %.058110300, label %55, label %56
+  br i1 %.058110299, label %55, label %56
 
 55:                                               ; preds = %54
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.284) #17
@@ -8192,7 +8192,7 @@ sub_195:                                          ; preds = %sub_094
   br i1 %76, label %77, label %90
 
 77:                                               ; preds = %74, %.tail93
-  br i1 %.055111299, label %78, label %79
+  br i1 %.055111298, label %78, label %79
 
 78:                                               ; preds = %77
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.288) #17
@@ -8225,7 +8225,7 @@ sub_195:                                          ; preds = %sub_094
   br label %.loopexit.critedge
 
 91:                                               ; preds = %.lr.ph
-  %92 = trunc nuw i8 %.061109301 to i1
+  %92 = trunc nuw i8 %.061109300 to i1
   br i1 %92, label %93, label %94
 
 93:                                               ; preds = %91
@@ -8255,12 +8255,12 @@ sub_195:                                          ; preds = %sub_094
   br label %.loopexit.critedge
 
 .preheader:                                       ; preds = %63, %86, %40, %101
-  %.263 = phi i8 [ 1, %101 ], [ %.061109301, %63 ], [ 1, %40 ], [ %.061109301, %86 ]
-  %.260 = phi i1 [ %.058110300, %101 ], [ true, %63 ], [ %.058110300, %40 ], [ %.058110300, %86 ]
-  %.257 = phi i1 [ %.055111299, %101 ], [ %.055111299, %63 ], [ %.055111299, %40 ], [ true, %86 ]
-  %.354 = phi double [ %96, %101 ], [ %.051112298, %63 ], [ %35, %40 ], [ %.051112298, %86 ]
-  %.350 = phi i32 [ %.047113297, %101 ], [ %58, %63 ], [ %.047113297, %40 ], [ %.047113297, %86 ]
-  %.346 = phi i32 [ %.043114296, %101 ], [ %.043114296, %63 ], [ %.043114296, %40 ], [ %81, %86 ]
+  %.263 = phi i8 [ 1, %101 ], [ %.061109300, %63 ], [ 1, %40 ], [ %.061109300, %86 ]
+  %.260 = phi i1 [ %.058110299, %101 ], [ true, %63 ], [ %.058110299, %40 ], [ %.058110299, %86 ]
+  %.257 = phi i1 [ %.055111298, %101 ], [ %.055111298, %63 ], [ %.055111298, %40 ], [ true, %86 ]
+  %.354 = phi double [ %96, %101 ], [ %.051112297, %63 ], [ %35, %40 ], [ %.051112297, %86 ]
+  %.350 = phi i32 [ %.047113296, %101 ], [ %58, %63 ], [ %.047113296, %40 ], [ %.047113296, %86 ]
+  %.346 = phi i32 [ %.043114295, %101 ], [ %.043114295, %63 ], [ %.043114295, %40 ], [ %81, %86 ]
   call void @free(ptr noundef nonnull %15) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %105 = call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
@@ -8416,19 +8416,19 @@ copy_previous_query.exit:                         ; preds = %109
 167:                                              ; preds = %163, %160
   %168 = phi i64 [ %166, %163 ], [ 256, %160 ]
   %169 = call ptr @pg_malloc(i64 noundef %168) #17
-  br i1 %135, label %.loopexit97.i, label %.lr.ph100.i
+  br i1 %135, label %.loopexit97.i, label %.lr.ph99.i
 
-.lr.ph100.i:                                      ; preds = %167
+.lr.ph99.i:                                       ; preds = %167
   %170 = sitofp i64 %.051112.lcssa to double
   %171 = fdiv double %170, 1.000000e+03
   %172 = icmp eq i64 %.051112.lcssa, 0
-  br i1 %172, label %.lr.ph100.split.us.split.i, label %.lr.ph100.split.i, !llvm.loop !26
+  br i1 %172, label %.lr.ph99.split.us.split.i, label %.lr.ph99.split.i, !llvm.loop !26
 
-.lr.ph100.split.us.split.i:                       ; preds = %.lr.ph100.i
-  br i1 %.not73.i, label %.lr.ph100.split.us.split.split.us.i, label %.lr.ph100.split.us.split.split.i
+.lr.ph99.split.us.split.i:                        ; preds = %.lr.ph99.i
+  br i1 %.not73.i, label %.lr.ph99.split.us.split.split.us.i, label %.lr.ph99.split.us.split.split.i
 
-.lr.ph100.split.us.split.split.us.i:              ; preds = %.lr.ph100.split.us.split.i, %187
-  %.05599.us.us.i = phi i32 [ %.257.us.us.i, %187 ], [ %.047113.lcssa, %.lr.ph100.split.us.split.i ]
+.lr.ph99.split.us.split.split.us.i:               ; preds = %.lr.ph99.split.us.split.i, %187
+  %.05598.us.us.i = phi i32 [ %.257.us.us.i, %187 ], [ %.047113.lcssa, %.lr.ph99.split.us.split.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %173 = call i64 @time(ptr noundef null) #17
@@ -8440,16 +8440,16 @@ copy_previous_query.exit:                         ; preds = %109
   %177 = load ptr, ptr %2, align 8
   %178 = call i32 @PSQLexecWatch(ptr noundef %177, ptr noundef nonnull %5, ptr noundef %.05384.i, i32 noundef %.043114.lcssa) #17
   %179 = icmp slt i32 %178, 1
-  br i1 %179, label %.loopexit97.sink.split.i, label %180
+  br i1 %179, label %.thread93.i, label %180
 
-180:                                              ; preds = %.lr.ph100.split.us.split.split.us.i
-  %.not74.us.us.i = icmp eq i32 %.05599.us.us.i, 0
+180:                                              ; preds = %.lr.ph99.split.us.split.split.us.i
+  %.not74.us.us.i = icmp eq i32 %.05598.us.us.i, 0
   br i1 %.not74.us.us.i, label %184, label %181
 
 181:                                              ; preds = %180
-  %182 = add nsw i32 %.05599.us.us.i, -1
-  %183 = icmp slt i32 %.05599.us.us.i, 2
-  br i1 %183, label %.loopexit97.sink.split.i, label %184
+  %182 = add nsw i32 %.05598.us.us.i, -1
+  %183 = icmp slt i32 %.05598.us.us.i, 2
+  br i1 %183, label %.thread93.i, label %184
 
 184:                                              ; preds = %181, %180
   %.257.us.us.i = phi i32 [ %182, %181 ], [ 0, %180 ]
@@ -8458,18 +8458,18 @@ copy_previous_query.exit:                         ; preds = %109
 185:                                              ; preds = %184
   %186 = call i32 @ferror(ptr noundef nonnull %.05384.i) #17
   %.not75.us.us.i = icmp eq i32 %186, 0
-  br i1 %.not75.us.us.i, label %187, label %.loopexit97.sink.split.i
+  br i1 %.not75.us.us.i, label %187, label %.thread93.i
 
 187:                                              ; preds = %185, %184
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.lr.ph100.split.us.split.split.us.i
+  br label %.lr.ph99.split.us.split.split.us.i
 
-.lr.ph100.split.us.split.split.i:                 ; preds = %.lr.ph100.split.us.split.i
-  br i1 %.not7286.i, label %.lr.ph100.split.us.split.split.split.us.i, label %.lr.ph100.split.us.split.split.split.i
+.lr.ph99.split.us.split.split.i:                  ; preds = %.lr.ph99.split.us.split.i
+  br i1 %.not7286.i, label %.lr.ph99.split.us.split.split.split.us.i, label %.lr.ph99.split.us.split.split.split.i
 
-.lr.ph100.split.us.split.split.split.us.i:        ; preds = %.lr.ph100.split.us.split.split.i, %199
-  %.05599.us.us103.i = phi i32 [ %.257.us.us105.i, %199 ], [ %.047113.lcssa, %.lr.ph100.split.us.split.split.i ]
+.lr.ph99.split.us.split.split.split.us.i:         ; preds = %.lr.ph99.split.us.split.split.i, %199
+  %.05598.us.us101.i = phi i32 [ %.257.us.us103.i, %199 ], [ %.047113.lcssa, %.lr.ph99.split.us.split.split.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %188 = call i64 @time(ptr noundef null) #17
@@ -8481,25 +8481,25 @@ copy_previous_query.exit:                         ; preds = %109
   %192 = load ptr, ptr %2, align 8
   %193 = call i32 @PSQLexecWatch(ptr noundef %192, ptr noundef nonnull %5, ptr noundef %.05384.i, i32 noundef %.043114.lcssa) #17
   %194 = icmp slt i32 %193, 1
-  br i1 %194, label %.loopexit97.sink.split.i, label %195
+  br i1 %194, label %.thread93.i, label %195
 
-195:                                              ; preds = %.lr.ph100.split.us.split.split.split.us.i
-  %.not74.us.us104.i = icmp eq i32 %.05599.us.us103.i, 0
-  br i1 %.not74.us.us104.i, label %199, label %196
+195:                                              ; preds = %.lr.ph99.split.us.split.split.split.us.i
+  %.not74.us.us102.i = icmp eq i32 %.05598.us.us101.i, 0
+  br i1 %.not74.us.us102.i, label %199, label %196
 
 196:                                              ; preds = %195
-  %197 = add nsw i32 %.05599.us.us103.i, -1
-  %198 = icmp slt i32 %.05599.us.us103.i, 2
-  br i1 %198, label %.loopexit97.sink.split.i, label %199
+  %197 = add nsw i32 %.05598.us.us101.i, -1
+  %198 = icmp slt i32 %.05598.us.us101.i, 2
+  br i1 %198, label %.thread93.i, label %199
 
 199:                                              ; preds = %196, %195
-  %.257.us.us105.i = phi i32 [ %197, %196 ], [ 0, %195 ]
+  %.257.us.us103.i = phi i32 [ %197, %196 ], [ 0, %195 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.lr.ph100.split.us.split.split.split.us.i
+  br label %.lr.ph99.split.us.split.split.split.us.i
 
-.lr.ph100.split.us.split.split.split.i:           ; preds = %.lr.ph100.split.us.split.split.i, %213
-  %.05599.us.i = phi i32 [ %.257.us.i, %213 ], [ %.047113.lcssa, %.lr.ph100.split.us.split.split.i ]
+.lr.ph99.split.us.split.split.split.i:            ; preds = %.lr.ph99.split.us.split.split.i, %213
+  %.05598.us.i = phi i32 [ %.257.us.i, %213 ], [ %.047113.lcssa, %.lr.ph99.split.us.split.split.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %200 = call i64 @time(ptr noundef null) #17
@@ -8511,30 +8511,30 @@ copy_previous_query.exit:                         ; preds = %109
   %204 = load ptr, ptr %2, align 8
   %205 = call i32 @PSQLexecWatch(ptr noundef %204, ptr noundef nonnull %5, ptr noundef %.05384.i, i32 noundef %.043114.lcssa) #17
   %206 = icmp slt i32 %205, 1
-  br i1 %206, label %.loopexit97.sink.split.i, label %207
+  br i1 %206, label %.thread93.i, label %207
 
-207:                                              ; preds = %.lr.ph100.split.us.split.split.split.i
-  %.not74.us.i = icmp eq i32 %.05599.us.i, 0
+207:                                              ; preds = %.lr.ph99.split.us.split.split.split.i
+  %.not74.us.i = icmp eq i32 %.05598.us.i, 0
   br i1 %.not74.us.i, label %211, label %208
 
 208:                                              ; preds = %207
-  %209 = add nsw i32 %.05599.us.i, -1
-  %210 = icmp slt i32 %.05599.us.i, 2
-  br i1 %210, label %.loopexit97.sink.split.i, label %211
+  %209 = add nsw i32 %.05598.us.i, -1
+  %210 = icmp slt i32 %.05598.us.i, 2
+  br i1 %210, label %.thread93.i, label %211
 
 211:                                              ; preds = %208, %207
   %.257.us.i = phi i32 [ %209, %208 ], [ 0, %207 ]
   %212 = call i32 @ferror(ptr noundef nonnull %.05384.i) #17
   %.not75.us.i = icmp eq i32 %212, 0
-  br i1 %.not75.us.i, label %213, label %.loopexit97.sink.split.i
+  br i1 %.not75.us.i, label %213, label %.thread93.i
 
 213:                                              ; preds = %211
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.lr.ph100.split.us.split.split.split.i
+  br label %.lr.ph99.split.us.split.split.split.i
 
-.lr.ph100.split.i:                                ; preds = %.lr.ph100.i, %.thread89.i
-  %.05599.i = phi i32 [ %.257.i, %.thread89.i ], [ %.047113.lcssa, %.lr.ph100.i ]
+.lr.ph99.split.i:                                 ; preds = %.lr.ph99.i, %.thread89.i
+  %.05598.i = phi i32 [ %.257.i, %.thread89.i ], [ %.047113.lcssa, %.lr.ph99.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %214 = call i64 @time(ptr noundef null) #17
@@ -8543,11 +8543,11 @@ copy_previous_query.exit:                         ; preds = %109
   %216 = call i64 @strftime(ptr noundef nonnull %11, i64 noundef 128, ptr noundef nonnull @.str.295, ptr noundef %215) #17
   br i1 %.not73.i, label %219, label %217
 
-217:                                              ; preds = %.lr.ph100.split.i
+217:                                              ; preds = %.lr.ph99.split.i
   %218 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %169, i64 noundef %168, ptr noundef nonnull @.str.296, ptr noundef nonnull %162, ptr noundef nonnull %11, double noundef %171) #17
   br label %221
 
-219:                                              ; preds = %.lr.ph100.split.i
+219:                                              ; preds = %.lr.ph99.split.i
   %220 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %169, i64 noundef %168, ptr noundef nonnull @.str.297, ptr noundef nonnull %11, double noundef %171) #17
   br label %221
 
@@ -8556,16 +8556,16 @@ copy_previous_query.exit:                         ; preds = %109
   %222 = load ptr, ptr %2, align 8
   %223 = call i32 @PSQLexecWatch(ptr noundef %222, ptr noundef nonnull %5, ptr noundef %.05384.i, i32 noundef %.043114.lcssa) #17
   %224 = icmp slt i32 %223, 1
-  br i1 %224, label %.loopexit97.sink.split.i, label %225
+  br i1 %224, label %.thread93.i, label %225
 
 225:                                              ; preds = %221
-  %.not74.i = icmp eq i32 %.05599.i, 0
+  %.not74.i = icmp eq i32 %.05598.i, 0
   br i1 %.not74.i, label %229, label %226
 
 226:                                              ; preds = %225
-  %227 = add nsw i32 %.05599.i, -1
-  %228 = icmp slt i32 %.05599.i, 2
-  br i1 %228, label %.loopexit97.sink.split.i, label %229
+  %227 = add nsw i32 %.05598.i, -1
+  %228 = icmp slt i32 %.05598.i, 2
+  br i1 %228, label %.thread93.i, label %229
 
 229:                                              ; preds = %226, %225
   %.257.i = phi i32 [ %227, %226 ], [ 0, %225 ]
@@ -8574,113 +8574,118 @@ copy_previous_query.exit:                         ; preds = %109
 230:                                              ; preds = %229
   %231 = call i32 @ferror(ptr noundef nonnull %.05384.i) #17
   %.not75.i = icmp eq i32 %231, 0
-  br i1 %.not75.i, label %232, label %.loopexit97.sink.split.i
+  br i1 %.not75.i, label %232, label %.thread93.i
 
 232:                                              ; preds = %230, %229
   %233 = call i32 @sigprocmask(i32 noundef 0, ptr noundef nonnull %8, ptr noundef null) #17
   %234 = load volatile i32, ptr @cancel_pressed, align 4
   %.not76.not.i = icmp eq i32 %234, 0
-  br i1 %.not76.not.i, label %.lr.ph.i, label %.loopexit97.sink.split.sink.split.i
+  br i1 %.not76.not.i, label %.lr.ph.i, label %..loopexit97_crit_edge.split.critedge.i
 
-.lr.ph.i:                                         ; preds = %232, %239
+.lr.ph.i:                                         ; preds = %232, %240
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %235 = call i32 @sigwait(ptr noundef nonnull %6, ptr noundef nonnull %12) #17
   %236 = tail call ptr @__errno_location() #19
   store i32 %235, ptr %236, align 4
   switch i32 %235, label %.loopexit97.critedge.i [
     i32 0, label %.thread89.i
-    i32 4, label %239
+    i32 4, label %240
   ], !llvm.loop !27
 
 .loopexit97.critedge.i:                           ; preds = %.lr.ph.i
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.298) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %.loopexit97.sink.split.sink.split.i
-
-.thread89.i:                                      ; preds = %.lr.ph.i
-  %237 = load i32, ptr %12, align 4
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %238 = call i32 @sigprocmask(i32 noundef 1, ptr noundef nonnull %8, ptr noundef null) #17
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  switch i32 %237, label %.lr.ph100.split.i [
-    i32 17, label %.loopexit97.i
-    i32 2, label %.loopexit97.i
-  ]
-
-239:                                              ; preds = %.lr.ph.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %.lr.ph.i
-
-.loopexit97.sink.split.sink.split.i:              ; preds = %232, %.loopexit97.critedge.i
-  %240 = call i32 @sigprocmask(i32 noundef 1, ptr noundef nonnull %8, ptr noundef null) #17
-  br label %.loopexit97.sink.split.i
-
-.loopexit97.sink.split.i:                         ; preds = %230, %226, %221, %211, %208, %.lr.ph100.split.us.split.split.split.i, %196, %.lr.ph100.split.us.split.split.split.us.i, %185, %181, %.lr.ph100.split.us.split.split.us.i, %.loopexit97.sink.split.sink.split.i
-  %.151.ph.i = phi i32 [ %205, %211 ], [ %178, %185 ], [ %223, %.loopexit97.sink.split.sink.split.i ], [ %193, %196 ], [ %178, %.lr.ph100.split.us.split.split.us.i ], [ %178, %181 ], [ %193, %.lr.ph100.split.us.split.split.split.us.i ], [ %205, %.lr.ph100.split.us.split.split.split.i ], [ %205, %208 ], [ %223, %221 ], [ %223, %226 ], [ %223, %230 ]
+  %237 = call i32 @sigprocmask(i32 noundef 1, ptr noundef nonnull %8, ptr noundef null) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit97.i
 
-.loopexit97.i:                                    ; preds = %.thread89.i, %.thread89.i, %.loopexit97.sink.split.i, %167
-  %.151.i = phi i32 [ %.151.ph.i, %.loopexit97.sink.split.i ], [ 0, %167 ], [ %223, %.thread89.i ], [ %223, %.thread89.i ]
-  br i1 %.not7286.i, label %243, label %241
+.thread89.i:                                      ; preds = %.lr.ph.i
+  %238 = load i32, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  %239 = call i32 @sigprocmask(i32 noundef 1, ptr noundef nonnull %8, ptr noundef null) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  switch i32 %238, label %.lr.ph99.split.i [
+    i32 17, label %.loopexit97.i
+    i32 2, label %.loopexit97.i
+  ]
 
-241:                                              ; preds = %.loopexit97.i
-  %242 = call i32 @pclose(ptr noundef nonnull %.05384.i)
+240:                                              ; preds = %.lr.ph.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  br label %.lr.ph.i
+
+.thread93.i:                                      ; preds = %230, %226, %221, %211, %208, %.lr.ph99.split.us.split.split.split.i, %196, %.lr.ph99.split.us.split.split.split.us.i, %185, %181, %.lr.ph99.split.us.split.split.us.i
+  %.us-phi.i = phi i32 [ %205, %211 ], [ %193, %196 ], [ %178, %185 ], [ %178, %.lr.ph99.split.us.split.split.us.i ], [ %178, %181 ], [ %193, %.lr.ph99.split.us.split.split.split.us.i ], [ %205, %.lr.ph99.split.us.split.split.split.i ], [ %205, %208 ], [ %223, %221 ], [ %223, %226 ], [ %223, %230 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  %241 = icmp sgt i32 %.us-phi.i, -1
+  %242 = select i1 %241, i32 2, i32 5
+  br label %.loopexit97.i
+
+..loopexit97_crit_edge.split.critedge.i:          ; preds = %232
+  %243 = call i32 @sigprocmask(i32 noundef 1, ptr noundef nonnull %8, ptr noundef null) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  br label %.loopexit97.i
+
+.loopexit97.i:                                    ; preds = %.thread89.i, %.thread89.i, %..loopexit97_crit_edge.split.critedge.i, %.thread93.i, %.loopexit97.critedge.i, %167
+  %.151.i = phi i32 [ %242, %.thread93.i ], [ 2, %..loopexit97_crit_edge.split.critedge.i ], [ 2, %.loopexit97.critedge.i ], [ 2, %167 ], [ 2, %.thread89.i ], [ 2, %.thread89.i ]
+  br i1 %.not7286.i, label %246, label %244
+
+244:                                              ; preds = %.loopexit97.i
+  %245 = call i32 @pclose(ptr noundef nonnull %.05384.i)
   call void @restore_sigpipe_trap() #17
-  br label %248
+  br label %251
 
-243:                                              ; preds = %.loopexit97.i
-  %244 = load ptr, ptr @stdout, align 8
-  %245 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %244, ptr noundef nonnull @.str.238) #17
-  %246 = load ptr, ptr @stdout, align 8
-  %247 = call i32 @fflush(ptr noundef %246)
-  br label %248
+246:                                              ; preds = %.loopexit97.i
+  %247 = load ptr, ptr @stdout, align 8
+  %248 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %247, ptr noundef nonnull @.str.238) #17
+  %249 = load ptr, ptr @stdout, align 8
+  %250 = call i32 @fflush(ptr noundef %249)
+  br label %251
 
-248:                                              ; preds = %243, %241
+251:                                              ; preds = %246, %244
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
-  %249 = call i32 @setitimer(i32 noundef 0, ptr noundef nonnull %9, ptr noundef null) #17
-  %250 = call i32 @sigprocmask(i32 noundef 1, ptr noundef nonnull %6, ptr noundef null) #17
+  %252 = call i32 @setitimer(i32 noundef 0, ptr noundef nonnull %9, ptr noundef null) #17
+  %253 = call i32 @sigprocmask(i32 noundef 1, ptr noundef nonnull %6, ptr noundef null) #17
   call void @pg_free(ptr noundef %169) #17
-  %251 = icmp sgt i32 %.151.i, -1
-  %252 = select i1 %251, i32 2, i32 5
   br label %do_watch.exit
 
-do_watch.exit:                                    ; preds = %117, %248
-  %.052.i = phi i32 [ 5, %117 ], [ %252, %248 ]
+do_watch.exit:                                    ; preds = %117, %251
+  %.052.i = phi i32 [ 5, %117 ], [ %.151.i, %251 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %253
+  br label %254
 
 .loopexit.critedge:                               ; preds = %104, %93, %90, %89, %78, %66, %55, %43, %32
   call void @free(ptr noundef nonnull %15) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %253
+  br label %254
 
-253:                                              ; preds = %.loopexit.critedge, %do_watch.exit
+254:                                              ; preds = %.loopexit.critedge, %do_watch.exit
   %.4 = phi i32 [ %.052.i, %do_watch.exit ], [ 5, %.loopexit.critedge ]
   call void @resetPQExpBuffer(ptr noundef %2) #17
   call void @psql_scan_reset(ptr noundef %0) #17
   br label %ignore_slash_options.exit
 
-254:                                              ; preds = %4
-  %255 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #17
-  %.not2.i = icmp eq ptr %255, null
+255:                                              ; preds = %4
+  %256 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #17
+  %.not2.i = icmp eq ptr %256, null
   br i1 %.not2.i, label %ignore_slash_options.exit, label %.lr.ph.i76
 
-.lr.ph.i76:                                       ; preds = %254, %.lr.ph.i76
-  %256 = phi ptr [ %257, %.lr.ph.i76 ], [ %255, %254 ]
-  tail call void @free(ptr noundef nonnull %256) #17
-  %257 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #17
-  %.not.i77 = icmp eq ptr %257, null
+.lr.ph.i76:                                       ; preds = %255, %.lr.ph.i76
+  %257 = phi ptr [ %258, %.lr.ph.i76 ], [ %256, %255 ]
+  tail call void @free(ptr noundef nonnull %257) #17
+  %258 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #17
+  %.not.i77 = icmp eq ptr %258, null
   br i1 %.not.i77, label %ignore_slash_options.exit, label %.lr.ph.i76, !llvm.loop !10
 
-ignore_slash_options.exit:                        ; preds = %.lr.ph.i76, %254, %253
-  %.5 = phi i32 [ %.4, %253 ], [ 2, %254 ], [ 2, %.lr.ph.i76 ]
+ignore_slash_options.exit:                        ; preds = %.lr.ph.i76, %255, %254
+  %.5 = phi i32 [ %.4, %254 ], [ 2, %255 ], [ 2, %.lr.ph.i76 ]
   ret i32 %.5
 }
 

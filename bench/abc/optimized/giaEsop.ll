@@ -2916,8 +2916,7 @@ Eso_ManFindDistOneLitEqual.exit:                  ; preds = %204
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 4
   store i32 0, ptr %217, align 4, !tbaa !31
   %218 = zext i32 %.1.i183 to i64
-  %smax = tail call i32 @llvm.smax.i32(i32 %29, i32 1)
-  %wide.trip.count399 = zext nneg i32 %smax to i64
+  %wide.trip.count399 = zext nneg i32 %29 to i64
   br label %.lr.ph333
 
 .lr.ph333:                                        ; preds = %.lr.ph333.preheader, %254
@@ -3160,8 +3159,7 @@ Eso_ManFindDistOneLitNotEqual.exit218.thread247:  ; preds = %._crit_edge.i217, %
   %319 = load ptr, ptr %7, align 8, !tbaa !52
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 4
   store i32 0, ptr %320, align 4, !tbaa !31
-  %smax409 = tail call i32 @llvm.smax.i32(i32 %29, i32 1)
-  %wide.trip.count410 = zext nneg i32 %smax409 to i64
+  %wide.trip.count410 = zext nneg i32 %29 to i64
   br label %.lr.ph331
 
 .lr.ph331:                                        ; preds = %.lr.ph331.preheader, %Vec_IntPush.exit230
@@ -4655,9 +4653,6 @@ declare i32 @llvm.smin.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #22
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #21
 
 attributes #0 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -837,7 +837,7 @@ define internal noundef i32 @dissect_saphdb_tcp(ptr noundef %0, ptr noundef %1, 
   %85 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %84, ptr noundef %0, i32 noundef 32, i32 noundef %80, i32 noundef 0)
   %86 = load i32, ptr @ett_saphdb, align 4
   %87 = call ptr @proto_item_add_subtree(ptr noundef %85, i32 noundef %86)
-  br i1 %65, label %88, label %.lr.ph.i
+  br i1 %65, label %88, label %.preheader.i
 
 88:                                               ; preds = %83
   %89 = call fastcc i32 @dissect_saphdb_segment(ptr noundef %0, ptr noundef %1, ptr noundef %87, i32 noundef 32, i16 noundef signext %61, i16 noundef zeroext 1, i1 noundef zeroext true)
@@ -853,27 +853,27 @@ define internal noundef i32 @dissect_saphdb_tcp(ptr noundef %0, ptr noundef %1, 
   %97 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %93, ptr noundef nonnull @ei_saphdb_compressed_unknown, ptr noundef nonnull @.str.333)
   br label %.critedge.i
 
-.lr.ph.i:                                         ; preds = %83, %100
-  %.03.i = phi i16 [ %103, %100 ], [ 1, %83 ]
-  %.22.i = phi i32 [ %102, %100 ], [ 32, %83 ]
-  %98 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.22.i)
+.preheader.i:                                     ; preds = %83, %100
+  %.02.i = phi i16 [ %103, %100 ], [ 1, %83 ]
+  %.21.i = phi i32 [ %102, %100 ], [ 32, %83 ]
+  %98 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.21.i)
   %99 = icmp sgt i32 %98, 12
   br i1 %99, label %100, label %.critedge.i
 
-100:                                              ; preds = %.lr.ph.i
-  %101 = call fastcc i32 @dissect_saphdb_segment(ptr noundef %0, ptr noundef %1, ptr noundef %87, i32 noundef %.22.i, i16 noundef signext %61, i16 noundef zeroext %.03.i, i1 noundef zeroext false)
-  %102 = add i32 %101, %.22.i
-  %103 = add i16 %.03.i, 1
+100:                                              ; preds = %.preheader.i
+  %101 = call fastcc i32 @dissect_saphdb_segment(ptr noundef %0, ptr noundef %1, ptr noundef %87, i32 noundef %.21.i, i16 noundef signext %61, i16 noundef zeroext %.02.i, i1 noundef zeroext false)
+  %102 = add i32 %101, %.21.i
+  %103 = add i16 %.02.i, 1
   %.not130.i = icmp ugt i16 %103, %61
-  br i1 %.not130.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not130.i, label %.critedge.i, label %.preheader.i, !llvm.loop !8
 
 104:                                              ; preds = %79
   %105 = sext i16 %61 to i32
   %106 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %63, ptr noundef nonnull @ei_saphdb_segments_number_incorrect, ptr noundef nonnull @.str.334, i32 noundef %105)
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %100, %.lr.ph.i, %104, %96, %88
-  %.3.i = phi i32 [ %90, %96 ], [ %90, %88 ], [ 32, %104 ], [ %.22.i, %.lr.ph.i ], [ %102, %100 ]
+.critedge.i:                                      ; preds = %100, %.preheader.i, %104, %96, %88
+  %.3.i = phi i32 [ %90, %96 ], [ %90, %88 ], [ 32, %104 ], [ %.21.i, %.preheader.i ], [ %102, %100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dissect_saphdb_message.exit
 

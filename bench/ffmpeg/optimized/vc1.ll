@@ -2224,19 +2224,19 @@ get_unary.exit:                                   ; preds = %.preheader, %236
   br i1 %exitcond.not.i309, label %.preheader.i, label %313, !llvm.loop !149
 
 .preheader.i:                                     ; preds = %313, %.preheader.i
-  %indvars.iv64.i = phi i64 [ %indvars.iv.next65.i, %.preheader.i ], [ 0, %313 ]
-  %319 = trunc i64 %indvars.iv64.i to i8
+  %indvars.iv61.i = phi i64 [ %indvars.iv.next62.i, %.preheader.i ], [ 0, %313 ]
+  %319 = trunc i64 %indvars.iv61.i to i8
   %320 = load ptr, ptr %311, align 8, !tbaa !147
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 256
-  %322 = getelementptr inbounds nuw i8, ptr %321, i64 %indvars.iv64.i
+  %322 = getelementptr inbounds nuw i8, ptr %321, i64 %indvars.iv61.i
   store i8 %319, ptr %322, align 1, !tbaa !11
   %323 = load ptr, ptr %312, align 8, !tbaa !148
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 256
-  %325 = getelementptr inbounds nuw i8, ptr %324, i64 %indvars.iv64.i
+  %325 = getelementptr inbounds nuw i8, ptr %324, i64 %indvars.iv61.i
   store i8 %319, ptr %325, align 1, !tbaa !11
-  %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
-  %exitcond67.not.i = icmp eq i64 %indvars.iv.next65.i, 256
-  br i1 %exitcond67.not.i, label %rotate_luts.exit, label %.preheader.i, !llvm.loop !150
+  %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
+  %exitcond64.not.i = icmp eq i64 %indvars.iv.next62.i, 256
+  br i1 %exitcond64.not.i, label %rotate_luts.exit, label %.preheader.i, !llvm.loop !150
 
 rotate_luts.exit:                                 ; preds = %.preheader.i
   %326 = getelementptr inbounds nuw i8, ptr %0, i64 10104
@@ -4684,19 +4684,19 @@ read_bfraction.exit.thread:                       ; preds = %283
   br i1 %exitcond.not.i910, label %.preheader.i, label %459, !llvm.loop !149
 
 .preheader.i:                                     ; preds = %459, %.preheader.i
-  %indvars.iv64.i = phi i64 [ %indvars.iv.next65.i, %.preheader.i ], [ 0, %459 ]
-  %465 = trunc i64 %indvars.iv64.i to i8
+  %indvars.iv61.i = phi i64 [ %indvars.iv.next62.i, %.preheader.i ], [ 0, %459 ]
+  %465 = trunc i64 %indvars.iv61.i to i8
   %466 = load ptr, ptr %457, align 8, !tbaa !147
   %467 = getelementptr inbounds nuw i8, ptr %466, i64 256
-  %468 = getelementptr inbounds nuw i8, ptr %467, i64 %indvars.iv64.i
+  %468 = getelementptr inbounds nuw i8, ptr %467, i64 %indvars.iv61.i
   store i8 %465, ptr %468, align 1, !tbaa !11
   %469 = load ptr, ptr %458, align 8, !tbaa !148
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 256
-  %471 = getelementptr inbounds nuw i8, ptr %470, i64 %indvars.iv64.i
+  %471 = getelementptr inbounds nuw i8, ptr %470, i64 %indvars.iv61.i
   store i8 %465, ptr %471, align 1, !tbaa !11
-  %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
-  %exitcond67.not.i = icmp eq i64 %indvars.iv.next65.i, 256
-  br i1 %exitcond67.not.i, label %rotate_luts.exit, label %.preheader.i, !llvm.loop !150
+  %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
+  %exitcond64.not.i = icmp eq i64 %indvars.iv.next62.i, 256
+  br i1 %exitcond64.not.i, label %rotate_luts.exit, label %.preheader.i, !llvm.loop !150
 
 rotate_luts.exit:                                 ; preds = %.preheader.i
   %472 = getelementptr inbounds nuw i8, ptr %0, i64 10104

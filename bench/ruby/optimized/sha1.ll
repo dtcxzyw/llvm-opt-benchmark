@@ -1131,20 +1131,20 @@ define noundef i32 @rb_Digest_SHA1_Finish(ptr noundef %0, ptr noundef writeonly 
   br label %5
 
 5:                                                ; preds = %2, %5
-  %.033 = phi i64 [ 0, %2 ], [ %16, %5 ]
-  %6 = icmp samesign ult i64 %.033, 4
+  %.025 = phi i64 [ 0, %2 ], [ %16, %5 ]
+  %6 = icmp samesign ult i64 %.025, 4
   %7 = zext i1 %6 to i64
   %8 = getelementptr inbounds nuw i32, ptr %4, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !6
-  %.0.tr = trunc nuw nsw i64 %.033 to i32
+  %.0.tr = trunc nuw nsw i64 %.025 to i32
   %10 = shl nuw nsw i32 %.0.tr, 3
   %11 = and i32 %10, 24
   %12 = xor i32 %11, 24
   %13 = lshr i32 %9, %12
   %14 = trunc i32 %13 to i8
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 %.033
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 %.025
   store i8 %14, ptr %15, align 1, !tbaa !12
-  %16 = add nuw nsw i64 %.033, 1
+  %16 = add nuw nsw i64 %.025, 1
   %exitcond.not = icmp eq i64 %16, 8
   br i1 %exitcond.not, label %17, label %5, !llvm.loop !13
 
@@ -1176,7 +1176,7 @@ define noundef i32 @rb_Digest_SHA1_Finish(ptr noundef %0, ptr noundef writeonly 
   tail call void @rb_Digest_SHA1_Transform(ptr noundef nonnull %0, ptr noundef nonnull %31)
   br label %rb_Digest_SHA1_Update.exit
 
-rb_Digest_SHA1_Update.exit:                       ; preds = %30, %25
+rb_Digest_SHA1_Update.exit:                       ; preds = %25, %30
   %.1.i = phi i64 [ 0, %25 ], [ 1, %30 ]
   %.0.i = phi i64 [ %28, %25 ], [ 0, %30 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1186,15 +1186,15 @@ rb_Digest_SHA1_Update.exit:                       ; preds = %30, %25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %34, ptr noundef nonnull readonly align 1 %35, i64 noundef %36, i1 noundef false) #7
   %37 = load i32, ptr %4, align 4, !tbaa !6
   %38 = and i32 %37, 504
-  %.not34 = icmp eq i32 %38, 448
-  br i1 %.not34, label %._crit_edge, label %.lr.ph
+  %.not26 = icmp eq i32 %38, 448
+  br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %rb_Digest_SHA1_Update.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %40
 
-40:                                               ; preds = %.lr.ph, %rb_Digest_SHA1_Update.exit25
-  %41 = phi i32 [ %37, %.lr.ph ], [ %57, %rb_Digest_SHA1_Update.exit25 ]
+40:                                               ; preds = %.lr.ph, %rb_Digest_SHA1_Update.exit21
+  %41 = phi i32 [ %37, %.lr.ph ], [ %57, %rb_Digest_SHA1_Update.exit21 ]
   %42 = add i32 %41, 8
   store i32 %42, ptr %4, align 4, !tbaa !6
   %43 = icmp ugt i32 %41, -9
@@ -1211,15 +1211,15 @@ rb_Digest_SHA1_Update.exit:                       ; preds = %30, %25
   %49 = and i32 %48, 63
   %50 = zext nneg i32 %49 to i64
   %51 = icmp eq i32 %49, 63
-  br i1 %51, label %52, label %rb_Digest_SHA1_Update.exit25
+  br i1 %51, label %52, label %rb_Digest_SHA1_Update.exit21
 
 52:                                               ; preds = %47
   %53 = getelementptr inbounds nuw i8, ptr %33, i64 %50
   store i8 0, ptr %53, align 1
   tail call void @rb_Digest_SHA1_Transform(ptr noundef nonnull %0, ptr noundef nonnull %33)
-  br label %rb_Digest_SHA1_Update.exit25
+  br label %rb_Digest_SHA1_Update.exit21
 
-rb_Digest_SHA1_Update.exit25:                     ; preds = %52, %47
+rb_Digest_SHA1_Update.exit21:                     ; preds = %47, %52
   %.1.i19 = phi i64 [ 0, %47 ], [ 1, %52 ]
   %.0.i20 = phi i64 [ %50, %47 ], [ 0, %52 ]
   %54 = getelementptr inbounds nuw i8, ptr %33, i64 %.0.i20
@@ -1231,21 +1231,21 @@ rb_Digest_SHA1_Update.exit25:                     ; preds = %52, %47
   %.not = icmp eq i32 %58, 448
   br i1 %.not, label %._crit_edge, label %40, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %rb_Digest_SHA1_Update.exit25, %rb_Digest_SHA1_Update.exit
-  %.lcssa = phi i32 [ %37, %rb_Digest_SHA1_Update.exit ], [ %57, %rb_Digest_SHA1_Update.exit25 ]
+._crit_edge:                                      ; preds = %rb_Digest_SHA1_Update.exit21, %rb_Digest_SHA1_Update.exit
+  %.lcssa = phi i32 [ %37, %rb_Digest_SHA1_Update.exit ], [ %57, %rb_Digest_SHA1_Update.exit21 ]
   %59 = add i32 %.lcssa, 64
   store i32 %59, ptr %4, align 4, !tbaa !6
   %60 = icmp ugt i32 %.lcssa, -65
-  br i1 %60, label %61, label %rb_Digest_SHA1_Update.exit32
+  br i1 %60, label %61, label %rb_Digest_SHA1_Update.exit24
 
 61:                                               ; preds = %._crit_edge
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %63 = load i32, ptr %62, align 4, !tbaa !6
   %64 = add i32 %63, 1
   store i32 %64, ptr %62, align 4, !tbaa !6
-  br label %rb_Digest_SHA1_Update.exit32
+  br label %rb_Digest_SHA1_Update.exit24
 
-rb_Digest_SHA1_Update.exit32:                     ; preds = %._crit_edge, %61
+rb_Digest_SHA1_Update.exit24:                     ; preds = %._crit_edge, %61
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %66 = load i64, ptr %3, align 8
   store i64 %66, ptr %65, align 1
@@ -1253,24 +1253,24 @@ rb_Digest_SHA1_Update.exit32:                     ; preds = %._crit_edge, %61
   %.not18 = icmp eq ptr %1, null
   br i1 %.not18, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %rb_Digest_SHA1_Update.exit32, %.preheader
-  %.135 = phi i64 [ %76, %.preheader ], [ 0, %rb_Digest_SHA1_Update.exit32 ]
-  %67 = lshr i64 %.135, 2
+.preheader:                                       ; preds = %rb_Digest_SHA1_Update.exit24, %.preheader
+  %.127 = phi i64 [ %76, %.preheader ], [ 0, %rb_Digest_SHA1_Update.exit24 ]
+  %67 = lshr i64 %.127, 2
   %68 = getelementptr inbounds nuw i32, ptr %0, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !6
-  %.1.tr = trunc nuw nsw i64 %.135 to i32
+  %.1.tr = trunc nuw nsw i64 %.127 to i32
   %70 = shl nuw nsw i32 %.1.tr, 3
   %71 = and i32 %70, 24
   %72 = xor i32 %71, 24
   %73 = lshr i32 %69, %72
   %74 = trunc i32 %73 to i8
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 %.135
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 %.127
   store i8 %74, ptr %75, align 1, !tbaa !12
-  %76 = add nuw nsw i64 %.135, 1
-  %exitcond37.not = icmp eq i64 %76, 20
-  br i1 %exitcond37.not, label %.loopexit, label %.preheader, !llvm.loop !15
+  %76 = add nuw nsw i64 %.127, 1
+  %exitcond29.not = icmp eq i64 %76, 20
+  br i1 %exitcond29.not, label %.loopexit, label %.preheader, !llvm.loop !15
 
-.loopexit:                                        ; preds = %.preheader, %rb_Digest_SHA1_Update.exit32
+.loopexit:                                        ; preds = %.preheader, %rb_Digest_SHA1_Update.exit24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 1
 }

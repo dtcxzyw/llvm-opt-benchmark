@@ -8784,7 +8784,6 @@ define void @Supp_DeriveDumpProb2(ptr noundef readonly captures(none) %0, ptr no
   %21 = getelementptr i8, ptr %1, i64 8
   %22 = getelementptr i8, ptr %0, i64 8
   %23 = zext nneg i32 %2 to i64
-  %smax68 = tail call i32 @llvm.smax.i32(i32 %17, i32 1)
   br i1 %20, label %.preheader.us.preheader, label %.preheader
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
@@ -8812,7 +8811,7 @@ define void @Supp_DeriveDumpProb2(ptr noundef readonly captures(none) %0, ptr no
   %.str.35.sink = phi ptr [ @.str.33, %._crit_edge.us ], [ %.str.35..str.34, %28 ]
   %34 = tail call i64 @fwrite(ptr nonnull %.str.35.sink, i64 3, i64 1, ptr %11)
   %35 = add nuw nsw i32 %.058.us, 1
-  %exitcond69.not = icmp eq i32 %35, %smax68
+  %exitcond69.not = icmp eq i32 %35, %17
   br i1 %exitcond69.not, label %._crit_edge59, label %.preheader.us, !llvm.loop !154
 
 36:                                               ; preds = %.preheader.us, %36
@@ -8866,7 +8865,7 @@ define void @Supp_DeriveDumpProb2(ptr noundef readonly captures(none) %0, ptr no
   %.str.33.sink = phi ptr [ %.str.35..str.3480, %57 ], [ @.str.33, %.preheader ]
   %63 = tail call i64 @fwrite(ptr nonnull %.str.33.sink, i64 3, i64 1, ptr %11)
   %64 = add nuw nsw i32 %.058, 1
-  %exitcond.not = icmp eq i32 %64, %smax68
+  %exitcond.not = icmp eq i32 %64, %17
   br i1 %exitcond.not, label %._crit_edge59, label %.preheader, !llvm.loop !154
 
 ._crit_edge59:                                    ; preds = %62, %33, %14

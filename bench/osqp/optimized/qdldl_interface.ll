@@ -1599,7 +1599,6 @@ _adj_perturb.exit:                                ; preds = %405, %.preheader.i
 
 .lr.ph:                                           ; preds = %.preheader227
   %467 = load ptr, ptr %6, align 8, !tbaa !61
-  %smax = tail call i64 @llvm.smax.i64(i64 %20, i64 1)
   br label %468
 
 468:                                              ; preds = %.lr.ph, %468
@@ -1611,7 +1610,7 @@ _adj_perturb.exit:                                ; preds = %405, %.preheader.i
   %473 = getelementptr inbounds nuw double, ptr %463, i64 %.0200233
   store double %472, ptr %473, align 8, !tbaa !63
   %474 = add nuw nsw i64 %.0200233, 1
-  %exitcond.not = icmp eq i64 %474, %smax
+  %exitcond.not = icmp eq i64 %474, %20
   br i1 %exitcond.not, label %.lr.ph236.preheader, label %468, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %.preheader227
@@ -1620,7 +1619,6 @@ _adj_perturb.exit:                                ; preds = %405, %.preheader.i
 
 .lr.ph236.preheader:                              ; preds = %468
   tail call void @QDLDL_solve(i64 noundef %20, ptr noundef nonnull %416, ptr noundef nonnull %452, ptr noundef nonnull %453, ptr noundef nonnull %418, ptr noundef nonnull %463) #12
-  %smax252 = tail call i64 @llvm.smax.i64(i64 %20, i64 1)
   br label %.lr.ph236
 
 .lr.ph236:                                        ; preds = %.lr.ph236.preheader, %.lr.ph236
@@ -1632,7 +1630,7 @@ _adj_perturb.exit:                                ; preds = %405, %.preheader.i
   %479 = getelementptr inbounds double, ptr %462, i64 %478
   store double %476, ptr %479, align 8, !tbaa !63
   %480 = add nuw nsw i64 %.1201234, 1
-  %exitcond253.not = icmp eq i64 %480, %smax252
+  %exitcond253.not = icmp eq i64 %480, %20
   br i1 %exitcond253.not, label %._crit_edge237, label %.lr.ph236, !llvm.loop !83
 
 ._crit_edge237:                                   ; preds = %.lr.ph236, %._crit_edge

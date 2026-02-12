@@ -7531,11 +7531,7 @@ define noundef double @_ZN3gmx21TestParticleInsertion15insertIntoFrameEdllNS_8Ar
   %29 = sub i64 %27, %28
   %30 = sdiv exact i64 %29, 12
   %31 = icmp sgt i64 %29, 0
-  br i1 %31, label %.lr.ph.preheader, label %._crit_edge
-
-.lr.ph.preheader:                                 ; preds = %10
-  %smax = tail call i64 @llvm.smax.i64(i64 %30, i64 1)
-  br label %.lr.ph
+  br i1 %31, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 52
@@ -7633,13 +7629,13 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEiEvT_S7_RKT0_.exit
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 544
   br label %111
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.06293 = phi i64 [ %110, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %10, %.lr.ph
+  %.06293 = phi i64 [ %110, %.lr.ph ], [ 0, %10 ]
   %108 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %4, i64 %.06293
   %109 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %20, i64 %.06293
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %109, ptr noundef nonnull align 4 dereferenceable(12) %108, i64 12, i1 false), !tbaa.struct !300
   %110 = add nuw nsw i64 %.06293, 1
-  %exitcond.not = icmp eq i64 %110, %smax
+  %exitcond.not = icmp eq i64 %110, %30
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !567
 
 111:                                              ; preds = %.lr.ph110, %371
@@ -11292,9 +11288,6 @@ declare i64 @llvm.umax.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #25
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #25

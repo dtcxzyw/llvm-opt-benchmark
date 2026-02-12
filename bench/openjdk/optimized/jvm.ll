@@ -14724,8 +14724,7 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread: ; preds = %135
 
 .lr.ph67.preheader:                               ; preds = %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit
   %storemerge.i.i89 = phi ptr [ null, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread ], [ %.0.i.i.i.i.i, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ]
-  %smax = call i32 @llvm.smax.i32(i32 %78, i32 1)
-  %wide.trip.count75 = zext nneg i32 %smax to i64
+  %wide.trip.count75 = zext nneg i32 %78 to i64
   br label %.lr.ph67
 
 .lr.ph67:                                         ; preds = %.lr.ph67.preheader, %173

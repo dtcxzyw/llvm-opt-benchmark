@@ -126,8 +126,7 @@ compare_index.exit:                               ; preds = %.lr.ph.i
   br i1 %64, label %.lr.ph.preheader, label %compare_index.exit.thread
 
 .lr.ph.preheader:                                 ; preds = %57, %compare_index.exit
-  %smax = tail call i32 @llvm.smax.i32(i32 %8, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %8 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %134
@@ -646,9 +645,6 @@ define void @Ptngc_comp_from_bwt(ptr noundef readonly captures(none) %0, i32 nou
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8

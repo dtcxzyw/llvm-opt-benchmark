@@ -21506,8 +21506,7 @@ _ZNK8LightGBM14LambdarankNDCG10GetSigmoidEd.exit: ; preds = %149, %109, %151
   %182 = fadd double %.1, 1.000000e+00
   %183 = tail call double @llvm.log2.f64(double %182), !tbaa !127
   %184 = fdiv double %183, %.1
-  %smax197 = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
-  %wide.trip.count198 = zext nneg i32 %smax197 to i64
+  %wide.trip.count198 = zext nneg i32 %2 to i64
   br label %.lr.ph173
 
 .lr.ph173:                                        ; preds = %.lr.ph173.preheader, %.lr.ph173

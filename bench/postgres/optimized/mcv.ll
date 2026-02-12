@@ -1020,10 +1020,8 @@ define dso_local ptr @statext_mcv_deserialize(ptr noundef readonly captures(addr
 
 .lr.ph376.us.preheader:                           ; preds = %.loopexit
   %231 = getelementptr inbounds nuw i8, ptr %227, i64 48
-  %smax431 = tail call i32 @llvm.smax.i32(i32 %77, i32 1)
-  %smax437 = tail call i32 @llvm.smax.i32(i32 %62, i32 1)
-  %wide.trip.count438 = zext nneg i32 %smax437 to i64
-  %wide.trip.count432 = zext nneg i32 %smax431 to i64
+  %wide.trip.count438 = zext nneg i32 %62 to i64
+  %wide.trip.count432 = zext nneg i32 %77 to i64
   br label %.lr.ph376.us
 
 .lr.ph376.us:                                     ; preds = %.lr.ph376.us.preheader, %._crit_edge377.us
@@ -1281,8 +1279,7 @@ fetch_att.exit:                                   ; preds = %273, %275, %277, %2
   br i1 %exitcond427.not, label %.lr.ph376.us.preheader, label %.lr.ph371, !llvm.loop !25
 
 .lr.ph385.preheader:                              ; preds = %._crit_edge377.us
-  %smax443 = tail call i32 @llvm.smax.i32(i32 %77, i32 1)
-  %wide.trip.count444 = zext nneg i32 %smax443 to i64
+  %wide.trip.count444 = zext nneg i32 %77 to i64
   br label %.lr.ph385
 
 .lr.ph385:                                        ; preds = %.lr.ph385.preheader, %.lr.ph385
@@ -3330,9 +3327,6 @@ declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #11
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

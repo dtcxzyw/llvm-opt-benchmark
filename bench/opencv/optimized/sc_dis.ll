@@ -3582,8 +3582,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i408: ; preds = %.noexc413
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %54 = load ptr, ptr %53, align 8
-  %smax = tail call i32 @llvm.smax.i32(i32 %23, i32 1)
-  %wide.trip.count1010 = zext nneg i32 %smax to i64
+  %wide.trip.count1010 = zext nneg i32 %23 to i64
   br label %89
 
 55:                                               ; preds = %.lr.ph894, %80

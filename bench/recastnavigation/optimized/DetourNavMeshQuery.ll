@@ -6597,8 +6597,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit197:   ; preds = %.preheader205, %276
   br i1 %.not184, label %.preheader.preheader, label %.preheader205, !llvm.loop !49
 
 .preheader.preheader:                             ; preds = %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit197
-  %smax = call i32 @llvm.smax.i32(i32 %8, i32 1)
-  %286 = add nsw i32 %smax, -1
+  %286 = add nsw i32 %8, -1
   %wide.trip.count272 = zext nneg i32 %286 to i64
   br label %.preheader
 
@@ -6636,7 +6635,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit197:   ; preds = %.preheader205, %276
   %.sroa.4.1307 = phi float [ %.sroa.4.2.lcssa, %.loopexit211 ], [ %.sroa.4.1306, %.loopexit.loopexit.split.loop.exit ], [ %.sroa.4.1306, %.preheader ]
   %.sroa.8.1305 = phi float [ %.sroa.8.2.lcssa, %.loopexit211 ], [ %.sroa.8.1304, %.loopexit.loopexit.split.loop.exit ], [ %.sroa.8.1304, %.preheader ]
   %.0141 = phi i32 [ 1073741824, %.loopexit211 ], [ 1073741824, %.loopexit.loopexit.split.loop.exit ], [ 1073741840, %.preheader ]
-  %.0139 = phi i32 [ 0, %.loopexit211 ], [ %299, %.loopexit.loopexit.split.loop.exit ], [ %smax, %.preheader ]
+  %.0139 = phi i32 [ 0, %.loopexit211 ], [ %299, %.loopexit.loopexit.split.loop.exit ], [ %8, %.preheader ]
   store float %.sroa.0.1309, ptr %5, align 4
   %300 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float %.sroa.4.1307, ptr %300, align 4
@@ -9619,9 +9618,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #19
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

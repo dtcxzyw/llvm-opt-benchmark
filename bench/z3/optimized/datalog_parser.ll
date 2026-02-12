@@ -19567,7 +19567,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i.i92
 
 ._crit_edge.i.i.i91:                              ; preds = %.noexc97, %200
   %210 = phi ptr [ %209, %.noexc97 ], [ %202, %200 ]
-  %cond = icmp eq i64 %spec.select.i.i.i90, 1
+  %cond = icmp eq i64 %201, 1
   br i1 %cond, label %211, label %213
 
 211:                                              ; preds = %._crit_edge.i.i.i91

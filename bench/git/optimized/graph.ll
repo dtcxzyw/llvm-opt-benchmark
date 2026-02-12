@@ -546,7 +546,7 @@ graph_ensure_capacity.exit.i:                     ; preds = %st_mult.exit24.i.i,
   br i1 %108, label %104, label %._crit_edge.i, !llvm.loop !105
 
 ._crit_edge.i:                                    ; preds = %104, %graph_ensure_capacity.exit.i
-  %.pr151.i = phi i32 [ %99, %graph_ensure_capacity.exit.i ], [ %106, %104 ]
+  %.pr150.i = phi i32 [ %99, %graph_ensure_capacity.exit.i ], [ %106, %104 ]
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %109, align 4, !tbaa !106
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -555,36 +555,36 @@ graph_ensure_capacity.exit.i:                     ; preds = %st_mult.exit24.i.i,
   store i32 %111, ptr %112, align 4, !tbaa !108
   store i32 0, ptr %110, align 8, !tbaa !107
   %113 = load i32, ptr %63, align 4, !tbaa !81
-  %.not126.i = icmp slt i32 %113, 0
-  br i1 %.not126.i, label %._crit_edge133.i, label %.lr.ph132.i
+  %.not125.i = icmp slt i32 %113, 0
+  br i1 %.not125.i, label %._crit_edge132.i, label %.lr.ph131.i
 
-.lr.ph132.i:                                      ; preds = %._crit_edge.i
+.lr.ph131.i:                                      ; preds = %._crit_edge.i
   %114 = getelementptr i8, ptr %0, i64 8
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 44
   br label %118
 
-118:                                              ; preds = %303, %.lr.ph132.i
-  %indvars.iv146.i = phi i64 [ 0, %.lr.ph132.i ], [ %indvars.iv.next147.i, %303 ]
-  %119 = phi i32 [ %113, %.lr.ph132.i ], [ %304, %303 ]
-  %.061128.i = phi i32 [ 0, %.lr.ph132.i ], [ %.162.ph.i, %303 ]
-  %.063127.i = phi i32 [ 1, %.lr.ph132.i ], [ %.265.i, %303 ]
+118:                                              ; preds = %303, %.lr.ph131.i
+  %indvars.iv145.i = phi i64 [ 0, %.lr.ph131.i ], [ %indvars.iv.next146.i, %303 ]
+  %119 = phi i32 [ %113, %.lr.ph131.i ], [ %304, %303 ]
+  %.061127.i = phi i32 [ 0, %.lr.ph131.i ], [ %.162.ph.i, %303 ]
+  %.063126.i = phi i32 [ 1, %.lr.ph131.i ], [ %.265.i, %303 ]
   %120 = zext i32 %119 to i64
-  %121 = icmp eq i64 %indvars.iv146.i, %120
+  %121 = icmp eq i64 %indvars.iv145.i, %120
   br i1 %121, label %122, label %123
 
 122:                                              ; preds = %118
-  %.not68.i = icmp eq i32 %.061128.i, 0
-  br i1 %.not68.i, label %126, label %._crit_edge133.loopexit.i
+  %.not68.i = icmp eq i32 %.061127.i, 0
+  br i1 %.not68.i, label %126, label %._crit_edge132.loopexit.i
 
 123:                                              ; preds = %118
   %124 = load ptr, ptr %58, align 8, !tbaa !86
-  %125 = getelementptr inbounds nuw %struct.column, ptr %124, i64 %indvars.iv146.i
+  %125 = getelementptr inbounds nuw %struct.column, ptr %124, i64 %indvars.iv145.i
   br label %126
 
 126:                                              ; preds = %123, %122
-  %.265.i = phi i32 [ %.063127.i, %123 ], [ 0, %122 ]
+  %.265.i = phi i32 [ %.063126.i, %123 ], [ 0, %122 ]
   %.058.in.i = phi ptr [ %125, %123 ], [ %0, %122 ]
   %.058.i = load ptr, ptr %.058.in.i, align 8, !tbaa !109
   %127 = load ptr, ptr %0, align 8, !tbaa !74
@@ -592,13 +592,13 @@ graph_ensure_capacity.exit.i:                     ; preds = %st_mult.exit24.i.i,
   br i1 %128, label %129, label %257
 
 129:                                              ; preds = %126
-  %130 = trunc nuw nsw i64 %indvars.iv146.i to i32
+  %130 = trunc nuw nsw i64 %indvars.iv145.i to i32
   store i32 %130, ptr %55, align 4, !tbaa !102
   store i32 -1, ptr %117, align 4, !tbaa !110
   %131 = getelementptr inbounds nuw i8, ptr %127, i64 48
   %132 = load ptr, ptr %131, align 8, !tbaa !92
   %.not.i70.i = icmp eq ptr %132, null
-  br i1 %.not.i70.i, label %._crit_edge125.i, label %133
+  br i1 %.not.i70.i, label %._crit_edge124.i, label %133
 
 133:                                              ; preds = %129
   %134 = load ptr, ptr %132, align 8, !tbaa !97
@@ -617,12 +617,12 @@ graph_ensure_capacity.exit.i:                     ; preds = %st_mult.exit24.i.i,
   %140 = load i32, ptr %134, align 8
   %141 = and i32 %140, 1024
   %.not7.i.i.i30 = icmp eq i32 %141, 0
-  br i1 %.not7.i.i.i30, label %graph_is_interesting.exit.i.i35, label %.lr.ph124.i
+  br i1 %.not7.i.i.i30, label %graph_is_interesting.exit.i.i35, label %.lr.ph123.i
 
 graph_is_interesting.exit.i.i35:                  ; preds = %139, %135, %133
   %142 = tail call i32 @get_commit_action(ptr noundef %.val.i.i27, ptr noundef %134) #15
   %.not14.i.i = icmp eq i32 %142, 1
-  br i1 %.not14.i.i, label %.lr.ph124.i, label %143
+  br i1 %.not14.i.i, label %.lr.ph123.i, label %143
 
 143:                                              ; preds = %graph_is_interesting.exit.i.i35
   %144 = load ptr, ptr %114, align 8, !tbaa !79
@@ -630,14 +630,14 @@ graph_is_interesting.exit.i.i35:                  ; preds = %139, %135, %133
   %146 = load i64, ptr %145, align 8
   %147 = and i64 %146, 274877906944
   %.not.i10.i.i = icmp eq i64 %147, 0
-  br i1 %.not.i10.i.i, label %.preheader.i.i.i, label %._crit_edge125.i
+  br i1 %.not.i10.i.i, label %.preheader.i.i.i, label %._crit_edge124.i
 
 .preheader.i.i.i:                                 ; preds = %143, %graph_is_interesting.exit.i.i.i
   %.pn.i.i.i = phi ptr [ %.0.i11.i.i, %graph_is_interesting.exit.i.i.i ], [ %132, %143 ]
   %.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 8
   %.0.i11.i.i = load ptr, ptr %.0.in.i.i.i, align 8, !tbaa !99
   %.not9.i.i.i = icmp eq ptr %.0.i11.i.i, null
-  br i1 %.not9.i.i.i, label %._crit_edge125.i, label %148
+  br i1 %.not9.i.i.i, label %._crit_edge124.i, label %148
 
 148:                                              ; preds = %.preheader.i.i.i
   %149 = load ptr, ptr %.0.i11.i.i, align 8, !tbaa !97
@@ -656,20 +656,20 @@ graph_is_interesting.exit.i.i35:                  ; preds = %139, %135, %133
   %155 = load i32, ptr %149, align 8
   %156 = and i32 %155, 1024
   %.not7.i.i.i.i = icmp eq i32 %156, 0
-  br i1 %.not7.i.i.i.i, label %graph_is_interesting.exit.i.i.i, label %.lr.ph124.i
+  br i1 %.not7.i.i.i.i, label %graph_is_interesting.exit.i.i.i, label %.lr.ph123.i
 
 graph_is_interesting.exit.i.i.i:                  ; preds = %154, %150, %148
   %157 = tail call i32 @get_commit_action(ptr noundef %.val.i.i.i, ptr noundef %149) #15
   %.not13.i.i.i = icmp eq i32 %157, 1
-  br i1 %.not13.i.i.i, label %.lr.ph124.i, label %.preheader.i.i.i, !llvm.loop !100
+  br i1 %.not13.i.i.i, label %.lr.ph123.i, label %.preheader.i.i.i, !llvm.loop !100
 
-.lr.ph124.i:                                      ; preds = %graph_is_interesting.exit.i.i.i, %154, %graph_is_interesting.exit.i.i35, %139
+.lr.ph123.i:                                      ; preds = %graph_is_interesting.exit.i.i.i, %154, %graph_is_interesting.exit.i.i35, %139
   %.0.i.ph.i = phi ptr [ %132, %graph_is_interesting.exit.i.i35 ], [ %132, %139 ], [ %.0.i11.i.i, %154 ], [ %.0.i11.i.i, %graph_is_interesting.exit.i.i.i ]
   %158 = icmp ne i32 %.265.i, 0
   br label %159
 
-159:                                              ; preds = %next_interesting_parent.exit.i, %.lr.ph124.i
-  %.059123.i = phi ptr [ %.0.i.ph.i, %.lr.ph124.i ], [ %.0.i75.i, %next_interesting_parent.exit.i ]
+159:                                              ; preds = %next_interesting_parent.exit.i, %.lr.ph123.i
+  %.059122.i = phi ptr [ %.0.i.ph.i, %.lr.ph123.i ], [ %.0.i75.i, %next_interesting_parent.exit.i ]
   %160 = load i32, ptr %3, align 8, !tbaa !80
   %161 = icmp slt i32 %160, 2
   %or.cond.i = select i1 %161, i1 %158, i1 false
@@ -687,7 +687,7 @@ graph_is_interesting.exit.i.i.i:                  ; preds = %154, %150, %148
   br label %170
 
 170:                                              ; preds = %162, %159
-  %171 = load ptr, ptr %.059123.i, align 8, !tbaa !97
+  %171 = load ptr, ptr %.059122.i, align 8, !tbaa !97
   %172 = load i32, ptr %61, align 8, !tbaa !82
   %173 = icmp sgt i32 %172, 0
   %174 = load ptr, ptr %59, align 8, !tbaa !87
@@ -752,11 +752,11 @@ graph_find_new_column_by_commit.exit.thread.i.i:  ; preds = %179, %170
   %.not.i.i.i71.i = icmp eq i32 %197, 0
   %.0.in.i.i.i.i = select i1 %.not.i.i.i71.i, ptr @column_colors_max, ptr %115
   %.pre54.i.i = load ptr, ptr %59, align 8, !tbaa !87
-  %.pre149.pre.i = load i32, ptr %3, align 8, !tbaa !80
+  %.pre148.pre.i = load i32, ptr %3, align 8, !tbaa !80
   br label %graph_find_commit_color.exit.i.i
 
 graph_find_commit_color.exit.i.i:                 ; preds = %._crit_edge.i.i.i, %192
-  %.pre149.i = phi i32 [ %160, %192 ], [ %.pre149.pre.i, %._crit_edge.i.i.i ]
+  %.pre148.i = phi i32 [ %160, %192 ], [ %.pre148.pre.i, %._crit_edge.i.i.i ]
   %198 = phi ptr [ %174, %192 ], [ %.pre54.i.i, %._crit_edge.i.i.i ]
   %.09.in.i.i.i = phi ptr [ %193, %192 ], [ %.0.in.i.i.i.i, %._crit_edge.i.i.i ]
   %.09.i.i.i = load i16, ptr %.09.in.i.i.i, align 2, !tbaa !9
@@ -766,7 +766,7 @@ graph_find_commit_color.exit.i.i:                 ; preds = %._crit_edge.i.i.i, 
   br label %201
 
 201:                                              ; preds = %graph_find_commit_color.exit.i.i, %graph_find_new_column_by_commit.exit.i.i
-  %202 = phi i32 [ %.pre149.i, %graph_find_commit_color.exit.i.i ], [ %160, %graph_find_new_column_by_commit.exit.i.i ]
+  %202 = phi i32 [ %.pre148.i, %graph_find_commit_color.exit.i.i ], [ %160, %graph_find_new_column_by_commit.exit.i.i ]
   %.0.i72.i = phi i32 [ %172, %graph_find_commit_color.exit.i.i ], [ %180, %graph_find_new_column_by_commit.exit.i.i ]
   %203 = icmp sgt i32 %202, 1
   br i1 %203, label %204, label %220
@@ -836,14 +836,14 @@ graph_insert_into_new_columns.exit.i:             ; preds = %232, %231, %207
   %240 = load i64, ptr %239, align 8
   %241 = and i64 %240, 274877906944
   %.not.i73.i = icmp eq i64 %241, 0
-  br i1 %.not.i73.i, label %.preheader.i74.i, label %._crit_edge125.i
+  br i1 %.not.i73.i, label %.preheader.i74.i, label %._crit_edge124.i
 
 .preheader.i74.i:                                 ; preds = %graph_insert_into_new_columns.exit.i, %graph_is_interesting.exit.i80.i
-  %.pn.i.i31 = phi ptr [ %.0.i75.i, %graph_is_interesting.exit.i80.i ], [ %.059123.i, %graph_insert_into_new_columns.exit.i ]
+  %.pn.i.i31 = phi ptr [ %.0.i75.i, %graph_is_interesting.exit.i80.i ], [ %.059122.i, %graph_insert_into_new_columns.exit.i ]
   %.0.in.i.i32 = getelementptr inbounds nuw i8, ptr %.pn.i.i31, i64 8
   %.0.i75.i = load ptr, ptr %.0.in.i.i32, align 8, !tbaa !99
   %.not9.i.i33 = icmp eq ptr %.0.i75.i, null
-  br i1 %.not9.i.i33, label %._crit_edge125.i, label %242
+  br i1 %.not9.i.i33, label %._crit_edge124.i, label %242
 
 242:                                              ; preds = %.preheader.i74.i
   %243 = load ptr, ptr %.0.i75.i, align 8, !tbaa !97
@@ -872,12 +872,12 @@ graph_is_interesting.exit.i80.i:                  ; preds = %248, %244, %242
 next_interesting_parent.exit.i:                   ; preds = %graph_is_interesting.exit.i80.i, %248
   br label %159, !llvm.loop !117
 
-._crit_edge125.i:                                 ; preds = %.preheader.i.i.i, %graph_insert_into_new_columns.exit.i, %.preheader.i74.i, %143, %129
+._crit_edge124.i:                                 ; preds = %.preheader.i.i.i, %graph_insert_into_new_columns.exit.i, %.preheader.i74.i, %143, %129
   %252 = load i32, ptr %3, align 8, !tbaa !80
   %253 = icmp eq i32 %252, 0
   br i1 %253, label %254, label %303
 
-254:                                              ; preds = %._crit_edge125.i
+254:                                              ; preds = %._crit_edge124.i
   %255 = load i32, ptr %109, align 4, !tbaa !106
   %256 = add nsw i32 %255, 2
   store i32 %256, ptr %109, align 4, !tbaa !106
@@ -887,26 +887,26 @@ next_interesting_parent.exit.i:                   ; preds = %graph_is_interestin
   %258 = load i32, ptr %61, align 8, !tbaa !82
   %259 = icmp sgt i32 %258, 0
   %260 = load ptr, ptr %59, align 8, !tbaa !87
-  br i1 %259, label %.lr.ph.i.i102.i, label %graph_find_new_column_by_commit.exit.thread.i81.i
+  br i1 %259, label %.lr.ph.i.i101.i, label %graph_find_new_column_by_commit.exit.thread.i81.i
 
-.lr.ph.i.i102.i:                                  ; preds = %257
-  %wide.trip.count.i.i103.i = zext nneg i32 %258 to i64
+.lr.ph.i.i101.i:                                  ; preds = %257
+  %wide.trip.count.i.i102.i = zext nneg i32 %258 to i64
   br label %261
 
-261:                                              ; preds = %265, %.lr.ph.i.i102.i
-  %indvars.iv.i.i104.i = phi i64 [ 0, %.lr.ph.i.i102.i ], [ %indvars.iv.next.i.i105.i, %265 ]
-  %262 = getelementptr inbounds nuw %struct.column, ptr %260, i64 %indvars.iv.i.i104.i
+261:                                              ; preds = %265, %.lr.ph.i.i101.i
+  %indvars.iv.i.i103.i = phi i64 [ 0, %.lr.ph.i.i101.i ], [ %indvars.iv.next.i.i104.i, %265 ]
+  %262 = getelementptr inbounds nuw %struct.column, ptr %260, i64 %indvars.iv.i.i103.i
   %263 = load ptr, ptr %262, align 8, !tbaa !111
   %264 = icmp eq ptr %263, %.058.i
-  br i1 %264, label %graph_find_new_column_by_commit.exit.i107.i, label %265
+  br i1 %264, label %graph_find_new_column_by_commit.exit.i106.i, label %265
 
 265:                                              ; preds = %261
-  %indvars.iv.next.i.i105.i = add nuw nsw i64 %indvars.iv.i.i104.i, 1
-  %exitcond.not.i.i106.i = icmp eq i64 %indvars.iv.next.i.i105.i, %wide.trip.count.i.i103.i
-  br i1 %exitcond.not.i.i106.i, label %graph_find_new_column_by_commit.exit.thread.i81.i, label %261, !llvm.loop !113
+  %indvars.iv.next.i.i104.i = add nuw nsw i64 %indvars.iv.i.i103.i, 1
+  %exitcond.not.i.i105.i = icmp eq i64 %indvars.iv.next.i.i104.i, %wide.trip.count.i.i102.i
+  br i1 %exitcond.not.i.i105.i, label %graph_find_new_column_by_commit.exit.thread.i81.i, label %261, !llvm.loop !113
 
-graph_find_new_column_by_commit.exit.i107.i:      ; preds = %261
-  %266 = trunc nuw nsw i64 %indvars.iv.i.i104.i to i32
+graph_find_new_column_by_commit.exit.i106.i:      ; preds = %261
+  %266 = trunc nuw nsw i64 %indvars.iv.i.i103.i to i32
   br label %286
 
 graph_find_new_column_by_commit.exit.thread.i81.i: ; preds = %265, %257
@@ -916,20 +916,20 @@ graph_find_new_column_by_commit.exit.thread.i81.i: ; preds = %265, %257
   %269 = getelementptr inbounds %struct.column, ptr %260, i64 %268
   store ptr %.058.i, ptr %269, align 8, !tbaa !111
   %270 = icmp sgt i32 %119, 0
-  br i1 %270, label %.lr.ph.i42.i97.i, label %._crit_edge.i.i82.i
+  br i1 %270, label %.lr.ph.i42.i96.i, label %._crit_edge.i.i82.i
 
-.lr.ph.i42.i97.i:                                 ; preds = %graph_find_new_column_by_commit.exit.thread.i81.i
+.lr.ph.i42.i96.i:                                 ; preds = %graph_find_new_column_by_commit.exit.thread.i81.i
   %271 = load ptr, ptr %58, align 8, !tbaa !86
   br label %273
 
 272:                                              ; preds = %273
-  %indvars.iv.next.i45.i100.i = add nuw nsw i64 %indvars.iv.i44.i99.i, 1
-  %exitcond.not.i46.i101.i = icmp eq i64 %indvars.iv.next.i45.i100.i, %120
-  br i1 %exitcond.not.i46.i101.i, label %._crit_edge.i.i82.i, label %273, !llvm.loop !114
+  %indvars.iv.next.i45.i99.i = add nuw nsw i64 %indvars.iv.i44.i98.i, 1
+  %exitcond.not.i46.i100.i = icmp eq i64 %indvars.iv.next.i45.i99.i, %120
+  br i1 %exitcond.not.i46.i100.i, label %._crit_edge.i.i82.i, label %273, !llvm.loop !114
 
-273:                                              ; preds = %272, %.lr.ph.i42.i97.i
-  %indvars.iv.i44.i99.i = phi i64 [ 0, %.lr.ph.i42.i97.i ], [ %indvars.iv.next.i45.i100.i, %272 ]
-  %274 = getelementptr inbounds nuw %struct.column, ptr %271, i64 %indvars.iv.i44.i99.i
+273:                                              ; preds = %272, %.lr.ph.i42.i96.i
+  %indvars.iv.i44.i98.i = phi i64 [ 0, %.lr.ph.i42.i96.i ], [ %indvars.iv.next.i45.i99.i, %272 ]
+  %274 = getelementptr inbounds nuw %struct.column, ptr %271, i64 %indvars.iv.i44.i98.i
   %275 = load ptr, ptr %274, align 8, !tbaa !111
   %276 = icmp eq ptr %275, %.058.i
   br i1 %276, label %277, label %272
@@ -957,14 +957,14 @@ graph_find_commit_color.exit.i86.i:               ; preds = %._crit_edge.i.i82.i
   store i16 %.09.i.i88.i, ptr %285, align 8, !tbaa !116
   br label %286
 
-286:                                              ; preds = %graph_find_commit_color.exit.i86.i, %graph_find_new_column_by_commit.exit.i107.i
-  %.0.i89.i = phi i32 [ %258, %graph_find_commit_color.exit.i86.i ], [ %266, %graph_find_new_column_by_commit.exit.i107.i ]
+286:                                              ; preds = %graph_find_commit_color.exit.i86.i, %graph_find_new_column_by_commit.exit.i106.i
+  %.0.i89.i = phi i32 [ %258, %graph_find_commit_color.exit.i86.i ], [ %266, %graph_find_new_column_by_commit.exit.i106.i ]
   %287 = load i32, ptr %110, align 8, !tbaa !107
   %288 = icmp sgt i32 %287, 0
-  br i1 %288, label %289, label %._crit_edge.i91.i
+  br i1 %288, label %289, label %._crit_edge.i90.i
 
-._crit_edge.i91.i:                                ; preds = %286
-  %.pre56.i93.i = load i32, ptr %109, align 4, !tbaa !106
+._crit_edge.i90.i:                                ; preds = %286
+  %.pre56.i92.i = load i32, ptr %109, align 4, !tbaa !106
   %.pre.pre.i = load ptr, ptr %116, align 8, !tbaa !88
   br label %298
 
@@ -980,49 +980,49 @@ graph_find_commit_color.exit.i86.i:               ; preds = %._crit_edge.i.i82.i
 
 297:                                              ; preds = %289
   store i32 -1, ptr %110, align 8, !tbaa !107
-  br label %graph_insert_into_new_columns.exit108.i
+  br label %graph_insert_into_new_columns.exit107.i
 
-298:                                              ; preds = %289, %._crit_edge.i91.i
-  %.pre.i = phi ptr [ %.pre.pre.i, %._crit_edge.i91.i ], [ %290, %289 ]
-  %299 = phi i32 [ %.pre56.i93.i, %._crit_edge.i91.i ], [ %291, %289 ]
+298:                                              ; preds = %289, %._crit_edge.i90.i
+  %.pre.i = phi ptr [ %.pre.pre.i, %._crit_edge.i90.i ], [ %290, %289 ]
+  %299 = phi i32 [ %.pre56.i92.i, %._crit_edge.i90.i ], [ %291, %289 ]
   %300 = add nsw i32 %299, 2
   store i32 %300, ptr %109, align 4, !tbaa !106
-  %.pre154.i = sext i32 %299 to i64
-  br label %graph_insert_into_new_columns.exit108.i
+  %.pre153.i = sext i32 %299 to i64
+  br label %graph_insert_into_new_columns.exit107.i
 
-graph_insert_into_new_columns.exit108.i:          ; preds = %298, %297
-  %.pre-phi.i = phi i64 [ %293, %297 ], [ %.pre154.i, %298 ]
+graph_insert_into_new_columns.exit107.i:          ; preds = %298, %297
+  %.pre-phi.i = phi i64 [ %293, %297 ], [ %.pre153.i, %298 ]
   %301 = phi ptr [ %290, %297 ], [ %.pre.i, %298 ]
   %302 = getelementptr inbounds i32, ptr %301, i64 %.pre-phi.i
   store i32 %.0.i89.i, ptr %302, align 4, !tbaa !69
   br label %303
 
-303:                                              ; preds = %graph_insert_into_new_columns.exit108.i, %254, %._crit_edge125.i
-  %.162.ph.i = phi i32 [ %.061128.i, %graph_insert_into_new_columns.exit108.i ], [ 1, %._crit_edge125.i ], [ 1, %254 ]
-  %indvars.iv.next147.i = add nuw nsw i64 %indvars.iv146.i, 1
+303:                                              ; preds = %graph_insert_into_new_columns.exit107.i, %254, %._crit_edge124.i
+  %.162.ph.i = phi i32 [ %.061127.i, %graph_insert_into_new_columns.exit107.i ], [ 1, %._crit_edge124.i ], [ 1, %254 ]
+  %indvars.iv.next146.i = add nuw nsw i64 %indvars.iv145.i, 1
   %304 = load i32, ptr %63, align 4, !tbaa !81
   %305 = sext i32 %304 to i64
-  %.not.not.i = icmp slt i64 %indvars.iv146.i, %305
-  br i1 %.not.not.i, label %118, label %._crit_edge133.loopexit.i, !llvm.loop !118
+  %.not.not.i = icmp slt i64 %indvars.iv145.i, %305
+  br i1 %.not.not.i, label %118, label %._crit_edge132.loopexit.i, !llvm.loop !118
 
-._crit_edge133.loopexit.i:                        ; preds = %303, %122
+._crit_edge132.loopexit.i:                        ; preds = %303, %122
   %306 = phi i32 [ %304, %303 ], [ %119, %122 ]
   %.pr.pre.i = load i32, ptr %100, align 4, !tbaa !83
-  br label %._crit_edge133.i
+  br label %._crit_edge132.i
 
-._crit_edge133.i:                                 ; preds = %._crit_edge133.loopexit.i, %._crit_edge.i
-  %307 = phi i32 [ %306, %._crit_edge133.loopexit.i ], [ %113, %._crit_edge.i ]
-  %.pr.i = phi i32 [ %.pr.pre.i, %._crit_edge133.loopexit.i ], [ %.pr151.i, %._crit_edge.i ]
+._crit_edge132.i:                                 ; preds = %._crit_edge132.loopexit.i, %._crit_edge.i
+  %307 = phi i32 [ %306, %._crit_edge132.loopexit.i ], [ %113, %._crit_edge.i ]
+  %.pr.i = phi i32 [ %.pr.pre.i, %._crit_edge132.loopexit.i ], [ %.pr150.i, %._crit_edge.i ]
   %308 = icmp sgt i32 %.pr.i, 1
-  br i1 %308, label %.lr.ph136.i, label %graph_update_columns.exit
+  br i1 %308, label %.lr.ph135.i, label %graph_update_columns.exit
 
-.lr.ph136.i:                                      ; preds = %._crit_edge133.i
+.lr.ph135.i:                                      ; preds = %._crit_edge132.i
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %310 = load ptr, ptr %309, align 8, !tbaa !88
   br label %311
 
-311:                                              ; preds = %318, %.lr.ph136.i
-  %312 = phi i32 [ %.pr.i, %.lr.ph136.i ], [ %319, %318 ]
+311:                                              ; preds = %318, %.lr.ph135.i
+  %312 = phi i32 [ %.pr.i, %.lr.ph135.i ], [ %319, %318 ]
   %313 = zext nneg i32 %312 to i64
   %314 = getelementptr i32, ptr %310, i64 %313
   %315 = getelementptr i8, ptr %314, i64 -4
@@ -1036,7 +1036,7 @@ graph_insert_into_new_columns.exit108.i:          ; preds = %298, %297
   %320 = icmp sgt i32 %312, 2
   br i1 %320, label %311, label %graph_update_columns.exit, !llvm.loop !119
 
-graph_update_columns.exit:                        ; preds = %311, %318, %._crit_edge133.i
+graph_update_columns.exit:                        ; preds = %311, %318, %._crit_edge132.i
   %321 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %321, align 8, !tbaa !120
   %322 = getelementptr inbounds nuw i8, ptr %0, i64 28

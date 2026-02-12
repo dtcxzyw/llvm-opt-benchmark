@@ -5188,8 +5188,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_writeImage(
 
 .lr.ph441:                                        ; preds = %67
   %68 = zext nneg i32 %6 to i64
-  %smax484 = call i32 @llvm.smax.i32(i32 %6, i32 1)
-  %wide.trip.count485 = zext nneg i32 %smax484 to i64
+  %wide.trip.count485 = zext nneg i32 %6 to i64
   br label %76
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %67
@@ -5414,8 +5413,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_writeImage(
 
 .lr.ph443:                                        ; preds = %147
   %176 = getelementptr inbounds nuw i8, ptr %112, i64 88
-  %smax499 = call i32 @llvm.smax.i32(i32 %6, i32 1)
-  %wide.trip.count500 = zext nneg i32 %smax499 to i64
+  %wide.trip.count500 = zext nneg i32 %6 to i64
   br label %177
 
 177:                                              ; preds = %.lr.ph443, %177
@@ -5665,9 +5663,8 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_writeImage(
   %304 = getelementptr inbounds nuw i8, ptr %31, i64 80
   %.not420 = icmp eq ptr %.2, null
   %305 = sext i32 %302 to i64
-  %smax511 = call i32 @llvm.smax.i32(i32 %6, i32 1)
-  %wide.trip.count512 = zext nneg i32 %smax511 to i64
-  %wide.trip.count517 = zext nneg i32 %smax511 to i64
+  %wide.trip.count512 = zext nneg i32 %6 to i64
+  %wide.trip.count517 = zext nneg i32 %6 to i64
   br label %306
 
 306:                                              ; preds = %.lr.ph465, %._crit_edge455

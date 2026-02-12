@@ -7209,8 +7209,7 @@ Vec_IntPush.exit125.i:                            ; preds = %200, %Vec_IntGrow.e
   br label %.lr.ph
 
 .lr.ph158.preheader:                              ; preds = %258
-  %smax = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
-  %wide.trip.count218 = zext nneg i32 %smax to i64
+  %wide.trip.count218 = zext nneg i32 %2 to i64
   %wide.trip.count213 = zext nneg i32 %2 to i64
   br label %.lr.ph158
 
@@ -7270,8 +7269,7 @@ Vec_IntPush.exit:                                 ; preds = %241, %Vec_IntGrow.e
   br i1 %exitcond219.not, label %.lr.ph160.preheader, label %.lr.ph158, !llvm.loop !203
 
 .lr.ph160.preheader:                              ; preds = %.loopexit133
-  %smax223 = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
-  %wide.trip.count224 = zext nneg i32 %smax223 to i64
+  %wide.trip.count224 = zext nneg i32 %2 to i64
   br label %.lr.ph160
 
 .lr.ph158:                                        ; preds = %.lr.ph158.preheader, %.loopexit133
@@ -7408,8 +7406,7 @@ Vec_IntPush.exit125:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond214.not, label %.loopexit133, label %262, !llvm.loop !204
 
 .lr.ph162.preheader:                              ; preds = %.lr.ph160
-  %smax229 = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
-  %wide.trip.count230 = zext nneg i32 %smax229 to i64
+  %wide.trip.count230 = zext nneg i32 %2 to i64
   br label %.lr.ph162
 
 .lr.ph160:                                        ; preds = %.lr.ph160.preheader, %.lr.ph160

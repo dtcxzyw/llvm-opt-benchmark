@@ -80,11 +80,10 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
   br label %.preheader306.us.preheader
 
 .preheader306.us.preheader:                       ; preds = %34, %._crit_edge
-  %smax = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
   %smax419 = tail call i32 @llvm.smax.i32(i32 %15, i32 0)
   %39 = add nuw i32 %smax419, 1
   %wide.trip.count420 = zext i32 %39 to i64
-  %wide.trip.count414 = zext nneg i32 %smax to i64
+  %wide.trip.count414 = zext nneg i32 %3 to i64
   br label %.preheader306.us
 
 .preheader306.us:                                 ; preds = %.preheader306.us.preheader, %._crit_edge323.us
@@ -121,10 +120,9 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
   %54 = sub nsw i32 24, %19
   %55 = sub nsw i32 23, %19
   %56 = sext i32 %15 to i64
-  %smax445 = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
   %57 = zext nneg i32 %spec.store.select to i64
   %invariant.gep = getelementptr i32, ptr %5, i64 %57
-  %wide.trip.count446 = zext nneg i32 %smax445 to i64
+  %wide.trip.count446 = zext nneg i32 %3 to i64
   br label %.loopexit302
 
 .loopexit302.loopexit:                            ; preds = %._crit_edge348

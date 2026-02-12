@@ -503,7 +503,7 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher5matchERNS_1
   %12 = sext i8 %3 to i32
   %13 = icmp eq i8 %3, 0
   %or.cond = and i1 %13, %11
-  br i1 %or.cond, label %356, label %14
+  br i1 %or.cond, label %357, label %14
 
 14:                                               ; preds = %5
   %15 = tail call noundef i32 @_ZNK6icu_7713StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
@@ -552,19 +552,19 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher5matchERNS_1
   %.0192.ph = phi i32 [ 0, %.preheader363 ], [ %.0192.ph.be, %.outer.backedge ]
   %.0185.ph = phi i32 [ 0, %.preheader363 ], [ %.5190, %.outer.backedge ]
   %.0163.ph = phi i32 [ 0, %.preheader363 ], [ %.0163, %.outer.backedge ]
-  %.0155.ph = phi i8 [ 0, %.preheader363 ], [ %.10325, %.outer.backedge ]
+  %.0155.ph = phi i8 [ 0, %.preheader363 ], [ %.10326, %.outer.backedge ]
   br label %36
 
-36:                                               ; preds = %.outer, %90
-  %.0206 = phi i32 [ %91, %90 ], [ 0, %.outer ]
-  %.0163 = phi i32 [ %spec.select, %90 ], [ %.0163.ph, %.outer ]
-  %.0155 = phi i8 [ %.2316, %90 ], [ %.0155.ph, %.outer ]
+36:                                               ; preds = %.outer, %91
+  %.0206 = phi i32 [ %92, %91 ], [ 0, %.outer ]
+  %.0163 = phi i32 [ %spec.select, %91 ], [ %.0163.ph, %.outer ]
+  %.0155 = phi i8 [ %.2321, %91 ], [ %.0155.ph, %.outer ]
   %37 = invoke noundef i32 @_ZNK6icu_7713StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
           to label %38 unwind label %.loopexit364
 
 38:                                               ; preds = %36
   %39 = icmp sgt i32 %37, 0
-  br i1 %39, label %40, label %.thread330
+  br i1 %39, label %40, label %.thread331
 
 40:                                               ; preds = %38
   %41 = invoke noundef i32 @_ZNK6icu_7713StringSegment12getCodePointEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
@@ -591,32 +591,32 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher5matchERNS_1
 50:                                               ; preds = %19, %14
   %51 = landingpad { ptr, i32 }
           cleanup
-  br label %355
+  br label %356
 
 .loopexit364:                                     ; preds = %36
   %lpad.loopexit366 = landingpad { ptr, i32 }
           cleanup
-  br label %355
+  br label %356
 
-.loopexit.split-lp365:                            ; preds = %262
+.loopexit.split-lp365:                            ; preds = %263
   %lpad.loopexit.split-lp367 = landingpad { ptr, i32 }
           cleanup
-  br label %355
+  br label %356
 
-52:                                               ; preds = %89, %88, %48, %45, %42, %40
+52:                                               ; preds = %90, %89, %48, %45, %42, %40
   %53 = landingpad { ptr, i32 }
           cleanup
-  br label %355
+  br label %356
 
 54:                                               ; preds = %48
   %55 = trunc i32 %49 to i8
   %56 = icmp eq i8 %55, -1
-  br i1 %56, label %.thread, label %.loopexit
+  br i1 %56, label %.thread, label %84
 
 .thread:                                          ; preds = %44, %54
   %57 = load ptr, ptr %20, align 8, !tbaa !34
-  %.not360 = icmp eq ptr %57, null
-  br i1 %.not360, label %.thread317, label %.preheader
+  %.not361 = icmp eq ptr %57, null
+  br i1 %.not361, label %.thread313, label %.preheader
 
 .preheader:                                       ; preds = %.thread, %83
   %indvars.iv = phi i64 [ %indvars.iv.next, %83 ], [ 0, %.thread ]
@@ -630,7 +630,7 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher5matchERNS_1
 
 63:                                               ; preds = %.preheader
   %64 = invoke noundef i32 @_ZN6icu_7713StringSegment21getCommonPrefixLengthERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(64) %59)
-          to label %65 unwind label %.loopexit362
+          to label %65 unwind label %.loopexit
 
 65:                                               ; preds = %63
   %66 = load i16, ptr %60, align 8, !tbaa !6
@@ -645,17 +645,17 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher5matchERNS_1
 
 74:                                               ; preds = %65
   invoke void @_ZN6icu_7713StringSegment12adjustOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %64)
-          to label %.thread312 unwind label %.loopexit.split-lp
+          to label %.thread317 unwind label %.loopexit.split-lp
 
-.loopexit362:                                     ; preds = %63, %77
+.loopexit:                                        ; preds = %63, %77
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %355
+  br label %356
 
 .loopexit.split-lp:                               ; preds = %74
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %355
+  br label %356
 
 75:                                               ; preds = %65
   %76 = trunc nuw i8 %.3483 to i1
@@ -663,669 +663,669 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher5matchERNS_1
 
 77:                                               ; preds = %75
   %78 = invoke noundef i32 @_ZNK6icu_7713StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
-          to label %79 unwind label %.loopexit362
+          to label %79 unwind label %.loopexit
 
 79:                                               ; preds = %77
   %80 = icmp eq i32 %64, %78
   %81 = zext i1 %80 to i8
   br label %83
 
-.thread312:                                       ; preds = %74
+.thread317:                                       ; preds = %74
   %82 = trunc i64 %indvars.iv to i8
-  br label %85
+  br label %86
 
 83:                                               ; preds = %.preheader, %79, %75
   %.5.ph = phi i8 [ %81, %79 ], [ 1, %75 ], [ %.3483, %.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %.thread317, label %.preheader, !llvm.loop !46
+  br i1 %exitcond.not, label %.thread313, label %.preheader, !llvm.loop !46
 
-.loopexit:                                        ; preds = %54
-  %84 = icmp sgt i8 %55, -1
-  br i1 %84, label %85, label %.thread317
+84:                                               ; preds = %54
+  %85 = icmp sgt i8 %55, -1
+  br i1 %85, label %86, label %.thread313
 
-85:                                               ; preds = %.thread312, %.loopexit
-  %.2316 = phi i8 [ %.3483, %.thread312 ], [ 0, %.loopexit ]
-  %.1232315 = phi i8 [ %82, %.thread312 ], [ %55, %.loopexit ]
-  %86 = load i8, ptr %16, align 8, !tbaa !42, !range !47, !noundef !48
-  %87 = trunc nuw i8 %86 to i1
-  br i1 %87, label %88, label %89
+86:                                               ; preds = %.thread317, %84
+  %.2321 = phi i8 [ %.3483, %.thread317 ], [ 0, %84 ]
+  %.1232320 = phi i8 [ %82, %.thread317 ], [ %55, %84 ]
+  %87 = load i8, ptr %16, align 8, !tbaa !42, !range !47, !noundef !48
+  %88 = trunc nuw i8 %87 to i1
+  br i1 %88, label %89, label %90
 
-88:                                               ; preds = %85
+89:                                               ; preds = %86
   store i8 0, ptr %16, align 8, !tbaa !42
   invoke void @_ZN6icu_776number4impl15DecimalQuantity5clearEv(ptr noundef nonnull align 8 dereferenceable(66) %6)
-          to label %89 unwind label %52
-
-89:                                               ; preds = %88, %85
-  invoke void @_ZN6icu_776number4impl15DecimalQuantity11appendDigitEaib(ptr noundef nonnull align 8 dereferenceable(66) %6, i8 noundef signext %.1232315, i32 noundef 0, i1 noundef zeroext true)
           to label %90 unwind label %52
 
-90:                                               ; preds = %89
-  %91 = add nuw nsw i32 %.0206, 1
-  %92 = load i16, ptr %18, align 8, !tbaa !6
-  %93 = and i16 %92, 1
-  %94 = xor i16 %93, 1
-  %95 = zext nneg i16 %94 to i32
-  %spec.select = add nsw i32 %.0163, %95
+90:                                               ; preds = %89, %86
+  invoke void @_ZN6icu_776number4impl15DecimalQuantity11appendDigitEaib(ptr noundef nonnull align 8 dereferenceable(66) %6, i8 noundef signext %.1232320, i32 noundef 0, i1 noundef zeroext true)
+          to label %91 unwind label %52
+
+91:                                               ; preds = %90
+  %92 = add nuw nsw i32 %.0206, 1
+  %93 = load i16, ptr %18, align 8, !tbaa !6
+  %94 = and i16 %93, 1
+  %95 = xor i16 %94, 1
+  %96 = zext nneg i16 %95 to i32
+  %spec.select = add nsw i32 %.0163, %96
   br label %36, !llvm.loop !49
 
-.thread317:                                       ; preds = %.thread, %.loopexit, %83
-  %.2320 = phi i8 [ %.5.ph, %83 ], [ 0, %.loopexit ], [ 0, %.thread ]
-  %96 = load i16, ptr %18, align 8, !tbaa !6
-  %.not250 = trunc i16 %96 to i1
-  %97 = load i16, ptr %22, align 8
-  %98 = icmp ugt i16 %97, 31
-  %or.cond485 = select i1 %.not250, i1 %98, i1 false
-  br i1 %or.cond485, label %99, label %123
+.thread313:                                       ; preds = %.thread, %84, %83
+  %.2316 = phi i8 [ %.5.ph, %83 ], [ 0, %84 ], [ 0, %.thread ]
+  %97 = load i16, ptr %18, align 8, !tbaa !6
+  %.not250 = trunc i16 %97 to i1
+  %98 = load i16, ptr %22, align 8
+  %99 = icmp ugt i16 %98, 31
+  %or.cond485 = select i1 %.not250, i1 %99, i1 false
+  br i1 %or.cond485, label %100, label %124
 
-99:                                               ; preds = %.thread317
-  %100 = invoke noundef i32 @_ZN6icu_7713StringSegment21getCommonPrefixLengthERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(64) %21)
-          to label %101 unwind label %121
+100:                                              ; preds = %.thread313
+  %101 = invoke noundef i32 @_ZN6icu_7713StringSegment21getCommonPrefixLengthERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(64) %21)
+          to label %102 unwind label %122
 
-101:                                              ; preds = %99
-  %102 = trunc nuw i8 %.2320 to i1
-  br i1 %102, label %108, label %103
+102:                                              ; preds = %100
+  %103 = trunc nuw i8 %.2316 to i1
+  br i1 %103, label %109, label %104
 
-103:                                              ; preds = %101
-  %104 = invoke noundef i32 @_ZNK6icu_7713StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
-          to label %105 unwind label %121
+104:                                              ; preds = %102
+  %105 = invoke noundef i32 @_ZNK6icu_7713StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
+          to label %106 unwind label %122
 
-105:                                              ; preds = %103
-  %106 = icmp eq i32 %100, %104
-  %107 = zext i1 %106 to i8
-  br label %108
+106:                                              ; preds = %104
+  %107 = icmp eq i32 %101, %105
+  %108 = zext i1 %107 to i8
+  br label %109
 
-108:                                              ; preds = %101, %105
-  %109 = phi i8 [ 1, %101 ], [ %107, %105 ]
-  %110 = load i16, ptr %22, align 8, !tbaa !6
-  %111 = icmp slt i16 %110, 0
-  %112 = ashr i16 %110, 5
-  %113 = sext i16 %112 to i32
-  %114 = load i32, ptr %23, align 4
-  %115 = select i1 %111, i32 %114, i32 %113
-  %116 = icmp eq i32 %100, %115
-  br i1 %116, label %117, label %123
+109:                                              ; preds = %102, %106
+  %110 = phi i8 [ 1, %102 ], [ %108, %106 ]
+  %111 = load i16, ptr %22, align 8, !tbaa !6
+  %112 = icmp slt i16 %111, 0
+  %113 = ashr i16 %111, 5
+  %114 = sext i16 %113 to i32
+  %115 = load i32, ptr %23, align 4
+  %116 = select i1 %112, i32 %115, i32 %114
+  %117 = icmp eq i32 %101, %116
+  br i1 %117, label %118, label %124
 
-117:                                              ; preds = %108
-  %118 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %21)
-          to label %123 unwind label %121
+118:                                              ; preds = %109
+  %119 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %21)
+          to label %124 unwind label %122
 
-119:                                              ; preds = %198, %181
-  %120 = landingpad { ptr, i32 }
+120:                                              ; preds = %199, %182
+  %121 = landingpad { ptr, i32 }
           cleanup
-  br label %355
+  br label %356
 
-121:                                              ; preds = %117, %103, %99
-  %122 = landingpad { ptr, i32 }
+122:                                              ; preds = %118, %104, %100
+  %123 = landingpad { ptr, i32 }
           cleanup
-  br label %355
+  br label %356
 
-123:                                              ; preds = %108, %117, %.thread317
-  %.0203 = phi i1 [ false, %108 ], [ false, %.thread317 ], [ true, %117 ]
-  %.8 = phi i8 [ %109, %108 ], [ %.2320, %.thread317 ], [ %109, %117 ]
-  %124 = load i16, ptr %17, align 8, !tbaa !6
-  %125 = and i16 %124, 1
-  %.not252 = icmp eq i16 %125, 0
-  br i1 %.not252, label %126, label %146
+124:                                              ; preds = %109, %118, %.thread313
+  %.0203 = phi i1 [ false, %109 ], [ false, %.thread313 ], [ true, %118 ]
+  %.8 = phi i8 [ %110, %109 ], [ %.2316, %.thread313 ], [ %110, %118 ]
+  %125 = load i16, ptr %17, align 8, !tbaa !6
+  %126 = and i16 %125, 1
+  %.not252 = icmp eq i16 %126, 0
+  br i1 %.not252, label %127, label %147
 
-126:                                              ; preds = %123
-  %127 = invoke noundef i32 @_ZN6icu_7713StringSegment21getCommonPrefixLengthERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(64) %7)
-          to label %128 unwind label %144
+127:                                              ; preds = %124
+  %128 = invoke noundef i32 @_ZN6icu_7713StringSegment21getCommonPrefixLengthERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(64) %7)
+          to label %129 unwind label %145
 
-128:                                              ; preds = %126
-  %129 = trunc nuw i8 %.8 to i1
-  br i1 %129, label %135, label %130
+129:                                              ; preds = %127
+  %130 = trunc nuw i8 %.8 to i1
+  br i1 %130, label %136, label %131
 
-130:                                              ; preds = %128
-  %131 = invoke noundef i32 @_ZNK6icu_7713StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
-          to label %132 unwind label %144
+131:                                              ; preds = %129
+  %132 = invoke noundef i32 @_ZNK6icu_7713StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
+          to label %133 unwind label %145
 
-132:                                              ; preds = %130
-  %133 = icmp eq i32 %127, %131
-  %134 = zext i1 %133 to i8
-  br label %135
+133:                                              ; preds = %131
+  %134 = icmp eq i32 %128, %132
+  %135 = zext i1 %134 to i8
+  br label %136
 
-135:                                              ; preds = %128, %132
-  %136 = phi i8 [ 1, %128 ], [ %134, %132 ]
-  %137 = load i16, ptr %17, align 8, !tbaa !6
-  %138 = icmp slt i16 %137, 0
-  %139 = ashr i16 %137, 5
-  %140 = sext i16 %139 to i32
-  %141 = load i32, ptr %24, align 4
-  %142 = select i1 %138, i32 %141, i32 %140
-  %143 = icmp eq i32 %127, %142
-  br label %146
+136:                                              ; preds = %129, %133
+  %137 = phi i8 [ 1, %129 ], [ %135, %133 ]
+  %138 = load i16, ptr %17, align 8, !tbaa !6
+  %139 = icmp slt i16 %138, 0
+  %140 = ashr i16 %138, 5
+  %141 = sext i16 %140 to i32
+  %142 = load i32, ptr %24, align 4
+  %143 = select i1 %139, i32 %142, i32 %141
+  %144 = icmp eq i32 %128, %143
+  br label %147
 
-144:                                              ; preds = %130, %126
-  %145 = landingpad { ptr, i32 }
+145:                                              ; preds = %131, %127
+  %146 = landingpad { ptr, i32 }
           cleanup
-  br label %355
+  br label %356
 
-146:                                              ; preds = %135, %123
-  %147 = phi i16 [ %124, %123 ], [ %137, %135 ]
-  %.0198 = phi i1 [ false, %123 ], [ %143, %135 ]
-  %.9 = phi i8 [ %.8, %123 ], [ %136, %135 ]
-  %148 = load i8, ptr %25, align 1, !tbaa !38, !range !47, !noundef !48
-  %149 = trunc nuw i8 %148 to i1
-  %150 = and i16 %147, 1
-  %.not253 = icmp eq i16 %150, 0
-  %or.cond721 = select i1 %149, i1 true, i1 %.not253
-  br i1 %or.cond721, label %177, label %151
+147:                                              ; preds = %136, %124
+  %148 = phi i16 [ %125, %124 ], [ %138, %136 ]
+  %.0198 = phi i1 [ false, %124 ], [ %144, %136 ]
+  %.9 = phi i8 [ %.8, %124 ], [ %137, %136 ]
+  %149 = load i8, ptr %25, align 1, !tbaa !38, !range !47, !noundef !48
+  %150 = trunc nuw i8 %149 to i1
+  %151 = and i16 %148, 1
+  %.not253 = icmp eq i16 %151, 0
+  %or.cond719 = select i1 %150, i1 true, i1 %.not253
+  br i1 %or.cond719, label %178, label %152
 
-151:                                              ; preds = %146
-  %152 = load i16, ptr %18, align 8, !tbaa !6
-  %.not254 = trunc i16 %152 to i1
-  %153 = load i16, ptr %27, align 8
-  %154 = icmp ugt i16 %153, 31
-  %or.cond487 = select i1 %.not254, i1 %154, i1 false
-  br i1 %or.cond487, label %155, label %177
+152:                                              ; preds = %147
+  %153 = load i16, ptr %18, align 8, !tbaa !6
+  %.not254 = trunc i16 %153 to i1
+  %154 = load i16, ptr %27, align 8
+  %155 = icmp ugt i16 %154, 31
+  %or.cond487 = select i1 %.not254, i1 %155, i1 false
+  br i1 %or.cond487, label %156, label %178
 
-155:                                              ; preds = %151
-  %156 = invoke noundef i32 @_ZN6icu_7713StringSegment21getCommonPrefixLengthERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(64) %26)
-          to label %157 unwind label %175
+156:                                              ; preds = %152
+  %157 = invoke noundef i32 @_ZN6icu_7713StringSegment21getCommonPrefixLengthERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(64) %26)
+          to label %158 unwind label %176
 
-157:                                              ; preds = %155
-  %158 = trunc nuw i8 %.9 to i1
-  br i1 %158, label %164, label %159
+158:                                              ; preds = %156
+  %159 = trunc nuw i8 %.9 to i1
+  br i1 %159, label %165, label %160
 
-159:                                              ; preds = %157
-  %160 = invoke noundef i32 @_ZNK6icu_7713StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
-          to label %161 unwind label %175
+160:                                              ; preds = %158
+  %161 = invoke noundef i32 @_ZNK6icu_7713StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
+          to label %162 unwind label %176
 
-161:                                              ; preds = %159
-  %162 = icmp eq i32 %156, %160
-  %163 = zext i1 %162 to i8
-  br label %164
+162:                                              ; preds = %160
+  %163 = icmp eq i32 %157, %161
+  %164 = zext i1 %163 to i8
+  br label %165
 
-164:                                              ; preds = %157, %161
-  %165 = phi i8 [ 1, %157 ], [ %163, %161 ]
-  %166 = load i16, ptr %27, align 8, !tbaa !6
-  %167 = icmp slt i16 %166, 0
-  %168 = ashr i16 %166, 5
-  %169 = sext i16 %168 to i32
-  %170 = load i32, ptr %28, align 4
-  %171 = select i1 %167, i32 %170, i32 %169
-  %172 = icmp eq i32 %156, %171
-  br i1 %172, label %173, label %177
+165:                                              ; preds = %158, %162
+  %166 = phi i8 [ 1, %158 ], [ %164, %162 ]
+  %167 = load i16, ptr %27, align 8, !tbaa !6
+  %168 = icmp slt i16 %167, 0
+  %169 = ashr i16 %167, 5
+  %170 = sext i16 %169 to i32
+  %171 = load i32, ptr %28, align 4
+  %172 = select i1 %168, i32 %171, i32 %170
+  %173 = icmp eq i32 %157, %172
+  br i1 %173, label %174, label %178
 
-173:                                              ; preds = %164
-  %174 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %26)
-          to label %.thread321 unwind label %175
+174:                                              ; preds = %165
+  %175 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %26)
+          to label %.thread322 unwind label %176
 
-175:                                              ; preds = %173, %159, %155
-  %176 = landingpad { ptr, i32 }
+176:                                              ; preds = %174, %160, %156
+  %177 = landingpad { ptr, i32 }
           cleanup
-  br label %355
+  br label %356
 
-177:                                              ; preds = %164, %151, %146
-  %.10 = phi i8 [ %.9, %146 ], [ %165, %164 ], [ %.9, %151 ]
-  br i1 %.0198, label %.thread321, label %178
+178:                                              ; preds = %165, %152, %147
+  %.10 = phi i8 [ %.9, %147 ], [ %166, %165 ], [ %.9, %152 ]
+  br i1 %.0198, label %.thread322, label %179
 
-178:                                              ; preds = %177
-  %179 = load i16, ptr %18, align 8, !tbaa !6
-  %180 = and i16 %179, 1
-  %.not256 = icmp eq i16 %180, 0
-  br i1 %.not256, label %.thread321, label %181
+179:                                              ; preds = %178
+  %180 = load i16, ptr %18, align 8, !tbaa !6
+  %181 = and i16 %180, 1
+  %.not256 = icmp eq i16 %181, 0
+  br i1 %.not256, label %.thread322, label %182
 
-181:                                              ; preds = %178
-  %182 = load ptr, ptr %29, align 8, !tbaa !23
-  %183 = invoke noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %182, i32 noundef %41)
-          to label %184 unwind label %119
+182:                                              ; preds = %179
+  %183 = load ptr, ptr %29, align 8, !tbaa !23
+  %184 = invoke noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %183, i32 noundef %41)
+          to label %185 unwind label %120
 
-184:                                              ; preds = %181
-  %.not257 = icmp eq i8 %183, 0
-  br i1 %.not257, label %.thread321, label %185
-
-185:                                              ; preds = %184
-  call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  invoke void @_ZN6icu_7713UnicodeStringC1Ei(ptr noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %41)
-          to label %186 unwind label %188
+185:                                              ; preds = %182
+  %.not257 = icmp eq i8 %184, 0
+  br i1 %.not257, label %.thread322, label %186
 
 186:                                              ; preds = %185
-  %187 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  invoke void @_ZN6icu_7713UnicodeStringC1Ei(ptr noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %41)
+          to label %187 unwind label %189
+
+187:                                              ; preds = %186
+  %188 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %9) #9
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.thread321
+  br label %.thread322
 
-188:                                              ; preds = %185
-  %189 = landingpad { ptr, i32 }
+189:                                              ; preds = %186
+  %190 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %355
+  br label %356
 
-.thread321:                                       ; preds = %173, %184, %186, %178, %177
-  %.10325 = phi i8 [ %.10, %177 ], [ %.10, %186 ], [ %.10, %184 ], [ %.10, %178 ], [ %165, %173 ]
-  %.2200324 = phi i1 [ true, %177 ], [ false, %186 ], [ false, %184 ], [ false, %178 ], [ true, %173 ]
-  %.2205 = phi i1 [ %.0203, %177 ], [ true, %186 ], [ %.0203, %184 ], [ %.0203, %178 ], [ %.0203, %173 ]
-  %190 = load i8, ptr %25, align 1, !tbaa !38, !range !47, !noundef !48
-  %191 = trunc nuw i8 %190 to i1
-  br i1 %191, label %207, label %192
+.thread322:                                       ; preds = %174, %185, %187, %179, %178
+  %.10326 = phi i8 [ %.10, %178 ], [ %.10, %187 ], [ %.10, %185 ], [ %.10, %179 ], [ %166, %174 ]
+  %.2200325 = phi i1 [ true, %178 ], [ false, %187 ], [ false, %185 ], [ false, %179 ], [ true, %174 ]
+  %.2205 = phi i1 [ %.0203, %178 ], [ true, %187 ], [ %.0203, %185 ], [ %.0203, %179 ], [ %.0203, %174 ]
+  %191 = load i8, ptr %25, align 1, !tbaa !38, !range !47, !noundef !48
+  %192 = trunc nuw i8 %191 to i1
+  br i1 %192, label %208, label %193
 
-192:                                              ; preds = %.thread321
-  %193 = load i16, ptr %17, align 8, !tbaa !6
-  %194 = and i16 %193, 1
-  %.not258 = icmp eq i16 %194, 0
-  br i1 %.not258, label %207, label %195
+193:                                              ; preds = %.thread322
+  %194 = load i16, ptr %17, align 8, !tbaa !6
+  %195 = and i16 %194, 1
+  %.not258 = icmp eq i16 %195, 0
+  br i1 %.not258, label %208, label %196
 
-195:                                              ; preds = %192
-  %196 = load i16, ptr %18, align 8, !tbaa !6
-  %197 = and i16 %196, 1
-  %.not259 = icmp eq i16 %197, 0
-  br i1 %.not259, label %207, label %198
+196:                                              ; preds = %193
+  %197 = load i16, ptr %18, align 8, !tbaa !6
+  %198 = and i16 %197, 1
+  %.not259 = icmp eq i16 %198, 0
+  br i1 %.not259, label %208, label %199
 
-198:                                              ; preds = %195
-  %199 = load ptr, ptr %30, align 8, !tbaa !8
-  %200 = invoke noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %199, i32 noundef %41)
-          to label %201 unwind label %119
+199:                                              ; preds = %196
+  %200 = load ptr, ptr %30, align 8, !tbaa !8
+  %201 = invoke noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %200, i32 noundef %41)
+          to label %202 unwind label %120
 
-201:                                              ; preds = %198
-  %.not260 = icmp eq i8 %200, 0
-  br i1 %.not260, label %207, label %202
-
-202:                                              ; preds = %201
-  call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  invoke void @_ZN6icu_7713UnicodeStringC1Ei(ptr noundef nonnull align 8 dereferenceable(64) %10, i32 noundef %41)
-          to label %203 unwind label %205
+202:                                              ; preds = %199
+  %.not260 = icmp eq i8 %201, 0
+  br i1 %.not260, label %208, label %203
 
 203:                                              ; preds = %202
-  %204 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  invoke void @_ZN6icu_7713UnicodeStringC1Ei(ptr noundef nonnull align 8 dereferenceable(64) %10, i32 noundef %41)
+          to label %204 unwind label %206
+
+204:                                              ; preds = %203
+  %205 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %10) #9
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %207
+  br label %208
 
-205:                                              ; preds = %202
-  %206 = landingpad { ptr, i32 }
+206:                                              ; preds = %203
+  %207 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %355
+  br label %356
 
-207:                                              ; preds = %201, %203, %195, %192, %.thread321
-  %.4202 = phi i1 [ %.2200324, %.thread321 ], [ true, %203 ], [ %.2200324, %201 ], [ %.2200324, %195 ], [ %.2200324, %192 ]
-  %208 = load i8, ptr %31, align 2, !range !47
-  %209 = trunc nuw i8 %208 to i1
+208:                                              ; preds = %202, %204, %196, %193, %.thread322
+  %.4202 = phi i1 [ %.2200325, %.thread322 ], [ true, %204 ], [ %.2200325, %202 ], [ %.2200325, %196 ], [ %.2200325, %193 ]
+  %209 = load i8, ptr %31, align 2, !range !47
+  %210 = trunc nuw i8 %209 to i1
   %not..4202 = xor i1 %.4202, true
-  %or.cond293 = select i1 %.2205, i1 %209, i1 %not..4202
-  br i1 %or.cond293, label %.thread330, label %210
+  %or.cond293 = select i1 %.2205, i1 %210, i1 %not..4202
+  br i1 %or.cond293, label %.thread331, label %211
 
-210:                                              ; preds = %207
-  %211 = icmp eq i32 %.0192.ph, 2
-  %or.cond6 = and i1 %211, %.4202
-  br i1 %or.cond6, label %.thread330.thread, label %212
+211:                                              ; preds = %208
+  %212 = icmp eq i32 %.0192.ph, 2
+  %or.cond6 = and i1 %212, %.4202
+  br i1 %or.cond6, label %.thread331.thread, label %213
 
-212:                                              ; preds = %210
-  %213 = load i8, ptr %32, align 8, !tbaa !37, !range !47, !noundef !48
-  %214 = trunc nuw i8 %213 to i1
-  br i1 %214, label %215, label %230
+213:                                              ; preds = %211
+  %214 = load i8, ptr %32, align 8, !tbaa !37, !range !47, !noundef !48
+  %215 = trunc nuw i8 %214 to i1
+  br i1 %215, label %216, label %231
 
-215:                                              ; preds = %212
-  switch i32 %.0224.ph, label %225 [
-    i32 1, label %221
-    i32 0, label %216
+216:                                              ; preds = %213
+  switch i32 %.0224.ph, label %226 [
+    i32 1, label %222
+    i32 0, label %217
   ]
 
-216:                                              ; preds = %215
+217:                                              ; preds = %216
   %.not.i = icmp ne i32 %.0237.ph, 0
-  %217 = load i16, ptr %33, align 2
-  %218 = sext i16 %217 to i32
-  %219 = icmp sle i32 %.0237.ph, %218
-  %220 = select i1 %.not.i, i1 %219, i1 false
-  br label %225
+  %218 = load i16, ptr %33, align 2
+  %219 = sext i16 %218 to i32
+  %220 = icmp sle i32 %.0237.ph, %219
+  %221 = select i1 %.not.i, i1 %220, i1 false
+  br label %226
 
-221:                                              ; preds = %215
-  %222 = load i16, ptr %33, align 2, !tbaa !41
-  %223 = sext i16 %222 to i32
-  %224 = icmp eq i32 %.0237.ph, %223
-  br label %225
+222:                                              ; preds = %216
+  %223 = load i16, ptr %33, align 2, !tbaa !41
+  %224 = sext i16 %223 to i32
+  %225 = icmp eq i32 %.0237.ph, %224
+  br label %226
 
-225:                                              ; preds = %215, %216, %221
-  %.0.i.ph = phi i1 [ %224, %221 ], [ %220, %216 ], [ true, %215 ]
-  %cond359 = icmp eq i32 %.0192.ph, 1
-  br i1 %cond359, label %226, label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit296
+226:                                              ; preds = %216, %217, %222
+  %.0.i.ph = phi i1 [ %225, %222 ], [ %221, %217 ], [ true, %216 ]
+  %cond360 = icmp eq i32 %.0192.ph, 1
+  br i1 %cond360, label %227, label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit296
 
-226:                                              ; preds = %225
-  %227 = load i16, ptr %34, align 4, !tbaa !40
-  %228 = sext i16 %227 to i32
-  %229 = icmp eq i32 %.0206, %228
+227:                                              ; preds = %226
+  %228 = load i16, ptr %34, align 4, !tbaa !40
+  %229 = sext i16 %228 to i32
+  %230 = icmp eq i32 %.0206, %229
   br label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit296
 
-230:                                              ; preds = %212
-  %231 = icmp ne i32 %.0224.ph, 1
-  %232 = icmp ne i32 %.0237.ph, 1
-  %spec.select.i = or i1 %232, %231
-  %233 = icmp ne i32 %.0192.ph, 1
-  %234 = icmp ne i32 %.0206, 1
-  %spec.select.i294 = or i1 %234, %233
+231:                                              ; preds = %213
+  %232 = icmp ne i32 %.0224.ph, 1
+  %233 = icmp ne i32 %.0237.ph, 1
+  %spec.select.i = or i1 %233, %232
+  %234 = icmp ne i32 %.0192.ph, 1
+  %235 = icmp ne i32 %.0206, 1
+  %spec.select.i294 = or i1 %235, %234
   br label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit296
 
-_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit296: ; preds = %225, %226, %230
-  %.0.i327 = phi i1 [ %spec.select.i, %230 ], [ %.0.i.ph, %225 ], [ %.0.i.ph, %226 ]
-  %.0.i295 = phi i1 [ %spec.select.i294, %230 ], [ true, %225 ], [ %229, %226 ]
+_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit296: ; preds = %226, %227, %231
+  %.0.i328 = phi i1 [ %spec.select.i, %231 ], [ %.0.i.ph, %226 ], [ %.0.i.ph, %227 ]
+  %.0.i295 = phi i1 [ %spec.select.i294, %231 ], [ true, %226 ], [ %230, %227 ]
   %.not = xor i1 %.2205, true
   %or.cond8 = or i1 %.0.i295, %.not
-  %or.cond285 = and i1 %.0.i327, %or.cond8
-  br i1 %or.cond285, label %239, label %235
+  %or.cond285 = and i1 %.0.i328, %or.cond8
+  br i1 %or.cond285, label %240, label %236
 
-235:                                              ; preds = %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit296
-  %236 = icmp ne i32 %.0206, 0
-  %or.cond10 = select i1 %not..4202, i1 true, i1 %236
-  %or.cond288 = and i1 %or.cond10, %214
-  br i1 %or.cond288, label %237, label %.thread330
+236:                                              ; preds = %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit296
+  %237 = icmp ne i32 %.0206, 0
+  %or.cond10 = select i1 %not..4202, i1 true, i1 %237
+  %or.cond288 = and i1 %or.cond10, %215
+  br i1 %or.cond288, label %238, label %.thread331
 
-.loopexit369:                                     ; preds = %243, %246, %253
+.loopexit369:                                     ; preds = %244, %247, %254
   %lpad.loopexit371 = landingpad { ptr, i32 }
           cleanup
-  br label %355
+  br label %356
 
-.loopexit.split-lp370:                            ; preds = %237
+.loopexit.split-lp370:                            ; preds = %238
   %lpad.loopexit.split-lp372 = landingpad { ptr, i32 }
           cleanup
-  br label %355
+  br label %356
 
-237:                                              ; preds = %235
+238:                                              ; preds = %236
   invoke void @_ZN6icu_776number4impl15DecimalQuantity5clearEv(ptr noundef nonnull align 8 dereferenceable(66) %6)
-          to label %238 unwind label %.loopexit.split-lp370
+          to label %239 unwind label %.loopexit.split-lp370
 
-238:                                              ; preds = %237
+239:                                              ; preds = %238
   store i8 1, ptr %16, align 8, !tbaa !42
-  br label %.thread330
+  br label %.thread331
 
-239:                                              ; preds = %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit296
-  %240 = icmp eq i32 %.0206, 0
-  %or.cond12 = select i1 %214, i1 %240, i1 false
-  %241 = icmp eq i32 %.0192.ph, 1
-  %or.cond14 = and i1 %or.cond12, %241
-  br i1 %or.cond14, label %.thread330, label %242
+240:                                              ; preds = %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit296
+  %241 = icmp eq i32 %.0206, 0
+  %or.cond12 = select i1 %215, i1 %241, i1 false
+  %242 = icmp eq i32 %.0192.ph, 1
+  %or.cond14 = and i1 %or.cond12, %242
+  br i1 %or.cond14, label %.thread331, label %243
 
-242:                                              ; preds = %239
+243:                                              ; preds = %240
   %..0192 = select i1 %.2205, i32 -1, i32 %.0192.ph
-  br i1 %240, label %245, label %243
+  br i1 %241, label %246, label %244
 
-243:                                              ; preds = %242
-  %244 = invoke noundef i32 @_ZNK6icu_7713StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
-          to label %245 unwind label %.loopexit369
+244:                                              ; preds = %243
+  %245 = invoke noundef i32 @_ZNK6icu_7713StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
+          to label %246 unwind label %.loopexit369
 
-245:                                              ; preds = %243, %242
-  %.5190 = phi i32 [ %.0185.ph, %242 ], [ %244, %243 ]
-  br i1 %.4202, label %246, label %253
+246:                                              ; preds = %244, %243
+  %.5190 = phi i32 [ %.0185.ph, %243 ], [ %245, %244 ]
+  br i1 %.4202, label %247, label %254
 
-246:                                              ; preds = %245
-  %247 = load i16, ptr %17, align 8, !tbaa !6
-  %248 = icmp slt i16 %247, 0
-  %249 = ashr i16 %247, 5
-  %250 = sext i16 %249 to i32
-  %251 = load i32, ptr %24, align 4
-  %252 = select i1 %248, i32 %251, i32 %250
-  invoke void @_ZN6icu_7713StringSegment12adjustOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %252)
+247:                                              ; preds = %246
+  %248 = load i16, ptr %17, align 8, !tbaa !6
+  %249 = icmp slt i16 %248, 0
+  %250 = ashr i16 %248, 5
+  %251 = sext i16 %250 to i32
+  %252 = load i32, ptr %24, align 4
+  %253 = select i1 %249, i32 %252, i32 %251
+  invoke void @_ZN6icu_7713StringSegment12adjustOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %253)
           to label %.outer.backedge unwind label %.loopexit369
 
-253:                                              ; preds = %245
-  %254 = load i16, ptr %18, align 8, !tbaa !6
-  %255 = icmp slt i16 %254, 0
-  %256 = ashr i16 %254, 5
-  %257 = sext i16 %256 to i32
-  %258 = load i32, ptr %35, align 4
-  %259 = select i1 %255, i32 %258, i32 %257
-  invoke void @_ZN6icu_7713StringSegment12adjustOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %259)
+254:                                              ; preds = %246
+  %255 = load i16, ptr %18, align 8, !tbaa !6
+  %256 = icmp slt i16 %255, 0
+  %257 = ashr i16 %255, 5
+  %258 = sext i16 %257 to i32
+  %259 = load i32, ptr %35, align 4
+  %260 = select i1 %256, i32 %259, i32 %258
+  invoke void @_ZN6icu_7713StringSegment12adjustOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %260)
           to label %.outer.backedge unwind label %.loopexit369
 
-.outer.backedge:                                  ; preds = %253, %246
-  %.0192.ph.be = phi i32 [ 1, %246 ], [ 2, %253 ]
+.outer.backedge:                                  ; preds = %254, %247
+  %.0192.ph.be = phi i32 [ 1, %247 ], [ 2, %254 ]
   br label %.outer
 
-.thread330:                                       ; preds = %38, %239, %207, %238, %235
-  %.1207 = phi i32 [ %.0206, %235 ], [ %.0206, %238 ], [ %.0206, %38 ], [ 0, %239 ], [ %.0206, %207 ]
-  %.1193 = phi i32 [ %.0192.ph, %235 ], [ %.0192.ph, %238 ], [ %.0192.ph, %38 ], [ 1, %239 ], [ %.0192.ph, %207 ]
-  %.1156 = phi i8 [ %.10325, %235 ], [ %.10325, %238 ], [ %.0155, %38 ], [ %.10325, %239 ], [ %.10325, %207 ]
-  %260 = icmp ne i32 %.1193, 2
-  %261 = icmp eq i32 %.1207, 0
-  %or.cond16 = select i1 %260, i1 %261, i1 false
-  br i1 %or.cond16, label %262, label %.thread330.thread
+.thread331:                                       ; preds = %38, %240, %208, %239, %236
+  %.1207 = phi i32 [ %.0206, %236 ], [ %.0206, %239 ], [ %.0206, %38 ], [ 0, %240 ], [ %.0206, %208 ]
+  %.1193 = phi i32 [ %.0192.ph, %236 ], [ %.0192.ph, %239 ], [ %.0192.ph, %38 ], [ 1, %240 ], [ %.0192.ph, %208 ]
+  %.1156 = phi i8 [ %.10326, %236 ], [ %.10326, %239 ], [ %.0155, %38 ], [ %.10326, %240 ], [ %.10326, %208 ]
+  %261 = icmp ne i32 %.1193, 2
+  %262 = icmp eq i32 %.1207, 0
+  %or.cond16 = select i1 %261, i1 %262, i1 false
+  br i1 %or.cond16, label %263, label %.thread331.thread
 
-262:                                              ; preds = %.thread330
+263:                                              ; preds = %.thread331
   invoke void @_ZN6icu_7713StringSegment9setOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %.0185.ph)
-          to label %.thread330.thread unwind label %.loopexit.split-lp365
+          to label %.thread331.thread unwind label %.loopexit.split-lp365
 
-.thread330.thread:                                ; preds = %210, %262, %.thread330
-  %.5242 = phi i32 [ %.0237.ph, %.thread330 ], [ 1, %262 ], [ %.0237.ph, %210 ]
-  %.6230 = phi i32 [ %.0224.ph, %.thread330 ], [ 0, %262 ], [ %.0224.ph, %210 ]
-  %.5217 = phi i32 [ %.0212.ph, %.thread330 ], [ -1, %262 ], [ %.0212.ph, %210 ]
-  %.5211 = phi i32 [ %.1207, %.thread330 ], [ %.0237.ph, %262 ], [ %.0206, %210 ]
-  %.5197 = phi i32 [ %.1193, %.thread330 ], [ %.0224.ph, %262 ], [ 2, %210 ]
-  %.6191 = phi i32 [ %.0185.ph, %.thread330 ], [ %.0212.ph, %262 ], [ %.0185.ph, %210 ]
-  %.11 = phi i8 [ %.1156, %.thread330 ], [ 1, %262 ], [ %.10325, %210 ]
-  %263 = load i8, ptr %32, align 8, !tbaa !37, !range !47, !noundef !48
-  %264 = trunc nuw i8 %263 to i1
-  br i1 %264, label %265, label %281
+.thread331.thread:                                ; preds = %211, %263, %.thread331
+  %.5242 = phi i32 [ %.0237.ph, %.thread331 ], [ 1, %263 ], [ %.0237.ph, %211 ]
+  %.6230 = phi i32 [ %.0224.ph, %.thread331 ], [ 0, %263 ], [ %.0224.ph, %211 ]
+  %.5217 = phi i32 [ %.0212.ph, %.thread331 ], [ -1, %263 ], [ %.0212.ph, %211 ]
+  %.5211 = phi i32 [ %.1207, %.thread331 ], [ %.0237.ph, %263 ], [ %.0206, %211 ]
+  %.5197 = phi i32 [ %.1193, %.thread331 ], [ %.0224.ph, %263 ], [ 2, %211 ]
+  %.6191 = phi i32 [ %.0185.ph, %.thread331 ], [ %.0212.ph, %263 ], [ %.0185.ph, %211 ]
+  %.11 = phi i8 [ %.1156, %.thread331 ], [ 1, %263 ], [ %.10326, %211 ]
+  %264 = load i8, ptr %32, align 8, !tbaa !37, !range !47, !noundef !48
+  %265 = trunc nuw i8 %264 to i1
+  br i1 %265, label %266, label %282
 
-265:                                              ; preds = %.thread330.thread
-  switch i32 %.6230, label %275 [
-    i32 1, label %271
-    i32 0, label %266
+266:                                              ; preds = %.thread331.thread
+  switch i32 %.6230, label %276 [
+    i32 1, label %272
+    i32 0, label %267
   ]
 
-266:                                              ; preds = %265
+267:                                              ; preds = %266
   %.not.i299 = icmp ne i32 %.5242, 0
-  %267 = load i16, ptr %33, align 2
-  %268 = sext i16 %267 to i32
-  %269 = icmp sle i32 %.5242, %268
-  %270 = select i1 %.not.i299, i1 %269, i1 false
-  br label %275
+  %268 = load i16, ptr %33, align 2
+  %269 = sext i16 %268 to i32
+  %270 = icmp sle i32 %.5242, %269
+  %271 = select i1 %.not.i299, i1 %270, i1 false
+  br label %276
 
-271:                                              ; preds = %265
-  %272 = load i16, ptr %33, align 2, !tbaa !41
-  %273 = sext i16 %272 to i32
-  %274 = icmp eq i32 %.5242, %273
-  br label %275
+272:                                              ; preds = %266
+  %273 = load i16, ptr %33, align 2, !tbaa !41
+  %274 = sext i16 %273 to i32
+  %275 = icmp eq i32 %.5242, %274
+  br label %276
 
-275:                                              ; preds = %265, %266, %271
-  %.0.i298.ph = phi i1 [ %274, %271 ], [ %270, %266 ], [ true, %265 ]
+276:                                              ; preds = %266, %267, %272
+  %.0.i298.ph = phi i1 [ %275, %272 ], [ %271, %267 ], [ true, %266 ]
   %cond = icmp eq i32 %.5197, 1
-  br i1 %cond, label %276, label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread
+  br i1 %cond, label %277, label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread
 
-276:                                              ; preds = %275
-  %277 = load i16, ptr %34, align 4, !tbaa !40
-  %278 = sext i16 %277 to i32
-  %279 = icmp eq i32 %.5211, %278
-  %280 = and i1 %.0.i298.ph, %279
+277:                                              ; preds = %276
+  %278 = load i16, ptr %34, align 4, !tbaa !40
+  %279 = sext i16 %278 to i32
+  %280 = icmp eq i32 %.5211, %279
+  %281 = and i1 %.0.i298.ph, %280
   br label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread
 
-281:                                              ; preds = %.thread330.thread
-  %282 = icmp ne i32 %.6230, 1
-  %283 = icmp ne i32 %.5242, 1
-  %spec.select.i297 = or i1 %283, %282
-  br i1 %spec.select.i297, label %289, label %284
+282:                                              ; preds = %.thread331.thread
+  %283 = icmp ne i32 %.6230, 1
+  %284 = icmp ne i32 %.5242, 1
+  %spec.select.i297 = or i1 %284, %283
+  br i1 %spec.select.i297, label %290, label %285
 
-284:                                              ; preds = %281
+285:                                              ; preds = %282
   invoke void @_ZN6icu_7713StringSegment9setOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %.5217)
-          to label %294 unwind label %287
+          to label %295 unwind label %288
 
-285:                                              ; preds = %348, %347, %338, %310, %306, %304, %300
-  %286 = landingpad { ptr, i32 }
+286:                                              ; preds = %349, %348, %339, %311, %307, %305, %301
+  %287 = landingpad { ptr, i32 }
           cleanup
-  br label %355
+  br label %356
 
-287:                                              ; preds = %296, %.thread349, %293, %284
-  %288 = landingpad { ptr, i32 }
+288:                                              ; preds = %297, %.thread350, %294, %285
+  %289 = landingpad { ptr, i32 }
           cleanup
-  br label %355
+  br label %356
 
-289:                                              ; preds = %281
-  %290 = icmp ne i32 %.5197, 1
-  %291 = icmp ne i32 %.5211, 1
-  %spec.select.i301 = or i1 %291, %290
-  %292 = or i32 %.6230, %.5242
-  %or.cond18.not = icmp eq i32 %292, 0
+290:                                              ; preds = %282
+  %291 = icmp ne i32 %.5197, 1
+  %292 = icmp ne i32 %.5211, 1
+  %spec.select.i301 = or i1 %292, %291
+  %293 = or i32 %.6230, %.5242
+  %or.cond18.not = icmp eq i32 %293, 0
   %or.cond289 = or i1 %or.cond18.not, %spec.select.i301
-  br i1 %or.cond289, label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread.thread, label %293
+  br i1 %or.cond289, label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread.thread, label %294
 
-293:                                              ; preds = %289
+294:                                              ; preds = %290
   invoke void @_ZN6icu_7713StringSegment9setOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %.6191)
-          to label %.thread349 unwind label %287
+          to label %.thread350 unwind label %288
 
-294:                                              ; preds = %284
+295:                                              ; preds = %285
   %.neg = xor i32 %.5211, -1
   %.not266 = icmp eq i32 %.5211, -1
-  br i1 %.not266, label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread.thread, label %.thread349
+  br i1 %.not266, label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread.thread, label %.thread350
 
-.thread349:                                       ; preds = %293, %294
-  %.13354 = phi i8 [ %.11, %294 ], [ 1, %293 ]
-  %.0160353.neg = phi i32 [ %.neg, %294 ], [ -1, %293 ]
-  %295 = invoke noundef zeroext i1 @_ZN6icu_776number4impl15DecimalQuantity15adjustMagnitudeEi(ptr noundef nonnull align 8 dereferenceable(66) %6, i32 noundef %.0160353.neg)
-          to label %296 unwind label %287
+.thread350:                                       ; preds = %294, %295
+  %.13355 = phi i8 [ %.11, %295 ], [ 1, %294 ]
+  %.0160354.neg = phi i32 [ %.neg, %295 ], [ -1, %294 ]
+  %296 = invoke noundef zeroext i1 @_ZN6icu_776number4impl15DecimalQuantity15adjustMagnitudeEi(ptr noundef nonnull align 8 dereferenceable(66) %6, i32 noundef %.0160354.neg)
+          to label %297 unwind label %288
 
-296:                                              ; preds = %.thread349
+297:                                              ; preds = %.thread350
   invoke void @_ZN6icu_776number4impl15DecimalQuantity8truncateEv(ptr noundef nonnull align 8 dereferenceable(66) %6)
-          to label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread.thread unwind label %287
+          to label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread.thread unwind label %288
 
-_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread: ; preds = %275, %276
-  %.0162 = phi i1 [ %280, %276 ], [ %.0.i298.ph, %275 ]
+_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread: ; preds = %276, %277
+  %.0162 = phi i1 [ %281, %277 ], [ %.0.i298.ph, %276 ]
   %.not267 = icmp eq i32 %.5197, 2
   %or.cond290 = or i1 %.not267, %.0162
-  br i1 %or.cond290, label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread.thread, label %.thread610
+  br i1 %or.cond290, label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread.thread, label %.thread608
 
-.thread610:                                       ; preds = %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread
+.thread608:                                       ; preds = %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread
   store i8 1, ptr %16, align 8, !tbaa !42
-  br label %298
+  br label %299
 
-_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread.thread: ; preds = %289, %294, %296, %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread
-  %.12609 = phi i8 [ %.11, %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread ], [ %.11, %289 ], [ %.11, %294 ], [ %.13354, %296 ]
+_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread.thread: ; preds = %290, %295, %297, %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread
+  %.12607 = phi i8 [ %.11, %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread ], [ %.11, %290 ], [ %.11, %295 ], [ %.13355, %297 ]
   %.pre = load i8, ptr %16, align 8, !tbaa !42, !range !47
-  %297 = trunc nuw i8 %.pre to i1
-  br i1 %297, label %298, label %306
+  %298 = trunc nuw i8 %.pre to i1
+  br i1 %298, label %299, label %307
 
-298:                                              ; preds = %.thread610, %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread.thread
-  %.12608612 = phi i8 [ %.11, %.thread610 ], [ %.12609, %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread.thread ]
-  %299 = trunc nuw i8 %.12608612 to i1
-  br i1 %299, label %304, label %300
+299:                                              ; preds = %.thread608, %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread.thread
+  %.12606610 = phi i8 [ %.11, %.thread608 ], [ %.12607, %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread.thread ]
+  %300 = trunc nuw i8 %.12606610 to i1
+  br i1 %300, label %305, label %301
 
-300:                                              ; preds = %298
-  %301 = invoke noundef i32 @_ZNK6icu_7713StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
-          to label %302 unwind label %285
+301:                                              ; preds = %299
+  %302 = invoke noundef i32 @_ZNK6icu_7713StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
+          to label %303 unwind label %286
 
-302:                                              ; preds = %300
-  %303 = icmp eq i32 %301, 0
-  br label %304
+303:                                              ; preds = %301
+  %304 = icmp eq i32 %302, 0
+  br label %305
 
-304:                                              ; preds = %302, %298
-  %305 = phi i1 [ true, %298 ], [ %303, %302 ]
+305:                                              ; preds = %303, %299
+  %306 = phi i1 [ true, %299 ], [ %304, %303 ]
   invoke void @_ZN6icu_7713StringSegment9setOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %15)
-          to label %354 unwind label %285
+          to label %355 unwind label %286
 
-306:                                              ; preds = %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread.thread
-  %307 = sub nsw i32 0, %.0163
-  %308 = invoke noundef zeroext i1 @_ZN6icu_776number4impl15DecimalQuantity15adjustMagnitudeEi(ptr noundef nonnull align 8 dereferenceable(66) %6, i32 noundef %307)
-          to label %309 unwind label %285
+307:                                              ; preds = %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread.thread
+  %308 = sub nsw i32 0, %.0163
+  %309 = invoke noundef zeroext i1 @_ZN6icu_776number4impl15DecimalQuantity15adjustMagnitudeEi(ptr noundef nonnull align 8 dereferenceable(66) %6, i32 noundef %308)
+          to label %310 unwind label %286
 
-309:                                              ; preds = %306
-  br i1 %13, label %338, label %310
+310:                                              ; preds = %307
+  br i1 %13, label %339, label %311
 
-310:                                              ; preds = %309
-  %311 = invoke noundef i32 @_ZNK6icu_7713StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
-          to label %312 unwind label %285
+311:                                              ; preds = %310
+  %312 = invoke noundef i32 @_ZNK6icu_7713StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
+          to label %313 unwind label %286
 
-312:                                              ; preds = %310
-  %.not269 = icmp eq i32 %311, %15
-  br i1 %.not269, label %338, label %313
+313:                                              ; preds = %311
+  %.not269 = icmp eq i32 %312, %15
+  br i1 %.not269, label %339, label %314
 
-313:                                              ; preds = %312
-  %314 = invoke noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity10fitsInLongEb(ptr noundef nonnull align 8 dereferenceable(66) %6, i1 noundef zeroext false)
-          to label %315 unwind label %325
+314:                                              ; preds = %313
+  %315 = invoke noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity10fitsInLongEb(ptr noundef nonnull align 8 dereferenceable(66) %6, i1 noundef zeroext false)
+          to label %316 unwind label %326
 
-315:                                              ; preds = %313
-  br i1 %314, label %316, label %.critedge
+316:                                              ; preds = %314
+  br i1 %315, label %317, label %.critedge
 
-316:                                              ; preds = %315
-  %317 = invoke noundef i64 @_ZNK6icu_776number4impl15DecimalQuantity6toLongEb(ptr noundef nonnull align 8 dereferenceable(66) %6, i1 noundef zeroext false)
-          to label %318 unwind label %327
+317:                                              ; preds = %316
+  %318 = invoke noundef i64 @_ZNK6icu_776number4impl15DecimalQuantity6toLongEb(ptr noundef nonnull align 8 dereferenceable(66) %6, i1 noundef zeroext false)
+          to label %319 unwind label %328
 
-318:                                              ; preds = %316
-  %319 = icmp slt i64 %317, 2147483648
-  br i1 %319, label %320, label %.critedge
+319:                                              ; preds = %317
+  %320 = icmp slt i64 %318, 2147483648
+  br i1 %320, label %321, label %.critedge
 
-320:                                              ; preds = %318
-  %321 = trunc i64 %317 to i32
-  %322 = mul nsw i32 %321, %12
-  %323 = invoke noundef zeroext i1 @_ZN6icu_776number4impl15DecimalQuantity15adjustMagnitudeEi(ptr noundef nonnull align 8 dereferenceable(66) %2, i32 noundef %322)
-          to label %324 unwind label %329
+321:                                              ; preds = %319
+  %322 = trunc i64 %318 to i32
+  %323 = mul nsw i32 %322, %12
+  %324 = invoke noundef zeroext i1 @_ZN6icu_776number4impl15DecimalQuantity15adjustMagnitudeEi(ptr noundef nonnull align 8 dereferenceable(66) %2, i32 noundef %323)
+          to label %325 unwind label %330
 
-324:                                              ; preds = %320
-  br i1 %323, label %.critedge, label %340
+325:                                              ; preds = %321
+  br i1 %324, label %.critedge, label %341
 
-325:                                              ; preds = %332, %313
-  %326 = landingpad { ptr, i32 }
+326:                                              ; preds = %333, %314
+  %327 = landingpad { ptr, i32 }
           cleanup
-  br label %355
+  br label %356
 
-327:                                              ; preds = %316
-  %328 = landingpad { ptr, i32 }
+328:                                              ; preds = %317
+  %329 = landingpad { ptr, i32 }
           cleanup
-  br label %355
+  br label %356
 
-329:                                              ; preds = %320
-  %330 = landingpad { ptr, i32 }
+330:                                              ; preds = %321
+  %331 = landingpad { ptr, i32 }
           cleanup
-  br label %355
+  br label %356
 
-.critedge:                                        ; preds = %318, %315, %324
-  %331 = icmp eq i8 %3, -1
-  br i1 %331, label %332, label %333
-
-332:                                              ; preds = %.critedge
-  invoke void @_ZN6icu_776number4impl15DecimalQuantity5clearEv(ptr noundef nonnull align 8 dereferenceable(66) %2)
-          to label %340 unwind label %325
+.critedge:                                        ; preds = %319, %316, %325
+  %332 = icmp eq i8 %3, -1
+  br i1 %332, label %333, label %334
 
 333:                                              ; preds = %.critedge
-  %334 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i8 1, ptr %334, align 8, !tbaa !50
-  %335 = getelementptr inbounds nuw i8, ptr %2, i64 76
-  %336 = load i32, ptr %335, align 4, !tbaa !52
-  %337 = or i32 %336, 128
-  store i32 %337, ptr %335, align 4, !tbaa !52
-  br label %340
+  invoke void @_ZN6icu_776number4impl15DecimalQuantity5clearEv(ptr noundef nonnull align 8 dereferenceable(66) %2)
+          to label %341 unwind label %326
 
-338:                                              ; preds = %312, %309
-  %339 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_776number4impl15DecimalQuantityaSERKS2_(ptr noundef nonnull align 8 dereferenceable(66) %2, ptr noundef nonnull align 8 dereferenceable(66) %6)
-          to label %340 unwind label %285
+334:                                              ; preds = %.critedge
+  %335 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i8 1, ptr %335, align 8, !tbaa !50
+  %336 = getelementptr inbounds nuw i8, ptr %2, i64 76
+  %337 = load i32, ptr %336, align 4, !tbaa !52
+  %338 = or i32 %337, 128
+  store i32 %338, ptr %336, align 4, !tbaa !52
+  br label %341
 
-340:                                              ; preds = %324, %332, %333, %338
-  %341 = load i16, ptr %18, align 8, !tbaa !6
-  %342 = and i16 %341, 1
-  %.not274 = icmp eq i16 %342, 0
-  br i1 %.not274, label %343, label %347
+339:                                              ; preds = %313, %310
+  %340 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_776number4impl15DecimalQuantityaSERKS2_(ptr noundef nonnull align 8 dereferenceable(66) %2, ptr noundef nonnull align 8 dereferenceable(66) %6)
+          to label %341 unwind label %286
 
-343:                                              ; preds = %340
-  %344 = getelementptr inbounds nuw i8, ptr %2, i64 76
-  %345 = load i32, ptr %344, align 4, !tbaa !52
-  %346 = or i32 %345, 32
-  store i32 %346, ptr %344, align 4, !tbaa !52
-  br label %347
+341:                                              ; preds = %325, %333, %334, %339
+  %342 = load i16, ptr %18, align 8, !tbaa !6
+  %343 = and i16 %342, 1
+  %.not274 = icmp eq i16 %343, 0
+  br i1 %.not274, label %344, label %348
 
-347:                                              ; preds = %343, %340
+344:                                              ; preds = %341
+  %345 = getelementptr inbounds nuw i8, ptr %2, i64 76
+  %346 = load i32, ptr %345, align 4, !tbaa !52
+  %347 = or i32 %346, 32
+  store i32 %347, ptr %345, align 4, !tbaa !52
+  br label %348
+
+348:                                              ; preds = %344, %341
   invoke void @_ZN6icu_778numparse4impl12ParsedNumber16setCharsConsumedERKNS_13StringSegmentE(ptr noundef nonnull align 8 dereferenceable(216) %2, ptr noundef nonnull align 8 dereferenceable(17) %1)
-          to label %348 unwind label %285
+          to label %349 unwind label %286
 
-348:                                              ; preds = %347
-  %349 = invoke noundef i32 @_ZNK6icu_7713StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
-          to label %350 unwind label %285
+349:                                              ; preds = %348
+  %350 = invoke noundef i32 @_ZNK6icu_7713StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
+          to label %351 unwind label %286
 
-350:                                              ; preds = %348
-  %351 = icmp eq i32 %349, 0
-  %352 = trunc nuw i8 %.12609 to i1
-  %353 = select i1 %351, i1 true, i1 %352
-  br label %354
+351:                                              ; preds = %349
+  %352 = icmp eq i32 %350, 0
+  %353 = trunc nuw i8 %.12607 to i1
+  %354 = select i1 %352, i1 true, i1 %353
+  br label %355
 
-354:                                              ; preds = %304, %350
-  %.1 = phi i1 [ %353, %350 ], [ %305, %304 ]
+355:                                              ; preds = %305, %351
+  %.1 = phi i1 [ %354, %351 ], [ %306, %305 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %6) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %356
+  br label %357
 
-355:                                              ; preds = %.loopexit369, %.loopexit.split-lp370, %.loopexit362, %.loopexit.split-lp, %.loopexit364, %.loopexit.split-lp365, %119, %121, %144, %175, %188, %205, %52, %325, %329, %327, %287, %285, %50
-  %.pn275.pn.pn = phi { ptr, i32 } [ %51, %50 ], [ %122, %121 ], [ %328, %327 ], [ %53, %52 ], [ %lpad.loopexit.split-lp367, %.loopexit.split-lp365 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %206, %205 ], [ %120, %119 ], [ %189, %188 ], [ %176, %175 ], [ %145, %144 ], [ %286, %285 ], [ %288, %287 ], [ %326, %325 ], [ %330, %329 ], [ %lpad.loopexit366, %.loopexit364 ], [ %lpad.loopexit, %.loopexit362 ], [ %lpad.loopexit371, %.loopexit369 ], [ %lpad.loopexit.split-lp372, %.loopexit.split-lp370 ]
+356:                                              ; preds = %.loopexit369, %.loopexit.split-lp370, %.loopexit, %.loopexit.split-lp, %.loopexit364, %.loopexit.split-lp365, %120, %122, %145, %176, %189, %206, %52, %326, %330, %328, %288, %286, %50
+  %.pn275.pn.pn = phi { ptr, i32 } [ %51, %50 ], [ %123, %122 ], [ %329, %328 ], [ %53, %52 ], [ %lpad.loopexit.split-lp367, %.loopexit.split-lp365 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %207, %206 ], [ %121, %120 ], [ %190, %189 ], [ %177, %176 ], [ %146, %145 ], [ %287, %286 ], [ %289, %288 ], [ %327, %326 ], [ %331, %330 ], [ %lpad.loopexit366, %.loopexit364 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit371, %.loopexit369 ], [ %lpad.loopexit.split-lp372, %.loopexit.split-lp370 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #9
@@ -1334,8 +1334,8 @@ _ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread.thre
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn275.pn.pn
 
-356:                                              ; preds = %5, %354
-  %.0 = phi i1 [ %.1, %354 ], [ false, %5 ]
+357:                                              ; preds = %5, %355
+  %.0 = phi i1 [ %.1, %355 ], [ false, %5 ]
   ret i1 %.0
 }
 

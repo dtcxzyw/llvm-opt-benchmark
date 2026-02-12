@@ -4092,15 +4092,13 @@ average_edge_length.exit:                         ; preds = %47, %._crit_edge.i
   br i1 %98, label %103, label %gv_calloc.exit227.preheader
 
 gv_calloc.exit227.preheader:                      ; preds = %89
-  %smax282 = tail call i32 @llvm.smax.i32(i32 %26, i32 1)
-  %99 = zext nneg i32 %smax282 to i64
+  %99 = zext nneg i32 %26 to i64
   %100 = shl nuw nsw i64 %99, 3
   %101 = shl nuw nsw i64 %96, 3
-  %smax297 = tail call i32 @llvm.smax.i32(i32 %22, i32 1)
   %102 = zext nneg i32 %0 to i64
-  %wide.trip.count308 = zext nneg i32 %smax297 to i64
-  %wide.trip.count329 = zext nneg i32 %smax297 to i64
-  %wide.trip.count350 = zext nneg i32 %smax297 to i64
+  %wide.trip.count308 = zext nneg i32 %22 to i64
+  %wide.trip.count329 = zext nneg i32 %22 to i64
+  %wide.trip.count350 = zext nneg i32 %22 to i64
   br label %.preheader244.preheader
 
 103:                                              ; preds = %89
@@ -4114,7 +4112,7 @@ gv_calloc.exit227.preheader:                      ; preds = %89
   %.0209 = phi double [ %.0.i, %update_step.exit ], [ %12, %gv_calloc.exit227.preheader ]
   %.0200 = phi double [ %175, %update_step.exit ], [ 0.000000e+00, %gv_calloc.exit227.preheader ]
   %.0197 = phi i32 [ %107, %update_step.exit ], [ 0, %gv_calloc.exit227.preheader ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %28, i8 0, i64 %100, i1 false), !tbaa !39
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %100, i1 false), !tbaa !39
   %107 = add nuw nsw i32 %.0197, 1
   br label %.preheader244
 

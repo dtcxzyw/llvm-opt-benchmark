@@ -3039,8 +3039,7 @@ _ZN7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE12RandomHeightEv.exit
   store ptr %127, ptr %126, align 8, !tbaa !112
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %129 = ptrtoint ptr %126 to i64
-  %smax = tail call i32 @llvm.smax.i32(i32 %.0.lcssa.i, i32 1)
-  %wide.trip.count51 = zext nneg i32 %smax to i64
+  %wide.trip.count51 = zext i32 %.0.lcssa.i to i64
   br label %133
 
 130:                                              ; preds = %133
@@ -6729,9 +6728,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #0
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #25
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #26
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #26

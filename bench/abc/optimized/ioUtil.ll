@@ -2067,7 +2067,6 @@ Abc_TtOr.exit.loopexit.us:                        ; preds = %.lr.ph.i.us
 
 .lr.ph98:                                         ; preds = %121
   %126 = icmp sgt i32 %.0111, 0
-  %smax131 = tail call i32 @llvm.smax.i32(i32 %.09.i, i32 1)
   br i1 %126, label %.lr.ph98.split.us.preheader, label %.lr.ph90.us104
 
 .lr.ph98.split.us.preheader:                      ; preds = %.lr.ph98
@@ -2107,7 +2106,7 @@ Abc_TtOr.exit.loopexit.us:                        ; preds = %.lr.ph.i.us
   %143 = and i32 %142, 1
   %144 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.68, i32 noundef %143) #16
   %145 = add nuw nsw i32 %.04888.us, 1
-  %exitcond132.not = icmp eq i32 %145, %smax131
+  %exitcond132.not = icmp eq i32 %145, %.09.i
   br i1 %exitcond132.not, label %.lr.ph94.us, label %.lr.ph90.us, !llvm.loop !63
 
 ._crit_edge95.us:                                 ; preds = %130
@@ -2126,7 +2125,7 @@ Abc_TtOr.exit.loopexit.us:                        ; preds = %.lr.ph.i.us
   %148 = and i32 %147, 1
   %149 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.68, i32 noundef %148) #16
   %150 = add nuw nsw i32 %.04888.us103, 1
-  %exitcond129.not = icmp eq i32 %150, %smax131
+  %exitcond129.not = icmp eq i32 %150, %.09.i
   br i1 %exitcond129.not, label %._crit_edge91.us105, label %146, !llvm.loop !63
 
 ._crit_edge91.us105:                              ; preds = %146
@@ -2757,9 +2756,6 @@ declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef capt
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #14
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #15

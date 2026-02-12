@@ -4875,7 +4875,6 @@ _ZNSt12_Vector_baseIN5ceres8internal5BlockESaIS2_EE11_M_allocateEm.exit.i: ; pre
 
 .lr.ph296:                                        ; preds = %._crit_edge
   %139 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %smax313 = call i32 @llvm.smax.i32(i32 %106, i32 1)
   br label %175
 
 140:                                              ; preds = %_ZNSt12_Vector_baseIN5ceres8internal5BlockESaIS2_EE11_M_allocateEm.exit.i
@@ -5076,7 +5075,7 @@ _ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE12emplace_backIJiRiEEERS2_DpOT_.exit
   %205 = load i32, ptr %204, align 4, !tbaa !150
   %206 = add nsw i32 %205, %.0262294
   %207 = add nuw nsw i32 %.089295, 1
-  %exitcond314.not = icmp eq i32 %207, %smax313
+  %exitcond314.not = icmp eq i32 %207, %106
   br i1 %exitcond314.not, label %.lr.ph305, label %175, !llvm.loop !214
 
 .loopexit280:                                     ; preds = %175, %_ZNKSt6vectorIN5ceres8internal5BlockESaIS2_EE12_M_check_lenEmPKc.exit.i.i172
@@ -9145,9 +9144,6 @@ declare i32 @llvm.smin.i32(i32, i32) #29
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #29
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #29
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare x86_fp80 @llvm.log.f80(x86_fp80) #29

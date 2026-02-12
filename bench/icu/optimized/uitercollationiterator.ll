@@ -1553,9 +1553,9 @@ define noundef i32 @_ZN6icu_7725FCDUIterCollationIterator17previousCodePointER10
 
 .backedge:                                        ; preds = %.backedge.backedge, %2
   %8 = load i32, ptr %3, align 8, !tbaa !51
-  switch i32 %8, label %93 [
+  switch i32 %8, label %90 [
     i32 1, label %9
-    i32 2, label %84
+    i32 2, label %81
   ]
 
 9:                                                ; preds = %.backedge
@@ -1596,18 +1596,18 @@ _ZN6icu_7712CollationFCD7hasLcccEi.exit:          ; preds = %18
 
 29:                                               ; preds = %_ZN6icu_7712CollationFCD7hasLcccEi.exit
   %30 = and i32 %13, 2096897
-  %.not43 = icmp eq i32 %30, 3841
-  br i1 %.not43, label %48, label %31
+  %.not43.not = icmp eq i32 %30, 3841
+  %31 = load ptr, ptr %6, align 8, !tbaa !15
+  br i1 %.not43.not, label %.critedge, label %32
 
-31:                                               ; preds = %29
-  %32 = load ptr, ptr %6, align 8, !tbaa !15
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 80
+32:                                               ; preds = %29
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 80
   %34 = load ptr, ptr %33, align 8, !tbaa !39
-  %35 = tail call noundef i32 %34(ptr noundef %32)
+  %35 = tail call noundef i32 %34(ptr noundef %31)
   %36 = icmp sgt i32 %35, 191
   br i1 %36, label %37, label %_ZN6icu_7712CollationFCD7hasTcccEi.exit.thread
 
-37:                                               ; preds = %31
+37:                                               ; preds = %32
   %38 = lshr i32 %35, 5
   %39 = zext nneg i32 %38 to i64
   %40 = getelementptr inbounds nuw i8, ptr @_ZN6icu_7712CollationFCD9tcccIndexE, i64 %39
@@ -1625,144 +1625,140 @@ _ZN6icu_7712CollationFCD7hasTcccEi.exit:          ; preds = %37
   %.not30 = icmp eq i32 %47, 0
   br i1 %.not30, label %_ZN6icu_7712CollationFCD7hasTcccEi.exit.thread, label %48
 
-48:                                               ; preds = %_ZN6icu_7712CollationFCD7hasTcccEi.exit, %29
-  %.0 = phi i32 [ -1, %29 ], [ %35, %_ZN6icu_7712CollationFCD7hasTcccEi.exit ]
+48:                                               ; preds = %_ZN6icu_7712CollationFCD7hasTcccEi.exit
   %49 = load ptr, ptr %6, align 8, !tbaa !15
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 72
   %51 = load ptr, ptr %50, align 8, !tbaa !29
   %52 = tail call noundef i32 %51(ptr noundef %49)
-  %53 = icmp sgt i32 %.0, -1
-  br i1 %53, label %54, label %59
+  %53 = load ptr, ptr %6, align 8, !tbaa !15
+  br label %.critedge
 
-54:                                               ; preds = %48
-  %55 = load ptr, ptr %6, align 8, !tbaa !15
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 72
-  %57 = load ptr, ptr %56, align 8, !tbaa !29
-  %58 = tail call noundef i32 %57(ptr noundef %55)
-  br label %59
-
-59:                                               ; preds = %54, %48
-  %60 = tail call noundef signext i8 @_ZN6icu_7725FCDUIterCollationIterator15previousSegmentER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
-  %.not31 = icmp eq i8 %60, 0
+.critedge:                                        ; preds = %29, %48
+  %.sink73 = phi ptr [ %53, %48 ], [ %31, %29 ]
+  %54 = getelementptr inbounds nuw i8, ptr %.sink73, i64 72
+  %55 = load ptr, ptr %54, align 8, !tbaa !29
+  %56 = tail call noundef i32 %55(ptr noundef %.sink73)
+  %57 = tail call noundef signext i8 @_ZN6icu_7725FCDUIterCollationIterator15previousSegmentER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  %.not31 = icmp eq i8 %57, 0
   br i1 %.not31, label %_ZN6icu_7712CollationFCD7hasLcccEi.exit.thread, label %.backedge.backedge
 
-_ZN6icu_7712CollationFCD7hasTcccEi.exit.thread:   ; preds = %31, %37, %_ZN6icu_7712CollationFCD7hasTcccEi.exit
-  %61 = and i32 %13, 2147482624
-  %62 = icmp eq i32 %61, 56320
-  br i1 %62, label %63, label %77
+_ZN6icu_7712CollationFCD7hasTcccEi.exit.thread:   ; preds = %32, %37, %_ZN6icu_7712CollationFCD7hasTcccEi.exit
+  %58 = and i32 %13, 2147482624
+  %59 = icmp eq i32 %58, 56320
+  br i1 %59, label %60, label %74
 
-63:                                               ; preds = %_ZN6icu_7712CollationFCD7hasTcccEi.exit.thread
-  %64 = icmp slt i32 %35, 0
-  br i1 %64, label %65, label %70
+60:                                               ; preds = %_ZN6icu_7712CollationFCD7hasTcccEi.exit.thread
+  %61 = icmp slt i32 %35, 0
+  br i1 %61, label %62, label %67
 
-65:                                               ; preds = %63
-  %66 = load ptr, ptr %6, align 8, !tbaa !15
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 80
-  %68 = load ptr, ptr %67, align 8, !tbaa !39
-  %69 = tail call noundef i32 %68(ptr noundef %66)
-  br label %70
+62:                                               ; preds = %60
+  %63 = load ptr, ptr %6, align 8, !tbaa !15
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 80
+  %65 = load ptr, ptr %64, align 8, !tbaa !39
+  %66 = tail call noundef i32 %65(ptr noundef %63)
+  br label %67
 
-70:                                               ; preds = %65, %63
-  %.2 = phi i32 [ %69, %65 ], [ %35, %63 ]
-  %71 = and i32 %.2, -1024
-  %72 = icmp eq i32 %71, 55296
-  br i1 %72, label %73, label %77
+67:                                               ; preds = %62, %60
+  %.2 = phi i32 [ %66, %62 ], [ %35, %60 ]
+  %68 = and i32 %.2, -1024
+  %69 = icmp eq i32 %68, 55296
+  br i1 %69, label %70, label %74
 
-73:                                               ; preds = %70
-  %74 = shl nuw nsw i32 %.2, 10
-  %75 = add nuw nsw i32 %13, -56613888
-  %76 = add nsw i32 %75, %74
+70:                                               ; preds = %67
+  %71 = shl nuw nsw i32 %.2, 10
+  %72 = add nuw nsw i32 %13, -56613888
+  %73 = add nsw i32 %72, %71
   br label %_ZN6icu_7712CollationFCD7hasLcccEi.exit.thread
 
-77:                                               ; preds = %70, %_ZN6icu_7712CollationFCD7hasTcccEi.exit.thread
-  %.1 = phi i32 [ %.2, %70 ], [ %35, %_ZN6icu_7712CollationFCD7hasTcccEi.exit.thread ]
-  %78 = icmp sgt i32 %.1, -1
-  br i1 %78, label %79, label %_ZN6icu_7712CollationFCD7hasLcccEi.exit.thread
+74:                                               ; preds = %67, %_ZN6icu_7712CollationFCD7hasTcccEi.exit.thread
+  %.1 = phi i32 [ %.2, %67 ], [ %35, %_ZN6icu_7712CollationFCD7hasTcccEi.exit.thread ]
+  %75 = icmp sgt i32 %.1, -1
+  br i1 %75, label %76, label %_ZN6icu_7712CollationFCD7hasLcccEi.exit.thread
 
-79:                                               ; preds = %77
-  %80 = load ptr, ptr %6, align 8, !tbaa !15
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 72
-  %82 = load ptr, ptr %81, align 8, !tbaa !29
-  %83 = tail call noundef i32 %82(ptr noundef %80)
+76:                                               ; preds = %74
+  %77 = load ptr, ptr %6, align 8, !tbaa !15
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 72
+  %79 = load ptr, ptr %78, align 8, !tbaa !29
+  %80 = tail call noundef i32 %79(ptr noundef %77)
   br label %_ZN6icu_7712CollationFCD7hasLcccEi.exit.thread
 
-84:                                               ; preds = %.backedge
-  %85 = load i32, ptr %4, align 8, !tbaa !52
-  %86 = load i32, ptr %5, align 4, !tbaa !45
-  %.not = icmp eq i32 %85, %86
-  br i1 %.not, label %_ZN6icu_7725FCDUIterCollationIterator16switchToBackwardEv.exit, label %87
+81:                                               ; preds = %.backedge
+  %82 = load i32, ptr %4, align 8, !tbaa !52
+  %83 = load i32, ptr %5, align 4, !tbaa !45
+  %.not = icmp eq i32 %82, %83
+  br i1 %.not, label %_ZN6icu_7725FCDUIterCollationIterator16switchToBackwardEv.exit, label %84
 
-87:                                               ; preds = %84
-  %88 = load ptr, ptr %6, align 8, !tbaa !15
-  %89 = tail call i32 @uiter_previous32_77(ptr noundef %88)
-  %90 = icmp ult i32 %89, 65536
-  %.neg27 = select i1 %90, i32 -1, i32 -2
-  %91 = load i32, ptr %4, align 8, !tbaa !52
-  %92 = add i32 %.neg27, %91
-  store i32 %92, ptr %4, align 8, !tbaa !52
+84:                                               ; preds = %81
+  %85 = load ptr, ptr %6, align 8, !tbaa !15
+  %86 = tail call i32 @uiter_previous32_77(ptr noundef %85)
+  %87 = icmp ult i32 %86, 65536
+  %.neg27 = select i1 %87, i32 -1, i32 -2
+  %88 = load i32, ptr %4, align 8, !tbaa !52
+  %89 = add i32 %.neg27, %88
+  store i32 %89, ptr %4, align 8, !tbaa !52
   br label %_ZN6icu_7712CollationFCD7hasLcccEi.exit.thread
 
-93:                                               ; preds = %.backedge
-  %94 = icmp slt i32 %8, 3
-  %95 = load i32, ptr %4, align 8
-  %.not26 = icmp eq i32 %95, 0
-  %or.cond = select i1 %94, i1 true, i1 %.not26
-  br i1 %or.cond, label %103, label %96
+90:                                               ; preds = %.backedge
+  %91 = icmp slt i32 %8, 3
+  %92 = load i32, ptr %4, align 8
+  %.not26 = icmp eq i32 %92, 0
+  %or.cond = select i1 %91, i1 true, i1 %.not26
+  br i1 %or.cond, label %100, label %93
 
-96:                                               ; preds = %93
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %98 = add nsw i32 %95, -1
-  %99 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %97, i32 noundef %98)
-  %100 = icmp ult i32 %99, 65536
-  %.neg = select i1 %100, i32 -1, i32 -2
-  %101 = load i32, ptr %4, align 8, !tbaa !52
-  %102 = add i32 %.neg, %101
-  store i32 %102, ptr %4, align 8, !tbaa !52
+93:                                               ; preds = %90
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %95 = add nsw i32 %92, -1
+  %96 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %94, i32 noundef %95)
+  %97 = icmp ult i32 %96, 65536
+  %.neg = select i1 %97, i32 -1, i32 -2
+  %98 = load i32, ptr %4, align 8, !tbaa !52
+  %99 = add i32 %.neg, %98
+  store i32 %99, ptr %4, align 8, !tbaa !52
   br label %_ZN6icu_7712CollationFCD7hasLcccEi.exit.thread
 
-103:                                              ; preds = %93
-  switch i32 %8, label %119 [
-    i32 0, label %104
-    i32 3, label %111
+100:                                              ; preds = %90
+  switch i32 %8, label %116 [
+    i32 0, label %101
+    i32 3, label %108
   ]
 
-104:                                              ; preds = %103
-  %105 = load ptr, ptr %6, align 8, !tbaa !15
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 32
-  %107 = load ptr, ptr %106, align 8, !tbaa !28
-  %108 = tail call noundef i32 %107(ptr noundef %105, i32 noundef 1)
-  store i32 %108, ptr %4, align 8, !tbaa !52
-  store i32 %108, ptr %7, align 4, !tbaa !53
-  %109 = load i32, ptr %5, align 4, !tbaa !45
-  %110 = icmp eq i32 %108, %109
-  %..i = select i1 %110, i32 1, i32 2
+101:                                              ; preds = %100
+  %102 = load ptr, ptr %6, align 8, !tbaa !15
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 32
+  %104 = load ptr, ptr %103, align 8, !tbaa !28
+  %105 = tail call noundef i32 %104(ptr noundef %102, i32 noundef 1)
+  store i32 %105, ptr %4, align 8, !tbaa !52
+  store i32 %105, ptr %7, align 4, !tbaa !53
+  %106 = load i32, ptr %5, align 4, !tbaa !45
+  %107 = icmp eq i32 %105, %106
+  %..i = select i1 %107, i32 1, i32 2
   br label %_ZN6icu_7725FCDUIterCollationIterator16switchToBackwardEv.exit
 
-111:                                              ; preds = %103
-  %112 = load ptr, ptr %6, align 8, !tbaa !15
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 40
-  %114 = load ptr, ptr %113, align 8, !tbaa !26
-  %115 = load i32, ptr %5, align 4, !tbaa !45
-  %116 = load i32, ptr %7, align 4, !tbaa !53
-  %117 = sub nsw i32 %115, %116
-  %118 = tail call noundef i32 %114(ptr noundef %112, i32 noundef %117, i32 noundef 1)
-  br label %119
+108:                                              ; preds = %100
+  %109 = load ptr, ptr %6, align 8, !tbaa !15
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 40
+  %111 = load ptr, ptr %110, align 8, !tbaa !26
+  %112 = load i32, ptr %5, align 4, !tbaa !45
+  %113 = load i32, ptr %7, align 4, !tbaa !53
+  %114 = sub nsw i32 %112, %113
+  %115 = tail call noundef i32 %111(ptr noundef %109, i32 noundef %114, i32 noundef 1)
+  br label %116
 
-119:                                              ; preds = %111, %103
-  %120 = load i32, ptr %5, align 4, !tbaa !45
-  store i32 %120, ptr %7, align 4, !tbaa !53
+116:                                              ; preds = %108, %100
+  %117 = load i32, ptr %5, align 4, !tbaa !45
+  store i32 %117, ptr %7, align 4, !tbaa !53
   br label %_ZN6icu_7725FCDUIterCollationIterator16switchToBackwardEv.exit
 
-_ZN6icu_7725FCDUIterCollationIterator16switchToBackwardEv.exit: ; preds = %84, %104, %119
-  %.sink.i = phi i32 [ %..i, %104 ], [ 1, %84 ], [ 1, %119 ]
+_ZN6icu_7725FCDUIterCollationIterator16switchToBackwardEv.exit: ; preds = %81, %101, %116
+  %.sink.i = phi i32 [ %..i, %101 ], [ 1, %81 ], [ 1, %116 ]
   store i32 %.sink.i, ptr %3, align 8, !tbaa !51
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %_ZN6icu_7725FCDUIterCollationIterator16switchToBackwardEv.exit, %59
+.backedge.backedge:                               ; preds = %_ZN6icu_7725FCDUIterCollationIterator16switchToBackwardEv.exit, %.critedge
   br label %.backedge, !llvm.loop !70
 
-_ZN6icu_7712CollationFCD7hasLcccEi.exit.thread:   ; preds = %59, %16, %18, %_ZN6icu_7712CollationFCD7hasLcccEi.exit, %79, %77, %73, %96, %87, %15
-  %.120 = phi i32 [ -1, %15 ], [ %13, %79 ], [ %99, %96 ], [ %89, %87 ], [ %76, %73 ], [ %13, %77 ], [ %13, %18 ], [ %13, %_ZN6icu_7712CollationFCD7hasLcccEi.exit ], [ -1, %59 ], [ %13, %16 ]
+_ZN6icu_7712CollationFCD7hasLcccEi.exit.thread:   ; preds = %.critedge, %16, %18, %_ZN6icu_7712CollationFCD7hasLcccEi.exit, %76, %74, %70, %93, %84, %15
+  %.120 = phi i32 [ -1, %15 ], [ %13, %76 ], [ %96, %93 ], [ %86, %84 ], [ %73, %70 ], [ %13, %74 ], [ %13, %18 ], [ %13, %_ZN6icu_7712CollationFCD7hasLcccEi.exit ], [ -1, %.critedge ], [ %13, %16 ]
   ret i32 %.120
 }
 

@@ -51031,18 +51031,18 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i.i.i: ; p
   store i8 0, ptr %33, align 1, !tbaa !13
   %34 = add nuw i64 %.05.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %34, %16
-  br i1 %exitcond.not.i.i.i.i.i, label %.loopexit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !732
+  br i1 %exitcond.not.i.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !732
 
-.loopexit.loopexit.i.i:                           ; preds = %.lr.ph.i.i.i.i.i
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i
   %.pre.i.i = load i64, ptr %7, align 8, !tbaa !731
   %35 = icmp eq i64 %.pre.i.i, 0
   br i1 %35, label %36, label %37
 
-36:                                               ; preds = %.loopexit.loopexit.i.i
+36:                                               ; preds = %.loopexit.i.i
   store i64 1, ptr %7, align 8, !tbaa !731
   br label %37
 
-37:                                               ; preds = %36, %.loopexit.loopexit.i.i, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i.i.i
+37:                                               ; preds = %36, %.loopexit.i.i, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i.i.i
   %.pre4.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i.i.i.i, align 8, !tbaa !592
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %39 = load ptr, ptr %38, align 8, !tbaa !616

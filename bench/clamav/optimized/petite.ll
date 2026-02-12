@@ -335,8 +335,7 @@ define range(i32 0, 2) i32 @petite_inflate2x_1to9(ptr noundef %0, i32 noundef %1
 
 .lr.ph1513.preheader:                             ; preds = %._crit_edge1471, %.critedge, %.critedge.thread
   %.3774 = phi i32 [ 0, %._crit_edge1471 ], [ %132, %.critedge.thread ], [ %133, %.critedge ]
-  %smax1706 = tail call i32 @llvm.smax.i32(i32 %.083714482090, i32 1)
-  %wide.trip.count1707 = zext nneg i32 %smax1706 to i64
+  %wide.trip.count1707 = zext nneg i32 %.083714482090 to i64
   br label %.lr.ph1513
 
 .lr.ph1513:                                       ; preds = %.lr.ph1513.preheader, %167
@@ -410,8 +409,7 @@ define range(i32 0, 2) i32 @petite_inflate2x_1to9(ptr noundef %0, i32 noundef %1
 
 .lr.ph1517.preheader:                             ; preds = %167
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #5
-  %smax1733 = tail call i32 @llvm.smax.i32(i32 %.083714482090, i32 1)
-  %wide.trip.count1734 = zext nneg i32 %smax1733 to i64
+  %wide.trip.count1734 = zext nneg i32 %.083714482090 to i64
   br label %.lr.ph1517
 
 .lr.ph1517:                                       ; preds = %.lr.ph1517.preheader, %.lr.ph1517

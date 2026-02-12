@@ -555,7 +555,7 @@ define i64 @diff_attr_data(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
   %296 = getelementptr inbounds nuw i8, ptr %6, i64 184
   %297 = zext nneg i32 %219 to i64
   %298 = shl nuw nsw i64 %297, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %296, ptr noundef nonnull align 16 dereferenceable(1) %12, i64 %298, i1 false), !tbaa !3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %296, ptr nonnull align 16 %12, i64 %298, i1 false), !tbaa !3
   br label %299
 
 299:                                              ; preds = %.lr.ph, %299

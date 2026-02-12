@@ -1693,15 +1693,15 @@ define range(i32 -2147483648, 2147483647) i32 @Bdc_DecomposeStepMux(ptr noundef 
 
 13:                                               ; preds = %10
   %14 = load i64, ptr %6, align 8, !tbaa !20
-  %.neg68 = mul i64 %14, -1000000
+  %.neg69 = mul i64 %14, -1000000
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !22
   %.neg = sdiv i64 %16, -1000
-  %.neg69 = add i64 %.neg, %.neg68
+  %.neg70 = add i64 %.neg, %.neg69
   br label %Abc_Clock.exit
 
 Abc_Clock.exit:                                   ; preds = %10, %13
-  %.0.i.neg = phi i64 [ %.neg69, %13 ], [ 1, %10 ]
+  %.0.i.neg = phi i64 [ %.neg70, %13 ], [ 1, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %17
 
@@ -1710,15 +1710,15 @@ Abc_Clock.exit:                                   ; preds = %10, %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i32, ptr %18, align 8, !tbaa !24
   %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %.lr.ph, label %.thread
+  br i1 %20, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %17
   %21 = load i32, ptr %1, align 8, !tbaa !26
   br label %22
 
 22:                                               ; preds = %.lr.ph, %68
-  %.06074 = phi i32 [ 0, %.lr.ph ], [ %69, %68 ]
-  %23 = shl nuw i32 1, %.06074
+  %.06075 = phi i32 [ 0, %.lr.ph ], [ %69, %68 ]
+  %23 = shl nuw i32 1, %.06075
   %24 = and i32 %21, %23
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %68, label %26
@@ -1728,23 +1728,23 @@ Abc_Clock.exit:                                   ; preds = %10, %13
   %28 = load ptr, ptr %27, align 8, !tbaa !23
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !23
-  call void @Kit_TruthCofactor0New(ptr noundef %28, ptr noundef %30, i32 noundef %19, i32 noundef %.06074) #7
+  call void @Kit_TruthCofactor0New(ptr noundef %28, ptr noundef %30, i32 noundef %19, i32 noundef %.06075) #7
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !25
   %35 = load i32, ptr %18, align 8, !tbaa !24
-  call void @Kit_TruthCofactor0New(ptr noundef %32, ptr noundef %34, i32 noundef %35, i32 noundef %.06074) #7
+  call void @Kit_TruthCofactor0New(ptr noundef %32, ptr noundef %34, i32 noundef %35, i32 noundef %.06075) #7
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !23
   %38 = load ptr, ptr %29, align 8, !tbaa !23
   %39 = load i32, ptr %18, align 8, !tbaa !24
-  call void @Kit_TruthCofactor1New(ptr noundef %37, ptr noundef %38, i32 noundef %39, i32 noundef %.06074) #7
+  call void @Kit_TruthCofactor1New(ptr noundef %37, ptr noundef %38, i32 noundef %39, i32 noundef %.06075) #7
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !25
   %42 = load ptr, ptr %33, align 8, !tbaa !25
   %43 = load i32, ptr %18, align 8, !tbaa !24
-  call void @Kit_TruthCofactor1New(ptr noundef %41, ptr noundef %42, i32 noundef %43, i32 noundef %.06074) #7
+  call void @Kit_TruthCofactor1New(ptr noundef %41, ptr noundef %42, i32 noundef %43, i32 noundef %.06075) #7
   %44 = load ptr, ptr %27, align 8, !tbaa !23
   %45 = load i32, ptr %18, align 8, !tbaa !24
   %46 = call i32 @Kit_TruthSupport(ptr noundef %44, i32 noundef %45) #7
@@ -1760,37 +1760,37 @@ Abc_Clock.exit:                                   ; preds = %10, %13
   %56 = load ptr, ptr %27, align 8, !tbaa !23
   %57 = load ptr, ptr %29, align 8, !tbaa !23
   %58 = load i32, ptr %18, align 8, !tbaa !24
-  call void @Kit_TruthCofactor0New(ptr noundef %56, ptr noundef %57, i32 noundef %58, i32 noundef %.06074) #7
+  call void @Kit_TruthCofactor0New(ptr noundef %56, ptr noundef %57, i32 noundef %58, i32 noundef %.06075) #7
   %59 = load ptr, ptr %31, align 8, !tbaa !25
   %60 = load ptr, ptr %33, align 8, !tbaa !25
   %61 = load i32, ptr %18, align 8, !tbaa !24
-  call void @Kit_TruthCofactor0New(ptr noundef %59, ptr noundef %60, i32 noundef %61, i32 noundef %.06074) #7
+  call void @Kit_TruthCofactor0New(ptr noundef %59, ptr noundef %60, i32 noundef %61, i32 noundef %.06075) #7
   %62 = load ptr, ptr %36, align 8, !tbaa !23
   %63 = load ptr, ptr %29, align 8, !tbaa !23
   %64 = load i32, ptr %18, align 8, !tbaa !24
-  call void @Kit_TruthCofactor1New(ptr noundef %62, ptr noundef %63, i32 noundef %64, i32 noundef %.06074) #7
+  call void @Kit_TruthCofactor1New(ptr noundef %62, ptr noundef %63, i32 noundef %64, i32 noundef %.06075) #7
   %65 = load ptr, ptr %40, align 8, !tbaa !25
   %66 = load ptr, ptr %33, align 8, !tbaa !25
   %67 = load i32, ptr %18, align 8, !tbaa !24
-  call void @Kit_TruthCofactor1New(ptr noundef %65, ptr noundef %66, i32 noundef %67, i32 noundef %.06074) #7
+  call void @Kit_TruthCofactor1New(ptr noundef %65, ptr noundef %66, i32 noundef %67, i32 noundef %.06075) #7
   call void @Bdc_SuppMinimize(ptr noundef nonnull %0, ptr noundef nonnull %2)
   call void @Bdc_SuppMinimize(ptr noundef nonnull %0, ptr noundef nonnull %3)
-  br label %.thread
+  br label %.loopexit
 
 68:                                               ; preds = %22
-  %69 = add nuw nsw i32 %.06074, 1
+  %69 = add nuw nsw i32 %.06075, 1
   %exitcond.not = icmp eq i32 %69, %19
-  br i1 %exitcond.not, label %.thread, label %22, !llvm.loop !70
+  br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !70
 
-.thread:                                          ; preds = %68, %17, %26
-  %.06167 = phi i32 [ %.06074, %26 ], [ -1, %17 ], [ -1, %68 ]
+.loopexit:                                        ; preds = %68, %17, %26
+  %.06167 = phi i32 [ %.06075, %26 ], [ -1, %17 ], [ -1, %68 ]
   %70 = load ptr, ptr %0, align 8, !tbaa !3
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %72 = load i32, ptr %71, align 4, !tbaa !18
   %.not63 = icmp eq i32 %72, 0
   br i1 %.not63, label %87, label %73
 
-73:                                               ; preds = %.thread
+73:                                               ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %74 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #7
   %75 = icmp slt i32 %74, 0
@@ -1815,7 +1815,7 @@ Abc_Clock.exit65:                                 ; preds = %73, %76
   store i64 %86, ptr %84, align 8, !tbaa !71
   br label %87
 
-87:                                               ; preds = %Abc_Clock.exit65, %.thread
+87:                                               ; preds = %Abc_Clock.exit65, %.loopexit
   ret i32 %.06167
 }
 

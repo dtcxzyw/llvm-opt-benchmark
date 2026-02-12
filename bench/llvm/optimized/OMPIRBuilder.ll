@@ -54918,8 +54918,7 @@ _ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit: ; preds = %_ZN4
   %308 = load ptr, ptr %5, align 8, !tbaa !231
   %309 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %310 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %smax = call i32 @llvm.smax.i32(i32 %46, i32 1)
-  %wide.trip.count361 = zext nneg i32 %smax to i64
+  %wide.trip.count361 = and i64 %4, 2147483647
   br label %396
 
 311:                                              ; preds = %.lr.ph308, %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit171
@@ -55567,8 +55566,7 @@ _ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit247: ; preds = %544, %_
   %572 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %573 = getelementptr inbounds nuw i8, ptr %45, i64 33
   %574 = and i64 %4, 2147483647
-  %smax366 = call i32 @llvm.smax.i32(i32 %46, i32 1)
-  %wide.trip.count367 = zext nneg i32 %smax366 to i64
+  %wide.trip.count367 = and i64 %4, 2147483647
   %invariant.gep = getelementptr inbounds nuw ptr, ptr %568, i64 %574
   br label %578
 

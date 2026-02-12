@@ -2326,8 +2326,7 @@ clusterManagerNodeArrayShift.exit.us:             ; preds = %113, %110
   %160 = fdiv float 1.638400e+04, %159
   %161 = add nsw i32 %89, -1
   %162 = zext nneg i32 %161 to i64
-  %smax = call i32 @llvm.smax.i32(i32 %89, i32 1)
-  %wide.trip.count660 = zext nneg i32 %smax to i64
+  %wide.trip.count660 = zext nneg i32 %89 to i64
   br label %163
 
 163:                                              ; preds = %.lr.ph548, %._crit_edge543
@@ -2401,8 +2400,7 @@ clusterManagerNodeArrayShift.exit.us:             ; preds = %113, %110
   %189 = sext i32 %184 to i64
   %190 = getelementptr inbounds ptr, ptr %157, i64 %189
   store ptr %183, ptr %190, align 8, !tbaa !92
-  %smax675 = call i32 @llvm.smax.i32(i32 %89, i32 1)
-  %wide.trip.count676 = zext nneg i32 %smax675 to i64
+  %wide.trip.count676 = zext nneg i32 %89 to i64
   br label %.lr.ph566.preheader
 
 .lr.ph566.preheader:                              ; preds = %._crit_edge553, %242

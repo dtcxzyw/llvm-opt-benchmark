@@ -5937,11 +5937,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i:             ; preds = %.noexc21.i
 311:                                              ; preds = %._crit_edge.i99
   %312 = sitofp i32 %274 to double
   %313 = fdiv nnan double 1.000000e+00, %312
-  br i1 %.not.i.i.i.i.i, label %._crit_edge44.i, label %.lr.ph43.preheader.i
-
-.lr.ph43.preheader.i:                             ; preds = %311
-  %smax.i = call i64 @llvm.smax.i64(i64 %282, i64 1)
-  br label %.lr.ph43.i
+  br i1 %.not.i.i.i.i.i, label %._crit_edge44.i, label %.lr.ph43.i
 
 ._crit_edge44.i:                                  ; preds = %330, %311
   %.not.i.i.i.i100 = icmp eq ptr %.sroa.025.057.i, null
@@ -5963,8 +5959,8 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i:             ; preds = %.noexc21.i
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.025.057.i, i64 noundef %319) #32
   br label %common.resume
 
-.lr.ph43.i:                                       ; preds = %330, %.lr.ph43.preheader.i
-  %.041.i = phi i64 [ %331, %330 ], [ 0, %.lr.ph43.preheader.i ]
+.lr.ph43.i:                                       ; preds = %311, %330
+  %.041.i = phi i64 [ %331, %330 ], [ 0, %311 ]
   %320 = getelementptr inbounds nuw %"class.gmx::PointState", ptr %272, i64 %.041.i
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 16
   %322 = load double, ptr %321, align 8, !tbaa !11
@@ -5982,7 +5978,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i:             ; preds = %.noexc21.i
 
 330:                                              ; preds = %324, %.lr.ph43.i
   %331 = add nuw nsw i64 %.041.i, 1
-  %exitcond46.not.i = icmp eq i64 %331, %smax.i
+  %exitcond46.not.i = icmp eq i64 %331, %282
   br i1 %exitcond46.not.i, label %._crit_edge44.i, label %.lr.ph43.i, !llvm.loop !230
 
 _ZN3gmx12_GLOBAL__N_16sumPmfENS_8ArrayRefINS_10PointStateEEEiPKNS_11BiasSharingEi.exit: ; preds = %_ZN3gmx12_GLOBAL__N_113sumHistogramsENS_8ArrayRefINS_10PointStateEEENS1_IdEEiPKNS_11BiasSharingEiNS1_IKiEEPSt6vectorIdNS_30DefaultInitializationAllocatorIdSaIdEEEE.exit, %._crit_edge44.i, %314
@@ -10445,9 +10441,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #29
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #28
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #28
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #28

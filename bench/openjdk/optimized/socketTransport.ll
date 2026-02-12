@@ -1263,7 +1263,7 @@ recv_fully.exit:                                  ; preds = %.lr.ph.i, %26, %28
 46:                                               ; preds = %44
   %47 = add nuw nsw i32 %42, %.01316.i49
   %48 = icmp slt i32 %47, 4
-  br i1 %48, label %.lr.ph.i48, label %.lr.ph.i52, !llvm.loop !15
+  br i1 %48, label %.lr.ph.i48, label %recv_fully.exit51, !llvm.loop !15
 
 49:                                               ; preds = %44
   %50 = icmp eq i32 %.01316.i49, 0
@@ -1277,17 +1277,17 @@ recv_fully.exit:                                  ; preds = %.lr.ph.i, %26, %28
   call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.42)
   br label %108
 
-.lr.ph.i52:                                       ; preds = %46
+recv_fully.exit51:                                ; preds = %46
   %52 = load i32, ptr %37, align 4
   %53 = call i32 @dbgsysNetworkToHostLong(i32 noundef %52) #13
   store i32 %53, ptr %37, align 4
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %55 = load i32, ptr @socketFD, align 4
-  %56 = call i32 @dbgsysRecv(i32 noundef %55, ptr noundef nonnull %54, i64 noundef 1, i32 noundef 0) #13
+  %54 = load i32, ptr @socketFD, align 4
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %56 = call i32 @dbgsysRecv(i32 noundef %54, ptr noundef nonnull %55, i64 noundef 1, i32 noundef 0) #13
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %.thread73, label %58
 
-58:                                               ; preds = %.lr.ph.i52
+58:                                               ; preds = %recv_fully.exit51
   %59 = icmp eq i32 %56, 0
   br i1 %59, label %60, label %recv_fully.exit55
 
@@ -1295,12 +1295,12 @@ recv_fully.exit:                                  ; preds = %.lr.ph.i, %26, %28
   call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.41)
   br label %108
 
-.thread73:                                        ; preds = %.lr.ph.i52
+.thread73:                                        ; preds = %recv_fully.exit51
   call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.42)
   br label %108
 
 recv_fully.exit55:                                ; preds = %58
-  %61 = load i8, ptr %54, align 8
+  %61 = load i8, ptr %55, align 8
   %.not46 = icmp sgt i8 %61, -1
   %62 = load i32, ptr @socketFD, align 4
   br i1 %.not46, label %.lr.ph.i60, label %.lr.ph.i56
@@ -1333,7 +1333,7 @@ recv_fully.exit55:                                ; preds = %58
 
 71:                                               ; preds = %.lr.ph.i60
   %72 = icmp eq i32 %69, 0
-  br i1 %72, label %73, label %.lr.ph.i64
+  br i1 %72, label %73, label %recv_fully.exit63
 
 73:                                               ; preds = %71
   call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.41)
@@ -1343,26 +1343,26 @@ recv_fully.exit55:                                ; preds = %58
   call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.42)
   br label %108
 
-.lr.ph.i64:                                       ; preds = %71
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %75 = load i32, ptr @socketFD, align 4
-  %76 = call i32 @dbgsysRecv(i32 noundef %75, ptr noundef nonnull %74, i64 noundef 1, i32 noundef 0) #13
+recv_fully.exit63:                                ; preds = %71
+  %74 = load i32, ptr @socketFD, align 4
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %76 = call i32 @dbgsysRecv(i32 noundef %74, ptr noundef nonnull %75, i64 noundef 1, i32 noundef 0) #13
   %77 = icmp slt i32 %76, 0
   br i1 %77, label %.thread87, label %78
 
-78:                                               ; preds = %.lr.ph.i64
+78:                                               ; preds = %recv_fully.exit63
   %79 = icmp eq i32 %76, 0
-  br i1 %79, label %80, label %recv_fully.exit67
+  br i1 %79, label %80, label %recv_fully.exit67, !llvm.loop !15
 
 80:                                               ; preds = %78
   call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.41)
   br label %108
 
-.thread87:                                        ; preds = %.lr.ph.i64
+.thread87:                                        ; preds = %recv_fully.exit63
   call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.42)
   br label %108
 
-recv_fully.exit67:                                ; preds = %66, %78
+recv_fully.exit67:                                ; preds = %78, %66
   %81 = load i32, ptr %3, align 4
   %82 = add i32 %81, -11
   %83 = icmp slt i32 %82, 0

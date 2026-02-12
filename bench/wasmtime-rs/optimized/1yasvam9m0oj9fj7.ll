@@ -103,7 +103,7 @@ define hidden void @"_ZN66_$LT$cranelift_isle..error..Errors$u20$as$u20$core..fm
   %39 = alloca ptr, align 8
   %40 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %41 = load i64, ptr %2, align 8, !range !3, !noundef !4
-  switch i64 %41, label %default.unreachable96 [
+  switch i64 %41, label %default.unreachable97 [
     i64 0, label %51
     i64 1, label %42
     i64 2, label %45
@@ -112,7 +112,7 @@ define hidden void @"_ZN66_$LT$cranelift_isle..error..Errors$u20$as$u20$core..fm
     i64 5, label %59
   ]
 
-default.unreachable96:                            ; preds = %3
+default.unreachable97:                            ; preds = %3
   unreachable
 
 42:                                               ; preds = %3
@@ -203,12 +203,12 @@ default.unreachable96:                            ; preds = %3
           to label %76 unwind label %74
 
 73:                                               ; preds = %132, %130
-  br i1 %.1.ph, label %.thread72, label %133
+  br i1 %.1.ph, label %.thread73, label %133
 
 74:                                               ; preds = %106, %94, %80, %71, %59, %55
   %75 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread72
+  br label %.thread73
 
 76:                                               ; preds = %71
   %.064 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -221,14 +221,14 @@ default.unreachable96:                            ; preds = %3
   %79 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr120drop_in_place$LT$alloc..boxed..Box$LT$$u5b$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$u3b$$u20$1$u5d$$GT$$GT$17he2fe942e797a2879E"(ptr nonnull align 8 %22) #9
-          to label %.thread72 unwind label %81
+          to label %.thread73 unwind label %81
 
 80:                                               ; preds = %76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %72, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h5af58e2f5cdc8356E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %23, ptr nonnull align 8 %72, i64 1)
           to label %65 unwind label %74
 
-81:                                               ; preds = %.thread72, %132, %131, %113, %104, %98, %89, %78
+81:                                               ; preds = %.thread73, %132, %131, %113, %104, %98, %89, %78
   %82 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #10
@@ -251,7 +251,7 @@ default.unreachable96:                            ; preds = %3
   %90 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr120drop_in_place$LT$alloc..boxed..Box$LT$$u5b$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$u3b$$u20$1$u5d$$GT$$GT$17he2fe942e797a2879E"(ptr nonnull align 8 %19) #9
-          to label %.thread72 unwind label %81
+          to label %.thread73 unwind label %81
 
 91:                                               ; preds = %88
   unreachable
@@ -276,7 +276,7 @@ default.unreachable96:                            ; preds = %3
   %99 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$GT$$GT$17h79187072814c3983E"(ptr nonnull align 8 %20) #9
-          to label %.thread72 unwind label %81
+          to label %.thread73 unwind label %81
 
 100:                                              ; preds = %95
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
@@ -293,7 +293,7 @@ default.unreachable96:                            ; preds = %3
   %105 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr120drop_in_place$LT$alloc..boxed..Box$LT$$u5b$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$u3b$$u20$1$u5d$$GT$$GT$17he2fe942e797a2879E"(ptr nonnull align 8 %16) #9
-          to label %.thread72 unwind label %81
+          to label %.thread73 unwind label %81
 
 106:                                              ; preds = %101
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
@@ -313,7 +313,7 @@ default.unreachable96:                            ; preds = %3
   %114 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$GT$$GT$17h79187072814c3983E"(ptr nonnull align 8 %17) #9
-          to label %.thread72 unwind label %81
+          to label %.thread73 unwind label %81
 
 115:                                              ; preds = %107
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
@@ -322,8 +322,8 @@ default.unreachable96:                            ; preds = %3
 116:                                              ; preds = %.preheader, %122
   %.pn = phi { ptr, ptr } [ %127, %122 ], [ %68, %.preheader ]
   %.sroa.018.0 = extractvalue { ptr, ptr } %.pn, 0
-  %.not66 = icmp eq ptr %.sroa.018.0, null
-  br i1 %.not66, label %119, label %117
+  %.not67 = icmp eq ptr %.sroa.018.0, null
+  br i1 %.not67, label %119, label %117
 
 117:                                              ; preds = %116
   %.sroa.4.0 = extractvalue { ptr, ptr } %.pn, 1
@@ -406,12 +406,12 @@ default.unreachable96:                            ; preds = %3
   invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$GT$$GT$17h79187072814c3983E"(ptr nonnull align 8 %23) #9
           to label %73 unwind label %81
 
-133:                                              ; preds = %.thread72, %73
-  %.pn6775 = phi { ptr, i32 } [ %.pn6776, %.thread72 ], [ %lpad.phi, %73 ]
-  resume { ptr, i32 } %.pn6775
+133:                                              ; preds = %.thread73, %73
+  %.pn6876 = phi { ptr, i32 } [ %.pn6877, %.thread73 ], [ %lpad.phi, %73 ]
+  resume { ptr, i32 } %.pn6876
 
-.thread72:                                        ; preds = %104, %113, %89, %98, %78, %74, %73
-  %.pn6776 = phi { ptr, i32 } [ %lpad.phi, %73 ], [ %105, %104 ], [ %114, %113 ], [ %90, %89 ], [ %99, %98 ], [ %79, %78 ], [ %75, %74 ]
+.thread73:                                        ; preds = %104, %113, %89, %98, %78, %74, %73
+  %.pn6877 = phi { ptr, i32 } [ %lpad.phi, %73 ], [ %105, %104 ], [ %114, %113 ], [ %90, %89 ], [ %99, %98 ], [ %79, %78 ], [ %75, %74 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hda2b5af0a5ba881fE"(ptr nonnull align 8 %40) #9
           to label %133 unwind label %81
 }

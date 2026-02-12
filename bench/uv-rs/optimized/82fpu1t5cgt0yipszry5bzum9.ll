@@ -4366,161 +4366,161 @@ define hidden noundef zeroext i1 @"_ZN4rkyv6string6verify85_$LT$impl$u20$byteche
   %5 = alloca [16 x i8], align 8
   %6 = load i8, ptr %0, align 4, !noundef !9
   %7 = icmp slt i8 %6, -64
-  br i1 %7, label %8, label %.lr.ph.i.i12
+  br i1 %7, label %_ZN4rkyv6string4repr18ArchivedStringRepr3len17hdd44a93acde2a2cdE.exit, label %.lr.ph.i.i12
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %10 = load i32, ptr %9, align 4, !noundef !9
-  %11 = sext i32 %10 to i64
-  %12 = load i32, ptr %0, align 4, !alias.scope !1080, !noundef !9
-  %13 = and i32 %12, 63
-  %14 = lshr i32 %12, 2
-  %15 = and i32 %14, 1073741760
-  %16 = or disjoint i32 %15, %13
-  %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr i8, ptr %0, i64 %11
+_ZN4rkyv6string4repr18ArchivedStringRepr3len17hdd44a93acde2a2cdE.exit: ; preds = %2
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %9 = load i32, ptr %8, align 4, !noundef !9
+  %10 = sext i32 %9 to i64
+  %11 = load i32, ptr %0, align 4, !alias.scope !1080, !noundef !9
+  %12 = and i32 %11, 63
+  %13 = lshr i32 %11, 2
+  %14 = and i32 %13, 1073741760
+  %15 = or disjoint i32 %14, %12
+  %16 = zext nneg i32 %15 to i64
+  %17 = getelementptr i8, ptr %0, i64 %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1083)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1086)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1083
   store i64 1, ptr %5, align 8, !noalias !1089
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %17, ptr %19, align 8, !noalias !1089
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %21 = call noundef zeroext i1 @"_ZN125_$LT$rkyv..validation..archive..validator..ArchiveValidator$u20$as$u20$rkyv..validation..archive..ArchiveContext$LT$E$GT$$GT$17check_subtree_ptr17h6072472b83c9c3d4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20, ptr noundef %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
-  br i1 %21, label %"_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$10in_subtree17h0065bc97114711aeE.exit.thread", label %22
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %16, ptr %18, align 8, !noalias !1089
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %20 = call noundef zeroext i1 @"_ZN125_$LT$rkyv..validation..archive..validator..ArchiveValidator$u20$as$u20$rkyv..validation..archive..ArchiveContext$LT$E$GT$$GT$17check_subtree_ptr17h6072472b83c9c3d4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19, ptr noundef %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+  br i1 %20, label %"_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$10in_subtree17h0065bc97114711aeE.exit.thread", label %21
 
-22:                                               ; preds = %8
-  %23 = getelementptr inbounds nuw i8, ptr %18, i64 %17
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %25 = load i64, ptr %24, align 8, !alias.scope !1090, !noalias !1097, !noundef !9
-  %26 = icmp eq i64 %25, 0
-  br i1 %26, label %31, label %27
+21:                                               ; preds = %_ZN4rkyv6string4repr18ArchivedStringRepr3len17hdd44a93acde2a2cdE.exit
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 %16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %24 = load i64, ptr %23, align 8, !alias.scope !1090, !noalias !1097, !noundef !9
+  %25 = icmp eq i64 %24, 0
+  br i1 %25, label %30, label %26
 
-27:                                               ; preds = %22
-  %28 = add i64 %25, -1
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %"_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$10in_subtree17h0065bc97114711aeE.exit.thread", label %30
+26:                                               ; preds = %21
+  %27 = add i64 %24, -1
+  %28 = icmp eq i64 %27, 0
+  br i1 %28, label %"_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$10in_subtree17h0065bc97114711aeE.exit.thread", label %29
 
-30:                                               ; preds = %27
-  store i64 %28, ptr %24, align 8, !alias.scope !1090, !noalias !1097
-  br label %31
+29:                                               ; preds = %26
+  store i64 %27, ptr %23, align 8, !alias.scope !1090, !noalias !1097
+  br label %30
 
-31:                                               ; preds = %30, %22
-  %32 = ptrtoint ptr %23 to i64
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %34 = load i64, ptr %33, align 8, !alias.scope !1090, !noalias !1097, !noundef !9
-  %35 = ptrtoint ptr %18 to i64
-  store i64 %35, ptr %33, align 8, !alias.scope !1090, !noalias !1097
-  %.masked = and i32 %12, 32
-  %36 = or disjoint i32 %15, %.masked
-  %37 = zext nneg i32 %36 to i64
-  br label %38
+30:                                               ; preds = %29, %21
+  %31 = ptrtoint ptr %22 to i64
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %33 = load i64, ptr %32, align 8, !alias.scope !1090, !noalias !1097, !noundef !9
+  %34 = ptrtoint ptr %17 to i64
+  store i64 %34, ptr %32, align 8, !alias.scope !1090, !noalias !1097
+  %.masked = and i32 %11, 32
+  %35 = or disjoint i32 %14, %.masked
+  %36 = zext nneg i32 %35 to i64
+  br label %37
 
-38:                                               ; preds = %._crit_edge.i.i.i.i.i, %31
-  %.sroa.01.0.i.i.i.i.i = phi i64 [ 0, %31 ], [ %39, %._crit_edge.i.i.i.i.i ]
-  %39 = add nuw nsw i64 %.sroa.01.0.i.i.i.i.i, 32
-  %.not.i.i.i.i.i = icmp samesign ugt i64 %39, %17
+37:                                               ; preds = %._crit_edge.i.i.i.i.i, %30
+  %.sroa.01.0.i.i.i.i.i = phi i64 [ 0, %30 ], [ %38, %._crit_edge.i.i.i.i.i ]
+  %38 = add nuw nsw i64 %.sroa.01.0.i.i.i.i.i, 32
+  %.not.i.i.i.i.i = icmp samesign ugt i64 %38, %16
   br i1 %.not.i.i.i.i.i, label %.preheader.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
-.preheader.i.i.i.i.i:                             ; preds = %38
-  %40 = icmp samesign ult i32 %.masked, %13
-  br i1 %40, label %.lr.ph25.i.i.i.i.i, label %"_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$10in_subtree17h0065bc97114711aeE.exit"
+.preheader.i.i.i.i.i:                             ; preds = %37
+  %39 = icmp samesign ult i32 %.masked, %12
+  br i1 %39, label %.lr.ph25.i.i.i.i.i, label %"_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$10in_subtree17h0065bc97114711aeE.exit"
 
 .lr.ph25.i.i.i.i.i:                               ; preds = %.preheader.i.i.i.i.i, %.lr.ph25.i.i.i.i.i
-  %.sroa.01.124.i.i.i.i.i = phi i64 [ %45, %.lr.ph25.i.i.i.i.i ], [ %37, %.preheader.i.i.i.i.i ]
-  %.sroa.011.023.i.i.i.i.i = phi i1 [ %44, %.lr.ph25.i.i.i.i.i ], [ true, %.preheader.i.i.i.i.i ]
-  %41 = getelementptr inbounds i8, ptr %18, i64 %.sroa.01.124.i.i.i.i.i
-  %42 = load i8, ptr %41, align 1, !alias.scope !1101, !noalias !1089, !noundef !9
-  %43 = icmp sgt i8 %42, -1
-  %44 = and i1 %.sroa.011.023.i.i.i.i.i, %43
-  %45 = add nuw i64 %.sroa.01.124.i.i.i.i.i, 1
-  %exitcond31.not.i.i.i.i.i = icmp eq i64 %45, %17
+  %.sroa.01.124.i.i.i.i.i = phi i64 [ %44, %.lr.ph25.i.i.i.i.i ], [ %36, %.preheader.i.i.i.i.i ]
+  %.sroa.011.023.i.i.i.i.i = phi i1 [ %43, %.lr.ph25.i.i.i.i.i ], [ true, %.preheader.i.i.i.i.i ]
+  %40 = getelementptr inbounds i8, ptr %17, i64 %.sroa.01.124.i.i.i.i.i
+  %41 = load i8, ptr %40, align 1, !alias.scope !1101, !noalias !1089, !noundef !9
+  %42 = icmp sgt i8 %41, -1
+  %43 = and i1 %.sroa.011.023.i.i.i.i.i, %42
+  %44 = add nuw i64 %.sroa.01.124.i.i.i.i.i, 1
+  %exitcond31.not.i.i.i.i.i = icmp eq i64 %44, %16
   br i1 %exitcond31.not.i.i.i.i.i, label %_ZN4core5slice5ascii8is_ascii17hb022378719fa8ba5E.exit.i.i.i.i, label %.lr.ph25.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i.i
-  %46 = icmp eq i8 %51, 32
-  br i1 %46, label %38, label %"_ZN4rkyv6string6verify85_$LT$impl$u20$bytecheck..Verify$LT$C$GT$$u20$for$u20$rkyv..string..ArchivedString$GT$6verify28_$u7b$$u7b$closure$u7d$$u7d$17ha191d5983442288aE.exit.i.i"
+  %45 = icmp eq i8 %50, 32
+  br i1 %45, label %37, label %"_ZN4rkyv6string6verify85_$LT$impl$u20$bytecheck..Verify$LT$C$GT$$u20$for$u20$rkyv..string..ArchivedString$GT$6verify28_$u7b$$u7b$closure$u7d$$u7d$17ha191d5983442288aE.exit.i.i"
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %38, %.lr.ph.i.i.i.i.i
-  %.sroa.01.221.i.i.i.i.i = phi i64 [ %52, %.lr.ph.i.i.i.i.i ], [ %.sroa.01.0.i.i.i.i.i, %38 ]
-  %.sroa.09.020.i.i.i.i.i = phi i8 [ %51, %.lr.ph.i.i.i.i.i ], [ 0, %38 ]
-  %47 = getelementptr inbounds nuw i8, ptr %18, i64 %.sroa.01.221.i.i.i.i.i
-  %48 = load i8, ptr %47, align 1, !alias.scope !1101, !noalias !1089, !noundef !9
-  %49 = icmp sgt i8 %48, -1
-  %50 = zext i1 %49 to i8
-  %51 = add i8 %.sroa.09.020.i.i.i.i.i, %50
-  %52 = add nuw nsw i64 %.sroa.01.221.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i = icmp eq i64 %52, %39
+.lr.ph.i.i.i.i.i:                                 ; preds = %37, %.lr.ph.i.i.i.i.i
+  %.sroa.01.221.i.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i.i ], [ %.sroa.01.0.i.i.i.i.i, %37 ]
+  %.sroa.09.020.i.i.i.i.i = phi i8 [ %50, %.lr.ph.i.i.i.i.i ], [ 0, %37 ]
+  %46 = getelementptr inbounds nuw i8, ptr %17, i64 %.sroa.01.221.i.i.i.i.i
+  %47 = load i8, ptr %46, align 1, !alias.scope !1101, !noalias !1089, !noundef !9
+  %48 = icmp sgt i8 %47, -1
+  %49 = zext i1 %48 to i8
+  %50 = add i8 %.sroa.09.020.i.i.i.i.i, %49
+  %51 = add nuw nsw i64 %.sroa.01.221.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i = icmp eq i64 %51, %38
   br i1 %exitcond.not.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 _ZN4core5slice5ascii8is_ascii17hb022378719fa8ba5E.exit.i.i.i.i: ; preds = %.lr.ph25.i.i.i.i.i
-  br i1 %44, label %"_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$10in_subtree17h0065bc97114711aeE.exit", label %"_ZN4rkyv6string6verify85_$LT$impl$u20$bytecheck..Verify$LT$C$GT$$u20$for$u20$rkyv..string..ArchivedString$GT$6verify28_$u7b$$u7b$closure$u7d$$u7d$17ha191d5983442288aE.exit.i.i"
+  br i1 %43, label %"_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$10in_subtree17h0065bc97114711aeE.exit", label %"_ZN4rkyv6string6verify85_$LT$impl$u20$bytecheck..Verify$LT$C$GT$$u20$for$u20$rkyv..string..ArchivedString$GT$6verify28_$u7b$$u7b$closure$u7d$$u7d$17ha191d5983442288aE.exit.i.i"
 
 "_ZN4rkyv6string6verify85_$LT$impl$u20$bytecheck..Verify$LT$C$GT$$u20$for$u20$rkyv..string..ArchivedString$GT$6verify28_$u7b$$u7b$closure$u7d$$u7d$17ha191d5983442288aE.exit.i.i": ; preds = %._crit_edge.i.i.i.i.i, %_ZN4core5slice5ascii8is_ascii17hb022378719fa8ba5E.exit.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1089
-  call void @_ZN4core3str8converts9from_utf817hd4f1e51ae1294830E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %18, i64 noundef %17)
-  %53 = load i64, ptr %4, align 8, !range !352, !noalias !1089, !noundef !9
-  %trunc.i.i.i.i = trunc nuw i64 %53 to i1
+  call void @_ZN4core3str8converts9from_utf817hd4f1e51ae1294830E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %17, i64 noundef %16)
+  %52 = load i64, ptr %4, align 8, !range !352, !noalias !1089, !noundef !9
+  %trunc.i.i.i.i = trunc nuw i64 %52 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1089
   br i1 %trunc.i.i.i.i, label %"_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$10in_subtree17h0065bc97114711aeE.exit.thread", label %"_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$10in_subtree17h0065bc97114711aeE.exit"
 
-"_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$10in_subtree17h0065bc97114711aeE.exit.thread": ; preds = %"_ZN4rkyv6string6verify85_$LT$impl$u20$bytecheck..Verify$LT$C$GT$$u20$for$u20$rkyv..string..ArchivedString$GT$6verify28_$u7b$$u7b$closure$u7d$$u7d$17ha191d5983442288aE.exit.i.i", %8, %27
+"_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$10in_subtree17h0065bc97114711aeE.exit.thread": ; preds = %"_ZN4rkyv6string6verify85_$LT$impl$u20$bytecheck..Verify$LT$C$GT$$u20$for$u20$rkyv..string..ArchivedString$GT$6verify28_$u7b$$u7b$closure$u7d$$u7d$17ha191d5983442288aE.exit.i.i", %_ZN4rkyv6string4repr18ArchivedStringRepr3len17hdd44a93acde2a2cdE.exit, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1083
-  br label %66
+  br label %65
 
 "_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$10in_subtree17h0065bc97114711aeE.exit": ; preds = %.preheader.i.i.i.i.i, %_ZN4core5slice5ascii8is_ascii17hb022378719fa8ba5E.exit.i.i.i.i, %"_ZN4rkyv6string6verify85_$LT$impl$u20$bytecheck..Verify$LT$C$GT$$u20$for$u20$rkyv..string..ArchivedString$GT$6verify28_$u7b$$u7b$closure$u7d$$u7d$17ha191d5983442288aE.exit.i.i"
-  %54 = call noundef zeroext i1 @"_ZN125_$LT$rkyv..validation..archive..validator..ArchiveValidator$u20$as$u20$rkyv..validation..archive..ArchiveContext$LT$E$GT$$GT$17pop_subtree_range17h25b5015f95ec2488E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20, i64 noundef %32, i64 noundef %34)
+  %53 = call noundef zeroext i1 @"_ZN125_$LT$rkyv..validation..archive..validator..ArchiveValidator$u20$as$u20$rkyv..validation..archive..ArchiveContext$LT$E$GT$$GT$17pop_subtree_range17h25b5015f95ec2488E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %31, i64 noundef %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1083
-  br i1 %54, label %66, label %"_ZN54_$LT$str$u20$as$u20$bytecheck..CheckBytes$LT$C$GT$$GT$11check_bytes17h8ae0424cd2668d2cE.exit.thread"
+  br i1 %53, label %65, label %"_ZN54_$LT$str$u20$as$u20$bytecheck..CheckBytes$LT$C$GT$$GT$11check_bytes17h8ae0424cd2668d2cE.exit.thread"
 
 "_ZN54_$LT$str$u20$as$u20$bytecheck..CheckBytes$LT$C$GT$$GT$11check_bytes17h8ae0424cd2668d2cE.exit.thread": ; preds = %_ZN4core5slice5ascii8is_ascii17hb022378719fa8ba5E.exit.i, %.preheader.i.i, %"_ZN54_$LT$str$u20$as$u20$bytecheck..CheckBytes$LT$C$GT$$GT$11check_bytes17h8ae0424cd2668d2cE.exit", %"_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$10in_subtree17h0065bc97114711aeE.exit"
-  br label %66
+  br label %65
 
-.lr.ph.i.i12:                                     ; preds = %2, %56
-  %.sroa.02.010.i.i13 = phi i64 [ %57, %56 ], [ 0, %2 ]
+.lr.ph.i.i12:                                     ; preds = %2, %55
+  %.sroa.02.010.i.i13 = phi i64 [ %56, %55 ], [ 0, %2 ]
   %.ptr.i14 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.02.010.i.i13
   %.val.i.i15 = load i8, ptr %.ptr.i14, align 1, !alias.scope !1104, !noalias !1107, !noundef !9
-  %55 = icmp eq i8 %.val.i.i15, -1
-  br i1 %55, label %.preheader.i.i, label %56
+  %54 = icmp eq i8 %.val.i.i15, -1
+  br i1 %54, label %.preheader.i.i, label %55
 
-56:                                               ; preds = %.lr.ph.i.i12
-  %57 = add nuw nsw i64 %.sroa.02.010.i.i13, 1
-  %58 = icmp eq i64 %57, 8
-  br i1 %58, label %.lr.ph25.i.i.preheader, label %.lr.ph.i.i12
+55:                                               ; preds = %.lr.ph.i.i12
+  %56 = add nuw nsw i64 %.sroa.02.010.i.i13, 1
+  %57 = icmp eq i64 %56, 8
+  br i1 %57, label %.lr.ph25.i.i.preheader, label %.lr.ph.i.i12
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i12
-  %59 = icmp samesign ult i64 %.sroa.02.010.i.i13, 8
-  tail call void @llvm.assume(i1 %59)
+  %58 = icmp samesign ult i64 %.sroa.02.010.i.i13, 8
+  tail call void @llvm.assume(i1 %58)
   %.not = icmp eq i64 %.sroa.02.010.i.i13, 0
   br i1 %.not, label %"_ZN54_$LT$str$u20$as$u20$bytecheck..CheckBytes$LT$C$GT$$GT$11check_bytes17h8ae0424cd2668d2cE.exit.thread", label %.lr.ph25.i.i.preheader
 
-.lr.ph25.i.i.preheader:                           ; preds = %56, %.preheader.i.i
-  %.sroa.0.0.i1642 = phi i64 [ %.sroa.02.010.i.i13, %.preheader.i.i ], [ 8, %56 ]
+.lr.ph25.i.i.preheader:                           ; preds = %55, %.preheader.i.i
+  %.sroa.0.0.i1642 = phi i64 [ %.sroa.02.010.i.i13, %.preheader.i.i ], [ 8, %55 ]
   br label %.lr.ph25.i.i
 
 .lr.ph25.i.i:                                     ; preds = %.lr.ph25.i.i.preheader, %.lr.ph25.i.i
-  %.sroa.01.124.i.i = phi i64 [ %64, %.lr.ph25.i.i ], [ 0, %.lr.ph25.i.i.preheader ]
-  %.sroa.011.023.i.i = phi i1 [ %63, %.lr.ph25.i.i ], [ true, %.lr.ph25.i.i.preheader ]
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.01.124.i.i
-  %61 = load i8, ptr %60, align 1, !alias.scope !1110, !noundef !9
-  %62 = icmp sgt i8 %61, -1
-  %63 = and i1 %.sroa.011.023.i.i, %62
-  %64 = add nuw nsw i64 %.sroa.01.124.i.i, 1
-  %exitcond31.not.i.i = icmp eq i64 %64, %.sroa.0.0.i1642
+  %.sroa.01.124.i.i = phi i64 [ %63, %.lr.ph25.i.i ], [ 0, %.lr.ph25.i.i.preheader ]
+  %.sroa.011.023.i.i = phi i1 [ %62, %.lr.ph25.i.i ], [ true, %.lr.ph25.i.i.preheader ]
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.01.124.i.i
+  %60 = load i8, ptr %59, align 1, !alias.scope !1110, !noundef !9
+  %61 = icmp sgt i8 %60, -1
+  %62 = and i1 %.sroa.011.023.i.i, %61
+  %63 = add nuw nsw i64 %.sroa.01.124.i.i, 1
+  %exitcond31.not.i.i = icmp eq i64 %63, %.sroa.0.0.i1642
   br i1 %exitcond31.not.i.i, label %_ZN4core5slice5ascii8is_ascii17hb022378719fa8ba5E.exit.i, label %.lr.ph25.i.i
 
 _ZN4core5slice5ascii8is_ascii17hb022378719fa8ba5E.exit.i: ; preds = %.lr.ph25.i.i
-  br i1 %63, label %"_ZN54_$LT$str$u20$as$u20$bytecheck..CheckBytes$LT$C$GT$$GT$11check_bytes17h8ae0424cd2668d2cE.exit.thread", label %"_ZN54_$LT$str$u20$as$u20$bytecheck..CheckBytes$LT$C$GT$$GT$11check_bytes17h8ae0424cd2668d2cE.exit"
+  br i1 %62, label %"_ZN54_$LT$str$u20$as$u20$bytecheck..CheckBytes$LT$C$GT$$GT$11check_bytes17h8ae0424cd2668d2cE.exit.thread", label %"_ZN54_$LT$str$u20$as$u20$bytecheck..CheckBytes$LT$C$GT$$GT$11check_bytes17h8ae0424cd2668d2cE.exit"
 
 "_ZN54_$LT$str$u20$as$u20$bytecheck..CheckBytes$LT$C$GT$$GT$11check_bytes17h8ae0424cd2668d2cE.exit": ; preds = %_ZN4core5slice5ascii8is_ascii17hb022378719fa8ba5E.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4core3str8converts9from_utf817hd4f1e51ae1294830E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %.sroa.0.0.i1642)
-  %65 = load i64, ptr %3, align 8, !range !352, !noundef !9
-  %trunc.i = trunc nuw i64 %65 to i1
+  %64 = load i64, ptr %3, align 8, !range !352, !noundef !9
+  %trunc.i = trunc nuw i64 %64 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %trunc.i, label %66, label %"_ZN54_$LT$str$u20$as$u20$bytecheck..CheckBytes$LT$C$GT$$GT$11check_bytes17h8ae0424cd2668d2cE.exit.thread"
+  br i1 %trunc.i, label %65, label %"_ZN54_$LT$str$u20$as$u20$bytecheck..CheckBytes$LT$C$GT$$GT$11check_bytes17h8ae0424cd2668d2cE.exit.thread"
 
-66:                                               ; preds = %"_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$10in_subtree17h0065bc97114711aeE.exit.thread", %"_ZN54_$LT$str$u20$as$u20$bytecheck..CheckBytes$LT$C$GT$$GT$11check_bytes17h8ae0424cd2668d2cE.exit", %"_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$10in_subtree17h0065bc97114711aeE.exit", %"_ZN54_$LT$str$u20$as$u20$bytecheck..CheckBytes$LT$C$GT$$GT$11check_bytes17h8ae0424cd2668d2cE.exit.thread"
+65:                                               ; preds = %"_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$10in_subtree17h0065bc97114711aeE.exit.thread", %"_ZN54_$LT$str$u20$as$u20$bytecheck..CheckBytes$LT$C$GT$$GT$11check_bytes17h8ae0424cd2668d2cE.exit", %"_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$10in_subtree17h0065bc97114711aeE.exit", %"_ZN54_$LT$str$u20$as$u20$bytecheck..CheckBytes$LT$C$GT$$GT$11check_bytes17h8ae0424cd2668d2cE.exit.thread"
   %.sroa.0.0 = phi i1 [ false, %"_ZN54_$LT$str$u20$as$u20$bytecheck..CheckBytes$LT$C$GT$$GT$11check_bytes17h8ae0424cd2668d2cE.exit.thread" ], [ true, %"_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$10in_subtree17h0065bc97114711aeE.exit" ], [ true, %"_ZN54_$LT$str$u20$as$u20$bytecheck..CheckBytes$LT$C$GT$$GT$11check_bytes17h8ae0424cd2668d2cE.exit" ], [ true, %"_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$10in_subtree17h0065bc97114711aeE.exit.thread" ]
   ret i1 %.sroa.0.0
 }

@@ -700,22 +700,22 @@ declare void @strbuf_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @json_append_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @lua_type(ptr noundef %0, i32 noundef -1) #12
-  switch i32 %5, label %177 [
+  switch i32 %5, label %178 [
     i32 4, label %6
     i32 3, label %7
     i32 1, label %8
     i32 5, label %31
-    i32 0, label %150
-    i32 2, label %162
+    i32 0, label %151
+    i32 2, label %163
   ]
 
 6:                                                ; preds = %4
   tail call fastcc void @json_append_string(ptr noundef %0, ptr noundef %3, i32 noundef -1)
-  br label %183
+  br label %184
 
 7:                                                ; preds = %4
   tail call fastcc void @json_append_number(ptr noundef %0, ptr noundef %1, ptr noundef %3, i32 noundef -1)
-  br label %183
+  br label %184
 
 8:                                                ; preds = %4
   %9 = tail call i32 @lua_toboolean(ptr noundef %0, i32 noundef -1) #12
@@ -745,7 +745,7 @@ strbuf_append_mem.exit:                           ; preds = %13, %15
   %20 = load i64, ptr %11, align 8, !tbaa !32
   %21 = add i64 %20, 4
   store i64 %21, ptr %11, align 8, !tbaa !32
-  br label %183
+  br label %184
 
 22:                                               ; preds = %8
   %23 = icmp ugt i64 %12, -6
@@ -765,7 +765,7 @@ strbuf_append_mem.exit35:                         ; preds = %22, %24
   %29 = load i64, ptr %11, align 8, !tbaa !32
   %30 = add i64 %29, 5
   store i64 %30, ptr %11, align 8, !tbaa !32
-  br label %183
+  br label %184
 
 31:                                               ; preds = %4
   %32 = add nsw i32 %2, 1
@@ -883,322 +883,322 @@ lua_array_length.exit:                            ; preds = %._crit_edge.i, %65
   %.val4.i.i60 = load i64, ptr %81, align 8, !tbaa !32
   %.neg.i61 = add i64 %.val4.i.i60, 1
   %82 = icmp eq i64 %.val.i.i59, %.neg.i61
-  br i1 %82, label %83, label %.lr.ph.preheader
+  br i1 %82, label %83, label %strbuf_append_char.exit65
 
 83:                                               ; preds = %79
   tail call void @strbuf_resize(ptr noundef nonnull %3, i64 noundef %.val.i.i59) #12
   %.pre.i63 = load i64, ptr %81, align 8, !tbaa !32
   %.pre3.i64 = add i64 %.pre.i63, 1
-  br label %.lr.ph.preheader
+  br label %strbuf_append_char.exit65
 
-.lr.ph.preheader:                                 ; preds = %83, %79
+strbuf_append_char.exit65:                        ; preds = %79, %83
   %.pre-phi.i62 = phi i64 [ %.neg.i61, %79 ], [ %.pre3.i64, %83 ]
   %84 = phi i64 [ %.val4.i.i60, %79 ], [ %.pre.i63, %83 ]
   %85 = load ptr, ptr %3, align 8, !tbaa !33
   store i64 %.pre-phi.i62, ptr %81, align 8, !tbaa !32
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 %84
   store i8 91, ptr %86, align 1, !tbaa !25
-  br label %.lr.ph
+  br label %87
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %93
-  %.0.i110 = phi i32 [ %94, %93 ], [ 1, %.lr.ph.preheader ]
-  %.not14.i109 = phi i1 [ false, %93 ], [ true, %.lr.ph.preheader ]
-  br i1 %.not14.i109, label %93, label %87
+87:                                               ; preds = %strbuf_append_char.exit65, %94
+  %.0.i109 = phi i32 [ 1, %strbuf_append_char.exit65 ], [ %95, %94 ]
+  %.not14.i108 = phi i1 [ true, %strbuf_append_char.exit65 ], [ false, %94 ]
+  br i1 %.not14.i108, label %94, label %88
 
-87:                                               ; preds = %.lr.ph
+88:                                               ; preds = %87
   %.val.i.i52 = load i64, ptr %80, align 8, !tbaa !44
   %.val4.i.i53 = load i64, ptr %81, align 8, !tbaa !32
   %.neg.i54 = add i64 %.val4.i.i53, 1
-  %88 = icmp eq i64 %.val.i.i52, %.neg.i54
-  br i1 %88, label %89, label %strbuf_append_char.exit58
+  %89 = icmp eq i64 %.val.i.i52, %.neg.i54
+  br i1 %89, label %90, label %strbuf_append_char.exit58
 
-89:                                               ; preds = %87
+90:                                               ; preds = %88
   tail call void @strbuf_resize(ptr noundef nonnull %3, i64 noundef %.val.i.i52) #12
   %.pre.i56 = load i64, ptr %81, align 8, !tbaa !32
   %.pre3.i57 = add i64 %.pre.i56, 1
   br label %strbuf_append_char.exit58
 
-strbuf_append_char.exit58:                        ; preds = %87, %89
-  %.pre-phi.i55 = phi i64 [ %.neg.i54, %87 ], [ %.pre3.i57, %89 ]
-  %90 = phi i64 [ %.val4.i.i53, %87 ], [ %.pre.i56, %89 ]
-  %91 = load ptr, ptr %3, align 8, !tbaa !33
+strbuf_append_char.exit58:                        ; preds = %88, %90
+  %.pre-phi.i55 = phi i64 [ %.neg.i54, %88 ], [ %.pre3.i57, %90 ]
+  %91 = phi i64 [ %.val4.i.i53, %88 ], [ %.pre.i56, %90 ]
+  %92 = load ptr, ptr %3, align 8, !tbaa !33
   store i64 %.pre-phi.i55, ptr %81, align 8, !tbaa !32
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 %90
-  store i8 44, ptr %92, align 1, !tbaa !25
-  br label %93
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 %91
+  store i8 44, ptr %93, align 1, !tbaa !25
+  br label %94
 
-93:                                               ; preds = %strbuf_append_char.exit58, %.lr.ph
-  tail call void @lua_rawgeti(ptr noundef %0, i32 noundef -1, i32 noundef %.0.i110) #12
+94:                                               ; preds = %strbuf_append_char.exit58, %87
+  tail call void @lua_rawgeti(ptr noundef %0, i32 noundef -1, i32 noundef %.0.i109) #12
   tail call fastcc void @json_append_data(ptr noundef %0, ptr noundef %1, i32 noundef %32, ptr noundef nonnull %3)
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #12
-  %94 = add nuw i32 %.0.i110, 1
-  %exitcond.not = icmp eq i32 %.0.i110, %.025.lcssa.i
-  br i1 %exitcond.not, label %json_append_array.exit, label %.lr.ph, !llvm.loop !46
+  %95 = add nuw i32 %.0.i109, 1
+  %exitcond.not = icmp eq i32 %.0.i109, %.025.lcssa.i
+  br i1 %exitcond.not, label %json_append_array.exit, label %87, !llvm.loop !46
 
-json_append_array.exit:                           ; preds = %93
+json_append_array.exit:                           ; preds = %94
   %.val.i.i49 = load i64, ptr %80, align 8, !tbaa !44
   %.val4.i.i50 = load i64, ptr %81, align 8, !tbaa !32
   %.neg.i = add i64 %.val4.i.i50, 1
-  %95 = icmp eq i64 %.val.i.i49, %.neg.i
-  br i1 %95, label %96, label %strbuf_append_char.exit
+  %96 = icmp eq i64 %.val.i.i49, %.neg.i
+  br i1 %96, label %97, label %strbuf_append_char.exit
 
-96:                                               ; preds = %json_append_array.exit
+97:                                               ; preds = %json_append_array.exit
   tail call void @strbuf_resize(ptr noundef nonnull %3, i64 noundef %.val.i.i49) #12
   %.pre.i51 = load i64, ptr %81, align 8, !tbaa !32
   %.pre3.i = add i64 %.pre.i51, 1
   br label %strbuf_append_char.exit
 
-strbuf_append_char.exit:                          ; preds = %json_append_array.exit, %96
-  %.pre-phi.i = phi i64 [ %.neg.i, %json_append_array.exit ], [ %.pre3.i, %96 ]
-  %97 = phi i64 [ %.val4.i.i50, %json_append_array.exit ], [ %.pre.i51, %96 ]
-  %98 = load ptr, ptr %3, align 8, !tbaa !33
+strbuf_append_char.exit:                          ; preds = %json_append_array.exit, %97
+  %.pre-phi.i = phi i64 [ %.neg.i, %json_append_array.exit ], [ %.pre3.i, %97 ]
+  %98 = phi i64 [ %.val4.i.i50, %json_append_array.exit ], [ %.pre.i51, %97 ]
+  %99 = load ptr, ptr %3, align 8, !tbaa !33
   store i64 %.pre-phi.i, ptr %81, align 8, !tbaa !32
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 %97
-  store i8 93, ptr %99, align 1, !tbaa !25
-  br label %183
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 %98
+  store i8 93, ptr %100, align 1, !tbaa !25
+  br label %184
 
 lua_array_length.exit.thread:                     ; preds = %json_encode_exception.exit.i, %69, %59, %lua_array_length.exit
-  %100 = getelementptr i8, ptr %3, i64 8
-  %.val.i.i100 = load i64, ptr %100, align 8, !tbaa !44
-  %101 = getelementptr i8, ptr %3, i64 16
-  %.val4.i.i101 = load i64, ptr %101, align 8, !tbaa !32
+  %101 = getelementptr i8, ptr %3, i64 8
+  %.val.i.i100 = load i64, ptr %101, align 8, !tbaa !44
+  %102 = getelementptr i8, ptr %3, i64 16
+  %.val4.i.i101 = load i64, ptr %102, align 8, !tbaa !32
   %.neg.i102 = add i64 %.val4.i.i101, 1
-  %102 = icmp eq i64 %.val.i.i100, %.neg.i102
-  br i1 %102, label %103, label %strbuf_append_char.exit106
+  %103 = icmp eq i64 %.val.i.i100, %.neg.i102
+  br i1 %103, label %104, label %strbuf_append_char.exit106
 
-103:                                              ; preds = %lua_array_length.exit.thread
+104:                                              ; preds = %lua_array_length.exit.thread
   tail call void @strbuf_resize(ptr noundef nonnull %3, i64 noundef %.val.i.i100) #12
-  %.pre.i104 = load i64, ptr %101, align 8, !tbaa !32
+  %.pre.i104 = load i64, ptr %102, align 8, !tbaa !32
   %.pre3.i105 = add i64 %.pre.i104, 1
   br label %strbuf_append_char.exit106
 
-strbuf_append_char.exit106:                       ; preds = %lua_array_length.exit.thread, %103
-  %.pre-phi.i103 = phi i64 [ %.neg.i102, %lua_array_length.exit.thread ], [ %.pre3.i105, %103 ]
-  %104 = phi i64 [ %.val4.i.i101, %lua_array_length.exit.thread ], [ %.pre.i104, %103 ]
-  %105 = load ptr, ptr %3, align 8, !tbaa !33
-  store i64 %.pre-phi.i103, ptr %101, align 8, !tbaa !32
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 %104
-  store i8 123, ptr %106, align 1, !tbaa !25
+strbuf_append_char.exit106:                       ; preds = %lua_array_length.exit.thread, %104
+  %.pre-phi.i103 = phi i64 [ %.neg.i102, %lua_array_length.exit.thread ], [ %.pre3.i105, %104 ]
+  %105 = phi i64 [ %.val4.i.i101, %lua_array_length.exit.thread ], [ %.pre.i104, %104 ]
+  %106 = load ptr, ptr %3, align 8, !tbaa !33
+  store i64 %.pre-phi.i103, ptr %102, align 8, !tbaa !32
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 %105
+  store i8 123, ptr %107, align 1, !tbaa !25
   tail call void @lua_pushnil(ptr noundef %0) #12
-  %107 = tail call i32 @lua_next(ptr noundef %0, i32 noundef -2) #12
-  %.not.i38111 = icmp eq i32 %107, 0
-  br i1 %.not.i38111, label %json_append_object.exit, label %.lr.ph113
+  %108 = tail call i32 @lua_next(ptr noundef %0, i32 noundef -2) #12
+  %.not.i38110 = icmp eq i32 %108, 0
+  br i1 %.not.i38110, label %json_append_object.exit, label %.lr.ph
 
-.lr.ph113:                                        ; preds = %strbuf_append_char.exit106
-  %108 = getelementptr i8, ptr %1, i64 1344
-  br label %115
+.lr.ph:                                           ; preds = %strbuf_append_char.exit106
+  %109 = getelementptr i8, ptr %1, i64 1344
+  br label %116
 
-109:                                              ; preds = %143
-  %.val.i.i93 = load i64, ptr %100, align 8, !tbaa !44
-  %.val4.i.i94 = load i64, ptr %101, align 8, !tbaa !32
+110:                                              ; preds = %144
+  %.val.i.i93 = load i64, ptr %101, align 8, !tbaa !44
+  %.val4.i.i94 = load i64, ptr %102, align 8, !tbaa !32
   %.neg.i95 = add i64 %.val4.i.i94, 1
-  %110 = icmp eq i64 %.val.i.i93, %.neg.i95
-  br i1 %110, label %111, label %strbuf_append_char.exit99
+  %111 = icmp eq i64 %.val.i.i93, %.neg.i95
+  br i1 %111, label %112, label %strbuf_append_char.exit99
 
-111:                                              ; preds = %109
+112:                                              ; preds = %110
   tail call void @strbuf_resize(ptr noundef nonnull %3, i64 noundef %.val.i.i93) #12
-  %.pre.i97 = load i64, ptr %101, align 8, !tbaa !32
+  %.pre.i97 = load i64, ptr %102, align 8, !tbaa !32
   %.pre3.i98 = add i64 %.pre.i97, 1
   br label %strbuf_append_char.exit99
 
-strbuf_append_char.exit99:                        ; preds = %109, %111
-  %.pre-phi.i96 = phi i64 [ %.neg.i95, %109 ], [ %.pre3.i98, %111 ]
-  %112 = phi i64 [ %.val4.i.i94, %109 ], [ %.pre.i97, %111 ]
-  %113 = load ptr, ptr %3, align 8, !tbaa !33
-  store i64 %.pre-phi.i96, ptr %101, align 8, !tbaa !32
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 %112
-  store i8 44, ptr %114, align 1, !tbaa !25
-  br label %115
+strbuf_append_char.exit99:                        ; preds = %110, %112
+  %.pre-phi.i96 = phi i64 [ %.neg.i95, %110 ], [ %.pre3.i98, %112 ]
+  %113 = phi i64 [ %.val4.i.i94, %110 ], [ %.pre.i97, %112 ]
+  %114 = load ptr, ptr %3, align 8, !tbaa !33
+  store i64 %.pre-phi.i96, ptr %102, align 8, !tbaa !32
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 %113
+  store i8 44, ptr %115, align 1, !tbaa !25
+  br label %116
 
-115:                                              ; preds = %.lr.ph113, %strbuf_append_char.exit99
-  %116 = tail call i32 @lua_type(ptr noundef %0, i32 noundef -2) #12
-  switch i32 %116, label %138 [
-    i32 3, label %117
-    i32 4, label %132
+116:                                              ; preds = %.lr.ph, %strbuf_append_char.exit99
+  %117 = tail call i32 @lua_type(ptr noundef %0, i32 noundef -2) #12
+  switch i32 %117, label %139 [
+    i32 3, label %118
+    i32 4, label %133
   ]
 
-117:                                              ; preds = %115
-  %.val.i.i86 = load i64, ptr %100, align 8, !tbaa !44
-  %.val4.i.i87 = load i64, ptr %101, align 8, !tbaa !32
+118:                                              ; preds = %116
+  %.val.i.i86 = load i64, ptr %101, align 8, !tbaa !44
+  %.val4.i.i87 = load i64, ptr %102, align 8, !tbaa !32
   %.neg.i88 = add i64 %.val4.i.i87, 1
-  %118 = icmp eq i64 %.val.i.i86, %.neg.i88
-  br i1 %118, label %119, label %strbuf_append_char.exit92
+  %119 = icmp eq i64 %.val.i.i86, %.neg.i88
+  br i1 %119, label %120, label %strbuf_append_char.exit92
 
-119:                                              ; preds = %117
+120:                                              ; preds = %118
   tail call void @strbuf_resize(ptr noundef nonnull %3, i64 noundef %.val.i.i86) #12
-  %.pre.i90 = load i64, ptr %101, align 8, !tbaa !32
+  %.pre.i90 = load i64, ptr %102, align 8, !tbaa !32
   %.pre3.i91 = add i64 %.pre.i90, 1
   br label %strbuf_append_char.exit92
 
-strbuf_append_char.exit92:                        ; preds = %117, %119
-  %.pre-phi.i89 = phi i64 [ %.neg.i88, %117 ], [ %.pre3.i91, %119 ]
-  %120 = phi i64 [ %.val4.i.i87, %117 ], [ %.pre.i90, %119 ]
-  %121 = load ptr, ptr %3, align 8, !tbaa !33
-  store i64 %.pre-phi.i89, ptr %101, align 8, !tbaa !32
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 %120
-  store i8 34, ptr %122, align 1, !tbaa !25
+strbuf_append_char.exit92:                        ; preds = %118, %120
+  %.pre-phi.i89 = phi i64 [ %.neg.i88, %118 ], [ %.pre3.i91, %120 ]
+  %121 = phi i64 [ %.val4.i.i87, %118 ], [ %.pre.i90, %120 ]
+  %122 = load ptr, ptr %3, align 8, !tbaa !33
+  store i64 %.pre-phi.i89, ptr %102, align 8, !tbaa !32
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 %121
+  store i8 34, ptr %123, align 1, !tbaa !25
   tail call fastcc void @json_append_number(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3, i32 noundef -2)
-  %.val.i.i82 = load i64, ptr %100, align 8, !tbaa !44
-  %.val4.i.i83 = load i64, ptr %101, align 8, !tbaa !32
-  %123 = sub i64 %.val4.i.i83, %.val.i.i82
-  %124 = icmp ugt i64 %123, -3
-  br i1 %124, label %125, label %strbuf_append_mem.exit85
+  %.val.i.i82 = load i64, ptr %101, align 8, !tbaa !44
+  %.val4.i.i83 = load i64, ptr %102, align 8, !tbaa !32
+  %124 = sub i64 %.val4.i.i83, %.val.i.i82
+  %125 = icmp ugt i64 %124, -3
+  br i1 %125, label %126, label %strbuf_append_mem.exit85
 
-125:                                              ; preds = %strbuf_append_char.exit92
-  %126 = add i64 %.val4.i.i83, 2
-  tail call void @strbuf_resize(ptr noundef nonnull %3, i64 noundef %126) #12
-  %.pre.i84 = load i64, ptr %101, align 8, !tbaa !32
+126:                                              ; preds = %strbuf_append_char.exit92
+  %127 = add i64 %.val4.i.i83, 2
+  tail call void @strbuf_resize(ptr noundef nonnull %3, i64 noundef %127) #12
+  %.pre.i84 = load i64, ptr %102, align 8, !tbaa !32
   br label %strbuf_append_mem.exit85
 
-strbuf_append_mem.exit85:                         ; preds = %strbuf_append_char.exit92, %125
-  %127 = phi i64 [ %.val4.i.i83, %strbuf_append_char.exit92 ], [ %.pre.i84, %125 ]
-  %128 = load ptr, ptr %3, align 8, !tbaa !33
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 %127
-  store i16 14882, ptr %129, align 1
-  %130 = load i64, ptr %101, align 8, !tbaa !32
-  %131 = add i64 %130, 2
-  store i64 %131, ptr %101, align 8, !tbaa !32
-  br label %143
+strbuf_append_mem.exit85:                         ; preds = %strbuf_append_char.exit92, %126
+  %128 = phi i64 [ %.val4.i.i83, %strbuf_append_char.exit92 ], [ %.pre.i84, %126 ]
+  %129 = load ptr, ptr %3, align 8, !tbaa !33
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 %128
+  store i16 14882, ptr %130, align 1
+  %131 = load i64, ptr %102, align 8, !tbaa !32
+  %132 = add i64 %131, 2
+  store i64 %132, ptr %102, align 8, !tbaa !32
+  br label %144
 
-132:                                              ; preds = %115
+133:                                              ; preds = %116
   tail call fastcc void @json_append_string(ptr noundef %0, ptr noundef nonnull %3, i32 noundef -2)
-  %.val.i.i75 = load i64, ptr %100, align 8, !tbaa !44
-  %.val4.i.i76 = load i64, ptr %101, align 8, !tbaa !32
+  %.val.i.i75 = load i64, ptr %101, align 8, !tbaa !44
+  %.val4.i.i76 = load i64, ptr %102, align 8, !tbaa !32
   %.neg.i77 = add i64 %.val4.i.i76, 1
-  %133 = icmp eq i64 %.val.i.i75, %.neg.i77
-  br i1 %133, label %134, label %strbuf_append_char.exit81
+  %134 = icmp eq i64 %.val.i.i75, %.neg.i77
+  br i1 %134, label %135, label %strbuf_append_char.exit81
 
-134:                                              ; preds = %132
+135:                                              ; preds = %133
   tail call void @strbuf_resize(ptr noundef nonnull %3, i64 noundef %.val.i.i75) #12
-  %.pre.i79 = load i64, ptr %101, align 8, !tbaa !32
+  %.pre.i79 = load i64, ptr %102, align 8, !tbaa !32
   %.pre3.i80 = add i64 %.pre.i79, 1
   br label %strbuf_append_char.exit81
 
-strbuf_append_char.exit81:                        ; preds = %132, %134
-  %.pre-phi.i78 = phi i64 [ %.neg.i77, %132 ], [ %.pre3.i80, %134 ]
-  %135 = phi i64 [ %.val4.i.i76, %132 ], [ %.pre.i79, %134 ]
-  %136 = load ptr, ptr %3, align 8, !tbaa !33
-  store i64 %.pre-phi.i78, ptr %101, align 8, !tbaa !32
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 %135
-  store i8 58, ptr %137, align 1, !tbaa !25
-  br label %143
+strbuf_append_char.exit81:                        ; preds = %133, %135
+  %.pre-phi.i78 = phi i64 [ %.neg.i77, %133 ], [ %.pre3.i80, %135 ]
+  %136 = phi i64 [ %.val4.i.i76, %133 ], [ %.pre.i79, %135 ]
+  %137 = load ptr, ptr %3, align 8, !tbaa !33
+  store i64 %.pre-phi.i78, ptr %102, align 8, !tbaa !32
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 %136
+  store i8 58, ptr %138, align 1, !tbaa !25
+  br label %144
 
-138:                                              ; preds = %115
-  %.val.i39 = load i32, ptr %108, align 8, !tbaa !19
+139:                                              ; preds = %116
+  %.val.i39 = load i32, ptr %109, align 8, !tbaa !19
   %.not.i73 = icmp eq i32 %.val.i39, 0
-  br i1 %.not.i73, label %139, label %json_encode_exception.exit74
+  br i1 %.not.i73, label %140, label %json_encode_exception.exit74
 
-139:                                              ; preds = %138
+140:                                              ; preds = %139
   tail call void @strbuf_free(ptr noundef nonnull %3) #12
   br label %json_encode_exception.exit74
 
-json_encode_exception.exit74:                     ; preds = %138, %139
-  %140 = tail call i32 @lua_type(ptr noundef %0, i32 noundef -2) #12
-  %141 = tail call ptr @lua_typename(ptr noundef %0, i32 noundef %140) #12
-  %142 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.63, ptr noundef %141, ptr noundef nonnull @.str.62) #12
-  br label %143
+json_encode_exception.exit74:                     ; preds = %139, %140
+  %141 = tail call i32 @lua_type(ptr noundef %0, i32 noundef -2) #12
+  %142 = tail call ptr @lua_typename(ptr noundef %0, i32 noundef %141) #12
+  %143 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.63, ptr noundef %142, ptr noundef nonnull @.str.62) #12
+  br label %144
 
-143:                                              ; preds = %json_encode_exception.exit74, %strbuf_append_char.exit81, %strbuf_append_mem.exit85
+144:                                              ; preds = %json_encode_exception.exit74, %strbuf_append_char.exit81, %strbuf_append_mem.exit85
   tail call fastcc void @json_append_data(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -2147483647, -2147483648) %32, ptr noundef nonnull %3)
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #12
-  %144 = tail call i32 @lua_next(ptr noundef %0, i32 noundef -2) #12
-  %.not.i38 = icmp eq i32 %144, 0
-  br i1 %.not.i38, label %json_append_object.exit, label %109, !llvm.loop !47
+  %145 = tail call i32 @lua_next(ptr noundef %0, i32 noundef -2) #12
+  %.not.i38 = icmp eq i32 %145, 0
+  br i1 %.not.i38, label %json_append_object.exit, label %110, !llvm.loop !47
 
-json_append_object.exit:                          ; preds = %143, %strbuf_append_char.exit106
-  %.val.i.i66 = load i64, ptr %100, align 8, !tbaa !44
-  %.val4.i.i67 = load i64, ptr %101, align 8, !tbaa !32
+json_append_object.exit:                          ; preds = %144, %strbuf_append_char.exit106
+  %.val.i.i66 = load i64, ptr %101, align 8, !tbaa !44
+  %.val4.i.i67 = load i64, ptr %102, align 8, !tbaa !32
   %.neg.i68 = add i64 %.val4.i.i67, 1
-  %145 = icmp eq i64 %.val.i.i66, %.neg.i68
-  br i1 %145, label %146, label %strbuf_append_char.exit72
+  %146 = icmp eq i64 %.val.i.i66, %.neg.i68
+  br i1 %146, label %147, label %strbuf_append_char.exit72
 
-146:                                              ; preds = %json_append_object.exit
+147:                                              ; preds = %json_append_object.exit
   tail call void @strbuf_resize(ptr noundef nonnull %3, i64 noundef %.val.i.i66) #12
-  %.pre.i70 = load i64, ptr %101, align 8, !tbaa !32
+  %.pre.i70 = load i64, ptr %102, align 8, !tbaa !32
   %.pre3.i71 = add i64 %.pre.i70, 1
   br label %strbuf_append_char.exit72
 
-strbuf_append_char.exit72:                        ; preds = %json_append_object.exit, %146
-  %.pre-phi.i69 = phi i64 [ %.neg.i68, %json_append_object.exit ], [ %.pre3.i71, %146 ]
-  %147 = phi i64 [ %.val4.i.i67, %json_append_object.exit ], [ %.pre.i70, %146 ]
-  %148 = load ptr, ptr %3, align 8, !tbaa !33
-  store i64 %.pre-phi.i69, ptr %101, align 8, !tbaa !32
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 %147
-  store i8 125, ptr %149, align 1, !tbaa !25
-  br label %183
+strbuf_append_char.exit72:                        ; preds = %json_append_object.exit, %147
+  %.pre-phi.i69 = phi i64 [ %.neg.i68, %json_append_object.exit ], [ %.pre3.i71, %147 ]
+  %148 = phi i64 [ %.val4.i.i67, %json_append_object.exit ], [ %.pre.i70, %147 ]
+  %149 = load ptr, ptr %3, align 8, !tbaa !33
+  store i64 %.pre-phi.i69, ptr %102, align 8, !tbaa !32
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 %148
+  store i8 125, ptr %150, align 1, !tbaa !25
+  br label %184
 
-150:                                              ; preds = %4
-  %151 = getelementptr i8, ptr %3, i64 8
-  %.val.i.i40 = load i64, ptr %151, align 8, !tbaa !44
-  %152 = getelementptr i8, ptr %3, i64 16
-  %.val4.i.i41 = load i64, ptr %152, align 8, !tbaa !32
-  %153 = sub i64 %.val4.i.i41, %.val.i.i40
-  %154 = icmp ugt i64 %153, -5
-  br i1 %154, label %155, label %strbuf_append_mem.exit43
+151:                                              ; preds = %4
+  %152 = getelementptr i8, ptr %3, i64 8
+  %.val.i.i40 = load i64, ptr %152, align 8, !tbaa !44
+  %153 = getelementptr i8, ptr %3, i64 16
+  %.val4.i.i41 = load i64, ptr %153, align 8, !tbaa !32
+  %154 = sub i64 %.val4.i.i41, %.val.i.i40
+  %155 = icmp ugt i64 %154, -5
+  br i1 %155, label %156, label %strbuf_append_mem.exit43
 
-155:                                              ; preds = %150
-  %156 = add i64 %.val4.i.i41, 4
-  tail call void @strbuf_resize(ptr noundef nonnull %3, i64 noundef %156) #12
-  %.pre.i42 = load i64, ptr %152, align 8, !tbaa !32
+156:                                              ; preds = %151
+  %157 = add i64 %.val4.i.i41, 4
+  tail call void @strbuf_resize(ptr noundef nonnull %3, i64 noundef %157) #12
+  %.pre.i42 = load i64, ptr %153, align 8, !tbaa !32
   br label %strbuf_append_mem.exit43
 
-strbuf_append_mem.exit43:                         ; preds = %150, %155
-  %157 = phi i64 [ %.val4.i.i41, %150 ], [ %.pre.i42, %155 ]
-  %158 = load ptr, ptr %3, align 8, !tbaa !33
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 %157
-  store i32 1819047278, ptr %159, align 1
-  %160 = load i64, ptr %152, align 8, !tbaa !32
-  %161 = add i64 %160, 4
-  store i64 %161, ptr %152, align 8, !tbaa !32
-  br label %183
+strbuf_append_mem.exit43:                         ; preds = %151, %156
+  %158 = phi i64 [ %.val4.i.i41, %151 ], [ %.pre.i42, %156 ]
+  %159 = load ptr, ptr %3, align 8, !tbaa !33
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 %158
+  store i32 1819047278, ptr %160, align 1
+  %161 = load i64, ptr %153, align 8, !tbaa !32
+  %162 = add i64 %161, 4
+  store i64 %162, ptr %153, align 8, !tbaa !32
+  br label %184
 
-162:                                              ; preds = %4
-  %163 = tail call ptr @lua_touserdata(ptr noundef %0, i32 noundef -1) #12
-  %164 = icmp eq ptr %163, null
-  br i1 %164, label %165, label %177
+163:                                              ; preds = %4
+  %164 = tail call ptr @lua_touserdata(ptr noundef %0, i32 noundef -1) #12
+  %165 = icmp eq ptr %164, null
+  br i1 %165, label %166, label %178
 
-165:                                              ; preds = %162
-  %166 = getelementptr i8, ptr %3, i64 8
-  %.val.i.i44 = load i64, ptr %166, align 8, !tbaa !44
-  %167 = getelementptr i8, ptr %3, i64 16
-  %.val4.i.i45 = load i64, ptr %167, align 8, !tbaa !32
-  %168 = sub i64 %.val4.i.i45, %.val.i.i44
-  %169 = icmp ugt i64 %168, -5
-  br i1 %169, label %170, label %strbuf_append_mem.exit47
+166:                                              ; preds = %163
+  %167 = getelementptr i8, ptr %3, i64 8
+  %.val.i.i44 = load i64, ptr %167, align 8, !tbaa !44
+  %168 = getelementptr i8, ptr %3, i64 16
+  %.val4.i.i45 = load i64, ptr %168, align 8, !tbaa !32
+  %169 = sub i64 %.val4.i.i45, %.val.i.i44
+  %170 = icmp ugt i64 %169, -5
+  br i1 %170, label %171, label %strbuf_append_mem.exit47
 
-170:                                              ; preds = %165
-  %171 = add i64 %.val4.i.i45, 4
-  tail call void @strbuf_resize(ptr noundef nonnull %3, i64 noundef %171) #12
-  %.pre.i46 = load i64, ptr %167, align 8, !tbaa !32
+171:                                              ; preds = %166
+  %172 = add i64 %.val4.i.i45, 4
+  tail call void @strbuf_resize(ptr noundef nonnull %3, i64 noundef %172) #12
+  %.pre.i46 = load i64, ptr %168, align 8, !tbaa !32
   br label %strbuf_append_mem.exit47
 
-strbuf_append_mem.exit47:                         ; preds = %165, %170
-  %172 = phi i64 [ %.val4.i.i45, %165 ], [ %.pre.i46, %170 ]
-  %173 = load ptr, ptr %3, align 8, !tbaa !33
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 %172
-  store i32 1819047278, ptr %174, align 1
-  %175 = load i64, ptr %167, align 8, !tbaa !32
-  %176 = add i64 %175, 4
-  store i64 %176, ptr %167, align 8, !tbaa !32
-  br label %183
+strbuf_append_mem.exit47:                         ; preds = %166, %171
+  %173 = phi i64 [ %.val4.i.i45, %166 ], [ %.pre.i46, %171 ]
+  %174 = load ptr, ptr %3, align 8, !tbaa !33
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 %173
+  store i32 1819047278, ptr %175, align 1
+  %176 = load i64, ptr %168, align 8, !tbaa !32
+  %177 = add i64 %176, 4
+  store i64 %177, ptr %168, align 8, !tbaa !32
+  br label %184
 
-177:                                              ; preds = %162, %4
-  %178 = getelementptr i8, ptr %1, i64 1344
-  %.val = load i32, ptr %178, align 8, !tbaa !19
+178:                                              ; preds = %163, %4
+  %179 = getelementptr i8, ptr %1, i64 1344
+  %.val = load i32, ptr %179, align 8, !tbaa !19
   %.not.i48 = icmp eq i32 %.val, 0
-  br i1 %.not.i48, label %179, label %json_encode_exception.exit
+  br i1 %.not.i48, label %180, label %json_encode_exception.exit
 
-179:                                              ; preds = %177
+180:                                              ; preds = %178
   tail call void @strbuf_free(ptr noundef %3) #12
   br label %json_encode_exception.exit
 
-json_encode_exception.exit:                       ; preds = %177, %179
-  %180 = tail call i32 @lua_type(ptr noundef %0, i32 noundef -1) #12
-  %181 = tail call ptr @lua_typename(ptr noundef %0, i32 noundef %180) #12
-  %182 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.63, ptr noundef %181, ptr noundef nonnull @.str.19) #12
-  br label %183
+json_encode_exception.exit:                       ; preds = %178, %180
+  %181 = tail call i32 @lua_type(ptr noundef %0, i32 noundef -1) #12
+  %182 = tail call ptr @lua_typename(ptr noundef %0, i32 noundef %181) #12
+  %183 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.63, ptr noundef %182, ptr noundef nonnull @.str.19) #12
+  br label %184
 
-183:                                              ; preds = %strbuf_append_char.exit, %strbuf_append_char.exit72, %strbuf_append_mem.exit, %strbuf_append_mem.exit35, %json_encode_exception.exit, %strbuf_append_mem.exit47, %strbuf_append_mem.exit43, %7, %6
+184:                                              ; preds = %strbuf_append_char.exit, %strbuf_append_char.exit72, %strbuf_append_mem.exit, %strbuf_append_mem.exit35, %json_encode_exception.exit, %strbuf_append_mem.exit47, %strbuf_append_mem.exit43, %7, %6
   ret void
 }
 

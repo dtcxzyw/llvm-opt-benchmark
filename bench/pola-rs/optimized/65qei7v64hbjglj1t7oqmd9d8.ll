@@ -1351,21 +1351,21 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17hfde1d705feeab3e3E(
   %38 = extractvalue { i64, ptr } %37, 0
   %39 = extractvalue { i64, ptr } %37, 1
   %40 = trunc nuw i64 %38 to i1
-  br i1 %40, label %140, label %41
+  br i1 %40, label %139, label %41
 
 41:                                               ; preds = %36
   %42 = icmp eq ptr %39, null
-  br i1 %42, label %140, label %"._ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h09055e1696becb89E.exit.thread_crit_edge"
+  br i1 %42, label %139, label %"._ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h09055e1696becb89E.exit.thread_crit_edge"
 
 "._ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h09055e1696becb89E.exit.thread_crit_edge": ; preds = %41
   %.pre.pre = load i64, ptr %8, align 8
   br label %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h09055e1696becb89E.exit.thread"
 
-43:                                               ; preds = %135, %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h09055e1696becb89E.exit.thread"
-  %44 = phi i64 [ %.pre, %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h09055e1696becb89E.exit.thread" ], [ %105, %135 ]
-  %.sroa.020.0 = phi i32 [ 0, %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h09055e1696becb89E.exit.thread" ], [ %.sroa.020.1, %135 ]
-  %.sroa.014.4 = phi i64 [ 0, %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h09055e1696becb89E.exit.thread" ], [ %102, %135 ]
-  %.sroa.08.4 = phi i64 [ %.sroa.08.3, %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h09055e1696becb89E.exit.thread" ], [ %.sroa.08.5, %135 ]
+43:                                               ; preds = %134, %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h09055e1696becb89E.exit.thread"
+  %44 = phi i64 [ %.pre, %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h09055e1696becb89E.exit.thread" ], [ %105, %134 ]
+  %.sroa.020.0 = phi i32 [ 0, %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h09055e1696becb89E.exit.thread" ], [ %.sroa.020.1, %134 ]
+  %.sroa.014.4 = phi i64 [ 0, %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h09055e1696becb89E.exit.thread" ], [ %102, %134 ]
+  %.sroa.08.4 = phi i64 [ %.sroa.08.3, %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h09055e1696becb89E.exit.thread" ], [ %.sroa.08.5, %134 ]
   %45 = icmp sgt i64 %44, -1
   call void @llvm.assume(i1 %45)
   %46 = load i64, ptr %1, align 8, !range !85, !noundef !28
@@ -1559,67 +1559,65 @@ default.unreachable:                              ; preds = %99
 
 121:                                              ; preds = %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$8read_buf17h80e4261b952058b6E.exit.thread"
   %122 = icmp eq i64 %.pre140, 0
-  br i1 %122, label %.loopexit154, label %126
+  br i1 %122, label %.loopexit154, label %125
 
 .loopexit154:                                     ; preds = %121, %.thread
   %123 = phi i64 [ %69, %.thread ], [ %105, %121 ]
-  %124 = icmp sgt i64 %123, -1
-  call void @llvm.assume(i1 %124)
-  %125 = sub nsw i64 %123, %9
-  br label %130
+  %124 = sub nsw i64 %123, %9
+  br label %129
 
-126:                                              ; preds = %121
-  %127 = icmp ult i64 %.pre140, %.sroa.0.0.sroa.speculated.i
-  %128 = add i32 %.sroa.020.0, 1
-  %.sroa.020.1 = select i1 %127, i32 %128, i32 0
-  br i1 %.sroa.015.3, label %131, label %135
+125:                                              ; preds = %121
+  %126 = icmp ult i64 %.pre140, %.sroa.0.0.sroa.speculated.i
+  %127 = add i32 %.sroa.020.0, 1
+  %.sroa.020.1 = select i1 %126, i32 %127, i32 0
+  br i1 %.sroa.015.3, label %130, label %134
 
 .loopexit116:                                     ; preds = %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$8read_buf17h80e4261b952058b6E.exit.thread"
-  %129 = ptrtoint ptr %.sroa.017.0.i85.ph to i64
-  br label %130
+  %128 = ptrtoint ptr %.sroa.017.0.i85.ph to i64
+  br label %129
 
-130:                                              ; preds = %.loopexit116, %.loopexit154
-  %.sroa.8.2 = phi i64 [ %125, %.loopexit154 ], [ %129, %.loopexit116 ]
+129:                                              ; preds = %.loopexit116, %.loopexit154
+  %.sroa.8.2 = phi i64 [ %124, %.loopexit154 ], [ %128, %.loopexit116 ]
   %.sroa.0.2 = phi i64 [ 0, %.loopexit154 ], [ 1, %.loopexit116 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
-131:                                              ; preds = %126
-  %132 = icmp sgt i32 %.sroa.020.1, 1
-  %or.cond7 = select i1 %103, i1 %132, i1 false
+130:                                              ; preds = %125
+  %131 = icmp sgt i32 %.sroa.020.1, 1
+  %or.cond7 = select i1 %103, i1 %131, i1 false
   %spec.select = select i1 %or.cond7, i64 -1, i64 %.sroa.08.4
-  %133 = icmp uge i64 %.sroa.0.0.sroa.speculated.i, %spec.select
-  %134 = icmp eq i64 %.pre140, %.sroa.0.0.sroa.speculated.i
-  %or.cond2 = and i1 %134, %133
-  br i1 %or.cond2, label %136, label %135
+  %132 = icmp uge i64 %.sroa.0.0.sroa.speculated.i, %spec.select
+  %133 = icmp eq i64 %.pre140, %.sroa.0.0.sroa.speculated.i
+  %or.cond2 = and i1 %133, %132
+  br i1 %or.cond2, label %135, label %134
 
-135:                                              ; preds = %136, %131, %126
-  %.sroa.08.5 = phi i64 [ %.sroa.048.0, %136 ], [ %spec.select, %131 ], [ %.sroa.08.4, %126 ]
+134:                                              ; preds = %135, %130, %125
+  %.sroa.08.5 = phi i64 [ %.sroa.048.0, %135 ], [ %spec.select, %130 ], [ %.sroa.08.4, %125 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %43
 
-136:                                              ; preds = %131
-  %137 = shl i64 %spec.select, 1
+135:                                              ; preds = %130
+  %136 = shl i64 %spec.select, 1
   %.inv = icmp sgt i64 %spec.select, -1
-  %.sroa.048.0 = select i1 %.inv, i64 %137, i64 -1, !prof !98
-  br label %135
+  %.sroa.048.0 = select i1 %.inv, i64 %136, i64 -1, !prof !98
+  br label %134
 
 .loopexit.split.loop.exit:                        ; preds = %54
-  %138 = ptrtoint ptr %57 to i64
+  %137 = ptrtoint ptr %57 to i64
   br label %.loopexit
 
-.loopexit:                                        ; preds = %64, %.loopexit.split.loop.exit, %61, %130
-  %.sroa.8.1 = phi i64 [ %.sroa.8.2, %130 ], [ %63, %61 ], [ %138, %.loopexit.split.loop.exit ], [ 163208757251, %64 ]
-  %.sroa.0.1 = phi i64 [ %.sroa.0.2, %130 ], [ 0, %61 ], [ 1, %.loopexit.split.loop.exit ], [ 1, %64 ]
-  %139 = inttoptr i64 %.sroa.8.1 to ptr
-  br label %140
+.loopexit:                                        ; preds = %64, %.loopexit.split.loop.exit, %61, %129
+  %.sroa.8.1 = phi i64 [ %.sroa.8.2, %129 ], [ %63, %61 ], [ %137, %.loopexit.split.loop.exit ], [ 163208757251, %64 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.2, %129 ], [ 0, %61 ], [ 1, %.loopexit.split.loop.exit ], [ 1, %64 ]
+  %138 = inttoptr i64 %.sroa.8.1 to ptr
+  br label %139
 
-140:                                              ; preds = %41, %36, %.loopexit
-  %.sroa.8.0 = phi ptr [ %139, %.loopexit ], [ %39, %36 ], [ null, %41 ]
+139:                                              ; preds = %41, %36, %.loopexit
+  %.sroa.8.0 = phi ptr [ %138, %.loopexit ], [ %39, %36 ], [ null, %41 ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.1, %.loopexit ], [ 1, %36 ], [ 0, %41 ]
-  %141 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %142 = insertvalue { i64, ptr } %141, ptr %.sroa.8.0, 1
-  ret { i64, ptr } %142
+  %140 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %141 = insertvalue { i64, ptr } %140, ptr %.sroa.8.0, 1
+  ret { i64, ptr } %141
 }
 
 ; Function Attrs: nonlazybind uwtable

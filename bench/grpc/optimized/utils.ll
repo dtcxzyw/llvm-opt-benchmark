@@ -290,7 +290,7 @@ define range(i64 -9223372036854775805, -9223372036854775807) i64 @_ZN17grpc_even
 8:                                                ; preds = %2
   %9 = icmp sgt i64 %0, 0
   %10 = sub nuw nsw i64 9223372036854775807, %0
-  %11 = icmp samesign ugt i64 %.sroa.01.0.copyload.sroa.speculated, %10
+  %11 = icmp sgt i64 %7, %10
   %or.cond = select i1 %9, i1 %11, i1 false
   br i1 %or.cond, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit9, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit
 

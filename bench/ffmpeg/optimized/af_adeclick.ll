@@ -2009,8 +2009,7 @@ factorization.exit.i.i:                           ; preds = %._crit_edge80.i.i.i
   %297 = load ptr, ptr %296, align 8, !tbaa !51
   %298 = load i32, ptr %44, align 4, !tbaa !49
   %299 = tail call i32 @av_audio_fifo_peek(ptr noundef %294, ptr noundef %297, i32 noundef %298) #15
-  %smax = tail call i32 @llvm.smax.i32(i32 %133, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %133 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %311

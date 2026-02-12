@@ -6591,7 +6591,7 @@ Exa3_ManAddCnfStart.exit:                         ; preds = %647, %._crit_edge.i
 .lr.ph135.split.us.i:                             ; preds = %.lr.ph135.i
   %734 = zext nneg i32 %730 to i64
   %735 = shl nuw nsw i64 %734, 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %9, i8 -1, i64 %735, i1 false), !tbaa !29
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %9, i8 -1, i64 %735, i1 false), !tbaa !29
   br label %._crit_edge.i103
 
 .lr.ph135.split.i:                                ; preds = %.lr.ph135.i, %Exa3_ManFindFanin.exit.i

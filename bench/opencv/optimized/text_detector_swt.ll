@@ -3092,8 +3092,7 @@ _ZNSt12_Vector_baseISt6vectorIN2cv4text12_GLOBAL__N_18SWTPointESaIS4_EESaIS6_EE1
 
 .preheader.i98:                                   ; preds = %.preheader.i98.loopexit, %1224
   %.val137.i = phi ptr [ %1265, %.preheader.i98.loopexit ], [ null, %1224 ]
-  %smax.i = call i32 @llvm.smax.i32(i32 %.0255.lcssa493496.i, i32 1)
-  %wide.trip.count.i99 = zext nneg i32 %smax.i to i64
+  %wide.trip.count.i99 = zext nneg i32 %.0255.lcssa493496.i to i64
   br label %.lr.ph354.i
 
 1230:                                             ; preds = %702

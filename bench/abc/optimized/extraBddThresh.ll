@@ -3704,7 +3704,6 @@ Extra_ThreshComputeChow.exit:                     ; preds = %.lr.ph.i
   %39 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %39, ptr %40, align 8, !tbaa !112
-  %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
   br label %.lr.ph
 
 .lr.ph.i69:                                       ; preds = %49, %Extra_ThreshComputeChow.exit
@@ -3735,7 +3734,7 @@ Extra_ThreshComputeChow.exit:                     ; preds = %.lr.ph.i
   %.06481 = phi i32 [ %52, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %51 = tail call ptr @Cudd_bddIthVar(ptr noundef %36, i32 noundef %.06481) #20
   %52 = add nuw nsw i32 %.06481, 1
-  %exitcond.not = icmp eq i32 %52, %smax
+  %exitcond.not = icmp eq i32 %52, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !113
 
 ._crit_edge:                                      ; preds = %.lr.ph

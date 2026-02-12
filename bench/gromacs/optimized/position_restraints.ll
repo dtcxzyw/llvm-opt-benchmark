@@ -94,7 +94,6 @@ define noundef float @_Z14posres_wrapperN3gmx8ArrayRefIKiEENS0_IK9t_iparamsEERK5
   br i1 %49, label %.preheader.us.preheader.i, label %.loopexit6.i
 
 .preheader.us.preheader.i:                        ; preds = %.preheader.lr.ph.i
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %47, i64 1)
   %wide.trip.count19.i = zext nneg i32 %43 to i64
   br label %.preheader.us.i
 
@@ -141,7 +140,7 @@ define noundef float @_Z14posres_wrapperN3gmx8ArrayRefIKiEENS0_IK9t_iparamsEERK5
 
 ._crit_edge.us.i:                                 ; preds = %58
   %70 = add nuw nsw i64 %.0849.us.i, 1
-  %exitcond21.not.i = icmp eq i64 %70, %smax.i
+  %exitcond21.not.i = icmp eq i64 %70, %47
   br i1 %exitcond21.not.i, label %.loopexit6.i, label %.preheader.us.i, !llvm.loop !136
 
 .loopexit6.i:                                     ; preds = %._crit_edge.us.i, %.preheader.lr.ph.i, %.preheader5.i, %45
@@ -643,13 +642,13 @@ define void @_Z21posres_wrapper_lambdaP13gmx_wallcycleRK22InteractionDefinitions
   br i1 %68, label %.preheader5.i, label %.loopexit6.i
 
 .preheader5.i:                                    ; preds = %67
-  %69 = icmp sgt i64 %61, 0
-  %70 = icmp sgt i32 %65, 0
-  %or.cond = and i1 %69, %70
+  %69 = sdiv exact i64 %61, 12
+  %70 = icmp sgt i64 %61, 0
+  %71 = icmp sgt i32 %65, 0
+  %or.cond = and i1 %70, %71
   br i1 %or.cond, label %.preheader.us.preheader.i, label %.loopexit6.i
 
 .preheader.us.preheader.i:                        ; preds = %.preheader5.i
-  %71 = udiv exact i64 %61, 12
   %wide.trip.count19.i = zext nneg i32 %65 to i64
   br label %.preheader.us.i
 
@@ -696,7 +695,7 @@ define void @_Z21posres_wrapper_lambdaP13gmx_wallcycleRK22InteractionDefinitions
 
 ._crit_edge.us.i:                                 ; preds = %79
   %91 = add nuw nsw i64 %.0759.us.i, 1
-  %exitcond21.not.i = icmp eq i64 %91, %71
+  %exitcond21.not.i = icmp eq i64 %91, %69
   br i1 %exitcond21.not.i, label %.loopexit6.i, label %.preheader.us.i, !llvm.loop !179
 
 .loopexit6.i:                                     ; preds = %._crit_edge.us.i, %.preheader5.i, %67
@@ -980,7 +979,6 @@ define noundef float @_Z16fbposres_wrapperN3gmx8ArrayRefIKiEENS0_IK9t_iparamsEER
   br i1 %41, label %.preheader9.us.preheader.i, label %.loopexit11.i
 
 .preheader9.us.preheader.i:                       ; preds = %.preheader9.lr.ph.i
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %39, i64 1)
   %wide.trip.count27.i = zext nneg i32 %35 to i64
   br label %.preheader9.us.i
 
@@ -1017,7 +1015,7 @@ define noundef float @_Z16fbposres_wrapperN3gmx8ArrayRefIKiEENS0_IK9t_iparamsEER
 
 ._crit_edge.us.i:                                 ; preds = %47
   %54 = add nuw nsw i64 %.013714.us.i, 1
-  %exitcond29.not.i = icmp eq i64 %54, %smax.i
+  %exitcond29.not.i = icmp eq i64 %54, %39
   br i1 %exitcond29.not.i, label %.loopexit11.i, label %.preheader9.us.i, !llvm.loop !187
 
 .loopexit11.i:                                    ; preds = %._crit_edge.us.i, %.preheader9.lr.ph.i, %.preheader10.i, %37
@@ -1430,9 +1428,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #13
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #13

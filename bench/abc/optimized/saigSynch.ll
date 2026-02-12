@@ -756,8 +756,7 @@ define i32 @Saig_SynchCountX(ptr noundef readonly captures(none) %0, ptr noundef
   br i1 %39, label %.lr.ph65.preheader, label %._crit_edge
 
 .lr.ph65.preheader:                               ; preds = %.critedge
-  %smax = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
-  %wide.trip.count83 = zext nneg i32 %smax to i64
+  %wide.trip.count83 = zext nneg i32 %5 to i64
   br label %.lr.ph65
 
 .lr.ph65:                                         ; preds = %.lr.ph65.preheader, %46

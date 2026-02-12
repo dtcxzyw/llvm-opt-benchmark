@@ -1020,8 +1020,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 .lr.ph257.preheader:                              ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %smax318 = call i32 @llvm.smax.i32(i32 %7, i32 1)
-  %wide.trip.count319 = zext nneg i32 %smax318 to i64
+  %wide.trip.count319 = zext nneg i32 %7 to i64
   br label %.lr.ph257
 
 ._crit_edge258:                                   ; preds = %.lr.ph257
@@ -1078,10 +1077,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit180: ; preds = %_Z
   br i1 %exitcond320.not, label %._crit_edge258, label %.lr.ph257, !llvm.loop !46
 
 .preheader222:                                    ; preds = %._crit_edge258, %._crit_edge255
-  %smax321 = call i32 @llvm.smax.i32(i32 %7, i32 1)
-  %212 = zext nneg i32 %smax321 to i64
+  %212 = zext nneg i32 %7 to i64
   %213 = shl nuw nsw i64 %212, 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %47, i8 0, i64 %213, i1 false), !tbaa !30
+  call void @llvm.memset.p0.i64(ptr align 4 %47, i8 0, i64 %213, i1 false), !tbaa !30
   br i1 %40, label %.lr.ph263.preheader, label %.preheader
 
 .lr.ph263.preheader:                              ; preds = %.preheader222

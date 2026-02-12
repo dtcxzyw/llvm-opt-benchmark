@@ -389,8 +389,7 @@ _ZN5ZXing10DataMatrixL4multEhh.exit.us:           ; preds = %62, %.lr.ph56.split
 .lr.ph58.preheader:                               ; preds = %.preheader
   %76 = sext i32 %5 to i64
   %77 = sext i32 %3 to i64
-  %smax = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
-  %wide.trip.count74 = zext nneg i32 %smax to i64
+  %wide.trip.count74 = zext nneg i32 %4 to i64
   %78 = getelementptr i8, ptr %.sroa.0.0, i64 %9
   br label %.lr.ph58
 
@@ -1598,9 +1597,6 @@ declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #19
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #19
 
 attributes #0 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

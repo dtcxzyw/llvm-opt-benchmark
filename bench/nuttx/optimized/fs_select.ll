@@ -224,7 +224,6 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
   %.not129 = icmp eq ptr %1, null
   %.not131 = icmp eq ptr %2, null
   %.not133 = icmp eq ptr %3, null
-  %smax = tail call i32 @llvm.smax.i32(i32 %0, i32 1)
   br label %99
 
 99:                                               ; preds = %.lr.ph163, %141
@@ -303,7 +302,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
   %.2 = phi i32 [ 1, %138 ], [ %.1, %130 ], [ %.1, %129 ]
   %142 = add nsw i32 %.2, %.098161
   %143 = add nuw nsw i32 %.1104160, 1
-  %exitcond182.not = icmp eq i32 %143, %smax
+  %exitcond182.not = icmp eq i32 %143, %0
   br i1 %exitcond182.not, label %._crit_edge164, label %99, !llvm.loop !8
 
 ._crit_edge164:                                   ; preds = %141, %.preheader141
@@ -463,9 +462,6 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5

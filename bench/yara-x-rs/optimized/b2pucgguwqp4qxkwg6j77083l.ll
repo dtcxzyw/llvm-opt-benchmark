@@ -99,7 +99,7 @@ default.unreachable:                              ; preds = %_ZN4core4iter6trait
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %20 = load i8, ptr %.sroa.0.0626.i.i.i, align 1, !alias.scope !20, !noalias !21, !noundef !3
   %21 = icmp sgt i8 %20, -1
-  br i1 %21, label %_ZN4bstr4utf86decode17h4a4f06fb9844d535E.exit.thread.i.i.i.i, label %.preheader.i.i.i.i.i
+  br i1 %21, label %_ZN4bstr4utf86decode17h4a4f06fb9844d535E.exit.thread.i.i.thread.i.i, label %.preheader.i.i.i.i.i
 
 .preheader.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i, %_ZN4bstr4utf811decode_step17hb2ff0ea77c96b8a7E.exit.i.i.i.i.i
   %.sroa.019.0.i.i.i.i.i = phi i64 [ %46, %_ZN4bstr4utf811decode_step17hb2ff0ea77c96b8a7E.exit.i.i.i.i.i ], [ 12, %.lr.ph.i.i.i ]
@@ -160,8 +160,8 @@ _ZN4bstr4utf86decode17h4a4f06fb9844d535E.exit.i.i.i.i: ; preds = %_ZN4bstr4utf81
   %48 = icmp eq i64 %47, 0
   br i1 %48, label %_ZN4core4iter6traits8iterator8Iterator4fold17h07f6e0d6f8cc4866E.exit.loopexit.i.i, label %_ZN4bstr4utf86decode17h4a4f06fb9844d535E.exit.thread.i.i.i.i
 
-_ZN4bstr4utf86decode17h4a4f06fb9844d535E.exit.thread.i.i.i.i: ; preds = %_ZN4bstr4utf86decode17h4a4f06fb9844d535E.exit.i.i.i.i, %.thread19.i.i.i.i, %.lr.ph.i.i.i
-  %.sroa.6.1.i1621.i.i.i.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %.thread19.i.i.i.i ], [ %47, %_ZN4bstr4utf86decode17h4a4f06fb9844d535E.exit.i.i.i.i ], [ 1, %.lr.ph.i.i.i ]
+_ZN4bstr4utf86decode17h4a4f06fb9844d535E.exit.thread.i.i.i.i: ; preds = %_ZN4bstr4utf86decode17h4a4f06fb9844d535E.exit.i.i.i.i, %.thread19.i.i.i.i
+  %.sroa.6.1.i1621.i.i.i.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %.thread19.i.i.i.i ], [ %47, %_ZN4bstr4utf86decode17h4a4f06fb9844d535E.exit.i.i.i.i ]
   %49 = icmp ugt i64 %.sroa.6.1.i1621.i.i.i.i, %.sroa.3.025.i.i.i
   br i1 %49, label %50, label %_ZN4bstr4utf86decode17h4a4f06fb9844d535E.exit.thread.i.i.thread.i.i, !prof !28
 
@@ -169,8 +169,8 @@ _ZN4bstr4utf86decode17h4a4f06fb9844d535E.exit.thread.i.i.i.i: ; preds = %_ZN4bst
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h1f1e39c09f57820bE(i64 noundef %.sroa.6.1.i1621.i.i.i.i, i64 noundef %.sroa.3.025.i.i.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.af10e84a5d1c7f2f4889eaead45c5612.41) #18, !noalias !29
   unreachable
 
-_ZN4bstr4utf86decode17h4a4f06fb9844d535E.exit.thread.i.i.thread.i.i: ; preds = %.preheader.i.i.i.i.i, %_ZN4bstr4utf86decode17h4a4f06fb9844d535E.exit.thread.i.i.i.i
-  %.sroa.6.1.i1621.i.i8.i.i = phi i64 [ %.sroa.6.1.i1621.i.i.i.i, %_ZN4bstr4utf86decode17h4a4f06fb9844d535E.exit.thread.i.i.i.i ], [ %.sroa.3.025.i.i.i, %.preheader.i.i.i.i.i ]
+_ZN4bstr4utf86decode17h4a4f06fb9844d535E.exit.thread.i.i.thread.i.i: ; preds = %.preheader.i.i.i.i.i, %_ZN4bstr4utf86decode17h4a4f06fb9844d535E.exit.thread.i.i.i.i, %.lr.ph.i.i.i
+  %.sroa.6.1.i1621.i.i8.i.i = phi i64 [ %.sroa.6.1.i1621.i.i.i.i, %_ZN4bstr4utf86decode17h4a4f06fb9844d535E.exit.thread.i.i.i.i ], [ 1, %.lr.ph.i.i.i ], [ %.sroa.3.025.i.i.i, %.preheader.i.i.i.i.i ]
   %51 = sub nuw i64 %.sroa.3.025.i.i.i, %.sroa.6.1.i1621.i.i8.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.0.0626.i.i.i, i64 %.sroa.6.1.i1621.i.i8.i.i
   %53 = add i64 %.sroa.0.027.i.i.i, 1
@@ -863,8 +863,6 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   %24 = load ptr, ptr %17, align 8, !noalias !124, !nonnull !3, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !124
   store ptr %24, ptr %10, align 8, !alias.scope !124
-  %25 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %25)
   store i64 %7, ptr %0, align 8, !alias.scope !124
   ret void
 }
@@ -924,8 +922,6 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   %24 = load ptr, ptr %17, align 8, !noalias !131, !nonnull !3, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !131
   store ptr %24, ptr %10, align 8, !alias.scope !131
-  %25 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %25)
   store i64 %7, ptr %0, align 8, !alias.scope !131
   ret void
 }
@@ -987,8 +983,6 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   %26 = load ptr, ptr %19, align 8, !noalias !137, !nonnull !3, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !137
   store ptr %26, ptr %12, align 8, !alias.scope !137
-  %27 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %27)
   store i64 %7, ptr %0, align 8, !alias.scope !137
   ret void
 }
@@ -1050,8 +1044,6 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   %26 = load ptr, ptr %19, align 8, !noalias !143, !nonnull !3, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !143
   store ptr %26, ptr %12, align 8, !alias.scope !143
-  %27 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %27)
   store i64 %7, ptr %0, align 8, !alias.scope !143
   ret void
 }
@@ -1111,8 +1103,6 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   %24 = load ptr, ptr %17, align 8, !noalias !149, !nonnull !3, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !149
   store ptr %24, ptr %10, align 8, !alias.scope !149
-  %25 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %25)
   store i64 %7, ptr %0, align 8, !alias.scope !149
   ret void
 }
@@ -1172,8 +1162,6 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   %24 = load ptr, ptr %17, align 8, !noalias !155, !nonnull !3, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !155
   store ptr %24, ptr %10, align 8, !alias.scope !155
-  %25 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %25)
   store i64 %7, ptr %0, align 8, !alias.scope !155
   ret void
 }
@@ -1233,8 +1221,6 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   %24 = load ptr, ptr %17, align 8, !noalias !161, !nonnull !3, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !161
   store ptr %24, ptr %10, align 8, !alias.scope !161
-  %25 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %25)
   store i64 %7, ptr %0, align 8, !alias.scope !161
   ret void
 }
@@ -1296,8 +1282,6 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   %26 = load ptr, ptr %19, align 8, !noalias !167, !nonnull !3, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !167
   store ptr %26, ptr %12, align 8, !alias.scope !167
-  %27 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %27)
   store i64 %7, ptr %0, align 8, !alias.scope !167
   ret void
 }
@@ -1359,8 +1343,6 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   %26 = load ptr, ptr %19, align 8, !noalias !173, !nonnull !3, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !173
   store ptr %26, ptr %12, align 8, !alias.scope !173
-  %27 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %27)
   store i64 %7, ptr %0, align 8, !alias.scope !173
   ret void
 }
@@ -1420,8 +1402,6 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   %24 = load ptr, ptr %17, align 8, !noalias !179, !nonnull !3, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !179
   store ptr %24, ptr %10, align 8, !alias.scope !179
-  %25 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %25)
   store i64 %7, ptr %0, align 8, !alias.scope !179
   ret void
 }
@@ -1481,8 +1461,6 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   %24 = load ptr, ptr %17, align 8, !noalias !185, !nonnull !3, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !185
   store ptr %24, ptr %10, align 8, !alias.scope !185
-  %25 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %25)
   store i64 %7, ptr %0, align 8, !alias.scope !185
   ret void
 }
@@ -1542,8 +1520,6 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   %24 = load ptr, ptr %17, align 8, !noalias !191, !nonnull !3, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !191
   store ptr %24, ptr %10, align 8, !alias.scope !191
-  %25 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %25)
   store i64 %7, ptr %0, align 8, !alias.scope !191
   ret void
 }
@@ -1603,8 +1579,6 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   %24 = load ptr, ptr %17, align 8, !noalias !197, !nonnull !3, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !197
   store ptr %24, ptr %10, align 8, !alias.scope !197
-  %25 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %25)
   store i64 %7, ptr %0, align 8, !alias.scope !197
   ret void
 }
@@ -1666,8 +1640,6 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   %26 = load ptr, ptr %19, align 8, !noalias !203, !nonnull !3, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !203
   store ptr %26, ptr %12, align 8, !alias.scope !203
-  %27 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %27)
   store i64 %7, ptr %0, align 8, !alias.scope !203
   ret void
 }
@@ -1729,8 +1701,6 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   %26 = load ptr, ptr %19, align 8, !noalias !209, !nonnull !3, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !209
   store ptr %26, ptr %12, align 8, !alias.scope !209
-  %27 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %27)
   store i64 %7, ptr %0, align 8, !alias.scope !209
   ret void
 }
@@ -1792,8 +1762,6 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   %26 = load ptr, ptr %19, align 8, !noalias !215, !nonnull !3, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !215
   store ptr %26, ptr %12, align 8, !alias.scope !215
-  %27 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %27)
   store i64 %7, ptr %0, align 8, !alias.scope !215
   ret void
 }
@@ -1855,8 +1823,6 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   %26 = load ptr, ptr %19, align 8, !noalias !221, !nonnull !3, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !221
   store ptr %26, ptr %12, align 8, !alias.scope !221
-  %27 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %27)
   store i64 %7, ptr %0, align 8, !alias.scope !221
   ret void
 }
@@ -1916,8 +1882,6 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   %24 = load ptr, ptr %17, align 8, !noalias !227, !nonnull !3, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !227
   store ptr %24, ptr %10, align 8, !alias.scope !227
-  %25 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %25)
   store i64 %7, ptr %0, align 8, !alias.scope !227
   ret void
 }
@@ -1977,8 +1941,6 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   %24 = load ptr, ptr %17, align 8, !noalias !233, !nonnull !3, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !233
   store ptr %24, ptr %10, align 8, !alias.scope !233
-  %25 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %25)
   store i64 %7, ptr %0, align 8, !alias.scope !233
   ret void
 }
@@ -2477,7 +2439,7 @@ attributes #21 = { nounwind }
 !25 = distinct !{!25, !26, !"_ZN4bstr4utf811decode_step17hb2ff0ea77c96b8a7E: argument 0"}
 !26 = distinct !{!26, !"_ZN4bstr4utf811decode_step17hb2ff0ea77c96b8a7E"}
 !27 = distinct !{!27, !26, !"_ZN4bstr4utf811decode_step17hb2ff0ea77c96b8a7E: argument 1"}
-!28 = !{!"branch_weights", !"expected", i32 1234651, i32 2146248997}
+!28 = !{!"branch_weights", !"expected", i32 4437739, i32 2143045909}
 !29 = !{!22, !15, !9, !12, !6}
 !30 = !{!31}
 !31 = distinct !{!31, !32, !"_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17h267111ca3ae7a9b4E: argument 0"}

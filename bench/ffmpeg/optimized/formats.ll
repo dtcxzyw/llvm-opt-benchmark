@@ -243,8 +243,8 @@ define range(i32 -12, 1) i32 @ff_add_format(ptr noundef captures(address) %0, i6
 .preheader.i:                                     ; preds = %15
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %17 = load i32, ptr %16, align 8, !tbaa !41
-  %.not26.i = icmp eq i32 %17, 0
-  br i1 %.not26.i, label %.thread.thread.i, label %.lr.ph.i
+  %.not27.i = icmp eq i32 %17, 0
+  br i1 %.not27.i, label %.loopexit.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -257,14 +257,14 @@ define range(i32 -12, 1) i32 @ff_add_format(ptr noundef captures(address) %0, i6
   %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i
   %22 = load ptr, ptr %21, align 8, !tbaa !43
   %23 = icmp eq ptr %22, %0
-  br i1 %23, label %.thread.i, label %24
+  br i1 %23, label %.loopexit.i, label %24
 
 24:                                               ; preds = %20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.thread.thread32.i, label %20, !llvm.loop !45
+  br i1 %exitcond.not.i, label %.loopexit.thread33.i, label %20, !llvm.loop !45
 
-.thread.i:                                        ; preds = %20
+.loopexit.i:                                      ; preds = %20
   %25 = trunc nuw nsw i64 %indvars.iv.i to i32
   %26 = and i64 %indvars.iv.i, 4294967295
   %27 = getelementptr inbounds nuw ptr, ptr %19, i64 %26
@@ -280,10 +280,10 @@ define range(i32 -12, 1) i32 @ff_add_format(ptr noundef captures(address) %0, i6
   %36 = add i32 %35, -1
   store i32 %36, ptr %34, align 8, !tbaa !41
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %.thread.thread.i, label %.thread.thread32.i
+  br i1 %37, label %.loopexit.thread.i, label %.loopexit.thread33.i
 
-.thread.thread.i:                                 ; preds = %.thread.i, %.preheader.i
-  %38 = phi ptr [ %33, %.thread.i ], [ %14, %.preheader.i ]
+.loopexit.thread.i:                               ; preds = %.loopexit.i, %.preheader.i
+  %38 = phi ptr [ %33, %.loopexit.i ], [ %14, %.preheader.i ]
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !29
   tail call void @av_free(ptr noundef %40) #10
@@ -293,9 +293,9 @@ define range(i32 -12, 1) i32 @ff_add_format(ptr noundef captures(address) %0, i6
   tail call void @av_free(ptr noundef %43) #10
   %44 = load ptr, ptr %0, align 8, !tbaa !23
   tail call void @av_free(ptr noundef %44) #10
-  br label %.thread.thread32.i
+  br label %.loopexit.thread33.i
 
-.thread.thread32.i:                               ; preds = %24, %.thread.thread.i, %.thread.i
+.loopexit.thread33.i:                             ; preds = %24, %.loopexit.thread.i, %.loopexit.i
   store ptr null, ptr %0, align 8, !tbaa !23
   br label %ff_formats_unref.exit.thread
 
@@ -311,8 +311,8 @@ define range(i32 -12, 1) i32 @ff_add_format(ptr noundef captures(address) %0, i6
   store i32 %47, ptr %51, align 4, !tbaa !19
   br label %ff_formats_unref.exit.thread
 
-ff_formats_unref.exit.thread:                     ; preds = %.thread.thread32.i, %15, %4, %45
-  %52 = phi i32 [ 0, %45 ], [ -12, %4 ], [ -12, %15 ], [ -12, %.thread.thread32.i ]
+ff_formats_unref.exit.thread:                     ; preds = %.loopexit.thread33.i, %15, %4, %45
+  %52 = phi i32 [ 0, %45 ], [ -12, %4 ], [ -12, %15 ], [ -12, %.loopexit.thread33.i ]
   ret i32 %52
 }
 
@@ -327,8 +327,8 @@ define void @ff_formats_unref(ptr noundef captures(address) %0) local_unnamed_ad
 .preheader:                                       ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !41
-  %.not26 = icmp eq i32 %4, 0
-  br i1 %.not26, label %.thread.thread, label %.lr.ph
+  %.not27 = icmp eq i32 %4, 0
+  br i1 %.not27, label %.loopexit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -341,14 +341,14 @@ define void @ff_formats_unref(ptr noundef captures(address) %0) local_unnamed_ad
   %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !43
   %10 = icmp eq ptr %9, %0
-  br i1 %10, label %.thread, label %11
+  br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread.thread32, label %7, !llvm.loop !45
+  br i1 %exitcond.not, label %.loopexit.thread33, label %7, !llvm.loop !45
 
-.thread:                                          ; preds = %7
+.loopexit:                                        ; preds = %7
   %12 = trunc nuw nsw i64 %indvars.iv to i32
   %13 = and i64 %indvars.iv, 4294967295
   %14 = getelementptr inbounds nuw ptr, ptr %6, i64 %13
@@ -364,10 +364,10 @@ define void @ff_formats_unref(ptr noundef captures(address) %0) local_unnamed_ad
   %23 = add i32 %22, -1
   store i32 %23, ptr %21, align 8, !tbaa !41
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %.thread.thread, label %.thread.thread32
+  br i1 %24, label %.loopexit.thread, label %.loopexit.thread33
 
-.thread.thread:                                   ; preds = %.preheader, %.thread
-  %25 = phi ptr [ %20, %.thread ], [ %2, %.preheader ]
+.loopexit.thread:                                 ; preds = %.preheader, %.loopexit
+  %25 = phi ptr [ %20, %.loopexit ], [ %2, %.preheader ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !29
   tail call void @av_free(ptr noundef %27) #10
@@ -377,13 +377,13 @@ define void @ff_formats_unref(ptr noundef captures(address) %0) local_unnamed_ad
   tail call void @av_free(ptr noundef %30) #10
   %31 = load ptr, ptr %0, align 8, !tbaa !23
   tail call void @av_free(ptr noundef %31) #10
-  br label %.thread.thread32
+  br label %.loopexit.thread33
 
-.thread.thread32:                                 ; preds = %11, %.thread.thread, %.thread
+.loopexit.thread33:                               ; preds = %11, %.loopexit.thread, %.loopexit
   store ptr null, ptr %0, align 8, !tbaa !23
   br label %32
 
-32:                                               ; preds = %1, %.thread.thread32
+32:                                               ; preds = %1, %.loopexit.thread33
   ret void
 }
 
@@ -449,15 +449,15 @@ define range(i32 -2147483648, 1) i32 @ff_add_channel_layout(ptr noundef captures
 define void @ff_channel_layouts_unref(ptr noundef captures(address) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !33
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %42, label %.preheader29
+  br i1 %.not, label %42, label %.preheader30
 
-.preheader29:                                     ; preds = %1
+.preheader30:                                     ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !46
-  %.not36 = icmp eq i32 %4, 0
-  br i1 %.not36, label %.preheader, label %.lr.ph
+  %.not37 = icmp eq i32 %4, 0
+  br i1 %.not37, label %.preheader, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader29
+.lr.ph:                                           ; preds = %.preheader30
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !47
   %wide.trip.count = zext i32 %4 to i64
@@ -468,14 +468,14 @@ define void @ff_channel_layouts_unref(ptr noundef captures(address) %0) local_un
   %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !48
   %10 = icmp eq ptr %9, %0
-  br i1 %10, label %.thread, label %11
+  br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread.thread46, label %7, !llvm.loop !50
+  br i1 %exitcond.not, label %.loopexit.thread47, label %7, !llvm.loop !50
 
-.thread:                                          ; preds = %7
+.loopexit:                                        ; preds = %7
   %12 = trunc nuw nsw i64 %indvars.iv to i32
   %13 = and i64 %indvars.iv, 4294967295
   %14 = getelementptr inbounds nuw ptr, ptr %6, i64 %13
@@ -491,17 +491,17 @@ define void @ff_channel_layouts_unref(ptr noundef captures(address) %0) local_un
   %23 = add i32 %22, -1
   store i32 %23, ptr %21, align 8, !tbaa !46
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %.preheader, label %.thread.thread46
+  br i1 %24, label %.preheader, label %.loopexit.thread47
 
-.preheader:                                       ; preds = %.preheader29, %.thread
-  %25 = phi ptr [ %20, %.thread ], [ %2, %.preheader29 ]
+.preheader:                                       ; preds = %.preheader30, %.loopexit
+  %25 = phi ptr [ %20, %.loopexit ], [ %2, %.preheader30 ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !34
   %28 = icmp sgt i32 %27, 0
-  br i1 %28, label %.lr.ph35, label %._crit_edge
+  br i1 %28, label %.lr.ph36, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph35, %.preheader
-  %.lcssa = phi ptr [ %25, %.preheader ], [ %37, %.lr.ph35 ]
+._crit_edge:                                      ; preds = %.lr.ph36, %.preheader
+  %.lcssa = phi ptr [ %25, %.preheader ], [ %37, %.lr.ph36 ]
   %29 = load ptr, ptr %.lcssa, align 8, !tbaa !38
   tail call void @av_free(ptr noundef %29) #10
   %30 = load ptr, ptr %0, align 8, !tbaa !33
@@ -510,27 +510,27 @@ define void @ff_channel_layouts_unref(ptr noundef captures(address) %0) local_un
   tail call void @av_free(ptr noundef %32) #10
   %33 = load ptr, ptr %0, align 8, !tbaa !33
   tail call void @av_free(ptr noundef %33) #10
-  br label %.thread.thread46
+  br label %.loopexit.thread47
 
-.lr.ph35:                                         ; preds = %.preheader, %.lr.ph35
-  %indvars.iv40 = phi i64 [ %indvars.iv.next41, %.lr.ph35 ], [ 0, %.preheader ]
-  %34 = phi ptr [ %37, %.lr.ph35 ], [ %25, %.preheader ]
+.lr.ph36:                                         ; preds = %.preheader, %.lr.ph36
+  %indvars.iv41 = phi i64 [ %indvars.iv.next42, %.lr.ph36 ], [ 0, %.preheader ]
+  %34 = phi ptr [ %37, %.lr.ph36 ], [ %25, %.preheader ]
   %35 = load ptr, ptr %34, align 8, !tbaa !38
-  %36 = getelementptr inbounds nuw %struct.AVChannelLayout, ptr %35, i64 %indvars.iv40
+  %36 = getelementptr inbounds nuw %struct.AVChannelLayout, ptr %35, i64 %indvars.iv41
   tail call void @av_channel_layout_uninit(ptr noundef %36) #10
-  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
+  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %37 = load ptr, ptr %0, align 8, !tbaa !33
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i32, ptr %38, align 8, !tbaa !34
   %40 = sext i32 %39 to i64
-  %41 = icmp slt i64 %indvars.iv.next41, %40
-  br i1 %41, label %.lr.ph35, label %._crit_edge, !llvm.loop !51
+  %41 = icmp slt i64 %indvars.iv.next42, %40
+  br i1 %41, label %.lr.ph36, label %._crit_edge, !llvm.loop !51
 
-.thread.thread46:                                 ; preds = %11, %._crit_edge, %.thread
+.loopexit.thread47:                               ; preds = %11, %._crit_edge, %.loopexit
   store ptr null, ptr %0, align 8, !tbaa !33
   br label %42
 
-42:                                               ; preds = %1, %.thread.thread46
+42:                                               ; preds = %1, %.loopexit.thread47
   ret void
 }
 
@@ -995,10 +995,10 @@ define range(i32 -12, 1) i32 @ff_formats_ref(ptr noundef %0, ptr noundef %1) loc
 
 .preheader.i:                                     ; preds = %3
   %11 = load i32, ptr %6, align 8, !tbaa !41
-  %.not26.i = icmp eq i32 %11, 0
-  br i1 %.not26.i, label %.thread.thread.i, label %ff_formats_unref.exit
+  %.not27.i = icmp eq i32 %11, 0
+  br i1 %.not27.i, label %.loopexit.thread.i, label %ff_formats_unref.exit
 
-.thread.thread.i:                                 ; preds = %.preheader.i
+.loopexit.thread.i:                               ; preds = %.preheader.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   tail call void @av_free(ptr noundef %13) #10
@@ -1018,8 +1018,8 @@ define range(i32 -12, 1) i32 @ff_formats_ref(ptr noundef %0, ptr noundef %1) loc
   store ptr %0, ptr %1, align 8, !tbaa !23
   br label %ff_formats_unref.exit
 
-ff_formats_unref.exit:                            ; preds = %.preheader.i, %.thread.thread.i, %2, %15
-  %.0 = phi i32 [ 0, %15 ], [ -12, %2 ], [ -12, %.thread.thread.i ], [ -12, %.preheader.i ]
+ff_formats_unref.exit:                            ; preds = %.preheader.i, %.loopexit.thread.i, %2, %15
+  %.0 = phi i32 [ 0, %15 ], [ -12, %2 ], [ -12, %.loopexit.thread.i ], [ -12, %.preheader.i ]
   ret i32 %.0
 }
 
@@ -1032,7 +1032,7 @@ define void @ff_channel_layouts_changeref(ptr noundef captures(address) %0, ptr 
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !46
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %.thread, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1050,7 +1050,7 @@ define void @ff_channel_layouts_changeref(ptr noundef captures(address) %0, ptr 
 12:                                               ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %8, !llvm.loop !64
+  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !64
 
 13:                                               ; preds = %8
   %14 = and i64 %indvars.iv, 4294967295
@@ -1058,9 +1058,9 @@ define void @ff_channel_layouts_changeref(ptr noundef captures(address) %0, ptr 
   store ptr %1, ptr %15, align 8, !tbaa !48
   store ptr %3, ptr %1, align 8, !tbaa !33
   store ptr null, ptr %0, align 8, !tbaa !33
-  br label %.thread
+  br label %.loopexit
 
-.thread:                                          ; preds = %12, %2, %13
+.loopexit:                                        ; preds = %12, %2, %13
   ret void
 }
 
@@ -1070,7 +1070,7 @@ define void @ff_formats_changeref(ptr noundef captures(address) %0, ptr noundef 
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !41
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %.thread, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1088,7 +1088,7 @@ define void @ff_formats_changeref(ptr noundef captures(address) %0, ptr noundef 
 12:                                               ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %8, !llvm.loop !65
+  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !65
 
 13:                                               ; preds = %8
   %14 = and i64 %indvars.iv, 4294967295
@@ -1096,9 +1096,9 @@ define void @ff_formats_changeref(ptr noundef captures(address) %0, ptr noundef 
   store ptr %1, ptr %15, align 8, !tbaa !43
   store ptr %3, ptr %1, align 8, !tbaa !23
   store ptr null, ptr %0, align 8, !tbaa !23
-  br label %.thread
+  br label %.loopexit
 
-.thread:                                          ; preds = %12, %2, %13
+.loopexit:                                        ; preds = %12, %2, %13
   ret void
 }
 
@@ -1350,10 +1350,10 @@ define range(i32 -12, 1) i32 @ff_set_common_samplerates(ptr noundef readonly cap
 
 .preheader.i.i:                                   ; preds = %25
   %31 = load i32, ptr %7, align 8, !tbaa !41
-  %.not26.i.i = icmp eq i32 %31, 0
-  br i1 %.not26.i.i, label %.thread.thread.i.i, label %.thread59
+  %.not27.i.i = icmp eq i32 %31, 0
+  br i1 %.not27.i.i, label %.loopexit.thread.i.i, label %.thread59
 
-.thread.thread.i.i:                               ; preds = %.preheader.i.i
+.loopexit.thread.i.i:                             ; preds = %.preheader.i.i
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !29
   tail call void @av_free(ptr noundef %33) #10
@@ -1410,10 +1410,10 @@ define range(i32 -12, 1) i32 @ff_set_common_samplerates(ptr noundef readonly cap
 
 .preheader.i.i50:                                 ; preds = %54
   %60 = load i32, ptr %12, align 8, !tbaa !41
-  %.not26.i.i51 = icmp eq i32 %60, 0
-  br i1 %.not26.i.i51, label %.thread.thread.i.i52, label %.thread59
+  %.not27.i.i51 = icmp eq i32 %60, 0
+  br i1 %.not27.i.i51, label %.loopexit.thread.i.i52, label %.thread59
 
-.thread.thread.i.i52:                             ; preds = %.preheader.i.i50
+.loopexit.thread.i.i52:                           ; preds = %.preheader.i.i50
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !29
   tail call void @av_free(ptr noundef %62) #10
@@ -1451,9 +1451,9 @@ ff_formats_unref.exit:                            ; preds = %._crit_edge
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %.thread59.sink.split
 
-.thread59.sink.split:                             ; preds = %ff_formats_unref.exit, %.thread.thread.i.i, %.thread.thread.i.i52
-  %.sink.in = phi ptr [ %11, %.thread.thread.i.i52 ], [ %6, %.thread.thread.i.i ], [ %75, %ff_formats_unref.exit ]
-  %.0.ph = phi i32 [ -12, %.thread.thread.i.i52 ], [ -12, %.thread.thread.i.i ], [ 0, %ff_formats_unref.exit ]
+.thread59.sink.split:                             ; preds = %ff_formats_unref.exit, %.loopexit.thread.i.i, %.loopexit.thread.i.i52
+  %.sink.in = phi ptr [ %11, %.loopexit.thread.i.i52 ], [ %6, %.loopexit.thread.i.i ], [ %75, %ff_formats_unref.exit ]
+  %.0.ph = phi i32 [ -12, %.loopexit.thread.i.i52 ], [ -12, %.loopexit.thread.i.i ], [ 0, %ff_formats_unref.exit ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !42
   tail call void @av_free(ptr noundef %.sink) #10
   tail call void @av_free(ptr noundef nonnull %1) #10
@@ -1592,10 +1592,10 @@ define range(i32 -12, 1) i32 @ff_set_common_color_spaces(ptr noundef readonly ca
 
 .preheader.i.i:                                   ; preds = %25
   %31 = load i32, ptr %7, align 8, !tbaa !41
-  %.not26.i.i = icmp eq i32 %31, 0
-  br i1 %.not26.i.i, label %.thread.thread.i.i, label %.thread59
+  %.not27.i.i = icmp eq i32 %31, 0
+  br i1 %.not27.i.i, label %.loopexit.thread.i.i, label %.thread59
 
-.thread.thread.i.i:                               ; preds = %.preheader.i.i
+.loopexit.thread.i.i:                             ; preds = %.preheader.i.i
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !29
   tail call void @av_free(ptr noundef %33) #10
@@ -1652,10 +1652,10 @@ define range(i32 -12, 1) i32 @ff_set_common_color_spaces(ptr noundef readonly ca
 
 .preheader.i.i50:                                 ; preds = %54
   %60 = load i32, ptr %12, align 8, !tbaa !41
-  %.not26.i.i51 = icmp eq i32 %60, 0
-  br i1 %.not26.i.i51, label %.thread.thread.i.i52, label %.thread59
+  %.not27.i.i51 = icmp eq i32 %60, 0
+  br i1 %.not27.i.i51, label %.loopexit.thread.i.i52, label %.thread59
 
-.thread.thread.i.i52:                             ; preds = %.preheader.i.i50
+.loopexit.thread.i.i52:                           ; preds = %.preheader.i.i50
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !29
   tail call void @av_free(ptr noundef %62) #10
@@ -1693,9 +1693,9 @@ ff_formats_unref.exit:                            ; preds = %._crit_edge
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %.thread59.sink.split
 
-.thread59.sink.split:                             ; preds = %ff_formats_unref.exit, %.thread.thread.i.i, %.thread.thread.i.i52
-  %.sink.in = phi ptr [ %11, %.thread.thread.i.i52 ], [ %6, %.thread.thread.i.i ], [ %75, %ff_formats_unref.exit ]
-  %.0.ph = phi i32 [ -12, %.thread.thread.i.i52 ], [ -12, %.thread.thread.i.i ], [ 0, %ff_formats_unref.exit ]
+.thread59.sink.split:                             ; preds = %ff_formats_unref.exit, %.loopexit.thread.i.i, %.loopexit.thread.i.i52
+  %.sink.in = phi ptr [ %11, %.loopexit.thread.i.i52 ], [ %6, %.loopexit.thread.i.i ], [ %75, %ff_formats_unref.exit ]
+  %.0.ph = phi i32 [ -12, %.loopexit.thread.i.i52 ], [ -12, %.loopexit.thread.i.i ], [ 0, %ff_formats_unref.exit ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !42
   tail call void @av_free(ptr noundef %.sink) #10
   tail call void @av_free(ptr noundef nonnull %1) #10
@@ -1863,10 +1863,10 @@ define range(i32 -12, 1) i32 @ff_set_common_color_ranges(ptr noundef readonly ca
 
 .preheader.i.i:                                   ; preds = %25
   %31 = load i32, ptr %7, align 8, !tbaa !41
-  %.not26.i.i = icmp eq i32 %31, 0
-  br i1 %.not26.i.i, label %.thread.thread.i.i, label %.thread59
+  %.not27.i.i = icmp eq i32 %31, 0
+  br i1 %.not27.i.i, label %.loopexit.thread.i.i, label %.thread59
 
-.thread.thread.i.i:                               ; preds = %.preheader.i.i
+.loopexit.thread.i.i:                             ; preds = %.preheader.i.i
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !29
   tail call void @av_free(ptr noundef %33) #10
@@ -1923,10 +1923,10 @@ define range(i32 -12, 1) i32 @ff_set_common_color_ranges(ptr noundef readonly ca
 
 .preheader.i.i50:                                 ; preds = %54
   %60 = load i32, ptr %12, align 8, !tbaa !41
-  %.not26.i.i51 = icmp eq i32 %60, 0
-  br i1 %.not26.i.i51, label %.thread.thread.i.i52, label %.thread59
+  %.not27.i.i51 = icmp eq i32 %60, 0
+  br i1 %.not27.i.i51, label %.loopexit.thread.i.i52, label %.thread59
 
-.thread.thread.i.i52:                             ; preds = %.preheader.i.i50
+.loopexit.thread.i.i52:                           ; preds = %.preheader.i.i50
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !29
   tail call void @av_free(ptr noundef %62) #10
@@ -1964,9 +1964,9 @@ ff_formats_unref.exit:                            ; preds = %._crit_edge
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %.thread59.sink.split
 
-.thread59.sink.split:                             ; preds = %ff_formats_unref.exit, %.thread.thread.i.i, %.thread.thread.i.i52
-  %.sink.in = phi ptr [ %11, %.thread.thread.i.i52 ], [ %6, %.thread.thread.i.i ], [ %75, %ff_formats_unref.exit ]
-  %.0.ph = phi i32 [ -12, %.thread.thread.i.i52 ], [ -12, %.thread.thread.i.i ], [ 0, %ff_formats_unref.exit ]
+.thread59.sink.split:                             ; preds = %ff_formats_unref.exit, %.loopexit.thread.i.i, %.loopexit.thread.i.i52
+  %.sink.in = phi ptr [ %11, %.loopexit.thread.i.i52 ], [ %6, %.loopexit.thread.i.i ], [ %75, %ff_formats_unref.exit ]
+  %.0.ph = phi i32 [ -12, %.loopexit.thread.i.i52 ], [ -12, %.loopexit.thread.i.i ], [ 0, %ff_formats_unref.exit ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !42
   tail call void @av_free(ptr noundef %.sink) #10
   tail call void @av_free(ptr noundef nonnull %1) #10
@@ -2116,10 +2116,10 @@ define range(i32 -12, 1) i32 @ff_set_common_formats(ptr noundef readonly capture
 
 .preheader.i.i:                                   ; preds = %21
   %27 = load i32, ptr %7, align 8, !tbaa !41
-  %.not26.i.i = icmp eq i32 %27, 0
-  br i1 %.not26.i.i, label %.thread.thread.i.i, label %.thread57
+  %.not27.i.i = icmp eq i32 %27, 0
+  br i1 %.not27.i.i, label %.loopexit.thread.i.i, label %.thread57
 
-.thread.thread.i.i:                               ; preds = %.preheader.i.i
+.loopexit.thread.i.i:                             ; preds = %.preheader.i.i
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !29
   tail call void @av_free(ptr noundef %29) #10
@@ -2170,10 +2170,10 @@ define range(i32 -12, 1) i32 @ff_set_common_formats(ptr noundef readonly capture
 
 .preheader.i.i48:                                 ; preds = %46
   %52 = load i32, ptr %12, align 8, !tbaa !41
-  %.not26.i.i49 = icmp eq i32 %52, 0
-  br i1 %.not26.i.i49, label %.thread.thread.i.i50, label %.thread57
+  %.not27.i.i49 = icmp eq i32 %52, 0
+  br i1 %.not27.i.i49, label %.loopexit.thread.i.i50, label %.thread57
 
-.thread.thread.i.i50:                             ; preds = %.preheader.i.i48
+.loopexit.thread.i.i50:                           ; preds = %.preheader.i.i48
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !29
   tail call void @av_free(ptr noundef %54) #10
@@ -2211,9 +2211,9 @@ ff_formats_unref.exit:                            ; preds = %._crit_edge
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %.thread57.sink.split
 
-.thread57.sink.split:                             ; preds = %ff_formats_unref.exit, %.thread.thread.i.i, %.thread.thread.i.i50
-  %.sink.in = phi ptr [ %11, %.thread.thread.i.i50 ], [ %6, %.thread.thread.i.i ], [ %67, %ff_formats_unref.exit ]
-  %.0.ph = phi i32 [ -12, %.thread.thread.i.i50 ], [ -12, %.thread.thread.i.i ], [ 0, %ff_formats_unref.exit ]
+.thread57.sink.split:                             ; preds = %ff_formats_unref.exit, %.loopexit.thread.i.i, %.loopexit.thread.i.i50
+  %.sink.in = phi ptr [ %11, %.loopexit.thread.i.i50 ], [ %6, %.loopexit.thread.i.i ], [ %67, %ff_formats_unref.exit ]
+  %.0.ph = phi i32 [ -12, %.loopexit.thread.i.i50 ], [ -12, %.loopexit.thread.i.i ], [ 0, %ff_formats_unref.exit ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !42
   tail call void @av_free(ptr noundef %.sink) #10
   tail call void @av_free(ptr noundef nonnull %1) #10
@@ -2526,10 +2526,10 @@ define range(i32 -12, 1) i32 @ff_set_common_samplerates2(ptr noundef readonly ca
 
 .preheader.i.i:                                   ; preds = %28
   %34 = load i32, ptr %9, align 8, !tbaa !41
-  %.not26.i.i = icmp eq i32 %34, 0
-  br i1 %.not26.i.i, label %.thread.thread.i.i, label %.thread63
+  %.not27.i.i = icmp eq i32 %34, 0
+  br i1 %.not27.i.i, label %.loopexit.thread.i.i, label %.thread63
 
-.thread.thread.i.i:                               ; preds = %.preheader.i.i
+.loopexit.thread.i.i:                             ; preds = %.preheader.i.i
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !29
   tail call void @av_free(ptr noundef %36) #10
@@ -2584,10 +2584,10 @@ define range(i32 -12, 1) i32 @ff_set_common_samplerates2(ptr noundef readonly ca
 
 .preheader.i.i51:                                 ; preds = %58
   %64 = load i32, ptr %14, align 8, !tbaa !41
-  %.not26.i.i52 = icmp eq i32 %64, 0
-  br i1 %.not26.i.i52, label %.thread.thread.i.i53, label %.thread63
+  %.not27.i.i52 = icmp eq i32 %64, 0
+  br i1 %.not27.i.i52, label %.loopexit.thread.i.i53, label %.thread63
 
-.thread.thread.i.i53:                             ; preds = %.preheader.i.i51
+.loopexit.thread.i.i53:                           ; preds = %.preheader.i.i51
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !29
   tail call void @av_free(ptr noundef %66) #10
@@ -2625,9 +2625,9 @@ ff_formats_unref.exit:                            ; preds = %._crit_edge
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %.thread63.sink.split
 
-.thread63.sink.split:                             ; preds = %ff_formats_unref.exit, %.thread.thread.i.i53, %.thread.thread.i.i
-  %.sink.in = phi ptr [ %8, %.thread.thread.i.i ], [ %13, %.thread.thread.i.i53 ], [ %79, %ff_formats_unref.exit ]
-  %.0.ph = phi i32 [ -12, %.thread.thread.i.i ], [ -12, %.thread.thread.i.i53 ], [ 0, %ff_formats_unref.exit ]
+.thread63.sink.split:                             ; preds = %ff_formats_unref.exit, %.loopexit.thread.i.i53, %.loopexit.thread.i.i
+  %.sink.in = phi ptr [ %8, %.loopexit.thread.i.i ], [ %13, %.loopexit.thread.i.i53 ], [ %79, %ff_formats_unref.exit ]
+  %.0.ph = phi i32 [ -12, %.loopexit.thread.i.i ], [ -12, %.loopexit.thread.i.i53 ], [ 0, %ff_formats_unref.exit ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !42
   tail call void @av_free(ptr noundef %.sink) #10
   tail call void @av_free(ptr noundef nonnull %3) #10
@@ -2764,10 +2764,10 @@ define range(i32 -12, 1) i32 @ff_set_common_color_spaces2(ptr noundef readonly c
 
 .preheader.i.i:                                   ; preds = %28
   %34 = load i32, ptr %9, align 8, !tbaa !41
-  %.not26.i.i = icmp eq i32 %34, 0
-  br i1 %.not26.i.i, label %.thread.thread.i.i, label %.thread63
+  %.not27.i.i = icmp eq i32 %34, 0
+  br i1 %.not27.i.i, label %.loopexit.thread.i.i, label %.thread63
 
-.thread.thread.i.i:                               ; preds = %.preheader.i.i
+.loopexit.thread.i.i:                             ; preds = %.preheader.i.i
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !29
   tail call void @av_free(ptr noundef %36) #10
@@ -2822,10 +2822,10 @@ define range(i32 -12, 1) i32 @ff_set_common_color_spaces2(ptr noundef readonly c
 
 .preheader.i.i51:                                 ; preds = %58
   %64 = load i32, ptr %14, align 8, !tbaa !41
-  %.not26.i.i52 = icmp eq i32 %64, 0
-  br i1 %.not26.i.i52, label %.thread.thread.i.i53, label %.thread63
+  %.not27.i.i52 = icmp eq i32 %64, 0
+  br i1 %.not27.i.i52, label %.loopexit.thread.i.i53, label %.thread63
 
-.thread.thread.i.i53:                             ; preds = %.preheader.i.i51
+.loopexit.thread.i.i53:                           ; preds = %.preheader.i.i51
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !29
   tail call void @av_free(ptr noundef %66) #10
@@ -2863,9 +2863,9 @@ ff_formats_unref.exit:                            ; preds = %._crit_edge
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %.thread63.sink.split
 
-.thread63.sink.split:                             ; preds = %ff_formats_unref.exit, %.thread.thread.i.i53, %.thread.thread.i.i
-  %.sink.in = phi ptr [ %8, %.thread.thread.i.i ], [ %13, %.thread.thread.i.i53 ], [ %79, %ff_formats_unref.exit ]
-  %.0.ph = phi i32 [ -12, %.thread.thread.i.i ], [ -12, %.thread.thread.i.i53 ], [ 0, %ff_formats_unref.exit ]
+.thread63.sink.split:                             ; preds = %ff_formats_unref.exit, %.loopexit.thread.i.i53, %.loopexit.thread.i.i
+  %.sink.in = phi ptr [ %8, %.loopexit.thread.i.i ], [ %13, %.loopexit.thread.i.i53 ], [ %79, %ff_formats_unref.exit ]
+  %.0.ph = phi i32 [ -12, %.loopexit.thread.i.i ], [ -12, %.loopexit.thread.i.i53 ], [ 0, %ff_formats_unref.exit ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !42
   tail call void @av_free(ptr noundef %.sink) #10
   tail call void @av_free(ptr noundef nonnull %3) #10
@@ -3031,10 +3031,10 @@ define range(i32 -12, 1) i32 @ff_set_common_color_ranges2(ptr noundef readonly c
 
 .preheader.i.i:                                   ; preds = %28
   %34 = load i32, ptr %9, align 8, !tbaa !41
-  %.not26.i.i = icmp eq i32 %34, 0
-  br i1 %.not26.i.i, label %.thread.thread.i.i, label %.thread63
+  %.not27.i.i = icmp eq i32 %34, 0
+  br i1 %.not27.i.i, label %.loopexit.thread.i.i, label %.thread63
 
-.thread.thread.i.i:                               ; preds = %.preheader.i.i
+.loopexit.thread.i.i:                             ; preds = %.preheader.i.i
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !29
   tail call void @av_free(ptr noundef %36) #10
@@ -3089,10 +3089,10 @@ define range(i32 -12, 1) i32 @ff_set_common_color_ranges2(ptr noundef readonly c
 
 .preheader.i.i51:                                 ; preds = %58
   %64 = load i32, ptr %14, align 8, !tbaa !41
-  %.not26.i.i52 = icmp eq i32 %64, 0
-  br i1 %.not26.i.i52, label %.thread.thread.i.i53, label %.thread63
+  %.not27.i.i52 = icmp eq i32 %64, 0
+  br i1 %.not27.i.i52, label %.loopexit.thread.i.i53, label %.thread63
 
-.thread.thread.i.i53:                             ; preds = %.preheader.i.i51
+.loopexit.thread.i.i53:                           ; preds = %.preheader.i.i51
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !29
   tail call void @av_free(ptr noundef %66) #10
@@ -3130,9 +3130,9 @@ ff_formats_unref.exit:                            ; preds = %._crit_edge
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %.thread63.sink.split
 
-.thread63.sink.split:                             ; preds = %ff_formats_unref.exit, %.thread.thread.i.i53, %.thread.thread.i.i
-  %.sink.in = phi ptr [ %8, %.thread.thread.i.i ], [ %13, %.thread.thread.i.i53 ], [ %79, %ff_formats_unref.exit ]
-  %.0.ph = phi i32 [ -12, %.thread.thread.i.i ], [ -12, %.thread.thread.i.i53 ], [ 0, %ff_formats_unref.exit ]
+.thread63.sink.split:                             ; preds = %ff_formats_unref.exit, %.loopexit.thread.i.i53, %.loopexit.thread.i.i
+  %.sink.in = phi ptr [ %8, %.loopexit.thread.i.i ], [ %13, %.loopexit.thread.i.i53 ], [ %79, %ff_formats_unref.exit ]
+  %.0.ph = phi i32 [ -12, %.loopexit.thread.i.i ], [ -12, %.loopexit.thread.i.i53 ], [ 0, %ff_formats_unref.exit ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !42
   tail call void @av_free(ptr noundef %.sink) #10
   tail call void @av_free(ptr noundef nonnull %3) #10
@@ -3274,10 +3274,10 @@ define range(i32 -12, 1) i32 @ff_set_common_formats2(ptr noundef readonly captur
 
 .preheader.i.i:                                   ; preds = %18
   %24 = load i32, ptr %8, align 8, !tbaa !41
-  %.not26.i.i = icmp eq i32 %24, 0
-  br i1 %.not26.i.i, label %.thread.thread.i.i, label %.thread60
+  %.not27.i.i = icmp eq i32 %24, 0
+  br i1 %.not27.i.i, label %.loopexit.thread.i.i, label %.thread60
 
-.thread.thread.i.i:                               ; preds = %.preheader.i.i
+.loopexit.thread.i.i:                             ; preds = %.preheader.i.i
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !29
   tail call void @av_free(ptr noundef %26) #10
@@ -3322,10 +3322,10 @@ define range(i32 -12, 1) i32 @ff_set_common_formats2(ptr noundef readonly captur
 
 .preheader.i.i49:                                 ; preds = %40
   %46 = load i32, ptr %12, align 8, !tbaa !41
-  %.not26.i.i50 = icmp eq i32 %46, 0
-  br i1 %.not26.i.i50, label %.thread.thread.i.i51, label %.thread60
+  %.not27.i.i50 = icmp eq i32 %46, 0
+  br i1 %.not27.i.i50, label %.loopexit.thread.i.i51, label %.thread60
 
-.thread.thread.i.i51:                             ; preds = %.preheader.i.i49
+.loopexit.thread.i.i51:                           ; preds = %.preheader.i.i49
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !29
   tail call void @av_free(ptr noundef %48) #10
@@ -3363,9 +3363,9 @@ ff_formats_unref.exit:                            ; preds = %._crit_edge
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %.thread60.sink.split
 
-.thread60.sink.split:                             ; preds = %ff_formats_unref.exit, %.thread.thread.i.i51, %.thread.thread.i.i
-  %.sink.in = phi ptr [ %7, %.thread.thread.i.i ], [ %11, %.thread.thread.i.i51 ], [ %61, %ff_formats_unref.exit ]
-  %.0.ph = phi i32 [ -12, %.thread.thread.i.i ], [ -12, %.thread.thread.i.i51 ], [ 0, %ff_formats_unref.exit ]
+.thread60.sink.split:                             ; preds = %ff_formats_unref.exit, %.loopexit.thread.i.i51, %.loopexit.thread.i.i
+  %.sink.in = phi ptr [ %7, %.loopexit.thread.i.i ], [ %11, %.loopexit.thread.i.i51 ], [ %61, %ff_formats_unref.exit ]
+  %.0.ph = phi i32 [ -12, %.loopexit.thread.i.i ], [ -12, %.loopexit.thread.i.i51 ], [ 0, %ff_formats_unref.exit ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !42
   tail call void @av_free(ptr noundef %.sink) #10
   tail call void @av_free(ptr noundef nonnull %3) #10

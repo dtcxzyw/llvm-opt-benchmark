@@ -1088,14 +1088,14 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7725CollationFastLatinBuilder1
   br i1 %34, label %113, label %115
 
 35:                                               ; preds = %12, %112
-  %indvars.iv50 = phi i64 [ 0, %12 ], [ %indvars.iv.next51, %112 ]
-  %36 = getelementptr inbounds nuw [2 x i64], ptr %20, i64 %indvars.iv50
+  %indvars.iv48 = phi i64 [ 0, %12 ], [ %indvars.iv.next49, %112 ]
+  %36 = getelementptr inbounds nuw [2 x i64], ptr %20, i64 %indvars.iv48
   %37 = load i64, ptr %36, align 8, !tbaa !47
   %.mask.i = and i64 %37, -4294967296
   %38 = icmp ne i64 %.mask.i, 4294967296
   %39 = icmp eq i64 %37, 4311744768
-  %.not47 = or i1 %39, %38
-  br i1 %.not47, label %112, label %40
+  %.not45 = or i1 %39, %38
+  br i1 %.not45, label %112, label %40
 
 40:                                               ; preds = %35
   %41 = load i16, ptr %16, align 8, !tbaa !18
@@ -1111,7 +1111,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7725CollationFastLatinBuilder1
 
 49:                                               ; preds = %40
   %50 = load i32, ptr %13, align 8, !tbaa !19
-  %51 = trunc nuw nsw i64 %indvars.iv50 to i32
+  %51 = trunc nuw nsw i64 %indvars.iv48 to i32
   %52 = add nsw i32 %50, %51
   %53 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9setCharAtEiDs(ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef %52, i16 noundef zeroext 1)
   br label %112
@@ -1142,34 +1142,34 @@ _ZNK6icu_779UVector6410elementAtiEi.exit.thread:  ; preds = %56, %_ZNK6icu_779UV
   %67 = add nuw nsw i64 %indvars.iv, 1
   %68 = trunc nuw i64 %67 to i32
   %69 = icmp sgt i32 %58, %68
-  br i1 %69, label %70, label %_ZNK6icu_779UVector6410elementAtiEi.exit42
+  br i1 %69, label %70, label %_ZNK6icu_779UVector6410elementAtiEi.exit41
 
 70:                                               ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit.thread
   %71 = load ptr, ptr %22, align 8, !tbaa !46
   %72 = getelementptr inbounds nuw i64, ptr %71, i64 %67
   %73 = load i64, ptr %72, align 8, !tbaa !47
-  br label %_ZNK6icu_779UVector6410elementAtiEi.exit42
+  br label %_ZNK6icu_779UVector6410elementAtiEi.exit41
 
-_ZNK6icu_779UVector6410elementAtiEi.exit42:       ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit.thread, %70
+_ZNK6icu_779UVector6410elementAtiEi.exit41:       ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit.thread, %70
   %74 = phi i64 [ %73, %70 ], [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit.thread ]
   %75 = add nuw nsw i64 %indvars.iv, 2
   %76 = trunc nuw i64 %75 to i32
   %77 = icmp sgt i32 %58, %76
-  br i1 %77, label %78, label %_ZNK6icu_779UVector6410elementAtiEi.exit44
+  br i1 %77, label %78, label %_ZNK6icu_779UVector6410elementAtiEi.exit42
 
-78:                                               ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit42
+78:                                               ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit41
   %79 = load ptr, ptr %22, align 8, !tbaa !46
   %80 = getelementptr inbounds nuw i64, ptr %79, i64 %75
   %81 = load i64, ptr %80, align 8, !tbaa !47
-  br label %_ZNK6icu_779UVector6410elementAtiEi.exit44
+  br label %_ZNK6icu_779UVector6410elementAtiEi.exit42
 
-_ZNK6icu_779UVector6410elementAtiEi.exit44:       ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit42, %78
-  %82 = phi i64 [ %81, %78 ], [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit42 ]
+_ZNK6icu_779UVector6410elementAtiEi.exit42:       ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit41, %78
+  %82 = phi i64 [ %81, %78 ], [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit41 ]
   %83 = call noundef i32 @_ZNK6icu_7725CollationFastLatinBuilder12encodeTwoCEsEll(ptr noundef nonnull align 8 dereferenceable(7372) %0, i64 noundef %74, i64 noundef %82)
   %84 = icmp eq i32 %83, 1
   br i1 %84, label %85, label %89
 
-85:                                               ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit44
+85:                                               ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit42
   %86 = trunc i64 %66 to i16
   %87 = or i16 %86, 512
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -1178,7 +1178,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit44:       ; preds = %_ZNK6icu_779UVector
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %105
 
-89:                                               ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit44
+89:                                               ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit42
   %90 = icmp ult i32 %83, 65536
   %91 = trunc i64 %66 to i16
   br i1 %90, label %92, label %97
@@ -1221,7 +1221,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit44:       ; preds = %_ZNK6icu_779UVector
 
 .critedge:                                        ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit
   %106 = load i32, ptr %13, align 8, !tbaa !19
-  %107 = trunc nuw nsw i64 %indvars.iv50 to i32
+  %107 = trunc nuw nsw i64 %indvars.iv48 to i32
   %108 = add nsw i32 %106, %107
   %109 = trunc i32 %47 to i16
   %110 = or i16 %109, 1024
@@ -1229,8 +1229,8 @@ _ZNK6icu_779UVector6410elementAtiEi.exit44:       ; preds = %_ZNK6icu_779UVector
   br label %112
 
 112:                                              ; preds = %49, %.critedge, %35
-  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next51, 448
+  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next49, 448
   br i1 %exitcond.not, label %23, label %35, !llvm.loop !60
 
 113:                                              ; preds = %23

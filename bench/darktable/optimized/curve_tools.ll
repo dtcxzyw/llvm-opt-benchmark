@@ -413,8 +413,7 @@ define noalias noundef ptr @monotone_hermite_set(i32 noundef %0, ptr noundef rea
   br i1 %exitcond102.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph95.preheader:                               ; preds = %.lr.ph93, %._crit_edge
-  %smax111 = tail call i32 @llvm.smax.i32(i32 %0, i32 1)
-  %wide.trip.count112 = zext nneg i32 %smax111 to i64
+  %wide.trip.count112 = zext nneg i32 %0 to i64
   br label %.lr.ph95
 
 .lr.ph93:                                         ; preds = %.lr.ph93.preheader, %.lr.ph93

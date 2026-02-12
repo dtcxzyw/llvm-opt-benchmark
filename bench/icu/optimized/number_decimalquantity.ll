@@ -1310,36 +1310,36 @@ define void @_ZN6icu_776number4impl15DecimalQuantity7compactEv(ptr noundef nonnu
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8, !tbaa !28
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.lr.ph52, label %.critedge.thread87
+  br i1 %7, label %.lr.ph51, label %.critedge.thread86
 
-.lr.ph52:                                         ; preds = %.preheader
+.lr.ph51:                                         ; preds = %.preheader
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8, !tbaa !26
-  %wide.trip.count71 = zext nneg i32 %6 to i64
+  %wide.trip.count70 = zext nneg i32 %6 to i64
   br label %10
 
-10:                                               ; preds = %.lr.ph52, %13
-  %indvars.iv67 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next68, %13 ]
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv67
+10:                                               ; preds = %.lr.ph51, %13
+  %indvars.iv66 = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next67, %13 ]
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv66
   %12 = load i8, ptr %11, align 1, !tbaa !26
   %.not = icmp eq i8 %12, 0
   br i1 %.not, label %13, label %.critedge
 
 13:                                               ; preds = %10
-  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
-  %exitcond72.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count71
-  br i1 %exitcond72.not, label %_ZN6icu_776number4impl15DecimalQuantity12setBcdToZeroEv.exit, label %10, !llvm.loop !38
+  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
+  %exitcond71.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count70
+  br i1 %exitcond71.not, label %_ZN6icu_776number4impl15DecimalQuantity12setBcdToZeroEv.exit, label %10, !llvm.loop !38
 
 .critedge:                                        ; preds = %10
-  %14 = trunc nuw nsw i64 %indvars.iv67 to i32
+  %14 = trunc nuw nsw i64 %indvars.iv66 to i32
   %15 = icmp eq i32 %6, %14
   br i1 %15, label %_ZN6icu_776number4impl15DecimalQuantity12setBcdToZeroEv.exit, label %.lr.ph.i
 
-.critedge.thread87:                               ; preds = %.preheader
+.critedge.thread86:                               ; preds = %.preheader
   %16 = icmp eq i32 %6, 0
   br i1 %16, label %_ZN6icu_776number4impl15DecimalQuantity12setBcdToZeroEv.exit, label %.preheader.i
 
-_ZN6icu_776number4impl15DecimalQuantity12setBcdToZeroEv.exit: ; preds = %13, %.critedge.thread87, %.critedge
+_ZN6icu_776number4impl15DecimalQuantity12setBcdToZeroEv.exit: ; preds = %13, %.critedge.thread86, %.critedge
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8, !tbaa !26
   tail call void @uprv_free_77(ptr noundef %18)
@@ -1360,17 +1360,17 @@ _ZN6icu_776number4impl15DecimalQuantity12setBcdToZeroEv.exit: ; preds = %13, %.c
 
 .lr.ph.i:                                         ; preds = %.critedge
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %25 = and i64 %indvars.iv67, 4294967295
+  %25 = and i64 %indvars.iv66, 4294967295
   br label %31
 
 .preheader.loopexit.i:                            ; preds = %31
   %26 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %.critedge.thread87, %.preheader.loopexit.i
-  %.026.lcssa9094 = phi i32 [ %14, %.preheader.loopexit.i ], [ 0, %.critedge.thread87 ]
-  %27 = phi i32 [ %36, %.preheader.loopexit.i ], [ %6, %.critedge.thread87 ]
-  %.0.lcssa.i = phi i32 [ %26, %.preheader.loopexit.i ], [ 0, %.critedge.thread87 ]
+.preheader.i:                                     ; preds = %.critedge.thread86, %.preheader.loopexit.i
+  %.026.lcssa8993 = phi i32 [ %14, %.preheader.loopexit.i ], [ 0, %.critedge.thread86 ]
+  %27 = phi i32 [ %36, %.preheader.loopexit.i ], [ %6, %.critedge.thread86 ]
+  %.0.lcssa.i = phi i32 [ %26, %.preheader.loopexit.i ], [ 0, %.critedge.thread86 ]
   %28 = icmp slt i32 %.0.lcssa.i, %27
   br i1 %28, label %.lr.ph15.i, label %_ZN6icu_776number4impl15DecimalQuantity10shiftRightEi.exit
 
@@ -1408,9 +1408,9 @@ _ZN6icu_776number4impl15DecimalQuantity10shiftRightEi.exit: ; preds = %40, %.pre
   %46 = phi i32 [ %27, %.preheader.i ], [ %43, %40 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %48 = load i32, ptr %47, align 4, !tbaa !27
-  %49 = add nsw i32 %48, %.026.lcssa9094
+  %49 = add nsw i32 %48, %.026.lcssa8993
   store i32 %49, ptr %47, align 4, !tbaa !27
-  %50 = sub i32 %46, %.026.lcssa9094
+  %50 = sub i32 %46, %.026.lcssa8993
   store i32 %50, ptr %5, align 8, !tbaa !28
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %52 = load ptr, ptr %51, align 8
@@ -1419,13 +1419,13 @@ _ZN6icu_776number4impl15DecimalQuantity10shiftRightEi.exit: ; preds = %40, %.pre
   br label %55
 
 55:                                               ; preds = %58, %_ZN6icu_776number4impl15DecimalQuantity10shiftRightEi.exit
-  %indvars.iv73 = phi i64 [ %59, %58 ], [ %53, %_ZN6icu_776number4impl15DecimalQuantity10shiftRightEi.exit ]
-  %56 = trunc nuw i64 %indvars.iv73 to i32
+  %indvars.iv72 = phi i64 [ %59, %58 ], [ %53, %_ZN6icu_776number4impl15DecimalQuantity10shiftRightEi.exit ]
+  %56 = trunc nuw i64 %indvars.iv72 to i32
   %57 = icmp sgt i32 %56, 0
   br i1 %57, label %58, label %.thread
 
 58:                                               ; preds = %55
-  %59 = add nsw i64 %indvars.iv73, -1
+  %59 = add nsw i64 %indvars.iv72, -1
   %60 = getelementptr inbounds nuw i8, ptr %52, i64 %59
   %61 = load i8, ptr %60, align 1, !tbaa !26
   %62 = icmp eq i8 %61, 0
@@ -1433,7 +1433,7 @@ _ZN6icu_776number4impl15DecimalQuantity10shiftRightEi.exit: ; preds = %40, %.pre
 
 .critedge2:                                       ; preds = %58
   store i32 %56, ptr %5, align 8, !tbaa !28
-  %63 = icmp ult i64 %indvars.iv73, 17
+  %63 = icmp ult i64 %indvars.iv72, 17
   br i1 %63, label %64, label %_ZN6icu_776number4impl15DecimalQuantity13switchStorageEv.exit
 
 64:                                               ; preds = %.critedge2
@@ -1455,7 +1455,7 @@ _ZN6icu_776number4impl15DecimalQuantity10shiftRightEi.exit: ; preds = %40, %.pre
   br label %_ZN6icu_776number4impl15DecimalQuantity13switchStorageEv.exit
 
 .lr.ph18.i:                                       ; preds = %64, %.lr.ph18.i
-  %indvars.iv20.i = phi i64 [ %indvars.iv.next21.i, %.lr.ph18.i ], [ %indvars.iv73, %64 ]
+  %indvars.iv20.i = phi i64 [ %indvars.iv.next21.i, %.lr.ph18.i ], [ %indvars.iv72, %64 ]
   %.01316.i = phi i64 [ %73, %.lr.ph18.i ], [ 0, %64 ]
   %indvars.iv.next21.i = add nsw i64 %indvars.iv20.i, -1
   %69 = shl i64 %.01316.i, 4
@@ -1496,9 +1496,9 @@ _ZN6icu_776number4impl15DecimalQuantity14ensureCapacityEv.exit.i: ; preds = %.th
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %89 = load i64, ptr %88, align 8, !tbaa !26
   %90 = icmp eq i64 %89, 0
-  br i1 %90, label %_ZN6icu_776number4impl15DecimalQuantity12setBcdToZeroEv.exit30, label %.preheader38
+  br i1 %90, label %_ZN6icu_776number4impl15DecimalQuantity12setBcdToZeroEv.exit30, label %.preheader37
 
-.preheader38:                                     ; preds = %87
+.preheader37:                                     ; preds = %87
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %92 = load i32, ptr %91, align 8, !tbaa !28
   %93 = icmp sgt i32 %92, 0
@@ -1520,8 +1520,8 @@ _ZN6icu_776number4impl15DecimalQuantity12setBcdToZeroEv.exit30: ; preds = %87
   store i32 0, ptr %99, align 4, !tbaa !32
   br label %_ZN6icu_776number4impl15DecimalQuantity13switchStorageEv.exit
 
-.lr.ph:                                           ; preds = %.preheader38, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit.thread
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit.thread ], [ 0, %.preheader38 ]
+.lr.ph:                                           ; preds = %.preheader37, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit.thread
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit.thread ], [ 0, %.preheader37 ]
   %or.cond.i = icmp samesign ugt i64 %indvars.iv, 15
   br i1 %or.cond.i, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit.thread, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit
 
@@ -1530,19 +1530,19 @@ _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit: ; preds = %.lr.ph
   %101 = shl nuw i64 15, %100
   %102 = and i64 %101, %89
   %103 = icmp eq i64 %102, 0
-  br i1 %103, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit.thread, label %.critedge4.loopexit.split.loop.exit102
+  br i1 %103, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit.thread, label %.critedge4.loopexit.split.loop.exit101
 
 _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit.thread: ; preds = %.lr.ph, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge4, label %.lr.ph, !llvm.loop !44
 
-.critedge4.loopexit.split.loop.exit102:           ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit
+.critedge4.loopexit.split.loop.exit101:           ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit
   %104 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge4
 
-.critedge4:                                       ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit.thread, %.critedge4.loopexit.split.loop.exit102, %.preheader38
-  %.024.lcssa = phi i32 [ 0, %.preheader38 ], [ %104, %.critedge4.loopexit.split.loop.exit102 ], [ %92, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit.thread ]
+.critedge4:                                       ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit.thread, %.critedge4.loopexit.split.loop.exit101, %.preheader37
+  %.024.lcssa = phi i32 [ 0, %.preheader37 ], [ %104, %.critedge4.loopexit.split.loop.exit101 ], [ %92, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit.thread ]
   %105 = shl nsw i32 %.024.lcssa, 2
   %106 = zext nneg i32 %105 to i64
   %107 = lshr i64 %89, %106
@@ -1554,16 +1554,16 @@ _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit.thread: ; preds = %
   %smin = tail call i32 @llvm.smin.i32(i32 %92, i32 0)
   br label %111
 
-111:                                              ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit35, %.critedge4
-  %indvars.iv64 = phi i64 [ %indvars.iv.next65, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit35 ], [ %wide.trip.count, %.critedge4 ]
-  %112 = trunc nuw i64 %indvars.iv64 to i32
+111:                                              ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit34, %.critedge4
+  %indvars.iv63 = phi i64 [ %indvars.iv.next64, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit34 ], [ %wide.trip.count, %.critedge4 ]
+  %112 = trunc nuw i64 %indvars.iv63 to i32
   %113 = icmp sgt i32 %112, 0
-  br i1 %113, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit35, label %.critedge6
+  br i1 %113, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit34, label %.critedge6
 
-_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit35: ; preds = %111
-  %indvars.iv.next65 = add nsw i64 %indvars.iv64, -1
-  %or.cond.i31 = icmp ugt i64 %indvars.iv64, 16
-  %114 = shl i64 %indvars.iv.next65, 2
+_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit34: ; preds = %111
+  %indvars.iv.next64 = add nsw i64 %indvars.iv63, -1
+  %or.cond.i31 = icmp ugt i64 %indvars.iv63, 16
+  %114 = shl i64 %indvars.iv.next64, 2
   %115 = and i64 %114, 4294967292
   %116 = shl i64 15, %115
   %117 = and i64 %116, %107
@@ -1571,8 +1571,8 @@ _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit35: ; preds = %111
   %119 = select i1 %or.cond.i31, i1 true, i1 %118
   br i1 %119, label %111, label %.critedge6, !llvm.loop !45
 
-.critedge6:                                       ; preds = %111, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit35
-  %.0.in.lcssa = phi i32 [ %smin, %111 ], [ %112, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit35 ]
+.critedge6:                                       ; preds = %111, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit34
+  %.0.in.lcssa = phi i32 [ %smin, %111 ], [ %112, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit34 ]
   store i32 %.0.in.lcssa, ptr %91, align 8, !tbaa !28
   br label %_ZN6icu_776number4impl15DecimalQuantity13switchStorageEv.exit
 
@@ -7295,21 +7295,21 @@ define noundef ptr @_ZNK6icu_776number4impl15DecimalQuantity11checkHealthEv(ptr 
   %4 = trunc nuw i8 %3 to i1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8, !tbaa !28
-  br i1 %4, label %7, label %32
+  br i1 %4, label %7, label %33
 
 7:                                                ; preds = %1
   %8 = icmp eq i32 %6, 0
-  br i1 %8, label %.thread96, label %9
+  br i1 %8, label %.thread93, label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i32, ptr %10, align 8, !tbaa !26
   %12 = icmp sgt i32 %6, %11
-  br i1 %12, label %.thread96, label %13
+  br i1 %12, label %.thread93, label %13
 
 13:                                               ; preds = %9
   %14 = icmp sgt i32 %6, 0
-  br i1 %14, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit, label %.thread96
+  br i1 %14, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit, label %.thread93
 
 _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit: ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -7319,94 +7319,95 @@ _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit: ; preds = %13
   %19 = getelementptr i8, ptr %18, i64 -1
   %20 = load i8, ptr %19, align 1, !tbaa !26
   %21 = icmp eq i8 %20, 0
-  br i1 %21, label %.thread96, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit47
+  br i1 %21, label %.thread93, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit47
 
 _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit47: ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit
   %22 = load i8, ptr %16, align 1, !tbaa !26
   %23 = icmp eq i8 %22, 0
-  br i1 %23, label %.thread96, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit52
+  br i1 %23, label %.thread93, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit52
 
 24:                                               ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit57
-  %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
-  %exitcond143.not = icmp eq i64 %indvars.iv.next140, %17
-  br i1 %exitcond143.not, label %.preheader, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit52, !llvm.loop !93
+  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
+  %exitcond140.not = icmp eq i64 %indvars.iv.next137, %17
+  br i1 %exitcond140.not, label %.preheader, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit52, !llvm.loop !93
 
 .preheader:                                       ; preds = %24
-  %.not40126 = icmp slt i32 %6, %11
-  br i1 %.not40126, label %.lr.ph128, label %.thread96
+  %.not40123 = icmp slt i32 %6, %11
+  br i1 %.not40123, label %.lr.ph125, label %.thread93
 
 _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit52: ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit47, %24
-  %indvars.iv139 = phi i64 [ %indvars.iv.next140, %24 ], [ 0, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit47 ]
-  %25 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv139
+  %indvars.iv136 = phi i64 [ %indvars.iv.next137, %24 ], [ 0, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit47 ]
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv136
   %26 = load i8, ptr %25, align 1, !tbaa !26
   %27 = icmp sgt i8 %26, 9
-  br i1 %27, label %.thread96, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit57
+  br i1 %27, label %.thread93, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit57
 
 _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit57: ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit52
   %28 = icmp slt i8 %26, 0
-  br i1 %28, label %.thread96, label %24
+  br i1 %28, label %.thread93, label %24
 
-.lr.ph128:                                        ; preds = %.preheader, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit62.thread
-  %indvars.iv144 = phi i64 [ %indvars.iv.next145, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit62.thread ], [ %17, %.preheader ]
-  %or.cond10.i61 = icmp samesign ult i64 %indvars.iv144, %17
-  br i1 %or.cond10.i61, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit62, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit62.thread
+.lr.ph125:                                        ; preds = %.preheader, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit62.thread
+  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit62.thread ], [ %17, %.preheader ]
+  %29 = trunc nuw i64 %indvars.iv141 to i32
+  %.not.i60 = icmp sgt i32 %6, %29
+  br i1 %.not.i60, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit62, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit62.thread
 
-_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit62: ; preds = %.lr.ph128
-  %29 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv144
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %.not39 = icmp eq i8 %30, 0
-  br i1 %.not39, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit62.thread, label %.thread96
+_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit62: ; preds = %.lr.ph125
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv141
+  %31 = load i8, ptr %30, align 1, !tbaa !26
+  %.not39 = icmp eq i8 %31, 0
+  br i1 %.not39, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit62.thread, label %.thread93
 
-_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit62.thread: ; preds = %.lr.ph128, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit62
-  %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
-  %31 = trunc nuw i64 %indvars.iv.next145 to i32
-  %.not40 = icmp sgt i32 %11, %31
-  br i1 %.not40, label %.lr.ph128, label %.thread96, !llvm.loop !94
+_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit62.thread: ; preds = %.lr.ph125, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit62
+  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
+  %32 = trunc nuw i64 %indvars.iv.next142 to i32
+  %.not40 = icmp sgt i32 %11, %32
+  br i1 %.not40, label %.lr.ph125, label %.thread93, !llvm.loop !94
 
-32:                                               ; preds = %1
-  %33 = icmp ne i32 %6, 0
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %35 = load i64, ptr %34, align 8
-  %.not = icmp eq i64 %35, 0
-  %or.cond = select i1 %33, i1 true, i1 %.not
-  br i1 %or.cond, label %36, label %.thread96
+33:                                               ; preds = %1
+  %34 = icmp ne i32 %6, 0
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %36 = load i64, ptr %35, align 8
+  %.not = icmp eq i64 %36, 0
+  %or.cond = select i1 %34, i1 true, i1 %.not
+  br i1 %or.cond, label %37, label %.thread93
 
-36:                                               ; preds = %32
-  %37 = icmp sgt i32 %6, 16
-  br i1 %37, label %.thread96, label %38
+37:                                               ; preds = %33
+  %38 = icmp sgt i32 %6, 16
+  br i1 %38, label %.thread93, label %39
 
-38:                                               ; preds = %36
+39:                                               ; preds = %37
   %.not35 = icmp eq i32 %6, 0
-  br i1 %.not35, label %.lr.ph122.preheader, label %39
+  br i1 %.not35, label %.lr.ph119.preheader, label %40
 
-39:                                               ; preds = %38
-  %40 = add nsw i32 %6, -1
-  %or.cond.i63 = icmp ugt i32 %40, 15
-  br i1 %or.cond.i63, label %.thread96, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit67
+40:                                               ; preds = %39
+  %41 = add nsw i32 %6, -1
+  %or.cond.i63 = icmp ugt i32 %41, 15
+  br i1 %or.cond.i63, label %.thread93, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit67
 
-_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit67: ; preds = %39
-  %41 = shl nuw nsw i32 %40, 2
-  %42 = zext nneg i32 %41 to i64
-  %43 = shl nuw i64 15, %42
-  %44 = and i64 %43, %35
-  %45 = icmp eq i64 %44, 0
-  br i1 %45, label %.thread96, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit71
+_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit67: ; preds = %40
+  %42 = shl nuw nsw i32 %41, 2
+  %43 = zext nneg i32 %42 to i64
+  %44 = shl nuw i64 15, %43
+  %45 = and i64 %44, %36
+  %46 = icmp eq i64 %45, 0
+  br i1 %46, label %.thread93, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit71
 
 _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit71: ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit67
-  %46 = and i64 %35, 15
-  %47 = icmp eq i64 %46, 0
-  br i1 %47, label %.thread96, label %.lr.ph.preheader
+  %47 = and i64 %36, 15
+  %48 = icmp eq i64 %47, 0
+  br i1 %48, label %.thread93, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit71
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %.lr.ph
 
-.preheader116:                                    ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit81
-  %.not131 = icmp eq i32 %6, 16
-  br i1 %.not131, label %.thread96, label %.lr.ph122.preheader
+.preheader113:                                    ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit81
+  %.not128 = icmp eq i32 %6, 16
+  br i1 %.not128, label %.thread93, label %.lr.ph119.preheader
 
-.lr.ph122.preheader:                              ; preds = %38, %.preheader116
-  br label %.lr.ph122
+.lr.ph119.preheader:                              ; preds = %39, %.preheader113
+  br label %.lr.ph119
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit81
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit81 ]
@@ -7414,37 +7415,37 @@ _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit71: ; preds = %_ZNK6
   br i1 %or.cond.i72, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit81, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit76
 
 _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit76: ; preds = %.lr.ph
-  %48 = shl nuw nsw i64 %indvars.iv, 2
-  %49 = lshr i64 %35, %48
-  %50 = and i64 %49, 14
-  %51 = icmp samesign ugt i64 %50, 9
-  br i1 %51, label %.thread96, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit81
+  %49 = shl nuw nsw i64 %indvars.iv, 2
+  %50 = lshr i64 %36, %49
+  %51 = and i64 %50, 14
+  %52 = icmp samesign ugt i64 %51, 9
+  br i1 %52, label %.thread93, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit81
 
 _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit81: ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit76, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader116, label %.lr.ph, !llvm.loop !95
+  br i1 %exitcond.not, label %.preheader113, label %.lr.ph, !llvm.loop !95
 
-.lr.ph122:                                        ; preds = %.lr.ph122.preheader, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit86.thread
-  %.0121 = phi i32 [ %56, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit86.thread ], [ %6, %.lr.ph122.preheader ]
-  %or.cond.i82 = icmp ugt i32 %.0121, 15
+.lr.ph119:                                        ; preds = %.lr.ph119.preheader, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit86.thread
+  %.0118 = phi i32 [ %57, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit86.thread ], [ %6, %.lr.ph119.preheader ]
+  %or.cond.i82 = icmp ugt i32 %.0118, 15
   br i1 %or.cond.i82, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit86.thread, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit86
 
-_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit86: ; preds = %.lr.ph122
-  %52 = shl nuw nsw i32 %.0121, 2
-  %53 = zext nneg i32 %52 to i64
-  %54 = shl nuw i64 15, %53
-  %55 = and i64 %54, %35
-  %.not37 = icmp eq i64 %55, 0
-  br i1 %.not37, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit86.thread, label %.thread96
+_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit86: ; preds = %.lr.ph119
+  %53 = shl nuw nsw i32 %.0118, 2
+  %54 = zext nneg i32 %53 to i64
+  %55 = shl nuw i64 15, %54
+  %56 = and i64 %55, %36
+  %.not37 = icmp eq i64 %56, 0
+  br i1 %.not37, label %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit86.thread, label %.thread93
 
-_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit86.thread: ; preds = %.lr.ph122, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit86
-  %56 = add nsw i32 %.0121, 1
-  %exitcond138.not = icmp eq i32 %56, 16
-  br i1 %exitcond138.not, label %.thread96, label %.lr.ph122, !llvm.loop !96
+_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit86.thread: ; preds = %.lr.ph119, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit86
+  %57 = add nsw i32 %.0118, 1
+  %exitcond135.not = icmp eq i32 %57, 16
+  br i1 %exitcond135.not, label %.thread93, label %.lr.ph119, !llvm.loop !96
 
-.thread96:                                        ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit76, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit86, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit86.thread, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit52, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit57, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit62.thread, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit62, %.preheader116, %.preheader, %39, %13, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit47, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit, %9, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit71, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit67, %36, %32, %7
-  %.027 = phi ptr [ @.str.7, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit ], [ @.str.8, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit47 ], [ @.str.6, %9 ], [ @.str.5, %7 ], [ @.str.12, %32 ], [ @.str.13, %36 ], [ @.str.14, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit67 ], [ @.str.9, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit52 ], [ @.str.8, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit71 ], [ @.str.14, %39 ], [ @.str.7, %13 ], [ null, %.preheader116 ], [ null, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit86.thread ], [ @.str.11, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit62 ], [ null, %.preheader ], [ null, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit62.thread ], [ @.str.10, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit57 ], [ @.str.17, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit86 ], [ @.str.15, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit76 ]
+.thread93:                                        ; preds = %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit76, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit86, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit86.thread, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit52, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit57, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit62.thread, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit62, %.preheader113, %.preheader, %40, %13, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit47, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit, %9, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit71, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit67, %37, %33, %7
+  %.027 = phi ptr [ @.str.7, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit ], [ @.str.8, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit47 ], [ @.str.6, %9 ], [ @.str.5, %7 ], [ @.str.12, %33 ], [ @.str.13, %37 ], [ @.str.14, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit67 ], [ @.str.9, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit52 ], [ @.str.8, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit71 ], [ @.str.14, %40 ], [ @.str.7, %13 ], [ null, %.preheader113 ], [ null, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit86.thread ], [ @.str.11, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit62 ], [ null, %.preheader ], [ null, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit62.thread ], [ @.str.10, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit57 ], [ @.str.17, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit86 ], [ @.str.15, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit76 ]
   ret ptr %.027
 }
 

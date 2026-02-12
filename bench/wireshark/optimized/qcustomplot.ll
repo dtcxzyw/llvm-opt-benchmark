@@ -20307,100 +20307,104 @@ define noundef zeroext i1 @_ZN13QCPLayoutGrid10addElementEP16QCPLayoutElement(pt
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %8 = load i64, ptr %7, align 8
-  %.fr = freeze i64 %8
-  %9 = trunc i64 %.fr to i32
-  %10 = icmp sgt i64 %.fr, 0
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %12 = icmp sgt i32 %9, 0
-  %or.cond70 = and i1 %10, %12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %7 = load i64, ptr %6, align 8
+  %.fr = freeze i64 %7
+  %8 = trunc i64 %.fr to i32
+  %9 = icmp sgt i64 %.fr, 0
   br i1 %5, label %select.unfold33.preheader, label %select.unfold.preheader
 
 select.unfold.preheader:                          ; preds = %2
-  br i1 %or.cond70, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.preheader, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %11 = icmp sgt i32 %8, 0
+  %or.cond66 = and i1 %9, %11
+  br i1 %or.cond66, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.lr.ph, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread
 
-_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.preheader: ; preds = %select.unfold.preheader
-  %13 = load ptr, ptr %6, align 8
+_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.lr.ph: ; preds = %select.unfold.preheader
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
   br label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29
 
 select.unfold33.preheader:                        ; preds = %2
-  br i1 %or.cond70, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.preheader, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread
+  %17 = icmp sgt i32 %8, 0
+  %or.cond10.i50 = and i1 %9, %17
+  br i1 %or.cond10.i50, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.preheader, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread
 
 _ZNK13QCPLayoutGrid11columnCountEv.exit.i.preheader: ; preds = %select.unfold33.preheader
-  %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = load i64, ptr %18, align 8
-  %20 = trunc i64 %19 to i32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %21 = load i64, ptr %20, align 8
+  %22 = trunc i64 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 248
   br label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i
 
 _ZNK13QCPLayoutGrid11columnCountEv.exit.i:        ; preds = %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.preheader, %select.unfold33
-  %.0134362 = phi i32 [ %spec.select, %select.unfold33 ], [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.preheader ]
-  %.04461 = phi i32 [ %spec.select34, %select.unfold33 ], [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.preheader ]
-  %21 = icmp slt i32 %.04461, %20
-  br i1 %21, label %_ZN13QCPLayoutGrid10hasElementEii.exit, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread
+  %.052 = phi i32 [ %spec.select34, %select.unfold33 ], [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.preheader ]
+  %.01351 = phi i32 [ %spec.select, %select.unfold33 ], [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.preheader ]
+  %24 = icmp slt i32 %.052, %22
+  br i1 %24, label %_ZN13QCPLayoutGrid10hasElementEii.exit, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread
 
 _ZN13QCPLayoutGrid10hasElementEii.exit:           ; preds = %_ZNK13QCPLayoutGrid11columnCountEv.exit.i
-  %22 = zext nneg i32 %.0134362 to i64
-  %23 = getelementptr %class.QList.59, ptr %17, i64 %22
-  %24 = zext nneg i32 %.04461 to i64
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr ptr, ptr %26, i64 %24
-  %28 = load ptr, ptr %27, align 8
-  %.not38 = icmp eq ptr %28, null
+  %25 = zext nneg i32 %.01351 to i64
+  %26 = getelementptr %class.QList.59, ptr %19, i64 %25
+  %27 = zext nneg i32 %.052 to i64
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr ptr, ptr %29, i64 %27
+  %31 = load ptr, ptr %30, align 8
+  %.not38 = icmp eq ptr %31, null
   br i1 %.not38, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread, label %select.unfold33
 
 select.unfold33:                                  ; preds = %_ZN13QCPLayoutGrid10hasElementEii.exit
-  %29 = add nuw nsw i32 %.04461, 1
-  %30 = load i32, ptr %11, align 8
-  %.not24 = icmp sge i32 %29, %30
-  %31 = icmp sgt i32 %30, 0
-  %or.cond = and i1 %.not24, %31
-  %32 = zext i1 %or.cond to i32
-  %spec.select = add nuw nsw i32 %.0134362, %32
-  %spec.select34 = select i1 %or.cond, i32 0, i32 %29
-  %33 = icmp slt i32 %spec.select, %9
-  br i1 %33, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread
+  %32 = add nuw nsw i32 %.052, 1
+  %33 = load i32, ptr %23, align 8
+  %.not24 = icmp sge i32 %32, %33
+  %34 = icmp sgt i32 %33, 0
+  %or.cond = and i1 %.not24, %34
+  %35 = zext i1 %or.cond to i32
+  %spec.select = add nuw nsw i32 %.01351, %35
+  %spec.select34 = select i1 %or.cond, i32 0, i32 %32
+  %36 = icmp slt i32 %spec.select, %8
+  br i1 %36, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread
 
-_ZNK13QCPLayoutGrid11columnCountEv.exit.i29:      ; preds = %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.preheader, %select.unfold
-  %.3164055 = phi i32 [ %spec.select35, %select.unfold ], [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.preheader ]
-  %.34154 = phi i32 [ %spec.select36, %select.unfold ], [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.preheader ]
-  %34 = icmp slt i32 %.34154, %16
-  br i1 %34, label %_ZN13QCPLayoutGrid10hasElementEii.exit30, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread
+_ZNK13QCPLayoutGrid11columnCountEv.exit.i29:      ; preds = %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.lr.ph, %select.unfold
+  %.3164044 = phi i32 [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.lr.ph ], [ %spec.select35, %select.unfold ]
+  %.34143 = phi i32 [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.lr.ph ], [ %spec.select36, %select.unfold ]
+  %37 = icmp slt i32 %.34143, %16
+  br i1 %37, label %_ZN13QCPLayoutGrid10hasElementEii.exit30, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread
 
 _ZN13QCPLayoutGrid10hasElementEii.exit30:         ; preds = %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29
-  %35 = zext nneg i32 %.3164055 to i64
-  %36 = getelementptr %class.QList.59, ptr %13, i64 %35
-  %37 = zext nneg i32 %.34154 to i64
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr ptr, ptr %39, i64 %37
-  %41 = load ptr, ptr %40, align 8
-  %.not37 = icmp eq ptr %41, null
+  %38 = zext nneg i32 %.3164044 to i64
+  %39 = getelementptr %class.QList.59, ptr %13, i64 %38
+  %40 = zext nneg i32 %.34143 to i64
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr ptr, ptr %42, i64 %40
+  %44 = load ptr, ptr %43, align 8
+  %.not37 = icmp eq ptr %44, null
   br i1 %.not37, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread, label %select.unfold
 
 select.unfold:                                    ; preds = %_ZN13QCPLayoutGrid10hasElementEii.exit30
-  %42 = add nuw nsw i32 %.3164055, 1
-  %43 = load i32, ptr %11, align 8
-  %.not = icmp sge i32 %42, %43
-  %44 = icmp sgt i32 %43, 0
-  %or.cond25 = and i1 %.not, %44
-  %spec.select35 = select i1 %or.cond25, i32 0, i32 %42
-  %45 = zext i1 %or.cond25 to i32
-  %spec.select36 = add nuw nsw i32 %.34154, %45
-  %46 = icmp slt i32 %spec.select35, %9
-  br i1 %46, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread
+  %45 = add nuw nsw i32 %.3164044, 1
+  %46 = load i32, ptr %10, align 8
+  %.not = icmp sge i32 %45, %46
+  %47 = icmp sgt i32 %46, 0
+  %or.cond25 = and i1 %.not, %47
+  %spec.select35 = select i1 %or.cond25, i32 0, i32 %45
+  %48 = zext i1 %or.cond25 to i32
+  %spec.select36 = add nuw nsw i32 %.34143, %48
+  %49 = icmp slt i32 %spec.select35, %8
+  br i1 %49, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread
 
-_ZN13QCPLayoutGrid10hasElementEii.exit.thread:    ; preds = %select.unfold, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29, %_ZN13QCPLayoutGrid10hasElementEii.exit30, %select.unfold33, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i, %_ZN13QCPLayoutGrid10hasElementEii.exit, %select.unfold.preheader, %select.unfold33.preheader
-  %.215 = phi i32 [ 0, %select.unfold.preheader ], [ 0, %select.unfold33.preheader ], [ %.0134362, %_ZN13QCPLayoutGrid10hasElementEii.exit ], [ %.0134362, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i ], [ %spec.select, %select.unfold33 ], [ %.3164055, %_ZN13QCPLayoutGrid10hasElementEii.exit30 ], [ %.3164055, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29 ], [ %spec.select35, %select.unfold ]
-  %.2 = phi i32 [ 0, %select.unfold.preheader ], [ 0, %select.unfold33.preheader ], [ %.04461, %_ZN13QCPLayoutGrid10hasElementEii.exit ], [ %.04461, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i ], [ %spec.select34, %select.unfold33 ], [ %.34154, %_ZN13QCPLayoutGrid10hasElementEii.exit30 ], [ %.34154, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29 ], [ %spec.select36, %select.unfold ]
-  %47 = tail call noundef zeroext i1 @_ZN13QCPLayoutGrid10addElementEiiP16QCPLayoutElement(ptr noundef align 8 dereferenceable_or_null(256) %0, i32 noundef %.215, i32 noundef %.2, ptr noundef %1)
-  ret i1 %47
+_ZN13QCPLayoutGrid10hasElementEii.exit.thread:    ; preds = %select.unfold, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29, %_ZN13QCPLayoutGrid10hasElementEii.exit30, %_ZN13QCPLayoutGrid10hasElementEii.exit, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i, %select.unfold33, %select.unfold.preheader, %select.unfold33.preheader
+  %.215 = phi i32 [ %spec.select, %select.unfold33 ], [ 0, %select.unfold33.preheader ], [ 0, %select.unfold.preheader ], [ %.01351, %_ZN13QCPLayoutGrid10hasElementEii.exit ], [ %.01351, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i ], [ %spec.select35, %select.unfold ], [ %.3164044, %_ZN13QCPLayoutGrid10hasElementEii.exit30 ], [ %.3164044, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29 ]
+  %.2 = phi i32 [ %spec.select34, %select.unfold33 ], [ 0, %select.unfold33.preheader ], [ 0, %select.unfold.preheader ], [ %.052, %_ZN13QCPLayoutGrid10hasElementEii.exit ], [ %.052, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i ], [ %spec.select36, %select.unfold ], [ %.34143, %_ZN13QCPLayoutGrid10hasElementEii.exit30 ], [ %.34143, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29 ]
+  %50 = tail call noundef zeroext i1 @_ZN13QCPLayoutGrid10addElementEiiP16QCPLayoutElement(ptr noundef align 8 dereferenceable_or_null(256) %0, i32 noundef %.215, i32 noundef %.2, ptr noundef %1)
+  ret i1 %50
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
@@ -22187,11 +22191,11 @@ define void @_ZN13QCPLayoutGrid12setFillOrderENS_9FillOrderEb(ptr noundef align 
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP16QCPLayoutElementEED2Ev.exit21
 
 19:                                               ; preds = %.lr.ph, %34
-  %.01434 = phi i32 [ 0, %.lr.ph ], [ %35, %34 ]
+  %.01433 = phi i32 [ 0, %.lr.ph ], [ %35, %34 ]
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 256
   %22 = load ptr, ptr %21, align 8
-  %23 = invoke noundef ptr %22(ptr noundef align 8 dereferenceable_or_null(256) %0, i32 noundef %.01434)
+  %23 = invoke noundef ptr %22(ptr noundef align 8 dereferenceable_or_null(256) %0, i32 noundef %.01433)
           to label %24 unwind label %32
 
 24:                                               ; preds = %19
@@ -22202,7 +22206,7 @@ define void @_ZN13QCPLayoutGrid12setFillOrderENS_9FillOrderEb(ptr noundef align 
   %26 = load ptr, ptr %0, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 264
   %28 = load ptr, ptr %27, align 8
-  %29 = invoke noundef ptr %28(ptr noundef align 8 dereferenceable_or_null(256) %0, i32 noundef %.01434)
+  %29 = invoke noundef ptr %28(ptr noundef align 8 dereferenceable_or_null(256) %0, i32 noundef %.01433)
           to label %30 unwind label %32
 
 30:                                               ; preds = %25
@@ -22222,7 +22226,7 @@ _ZN5QListIP16QCPLayoutElementE6appendES1_.exit:   ; preds = %30
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP16QCPLayoutElementEED2Ev.exit21
 
 34:                                               ; preds = %_ZN5QListIP16QCPLayoutElementE6appendES1_.exit, %24
-  %35 = add nuw nsw i32 %.01434, 1
+  %35 = add nuw nsw i32 %.01433, 1
   %exitcond.not = icmp eq i32 %35, %9
   br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !169
 
@@ -22244,184 +22248,87 @@ _ZN5QListIP16QCPLayoutElementE6appendES1_.exit:   ; preds = %30
 _ZN9QtPrivate21qMakeForeachContainerIR5QListIP16QCPLayoutElementEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit: ; preds = %36, %43
   %.idx = shl i64 %42, 3
   %45 = getelementptr i8, ptr %40, i64 %.idx
-  %.not3250 = icmp eq i64 %.idx, 0
-  br i1 %.not3250, label %._crit_edge53, label %.lr.ph52
+  %.not3234 = icmp eq i64 %.idx, 0
+  br i1 %.not3234, label %._crit_edge37, label %.lr.ph36
 
-.lr.ph52:                                         ; preds = %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP16QCPLayoutElementEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  br label %51
-
-._crit_edge53:                                    ; preds = %_ZN13QCPLayoutGrid10addElementEP16QCPLayoutElement.exit, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP16QCPLayoutElementEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit
+._crit_edge37:                                    ; preds = %50, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP16QCPLayoutElementEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit
   br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate17QForeachContainerI5QListIP16QCPLayoutElementEED2Ev.exit, label %_ZN17QArrayDataPointerIP16QCPLayoutElementE5derefEv.exit.i.i.i
 
-_ZN17QArrayDataPointerIP16QCPLayoutElementE5derefEv.exit.i.i.i: ; preds = %._crit_edge53
-  %49 = atomicrmw sub ptr %38, i32 1 seq_cst, align 4
-  %.not.i.i.i = icmp eq i32 %49, 1
-  br i1 %.not.i.i.i, label %50, label %_ZN9QtPrivate17QForeachContainerI5QListIP16QCPLayoutElementEED2Ev.exit
+_ZN17QArrayDataPointerIP16QCPLayoutElementE5derefEv.exit.i.i.i: ; preds = %._crit_edge37
+  %46 = atomicrmw sub ptr %38, i32 1 seq_cst, align 4
+  %.not.i.i.i = icmp eq i32 %46, 1
+  br i1 %.not.i.i.i, label %47, label %_ZN9QtPrivate17QForeachContainerI5QListIP16QCPLayoutElementEED2Ev.exit
 
-50:                                               ; preds = %_ZN17QArrayDataPointerIP16QCPLayoutElementE5derefEv.exit.i.i.i
+47:                                               ; preds = %_ZN17QArrayDataPointerIP16QCPLayoutElementE5derefEv.exit.i.i.i
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %38, i64 noundef 8, i64 noundef 8) #54
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP16QCPLayoutElementEED2Ev.exit
 
-51:                                               ; preds = %.lr.ph52, %_ZN13QCPLayoutGrid10addElementEP16QCPLayoutElement.exit
-  %.sroa.12.051 = phi ptr [ %40, %.lr.ph52 ], [ %94, %_ZN13QCPLayoutGrid10addElementEP16QCPLayoutElement.exit ]
-  %52 = load ptr, ptr %.sroa.12.051, align 8
-  %53 = load i32, ptr %37, align 4
-  %54 = icmp eq i32 %53, 1
-  %55 = load i64, ptr %47, align 8
-  %.fr.i = freeze i64 %55
-  %56 = trunc i64 %.fr.i to i32
-  %57 = icmp sgt i64 %.fr.i, 0
-  %58 = icmp sgt i32 %56, 0
-  %or.cond54 = and i1 %57, %58
-  br i1 %54, label %select.unfold33.preheader.i, label %select.unfold.preheader.i
+.lr.ph36:                                         ; preds = %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP16QCPLayoutElementEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit, %50
+  %.sroa.12.035 = phi ptr [ %51, %50 ], [ %40, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP16QCPLayoutElementEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit ]
+  %48 = load ptr, ptr %.sroa.12.035, align 8
+  %49 = invoke noundef zeroext i1 @_ZN13QCPLayoutGrid10addElementEP16QCPLayoutElement(ptr noundef align 8 dereferenceable_or_null(256) %0, ptr noundef %48)
+          to label %50 unwind label %52
 
-select.unfold.preheader.i:                        ; preds = %51
-  br i1 %or.cond54, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.lr.ph, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread.i
+50:                                               ; preds = %.lr.ph36
+  %51 = getelementptr i8, ptr %.sroa.12.035, i64 8
+  %.not32 = icmp eq ptr %51, %45
+  br i1 %.not32, label %._crit_edge37, label %.lr.ph36, !llvm.loop !173
 
-_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.lr.ph: ; preds = %select.unfold.preheader.i
-  %59 = load ptr, ptr %46, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %61 = load i64, ptr %60, align 8
-  %62 = trunc i64 %61 to i32
-  br label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i
-
-select.unfold33.preheader.i:                      ; preds = %51
-  br i1 %or.cond54, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.lr.ph, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread.i
-
-_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.lr.ph: ; preds = %select.unfold33.preheader.i
-  %63 = load ptr, ptr %46, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %65 = load i64, ptr %64, align 8
-  %66 = trunc i64 %65 to i32
-  br label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i
-
-_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i:      ; preds = %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.lr.ph, %select.unfold33.i
-  %.01343.i43 = phi i32 [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.lr.ph ], [ %spec.select.i, %select.unfold33.i ]
-  %.044.i42 = phi i32 [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.lr.ph ], [ %spec.select34.i, %select.unfold33.i ]
-  %67 = icmp slt i32 %.044.i42, %66
-  br i1 %67, label %_ZN13QCPLayoutGrid10hasElementEii.exit.i, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread.i
-
-_ZN13QCPLayoutGrid10hasElementEii.exit.i:         ; preds = %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i
-  %68 = zext nneg i32 %.01343.i43 to i64
-  %69 = getelementptr %class.QList.59, ptr %63, i64 %68
-  %70 = zext nneg i32 %.044.i42 to i64
-  %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr ptr, ptr %72, i64 %70
-  %74 = load ptr, ptr %73, align 8
-  %.not38.i = icmp eq ptr %74, null
-  br i1 %.not38.i, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread.i, label %select.unfold33.i
-
-select.unfold33.i:                                ; preds = %_ZN13QCPLayoutGrid10hasElementEii.exit.i
-  %75 = add nuw nsw i32 %.044.i42, 1
-  %76 = load i32, ptr %48, align 8
-  %.not24.i = icmp sge i32 %75, %76
-  %77 = icmp sgt i32 %76, 0
-  %or.cond.i = and i1 %.not24.i, %77
-  %78 = zext i1 %or.cond.i to i32
-  %spec.select.i = add nuw nsw i32 %.01343.i43, %78
-  %spec.select34.i = select i1 %or.cond.i, i32 0, i32 %75
-  %79 = icmp slt i32 %spec.select.i, %56
-  br i1 %79, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread.i
-
-_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i:    ; preds = %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.lr.ph, %select.unfold.i
-  %.31640.i36 = phi i32 [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.lr.ph ], [ %spec.select35.i, %select.unfold.i ]
-  %.341.i35 = phi i32 [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.lr.ph ], [ %spec.select36.i, %select.unfold.i ]
-  %80 = icmp slt i32 %.341.i35, %62
-  br i1 %80, label %_ZN13QCPLayoutGrid10hasElementEii.exit30.i, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread.i
-
-_ZN13QCPLayoutGrid10hasElementEii.exit30.i:       ; preds = %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i
-  %81 = zext nneg i32 %.31640.i36 to i64
-  %82 = getelementptr %class.QList.59, ptr %59, i64 %81
-  %83 = zext nneg i32 %.341.i35 to i64
-  %84 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr ptr, ptr %85, i64 %83
-  %87 = load ptr, ptr %86, align 8
-  %.not37.i = icmp eq ptr %87, null
-  br i1 %.not37.i, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread.i, label %select.unfold.i
-
-select.unfold.i:                                  ; preds = %_ZN13QCPLayoutGrid10hasElementEii.exit30.i
-  %88 = add nuw nsw i32 %.31640.i36, 1
-  %89 = load i32, ptr %48, align 8
-  %.not.i = icmp sge i32 %88, %89
-  %90 = icmp sgt i32 %89, 0
-  %or.cond25.i = and i1 %.not.i, %90
-  %spec.select35.i = select i1 %or.cond25.i, i32 0, i32 %88
-  %91 = zext i1 %or.cond25.i to i32
-  %spec.select36.i = add nuw nsw i32 %.341.i35, %91
-  %92 = icmp slt i32 %spec.select35.i, %56
-  br i1 %92, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread.i
-
-_ZN13QCPLayoutGrid10hasElementEii.exit.thread.i:  ; preds = %select.unfold.i, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i, %_ZN13QCPLayoutGrid10hasElementEii.exit30.i, %select.unfold33.i, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i, %_ZN13QCPLayoutGrid10hasElementEii.exit.i, %select.unfold33.preheader.i, %select.unfold.preheader.i
-  %.215.i = phi i32 [ 0, %select.unfold.preheader.i ], [ 0, %select.unfold33.preheader.i ], [ %.01343.i43, %_ZN13QCPLayoutGrid10hasElementEii.exit.i ], [ %spec.select.i, %select.unfold33.i ], [ %.01343.i43, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i ], [ %spec.select35.i, %select.unfold.i ], [ %.31640.i36, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i ], [ %.31640.i36, %_ZN13QCPLayoutGrid10hasElementEii.exit30.i ]
-  %.2.i = phi i32 [ 0, %select.unfold.preheader.i ], [ 0, %select.unfold33.preheader.i ], [ %.044.i42, %_ZN13QCPLayoutGrid10hasElementEii.exit.i ], [ %spec.select34.i, %select.unfold33.i ], [ %.044.i42, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i ], [ %spec.select36.i, %select.unfold.i ], [ %.341.i35, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i ], [ %.341.i35, %_ZN13QCPLayoutGrid10hasElementEii.exit30.i ]
-  %93 = invoke noundef zeroext i1 @_ZN13QCPLayoutGrid10addElementEiiP16QCPLayoutElement(ptr noundef align 8 dereferenceable_or_null(256) %0, i32 noundef %.215.i, i32 noundef %.2.i, ptr noundef %52)
-          to label %_ZN13QCPLayoutGrid10addElementEP16QCPLayoutElement.exit unwind label %95
-
-_ZN13QCPLayoutGrid10addElementEP16QCPLayoutElement.exit: ; preds = %_ZN13QCPLayoutGrid10hasElementEii.exit.thread.i
-  %94 = getelementptr i8, ptr %.sroa.12.051, i64 8
-  %.not32 = icmp eq ptr %94, %45
-  br i1 %.not32, label %._crit_edge53, label %51, !llvm.loop !173
-
-95:                                               ; preds = %_ZN13QCPLayoutGrid10hasElementEii.exit.thread.i
-  %96 = landingpad { ptr, i32 }
+52:                                               ; preds = %.lr.ph36
+  %53 = landingpad { ptr, i32 }
           cleanup
   br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate17QForeachContainerI5QListIP16QCPLayoutElementEED2Ev.exit21, label %_ZN17QArrayDataPointerIP16QCPLayoutElementE5derefEv.exit.i.i.i19
 
-_ZN17QArrayDataPointerIP16QCPLayoutElementE5derefEv.exit.i.i.i19: ; preds = %95
-  %97 = atomicrmw sub ptr %38, i32 1 seq_cst, align 4
-  %.not.i.i.i20 = icmp eq i32 %97, 1
-  br i1 %.not.i.i.i20, label %98, label %_ZN9QtPrivate17QForeachContainerI5QListIP16QCPLayoutElementEED2Ev.exit21
+_ZN17QArrayDataPointerIP16QCPLayoutElementE5derefEv.exit.i.i.i19: ; preds = %52
+  %54 = atomicrmw sub ptr %38, i32 1 seq_cst, align 4
+  %.not.i.i.i20 = icmp eq i32 %54, 1
+  br i1 %.not.i.i.i20, label %55, label %_ZN9QtPrivate17QForeachContainerI5QListIP16QCPLayoutElementEED2Ev.exit21
 
-98:                                               ; preds = %_ZN17QArrayDataPointerIP16QCPLayoutElementE5derefEv.exit.i.i.i19
+55:                                               ; preds = %_ZN17QArrayDataPointerIP16QCPLayoutElementE5derefEv.exit.i.i.i19
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %38, i64 noundef 8, i64 noundef 8) #54
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP16QCPLayoutElementEED2Ev.exit21
 
 _ZN9QtPrivate17QForeachContainerI5QListIP16QCPLayoutElementEED2Ev.exit.thread: ; preds = %3
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  store i32 %1, ptr %99, align 4
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 252
+  store i32 %1, ptr %56, align 4
   br label %_ZN5QListIP16QCPLayoutElementED2Ev.exit
 
-_ZN9QtPrivate17QForeachContainerI5QListIP16QCPLayoutElementEED2Ev.exit: ; preds = %50, %_ZN17QArrayDataPointerIP16QCPLayoutElementE5derefEv.exit.i.i.i, %._crit_edge53
+_ZN9QtPrivate17QForeachContainerI5QListIP16QCPLayoutElementEED2Ev.exit: ; preds = %47, %_ZN17QArrayDataPointerIP16QCPLayoutElementE5derefEv.exit.i.i.i, %._crit_edge37
   %.pr = load ptr, ptr %5, align 8
   %.not.i.i.i22 = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i22, label %_ZN5QListIP16QCPLayoutElementED2Ev.exit, label %_ZN17QArrayDataPointerIP16QCPLayoutElementE5derefEv.exit.i.i
 
 _ZN17QArrayDataPointerIP16QCPLayoutElementE5derefEv.exit.i.i: ; preds = %_ZN9QtPrivate17QForeachContainerI5QListIP16QCPLayoutElementEED2Ev.exit
-  %100 = atomicrmw sub ptr %.pr, i32 1 seq_cst, align 4
-  %.not.i.i = icmp eq i32 %100, 1
-  br i1 %.not.i.i, label %101, label %_ZN5QListIP16QCPLayoutElementED2Ev.exit
+  %57 = atomicrmw sub ptr %.pr, i32 1 seq_cst, align 4
+  %.not.i.i = icmp eq i32 %57, 1
+  br i1 %.not.i.i, label %58, label %_ZN5QListIP16QCPLayoutElementED2Ev.exit
 
-101:                                              ; preds = %_ZN17QArrayDataPointerIP16QCPLayoutElementE5derefEv.exit.i.i
-  %102 = load ptr, ptr %5, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %102, i64 noundef 8, i64 noundef 8) #54
+58:                                               ; preds = %_ZN17QArrayDataPointerIP16QCPLayoutElementE5derefEv.exit.i.i
+  %59 = load ptr, ptr %5, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %59, i64 noundef 8, i64 noundef 8) #54
   br label %_ZN5QListIP16QCPLayoutElementED2Ev.exit
 
-_ZN5QListIP16QCPLayoutElementED2Ev.exit:          ; preds = %_ZN9QtPrivate17QForeachContainerI5QListIP16QCPLayoutElementEED2Ev.exit.thread, %_ZN9QtPrivate17QForeachContainerI5QListIP16QCPLayoutElementEED2Ev.exit, %_ZN17QArrayDataPointerIP16QCPLayoutElementE5derefEv.exit.i.i, %101
+_ZN5QListIP16QCPLayoutElementED2Ev.exit:          ; preds = %_ZN9QtPrivate17QForeachContainerI5QListIP16QCPLayoutElementEED2Ev.exit.thread, %_ZN9QtPrivate17QForeachContainerI5QListIP16QCPLayoutElementEED2Ev.exit, %_ZN17QArrayDataPointerIP16QCPLayoutElementE5derefEv.exit.i.i, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-_ZN9QtPrivate17QForeachContainerI5QListIP16QCPLayoutElementEED2Ev.exit21: ; preds = %95, %_ZN17QArrayDataPointerIP16QCPLayoutElementE5derefEv.exit.i.i.i19, %98, %32, %17
-  %.pn16 = phi { ptr, i32 } [ %33, %32 ], [ %18, %17 ], [ %96, %98 ], [ %96, %95 ], [ %96, %_ZN17QArrayDataPointerIP16QCPLayoutElementE5derefEv.exit.i.i.i19 ]
-  %103 = load ptr, ptr %5, align 8
-  %.not.i.i.i23 = icmp eq ptr %103, null
+_ZN9QtPrivate17QForeachContainerI5QListIP16QCPLayoutElementEED2Ev.exit21: ; preds = %52, %_ZN17QArrayDataPointerIP16QCPLayoutElementE5derefEv.exit.i.i.i19, %55, %32, %17
+  %.pn16 = phi { ptr, i32 } [ %33, %32 ], [ %18, %17 ], [ %53, %55 ], [ %53, %52 ], [ %53, %_ZN17QArrayDataPointerIP16QCPLayoutElementE5derefEv.exit.i.i.i19 ]
+  %60 = load ptr, ptr %5, align 8
+  %.not.i.i.i23 = icmp eq ptr %60, null
   br i1 %.not.i.i.i23, label %_ZN5QListIP16QCPLayoutElementED2Ev.exit26, label %_ZN17QArrayDataPointerIP16QCPLayoutElementE5derefEv.exit.i.i24
 
 _ZN17QArrayDataPointerIP16QCPLayoutElementE5derefEv.exit.i.i24: ; preds = %_ZN9QtPrivate17QForeachContainerI5QListIP16QCPLayoutElementEED2Ev.exit21
-  %104 = atomicrmw sub ptr %103, i32 1 seq_cst, align 4
-  %.not.i.i25 = icmp eq i32 %104, 1
-  br i1 %.not.i.i25, label %105, label %_ZN5QListIP16QCPLayoutElementED2Ev.exit26
+  %61 = atomicrmw sub ptr %60, i32 1 seq_cst, align 4
+  %.not.i.i25 = icmp eq i32 %61, 1
+  br i1 %.not.i.i25, label %62, label %_ZN5QListIP16QCPLayoutElementED2Ev.exit26
 
-105:                                              ; preds = %_ZN17QArrayDataPointerIP16QCPLayoutElementE5derefEv.exit.i.i24
-  %106 = load ptr, ptr %5, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %106, i64 noundef 8, i64 noundef 8) #54
+62:                                               ; preds = %_ZN17QArrayDataPointerIP16QCPLayoutElementE5derefEv.exit.i.i24
+  %63 = load ptr, ptr %5, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %63, i64 noundef 8, i64 noundef 8) #54
   br label %_ZN5QListIP16QCPLayoutElementED2Ev.exit26
 
-_ZN5QListIP16QCPLayoutElementED2Ev.exit26:        ; preds = %_ZN9QtPrivate17QForeachContainerI5QListIP16QCPLayoutElementEED2Ev.exit21, %_ZN17QArrayDataPointerIP16QCPLayoutElementE5derefEv.exit.i.i24, %105
+_ZN5QListIP16QCPLayoutElementED2Ev.exit26:        ; preds = %_ZN9QtPrivate17QForeachContainerI5QListIP16QCPLayoutElementEED2Ev.exit21, %_ZN17QArrayDataPointerIP16QCPLayoutElementE5derefEv.exit.i.i24, %62
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn16
 }
@@ -67124,7 +67031,7 @@ _ZN7QStringD2Ev.exit.i:                           ; preds = %19, %_ZN17QArrayDat
           to label %._ZN6QDebuglsEPKc.exit_crit_edge unwind label %52
 
 ._ZN6QDebuglsEPKc.exit_crit_edge:                 ; preds = %25
-  %.pre60 = load ptr, ptr %7, align 8
+  %.pre53 = load ptr, ptr %7, align 8
   br label %_ZN6QDebuglsEPKc.exit
 
 27:                                               ; preds = %.noexc
@@ -67149,7 +67056,7 @@ _ZN7QStringD2Ev.exit5.i:                          ; preds = %31, %_ZN17QArrayDat
   br label %.body
 
 _ZN6QDebuglsEPKc.exit:                            ; preds = %._ZN6QDebuglsEPKc.exit_crit_edge, %_ZN7QStringD2Ev.exit.i
-  %33 = phi ptr [ %.pre60, %._ZN6QDebuglsEPKc.exit_crit_edge ], [ %21, %_ZN7QStringD2Ev.exit.i ]
+  %33 = phi ptr [ %.pre53, %._ZN6QDebuglsEPKc.exit_crit_edge ], [ %21, %_ZN7QStringD2Ev.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %5, i64 21, ptr nonnull @.str.87)
           to label %.noexc22 unwind label %52
@@ -67222,7 +67129,7 @@ _ZN6QDebuglsEPKc.exit26:                          ; preds = %_ZN7QStringD2Ev.exi
   call void @_ZN6QDebugD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %7) #54
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %174
+  br label %130
 
 54:                                               ; preds = %2
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -67376,7 +67283,7 @@ _ZN6QDebuglsEPKc.exit52:                          ; preds = %_ZN7QStringD2Ev.exi
   call void @_ZN6QDebugD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %9) #54
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %174
+  br label %130
 
 102:                                              ; preds = %54
   %103 = load ptr, ptr %1, align 8
@@ -67415,119 +67322,24 @@ _ZN6QDebuglsEPKc.exit52:                          ; preds = %_ZN7QStringD2Ev.exi
 .loopexit:                                        ; preds = %118, %102
   %125 = tail call noalias noundef dereferenceable_or_null(256) ptr @_Znwm(i64 noundef 256) #57
   invoke void @_ZN22QCPPlottableLegendItemC1EP9QCPLegendP20QCPAbstractPlottable(ptr noundef align 8 dereferenceable_or_null(256) %125, ptr noundef nonnull %1, ptr noundef %0)
-          to label %126 unwind label %172
+          to label %126 unwind label %128
 
 126:                                              ; preds = %.loopexit
-  %127 = getelementptr inbounds nuw i8, ptr %1, i64 252
-  %128 = load i32, ptr %127, align 4
-  %129 = icmp eq i32 %128, 1
-  %130 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %131 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %132 = load i64, ptr %131, align 8
-  %.fr.i.i = freeze i64 %132
-  %133 = trunc i64 %.fr.i.i to i32
-  %134 = icmp sgt i64 %.fr.i.i, 0
-  %135 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %136 = icmp sgt i32 %133, 0
-  %or.cond18.i = and i1 %134, %136
-  br i1 %129, label %select.unfold33.preheader.i.i, label %select.unfold.preheader.i.i
-
-select.unfold.preheader.i.i:                      ; preds = %126
-  br i1 %or.cond18.i, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.lr.ph.i, label %_ZN9QCPLegend7addItemEP21QCPAbstractLegendItem.exit
-
-_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.lr.ph.i: ; preds = %select.unfold.preheader.i.i
-  %137 = load ptr, ptr %130, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
-  %139 = load i64, ptr %138, align 8
-  %140 = trunc i64 %139 to i32
-  br label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.i
-
-select.unfold33.preheader.i.i:                    ; preds = %126
-  br i1 %or.cond18.i, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.lr.ph.i, label %_ZN9QCPLegend7addItemEP21QCPAbstractLegendItem.exit
-
-_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.lr.ph.i: ; preds = %select.unfold33.preheader.i.i
-  %141 = load ptr, ptr %130, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
-  %143 = load i64, ptr %142, align 8
-  %144 = trunc i64 %143 to i32
-  br label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.i
-
-_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.i:    ; preds = %select.unfold33.i.i, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.lr.ph.i
-  %.01343.i11.i = phi i32 [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.lr.ph.i ], [ %spec.select.i.i, %select.unfold33.i.i ]
-  %.044.i10.i = phi i32 [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.lr.ph.i ], [ %spec.select34.i.i, %select.unfold33.i.i ]
-  %145 = icmp slt i32 %.044.i10.i, %144
-  br i1 %145, label %_ZN13QCPLayoutGrid10hasElementEii.exit.i.i, label %_ZN9QCPLegend7addItemEP21QCPAbstractLegendItem.exit
-
-_ZN13QCPLayoutGrid10hasElementEii.exit.i.i:       ; preds = %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.i
-  %146 = zext nneg i32 %.01343.i11.i to i64
-  %147 = getelementptr %class.QList.59, ptr %141, i64 %146
-  %148 = zext nneg i32 %.044.i10.i to i64
-  %149 = getelementptr inbounds nuw i8, ptr %147, i64 8
-  %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr ptr, ptr %150, i64 %148
-  %152 = load ptr, ptr %151, align 8
-  %.not38.i.i = icmp eq ptr %152, null
-  br i1 %.not38.i.i, label %_ZN9QCPLegend7addItemEP21QCPAbstractLegendItem.exit, label %select.unfold33.i.i
-
-select.unfold33.i.i:                              ; preds = %_ZN13QCPLayoutGrid10hasElementEii.exit.i.i
-  %153 = add nuw nsw i32 %.044.i10.i, 1
-  %154 = load i32, ptr %135, align 8
-  %.not24.i.i = icmp sge i32 %153, %154
-  %155 = icmp sgt i32 %154, 0
-  %or.cond.i.i = and i1 %.not24.i.i, %155
-  %156 = zext i1 %or.cond.i.i to i32
-  %spec.select.i.i = add nuw nsw i32 %.01343.i11.i, %156
-  %spec.select34.i.i = select i1 %or.cond.i.i, i32 0, i32 %153
-  %157 = icmp slt i32 %spec.select.i.i, %133
-  br i1 %157, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.i, label %_ZN9QCPLegend7addItemEP21QCPAbstractLegendItem.exit
-
-_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.i:  ; preds = %select.unfold.i.i, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.lr.ph.i
-  %.31640.i4.i = phi i32 [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.lr.ph.i ], [ %spec.select35.i.i, %select.unfold.i.i ]
-  %.341.i3.i = phi i32 [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.lr.ph.i ], [ %spec.select36.i.i, %select.unfold.i.i ]
-  %158 = icmp slt i32 %.341.i3.i, %140
-  br i1 %158, label %_ZN13QCPLayoutGrid10hasElementEii.exit30.i.i, label %_ZN9QCPLegend7addItemEP21QCPAbstractLegendItem.exit
-
-_ZN13QCPLayoutGrid10hasElementEii.exit30.i.i:     ; preds = %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.i
-  %159 = zext nneg i32 %.31640.i4.i to i64
-  %160 = getelementptr %class.QList.59, ptr %137, i64 %159
-  %161 = zext nneg i32 %.341.i3.i to i64
-  %162 = getelementptr inbounds nuw i8, ptr %160, i64 8
-  %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr ptr, ptr %163, i64 %161
-  %165 = load ptr, ptr %164, align 8
-  %.not37.i.i = icmp eq ptr %165, null
-  br i1 %.not37.i.i, label %_ZN9QCPLegend7addItemEP21QCPAbstractLegendItem.exit, label %select.unfold.i.i
-
-select.unfold.i.i:                                ; preds = %_ZN13QCPLayoutGrid10hasElementEii.exit30.i.i
-  %166 = add nuw nsw i32 %.31640.i4.i, 1
-  %167 = load i32, ptr %135, align 8
-  %.not.i.i53 = icmp sge i32 %166, %167
-  %168 = icmp sgt i32 %167, 0
-  %or.cond25.i.i = and i1 %.not.i.i53, %168
-  %spec.select35.i.i = select i1 %or.cond25.i.i, i32 0, i32 %166
-  %169 = zext i1 %or.cond25.i.i to i32
-  %spec.select36.i.i = add nuw nsw i32 %.341.i3.i, %169
-  %170 = icmp slt i32 %spec.select35.i.i, %133
-  br i1 %170, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.i, label %_ZN9QCPLegend7addItemEP21QCPAbstractLegendItem.exit
-
-_ZN9QCPLegend7addItemEP21QCPAbstractLegendItem.exit: ; preds = %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.i, %_ZN13QCPLayoutGrid10hasElementEii.exit30.i.i, %select.unfold.i.i, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.i, %_ZN13QCPLayoutGrid10hasElementEii.exit.i.i, %select.unfold33.i.i, %select.unfold.preheader.i.i, %select.unfold33.preheader.i.i
-  %.215.i.i = phi i32 [ 0, %select.unfold.preheader.i.i ], [ 0, %select.unfold33.preheader.i.i ], [ %spec.select.i.i, %select.unfold33.i.i ], [ %.01343.i11.i, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.i ], [ %.01343.i11.i, %_ZN13QCPLayoutGrid10hasElementEii.exit.i.i ], [ %spec.select35.i.i, %select.unfold.i.i ], [ %.31640.i4.i, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.i ], [ %.31640.i4.i, %_ZN13QCPLayoutGrid10hasElementEii.exit30.i.i ]
-  %.2.i.i = phi i32 [ 0, %select.unfold.preheader.i.i ], [ 0, %select.unfold33.preheader.i.i ], [ %spec.select34.i.i, %select.unfold33.i.i ], [ %.044.i10.i, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.i ], [ %.044.i10.i, %_ZN13QCPLayoutGrid10hasElementEii.exit.i.i ], [ %spec.select36.i.i, %select.unfold.i.i ], [ %.341.i3.i, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.i ], [ %.341.i3.i, %_ZN13QCPLayoutGrid10hasElementEii.exit30.i.i ]
-  %171 = tail call noundef zeroext i1 @_ZN13QCPLayoutGrid10addElementEiiP16QCPLayoutElement(ptr noundef nonnull align 8 dereferenceable_or_null(392) %1, i32 noundef %.215.i.i, i32 noundef %.2.i.i, ptr noundef %125)
+  %127 = tail call noundef zeroext i1 @_ZN13QCPLayoutGrid10addElementEP16QCPLayoutElement(ptr noundef nonnull align 8 dereferenceable_or_null(392) %1, ptr noundef %125)
   br label %_ZNK9QCPLegend20hasItemWithPlottableEPK20QCPAbstractPlottable.exit
 
-172:                                              ; preds = %.loopexit
-  %173 = landingpad { ptr, i32 }
+128:                                              ; preds = %.loopexit
+  %129 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef %125, i64 noundef 256) #56
-  br label %174
+  br label %130
 
-_ZNK9QCPLegend20hasItemWithPlottableEPK20QCPAbstractPlottable.exit: ; preds = %114, %_ZN9QCPLegend7addItemEP21QCPAbstractLegendItem.exit, %_ZN6QDebuglsEPKc.exit52, %_ZN6QDebuglsEPKc.exit26
-  %.09 = phi i1 [ false, %_ZN6QDebuglsEPKc.exit52 ], [ false, %_ZN6QDebuglsEPKc.exit26 ], [ true, %_ZN9QCPLegend7addItemEP21QCPAbstractLegendItem.exit ], [ false, %114 ]
+_ZNK9QCPLegend20hasItemWithPlottableEPK20QCPAbstractPlottable.exit: ; preds = %114, %126, %_ZN6QDebuglsEPKc.exit52, %_ZN6QDebuglsEPKc.exit26
+  %.09 = phi i1 [ false, %_ZN6QDebuglsEPKc.exit52 ], [ false, %_ZN6QDebuglsEPKc.exit26 ], [ true, %126 ], [ false, %114 ]
   ret i1 %.09
 
-174:                                              ; preds = %172, %.body37, %.body
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body38, %.body37 ], [ %173, %172 ], [ %eh.lpad-body, %.body ]
+130:                                              ; preds = %128, %.body37, %.body
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body38, %.body37 ], [ %129, %128 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn
 }
 
@@ -67572,104 +67384,9 @@ _ZNK9QCPLegend17itemWithPlottableEPK20QCPAbstractPlottable.exit: ; preds = %14, 
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define noundef zeroext i1 @_ZN9QCPLegend7addItemEP21QCPAbstractLegendItem(ptr noundef align 8 dereferenceable_or_null(392) %0, ptr noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  %4 = load i32, ptr %3, align 4
-  %5 = icmp eq i32 %4, 1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %8 = load i64, ptr %7, align 8
-  %.fr.i = freeze i64 %8
-  %9 = trunc i64 %.fr.i to i32
-  %10 = icmp sgt i64 %.fr.i, 0
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %12 = icmp sgt i32 %9, 0
-  %or.cond18 = and i1 %10, %12
-  br i1 %5, label %select.unfold33.preheader.i, label %select.unfold.preheader.i
-
-select.unfold.preheader.i:                        ; preds = %2
-  br i1 %or.cond18, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.lr.ph, label %_ZN13QCPLayoutGrid10addElementEP16QCPLayoutElement.exit
-
-_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.lr.ph: ; preds = %select.unfold.preheader.i
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load i64, ptr %14, align 8
-  %16 = trunc i64 %15 to i32
-  br label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i
-
-select.unfold33.preheader.i:                      ; preds = %2
-  br i1 %or.cond18, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.lr.ph, label %_ZN13QCPLayoutGrid10addElementEP16QCPLayoutElement.exit
-
-_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.lr.ph: ; preds = %select.unfold33.preheader.i
-  %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = load i64, ptr %18, align 8
-  %20 = trunc i64 %19 to i32
-  br label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i
-
-_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i:      ; preds = %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.lr.ph, %select.unfold33.i
-  %.01343.i11 = phi i32 [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.lr.ph ], [ %spec.select.i, %select.unfold33.i ]
-  %.044.i10 = phi i32 [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.lr.ph ], [ %spec.select34.i, %select.unfold33.i ]
-  %21 = icmp slt i32 %.044.i10, %20
-  br i1 %21, label %_ZN13QCPLayoutGrid10hasElementEii.exit.i, label %_ZN13QCPLayoutGrid10addElementEP16QCPLayoutElement.exit
-
-_ZN13QCPLayoutGrid10hasElementEii.exit.i:         ; preds = %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i
-  %22 = zext nneg i32 %.01343.i11 to i64
-  %23 = getelementptr %class.QList.59, ptr %17, i64 %22
-  %24 = zext nneg i32 %.044.i10 to i64
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr ptr, ptr %26, i64 %24
-  %28 = load ptr, ptr %27, align 8
-  %.not38.i = icmp eq ptr %28, null
-  br i1 %.not38.i, label %_ZN13QCPLayoutGrid10addElementEP16QCPLayoutElement.exit, label %select.unfold33.i
-
-select.unfold33.i:                                ; preds = %_ZN13QCPLayoutGrid10hasElementEii.exit.i
-  %29 = add nuw nsw i32 %.044.i10, 1
-  %30 = load i32, ptr %11, align 8
-  %.not24.i = icmp sge i32 %29, %30
-  %31 = icmp sgt i32 %30, 0
-  %or.cond.i = and i1 %.not24.i, %31
-  %32 = zext i1 %or.cond.i to i32
-  %spec.select.i = add nuw nsw i32 %.01343.i11, %32
-  %spec.select34.i = select i1 %or.cond.i, i32 0, i32 %29
-  %33 = icmp slt i32 %spec.select.i, %9
-  br i1 %33, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i, label %_ZN13QCPLayoutGrid10addElementEP16QCPLayoutElement.exit
-
-_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i:    ; preds = %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.lr.ph, %select.unfold.i
-  %.31640.i4 = phi i32 [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.lr.ph ], [ %spec.select35.i, %select.unfold.i ]
-  %.341.i3 = phi i32 [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.lr.ph ], [ %spec.select36.i, %select.unfold.i ]
-  %34 = icmp slt i32 %.341.i3, %16
-  br i1 %34, label %_ZN13QCPLayoutGrid10hasElementEii.exit30.i, label %_ZN13QCPLayoutGrid10addElementEP16QCPLayoutElement.exit
-
-_ZN13QCPLayoutGrid10hasElementEii.exit30.i:       ; preds = %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i
-  %35 = zext nneg i32 %.31640.i4 to i64
-  %36 = getelementptr %class.QList.59, ptr %13, i64 %35
-  %37 = zext nneg i32 %.341.i3 to i64
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr ptr, ptr %39, i64 %37
-  %41 = load ptr, ptr %40, align 8
-  %.not37.i = icmp eq ptr %41, null
-  br i1 %.not37.i, label %_ZN13QCPLayoutGrid10addElementEP16QCPLayoutElement.exit, label %select.unfold.i
-
-select.unfold.i:                                  ; preds = %_ZN13QCPLayoutGrid10hasElementEii.exit30.i
-  %42 = add nuw nsw i32 %.31640.i4, 1
-  %43 = load i32, ptr %11, align 8
-  %.not.i = icmp sge i32 %42, %43
-  %44 = icmp sgt i32 %43, 0
-  %or.cond25.i = and i1 %.not.i, %44
-  %spec.select35.i = select i1 %or.cond25.i, i32 0, i32 %42
-  %45 = zext i1 %or.cond25.i to i32
-  %spec.select36.i = add nuw nsw i32 %.341.i3, %45
-  %46 = icmp slt i32 %spec.select35.i, %9
-  br i1 %46, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i, label %_ZN13QCPLayoutGrid10addElementEP16QCPLayoutElement.exit
-
-_ZN13QCPLayoutGrid10addElementEP16QCPLayoutElement.exit: ; preds = %_ZN13QCPLayoutGrid10hasElementEii.exit30.i, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i, %select.unfold.i, %_ZN13QCPLayoutGrid10hasElementEii.exit.i, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i, %select.unfold33.i, %select.unfold.preheader.i, %select.unfold33.preheader.i
-  %.215.i = phi i32 [ 0, %select.unfold.preheader.i ], [ 0, %select.unfold33.preheader.i ], [ %spec.select.i, %select.unfold33.i ], [ %.01343.i11, %_ZN13QCPLayoutGrid10hasElementEii.exit.i ], [ %.01343.i11, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i ], [ %.31640.i4, %_ZN13QCPLayoutGrid10hasElementEii.exit30.i ], [ %.31640.i4, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i ], [ %spec.select35.i, %select.unfold.i ]
-  %.2.i = phi i32 [ 0, %select.unfold.preheader.i ], [ 0, %select.unfold33.preheader.i ], [ %spec.select34.i, %select.unfold33.i ], [ %.044.i10, %_ZN13QCPLayoutGrid10hasElementEii.exit.i ], [ %.044.i10, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i ], [ %.341.i3, %_ZN13QCPLayoutGrid10hasElementEii.exit30.i ], [ %.341.i3, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i ], [ %spec.select36.i, %select.unfold.i ]
-  %47 = tail call noundef zeroext i1 @_ZN13QCPLayoutGrid10addElementEiiP16QCPLayoutElement(ptr noundef align 8 dereferenceable_or_null(256) %0, i32 noundef %.215.i, i32 noundef %.2.i, ptr noundef %1)
-  ret i1 %47
+define noundef zeroext i1 @_ZN9QCPLegend7addItemEP21QCPAbstractLegendItem(ptr noundef align 8 dereferenceable_or_null(392) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+  %3 = tail call noundef zeroext i1 @_ZN13QCPLayoutGrid10addElementEP16QCPLayoutElement(ptr noundef align 8 dereferenceable_or_null(256) %0, ptr noundef %1)
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
@@ -224101,7 +223818,7 @@ _ZN7QStringD2Ev.exit.i:                           ; preds = %19, %_ZN17QArrayDat
           to label %._ZN6QDebuglsEPKc.exit_crit_edge unwind label %52
 
 ._ZN6QDebuglsEPKc.exit_crit_edge:                 ; preds = %25
-  %.pre58 = load ptr, ptr %7, align 8
+  %.pre52 = load ptr, ptr %7, align 8
   br label %_ZN6QDebuglsEPKc.exit
 
 27:                                               ; preds = %.noexc
@@ -224126,7 +223843,7 @@ _ZN7QStringD2Ev.exit5.i:                          ; preds = %31, %_ZN17QArrayDat
   br label %.body
 
 _ZN6QDebuglsEPKc.exit:                            ; preds = %._ZN6QDebuglsEPKc.exit_crit_edge, %_ZN7QStringD2Ev.exit.i
-  %33 = phi ptr [ %.pre58, %._ZN6QDebuglsEPKc.exit_crit_edge ], [ %21, %_ZN7QStringD2Ev.exit.i ]
+  %33 = phi ptr [ %.pre52, %._ZN6QDebuglsEPKc.exit_crit_edge ], [ %21, %_ZN7QStringD2Ev.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %5, i64 21, ptr nonnull @.str.87)
           to label %.noexc21 unwind label %52
@@ -224187,7 +223904,7 @@ _ZN6QDebuglsEPKc.exit25:                          ; preds = %_ZN7QStringD2Ev.exi
   call void @_ZN6QDebugD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %7) #54
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %152
+  br label %108
 
 52:                                               ; preds = %44, %_ZN6QDebuglsEPKc.exit, %25, %11
   %53 = landingpad { ptr, i32 }
@@ -224199,7 +223916,7 @@ _ZN6QDebuglsEPKc.exit25:                          ; preds = %_ZN7QStringD2Ev.exi
   call void @_ZN6QDebugD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %7) #54
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %153
+  br label %109
 
 54:                                               ; preds = %2
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -224341,7 +224058,7 @@ _ZN6QDebuglsEPKc.exit51:                          ; preds = %_ZN7QStringD2Ev.exi
   call void @_ZN6QDebugD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %9) #54
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %152
+  br label %108
 
 100:                                              ; preds = %92, %_ZN6QDebuglsEPKc.exit38, %73, %59
   %101 = landingpad { ptr, i32 }
@@ -224353,124 +224070,29 @@ _ZN6QDebuglsEPKc.exit51:                          ; preds = %_ZN7QStringD2Ev.exi
   call void @_ZN6QDebugD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %9) #54
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %153
+  br label %109
 
 102:                                              ; preds = %54
   %103 = tail call noalias noundef dereferenceable_or_null(256) ptr @_Znwm(i64 noundef 256) #57
   invoke void @_ZN18QCPPolarLegendItemC1EP9QCPLegendP13QCPPolarGraph(ptr noundef align 8 dereferenceable_or_null(256) %103, ptr noundef nonnull %1, ptr noundef %0)
-          to label %104 unwind label %150
+          to label %104 unwind label %106
 
 104:                                              ; preds = %102
-  %105 = getelementptr inbounds nuw i8, ptr %1, i64 252
-  %106 = load i32, ptr %105, align 4
-  %107 = icmp eq i32 %106, 1
-  %108 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %109 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %110 = load i64, ptr %109, align 8
-  %.fr.i.i = freeze i64 %110
-  %111 = trunc i64 %.fr.i.i to i32
-  %112 = icmp sgt i64 %.fr.i.i, 0
-  %113 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %114 = icmp sgt i32 %111, 0
-  %or.cond18.i = and i1 %112, %114
-  br i1 %107, label %select.unfold33.preheader.i.i, label %select.unfold.preheader.i.i
+  %105 = tail call noundef zeroext i1 @_ZN13QCPLayoutGrid10addElementEP16QCPLayoutElement(ptr noundef nonnull align 8 dereferenceable_or_null(392) %1, ptr noundef %103)
+  br label %108
 
-select.unfold.preheader.i.i:                      ; preds = %104
-  br i1 %or.cond18.i, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.lr.ph.i, label %_ZN9QCPLegend7addItemEP21QCPAbstractLegendItem.exit
-
-_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.lr.ph.i: ; preds = %select.unfold.preheader.i.i
-  %115 = load ptr, ptr %108, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %117 = load i64, ptr %116, align 8
-  %118 = trunc i64 %117 to i32
-  br label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.i
-
-select.unfold33.preheader.i.i:                    ; preds = %104
-  br i1 %or.cond18.i, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.lr.ph.i, label %_ZN9QCPLegend7addItemEP21QCPAbstractLegendItem.exit
-
-_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.lr.ph.i: ; preds = %select.unfold33.preheader.i.i
-  %119 = load ptr, ptr %108, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
-  %121 = load i64, ptr %120, align 8
-  %122 = trunc i64 %121 to i32
-  br label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.i
-
-_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.i:    ; preds = %select.unfold33.i.i, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.lr.ph.i
-  %.01343.i11.i = phi i32 [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.lr.ph.i ], [ %spec.select.i.i, %select.unfold33.i.i ]
-  %.044.i10.i = phi i32 [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.lr.ph.i ], [ %spec.select34.i.i, %select.unfold33.i.i ]
-  %123 = icmp slt i32 %.044.i10.i, %122
-  br i1 %123, label %_ZN13QCPLayoutGrid10hasElementEii.exit.i.i, label %_ZN9QCPLegend7addItemEP21QCPAbstractLegendItem.exit
-
-_ZN13QCPLayoutGrid10hasElementEii.exit.i.i:       ; preds = %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.i
-  %124 = zext nneg i32 %.01343.i11.i to i64
-  %125 = getelementptr %class.QList.59, ptr %119, i64 %124
-  %126 = zext nneg i32 %.044.i10.i to i64
-  %127 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr ptr, ptr %128, i64 %126
-  %130 = load ptr, ptr %129, align 8
-  %.not38.i.i = icmp eq ptr %130, null
-  br i1 %.not38.i.i, label %_ZN9QCPLegend7addItemEP21QCPAbstractLegendItem.exit, label %select.unfold33.i.i
-
-select.unfold33.i.i:                              ; preds = %_ZN13QCPLayoutGrid10hasElementEii.exit.i.i
-  %131 = add nuw nsw i32 %.044.i10.i, 1
-  %132 = load i32, ptr %113, align 8
-  %.not24.i.i = icmp sge i32 %131, %132
-  %133 = icmp sgt i32 %132, 0
-  %or.cond.i.i = and i1 %.not24.i.i, %133
-  %134 = zext i1 %or.cond.i.i to i32
-  %spec.select.i.i = add nuw nsw i32 %.01343.i11.i, %134
-  %spec.select34.i.i = select i1 %or.cond.i.i, i32 0, i32 %131
-  %135 = icmp slt i32 %spec.select.i.i, %111
-  br i1 %135, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.i, label %_ZN9QCPLegend7addItemEP21QCPAbstractLegendItem.exit
-
-_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.i:  ; preds = %select.unfold.i.i, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.lr.ph.i
-  %.31640.i4.i = phi i32 [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.lr.ph.i ], [ %spec.select35.i.i, %select.unfold.i.i ]
-  %.341.i3.i = phi i32 [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.lr.ph.i ], [ %spec.select36.i.i, %select.unfold.i.i ]
-  %136 = icmp slt i32 %.341.i3.i, %118
-  br i1 %136, label %_ZN13QCPLayoutGrid10hasElementEii.exit30.i.i, label %_ZN9QCPLegend7addItemEP21QCPAbstractLegendItem.exit
-
-_ZN13QCPLayoutGrid10hasElementEii.exit30.i.i:     ; preds = %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.i
-  %137 = zext nneg i32 %.31640.i4.i to i64
-  %138 = getelementptr %class.QList.59, ptr %115, i64 %137
-  %139 = zext nneg i32 %.341.i3.i to i64
-  %140 = getelementptr inbounds nuw i8, ptr %138, i64 8
-  %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr ptr, ptr %141, i64 %139
-  %143 = load ptr, ptr %142, align 8
-  %.not37.i.i = icmp eq ptr %143, null
-  br i1 %.not37.i.i, label %_ZN9QCPLegend7addItemEP21QCPAbstractLegendItem.exit, label %select.unfold.i.i
-
-select.unfold.i.i:                                ; preds = %_ZN13QCPLayoutGrid10hasElementEii.exit30.i.i
-  %144 = add nuw nsw i32 %.31640.i4.i, 1
-  %145 = load i32, ptr %113, align 8
-  %.not.i.i = icmp sge i32 %144, %145
-  %146 = icmp sgt i32 %145, 0
-  %or.cond25.i.i = and i1 %.not.i.i, %146
-  %spec.select35.i.i = select i1 %or.cond25.i.i, i32 0, i32 %144
-  %147 = zext i1 %or.cond25.i.i to i32
-  %spec.select36.i.i = add nuw nsw i32 %.341.i3.i, %147
-  %148 = icmp slt i32 %spec.select35.i.i, %111
-  br i1 %148, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.i, label %_ZN9QCPLegend7addItemEP21QCPAbstractLegendItem.exit
-
-_ZN9QCPLegend7addItemEP21QCPAbstractLegendItem.exit: ; preds = %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.i, %_ZN13QCPLayoutGrid10hasElementEii.exit30.i.i, %select.unfold.i.i, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.i, %_ZN13QCPLayoutGrid10hasElementEii.exit.i.i, %select.unfold33.i.i, %select.unfold.preheader.i.i, %select.unfold33.preheader.i.i
-  %.215.i.i = phi i32 [ 0, %select.unfold.preheader.i.i ], [ 0, %select.unfold33.preheader.i.i ], [ %spec.select.i.i, %select.unfold33.i.i ], [ %.01343.i11.i, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.i ], [ %.01343.i11.i, %_ZN13QCPLayoutGrid10hasElementEii.exit.i.i ], [ %spec.select35.i.i, %select.unfold.i.i ], [ %.31640.i4.i, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.i ], [ %.31640.i4.i, %_ZN13QCPLayoutGrid10hasElementEii.exit30.i.i ]
-  %.2.i.i = phi i32 [ 0, %select.unfold.preheader.i.i ], [ 0, %select.unfold33.preheader.i.i ], [ %spec.select34.i.i, %select.unfold33.i.i ], [ %.044.i10.i, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.i.i ], [ %.044.i10.i, %_ZN13QCPLayoutGrid10hasElementEii.exit.i.i ], [ %spec.select36.i.i, %select.unfold.i.i ], [ %.341.i3.i, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i29.i.i ], [ %.341.i3.i, %_ZN13QCPLayoutGrid10hasElementEii.exit30.i.i ]
-  %149 = tail call noundef zeroext i1 @_ZN13QCPLayoutGrid10addElementEiiP16QCPLayoutElement(ptr noundef nonnull align 8 dereferenceable_or_null(392) %1, i32 noundef %.215.i.i, i32 noundef %.2.i.i, ptr noundef %103)
-  br label %152
-
-150:                                              ; preds = %102
-  %151 = landingpad { ptr, i32 }
+106:                                              ; preds = %102
+  %107 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef %103, i64 noundef 256) #56
-  br label %153
+  br label %109
 
-152:                                              ; preds = %_ZN9QCPLegend7addItemEP21QCPAbstractLegendItem.exit, %_ZN6QDebuglsEPKc.exit51, %_ZN6QDebuglsEPKc.exit25
-  %.08 = phi i1 [ false, %_ZN6QDebuglsEPKc.exit51 ], [ true, %_ZN9QCPLegend7addItemEP21QCPAbstractLegendItem.exit ], [ false, %_ZN6QDebuglsEPKc.exit25 ]
+108:                                              ; preds = %104, %_ZN6QDebuglsEPKc.exit51, %_ZN6QDebuglsEPKc.exit25
+  %.08 = phi i1 [ false, %_ZN6QDebuglsEPKc.exit51 ], [ true, %104 ], [ false, %_ZN6QDebuglsEPKc.exit25 ]
   ret i1 %.08
 
-153:                                              ; preds = %150, %.body36, %.body
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body37, %.body36 ], [ %151, %150 ], [ %eh.lpad-body, %.body ]
+109:                                              ; preds = %106, %.body36, %.body
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body37, %.body36 ], [ %107, %106 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn
 }
 

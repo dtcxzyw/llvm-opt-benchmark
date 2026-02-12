@@ -1383,7 +1383,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__prefix_deserialize(ptr noundef
   %9 = trunc nuw i8 %8 to i1
   %10 = xor i1 %9, true
   %11 = select i1 %7, i1 true, i1 %10
-  br i1 %11, label %12, label %.thread325, !prof !9
+  br i1 %11, label %12, label %.thread324, !prof !9
 
 12:                                               ; preds = %3
   %13 = tail call noalias ptr @H5FL_reg_calloc(ptr noundef nonnull @H5_H5O_t_reg_free_list) #9
@@ -1394,7 +1394,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__prefix_deserialize(ptr noundef
   %16 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
   %17 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !10
   %18 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__prefix_deserialize, i32 noundef 996, i64 noundef %16, i64 noundef %17, ptr noundef nonnull @.str.6) #9
-  br label %.thread325
+  br label %.thread324
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -1432,8 +1432,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__prefix_deserialize(ptr noundef
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %41 = icmp ugt ptr %40, %5
   %42 = icmp eq i64 %1, 4
-  %or.cond305 = or i1 %42, %41
-  br i1 %or.cond305, label %43, label %47
+  %or.cond304 = or i1 %42, %41
+  br i1 %or.cond304, label %43, label %47
 
 43:                                               ; preds = %39
   %44 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
@@ -1446,8 +1446,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__prefix_deserialize(ptr noundef
   %49 = load i8, ptr %40, align 1, !tbaa !49
   %50 = getelementptr inbounds nuw i8, ptr %13, i64 288
   store i8 %49, ptr %50, align 8, !tbaa !21
-  %.not293 = icmp eq i8 %49, 2
-  br i1 %.not293, label %55, label %51
+  %.not292 = icmp eq i8 %49, 2
+  br i1 %.not292, label %55, label %51
 
 51:                                               ; preds = %47
   %52 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
@@ -1458,8 +1458,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__prefix_deserialize(ptr noundef
 55:                                               ; preds = %47
   %56 = icmp ugt ptr %48, %5
   %57 = icmp eq i64 %1, 5
-  %or.cond306 = or i1 %57, %56
-  br i1 %or.cond306, label %58, label %62
+  %or.cond305 = or i1 %57, %56
+  br i1 %or.cond305, label %58, label %62
 
 58:                                               ; preds = %55
   %59 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
@@ -1484,14 +1484,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__prefix_deserialize(ptr noundef
 71:                                               ; preds = %62
   %72 = getelementptr inbounds nuw i8, ptr %13, i64 284
   store i32 1, ptr %72, align 4, !tbaa !58
-  %.not294 = icmp samesign ult i8 %64, 32
-  br i1 %.not294, label %96, label %73
+  %.not293 = icmp samesign ult i8 %64, 32
+  br i1 %.not293, label %96, label %73
 
 73:                                               ; preds = %71
   %74 = icmp ugt ptr %63, %5
   %75 = icmp samesign ult i64 %1, 22
-  %or.cond308 = or i1 %75, %74
-  br i1 %or.cond308, label %92, label %.thread
+  %or.cond307 = or i1 %75, %74
+  br i1 %or.cond307, label %92, label %.thread
 
 .thread:                                          ; preds = %73
   %76 = load i32, ptr %63, align 1
@@ -1530,8 +1530,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__prefix_deserialize(ptr noundef
 98:                                               ; preds = %.thread, %96
   %.1275 = phi ptr [ %90, %.thread ], [ %63, %96 ]
   %99 = and i8 %64, 16
-  %.not295 = icmp eq i8 %99, 0
-  br i1 %.not295, label %135, label %100
+  %.not294 = icmp eq i8 %99, 0
+  br i1 %.not294, label %135, label %100
 
 100:                                              ; preds = %98
   %101 = icmp ugt ptr %.1275, %5
@@ -1591,7 +1591,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__prefix_deserialize(ptr noundef
   %.2276 = phi ptr [ %129, %111 ], [ %.1275, %135 ]
   %139 = and i8 %64, 3
   %140 = icmp ugt ptr %.2276, %5
-  switch i8 %139, label %default.unreachable346 [
+  switch i8 %139, label %default.unreachable345 [
     i8 0, label %141
     i8 1, label %154
     i8 2, label %174
@@ -1602,8 +1602,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__prefix_deserialize(ptr noundef
   %142 = ptrtoint ptr %.2276 to i64
   %143 = sub i64 %31, %142
   %144 = icmp eq i64 %143, -1
-  %or.cond312 = select i1 %140, i1 true, i1 %144
-  br i1 %or.cond312, label %145, label %149
+  %or.cond311 = select i1 %140, i1 true, i1 %144
+  br i1 %or.cond311, label %145, label %149
 
 145:                                              ; preds = %141
   %146 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
@@ -1714,31 +1714,31 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__prefix_deserialize(ptr noundef
   br label %217
 
 217:                                              ; preds = %214, %217
-  %.0334 = phi i64 [ 0, %214 ], [ %224, %217 ]
-  %.4278333 = phi ptr [ %216, %214 ], [ %220, %217 ]
+  %.0333 = phi i64 [ 0, %214 ], [ %224, %217 ]
+  %.4278332 = phi ptr [ %216, %214 ], [ %220, %217 ]
   %218 = phi i64 [ 0, %214 ], [ %223, %217 ]
   %219 = shl i64 %218, 8
-  %220 = getelementptr inbounds i8, ptr %.4278333, i64 -1
+  %220 = getelementptr inbounds i8, ptr %.4278332, i64 -1
   %221 = load i8, ptr %220, align 1, !tbaa !49
   %222 = zext i8 %221 to i64
   %223 = or disjoint i64 %219, %222
   store i64 %223, ptr %215, align 8, !tbaa !12
-  %224 = add nuw nsw i64 %.0334, 1
+  %224 = add nuw nsw i64 %.0333, 1
   %exitcond.not = icmp eq i64 %224, 8
   br i1 %exitcond.not, label %225, label %217, !llvm.loop !79
 
 225:                                              ; preds = %217
-  %226 = getelementptr inbounds nuw i8, ptr %.4278333, i64 7
+  %226 = getelementptr inbounds nuw i8, ptr %.4278332, i64 7
   br label %227
 
-default.unreachable346:                           ; preds = %138
+default.unreachable345:                           ; preds = %138
   unreachable
 
 227:                                              ; preds = %225, %184, %164, %149
   %228 = phi i64 [ %152, %149 ], [ %172, %164 ], [ %202, %184 ], [ %223, %225 ]
   %.3277 = phi ptr [ %150, %149 ], [ %173, %164 ], [ %203, %184 ], [ %226, %225 ]
-  %.not296 = icmp eq i64 %228, 0
-  br i1 %.not296, label %339, label %229
+  %.not295 = icmp eq i64 %228, 0
+  br i1 %.not295, label %339, label %229
 
 229:                                              ; preds = %227
   %230 = lshr i8 %64, 1
@@ -1758,8 +1758,8 @@ default.unreachable346:                           ; preds = %138
   %240 = load i8, ptr %0, align 1, !tbaa !49
   %241 = getelementptr inbounds nuw i8, ptr %13, i64 288
   store i8 %240, ptr %241, align 8, !tbaa !21
-  %.not298 = icmp eq i8 %240, 1
-  br i1 %.not298, label %246, label %242
+  %.not297 = icmp eq i8 %240, 1
+  br i1 %.not297, label %246, label %242
 
 242:                                              ; preds = %239
   %243 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
@@ -1806,8 +1806,8 @@ default.unreachable346:                           ; preds = %138
   %271 = icmp ugt ptr %270, %5
   %272 = and i64 %1, 9223372036854775804
   %273 = icmp eq i64 %272, 4
-  %or.cond316 = or i1 %273, %271
-  br i1 %or.cond316, label %274, label %278
+  %or.cond315 = or i1 %273, %271
+  br i1 %or.cond315, label %274, label %278
 
 274:                                              ; preds = %261
   %275 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
@@ -1839,9 +1839,9 @@ default.unreachable346:                           ; preds = %138
   %298 = getelementptr inbounds nuw i8, ptr %13, i64 296
   %299 = icmp ugt ptr %297, %5
   %300 = icmp eq i64 %272, 8
-  %or.cond318 = or i1 %300, %299
+  %or.cond317 = or i1 %300, %299
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %298, i8 0, i64 40, i1 false)
-  br i1 %or.cond318, label %301, label %305
+  br i1 %or.cond317, label %301, label %305
 
 301:                                              ; preds = %278
   %302 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
@@ -1873,16 +1873,16 @@ default.unreachable346:                           ; preds = %138
   %323 = or disjoint i64 %322, %318
   store i64 %323, ptr %308, align 8, !tbaa !12
   %324 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.not299 = icmp eq i32 %269, 0
-  br i1 %.not299, label %327, label %325
+  %.not298 = icmp eq i32 %269, 0
+  br i1 %.not298, label %327, label %325
 
 325:                                              ; preds = %305
   %326 = icmp samesign ult i64 %323, 8
   br i1 %326, label %328, label %332
 
 327:                                              ; preds = %305
-  %.not301 = icmp eq i64 %323, 0
-  br i1 %.not301, label %332, label %328
+  %.not300 = icmp eq i64 %323, 0
+  br i1 %.not300, label %332, label %328
 
 328:                                              ; preds = %325, %327
   %329 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
@@ -1893,8 +1893,8 @@ default.unreachable346:                           ; preds = %138
 332:                                              ; preds = %325, %327
   %333 = icmp ugt ptr %324, %5
   %334 = icmp eq i64 %272, 12
-  %or.cond320 = or i1 %334, %333
-  br i1 %or.cond320, label %335, label %.critedge
+  %or.cond319 = or i1 %334, %333
+  br i1 %or.cond319, label %335, label %.critedge
 
 335:                                              ; preds = %332
   %336 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
@@ -1929,20 +1929,20 @@ default.unreachable346:                           ; preds = %138
 .critedge:                                        ; preds = %332, %339
   %359 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %13, ptr %359, align 8, !tbaa !20
-  br label %.thread325
+  br label %.thread324
 
 360:                                              ; preds = %34, %43, %51, %58, %67, %107, %131, %145, %160, %180, %210, %235, %242, %250, %257, %274, %301, %328, %335, %355, %92
   %361 = tail call i32 @H5O__free(ptr noundef nonnull %13, i1 noundef zeroext false) #9
   %362 = icmp slt i32 %361, 0
-  br i1 %362, label %363, label %.thread325
+  br i1 %362, label %363, label %.thread324
 
 363:                                              ; preds = %360
   %364 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
   %365 = load i64, ptr @H5E_CANTRELEASE_g, align 8, !tbaa !10
   %366 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__prefix_deserialize, i32 noundef 1153, i64 noundef %364, i64 noundef %365, ptr noundef nonnull @.str.15) #9
-  br label %.thread325
+  br label %.thread324
 
-.thread325:                                       ; preds = %15, %.critedge, %3, %360, %363
+.thread324:                                       ; preds = %15, %.critedge, %3, %360, %363
   %.0272 = phi i32 [ -1, %363 ], [ -1, %360 ], [ -1, %15 ], [ 0, %3 ], [ 0, %.critedge ]
   ret i32 %.0272
 }

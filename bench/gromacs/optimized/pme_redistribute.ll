@@ -1696,7 +1696,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %151, %149, %147, %1
   %185 = getelementptr inbounds nuw i8, ptr %37, i64 56
   %186 = getelementptr inbounds nuw i8, ptr %37, i64 184
   %187 = getelementptr inbounds nuw i8, ptr %37, i64 208
-  %smax.i = call i64 @llvm.smax.i64(i64 %42, i64 1)
   br label %192
 
 .preheader.i18:                                   ; preds = %228, %._crit_edge._crit_edge.i
@@ -1777,7 +1776,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %151, %149, %147, %1
 228:                                              ; preds = %220, %204
   %.1106.i = phi i32 [ %209, %204 ], [ %.0105153.i, %220 ]
   %229 = add nuw nsw i64 %.0111152.i, 1
-  %exitcond170.not.i = icmp eq i64 %229, %smax.i
+  %exitcond170.not.i = icmp eq i64 %229, %42
   br i1 %exitcond170.not.i, label %.preheader.i18, label %192, !llvm.loop !229
 
 230:                                              ; preds = %302, %.lr.ph161.i
@@ -2368,9 +2367,6 @@ declare i64 @llvm.umin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #17
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

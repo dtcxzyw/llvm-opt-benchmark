@@ -2968,7 +2968,7 @@ _Z8lm_enormiPKd.exit787:                          ; preds = %1233, %1243, %1249,
   br i1 %.not684, label %.lr.ph989.preheader, label %.lr.ph987
 
 .lr.ph989.preheader:                              ; preds = %1329
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(1) %93, i64 %155, i1 false), !tbaa !25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1, ptr nonnull align 8 %93, i64 %155, i1 false), !tbaa !25
   br label %.loopexit844
 
 .lr.ph987:                                        ; preds = %1329, %.lr.ph987

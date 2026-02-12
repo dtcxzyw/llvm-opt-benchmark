@@ -307,7 +307,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc37
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
   %19 = shl nuw nsw i64 %wide.trip.count56, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %8, i8 0, i64 %19, i1 false), !tbaa !17
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %8, i8 0, i64 %19, i1 false), !tbaa !17
   br label %._crit_edge47
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph

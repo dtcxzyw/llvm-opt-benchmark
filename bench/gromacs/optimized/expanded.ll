@@ -2714,8 +2714,7 @@ _ZL20CheckHistogramRatiosiPKff.exit._crit_edge:   ; preds = %1080
   %1094 = trunc i64 %5 to i32
   %1095 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.31, i32 noundef %1094) #17
   %1096 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %smax = tail call i32 @llvm.smax.i32(i32 %15, i32 1)
-  %wide.trip.count277 = zext nneg i32 %smax to i64
+  %wide.trip.count277 = zext nneg i32 %15 to i64
   br label %1097
 
 1097:                                             ; preds = %.lr.ph235, %1097

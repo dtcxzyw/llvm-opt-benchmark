@@ -1752,7 +1752,7 @@ _ZNK6icu_7712_GLOBAL__N_120MutableCodePointTrie13findHighStartEv.exit.i.i: ; pre
   %162 = zext nneg i32 %157 to i64
   br label %283
 
-.lr.ph147.i.i.i:                                  ; preds = %_ZNK6icu_7712_GLOBAL__N_120MutableCodePointTrie3getEi.exit64.i.i
+.lr.ph149.i.i.i:                                  ; preds = %_ZNK6icu_7712_GLOBAL__N_120MutableCodePointTrie3getEi.exit64.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !44
   %163 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -1763,16 +1763,16 @@ _ZNK6icu_7712_GLOBAL__N_120MutableCodePointTrie13findHighStartEv.exit.i.i: ; pre
   %167 = getelementptr inbounds nuw i8, ptr %9, i64 264
   br label %168
 
-168:                                              ; preds = %.thread130.i.i.i, %.lr.ph147.i.i.i
-  %.078145.i.i.i = phi i32 [ 148, %.lr.ph147.i.i.i ], [ %.381133.i.i.i, %.thread130.i.i.i ]
-  %.089142.i.i.i = phi i32 [ 0, %.lr.ph147.i.i.i ], [ %281, %.thread130.i.i.i ]
-  %.090141.i.i.i = phi i32 [ 4, %.lr.ph147.i.i.i ], [ %spec.select98.i.i.i, %.thread130.i.i.i ]
-  %.092140.i.i.i = phi i32 [ 64, %.lr.ph147.i.i.i ], [ %spec.select.i.i.i, %.thread130.i.i.i ]
-  %169 = icmp eq i32 %.089142.i.i.i, %93
-  %spec.select.i.i.i = select i1 %169, i32 16, i32 %.092140.i.i.i
-  %spec.select98.i.i.i = select i1 %169, i32 1, i32 %.090141.i.i.i
+168:                                              ; preds = %.thread133.i.i.i, %.lr.ph149.i.i.i
+  %.078147.i.i.i = phi i32 [ 148, %.lr.ph149.i.i.i ], [ %.381136.i.i.i, %.thread133.i.i.i ]
+  %.089145.i.i.i = phi i32 [ 0, %.lr.ph149.i.i.i ], [ %281, %.thread133.i.i.i ]
+  %.090144.i.i.i = phi i32 [ 4, %.lr.ph149.i.i.i ], [ %spec.select98.i.i.i, %.thread133.i.i.i ]
+  %.092143.i.i.i = phi i32 [ 64, %.lr.ph149.i.i.i ], [ %spec.select.i.i.i, %.thread133.i.i.i ]
+  %169 = icmp eq i32 %.089145.i.i.i, %93
+  %spec.select.i.i.i = select i1 %169, i32 16, i32 %.092143.i.i.i
+  %spec.select98.i.i.i = select i1 %169, i32 1, i32 %.090144.i.i.i
   %170 = load ptr, ptr %0, align 8, !tbaa !7
-  %171 = zext nneg i32 %.089142.i.i.i to i64
+  %171 = zext nneg i32 %.089145.i.i.i to i64
   %172 = getelementptr inbounds nuw i32, ptr %170, i64 %171
   %173 = load i32, ptr %172, align 4, !tbaa !25
   %174 = getelementptr inbounds nuw i8, ptr %159, i64 %171
@@ -1814,15 +1814,15 @@ _ZN6icu_7712_GLOBAL__N_115allValuesSameAsEPKjij.exit.i.i.i: ; preds = %187, %.lr
   br label %.critedge.i.i.i
 
 191:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_115allValuesSameAsEPKjij.exit.i.i.i
-  %192 = add nsw i32 %spec.select.i.i.i, %.078145.i.i.i
-  br label %.thread130.i.i.i
+  %192 = add nsw i32 %spec.select.i.i.i, %.078147.i.i.i
+  br label %.thread133.i.i.i
 
 193:                                              ; preds = %168
   %194 = icmp samesign ugt i32 %spec.select98.i.i.i, 1
   br i1 %194, label %195, label %.critedge.i.i.i
 
 195:                                              ; preds = %193
-  %196 = add nuw nsw i32 %spec.select98.i.i.i, %.089142.i.i.i
+  %196 = add nuw nsw i32 %spec.select98.i.i.i, %.089145.i.i.i
   %197 = zext nneg i32 %196 to i64
   br label %198
 
@@ -1885,7 +1885,7 @@ _ZN6icu_7712_GLOBAL__N_113AllSameBlocks9findOrAddEiij.exit.thread.i.i.i: ; preds
   store i32 %210, ptr %163, align 4, !tbaa !46
   %220 = sext i32 %210 to i64
   %221 = getelementptr inbounds i32, ptr %166, i64 %220
-  store i32 %.089142.i.i.i, ptr %221, align 4, !tbaa !25
+  store i32 %.089145.i.i.i, ptr %221, align 4, !tbaa !25
   %222 = load i32, ptr %9, align 4, !tbaa !44
   %223 = sext i32 %222 to i64
   %224 = getelementptr inbounds i32, ptr %165, i64 %223
@@ -1897,18 +1897,18 @@ _ZN6icu_7712_GLOBAL__N_113AllSameBlocks9findOrAddEiij.exit.thread.i.i.i: ; preds
   br label %.thread127.sink.split.i.i.i
 
 _ZN6icu_7712_GLOBAL__N_113AllSameBlocks9findOrAddEiij.exit.i.i.i: ; preds = %217, %204
-  %.sink170.i.i.i = phi i64 [ %indvars.iv.i.i.i.i, %217 ], [ %205, %204 ]
-  %228 = getelementptr inbounds nuw i32, ptr %167, i64 %.sink170.i.i.i
+  %.sink172.i.i.i = phi i64 [ %indvars.iv.i.i.i.i, %217 ], [ %205, %204 ]
+  %228 = getelementptr inbounds nuw i32, ptr %167, i64 %.sink172.i.i.i
   %229 = load i32, ptr %228, align 4, !tbaa !25
   %230 = add nsw i32 %229, %spec.select98.i.i.i
   store i32 %230, ptr %228, align 4, !tbaa !25
-  %231 = getelementptr inbounds nuw i32, ptr %166, i64 %.sink170.i.i.i
+  %231 = getelementptr inbounds nuw i32, ptr %166, i64 %.sink172.i.i.i
   %232 = load i32, ptr %231, align 4, !tbaa !25
   %233 = icmp eq i32 %232, -2
   br i1 %233, label %.preheader.i.i.i, label %272
 
 .preheader.i.i.i:                                 ; preds = %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks9findOrAddEiij.exit.i.i.i, %._crit_edge.i.i.i.i
-  %234 = icmp eq i32 %.089142.i.i.i, 0
+  %234 = icmp eq i32 %.089145.i.i.i, 0
   br i1 %234, label %._crit_edge.i.i.i, label %.lr.ph.i56.i.i
 
 .lr.ph.i56.i.i:                                   ; preds = %.preheader.i.i.i
@@ -1943,17 +1943,17 @@ _ZN6icu_7712_GLOBAL__N_113AllSameBlocks3addEiij.exit.i.i.i: ; preds = %238, %._c
   store i32 %.014.lcssa.i.i.i.i, ptr %163, align 4, !tbaa !46
   %243 = sext i32 %.014.lcssa.i.i.i.i to i64
   %244 = getelementptr inbounds i32, ptr %166, i64 %243
-  store i32 %.089142.i.i.i, ptr %244, align 4, !tbaa !25
+  store i32 %.089145.i.i.i, ptr %244, align 4, !tbaa !25
   %245 = getelementptr inbounds i32, ptr %165, i64 %243
   store i32 %.084.i.i.i, ptr %245, align 4, !tbaa !25
   br label %.thread127.sink.split.i.i.i
 
 246:                                              ; preds = %269, %.lr.ph.i56.i.i
-  %.0138.i.i.i = phi i32 [ 0, %.lr.ph.i56.i.i ], [ %270, %269 ]
-  %.071137.i.i.i = phi i32 [ 4, %.lr.ph.i56.i.i ], [ %spec.select99.i.i.i, %269 ]
-  %247 = icmp eq i32 %.0138.i.i.i, %93
-  %spec.select99.i.i.i = select i1 %247, i32 1, i32 %.071137.i.i.i
-  %248 = zext nneg i32 %.0138.i.i.i to i64
+  %.0141.i.i.i = phi i32 [ 0, %.lr.ph.i56.i.i ], [ %270, %269 ]
+  %.071140.i.i.i = phi i32 [ 4, %.lr.ph.i56.i.i ], [ %spec.select99.i.i.i, %269 ]
+  %247 = icmp eq i32 %.0141.i.i.i, %93
+  %spec.select99.i.i.i = select i1 %247, i32 1, i32 %.071140.i.i.i
+  %248 = zext nneg i32 %.0141.i.i.i to i64
   %249 = getelementptr inbounds nuw i8, ptr %159, i64 %248
   %250 = load i8, ptr %249, align 1, !tbaa !31
   %251 = icmp eq i8 %250, 0
@@ -1969,7 +1969,7 @@ _ZN6icu_7712_GLOBAL__N_113AllSameBlocks3addEiij.exit.i.i.i: ; preds = %238, %._c
   %257 = add nuw nsw i32 %spec.select99.i.i.i, %spec.select98.i.i.i
   %258 = load i32, ptr %9, align 4, !tbaa !44
   %259 = icmp sgt i32 %258, 0
-  br i1 %259, label %.lr.ph.i112.i.i.i, label %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks3addEiij.exit121.i.i.i
+  br i1 %259, label %.lr.ph.i112.i.i.i, label %.thread129.i.i.i
 
 .lr.ph.i112.i.i.i:                                ; preds = %256
   %wide.trip.count.i113.i.i.i = zext nneg i32 %258 to i64
@@ -1987,60 +1987,60 @@ _ZN6icu_7712_GLOBAL__N_113AllSameBlocks3addEiij.exit.i.i.i: ; preds = %238, %._c
   %spec.select17.i118.i.i.i = tail call i32 @llvm.smin.i32(i32 %262, i32 %.01319.i115.i.i.i)
   %indvars.iv.next.i119.i.i.i = add nuw nsw i64 %indvars.iv.i114.i.i.i, 1
   %exitcond.not.i120.i.i.i = icmp eq i64 %indvars.iv.next.i119.i.i.i, %wide.trip.count.i113.i.i.i
-  br i1 %exitcond.not.i120.i.i.i, label %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks3addEiij.exit121.i.i.i, label %260, !llvm.loop !50
+  br i1 %exitcond.not.i120.i.i.i, label %.thread129.i.i.i, label %260, !llvm.loop !50
 
-_ZN6icu_7712_GLOBAL__N_113AllSameBlocks3addEiij.exit121.i.i.i: ; preds = %260, %256
+.thread129.i.i.i:                                 ; preds = %260, %256
   %.014.lcssa.i111.i.i.i = phi i32 [ -1, %256 ], [ %spec.select.i117.i.i.i, %260 ]
   store i32 %.014.lcssa.i111.i.i.i, ptr %163, align 4, !tbaa !46
   %265 = sext i32 %.014.lcssa.i111.i.i.i to i64
   %266 = getelementptr inbounds i32, ptr %166, i64 %265
-  store i32 %.0138.i.i.i, ptr %266, align 4, !tbaa !25
+  store i32 %.0141.i.i.i, ptr %266, align 4, !tbaa !25
   %267 = getelementptr inbounds i32, ptr %165, i64 %265
   store i32 %.084.i.i.i, ptr %267, align 4, !tbaa !25
   %268 = getelementptr inbounds i32, ptr %167, i64 %265
   store i32 %257, ptr %268, align 4, !tbaa !25
-  br label %272
+  br label %274
 
 269:                                              ; preds = %252, %246
-  %270 = add nuw nsw i32 %spec.select99.i.i.i, %.0138.i.i.i
-  %271 = icmp eq i32 %270, %.089142.i.i.i
+  %270 = add nuw nsw i32 %spec.select99.i.i.i, %.0141.i.i.i
+  %271 = icmp eq i32 %270, %.089145.i.i.i
   br i1 %271, label %._crit_edge.i.i.i, label %246, !llvm.loop !51
 
-272:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks3addEiij.exit121.i.i.i, %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks9findOrAddEiij.exit.i.i.i
-  %.072.i.i.i = phi i32 [ %232, %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks9findOrAddEiij.exit.i.i.i ], [ %.0138.i.i.i, %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks3addEiij.exit121.i.i.i ]
-  %273 = icmp sgt i32 %.072.i.i.i, -1
+272:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks9findOrAddEiij.exit.i.i.i
+  %273 = icmp sgt i32 %232, -1
   br i1 %273, label %274, label %.thread127.i.i.i
 
-274:                                              ; preds = %272
+274:                                              ; preds = %272, %.thread129.i.i.i
+  %.072131.i.i.i = phi i32 [ %.0141.i.i.i, %.thread129.i.i.i ], [ %232, %272 ]
   store i8 2, ptr %174, align 1, !tbaa !31
-  store i32 %.072.i.i.i, ptr %172, align 4, !tbaa !25
-  br label %.thread130.i.i.i
+  store i32 %.072131.i.i.i, ptr %172, align 4, !tbaa !25
+  br label %.thread133.i.i.i
 
 .thread127.sink.split.i.i.i:                      ; preds = %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks3addEiij.exit.i.i.i, %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks9findOrAddEiij.exit.thread.i.i.i
-  %.sink171.i.i.i = phi i64 [ %227, %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks9findOrAddEiij.exit.thread.i.i.i ], [ %243, %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks3addEiij.exit.i.i.i ]
-  %275 = getelementptr inbounds i32, ptr %167, i64 %.sink171.i.i.i
+  %.sink173.i.i.i = phi i64 [ %227, %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks9findOrAddEiij.exit.thread.i.i.i ], [ %243, %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks3addEiij.exit.i.i.i ]
+  %275 = getelementptr inbounds i32, ptr %167, i64 %.sink173.i.i.i
   store i32 %spec.select98.i.i.i, ptr %275, align 4, !tbaa !25
   br label %.thread127.i.i.i
 
 .thread127.i.i.i:                                 ; preds = %.thread127.sink.split.i.i.i, %272
-  %276 = add nsw i32 %spec.select.i.i.i, %.078145.i.i.i
-  br label %.thread130.i.i.i
+  %276 = add nsw i32 %spec.select.i.i.i, %.078147.i.i.i
+  br label %.thread133.i.i.i
 
 277:                                              ; preds = %199
-  %278 = tail call fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie12getDataBlockEi(ptr noundef nonnull align 8 dereferenceable(69696) %0, i32 noundef %.089142.i.i.i)
+  %278 = tail call fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie12getDataBlockEi(ptr noundef nonnull align 8 dereferenceable(69696) %0, i32 noundef %.089145.i.i.i)
   %279 = icmp sgt i32 %278, -1
   %280 = select i1 %279, i32 %spec.select.i.i.i, i32 0
-  %spec.select102.i.i.i = add nsw i32 %280, %.078145.i.i.i
-  br i1 %279, label %.thread130.i.i.i, label %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactTrieEiR10UErrorCode.exit.thread.i
+  %spec.select102.i.i.i = add nsw i32 %280, %.078147.i.i.i
+  br i1 %279, label %.thread133.i.i.i, label %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactTrieEiR10UErrorCode.exit.thread.i
 
-.thread130.i.i.i:                                 ; preds = %277, %.thread127.i.i.i, %274, %191
-  %.381133.i.i.i = phi i32 [ %192, %191 ], [ %spec.select102.i.i.i, %277 ], [ %276, %.thread127.i.i.i ], [ %.078145.i.i.i, %274 ]
-  %281 = add nuw nsw i32 %spec.select98.i.i.i, %.089142.i.i.i
+.thread133.i.i.i:                                 ; preds = %277, %.thread127.i.i.i, %274, %191
+  %.381136.i.i.i = phi i32 [ %192, %191 ], [ %spec.select102.i.i.i, %277 ], [ %276, %.thread127.i.i.i ], [ %.078147.i.i.i, %274 ]
+  %281 = add nuw nsw i32 %spec.select98.i.i.i, %.089145.i.i.i
   %.not97.i.i.i = icmp samesign ult i32 %281, %164
   br i1 %.not97.i.i.i, label %168, label %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie22compactWholeDataBlocksEiRNS0_13AllSameBlocksE.exit.i.i, !llvm.loop !52
 
-_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie22compactWholeDataBlocksEiRNS0_13AllSameBlocksE.exit.i.i: ; preds = %.thread130.i.i.i
-  %282 = icmp slt i32 %.381133.i.i.i, 0
+_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie22compactWholeDataBlocksEiRNS0_13AllSameBlocksE.exit.i.i: ; preds = %.thread133.i.i.i
+  %282 = icmp slt i32 %.381136.i.i.i, 0
   br i1 %282, label %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactTrieEiR10UErrorCode.exit.thread.i, label %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie22compactWholeDataBlocksEiRNS0_13AllSameBlocksE.exit.thread121.i.i
 
 283:                                              ; preds = %_ZNK6icu_7712_GLOBAL__N_120MutableCodePointTrie3getEi.exit64.i.i, %.loopexit133.i.i
@@ -2076,10 +2076,10 @@ _ZNK6icu_7712_GLOBAL__N_120MutableCodePointTrie3getEi.exit64.i.i: ; preds = %291
   store i32 %.0.i63.i.i, ptr %299, align 4, !tbaa !25
   %indvars.iv.next237.i.i = add nuw nsw i64 %indvars.iv236.i.i, 1
   %exitcond239.not.i.i = icmp eq i64 %indvars.iv.next237.i.i, 128
-  br i1 %exitcond239.not.i.i, label %.lr.ph147.i.i.i, label %283, !llvm.loop !53
+  br i1 %exitcond239.not.i.i, label %.lr.ph149.i.i.i, label %283, !llvm.loop !53
 
 _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie22compactWholeDataBlocksEiRNS0_13AllSameBlocksE.exit.thread121.i.i: ; preds = %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie22compactWholeDataBlocksEiRNS0_13AllSameBlocksE.exit.i.i
-  %300 = shl nsw i32 %.381133.i.i.i, 2
+  %300 = shl nsw i32 %.381136.i.i.i, 2
   %301 = zext nneg i32 %300 to i64
   %302 = tail call noalias ptr @uprv_malloc_77(i64 noundef %301) #14
   %303 = icmp eq ptr %302, null
@@ -2131,7 +2131,7 @@ _ZNK6icu_7712_GLOBAL__N_113AllSameBlocks12findMostUsedEv.exit.i.i: ; preds = %._
   br label %338
 
 317:                                              ; preds = %338
-  %318 = icmp samesign ult i32 %.381133.i.i.i, 4159
+  %318 = icmp samesign ult i32 %.381136.i.i.i, 4159
   br i1 %318, label %319, label %322
 
 319:                                              ; preds = %317
@@ -2142,7 +2142,7 @@ _ZNK6icu_7712_GLOBAL__N_113AllSameBlocks12findMostUsedEv.exit.i.i: ; preds = %._
   br label %332
 
 322:                                              ; preds = %317
-  %323 = icmp samesign ult i32 %.381133.i.i.i, 32831
+  %323 = icmp samesign ult i32 %.381136.i.i.i, 32831
   %324 = getelementptr inbounds nuw i8, ptr %10, i64 20
   br i1 %323, label %325, label %327
 
@@ -2153,7 +2153,7 @@ _ZNK6icu_7712_GLOBAL__N_113AllSameBlocks12findMostUsedEv.exit.i.i: ; preds = %._
   br label %332
 
 327:                                              ; preds = %322
-  %328 = icmp samesign ult i32 %.381133.i.i.i, 131135
+  %328 = icmp samesign ult i32 %.381136.i.i.i, 131135
   %329 = getelementptr inbounds nuw i8, ptr %10, i64 16
   br i1 %328, label %330, label %331
 
@@ -2209,10 +2209,10 @@ _ZNK6icu_7712_GLOBAL__N_113AllSameBlocks12findMostUsedEv.exit.i.i: ; preds = %._
   br i1 %.not202.i.i.i, label %.lr.ph210.i.i.i, label %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactDataEiPjiiRNS0_11MixedBlocksER10UErrorCode.exit.i.i
 
 .lr.ph210.i.i.i:                                  ; preds = %341
-  %346 = icmp samesign ult i32 %.381133.i.i.i, 4111
-  %347 = icmp samesign ult i32 %.381133.i.i.i, 32783
+  %346 = icmp samesign ult i32 %.381136.i.i.i, 4111
+  %347 = icmp samesign ult i32 %.381136.i.i.i, 32783
   %348 = getelementptr inbounds nuw i8, ptr %10, i64 20
-  %349 = icmp samesign ult i32 %.381133.i.i.i, 131087
+  %349 = icmp samesign ult i32 %.381136.i.i.i, 131087
   %350 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %351 = zext nneg i32 %93 to i64
   %.mux.i.i.i = select i1 %346, i32 12, i32 15
@@ -2736,7 +2736,7 @@ _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactDataEiPjiiRNS0_11MixedBlo
 541:                                              ; preds = %539
   store ptr %302, ptr %160, align 8, !tbaa !22
   %542 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.381133.i.i.i, ptr %542, align 8, !tbaa !23
+  store i32 %.381136.i.i.i, ptr %542, align 8, !tbaa !23
   %543 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.0.i74.ph.i.i, ptr %543, align 4, !tbaa !24
   %544 = icmp samesign ugt i32 %.0.i74.ph.i.i, 262159

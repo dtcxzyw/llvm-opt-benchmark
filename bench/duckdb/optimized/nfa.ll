@@ -2126,8 +2126,7 @@ _ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit:    ; preds = %236, %231, %161, %1
 
 .lr.ph146:                                        ; preds = %._crit_edge
   %249 = load ptr, ptr %90, align 8, !tbaa !108
-  %smax = call i32 @llvm.smax.i32(i32 %6, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %6 to i64
   br label %264
 
 250:                                              ; preds = %.lr.ph, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit110
@@ -3171,9 +3170,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #14

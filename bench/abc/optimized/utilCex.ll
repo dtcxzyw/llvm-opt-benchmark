@@ -433,15 +433,11 @@ define noalias noundef ptr @Abc_CexMerge(ptr noundef readonly captures(none) %0,
   %56 = icmp sgt i32 %34, 0
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %58 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 20
-  br i1 %56, label %.preheader101.us.preheader, label %.preheader100
+  br i1 %56, label %.preheader101.us, label %.preheader100
 
-.preheader101.us.preheader:                       ; preds = %.preheader101.lr.ph
-  %smax = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
-  br label %.preheader101.us
-
-.preheader101.us:                                 ; preds = %.preheader101.us.preheader, %._crit_edge.us
-  %.1109.us = phi i32 [ %80, %._crit_edge.us ], [ %.0.lcssa, %.preheader101.us.preheader ]
-  %.076108.us = phi i32 [ %81, %._crit_edge.us ], [ 0, %.preheader101.us.preheader ]
+.preheader101.us:                                 ; preds = %.preheader101.lr.ph, %._crit_edge.us
+  %.1109.us = phi i32 [ %80, %._crit_edge.us ], [ %.0.lcssa, %.preheader101.lr.ph ]
+  %.076108.us = phi i32 [ %81, %._crit_edge.us ], [ 0, %.preheader101.lr.ph ]
   %59 = mul nuw nsw i32 %.076108.us, %34
   %60 = add nsw i32 %59, %32
   br label %61
@@ -479,7 +475,7 @@ define noalias noundef ptr @Abc_CexMerge(ptr noundef readonly captures(none) %0,
 
 ._crit_edge.us:                                   ; preds = %78
   %81 = add nuw nsw i32 %.076108.us, 1
-  %exitcond136.not = icmp eq i32 %81, %smax
+  %exitcond136.not = icmp eq i32 %81, %2
   br i1 %exitcond136.not, label %.preheader100, label %.preheader101.us, !llvm.loop !19
 
 82:                                               ; preds = %.lr.ph, %94
@@ -1672,9 +1668,6 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #14
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #15

@@ -5634,8 +5634,8 @@ define hidden noundef zeroext i1 @_ZN18VM_RedefineClasses20merge_constant_poolsE
 
 17:                                               ; preds = %9
   %18 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not115 = icmp eq ptr %18, null
-  br i1 %.not115, label %23, label %19
+  %.not114 = icmp eq ptr %18, null
+  br i1 %.not114, label %23, label %19
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %2, align 8
@@ -5644,22 +5644,22 @@ define hidden noundef zeroext i1 @_ZN18VM_RedefineClasses20merge_constant_poolsE
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.61, i32 noundef %15, i32 noundef %22)
   %.pre = load ptr, ptr %1, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 60
-  %.pre135 = load i32, ptr %.phi.trans.insert, align 4
+  %.pre134 = load i32, ptr %.phi.trans.insert, align 4
   br label %23
 
 23:                                               ; preds = %17, %19
-  %24 = phi i32 [ %15, %17 ], [ %.pre135, %19 ]
+  %24 = phi i32 [ %15, %17 ], [ %.pre134, %19 ]
   %25 = phi ptr [ %13, %17 ], [ %.pre, %19 ]
   %26 = icmp sgt i32 %24, 1
   br i1 %26, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %23, %50
   %27 = phi ptr [ %52, %50 ], [ %25, %23 ]
-  %.090123 = phi i32 [ %51, %50 ], [ 1, %23 ]
+  %.090122 = phi i32 [ %51, %50 ], [ 1, %23 ]
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %31 = sext i32 %.090123 to i64
+  %31 = sext i32 %.090122 to i64
   %32 = getelementptr inbounds i8, ptr %30, i64 %31
   %33 = load volatile i8, ptr %32, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !25
@@ -5689,16 +5689,16 @@ define hidden noundef zeroext i1 @_ZN18VM_RedefineClasses20merge_constant_poolsE
   br label %50
 
 47:                                               ; preds = %.lr.ph, %.lr.ph
-  tail call void @_ZN12ConstantPool13copy_entry_toERK18constantPoolHandleiS2_i(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.090123, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %.090123) #20
-  %48 = add nsw i32 %.090123, 1
+  tail call void @_ZN12ConstantPool13copy_entry_toERK18constantPoolHandleiS2_i(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.090122, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %.090122) #20
+  %48 = add nsw i32 %.090122, 1
   br label %50
 
 49:                                               ; preds = %.lr.ph
-  tail call void @_ZN12ConstantPool13copy_entry_toERK18constantPoolHandleiS2_i(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.090123, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %.090123) #20
+  tail call void @_ZN12ConstantPool13copy_entry_toERK18constantPoolHandleiS2_i(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.090122, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %.090122) #20
   br label %50
 
 50:                                               ; preds = %34, %47, %49
-  %.1 = phi i32 [ %.090123, %49 ], [ %.090123, %34 ], [ %48, %47 ]
+  %.1 = phi i32 [ %.090122, %49 ], [ %.090122, %34 ], [ %48, %47 ]
   %51 = add nsw i32 %.1, 1
   %52 = load ptr, ptr %1, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 60
@@ -5711,21 +5711,21 @@ define hidden noundef zeroext i1 @_ZN18VM_RedefineClasses20merge_constant_poolsE
   tail call void @_ZN12ConstantPool13copy_operandsERK18constantPoolHandleS2_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %5) #20
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %57 = load ptr, ptr %56, align 8
-  %.not116 = icmp eq ptr %57, null
-  br i1 %.not116, label %58, label %219
+  %.not115 = icmp eq ptr %57, null
+  br i1 %.not115, label %58, label %219
 
 58:                                               ; preds = %._crit_edge
   %59 = load ptr, ptr %3, align 8
   tail call void @_ZN12ConstantPool15extend_operandsERK18constantPoolHandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(68) %59, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %5) #20
   %60 = load ptr, ptr %56, align 8
-  %.not117 = icmp eq ptr %60, null
-  br i1 %.not117, label %61, label %219
+  %.not116 = icmp eq ptr %60, null
+  br i1 %.not116, label %61, label %219
 
 61:                                               ; preds = %58
   store i32 %.090.lcssa, ptr %4, align 4
   %62 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not118 = icmp eq ptr %62, null
-  br i1 %.not118, label %64, label %63
+  %.not117 = icmp eq ptr %62, null
+  br i1 %.not117, label %64, label %63
 
 63:                                               ; preds = %61
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.62, i32 noundef %.090.lcssa)
@@ -5740,20 +5740,20 @@ define hidden noundef zeroext i1 @_ZN18VM_RedefineClasses20merge_constant_poolsE
   %70 = load i32, ptr %69, align 4
   %71 = tail call noundef i32 @llvm.smin.i32(i32 %67, i32 %70)
   %72 = icmp sgt i32 %71, 1
-  br i1 %72, label %.lr.ph126, label %._crit_edge127
+  br i1 %72, label %.lr.ph125, label %._crit_edge126
 
-.lr.ph126:                                        ; preds = %64
+.lr.ph125:                                        ; preds = %64
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %75
 
-75:                                               ; preds = %.lr.ph126, %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit
-  %.091124 = phi i32 [ 1, %.lr.ph126 ], [ %119, %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit ]
+75:                                               ; preds = %.lr.ph125, %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit
+  %.091123 = phi i32 [ 1, %.lr.ph125 ], [ %119, %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit ]
   %76 = load ptr, ptr %2, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
-  %80 = zext nneg i32 %.091124 to i64
+  %80 = zext nneg i32 %.091123 to i64
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 %80
   %82 = load volatile i8, ptr %81, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !25
@@ -5761,17 +5761,17 @@ define hidden noundef zeroext i1 @_ZN18VM_RedefineClasses20merge_constant_poolsE
   %switch = icmp ult i8 %.off, 2
   %. = select i1 %switch, i32 2, i32 1
   %83 = load ptr, ptr %2, align 8
-  %84 = tail call noundef zeroext i1 @_ZN12ConstantPool16compare_entry_toEiRK18constantPoolHandlei(ptr noundef nonnull align 8 dereferenceable(68) %83, i32 noundef %.091124, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %.091124) #20
+  %84 = tail call noundef zeroext i1 @_ZN12ConstantPool16compare_entry_toEiRK18constantPoolHandlei(ptr noundef nonnull align 8 dereferenceable(68) %83, i32 noundef %.091123, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %.091123) #20
   br i1 %84, label %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit, label %85
 
 85:                                               ; preds = %75
   %86 = load ptr, ptr %2, align 8
-  %87 = tail call noundef i32 @_ZN12ConstantPool19find_matching_entryEiRK18constantPoolHandle(ptr noundef nonnull align 8 dereferenceable(68) %86, i32 noundef %.091124, ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %87 = tail call noundef i32 @_ZN12ConstantPool19find_matching_entryEiRK18constantPoolHandle(ptr noundef nonnull align 8 dereferenceable(68) %86, i32 noundef %.091123, ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   %.not98 = icmp eq i32 %87, 0
   br i1 %.not98, label %118, label %88
 
 88:                                               ; preds = %85
-  %.not99 = icmp eq i32 %87, %.091124
+  %.not99 = icmp eq i32 %87, %.091123
   br i1 %.not99, label %89, label %91
 
 89:                                               ; preds = %88
@@ -5783,16 +5783,16 @@ define hidden noundef zeroext i1 @_ZN18VM_RedefineClasses20merge_constant_poolsE
 91:                                               ; preds = %88
   %92 = load i32, ptr %73, align 4
   %93 = icmp eq i32 %92, 0
-  %.pre136 = load ptr, ptr %74, align 8
+  %.pre135 = load ptr, ptr %74, align 8
   br i1 %93, label %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i.thread, label %94
 
 94:                                               ; preds = %91
-  %95 = load i32, ptr %.pre136, align 4
-  %.not.i.i = icmp slt i32 %.091124, %95
+  %95 = load i32, ptr %.pre135, align 4
+  %.not.i.i = icmp slt i32 %.091123, %95
   br i1 %.not.i.i, label %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i, label %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i.thread
 
 _ZN18VM_RedefineClasses14find_new_indexEi.exit.i: ; preds = %94
-  %96 = getelementptr inbounds nuw i8, ptr %.pre136, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.pre135, i64 8
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds nuw i32, ptr %97, i64 %80
   %99 = load i32, ptr %98, align 4
@@ -5803,7 +5803,7 @@ _ZN18VM_RedefineClasses14find_new_indexEi.exit.i: ; preds = %94
   br i1 %103, label %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit, label %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i.thread
 
 _ZN18VM_RedefineClasses14find_new_indexEi.exit.i.thread: ; preds = %91, %94, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i
-  %104 = getelementptr inbounds nuw i8, ptr %.pre136, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %.pre135, i64 8
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds nuw i32, ptr %105, i64 %80
   store i32 %87, ptr %106, align 4
@@ -5823,50 +5823,50 @@ _ZN18VM_RedefineClasses14find_new_indexEi.exit.i.thread: ; preds = %91, %94, %_Z
   %116 = load volatile i8, ptr %115, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !25
   %117 = sext i8 %116 to i32
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.59, i32 noundef %117, i32 noundef %.091124, i32 noundef %87)
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.59, i32 noundef %117, i32 noundef %.091123, i32 noundef %87)
   br label %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit
 
 118:                                              ; preds = %85
-  tail call void @_ZN18VM_RedefineClasses12append_entryERK18constantPoolHandleiPS0_Pi(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %.091124, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  tail call void @_ZN18VM_RedefineClasses12append_entryERK18constantPoolHandleiPS0_Pi(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %.091123, ptr noundef nonnull %3, ptr noundef nonnull %4)
   br label %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit
 
 _ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit: ; preds = %110, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i.thread, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i, %75, %118
-  %119 = add nuw nsw i32 %., %.091124
+  %119 = add nuw nsw i32 %., %.091123
   %120 = icmp slt i32 %119, %71
-  br i1 %120, label %75, label %._crit_edge127, !llvm.loop !37
+  br i1 %120, label %75, label %._crit_edge126, !llvm.loop !37
 
-._crit_edge127:                                   ; preds = %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit, %64
+._crit_edge126:                                   ; preds = %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit, %64
   %.091.lcssa = phi i32 [ 1, %64 ], [ %119, %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit ]
   %121 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not119 = icmp eq ptr %121, null
-  br i1 %.not119, label %126, label %122
+  %.not118 = icmp eq ptr %121, null
+  br i1 %.not118, label %126, label %122
 
-122:                                              ; preds = %._crit_edge127
+122:                                              ; preds = %._crit_edge126
   %123 = load i32, ptr %4, align 4
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %125 = load i32, ptr %124, align 4
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.64, i32 noundef %123, i32 noundef %.091.lcssa, i32 noundef %125)
   br label %126
 
-126:                                              ; preds = %._crit_edge127, %122
+126:                                              ; preds = %._crit_edge126, %122
   %127 = load ptr, ptr %2, align 8
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 60
   %129 = load i32, ptr %128, align 4
   %130 = icmp slt i32 %.091.lcssa, %129
-  br i1 %130, label %.lr.ph130, label %186
+  br i1 %130, label %.lr.ph129, label %186
 
-.lr.ph130:                                        ; preds = %126
+.lr.ph129:                                        ; preds = %126
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %133
 
-133:                                              ; preds = %.lr.ph130, %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit110
-  %134 = phi ptr [ %127, %.lr.ph130 ], [ %177, %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit110 ]
-  %.192129 = phi i32 [ %.091.lcssa, %.lr.ph130 ], [ %176, %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit110 ]
+133:                                              ; preds = %.lr.ph129, %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit109
+  %134 = phi ptr [ %127, %.lr.ph129 ], [ %177, %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit109 ]
+  %.192128 = phi i32 [ %.091.lcssa, %.lr.ph129 ], [ %176, %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit109 ]
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %136 = load ptr, ptr %135, align 8
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 4
-  %138 = zext nneg i32 %.192129 to i64
+  %138 = zext nneg i32 %.192128 to i64
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 %138
   %140 = load volatile i8, ptr %139, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !25
@@ -5874,20 +5874,20 @@ _ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit: ; preds = %110,
   %switch101 = icmp ult i8 %.off100, 2
   %.102 = select i1 %switch101, i32 2, i32 1
   %141 = load ptr, ptr %2, align 8
-  %142 = tail call noundef i32 @_ZN12ConstantPool19find_matching_entryEiRK18constantPoolHandle(ptr noundef nonnull align 8 dereferenceable(68) %141, i32 noundef %.192129, ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %142 = tail call noundef i32 @_ZN12ConstantPool19find_matching_entryEiRK18constantPoolHandle(ptr noundef nonnull align 8 dereferenceable(68) %141, i32 noundef %.192128, ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   %.not = icmp eq i32 %142, 0
   br i1 %.not, label %175, label %143
 
 143:                                              ; preds = %133
   %144 = load i32, ptr %131, align 4
   %145 = icmp eq i32 %144, 0
-  br i1 %145, label %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i106, label %146
+  br i1 %145, label %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i105, label %146
 
 146:                                              ; preds = %143
   %147 = load ptr, ptr %132, align 8
   %148 = load i32, ptr %147, align 4
-  %.not.i.i105 = icmp slt i32 %.192129, %148
-  br i1 %.not.i.i105, label %149, label %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i106
+  %.not.i.i104 = icmp slt i32 %.192128, %148
+  br i1 %.not.i.i104, label %149, label %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i105
 
 149:                                              ; preds = %146
   %150 = getelementptr inbounds nuw i8, ptr %147, i64 8
@@ -5898,15 +5898,15 @@ _ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit: ; preds = %110,
   %155 = and i32 %153, 65535
   %156 = icmp ne i32 %155, 0
   %157 = and i1 %154, %156
-  br label %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i106
+  br label %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i105
 
-_ZN18VM_RedefineClasses14find_new_indexEi.exit.i106: ; preds = %149, %146, %143
-  %.0.i.i107 = phi i1 [ false, %146 ], [ false, %143 ], [ %157, %149 ]
-  %158 = icmp eq i32 %.192129, %142
-  %or.cond.i108 = or i1 %158, %.0.i.i107
-  br i1 %or.cond.i108, label %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit110, label %159
+_ZN18VM_RedefineClasses14find_new_indexEi.exit.i105: ; preds = %149, %146, %143
+  %.0.i.i106 = phi i1 [ false, %146 ], [ false, %143 ], [ %157, %149 ]
+  %158 = icmp eq i32 %.192128, %142
+  %or.cond.i107 = or i1 %158, %.0.i.i106
+  br i1 %or.cond.i107, label %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit109, label %159
 
-159:                                              ; preds = %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i106
+159:                                              ; preds = %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i105
   %160 = load ptr, ptr %132, align 8
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %162 = load ptr, ptr %161, align 8
@@ -5916,8 +5916,8 @@ _ZN18VM_RedefineClasses14find_new_indexEi.exit.i106: ; preds = %149, %146, %143
   %165 = add nsw i32 %164, 1
   store i32 %165, ptr %131, align 4
   %166 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not.i109 = icmp eq ptr %166, null
-  br i1 %.not.i109, label %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit110, label %167
+  %.not.i108 = icmp eq ptr %166, null
+  br i1 %.not.i108, label %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit109, label %167
 
 167:                                              ; preds = %159
   %168 = load ptr, ptr %2, align 8
@@ -5928,34 +5928,34 @@ _ZN18VM_RedefineClasses14find_new_indexEi.exit.i106: ; preds = %149, %146, %143
   %173 = load volatile i8, ptr %172, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !25
   %174 = sext i8 %173 to i32
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.59, i32 noundef %174, i32 noundef %.192129, i32 noundef %142)
-  br label %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit110
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.59, i32 noundef %174, i32 noundef %.192128, i32 noundef %142)
+  br label %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit109
 
 175:                                              ; preds = %133
-  tail call void @_ZN18VM_RedefineClasses12append_entryERK18constantPoolHandleiPS0_Pi(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %.192129, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  br label %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit110
+  tail call void @_ZN18VM_RedefineClasses12append_entryERK18constantPoolHandleiPS0_Pi(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %.192128, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  br label %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit109
 
-_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit110: ; preds = %167, %159, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i106, %175
-  %176 = add nuw nsw i32 %.102, %.192129
+_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit109: ; preds = %167, %159, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i105, %175
+  %176 = add nuw nsw i32 %.102, %.192128
   %177 = load ptr, ptr %2, align 8
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 60
   %179 = load i32, ptr %178, align 4
   %180 = icmp slt i32 %176, %179
-  br i1 %180, label %133, label %._crit_edge131, !llvm.loop !38
+  br i1 %180, label %133, label %._crit_edge130, !llvm.loop !38
 
-._crit_edge131:                                   ; preds = %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit110
+._crit_edge130:                                   ; preds = %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit109
   %181 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not120 = icmp eq ptr %181, null
-  br i1 %.not120, label %186, label %182
+  %.not119 = icmp eq ptr %181, null
+  br i1 %.not119, label %186, label %182
 
-182:                                              ; preds = %._crit_edge131
+182:                                              ; preds = %._crit_edge130
   %183 = load i32, ptr %4, align 4
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %185 = load i32, ptr %184, align 4
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.65, i32 noundef %183, i32 noundef %176, i32 noundef %185)
   br label %186
 
-186:                                              ; preds = %182, %._crit_edge131, %126
+186:                                              ; preds = %182, %._crit_edge130, %126
   %187 = load ptr, ptr %3, align 8
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 32
   %189 = load ptr, ptr %188, align 8
@@ -5993,8 +5993,8 @@ _ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit110: ; preds = %1
   %204 = load ptr, ptr %203, align 8
   %205 = getelementptr inbounds nuw i32, ptr %204, i64 %indvars.iv.i
   %206 = load i32, ptr %205, align 4
-  %.not.i111 = icmp eq i32 %206, -1
-  br i1 %.not.i111, label %213, label %207
+  %.not.i110 = icmp eq i32 %206, -1
+  br i1 %.not.i110, label %213, label %207
 
 207:                                              ; preds = %.lr.ph.i
   %208 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -6031,11 +6031,11 @@ _ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit110: ; preds = %1
 
 _ZN18VM_RedefineClasses23finalize_operands_mergeERK18constantPoolHandleP10JavaThread.exit: ; preds = %186, %191, %.loopexit.i
   %218 = load ptr, ptr %56, align 8
-  %.not121 = icmp eq ptr %218, null
+  %.not120 = icmp eq ptr %218, null
   br label %219
 
 219:                                              ; preds = %_ZN18VM_RedefineClasses23finalize_operands_mergeERK18constantPoolHandleP10JavaThread.exit, %58, %._crit_edge, %9, %6
-  %.0 = phi i1 [ false, %58 ], [ false, %6 ], [ %.not121, %_ZN18VM_RedefineClasses23finalize_operands_mergeERK18constantPoolHandleP10JavaThread.exit ], [ false, %9 ], [ false, %._crit_edge ]
+  %.0 = phi i1 [ false, %58 ], [ false, %6 ], [ %.not120, %_ZN18VM_RedefineClasses23finalize_operands_mergeERK18constantPoolHandleP10JavaThread.exit ], [ false, %9 ], [ false, %._crit_edge ]
   ret i1 %.0
 }
 

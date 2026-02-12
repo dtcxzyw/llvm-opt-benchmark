@@ -35765,9 +35765,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_18CheckAllEm(i64 noundef %0) unname
   store i16 %81, ptr %80, align 2
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, 8
-  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN4absl16numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i.i.i, label %72, !llvm.loop !979
+  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN4absl16strings_internal22ExtractStringificationINS_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i.i.i, label %72, !llvm.loop !979
 
-_ZN4absl16numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i.i.i: ; preds = %72
+_ZN4absl16strings_internal22ExtractStringificationINS_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i.i.i: ; preds = %72
   %82 = trunc i64 %0 to i32
   %83 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %84 = or i64 %68, 1
@@ -35781,7 +35781,7 @@ _ZN4absl16numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i.i.i: ; preds
   invoke void @_ZN4absl16strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %54, i64 %86, ptr nonnull %88)
           to label %89 unwind label %119
 
-89:                                               ; preds = %_ZN4absl16numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i.i.i
+89:                                               ; preds = %_ZN4absl16strings_internal22ExtractStringificationINS_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   %90 = load ptr, ptr %54, align 8, !tbaa !29
   %91 = load i64, ptr %70, align 8, !tbaa !23
@@ -35871,7 +35871,7 @@ _ZN7testing8internal8EqHelper7CompareIA256_cNSt7__cxx1112basic_stringIcSt11char_
   %118 = trunc nuw i8 %117 to i1
   br i1 %118, label %160, label %127
 
-119:                                              ; preds = %.noexc.i.i.i.i, %.noexc.i.i.i, %_ZN4absl16numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i.i.i
+119:                                              ; preds = %.noexc.i.i.i.i, %.noexc.i.i.i, %_ZN4absl16strings_internal22ExtractStringificationINS_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i.i.i
   %120 = landingpad { ptr, i32 }
           cleanup
   %121 = load ptr, ptr %54, align 8, !tbaa !29
@@ -39023,9 +39023,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_113CheckHexDec64Em(i64 noundef %0) 
   store i16 %102, ptr %101, align 2
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, 8
-  br i1 %exitcond.not.i.i.i.i.i, label %_ZN4absl16numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i.i, label %93, !llvm.loop !979
+  br i1 %exitcond.not.i.i.i.i.i, label %_ZN4absl16strings_internal22ExtractStringificationINS_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i.i, label %93, !llvm.loop !979
 
-_ZN4absl16numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i.i: ; preds = %93
+_ZN4absl16strings_internal22ExtractStringificationINS_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i.i: ; preds = %93
   %103 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %104 = or i64 %0, 1
   %105 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %104, i1 true)
@@ -39038,7 +39038,7 @@ _ZN4absl16numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i.i: ; preds =
   invoke void @_ZN4absl16strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %76, i64 %106, ptr nonnull %108)
           to label %109 unwind label %139
 
-109:                                              ; preds = %_ZN4absl16numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i.i
+109:                                              ; preds = %_ZN4absl16strings_internal22ExtractStringificationINS_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
   %110 = load ptr, ptr %76, align 8, !tbaa !29
   %111 = load i64, ptr %91, align 8, !tbaa !23
@@ -39128,7 +39128,7 @@ _ZN7testing8internal8EqHelper7CompareIA256_cNSt7__cxx1112basic_stringIcSt11char_
   %138 = trunc nuw i8 %137 to i1
   br i1 %138, label %180, label %147
 
-139:                                              ; preds = %.noexc.i.i.i, %.noexc.i.i, %_ZN4absl16numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i.i
+139:                                              ; preds = %.noexc.i.i.i, %.noexc.i.i, %_ZN4absl16strings_internal22ExtractStringificationINS_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i.i
   %140 = landingpad { ptr, i32 }
           cleanup
   %141 = load ptr, ptr %76, align 8, !tbaa !29
@@ -42185,16 +42185,16 @@ _ZN12_GLOBAL__N_18CheckDecIxEEvT_PKcS3_S3_.exit:  ; preds = %1041, %_ZNKSt7__cxx
   store i16 %1187, ptr %1186, align 2
   %indvars.iv.next.i.i.i.i.i120 = add nuw nsw i64 %indvars.iv.i.i.i.i.i119, 1
   %exitcond.not.i.i.i.i.i121 = icmp eq i64 %indvars.iv.next.i.i.i.i.i120, 8
-  br i1 %exitcond.not.i.i.i.i.i121, label %_ZN4absl16numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i.i122, label %1178, !llvm.loop !979
+  br i1 %exitcond.not.i.i.i.i.i121, label %_ZN4absl16strings_internal22ExtractStringificationINS_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i.i122, label %1178, !llvm.loop !979
 
-_ZN4absl16numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i.i122: ; preds = %1178
+_ZN4absl16strings_internal22ExtractStringificationINS_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i.i122: ; preds = %1178
   %1188 = inttoptr i64 %0 to ptr
   %1189 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %1190 = getelementptr inbounds i8, ptr %1189, i64 %107
   invoke void @_ZN4absl16strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 %106, ptr nonnull %1190)
           to label %1191 unwind label %1221
 
-1191:                                             ; preds = %_ZN4absl16numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i.i122
+1191:                                             ; preds = %_ZN4absl16strings_internal22ExtractStringificationINS_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i.i122
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %1192 = load ptr, ptr %10, align 8, !tbaa !29
   %1193 = load i64, ptr %1176, align 8, !tbaa !23
@@ -42284,7 +42284,7 @@ _ZN7testing8internal8EqHelper7CompareIA256_cNSt7__cxx1112basic_stringIcSt11char_
   %1220 = trunc nuw i8 %1219 to i1
   br i1 %1220, label %1266, label %1229
 
-1221:                                             ; preds = %.noexc.i.i.i181, %.noexc.i.i182, %_ZN4absl16numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i.i122
+1221:                                             ; preds = %.noexc.i.i.i181, %.noexc.i.i182, %_ZN4absl16strings_internal22ExtractStringificationINS_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i.i122
   %1222 = landingpad { ptr, i32 }
           cleanup
   %1223 = load ptr, ptr %10, align 8, !tbaa !29

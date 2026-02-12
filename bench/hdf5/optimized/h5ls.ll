@@ -1794,7 +1794,6 @@ print_string.exit:                                ; preds = %.preheader110
 
 .lr.ph122.preheader:                              ; preds = %.lr.ph117, %61
   %70 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %17, ptr noundef nonnull @.str.73) #20
-  %smax = call i32 @llvm.smax.i32(i32 %43, i32 1)
   br label %.lr.ph122
 
 .lr.ph122:                                        ; preds = %.lr.ph122.preheader, %88
@@ -1832,7 +1831,7 @@ print_string.exit:                                ; preds = %.preheader110
   %90 = load i64, ptr %15, align 8, !tbaa !44
   %91 = add i64 %90, %.193119
   %92 = add nuw nsw i32 %.3120, 1
-  %exitcond142.not = icmp eq i32 %92, %smax
+  %exitcond142.not = icmp eq i32 %92, %43
   br i1 %exitcond142.not, label %._crit_edge123, label %.lr.ph122, !llvm.loop !66
 
 ._crit_edge123:                                   ; preds = %88

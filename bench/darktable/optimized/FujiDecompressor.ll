@@ -1320,7 +1320,7 @@ _ZNKSt6vectorIaSaIaEE12_M_check_lenEmPKc.exit.i.i: ; preds = %80
 .body.i:                                          ; preds = %114, %112
   call void @_ZN8rawspeed8RawImageD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %15) #31
   call void @_ZN8rawspeed8RawImageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #31
-  br label %1630
+  br label %1627
 
 _ZN8rawspeed8RawImageD2Ev.exit:                   ; preds = %105, %._crit_edge.i.i
   %.sink37.i.i = phi i32 [ 16384, %105 ], [ 65536, %._crit_edge.i.i ]
@@ -1454,8 +1454,8 @@ _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_blockC2ENS_10Array2DRefItEERKNS_16Fu
 
 168:                                              ; preds = %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_stripERKNS0_9FujiStripE.exit.i.i, %.lr.ph.i.i8
   %indvars.iv.i.i9 = phi i64 [ 0, %.lr.ph.i.i8 ], [ %indvars.iv.next.i.i11, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_stripERKNS0_9FujiStripE.exit.i.i ]
-  %169 = phi ptr [ %152, %.lr.ph.i.i8 ], [ %1579, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_stripERKNS0_9FujiStripE.exit.i.i ]
-  %170 = phi ptr [ %.pre132, %.lr.ph.i.i8 ], [ %1578, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_stripERKNS0_9FujiStripE.exit.i.i ]
+  %169 = phi ptr [ %152, %.lr.ph.i.i8 ], [ %1576, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_stripERKNS0_9FujiStripE.exit.i.i ]
+  %170 = phi ptr [ %.pre132, %.lr.ph.i.i8 ], [ %1575, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_stripERKNS0_9FujiStripE.exit.i.i ]
   %171 = load ptr, ptr %43, align 8, !tbaa !207, !nonnull !132, !noundef !132
   %172 = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !208
   %173 = zext nneg i32 %172 to i64
@@ -1601,7 +1601,7 @@ _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_blockC2ENS_10Array2DRefItEERKNS_16Fu
 
 236:                                              ; preds = %232
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.20, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed26BitStreamerReplenisherBaseINS_14BitStreamerMSBEEC2ENS_10Array1DRefIKSt4byteEE) #17
-          to label %.noexc.i.i unwind label %1544
+          to label %.noexc.i.i unwind label %1541
 
 .noexc.i.i:                                       ; preds = %236
   unreachable
@@ -1638,7 +1638,7 @@ _ZN8rawspeed8OptionalINS_14BitStreamerMSBEEaSIS1_Qsr3stdE7same_asITL0__T_EEERS2_
   %249 = add nuw nsw i64 %244, 8
   br label %252
 
-.loopexit.i.i.i:                                  ; preds = %1529
+.loopexit.i.i.i:                                  ; preds = %1526
   %.val.val.i.i.i = load i16, ptr %240, align 4, !tbaa !154
   %250 = zext i16 %.val.val.i.i.i to i64
   %251 = icmp samesign ult i64 %indvars.iv.next.i21.i.i, %250
@@ -1674,7 +1674,7 @@ _ZN8rawspeed8OptionalINS_14BitStreamerMSBEEaSIS1_Qsr3stdE7same_asITL0__T_EEERS2_
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %_ZSt4fillIPiiEvT_S1_RKT0_.exit.i.i.i.i, %.preheader.i.i.i.i.i.i
-  %.0.i117.i.i.i.i = phi i32 [ 0, %.preheader.i.i.i.i.i.i ], [ %794, %_ZSt4fillIPiiEvT_S1_RKT0_.exit.i.i.i.i ]
+  %.0.i117.i.i.i.i = phi i32 [ 0, %.preheader.i.i.i.i.i.i ], [ %793, %_ZSt4fillIPiiEvT_S1_RKT0_.exit.i.i.i.i ]
   %270 = shl nuw i32 %.0.i117.i.i.i.i, 1
   %271 = and i32 %270, 2
   %272 = zext nneg i32 %271 to i64
@@ -1723,7 +1723,7 @@ switch.lookup:                                    ; preds = %_ZSt4fillIPiiEvT_S1
   br label %306
 
 306:                                              ; preds = %.loopexit.i.i.i.i.i, %switch.lookup
-  %.0157.i.i.i.i.i = phi i32 [ 0, %switch.lookup ], [ %782, %.loopexit.i.i.i.i.i ]
+  %.0157.i.i.i.i.i = phi i32 [ 0, %switch.lookup ], [ %781, %.loopexit.i.i.i.i.i ]
   %307 = icmp samesign ult i32 %.0157.i.i.i.i.i, %263
   br i1 %307, label %.preheader146.i.i.i.i.i, label %.loopexit147.i.i.i.i.i
 
@@ -1938,10 +1938,10 @@ _ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block36fuji_decode_interpolation_ev
 
 438:                                              ; preds = %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i.i.i.i, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block36fuji_decode_interpolation_even_innerENS0_8xt_linesEi.exit.i.i.i.i.i.i
   %439 = phi i32 [ %321, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block36fuji_decode_interpolation_even_innerENS0_8xt_linesEi.exit.i.i.i.i.i.i ], [ %465, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i.i.i.i ]
-  %440 = phi i64 [ %.promoted17.i.i.i.i.i.i.i, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block36fuji_decode_interpolation_even_innerENS0_8xt_linesEi.exit.i.i.i.i.i.i ], [ %478, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i.i.i.i ]
+  %440 = phi i64 [ %.promoted17.i.i.i.i.i.i.i, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block36fuji_decode_interpolation_even_innerENS0_8xt_linesEi.exit.i.i.i.i.i.i ], [ %477, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i.i.i.i ]
   %441 = phi i32 [ %321, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block36fuji_decode_interpolation_even_innerENS0_8xt_linesEi.exit.i.i.i.i.i.i ], [ %467, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i.i.i.i ]
-  %442 = phi i32 [ %322, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block36fuji_decode_interpolation_even_innerENS0_8xt_linesEi.exit.i.i.i.i.i.i ], [ %476, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i.i.i.i ]
-  %.014.i.i.i.i.i.i.i = phi i32 [ 0, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block36fuji_decode_interpolation_even_innerENS0_8xt_linesEi.exit.i.i.i.i.i.i ], [ %473, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i.i.i.i ]
+  %442 = phi i32 [ %322, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block36fuji_decode_interpolation_even_innerENS0_8xt_linesEi.exit.i.i.i.i.i.i ], [ %475, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i.i.i.i ]
+  %.014.i.i.i.i.i.i.i = phi i32 [ 0, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block36fuji_decode_interpolation_even_innerENS0_8xt_linesEi.exit.i.i.i.i.i.i ], [ %472, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i.i.i.i ]
   %443 = icmp samesign ult i32 %442, 65
   call void @llvm.assume(i1 %443)
   %.not.i.i.i.i.i.i.i.i = icmp samesign ult i32 %442, 32
@@ -1995,59 +1995,59 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %466 = phi i64 [ %440, %438 ], [ %464, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i.i.i.i ]
   %467 = phi i32 [ %441, %438 ], [ %445, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i.i.i.i ]
   %468 = phi i32 [ %442, %438 ], [ %460, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i.i.i.i ]
-  %469 = icmp sgt i32 %467, -1
-  call void @llvm.assume(i1 %469)
-  %470 = lshr i64 %466, 32
-  %471 = trunc nuw i64 %470 to i32
-  %472 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %471, i1 false)
-  %473 = add nuw nsw i32 %472, %.014.i.i.i.i.i.i.i
-  %474 = icmp eq i64 %470, 0
-  %475 = add nuw nsw i32 %472, 1
-  %spec.select.i.i.i.i.i.i.i = select i1 %474, i32 32, i32 %475
-  %476 = sub nuw nsw i32 %468, %spec.select.i.i.i.i.i.i.i
-  store i32 %476, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !231
-  %477 = zext nneg i32 %spec.select.i.i.i.i.i.i.i to i64
-  %478 = shl i64 %466, %477
-  store i64 %478, ptr %160, align 8, !tbaa !233
-  br i1 %474, label %438, label %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i.i.i.i
+  %469 = lshr i64 %466, 32
+  %470 = trunc nuw i64 %469 to i32
+  %471 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %470, i1 false)
+  %472 = add nuw nsw i32 %471, %.014.i.i.i.i.i.i.i
+  %473 = icmp eq i64 %469, 0
+  %474 = add nuw nsw i32 %471, 1
+  %spec.select.i.i.i.i.i.i.i = select i1 %473, i32 32, i32 %474
+  %475 = sub nuw nsw i32 %468, %spec.select.i.i.i.i.i.i.i
+  store i32 %475, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !231
+  %476 = zext nneg i32 %spec.select.i.i.i.i.i.i.i to i64
+  %477 = shl i64 %466, %476
+  store i64 %477, ptr %160, align 8, !tbaa !233
+  br i1 %473, label %438, label %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i.i.i.i
 
 _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i.i.i.i: ; preds = %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i.i.i.i
-  %479 = load i32, ptr %265, align 4, !tbaa !180
-  %480 = load i32, ptr %266, align 4, !tbaa !179
-  %481 = xor i32 %480, -1
-  %482 = add i32 %479, %481
-  %483 = icmp slt i32 %473, %482
-  br i1 %483, label %484, label %499
+  %478 = load i32, ptr %265, align 4, !tbaa !180
+  %479 = load i32, ptr %266, align 4, !tbaa !179
+  %480 = xor i32 %479, -1
+  %481 = add i32 %478, %480
+  %482 = icmp slt i32 %472, %481
+  br i1 %482, label %483, label %498
 
-484:                                              ; preds = %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i.i.i.i
-  %485 = zext nneg i32 %437 to i64
-  %486 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %291, i64 %485
-  %487 = load i32, ptr %486, align 8, !tbaa !221
-  %488 = getelementptr inbounds nuw i8, ptr %486, i64 4
-  %489 = load i32, ptr %488, align 4, !tbaa !223
-  %490 = icmp sgt i32 %487, -1
+483:                                              ; preds = %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i.i.i.i
+  %484 = zext nneg i32 %437 to i64
+  %485 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %291, i64 %484
+  %486 = load i32, ptr %485, align 8, !tbaa !221
+  %487 = getelementptr inbounds nuw i8, ptr %485, i64 4
+  %488 = load i32, ptr %487, align 4, !tbaa !223
+  %489 = icmp sgt i32 %486, -1
+  call void @llvm.assume(i1 %489)
+  %490 = icmp sgt i32 %488, 0
   call void @llvm.assume(i1 %490)
-  %491 = icmp sgt i32 %489, 0
-  call void @llvm.assume(i1 %491)
-  %492 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %487, i1 false)
-  %493 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %489, i1 true)
-  %494 = sub nsw i32 %493, %492
-  %.sroa.speculated11.i.i.i.i.i.i.i = call i32 @llvm.smax.i32(i32 %494, i32 0)
-  %495 = shl i32 %489, %.sroa.speculated11.i.i.i.i.i.i.i
-  %496 = icmp slt i32 %495, %487
-  %497 = zext i1 %496 to i32
-  %spec.select.i92.i.i.i.i.i.i = add nuw nsw i32 %.sroa.speculated11.i.i.i.i.i.i.i, %497
+  %491 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %486, i1 false)
+  %492 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %488, i1 true)
+  %493 = sub nsw i32 %492, %491
+  %.sroa.speculated11.i.i.i.i.i.i.i = call i32 @llvm.smax.i32(i32 %493, i32 0)
+  %494 = shl i32 %488, %.sroa.speculated11.i.i.i.i.i.i.i
+  %495 = icmp slt i32 %494, %486
+  %496 = zext i1 %495 to i32
+  %spec.select.i92.i.i.i.i.i.i = add nuw nsw i32 %.sroa.speculated11.i.i.i.i.i.i.i, %496
   %.sroa.speculated.i.i.i.i.i.i.i = call noundef range(i32 0, 16) i32 @llvm.umin.i32(i32 %spec.select.i92.i.i.i.i.i.i, i32 15)
-  %498 = shl i32 %473, %.sroa.speculated.i.i.i.i.i.i.i
-  br label %499
+  %497 = shl i32 %472, %.sroa.speculated.i.i.i.i.i.i.i
+  br label %498
 
-499:                                              ; preds = %484, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i.i.i.i
-  %.033.i.i.i.i.i.i.i = phi i32 [ %.sroa.speculated.i.i.i.i.i.i.i, %484 ], [ %480, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i.i.i.i ]
-  %.032.i.i.i.i.i.i.i = phi i32 [ %498, %484 ], [ 1, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i.i.i.i ]
-  %.not.i93.i.i.i.i.i.i = icmp samesign ult i32 %476, 32
+498:                                              ; preds = %483, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i.i.i.i
+  %.033.i.i.i.i.i.i.i = phi i32 [ %.sroa.speculated.i.i.i.i.i.i.i, %483 ], [ %479, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i.i.i.i ]
+  %.032.i.i.i.i.i.i.i = phi i32 [ %497, %483 ], [ 1, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i.i.i.i ]
+  %499 = icmp sgt i32 %467, -1
+  call void @llvm.assume(i1 %499)
+  %.not.i93.i.i.i.i.i.i = icmp samesign ult i32 %475, 32
   br i1 %.not.i93.i.i.i.i.i.i, label %500, label %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i.i.i
 
-500:                                              ; preds = %499
+500:                                              ; preds = %498
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i)
   %501 = add nuw nsw i32 %467, 4
   %.not.i.i94.i.i.i.i.i.i = icmp samesign ugt i32 %501, %317
@@ -2082,20 +2082,20 @@ _ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getI
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i)
   %514 = call i32 @llvm.bswap.i32(i32 %.sroa.0.0..sroa.0.0..i.i.i.i.i.i.i.i)
   %515 = zext i32 %514 to i64
-  %516 = or disjoint i32 %476, 32
-  %517 = sub nuw nsw i32 32, %476
+  %516 = or disjoint i32 %475, 32
+  %517 = sub nuw nsw i32 32, %475
   %518 = zext nneg i32 %517 to i64
   %519 = shl nuw i64 %515, %518
-  %520 = or i64 %519, %478
+  %520 = or i64 %519, %477
   store i64 %520, ptr %160, align 8, !tbaa !233
   store i32 %516, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !231
   store i32 %501, ptr %.sroa.842.0..sroa_idx.i.i, align 8, !tbaa !228
   br label %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i.i.i
 
-_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i.i.i: ; preds = %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i.i.i, %499
-  %521 = phi i32 [ %465, %499 ], [ %501, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i.i.i ]
-  %522 = phi i32 [ %476, %499 ], [ %516, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i.i.i ]
-  %523 = phi i64 [ %478, %499 ], [ %520, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i.i.i ]
+_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i.i.i: ; preds = %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i.i.i, %498
+  %521 = phi i32 [ %465, %498 ], [ %501, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i.i.i ]
+  %522 = phi i32 [ %475, %498 ], [ %516, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i.i.i ]
+  %523 = phi i64 [ %477, %498 ], [ %520, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i.i.i ]
   %.not.i.i.i9.i.i.i.i = icmp eq i32 %.033.i.i.i.i.i.i.i, 0
   br i1 %.not.i.i.i9.i.i.i.i, label %533, label %524
 
@@ -2225,8 +2225,8 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   br label %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_odd_innerENS0_8xt_linesEi.exit.i.i.i.i.i
 
 _ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_odd_innerENS0_8xt_linesEi.exit.i.i.i.i.i: ; preds = %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i.i.i.i, %.preheader.i.i.i.i.i
-  %581 = phi i32 [ %.promoted16.i.pre.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %729, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i.i.i.i ]
-  %582 = phi i32 [ %.promoted16.i.pre.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %743, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i.i.i.i ]
+  %581 = phi i32 [ %.promoted16.i.pre.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %728, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i.i.i.i ]
+  %582 = phi i32 [ %.promoted16.i.pre.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %742, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i.i.i.i ]
   %.promoted.i.i.i.i.i.i = phi i32 [ %.promoted.i.pre.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %.promoted.i169.i.i.i.i.i, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i.i.i.i ]
   %.not31.i.i.i.i.i = phi i1 [ false, %.preheader.i.i.i.i.i ], [ true, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i.i.i.i ]
   %indvars.iv165.i.sroa.phi.i.i.i.i = phi ptr [ %7, %.preheader.i.i.i.i.i ], [ %indvars.iv165.i.sroa.gep88.i.i.i.i, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i.i.i.i ]
@@ -2304,10 +2304,10 @@ _ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_od
 642:                                              ; preds = %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i51.i.i.i.i.i, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_odd_innerENS0_8xt_linesEi.exit.i.i.i.i.i
   %643 = phi i32 [ %581, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_odd_innerENS0_8xt_linesEi.exit.i.i.i.i.i ], [ %670, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i51.i.i.i.i.i ]
   %644 = phi i32 [ %582, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_odd_innerENS0_8xt_linesEi.exit.i.i.i.i.i ], [ %671, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i51.i.i.i.i.i ]
-  %645 = phi i64 [ %.promoted17.i.i.i.i.i.i, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_odd_innerENS0_8xt_linesEi.exit.i.i.i.i.i ], [ %684, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i51.i.i.i.i.i ]
+  %645 = phi i64 [ %.promoted17.i.i.i.i.i.i, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_odd_innerENS0_8xt_linesEi.exit.i.i.i.i.i ], [ %683, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i51.i.i.i.i.i ]
   %646 = phi i32 [ %582, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_odd_innerENS0_8xt_linesEi.exit.i.i.i.i.i ], [ %673, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i51.i.i.i.i.i ]
-  %647 = phi i32 [ %.promoted.i.i.i.i.i.i, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_odd_innerENS0_8xt_linesEi.exit.i.i.i.i.i ], [ %682, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i51.i.i.i.i.i ]
-  %.014.i.i.i.i.i.i = phi i32 [ 0, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_odd_innerENS0_8xt_linesEi.exit.i.i.i.i.i ], [ %679, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i51.i.i.i.i.i ]
+  %647 = phi i32 [ %.promoted.i.i.i.i.i.i, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_odd_innerENS0_8xt_linesEi.exit.i.i.i.i.i ], [ %681, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i51.i.i.i.i.i ]
+  %.014.i.i.i.i.i.i = phi i32 [ 0, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_odd_innerENS0_8xt_linesEi.exit.i.i.i.i.i ], [ %678, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i51.i.i.i.i.i ]
   %648 = icmp samesign ult i32 %647, 65
   call void @llvm.assume(i1 %648)
   %.not.i.i50.i.i.i.i.i = icmp samesign ult i32 %647, 32
@@ -2362,1824 +2362,1818 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %672 = phi i64 [ %645, %642 ], [ %669, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i54.i.i.i.i.i ]
   %673 = phi i32 [ %646, %642 ], [ %650, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i54.i.i.i.i.i ]
   %674 = phi i32 [ %647, %642 ], [ %665, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i54.i.i.i.i.i ]
-  %675 = icmp sgt i32 %673, -1
-  call void @llvm.assume(i1 %675)
-  %676 = lshr i64 %672, 32
-  %677 = trunc nuw i64 %676 to i32
-  %678 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %677, i1 false)
-  %679 = add nuw nsw i32 %678, %.014.i.i.i.i.i.i
-  %680 = icmp eq i64 %676, 0
-  %681 = add nuw nsw i32 %678, 1
-  %spec.select.i52.i.i.i.i.i = select i1 %680, i32 32, i32 %681
-  %682 = sub nuw nsw i32 %674, %spec.select.i52.i.i.i.i.i
-  store i32 %682, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !231
-  %683 = zext nneg i32 %spec.select.i52.i.i.i.i.i to i64
-  %684 = shl i64 %672, %683
-  store i64 %684, ptr %160, align 8, !tbaa !233
-  br i1 %680, label %642, label %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i.i.i
+  %675 = lshr i64 %672, 32
+  %676 = trunc nuw i64 %675 to i32
+  %677 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %676, i1 false)
+  %678 = add nuw nsw i32 %677, %.014.i.i.i.i.i.i
+  %679 = icmp eq i64 %675, 0
+  %680 = add nuw nsw i32 %677, 1
+  %spec.select.i52.i.i.i.i.i = select i1 %679, i32 32, i32 %680
+  %681 = sub nuw nsw i32 %674, %spec.select.i52.i.i.i.i.i
+  store i32 %681, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !231
+  %682 = zext nneg i32 %spec.select.i52.i.i.i.i.i to i64
+  %683 = shl i64 %672, %682
+  store i64 %683, ptr %160, align 8, !tbaa !233
+  br i1 %679, label %642, label %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i.i.i
 
 _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i.i.i: ; preds = %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i51.i.i.i.i.i
-  %685 = load i32, ptr %265, align 4, !tbaa !180
-  %686 = load i32, ptr %266, align 4, !tbaa !179
-  %687 = xor i32 %686, -1
-  %688 = add i32 %685, %687
-  %689 = icmp slt i32 %679, %688
-  br i1 %689, label %690, label %705
+  %684 = load i32, ptr %265, align 4, !tbaa !180
+  %685 = load i32, ptr %266, align 4, !tbaa !179
+  %686 = xor i32 %685, -1
+  %687 = add i32 %684, %686
+  %688 = icmp slt i32 %678, %687
+  br i1 %688, label %689, label %704
 
-690:                                              ; preds = %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i.i.i
-  %691 = zext nneg i32 %641 to i64
-  %692 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %294, i64 %691
-  %693 = load i32, ptr %692, align 8, !tbaa !221
-  %694 = getelementptr inbounds nuw i8, ptr %692, i64 4
-  %695 = load i32, ptr %694, align 4, !tbaa !223
-  %696 = icmp sgt i32 %693, -1
+689:                                              ; preds = %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i.i.i
+  %690 = zext nneg i32 %641 to i64
+  %691 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %294, i64 %690
+  %692 = load i32, ptr %691, align 8, !tbaa !221
+  %693 = getelementptr inbounds nuw i8, ptr %691, i64 4
+  %694 = load i32, ptr %693, align 4, !tbaa !223
+  %695 = icmp sgt i32 %692, -1
+  call void @llvm.assume(i1 %695)
+  %696 = icmp sgt i32 %694, 0
   call void @llvm.assume(i1 %696)
-  %697 = icmp sgt i32 %695, 0
-  call void @llvm.assume(i1 %697)
-  %698 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %693, i1 false)
-  %699 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %695, i1 true)
-  %700 = sub nsw i32 %699, %698
-  %.sroa.speculated11.i.i.i.i.i.i = call i32 @llvm.smax.i32(i32 %700, i32 0)
-  %701 = shl i32 %695, %.sroa.speculated11.i.i.i.i.i.i
-  %702 = icmp slt i32 %701, %693
-  %703 = zext i1 %702 to i32
-  %spec.select.i59.i.i.i.i.i = add nuw nsw i32 %.sroa.speculated11.i.i.i.i.i.i, %703
+  %697 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %692, i1 false)
+  %698 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %694, i1 true)
+  %699 = sub nsw i32 %698, %697
+  %.sroa.speculated11.i.i.i.i.i.i = call i32 @llvm.smax.i32(i32 %699, i32 0)
+  %700 = shl i32 %694, %.sroa.speculated11.i.i.i.i.i.i
+  %701 = icmp slt i32 %700, %692
+  %702 = zext i1 %701 to i32
+  %spec.select.i59.i.i.i.i.i = add nuw nsw i32 %.sroa.speculated11.i.i.i.i.i.i, %702
   %.sroa.speculated.i60.i.i.i.i.i = call noundef range(i32 0, 16) i32 @llvm.umin.i32(i32 %spec.select.i59.i.i.i.i.i, i32 15)
-  %704 = shl i32 %679, %.sroa.speculated.i60.i.i.i.i.i
-  br label %705
+  %703 = shl i32 %678, %.sroa.speculated.i60.i.i.i.i.i
+  br label %704
 
-705:                                              ; preds = %690, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i.i.i
-  %.033.i.i.i.i.i.i = phi i32 [ %.sroa.speculated.i60.i.i.i.i.i, %690 ], [ %686, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i.i.i ]
-  %.032.i.i.i.i.i.i = phi i32 [ %704, %690 ], [ 1, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i.i.i ]
-  %706 = icmp sgt i32 %671, -1
-  call void @llvm.assume(i1 %706)
-  %.not.i61.i.i.i.i.i = icmp samesign ult i32 %682, 32
-  br i1 %.not.i61.i.i.i.i.i, label %707, label %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i.i
+704:                                              ; preds = %689, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i.i.i
+  %.033.i.i.i.i.i.i = phi i32 [ %.sroa.speculated.i60.i.i.i.i.i, %689 ], [ %685, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i.i.i ]
+  %.032.i.i.i.i.i.i = phi i32 [ %703, %689 ], [ 1, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i.i.i ]
+  %705 = icmp sgt i32 %671, -1
+  call void @llvm.assume(i1 %705)
+  %.not.i61.i.i.i.i.i = icmp samesign ult i32 %681, 32
+  br i1 %.not.i61.i.i.i.i.i, label %706, label %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i.i
 
-707:                                              ; preds = %705
+706:                                              ; preds = %704
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
-  %708 = add nuw nsw i32 %671, 4
-  %.not.i.i62.i.i.i.i.i = icmp samesign ugt i32 %708, %303
-  br i1 %.not.i.i62.i.i.i.i.i, label %712, label %709, !prof !162
+  %707 = add nuw nsw i32 %671, 4
+  %.not.i.i62.i.i.i.i.i = icmp samesign ugt i32 %707, %303
+  br i1 %.not.i.i62.i.i.i.i.i, label %711, label %708, !prof !162
 
-709:                                              ; preds = %707
-  %710 = zext nneg i32 %671 to i64
-  %711 = getelementptr inbounds nuw i8, ptr %302, i64 %710
+708:                                              ; preds = %706
+  %709 = zext nneg i32 %671 to i64
+  %710 = getelementptr inbounds nuw i8, ptr %302, i64 %709
   br label %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i.i
 
-712:                                              ; preds = %707
-  %713 = icmp samesign ugt i32 %671, %305
-  br i1 %713, label %.invoke228.i.i, label %714, !prof !162
+711:                                              ; preds = %706
+  %712 = icmp samesign ugt i32 %671, %305
+  br i1 %712, label %.invoke228.i.i, label %713, !prof !162
 
-714:                                              ; preds = %712
+713:                                              ; preds = %711
   store i32 0, ptr %.sroa.0.i.i.i.i.i.i.i, align 4
   %.sroa.speculated26.i.i.i.i.i.i.i.i = call i32 @llvm.umin.i32(i32 %303, i32 %671)
-  %715 = add nuw nsw i32 %.sroa.speculated26.i.i.i.i.i.i.i.i, 4
-  %.sroa.speculated.i.i.i.i.i.i.i.i = call i32 @llvm.umin.i32(i32 %303, i32 %715)
-  %716 = sub nsw i32 %.sroa.speculated.i.i.i.i.i.i.i.i, %.sroa.speculated26.i.i.i.i.i.i.i.i
-  %717 = icmp ult i32 %716, 5
-  call void @llvm.assume(i1 %717)
-  %718 = zext nneg i32 %.sroa.speculated26.i.i.i.i.i.i.i.i to i64
-  %719 = getelementptr inbounds nuw i8, ptr %302, i64 %718
-  %720 = zext nneg i32 %716 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.0.i.i.i.i.i.i.i, ptr nonnull align 1 %719, i64 %720, i1 false)
+  %714 = add nuw nsw i32 %.sroa.speculated26.i.i.i.i.i.i.i.i, 4
+  %.sroa.speculated.i.i.i.i.i.i.i.i = call i32 @llvm.umin.i32(i32 %303, i32 %714)
+  %715 = sub nsw i32 %.sroa.speculated.i.i.i.i.i.i.i.i, %.sroa.speculated26.i.i.i.i.i.i.i.i
+  %716 = icmp ult i32 %715, 5
+  call void @llvm.assume(i1 %716)
+  %717 = zext nneg i32 %.sroa.speculated26.i.i.i.i.i.i.i.i to i64
+  %718 = getelementptr inbounds nuw i8, ptr %302, i64 %717
+  %719 = zext nneg i32 %715 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.0.i.i.i.i.i.i.i, ptr nonnull align 1 %718, i64 %719, i1 false)
   br label %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i.i
 
-_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i.i: ; preds = %714, %709
-  %.sroa.0.0..sroa.0.0..in.i.i.i.i.i.i.i = phi ptr [ %.sroa.0.i.i.i.i.i.i.i, %714 ], [ %711, %709 ]
+_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i.i: ; preds = %713, %708
+  %.sroa.0.0..sroa.0.0..in.i.i.i.i.i.i.i = phi ptr [ %.sroa.0.i.i.i.i.i.i.i, %713 ], [ %710, %708 ]
   %.sroa.0.0..sroa.0.0..i.i.i.i.i.i.i = load i32, ptr %.sroa.0.0..sroa.0.0..in.i.i.i.i.i.i.i, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
-  %721 = call i32 @llvm.bswap.i32(i32 %.sroa.0.0..sroa.0.0..i.i.i.i.i.i.i)
-  %722 = zext i32 %721 to i64
-  %723 = or disjoint i32 %682, 32
-  %724 = sub nuw nsw i32 32, %682
-  %725 = zext nneg i32 %724 to i64
-  %726 = shl nuw i64 %722, %725
-  %727 = or i64 %726, %684
-  store i64 %727, ptr %160, align 8, !tbaa !233
-  store i32 %723, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !231
-  store i32 %708, ptr %.sroa.842.0..sroa_idx.i.i, align 8, !tbaa !228
+  %720 = call i32 @llvm.bswap.i32(i32 %.sroa.0.0..sroa.0.0..i.i.i.i.i.i.i)
+  %721 = zext i32 %720 to i64
+  %722 = or disjoint i32 %681, 32
+  %723 = sub nuw nsw i32 32, %681
+  %724 = zext nneg i32 %723 to i64
+  %725 = shl nuw i64 %721, %724
+  %726 = or i64 %725, %683
+  store i64 %726, ptr %160, align 8, !tbaa !233
+  store i32 %722, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !231
+  store i32 %707, ptr %.sroa.842.0..sroa_idx.i.i, align 8, !tbaa !228
   br label %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i.i
 
-_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i.i: ; preds = %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i.i, %705
-  %728 = phi i64 [ %684, %705 ], [ %727, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i.i ]
-  %729 = phi i32 [ %670, %705 ], [ %708, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i.i ]
-  %730 = phi i32 [ %671, %705 ], [ %708, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i.i ]
-  %731 = phi i32 [ %682, %705 ], [ %723, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i.i ]
+_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i.i: ; preds = %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i.i, %704
+  %727 = phi i64 [ %683, %704 ], [ %726, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i.i ]
+  %728 = phi i32 [ %670, %704 ], [ %707, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i.i ]
+  %729 = phi i32 [ %671, %704 ], [ %707, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i.i ]
+  %730 = phi i32 [ %681, %704 ], [ %722, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i.i ]
   %.not.i.i.i.i27.i.i = icmp eq i32 %.033.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i27.i.i, label %742, label %732
+  br i1 %.not.i.i.i.i27.i.i, label %741, label %731
 
-732:                                              ; preds = %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i.i
-  %733 = icmp sgt i32 %729, -1
+731:                                              ; preds = %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i.i
+  %732 = icmp sgt i32 %728, -1
+  call void @llvm.assume(i1 %732)
+  %733 = icmp samesign ult i32 %.033.i.i.i.i.i.i, 33
   call void @llvm.assume(i1 %733)
-  %734 = icmp samesign ult i32 %.033.i.i.i.i.i.i, 33
-  call void @llvm.assume(i1 %734)
-  %735 = sub nuw nsw i32 64, %.033.i.i.i.i.i.i
-  %736 = zext nneg i32 %735 to i64
-  %737 = lshr i64 %728, %736
-  %738 = trunc nuw i64 %737 to i32
-  %739 = sub nuw nsw i32 %731, %.033.i.i.i.i.i.i
-  store i32 %739, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !231
-  %740 = zext nneg i32 %.033.i.i.i.i.i.i to i64
-  %741 = shl i64 %728, %740
-  store i64 %741, ptr %160, align 8, !tbaa !233
-  br label %742
+  %734 = sub nuw nsw i32 64, %.033.i.i.i.i.i.i
+  %735 = zext nneg i32 %734 to i64
+  %736 = lshr i64 %727, %735
+  %737 = trunc nuw i64 %736 to i32
+  %738 = sub nuw nsw i32 %730, %.033.i.i.i.i.i.i
+  store i32 %738, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !231
+  %739 = zext nneg i32 %.033.i.i.i.i.i.i to i64
+  %740 = shl i64 %727, %739
+  store i64 %740, ptr %160, align 8, !tbaa !233
+  br label %741
 
-742:                                              ; preds = %732, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i.i
-  %743 = phi i32 [ %729, %732 ], [ %730, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i.i ]
-  %.promoted.i169.i.i.i.i.i = phi i32 [ %739, %732 ], [ %731, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i.i ]
-  %.0.i.i.i.i.i.i = phi i32 [ %738, %732 ], [ 0, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i.i ]
-  %744 = add nsw i32 %.0.i.i.i.i.i.i, %.032.i.i.i.i.i.i
-  %745 = icmp slt i32 %744, 0
-  br i1 %745, label %.invoke.i.i14, label %746
+741:                                              ; preds = %731, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i.i
+  %742 = phi i32 [ %728, %731 ], [ %729, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i.i ]
+  %.promoted.i169.i.i.i.i.i = phi i32 [ %738, %731 ], [ %730, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i.i ]
+  %.0.i.i.i.i.i.i = phi i32 [ %737, %731 ], [ 0, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i.i ]
+  %743 = add nsw i32 %.0.i.i.i.i.i.i, %.032.i.i.i.i.i.i
+  %744 = icmp slt i32 %743, 0
+  br i1 %744, label %.invoke.i.i14, label %745
 
-746:                                              ; preds = %742
-  %747 = load i32, ptr %267, align 8, !tbaa !178
-  %.not39.i.i.i.i.i.i = icmp slt i32 %744, %747
-  br i1 %.not39.i.i.i.i.i.i, label %748, label %.invoke.i.i14
+745:                                              ; preds = %741
+  %746 = load i32, ptr %267, align 8, !tbaa !178
+  %.not39.i.i.i.i.i.i = icmp slt i32 %743, %746
+  br i1 %.not39.i.i.i.i.i.i, label %747, label %.invoke.i.i14
 
-748:                                              ; preds = %746
-  %749 = lshr i32 %744, 1
-  %750 = and i32 %744, 1
-  %sext.i.i.i.i.i = sub nsw i32 0, %750
-  %.1.i.i.i.i.i.i = xor i32 %749, %sext.i.i.i.i.i
-  %751 = call i32 @llvm.abs.i32(i32 %.1.i.i.i.i.i.i, i1 true)
-  %752 = zext nneg i32 %641 to i64
-  %753 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %294, i64 %752
-  %754 = load i32, ptr %753, align 8, !tbaa !221
-  %755 = add nsw i32 %754, %751
-  store i32 %755, ptr %753, align 8, !tbaa !221
-  %756 = getelementptr inbounds nuw i8, ptr %753, i64 4
-  %757 = load i32, ptr %756, align 4, !tbaa !223
-  %758 = load i32, ptr %268, align 8, !tbaa !173
-  %759 = icmp eq i32 %757, %758
-  br i1 %759, label %760, label %763
+747:                                              ; preds = %745
+  %748 = lshr i32 %743, 1
+  %749 = and i32 %743, 1
+  %sext.i.i.i.i.i = sub nsw i32 0, %749
+  %.1.i.i.i.i.i.i = xor i32 %748, %sext.i.i.i.i.i
+  %750 = call i32 @llvm.abs.i32(i32 %.1.i.i.i.i.i.i, i1 true)
+  %751 = zext nneg i32 %641 to i64
+  %752 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %294, i64 %751
+  %753 = load i32, ptr %752, align 8, !tbaa !221
+  %754 = add nsw i32 %753, %750
+  store i32 %754, ptr %752, align 8, !tbaa !221
+  %755 = getelementptr inbounds nuw i8, ptr %752, i64 4
+  %756 = load i32, ptr %755, align 4, !tbaa !223
+  %757 = load i32, ptr %268, align 8, !tbaa !173
+  %758 = icmp eq i32 %756, %757
+  br i1 %758, label %759, label %762
 
-760:                                              ; preds = %748
-  %761 = ashr i32 %755, 1
-  store i32 %761, ptr %753, align 8, !tbaa !221
-  %762 = ashr i32 %757, 1
-  br label %763
+759:                                              ; preds = %747
+  %760 = ashr i32 %754, 1
+  store i32 %760, ptr %752, align 8, !tbaa !221
+  %761 = ashr i32 %756, 1
+  br label %762
 
-763:                                              ; preds = %760, %748
-  %764 = phi i32 [ %762, %760 ], [ %757, %748 ]
-  %765 = add nsw i32 %764, 1
-  store i32 %765, ptr %756, align 4, !tbaa !223
-  %766 = icmp slt i32 %.sroa.078.0.extract.trunc.i.i.i.i.i, 0
-  %767 = sub nsw i32 0, %.1.i.i.i.i.i.i
-  %storemerge.i.p.i.i.i.i.i = select i1 %766, i32 %767, i32 %.1.i.i.i.i.i.i
+762:                                              ; preds = %759, %747
+  %763 = phi i32 [ %761, %759 ], [ %756, %747 ]
+  %764 = add nsw i32 %763, 1
+  store i32 %764, ptr %755, align 4, !tbaa !223
+  %765 = icmp slt i32 %.sroa.078.0.extract.trunc.i.i.i.i.i, 0
+  %766 = sub nsw i32 0, %.1.i.i.i.i.i.i
+  %storemerge.i.p.i.i.i.i.i = select i1 %765, i32 %766, i32 %.1.i.i.i.i.i.i
   %storemerge.i.i.i.i.i.i = add i32 %storemerge.i.p.i.i.i.i.i, %626
-  %768 = icmp slt i32 %storemerge.i.i.i.i.i.i, 0
-  br i1 %768, label %769, label %771
+  %767 = icmp slt i32 %storemerge.i.i.i.i.i.i, 0
+  br i1 %767, label %768, label %770
 
-769:                                              ; preds = %763
-  %770 = add nsw i32 %747, %storemerge.i.i.i.i.i.i
-  br label %776
+768:                                              ; preds = %762
+  %769 = add nsw i32 %746, %storemerge.i.i.i.i.i.i
+  br label %775
 
-771:                                              ; preds = %763
-  %772 = load i32, ptr %264, align 4, !tbaa !93
-  %773 = icmp sgt i32 %storemerge.i.i.i.i.i.i, %772
-  br i1 %773, label %774, label %.thread.i.i.i.i.i
+770:                                              ; preds = %762
+  %771 = load i32, ptr %264, align 4, !tbaa !93
+  %772 = icmp sgt i32 %storemerge.i.i.i.i.i.i, %771
+  br i1 %772, label %773, label %.thread.i.i.i.i.i
 
-774:                                              ; preds = %771
-  %775 = sub nsw i32 %storemerge.i.i.i.i.i.i, %747
-  br label %776
+773:                                              ; preds = %770
+  %774 = sub nsw i32 %storemerge.i.i.i.i.i.i, %746
+  br label %775
 
-776:                                              ; preds = %774, %769
-  %.0137.i.i.i.i.i = phi i32 [ %770, %769 ], [ %775, %774 ]
-  %777 = icmp slt i32 %.0137.i.i.i.i.i, 0
-  br i1 %777, label %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i.i.i.i, label %..thread_crit_edge.i.i.i.i.i
+775:                                              ; preds = %773, %768
+  %.0137.i.i.i.i.i = phi i32 [ %769, %768 ], [ %774, %773 ]
+  %776 = icmp slt i32 %.0137.i.i.i.i.i, 0
+  br i1 %776, label %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i.i.i.i, label %..thread_crit_edge.i.i.i.i.i
 
-..thread_crit_edge.i.i.i.i.i:                     ; preds = %776
+..thread_crit_edge.i.i.i.i.i:                     ; preds = %775
   %.pre.i.i.i.i.i = load i32, ptr %264, align 4, !tbaa !93
   br label %.thread.i.i.i.i.i
 
-.thread.i.i.i.i.i:                                ; preds = %..thread_crit_edge.i.i.i.i.i, %771
-  %778 = phi i32 [ %.pre.i.i.i.i.i, %..thread_crit_edge.i.i.i.i.i ], [ %772, %771 ]
-  %.0137139.i.i.i.i.i = phi i32 [ %.0137.i.i.i.i.i, %..thread_crit_edge.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i, %771 ]
-  %.sroa.speculated.i.i.i.i.i = call i32 @llvm.smin.i32(i32 %778, i32 %.0137139.i.i.i.i.i)
-  %779 = trunc i32 %.sroa.speculated.i.i.i.i.i to i16
+.thread.i.i.i.i.i:                                ; preds = %..thread_crit_edge.i.i.i.i.i, %770
+  %777 = phi i32 [ %.pre.i.i.i.i.i, %..thread_crit_edge.i.i.i.i.i ], [ %771, %770 ]
+  %.0137139.i.i.i.i.i = phi i32 [ %.0137.i.i.i.i.i, %..thread_crit_edge.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i, %770 ]
+  %.sroa.speculated.i.i.i.i.i = call i32 @llvm.smin.i32(i32 %777, i32 %.0137139.i.i.i.i.i)
+  %778 = trunc i32 %.sroa.speculated.i.i.i.i.i to i16
   br label %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i.i.i.i
 
-_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i.i.i.i: ; preds = %.thread.i.i.i.i.i, %776
-  %.034.i.i.i.i.i.i = phi i16 [ %779, %.thread.i.i.i.i.i ], [ 0, %776 ]
-  %780 = getelementptr inbounds nuw i16, ptr %592, i64 %604
-  store i16 %.034.i.i.i.i.i.i, ptr %780, align 2, !tbaa !90
-  %781 = add nsw i32 %584, 1
-  store i32 %781, ptr %583, align 4, !tbaa !93
+_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i.i.i.i: ; preds = %.thread.i.i.i.i.i, %775
+  %.034.i.i.i.i.i.i = phi i16 [ %778, %.thread.i.i.i.i.i ], [ 0, %775 ]
+  %779 = getelementptr inbounds nuw i16, ptr %592, i64 %604
+  store i16 %.034.i.i.i.i.i.i, ptr %779, align 2, !tbaa !90
+  %780 = add nsw i32 %584, 1
+  store i32 %780, ptr %583, align 4, !tbaa !93
   br i1 %.not31.i.i.i.i.i, label %.loopexit.i.i.i.i.i, label %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_odd_innerENS0_8xt_linesEi.exit.i.i.i.i.i, !llvm.loop !235
 
 .loopexit.i.i.i.i.i:                              ; preds = %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i.i.i.i, %.loopexit147.i.i.i.i.i
-  %782 = add nuw nsw i32 %.0157.i.i.i.i.i, 1
+  %781 = add nuw nsw i32 %.0157.i.i.i.i.i, 1
   %.not.i8.i.i.i.i = icmp eq i32 %.0157.i.i.i.i.i, %269
   br i1 %.not.i8.i.i.i.i, label %"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_blockIZNS1_19xtrans_decode_blockEiE3$_0EEvT_iENKUlSt5arrayINS0_8xt_linesELm2EEiE_clES7_i.exit.i.i.i.i", label %306, !llvm.loop !236
 
 "_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_blockIZNS1_19xtrans_decode_blockEiE3$_0EEvT_iENKUlSt5arrayINS0_8xt_linesELm2EEiE_clES7_i.exit.i.i.i.i": ; preds = %.loopexit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %783 = load ptr, ptr %145, align 8, !nonnull !132
-  %784 = load i32, ptr %150, align 4
-  %785 = load i32, ptr %151, align 8
-  %786 = load i32, ptr %149, align 8
-  %787 = icmp ne i32 %786, 0
-  %788 = icmp sgt i32 %786, -1
-  %789 = icmp samesign uge i32 %786, %784
-  %790 = icmp samesign ugt i32 %784, 1
-  %791 = zext nneg i32 %784 to i64
-  %792 = zext nneg i32 %786 to i64
-  %793 = zext nneg i32 %785 to i64
+  %782 = load ptr, ptr %145, align 8, !nonnull !132
+  %783 = load i32, ptr %150, align 4
+  %784 = load i32, ptr %151, align 8
+  %785 = load i32, ptr %149, align 8
+  %786 = icmp ne i32 %785, 0
+  %787 = icmp sgt i32 %785, -1
+  %788 = icmp samesign uge i32 %785, %783
+  %789 = icmp samesign ugt i32 %783, 1
+  %790 = zext nneg i32 %783 to i64
+  %791 = zext nneg i32 %785 to i64
+  %792 = zext nneg i32 %784 to i64
+  call void @llvm.assume(i1 %786)
   call void @llvm.assume(i1 %787)
   call void @llvm.assume(i1 %788)
   call void @llvm.assume(i1 %789)
-  call void @llvm.assume(i1 %790)
-  br label %795
+  br label %794
 
 _ZSt4fillIPiiEvT_S1_RKT0_.exit.i.i.i.i:           ; preds = %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block15fuji_extend_redEv.exit.i.i.i.i
-  %794 = add nuw nsw i32 %.0.i117.i.i.i.i, 1
-  %.not.i.i.i.i.i17 = icmp eq i32 %794, 6
+  %793 = add nuw nsw i32 %.0.i117.i.i.i.i, 1
+  %.not.i.i.i.i.i17 = icmp eq i32 %793, 6
   br i1 %.not.i.i.i.i.i17, label %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block19xtrans_decode_blockEi.exit.i.i.i, label %switch.lookup, !llvm.loop !237
 
-795:                                              ; preds = %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block15fuji_extend_redEv.exit.i.i.i.i, %"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_blockIZNS1_19xtrans_decode_blockEiE3$_0EEvT_iENKUlSt5arrayINS0_8xt_linesELm2EEiE_clES7_i.exit.i.i.i.i"
+794:                                              ; preds = %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block15fuji_extend_redEv.exit.i.i.i.i, %"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_blockIZNS1_19xtrans_decode_blockEiE3$_0EEvT_iENKUlSt5arrayINS0_8xt_linesELm2EEiE_clES7_i.exit.i.i.i.i"
   %.not18.i.i.i.i.i = phi i1 [ false, %"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_blockIZNS1_19xtrans_decode_blockEiE3$_0EEvT_iENKUlSt5arrayINS0_8xt_linesELm2EEiE_clES7_i.exit.i.i.i.i" ], [ true, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block15fuji_extend_redEv.exit.i.i.i.i ]
   %.017.i.idx116.i.sroa.phi.sroa.speculated.i.i.i = phi i8 [ %274, %"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_blockIZNS1_19xtrans_decode_blockEiE3$_0EEvT_iENKUlSt5arrayINS0_8xt_linesELm2EEiE_clES7_i.exit.i.i.i.i" ], [ %276, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block15fuji_extend_redEv.exit.i.i.i.i ]
-  switch i8 %.017.i.idx116.i.sroa.phi.sroa.speculated.i.i.i, label %838 [
+  switch i8 %.017.i.idx116.i.sroa.phi.sroa.speculated.i.i.i, label %837 [
     i8 0, label %.preheader.i26.i.i
     i8 1, label %.preheader63.i.i.i
     i8 2, label %.preheader65.i.i.i
   ]
 
-.preheader.i26.i.i:                               ; preds = %795, %.preheader.i26.i.i
-  %indvars.iv.i.i10.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %.preheader.i26.i.i ], [ 2, %795 ]
-  %796 = add nsw i64 %indvars.iv.i.i10.i.i.i.i, -1
-  %797 = icmp samesign ult i64 %796, %793
-  call void @llvm.assume(i1 %797)
-  %798 = mul nuw nsw i64 %796, %792
-  %799 = getelementptr inbounds nuw i16, ptr %783, i64 %798
-  %800 = getelementptr inbounds nuw i8, ptr %799, i64 2
-  %801 = load i16, ptr %800, align 2, !tbaa !90
-  %802 = icmp samesign ult i64 %indvars.iv.i.i10.i.i.i.i, %793
-  call void @llvm.assume(i1 %802)
-  %803 = mul nuw nsw i64 %indvars.iv.i.i10.i.i.i.i, %792
-  %804 = getelementptr inbounds nuw i16, ptr %783, i64 %803
-  store i16 %801, ptr %804, align 2, !tbaa !90
-  %805 = getelementptr i16, ptr %799, i64 %791
-  %806 = getelementptr i8, ptr %805, i64 -4
-  %807 = load i16, ptr %806, align 2, !tbaa !90
-  %808 = getelementptr i16, ptr %804, i64 %791
-  %809 = getelementptr i8, ptr %808, i64 -2
-  store i16 %807, ptr %809, align 2, !tbaa !90
+.preheader.i26.i.i:                               ; preds = %794, %.preheader.i26.i.i
+  %indvars.iv.i.i10.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %.preheader.i26.i.i ], [ 2, %794 ]
+  %795 = add nsw i64 %indvars.iv.i.i10.i.i.i.i, -1
+  %796 = icmp samesign ult i64 %795, %792
+  call void @llvm.assume(i1 %796)
+  %797 = mul nuw nsw i64 %795, %791
+  %798 = getelementptr inbounds nuw i16, ptr %782, i64 %797
+  %799 = getelementptr inbounds nuw i8, ptr %798, i64 2
+  %800 = load i16, ptr %799, align 2, !tbaa !90
+  %801 = icmp samesign ult i64 %indvars.iv.i.i10.i.i.i.i, %792
+  call void @llvm.assume(i1 %801)
+  %802 = mul nuw nsw i64 %indvars.iv.i.i10.i.i.i.i, %791
+  %803 = getelementptr inbounds nuw i16, ptr %782, i64 %802
+  store i16 %800, ptr %803, align 2, !tbaa !90
+  %804 = getelementptr i16, ptr %798, i64 %790
+  %805 = getelementptr i8, ptr %804, i64 -4
+  %806 = load i16, ptr %805, align 2, !tbaa !90
+  %807 = getelementptr i16, ptr %803, i64 %790
+  %808 = getelementptr i8, ptr %807, i64 -2
+  store i16 %806, ptr %808, align 2, !tbaa !90
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i10.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, 5
   br i1 %exitcond.not.i.i.i.i.i.i, label %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block15fuji_extend_redEv.exit.i.i.i.i, label %.preheader.i26.i.i, !llvm.loop !238
 
-.preheader63.i.i.i:                               ; preds = %795, %.preheader63.i.i.i
-  %indvars.iv.i.i11.i.i.i.i = phi i64 [ %indvars.iv.next.i.i12.i.i.i.i, %.preheader63.i.i.i ], [ 7, %795 ]
-  %810 = add nsw i64 %indvars.iv.i.i11.i.i.i.i, -1
-  %811 = icmp samesign ult i64 %810, %793
-  call void @llvm.assume(i1 %811)
-  %812 = mul nuw nsw i64 %810, %792
-  %813 = getelementptr inbounds nuw i16, ptr %783, i64 %812
-  %814 = getelementptr inbounds nuw i8, ptr %813, i64 2
-  %815 = load i16, ptr %814, align 2, !tbaa !90
-  %816 = icmp samesign ult i64 %indvars.iv.i.i11.i.i.i.i, %793
-  call void @llvm.assume(i1 %816)
-  %817 = mul nuw nsw i64 %indvars.iv.i.i11.i.i.i.i, %792
-  %818 = getelementptr inbounds nuw i16, ptr %783, i64 %817
-  store i16 %815, ptr %818, align 2, !tbaa !90
-  %819 = getelementptr i16, ptr %813, i64 %791
-  %820 = getelementptr i8, ptr %819, i64 -4
-  %821 = load i16, ptr %820, align 2, !tbaa !90
-  %822 = getelementptr i16, ptr %818, i64 %791
-  %823 = getelementptr i8, ptr %822, i64 -2
-  store i16 %821, ptr %823, align 2, !tbaa !90
+.preheader63.i.i.i:                               ; preds = %794, %.preheader63.i.i.i
+  %indvars.iv.i.i11.i.i.i.i = phi i64 [ %indvars.iv.next.i.i12.i.i.i.i, %.preheader63.i.i.i ], [ 7, %794 ]
+  %809 = add nsw i64 %indvars.iv.i.i11.i.i.i.i, -1
+  %810 = icmp samesign ult i64 %809, %792
+  call void @llvm.assume(i1 %810)
+  %811 = mul nuw nsw i64 %809, %791
+  %812 = getelementptr inbounds nuw i16, ptr %782, i64 %811
+  %813 = getelementptr inbounds nuw i8, ptr %812, i64 2
+  %814 = load i16, ptr %813, align 2, !tbaa !90
+  %815 = icmp samesign ult i64 %indvars.iv.i.i11.i.i.i.i, %792
+  call void @llvm.assume(i1 %815)
+  %816 = mul nuw nsw i64 %indvars.iv.i.i11.i.i.i.i, %791
+  %817 = getelementptr inbounds nuw i16, ptr %782, i64 %816
+  store i16 %814, ptr %817, align 2, !tbaa !90
+  %818 = getelementptr i16, ptr %812, i64 %790
+  %819 = getelementptr i8, ptr %818, i64 -4
+  %820 = load i16, ptr %819, align 2, !tbaa !90
+  %821 = getelementptr i16, ptr %817, i64 %790
+  %822 = getelementptr i8, ptr %821, i64 -2
+  store i16 %820, ptr %822, align 2, !tbaa !90
   %indvars.iv.next.i.i12.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i11.i.i.i.i, 1
   %exitcond.not.i.i13.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i12.i.i.i.i, 13
   br i1 %exitcond.not.i.i13.i.i.i.i, label %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block15fuji_extend_redEv.exit.i.i.i.i, label %.preheader63.i.i.i, !llvm.loop !238
 
-.preheader65.i.i.i:                               ; preds = %795, %.preheader65.i.i.i
-  %indvars.iv.i.i14.i.i.i.i = phi i64 [ %indvars.iv.next.i.i15.i.i.i.i, %.preheader65.i.i.i ], [ 15, %795 ]
-  %824 = add nsw i64 %indvars.iv.i.i14.i.i.i.i, -1
-  %825 = icmp samesign ult i64 %824, %793
-  call void @llvm.assume(i1 %825)
-  %826 = mul nuw nsw i64 %824, %792
-  %827 = getelementptr inbounds nuw i16, ptr %783, i64 %826
-  %828 = getelementptr inbounds nuw i8, ptr %827, i64 2
-  %829 = load i16, ptr %828, align 2, !tbaa !90
-  %830 = icmp samesign ult i64 %indvars.iv.i.i14.i.i.i.i, %793
-  call void @llvm.assume(i1 %830)
-  %831 = mul nuw nsw i64 %indvars.iv.i.i14.i.i.i.i, %792
-  %832 = getelementptr inbounds nuw i16, ptr %783, i64 %831
-  store i16 %829, ptr %832, align 2, !tbaa !90
-  %833 = getelementptr i16, ptr %827, i64 %791
-  %834 = getelementptr i8, ptr %833, i64 -4
-  %835 = load i16, ptr %834, align 2, !tbaa !90
-  %836 = getelementptr i16, ptr %832, i64 %791
-  %837 = getelementptr i8, ptr %836, i64 -2
-  store i16 %835, ptr %837, align 2, !tbaa !90
+.preheader65.i.i.i:                               ; preds = %794, %.preheader65.i.i.i
+  %indvars.iv.i.i14.i.i.i.i = phi i64 [ %indvars.iv.next.i.i15.i.i.i.i, %.preheader65.i.i.i ], [ 15, %794 ]
+  %823 = add nsw i64 %indvars.iv.i.i14.i.i.i.i, -1
+  %824 = icmp samesign ult i64 %823, %792
+  call void @llvm.assume(i1 %824)
+  %825 = mul nuw nsw i64 %823, %791
+  %826 = getelementptr inbounds nuw i16, ptr %782, i64 %825
+  %827 = getelementptr inbounds nuw i8, ptr %826, i64 2
+  %828 = load i16, ptr %827, align 2, !tbaa !90
+  %829 = icmp samesign ult i64 %indvars.iv.i.i14.i.i.i.i, %792
+  call void @llvm.assume(i1 %829)
+  %830 = mul nuw nsw i64 %indvars.iv.i.i14.i.i.i.i, %791
+  %831 = getelementptr inbounds nuw i16, ptr %782, i64 %830
+  store i16 %828, ptr %831, align 2, !tbaa !90
+  %832 = getelementptr i16, ptr %826, i64 %790
+  %833 = getelementptr i8, ptr %832, i64 -4
+  %834 = load i16, ptr %833, align 2, !tbaa !90
+  %835 = getelementptr i16, ptr %831, i64 %790
+  %836 = getelementptr i8, ptr %835, i64 -2
+  store i16 %834, ptr %836, align 2, !tbaa !90
   %indvars.iv.next.i.i15.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i14.i.i.i.i, 1
   %exitcond.not.i.i16.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i15.i.i.i.i, 18
   br i1 %exitcond.not.i.i16.i.i.i.i, label %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block15fuji_extend_redEv.exit.i.i.i.i, label %.preheader65.i.i.i, !llvm.loop !238
 
-838:                                              ; preds = %795
+837:                                              ; preds = %794
   unreachable
 
 _ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block15fuji_extend_redEv.exit.i.i.i.i: ; preds = %.preheader65.i.i.i, %.preheader63.i.i.i, %.preheader.i26.i.i
-  br i1 %.not18.i.i.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit.i.i.i.i, label %795
+  br i1 %.not18.i.i.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit.i.i.i.i, label %794
 
 _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block19xtrans_decode_blockEi.exit.i.i.i: ; preds = %_ZSt4fillIPiiEvT_S1_RKT0_.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %1337
+  br label %1335
 
 .preheader.i.i.i49.i.i.i:                         ; preds = %252
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 33620224, ptr %5, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, i8 0, i64 12, i1 false), !tbaa !93
-  %839 = lshr exact i16 %259, 1
-  %840 = zext nneg i16 %839 to i32
-  %841 = getelementptr inbounds nuw i8, ptr %257, i64 40
-  %842 = getelementptr inbounds nuw i8, ptr %257, i64 44
-  %843 = getelementptr inbounds nuw i8, ptr %257, i64 52
-  %844 = getelementptr inbounds nuw i8, ptr %257, i64 56
-  %845 = getelementptr inbounds nuw i8, ptr %257, i64 48
-  %846 = add nuw nsw i32 %840, 3
+  %838 = lshr exact i16 %259, 1
+  %839 = zext nneg i16 %838 to i32
+  %840 = getelementptr inbounds nuw i8, ptr %257, i64 40
+  %841 = getelementptr inbounds nuw i8, ptr %257, i64 44
+  %842 = getelementptr inbounds nuw i8, ptr %257, i64 52
+  %843 = getelementptr inbounds nuw i8, ptr %257, i64 56
+  %844 = getelementptr inbounds nuw i8, ptr %257, i64 48
+  %845 = add nuw nsw i32 %839, 3
   br label %switch.lookup298
 
 switch.lookup298:                                 ; preds = %_ZSt4fillIPiiEvT_S1_RKT0_.exit.i65.i.i.i, %.preheader.i.i.i49.i.i.i
-  %.0.i139.i.i.i.i = phi i32 [ 0, %.preheader.i.i.i49.i.i.i ], [ %1292, %_ZSt4fillIPiiEvT_S1_RKT0_.exit.i65.i.i.i ]
-  %847 = shl nuw i32 %.0.i139.i.i.i.i, 1
-  %848 = and i32 %847, 2
-  %849 = zext nneg i32 %848 to i64
-  %850 = getelementptr inbounds nuw i8, ptr %5, i64 %849
-  %851 = load i8, ptr %850, align 2, !tbaa !111
-  %852 = getelementptr inbounds nuw i8, ptr %850, i64 1
-  %853 = load i8, ptr %852, align 1, !tbaa !111
-  %854 = zext nneg i8 %851 to i64
-  %switch.gep299 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.30, i64 %854
+  %.0.i139.i.i.i.i = phi i32 [ 0, %.preheader.i.i.i49.i.i.i ], [ %1290, %_ZSt4fillIPiiEvT_S1_RKT0_.exit.i65.i.i.i ]
+  %846 = shl nuw i32 %.0.i139.i.i.i.i, 1
+  %847 = and i32 %846, 2
+  %848 = zext nneg i32 %847 to i64
+  %849 = getelementptr inbounds nuw i8, ptr %5, i64 %848
+  %850 = load i8, ptr %849, align 2, !tbaa !111
+  %851 = getelementptr inbounds nuw i8, ptr %849, i64 1
+  %852 = load i8, ptr %851, align 1, !tbaa !111
+  %853 = zext nneg i8 %850 to i64
+  %switch.gep299 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.30, i64 %853
   %switch.load300 = load i32, ptr %switch.gep299, align 4
-  %855 = zext nneg i8 %851 to i64
-  %856 = getelementptr inbounds nuw i32, ptr %6, i64 %855
-  %857 = load i32, ptr %856, align 4, !tbaa !93
-  %858 = add nsw i32 %857, %switch.load300
-  %859 = add nsw i32 %857, 1
-  store i32 %859, ptr %856, align 4, !tbaa !93
-  %860 = zext nneg i8 %853 to i64
-  %switch.gep307 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.30, i64 %860
+  %854 = zext nneg i8 %850 to i64
+  %855 = getelementptr inbounds nuw i32, ptr %6, i64 %854
+  %856 = load i32, ptr %855, align 4, !tbaa !93
+  %857 = add nsw i32 %856, %switch.load300
+  %858 = add nsw i32 %856, 1
+  store i32 %858, ptr %855, align 4, !tbaa !93
+  %859 = zext nneg i8 %852 to i64
+  %switch.gep307 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.30, i64 %859
   %switch.load308 = load i32, ptr %switch.gep307, align 4
-  %861 = zext nneg i8 %853 to i64
-  %862 = getelementptr inbounds nuw i32, ptr %6, i64 %861
-  %863 = load i32, ptr %862, align 4, !tbaa !93
-  %864 = add nsw i32 %863, %switch.load308
-  %865 = add nsw i32 %863, 1
-  store i32 %865, ptr %862, align 4, !tbaa !93
+  %860 = zext nneg i8 %852 to i64
+  %861 = getelementptr inbounds nuw i32, ptr %6, i64 %860
+  %862 = load i32, ptr %861, align 4, !tbaa !93
+  %863 = add nsw i32 %862, %switch.load308
+  %864 = add nsw i32 %862, 1
+  store i32 %864, ptr %861, align 4, !tbaa !93
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false), !tbaa !93
-  %866 = urem i32 %.0.i139.i.i.i.i, 3
-  %867 = zext nneg i32 %866 to i64
-  %868 = getelementptr inbounds nuw %"struct.std::array.101", ptr %158, i64 %867
-  %869 = getelementptr inbounds nuw %"struct.std::array.101", ptr %159, i64 %867
+  %865 = urem i32 %.0.i139.i.i.i.i, 3
+  %866 = zext nneg i32 %865 to i64
+  %867 = getelementptr inbounds nuw %"struct.std::array.101", ptr %158, i64 %866
+  %868 = getelementptr inbounds nuw %"struct.std::array.101", ptr %159, i64 %866
   %.promoted.i56.i.i.i = load i32, ptr %.sroa.5.0..sroa_idx.i.i, align 8
   %.promoted120.i.i.i.i = load i32, ptr %.sroa.842.0..sroa_idx.i.i, align 8
-  %870 = load ptr, ptr %145, align 8, !nonnull !132
-  %871 = load i32, ptr %150, align 4
-  %872 = load i32, ptr %151, align 8
-  %873 = load i32, ptr %149, align 8
-  %874 = icmp ne i32 %873, 0
-  %875 = icmp sgt i32 %873, -1
-  %876 = icmp samesign uge i32 %873, %871
-  %877 = load ptr, ptr %.sroa.641.0..sroa_idx.i.i, align 8, !nonnull !132
-  %878 = load i32, ptr %.sroa.7.0..sroa_idx.i.i, align 8
-  %879 = icmp sgt i32 %878, 3
-  %880 = add nuw nsw i32 %878, 8
-  br label %881
+  %869 = load ptr, ptr %145, align 8, !nonnull !132
+  %870 = load i32, ptr %150, align 4
+  %871 = load i32, ptr %151, align 8
+  %872 = load i32, ptr %149, align 8
+  %873 = icmp ne i32 %872, 0
+  %874 = icmp sgt i32 %872, -1
+  %875 = icmp samesign uge i32 %872, %870
+  %876 = load ptr, ptr %.sroa.641.0..sroa_idx.i.i, align 8, !nonnull !132
+  %877 = load i32, ptr %.sroa.7.0..sroa_idx.i.i, align 8
+  %878 = icmp sgt i32 %877, 3
+  %879 = add nuw nsw i32 %877, 8
+  br label %880
 
-881:                                              ; preds = %.loopexit.i.i57.i.i.i, %switch.lookup298
+880:                                              ; preds = %.loopexit.i.i57.i.i.i, %switch.lookup298
   %.promoted16.i.pre.i131.i.i.i.i = phi i32 [ %.promoted120.i.i.i.i, %switch.lookup298 ], [ %.promoted16.i.pre.i121.i.i.i.i, %.loopexit.i.i57.i.i.i ]
   %.promoted.i.pre.i115.i.i.i.i = phi i32 [ %.promoted.i56.i.i.i, %switch.lookup298 ], [ %.promoted.i.pre.i113.i.i.i.i, %.loopexit.i.i57.i.i.i ]
-  %.0156.i.i.i.i.i = phi i32 [ 0, %switch.lookup298 ], [ %1280, %.loopexit.i.i57.i.i.i ]
-  %882 = icmp samesign ult i32 %.0156.i.i.i.i.i, %840
-  br i1 %882, label %.preheader145.i.i.i.i.i, label %.loopexit146.i.i.i.i.i
+  %.0156.i.i.i.i.i = phi i32 [ 0, %switch.lookup298 ], [ %1278, %.loopexit.i.i57.i.i.i ]
+  %881 = icmp samesign ult i32 %.0156.i.i.i.i.i, %839
+  br i1 %881, label %.preheader145.i.i.i.i.i, label %.loopexit146.i.i.i.i.i
 
-.preheader145.i.i.i.i.i:                          ; preds = %881
+.preheader145.i.i.i.i.i:                          ; preds = %880
+  call void @llvm.assume(i1 %873)
   call void @llvm.assume(i1 %874)
   call void @llvm.assume(i1 %875)
-  call void @llvm.assume(i1 %876)
   %.val4.i.i.i.i.i.i = load ptr, ptr %257, align 8, !tbaa !174
-  call void @llvm.assume(i1 %879)
-  br label %883
+  call void @llvm.assume(i1 %878)
+  br label %882
 
-883:                                              ; preds = %"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block23fuji_bayer_decode_blockEiENK3$_0clENS0_8xt_linesEiRSt5arrayINS0_8int_pairELm41EEiii.exit.i.i.i.i.i", %.preheader145.i.i.i.i.i
+882:                                              ; preds = %"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block23fuji_bayer_decode_blockEiENK3$_0clENS0_8xt_linesEiRSt5arrayINS0_8int_pairELm41EEiii.exit.i.i.i.i.i", %.preheader145.i.i.i.i.i
   %.promoted16.i.pre.i130.i.i.i.i = phi i32 [ %.promoted16.i.pre.i131.i.i.i.i, %.preheader145.i.i.i.i.i ], [ %.promoted16.i.pre.i127.i.i.i.i, %"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block23fuji_bayer_decode_blockEiENK3$_0clENS0_8xt_linesEiRSt5arrayINS0_8int_pairELm41EEiii.exit.i.i.i.i.i" ]
   %.promoted16.i.i.i.i.i.i.i = phi i32 [ %.promoted16.i.pre.i131.i.i.i.i, %.preheader145.i.i.i.i.i ], [ %.promoted16.i.i170.i.i.i.i.i, %"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block23fuji_bayer_decode_blockEiENK3$_0clENS0_8xt_linesEiRSt5arrayINS0_8int_pairELm41EEiii.exit.i.i.i.i.i" ]
   %.promoted.i.i.i.i.i.i.i = phi i32 [ %.promoted.i.pre.i115.i.i.i.i, %.preheader145.i.i.i.i.i ], [ %.promoted.i.pre.i118.i.i.i.i, %"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block23fuji_bayer_decode_blockEiENK3$_0clENS0_8xt_linesEiRSt5arrayINS0_8int_pairELm41EEiii.exit.i.i.i.i.i" ]
   %.not30.i.i105.i.i.i = phi i1 [ false, %.preheader145.i.i.i.i.i ], [ true, %"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block23fuji_bayer_decode_blockEiENK3$_0clENS0_8xt_linesEiRSt5arrayINS0_8int_pairELm41EEiii.exit.i.i.i.i.i" ]
   %indvars.iv.i.sroa.phi.i106.i.i.i = phi ptr [ %4, %.preheader145.i.i.i.i.i ], [ %indvars.iv164.i.sroa.gep88.i.i.i.i, %"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block23fuji_bayer_decode_blockEiENK3$_0clENS0_8xt_linesEiRSt5arrayINS0_8int_pairELm41EEiii.exit.i.i.i.i.i" ]
-  %indvars.iv.i.sroa.phi93.sroa.speculated.i.i.i.i = phi i32 [ %858, %.preheader145.i.i.i.i.i ], [ %864, %"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block23fuji_bayer_decode_blockEiENK3$_0clENS0_8xt_linesEiRSt5arrayINS0_8int_pairELm41EEiii.exit.i.i.i.i.i" ]
-  %884 = load i32, ptr %indvars.iv.i.sroa.phi.i106.i.i.i, align 4, !tbaa !93
-  %885 = and i32 %indvars.iv.i.sroa.phi93.sroa.speculated.i.i.i.i, 255
-  %886 = add nsw i32 %885, -1
-  %887 = shl i32 %884, 1
-  %888 = or disjoint i32 %887, 1
-  %889 = icmp sgt i32 %887, -1
+  %indvars.iv.i.sroa.phi93.sroa.speculated.i.i.i.i = phi i32 [ %857, %.preheader145.i.i.i.i.i ], [ %863, %"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block23fuji_bayer_decode_blockEiENK3$_0clENS0_8xt_linesEiRSt5arrayINS0_8int_pairELm41EEiii.exit.i.i.i.i.i" ]
+  %883 = load i32, ptr %indvars.iv.i.sroa.phi.i106.i.i.i, align 4, !tbaa !93
+  %884 = and i32 %indvars.iv.i.sroa.phi93.sroa.speculated.i.i.i.i, 255
+  %885 = add nsw i32 %884, -1
+  %886 = shl i32 %883, 1
+  %887 = or disjoint i32 %886, 1
+  %888 = icmp sgt i32 %886, -1
+  call void @llvm.assume(i1 %888)
+  %889 = icmp samesign ult i32 %887, %870
   call void @llvm.assume(i1 %889)
-  %890 = icmp samesign ult i32 %888, %871
+  %890 = icmp samesign ult i32 %885, %871
   call void @llvm.assume(i1 %890)
-  %891 = icmp samesign ult i32 %886, %872
-  call void @llvm.assume(i1 %891)
-  %892 = mul nuw nsw i32 %886, %873
-  %893 = zext nneg i32 %892 to i64
-  %894 = getelementptr inbounds nuw i16, ptr %870, i64 %893
-  %895 = zext nneg i32 %888 to i64
-  %896 = getelementptr inbounds nuw i16, ptr %894, i64 %895
-  %897 = load i16, ptr %896, align 2, !tbaa !90
-  %898 = zext i16 %897 to i32
-  %899 = icmp samesign ule i32 %887, %871
-  call void @llvm.assume(i1 %899)
-  %900 = zext nneg i32 %887 to i64
-  %901 = getelementptr inbounds nuw i16, ptr %894, i64 %900
-  %902 = load i16, ptr %901, align 2, !tbaa !90
-  %903 = zext i16 %902 to i32
-  %904 = add nuw nsw i32 %887, 2
-  %905 = icmp samesign ult i32 %904, %871
-  call void @llvm.assume(i1 %905)
-  %906 = zext nneg i32 %904 to i64
-  %907 = getelementptr inbounds nuw i16, ptr %894, i64 %906
-  %908 = load i16, ptr %907, align 2, !tbaa !90
-  %909 = zext i16 %908 to i32
-  %910 = add nsw i32 %885, -2
-  %911 = icmp samesign ult i32 %910, %872
-  call void @llvm.assume(i1 %911)
-  %912 = mul nuw nsw i32 %910, %873
-  %913 = zext nneg i32 %912 to i64
-  %914 = getelementptr inbounds nuw i16, ptr %870, i64 %913
-  %915 = getelementptr inbounds nuw i16, ptr %914, i64 %895
-  %916 = load i16, ptr %915, align 2, !tbaa !90
-  %917 = zext i16 %916 to i32
-  %918 = sub nsw i32 %903, %898
-  %919 = call i32 @llvm.abs.i32(i32 %918, i1 true)
-  %920 = sub nsw i32 %917, %898
-  %921 = call i32 @llvm.abs.i32(i32 %920, i1 true)
-  %922 = sub nsw i32 %909, %898
-  %923 = call i32 @llvm.abs.i32(i32 %922, i1 true)
-  %.sroa.speculated.i.i.i107.i.i.i = call i32 @llvm.umax.i32(i32 %921, i32 %923)
-  %924 = icmp samesign ugt i32 %919, %.sroa.speculated.i.i.i107.i.i.i
-  %.sroa.speculated8.i.i.i.i.i.i = call i32 @llvm.umax.i32(i32 %919, i32 %921)
-  %925 = icmp samesign ugt i32 %923, %.sroa.speculated8.i.i.i.i.i.i
-  %926 = select i1 %924, i1 true, i1 %925
-  %.027.i.i.i.i108.i.i.i = select i1 %926, i32 %917, i32 %909
-  %.0.i.i.i.i109.i.i.i = select i1 %924, i32 %909, i32 %903
-  %927 = shl nuw nsw i32 %898, 1
-  %928 = add nuw nsw i32 %.0.i.i.i.i109.i.i.i, %927
-  %929 = add nuw nsw i32 %928, %.027.i.i.i.i108.i.i.i
-  %930 = lshr i32 %929, 2
-  %931 = sub nsw i32 %898, %917
-  %932 = load i32, ptr %841, align 4, !tbaa !93
-  %933 = add nsw i32 %931, %932
-  %934 = sext i32 %933 to i64
-  %935 = getelementptr inbounds nuw i8, ptr %.val4.i.i.i.i.i.i, i64 %934
-  %936 = load i8, ptr %935, align 1, !tbaa !92
-  %937 = sext i8 %936 to i32
-  %938 = mul nsw i32 %937, 9
-  %939 = add nsw i32 %932, %918
-  %940 = sext i32 %939 to i64
-  %941 = getelementptr inbounds nuw i8, ptr %.val4.i.i.i.i.i.i, i64 %940
-  %942 = load i8, ptr %941, align 1, !tbaa !92
-  %943 = sext i8 %942 to i32
-  %.sroa.0.0.extract.trunc.i.i.i.i.i.i = add nsw i32 %938, %943
-  %944 = call i32 @llvm.abs.i32(i32 %.sroa.0.0.extract.trunc.i.i.i.i.i.i, i1 true)
+  %891 = mul nuw nsw i32 %885, %872
+  %892 = zext nneg i32 %891 to i64
+  %893 = getelementptr inbounds nuw i16, ptr %869, i64 %892
+  %894 = zext nneg i32 %887 to i64
+  %895 = getelementptr inbounds nuw i16, ptr %893, i64 %894
+  %896 = load i16, ptr %895, align 2, !tbaa !90
+  %897 = zext i16 %896 to i32
+  %898 = icmp samesign ule i32 %886, %870
+  call void @llvm.assume(i1 %898)
+  %899 = zext nneg i32 %886 to i64
+  %900 = getelementptr inbounds nuw i16, ptr %893, i64 %899
+  %901 = load i16, ptr %900, align 2, !tbaa !90
+  %902 = zext i16 %901 to i32
+  %903 = add nuw nsw i32 %886, 2
+  %904 = icmp samesign ult i32 %903, %870
+  call void @llvm.assume(i1 %904)
+  %905 = zext nneg i32 %903 to i64
+  %906 = getelementptr inbounds nuw i16, ptr %893, i64 %905
+  %907 = load i16, ptr %906, align 2, !tbaa !90
+  %908 = zext i16 %907 to i32
+  %909 = add nsw i32 %884, -2
+  %910 = icmp samesign ult i32 %909, %871
+  call void @llvm.assume(i1 %910)
+  %911 = mul nuw nsw i32 %909, %872
+  %912 = zext nneg i32 %911 to i64
+  %913 = getelementptr inbounds nuw i16, ptr %869, i64 %912
+  %914 = getelementptr inbounds nuw i16, ptr %913, i64 %894
+  %915 = load i16, ptr %914, align 2, !tbaa !90
+  %916 = zext i16 %915 to i32
+  %917 = sub nsw i32 %902, %897
+  %918 = call i32 @llvm.abs.i32(i32 %917, i1 true)
+  %919 = sub nsw i32 %916, %897
+  %920 = call i32 @llvm.abs.i32(i32 %919, i1 true)
+  %921 = sub nsw i32 %908, %897
+  %922 = call i32 @llvm.abs.i32(i32 %921, i1 true)
+  %.sroa.speculated.i.i.i107.i.i.i = call i32 @llvm.umax.i32(i32 %920, i32 %922)
+  %923 = icmp samesign ugt i32 %918, %.sroa.speculated.i.i.i107.i.i.i
+  %.sroa.speculated8.i.i.i.i.i.i = call i32 @llvm.umax.i32(i32 %918, i32 %920)
+  %924 = icmp samesign ugt i32 %922, %.sroa.speculated8.i.i.i.i.i.i
+  %925 = select i1 %923, i1 true, i1 %924
+  %.027.i.i.i.i108.i.i.i = select i1 %925, i32 %916, i32 %908
+  %.0.i.i.i.i109.i.i.i = select i1 %923, i32 %908, i32 %902
+  %926 = shl nuw nsw i32 %897, 1
+  %927 = add nuw nsw i32 %.0.i.i.i.i109.i.i.i, %926
+  %928 = add nuw nsw i32 %927, %.027.i.i.i.i108.i.i.i
+  %929 = lshr i32 %928, 2
+  %930 = sub nsw i32 %897, %916
+  %931 = load i32, ptr %840, align 4, !tbaa !93
+  %932 = add nsw i32 %930, %931
+  %933 = sext i32 %932 to i64
+  %934 = getelementptr inbounds nuw i8, ptr %.val4.i.i.i.i.i.i, i64 %933
+  %935 = load i8, ptr %934, align 1, !tbaa !92
+  %936 = sext i8 %935 to i32
+  %937 = mul nsw i32 %936, 9
+  %938 = add nsw i32 %931, %917
+  %939 = sext i32 %938 to i64
+  %940 = getelementptr inbounds nuw i8, ptr %.val4.i.i.i.i.i.i, i64 %939
+  %941 = load i8, ptr %940, align 1, !tbaa !92
+  %942 = sext i8 %941 to i32
+  %.sroa.0.0.extract.trunc.i.i.i.i.i.i = add nsw i32 %937, %942
+  %943 = call i32 @llvm.abs.i32(i32 %.sroa.0.0.extract.trunc.i.i.i.i.i.i, i1 true)
   %.promoted17.i.i.i.i110.i.i.i = load i64, ptr %160, align 8
-  br label %945
+  br label %944
 
-945:                                              ; preds = %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i113.i.i.i, %883
-  %.promoted16.i.pre.i129.i.i.i.i = phi i32 [ %.promoted16.i.pre.i130.i.i.i.i, %883 ], [ %.promoted16.i.pre.i128.i.i.i.i, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i113.i.i.i ]
-  %.promoted16.i.i172.i.i.i.i.i = phi i32 [ %.promoted16.i.i.i.i.i.i.i, %883 ], [ %.promoted16.i.i171.i.i.i.i.i, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i113.i.i.i ]
-  %946 = phi i64 [ %.promoted17.i.i.i.i110.i.i.i, %883 ], [ %983, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i113.i.i.i ]
-  %947 = phi i32 [ %.promoted16.i.i.i.i.i.i.i, %883 ], [ %972, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i113.i.i.i ]
-  %948 = phi i32 [ %.promoted.i.i.i.i.i.i.i, %883 ], [ %981, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i113.i.i.i ]
-  %.014.i.i.i.i111.i.i.i = phi i32 [ 0, %883 ], [ %978, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i113.i.i.i ]
-  %949 = icmp samesign ult i32 %948, 65
-  call void @llvm.assume(i1 %949)
-  %.not.i.i.i.i.i112.i.i.i = icmp samesign ult i32 %948, 32
-  br i1 %.not.i.i.i.i.i112.i.i.i, label %950, label %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i113.i.i.i
+944:                                              ; preds = %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i113.i.i.i, %882
+  %.promoted16.i.pre.i129.i.i.i.i = phi i32 [ %.promoted16.i.pre.i130.i.i.i.i, %882 ], [ %.promoted16.i.pre.i128.i.i.i.i, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i113.i.i.i ]
+  %.promoted16.i.i172.i.i.i.i.i = phi i32 [ %.promoted16.i.i.i.i.i.i.i, %882 ], [ %.promoted16.i.i171.i.i.i.i.i, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i113.i.i.i ]
+  %945 = phi i64 [ %.promoted17.i.i.i.i110.i.i.i, %882 ], [ %981, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i113.i.i.i ]
+  %946 = phi i32 [ %.promoted16.i.i.i.i.i.i.i, %882 ], [ %971, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i113.i.i.i ]
+  %947 = phi i32 [ %.promoted.i.i.i.i.i.i.i, %882 ], [ %979, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i113.i.i.i ]
+  %.014.i.i.i.i111.i.i.i = phi i32 [ 0, %882 ], [ %976, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i113.i.i.i ]
+  %948 = icmp samesign ult i32 %947, 65
+  call void @llvm.assume(i1 %948)
+  %.not.i.i.i.i.i112.i.i.i = icmp samesign ult i32 %947, 32
+  br i1 %.not.i.i.i.i.i112.i.i.i, label %949, label %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i113.i.i.i
 
-950:                                              ; preds = %945
+949:                                              ; preds = %944
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i48.i.i.i)
-  %951 = add nuw nsw i32 %947, 4
-  %.not.i.i.i.i.i.i135.i.i.i = icmp samesign ugt i32 %951, %878
-  br i1 %.not.i.i.i.i.i.i135.i.i.i, label %955, label %952, !prof !162
+  %950 = add nuw nsw i32 %946, 4
+  %.not.i.i.i.i.i.i135.i.i.i = icmp samesign ugt i32 %950, %877
+  br i1 %.not.i.i.i.i.i.i135.i.i.i, label %954, label %951, !prof !162
 
-952:                                              ; preds = %950
-  %953 = zext nneg i32 %947 to i64
-  %954 = getelementptr inbounds nuw i8, ptr %877, i64 %953
+951:                                              ; preds = %949
+  %952 = zext nneg i32 %946 to i64
+  %953 = getelementptr inbounds nuw i8, ptr %876, i64 %952
   br label %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i136.i.i.i
 
-955:                                              ; preds = %950
-  %956 = icmp samesign ugt i32 %947, %880
-  br i1 %956, label %.invoke228.i.i, label %957, !prof !162
+954:                                              ; preds = %949
+  %955 = icmp samesign ugt i32 %946, %879
+  br i1 %955, label %.invoke228.i.i, label %956, !prof !162
 
-957:                                              ; preds = %955
+956:                                              ; preds = %954
   store i32 0, ptr %.sroa.0.i.i.i.i.i.i48.i.i.i, align 4
-  %.sroa.speculated26.i.i.i.i.i.i.i139.i.i.i = call i32 @llvm.umin.i32(i32 %878, i32 %947)
-  %958 = add nuw nsw i32 %.sroa.speculated26.i.i.i.i.i.i.i139.i.i.i, 4
-  %.sroa.speculated.i.i.i.i.i.i.i140.i.i.i = call i32 @llvm.umin.i32(i32 %878, i32 %958)
-  %959 = sub nsw i32 %.sroa.speculated.i.i.i.i.i.i.i140.i.i.i, %.sroa.speculated26.i.i.i.i.i.i.i139.i.i.i
-  %960 = icmp ult i32 %959, 5
-  call void @llvm.assume(i1 %960)
-  %961 = zext nneg i32 %.sroa.speculated26.i.i.i.i.i.i.i139.i.i.i to i64
-  %962 = getelementptr inbounds nuw i8, ptr %877, i64 %961
-  %963 = zext nneg i32 %959 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.0.i.i.i.i.i.i48.i.i.i, ptr nonnull align 1 %962, i64 %963, i1 false)
+  %.sroa.speculated26.i.i.i.i.i.i.i139.i.i.i = call i32 @llvm.umin.i32(i32 %877, i32 %946)
+  %957 = add nuw nsw i32 %.sroa.speculated26.i.i.i.i.i.i.i139.i.i.i, 4
+  %.sroa.speculated.i.i.i.i.i.i.i140.i.i.i = call i32 @llvm.umin.i32(i32 %877, i32 %957)
+  %958 = sub nsw i32 %.sroa.speculated.i.i.i.i.i.i.i140.i.i.i, %.sroa.speculated26.i.i.i.i.i.i.i139.i.i.i
+  %959 = icmp ult i32 %958, 5
+  call void @llvm.assume(i1 %959)
+  %960 = zext nneg i32 %.sroa.speculated26.i.i.i.i.i.i.i139.i.i.i to i64
+  %961 = getelementptr inbounds nuw i8, ptr %876, i64 %960
+  %962 = zext nneg i32 %958 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.0.i.i.i.i.i.i48.i.i.i, ptr nonnull align 1 %961, i64 %962, i1 false)
   br label %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i136.i.i.i
 
-_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i136.i.i.i: ; preds = %957, %952
-  %.sroa.0.0..sroa.0.0..in.i.i.i.i.i.i137.i.i.i = phi ptr [ %.sroa.0.i.i.i.i.i.i48.i.i.i, %957 ], [ %954, %952 ]
+_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i136.i.i.i: ; preds = %956, %951
+  %.sroa.0.0..sroa.0.0..in.i.i.i.i.i.i137.i.i.i = phi ptr [ %.sroa.0.i.i.i.i.i.i48.i.i.i, %956 ], [ %953, %951 ]
   %.sroa.0.0..sroa.0.0..i.i.i.i.i.i138.i.i.i = load i32, ptr %.sroa.0.0..sroa.0.0..in.i.i.i.i.i.i137.i.i.i, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i48.i.i.i)
-  %964 = call i32 @llvm.bswap.i32(i32 %.sroa.0.0..sroa.0.0..i.i.i.i.i.i138.i.i.i)
-  %965 = zext i32 %964 to i64
-  %966 = or disjoint i32 %948, 32
-  %967 = sub nuw nsw i32 32, %948
-  %968 = zext nneg i32 %967 to i64
-  %969 = shl nuw i64 %965, %968
-  %970 = or i64 %969, %946
-  store i32 %951, ptr %.sroa.842.0..sroa_idx.i.i, align 8, !tbaa !228
+  %963 = call i32 @llvm.bswap.i32(i32 %.sroa.0.0..sroa.0.0..i.i.i.i.i.i138.i.i.i)
+  %964 = zext i32 %963 to i64
+  %965 = or disjoint i32 %947, 32
+  %966 = sub nuw nsw i32 32, %947
+  %967 = zext nneg i32 %966 to i64
+  %968 = shl nuw i64 %964, %967
+  %969 = or i64 %968, %945
+  store i32 %950, ptr %.sroa.842.0..sroa_idx.i.i, align 8, !tbaa !228
   br label %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i113.i.i.i
 
-_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i113.i.i.i: ; preds = %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i136.i.i.i, %945
-  %.promoted16.i.pre.i128.i.i.i.i = phi i32 [ %.promoted16.i.pre.i129.i.i.i.i, %945 ], [ %951, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i136.i.i.i ]
-  %.promoted16.i.i171.i.i.i.i.i = phi i32 [ %.promoted16.i.i172.i.i.i.i.i, %945 ], [ %951, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i136.i.i.i ]
-  %971 = phi i64 [ %946, %945 ], [ %970, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i136.i.i.i ]
-  %972 = phi i32 [ %947, %945 ], [ %951, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i136.i.i.i ]
-  %973 = phi i32 [ %948, %945 ], [ %966, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i136.i.i.i ]
-  %974 = icmp sgt i32 %972, -1
-  call void @llvm.assume(i1 %974)
-  %975 = lshr i64 %971, 32
-  %976 = trunc nuw i64 %975 to i32
-  %977 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %976, i1 false)
-  %978 = add nuw nsw i32 %977, %.014.i.i.i.i111.i.i.i
-  %979 = icmp eq i64 %975, 0
-  %980 = add nuw nsw i32 %977, 1
-  %spec.select.i.i.i.i114.i.i.i = select i1 %979, i32 32, i32 %980
-  %981 = sub nuw nsw i32 %973, %spec.select.i.i.i.i114.i.i.i
-  store i32 %981, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !231
-  %982 = zext nneg i32 %spec.select.i.i.i.i114.i.i.i to i64
-  %983 = shl i64 %971, %982
-  store i64 %983, ptr %160, align 8, !tbaa !233
-  br i1 %979, label %945, label %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i115.i.i.i
+_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i113.i.i.i: ; preds = %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i136.i.i.i, %944
+  %.promoted16.i.pre.i128.i.i.i.i = phi i32 [ %.promoted16.i.pre.i129.i.i.i.i, %944 ], [ %950, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i136.i.i.i ]
+  %.promoted16.i.i171.i.i.i.i.i = phi i32 [ %.promoted16.i.i172.i.i.i.i.i, %944 ], [ %950, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i136.i.i.i ]
+  %970 = phi i64 [ %945, %944 ], [ %969, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i136.i.i.i ]
+  %971 = phi i32 [ %946, %944 ], [ %950, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i136.i.i.i ]
+  %972 = phi i32 [ %947, %944 ], [ %965, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i.i136.i.i.i ]
+  %973 = lshr i64 %970, 32
+  %974 = trunc nuw i64 %973 to i32
+  %975 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %974, i1 false)
+  %976 = add nuw nsw i32 %975, %.014.i.i.i.i111.i.i.i
+  %977 = icmp eq i64 %973, 0
+  %978 = add nuw nsw i32 %975, 1
+  %spec.select.i.i.i.i114.i.i.i = select i1 %977, i32 32, i32 %978
+  %979 = sub nuw nsw i32 %972, %spec.select.i.i.i.i114.i.i.i
+  store i32 %979, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !231
+  %980 = zext nneg i32 %spec.select.i.i.i.i114.i.i.i to i64
+  %981 = shl i64 %970, %980
+  store i64 %981, ptr %160, align 8, !tbaa !233
+  br i1 %977, label %944, label %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i115.i.i.i
 
 _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i115.i.i.i: ; preds = %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i.i113.i.i.i
-  %984 = load i32, ptr %842, align 4, !tbaa !180
-  %985 = load i32, ptr %843, align 4, !tbaa !179
-  %986 = xor i32 %985, -1
-  %987 = add i32 %984, %986
-  %988 = icmp slt i32 %978, %987
-  br i1 %988, label %989, label %1004
+  %982 = load i32, ptr %841, align 4, !tbaa !180
+  %983 = load i32, ptr %842, align 4, !tbaa !179
+  %984 = xor i32 %983, -1
+  %985 = add i32 %982, %984
+  %986 = icmp slt i32 %976, %985
+  br i1 %986, label %987, label %1002
 
-989:                                              ; preds = %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i115.i.i.i
-  %990 = zext nneg i32 %944 to i64
-  %991 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %868, i64 %990
-  %992 = load i32, ptr %991, align 8, !tbaa !221
-  %993 = getelementptr inbounds nuw i8, ptr %991, i64 4
-  %994 = load i32, ptr %993, align 4, !tbaa !223
-  %995 = icmp sgt i32 %992, -1
-  call void @llvm.assume(i1 %995)
-  %996 = icmp sgt i32 %994, 0
-  call void @llvm.assume(i1 %996)
-  %997 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %992, i1 false)
-  %998 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %994, i1 true)
-  %999 = sub nsw i32 %998, %997
-  %.sroa.speculated11.i.i.i.i133.i.i.i = call i32 @llvm.smax.i32(i32 %999, i32 0)
-  %1000 = shl i32 %994, %.sroa.speculated11.i.i.i.i133.i.i.i
-  %1001 = icmp slt i32 %1000, %992
-  %1002 = zext i1 %1001 to i32
-  %spec.select.i13.i.i.i.i.i.i = add nuw nsw i32 %.sroa.speculated11.i.i.i.i133.i.i.i, %1002
+987:                                              ; preds = %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i115.i.i.i
+  %988 = zext nneg i32 %943 to i64
+  %989 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %867, i64 %988
+  %990 = load i32, ptr %989, align 8, !tbaa !221
+  %991 = getelementptr inbounds nuw i8, ptr %989, i64 4
+  %992 = load i32, ptr %991, align 4, !tbaa !223
+  %993 = icmp sgt i32 %990, -1
+  call void @llvm.assume(i1 %993)
+  %994 = icmp sgt i32 %992, 0
+  call void @llvm.assume(i1 %994)
+  %995 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %990, i1 false)
+  %996 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %992, i1 true)
+  %997 = sub nsw i32 %996, %995
+  %.sroa.speculated11.i.i.i.i133.i.i.i = call i32 @llvm.smax.i32(i32 %997, i32 0)
+  %998 = shl i32 %992, %.sroa.speculated11.i.i.i.i133.i.i.i
+  %999 = icmp slt i32 %998, %990
+  %1000 = zext i1 %999 to i32
+  %spec.select.i13.i.i.i.i.i.i = add nuw nsw i32 %.sroa.speculated11.i.i.i.i133.i.i.i, %1000
   %.sroa.speculated.i.i.i.i134.i.i.i = call noundef range(i32 0, 16) i32 @llvm.umin.i32(i32 %spec.select.i13.i.i.i.i.i.i, i32 15)
-  %1003 = shl i32 %978, %.sroa.speculated.i.i.i.i134.i.i.i
-  br label %1004
+  %1001 = shl i32 %976, %.sroa.speculated.i.i.i.i134.i.i.i
+  br label %1002
 
-1004:                                             ; preds = %989, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i115.i.i.i
-  %.033.i.i.i.i116.i.i.i = phi i32 [ %.sroa.speculated.i.i.i.i134.i.i.i, %989 ], [ %985, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i115.i.i.i ]
-  %.032.i.i.i.i117.i.i.i = phi i32 [ %1003, %989 ], [ 1, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i115.i.i.i ]
-  %.not.i14.i.i.i.i.i.i = icmp samesign ult i32 %981, 32
-  br i1 %.not.i14.i.i.i.i.i.i, label %1005, label %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i118.i.i.i
+1002:                                             ; preds = %987, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i115.i.i.i
+  %.033.i.i.i.i116.i.i.i = phi i32 [ %.sroa.speculated.i.i.i.i134.i.i.i, %987 ], [ %983, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i115.i.i.i ]
+  %.032.i.i.i.i117.i.i.i = phi i32 [ %1001, %987 ], [ 1, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i115.i.i.i ]
+  %1003 = icmp sgt i32 %971, -1
+  call void @llvm.assume(i1 %1003)
+  %.not.i14.i.i.i.i.i.i = icmp samesign ult i32 %979, 32
+  br i1 %.not.i14.i.i.i.i.i.i, label %1004, label %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i118.i.i.i
 
-1005:                                             ; preds = %1004
+1004:                                             ; preds = %1002
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i47.i.i.i)
-  %1006 = add nuw nsw i32 %972, 4
-  %.not.i.i15.i.i.i.i.i.i = icmp samesign ugt i32 %1006, %878
-  br i1 %.not.i.i15.i.i.i.i.i.i, label %1010, label %1007, !prof !162
+  %1005 = add nuw nsw i32 %971, 4
+  %.not.i.i15.i.i.i.i.i.i = icmp samesign ugt i32 %1005, %877
+  br i1 %.not.i.i15.i.i.i.i.i.i, label %1009, label %1006, !prof !162
 
-1007:                                             ; preds = %1005
-  %1008 = zext nneg i32 %972 to i64
-  %1009 = getelementptr inbounds nuw i8, ptr %877, i64 %1008
+1006:                                             ; preds = %1004
+  %1007 = zext nneg i32 %971 to i64
+  %1008 = getelementptr inbounds nuw i8, ptr %876, i64 %1007
   br label %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i128.i.i.i
 
-1010:                                             ; preds = %1005
-  %1011 = icmp samesign ugt i32 %972, %880
-  br i1 %1011, label %.invoke228.i.i, label %1012, !prof !162
+1009:                                             ; preds = %1004
+  %1010 = icmp samesign ugt i32 %971, %879
+  br i1 %1010, label %.invoke228.i.i, label %1011, !prof !162
 
-1012:                                             ; preds = %1010
+1011:                                             ; preds = %1009
   store i32 0, ptr %.sroa.0.i.i.i.i.i47.i.i.i, align 4
-  %.sroa.speculated26.i.i.i.i.i.i131.i.i.i = call i32 @llvm.umin.i32(i32 %878, i32 %972)
-  %1013 = add nuw nsw i32 %.sroa.speculated26.i.i.i.i.i.i131.i.i.i, 4
-  %.sroa.speculated.i.i.i.i.i.i132.i.i.i = call i32 @llvm.umin.i32(i32 %878, i32 %1013)
-  %1014 = sub nsw i32 %.sroa.speculated.i.i.i.i.i.i132.i.i.i, %.sroa.speculated26.i.i.i.i.i.i131.i.i.i
-  %1015 = icmp ult i32 %1014, 5
-  call void @llvm.assume(i1 %1015)
-  %1016 = zext nneg i32 %.sroa.speculated26.i.i.i.i.i.i131.i.i.i to i64
-  %1017 = getelementptr inbounds nuw i8, ptr %877, i64 %1016
-  %1018 = zext nneg i32 %1014 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.0.i.i.i.i.i47.i.i.i, ptr nonnull align 1 %1017, i64 %1018, i1 false)
+  %.sroa.speculated26.i.i.i.i.i.i131.i.i.i = call i32 @llvm.umin.i32(i32 %877, i32 %971)
+  %1012 = add nuw nsw i32 %.sroa.speculated26.i.i.i.i.i.i131.i.i.i, 4
+  %.sroa.speculated.i.i.i.i.i.i132.i.i.i = call i32 @llvm.umin.i32(i32 %877, i32 %1012)
+  %1013 = sub nsw i32 %.sroa.speculated.i.i.i.i.i.i132.i.i.i, %.sroa.speculated26.i.i.i.i.i.i131.i.i.i
+  %1014 = icmp ult i32 %1013, 5
+  call void @llvm.assume(i1 %1014)
+  %1015 = zext nneg i32 %.sroa.speculated26.i.i.i.i.i.i131.i.i.i to i64
+  %1016 = getelementptr inbounds nuw i8, ptr %876, i64 %1015
+  %1017 = zext nneg i32 %1013 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.0.i.i.i.i.i47.i.i.i, ptr nonnull align 1 %1016, i64 %1017, i1 false)
   br label %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i128.i.i.i
 
-_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i128.i.i.i: ; preds = %1012, %1007
-  %.sroa.0.0..sroa.0.0..in.i.i.i.i.i129.i.i.i = phi ptr [ %.sroa.0.i.i.i.i.i47.i.i.i, %1012 ], [ %1009, %1007 ]
+_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i128.i.i.i: ; preds = %1011, %1006
+  %.sroa.0.0..sroa.0.0..in.i.i.i.i.i129.i.i.i = phi ptr [ %.sroa.0.i.i.i.i.i47.i.i.i, %1011 ], [ %1008, %1006 ]
   %.sroa.0.0..sroa.0.0..i.i.i.i.i130.i.i.i = load i32, ptr %.sroa.0.0..sroa.0.0..in.i.i.i.i.i129.i.i.i, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i47.i.i.i)
-  %1019 = call i32 @llvm.bswap.i32(i32 %.sroa.0.0..sroa.0.0..i.i.i.i.i130.i.i.i)
-  %1020 = zext i32 %1019 to i64
-  %1021 = or disjoint i32 %981, 32
-  %1022 = sub nuw nsw i32 32, %981
-  %1023 = zext nneg i32 %1022 to i64
-  %1024 = shl nuw i64 %1020, %1023
-  %1025 = or i64 %1024, %983
-  store i64 %1025, ptr %160, align 8, !tbaa !233
-  store i32 %1021, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !231
-  store i32 %1006, ptr %.sroa.842.0..sroa_idx.i.i, align 8, !tbaa !228
+  %1018 = call i32 @llvm.bswap.i32(i32 %.sroa.0.0..sroa.0.0..i.i.i.i.i130.i.i.i)
+  %1019 = zext i32 %1018 to i64
+  %1020 = or disjoint i32 %979, 32
+  %1021 = sub nuw nsw i32 32, %979
+  %1022 = zext nneg i32 %1021 to i64
+  %1023 = shl nuw i64 %1019, %1022
+  %1024 = or i64 %1023, %981
+  store i64 %1024, ptr %160, align 8, !tbaa !233
+  store i32 %1020, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !231
+  store i32 %1005, ptr %.sroa.842.0..sroa_idx.i.i, align 8, !tbaa !228
   br label %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i118.i.i.i
 
-_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i118.i.i.i: ; preds = %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i128.i.i.i, %1004
-  %.promoted16.i.pre.i127.i.i.i.i = phi i32 [ %.promoted16.i.pre.i128.i.i.i.i, %1004 ], [ %1006, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i128.i.i.i ]
-  %.promoted.i.pre.i119.i.i.i.i = phi i32 [ %981, %1004 ], [ %1021, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i128.i.i.i ]
-  %.promoted16.i.i170.i.i.i.i.i = phi i32 [ %.promoted16.i.i171.i.i.i.i.i, %1004 ], [ %1006, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i128.i.i.i ]
-  %1026 = phi i64 [ %983, %1004 ], [ %1025, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i128.i.i.i ]
+_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i118.i.i.i: ; preds = %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i128.i.i.i, %1002
+  %.promoted16.i.pre.i127.i.i.i.i = phi i32 [ %.promoted16.i.pre.i128.i.i.i.i, %1002 ], [ %1005, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i128.i.i.i ]
+  %.promoted.i.pre.i119.i.i.i.i = phi i32 [ %979, %1002 ], [ %1020, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i128.i.i.i ]
+  %.promoted16.i.i170.i.i.i.i.i = phi i32 [ %.promoted16.i.i171.i.i.i.i.i, %1002 ], [ %1005, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i128.i.i.i ]
+  %1025 = phi i64 [ %981, %1002 ], [ %1024, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i.i128.i.i.i ]
   %.not.i.i.i9.i119.i.i.i = icmp eq i32 %.033.i.i.i.i116.i.i.i, 0
-  br i1 %.not.i.i.i9.i119.i.i.i, label %1036, label %1027
+  br i1 %.not.i.i.i9.i119.i.i.i, label %1035, label %1026
 
-1027:                                             ; preds = %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i118.i.i.i
-  %1028 = icmp samesign ult i32 %.033.i.i.i.i116.i.i.i, 33
-  call void @llvm.assume(i1 %1028)
-  %1029 = sub nuw nsw i32 64, %.033.i.i.i.i116.i.i.i
-  %1030 = zext nneg i32 %1029 to i64
-  %1031 = lshr i64 %1026, %1030
-  %1032 = trunc nuw i64 %1031 to i32
-  %1033 = sub nuw nsw i32 %.promoted.i.pre.i119.i.i.i.i, %.033.i.i.i.i116.i.i.i
-  store i32 %1033, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !231
-  %1034 = zext nneg i32 %.033.i.i.i.i116.i.i.i to i64
-  %1035 = shl i64 %1026, %1034
-  store i64 %1035, ptr %160, align 8, !tbaa !233
-  br label %1036
+1026:                                             ; preds = %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i118.i.i.i
+  %1027 = icmp samesign ult i32 %.033.i.i.i.i116.i.i.i, 33
+  call void @llvm.assume(i1 %1027)
+  %1028 = sub nuw nsw i32 64, %.033.i.i.i.i116.i.i.i
+  %1029 = zext nneg i32 %1028 to i64
+  %1030 = lshr i64 %1025, %1029
+  %1031 = trunc nuw i64 %1030 to i32
+  %1032 = sub nuw nsw i32 %.promoted.i.pre.i119.i.i.i.i, %.033.i.i.i.i116.i.i.i
+  store i32 %1032, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !231
+  %1033 = zext nneg i32 %.033.i.i.i.i116.i.i.i to i64
+  %1034 = shl i64 %1025, %1033
+  store i64 %1034, ptr %160, align 8, !tbaa !233
+  br label %1035
 
-1036:                                             ; preds = %1027, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i118.i.i.i
-  %.promoted.i.pre.i118.i.i.i.i = phi i32 [ %1033, %1027 ], [ %.promoted.i.pre.i119.i.i.i.i, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i118.i.i.i ]
-  %.0.i3.i.i.i.i.i.i = phi i32 [ %1032, %1027 ], [ 0, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i118.i.i.i ]
-  %1037 = add nsw i32 %.0.i3.i.i.i.i.i.i, %.032.i.i.i.i117.i.i.i
-  %1038 = icmp slt i32 %1037, 0
-  br i1 %1038, label %.invoke.i.i14, label %1039
+1035:                                             ; preds = %1026, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i118.i.i.i
+  %.promoted.i.pre.i118.i.i.i.i = phi i32 [ %1032, %1026 ], [ %.promoted.i.pre.i119.i.i.i.i, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i118.i.i.i ]
+  %.0.i3.i.i.i.i.i.i = phi i32 [ %1031, %1026 ], [ 0, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i.i118.i.i.i ]
+  %1036 = add nsw i32 %.0.i3.i.i.i.i.i.i, %.032.i.i.i.i117.i.i.i
+  %1037 = icmp slt i32 %1036, 0
+  br i1 %1037, label %.invoke.i.i14, label %1038
 
-1039:                                             ; preds = %1036
-  %1040 = load i32, ptr %844, align 8, !tbaa !178
-  %.not39.i.i.i.i120.i.i.i = icmp slt i32 %1037, %1040
-  br i1 %.not39.i.i.i.i120.i.i.i, label %1041, label %.invoke.i.i14
+1038:                                             ; preds = %1035
+  %1039 = load i32, ptr %843, align 8, !tbaa !178
+  %.not39.i.i.i.i120.i.i.i = icmp slt i32 %1036, %1039
+  br i1 %.not39.i.i.i.i120.i.i.i, label %1040, label %.invoke.i.i14
 
-1041:                                             ; preds = %1039
-  %1042 = lshr i32 %1037, 1
-  %1043 = and i32 %1037, 1
-  %sext.i.i.i121.i.i.i = sub nsw i32 0, %1043
-  %.1.i.i.i.i122.i.i.i = xor i32 %1042, %sext.i.i.i121.i.i.i
-  %1044 = call i32 @llvm.abs.i32(i32 %.1.i.i.i.i122.i.i.i, i1 true)
-  %1045 = zext nneg i32 %944 to i64
-  %1046 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %868, i64 %1045
-  %1047 = load i32, ptr %1046, align 8, !tbaa !221
-  %1048 = add nsw i32 %1047, %1044
-  store i32 %1048, ptr %1046, align 8, !tbaa !221
-  %1049 = getelementptr inbounds nuw i8, ptr %1046, i64 4
-  %1050 = load i32, ptr %1049, align 4, !tbaa !223
-  %1051 = load i32, ptr %845, align 8, !tbaa !173
-  %1052 = icmp eq i32 %1050, %1051
-  br i1 %1052, label %1053, label %1056
+1040:                                             ; preds = %1038
+  %1041 = lshr i32 %1036, 1
+  %1042 = and i32 %1036, 1
+  %sext.i.i.i121.i.i.i = sub nsw i32 0, %1042
+  %.1.i.i.i.i122.i.i.i = xor i32 %1041, %sext.i.i.i121.i.i.i
+  %1043 = call i32 @llvm.abs.i32(i32 %.1.i.i.i.i122.i.i.i, i1 true)
+  %1044 = zext nneg i32 %943 to i64
+  %1045 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %867, i64 %1044
+  %1046 = load i32, ptr %1045, align 8, !tbaa !221
+  %1047 = add nsw i32 %1046, %1043
+  store i32 %1047, ptr %1045, align 8, !tbaa !221
+  %1048 = getelementptr inbounds nuw i8, ptr %1045, i64 4
+  %1049 = load i32, ptr %1048, align 4, !tbaa !223
+  %1050 = load i32, ptr %844, align 8, !tbaa !173
+  %1051 = icmp eq i32 %1049, %1050
+  br i1 %1051, label %1052, label %1055
 
-1053:                                             ; preds = %1041
-  %1054 = ashr i32 %1048, 1
-  store i32 %1054, ptr %1046, align 8, !tbaa !221
-  %1055 = ashr i32 %1050, 1
-  br label %1056
+1052:                                             ; preds = %1040
+  %1053 = ashr i32 %1047, 1
+  store i32 %1053, ptr %1045, align 8, !tbaa !221
+  %1054 = ashr i32 %1049, 1
+  br label %1055
 
-1056:                                             ; preds = %1053, %1041
-  %1057 = phi i32 [ %1055, %1053 ], [ %1050, %1041 ]
-  %1058 = add nsw i32 %1057, 1
-  store i32 %1058, ptr %1049, align 4, !tbaa !223
-  %1059 = icmp slt i32 %.sroa.0.0.extract.trunc.i.i.i.i.i.i, 0
-  %1060 = sub nsw i32 0, %.1.i.i.i.i122.i.i.i
-  %storemerge.i.p.i.i.i123.i.i.i = select i1 %1059, i32 %1060, i32 %.1.i.i.i.i122.i.i.i
-  %storemerge.i.i.i.i124.i.i.i = add i32 %storemerge.i.p.i.i.i123.i.i.i, %930
-  %1061 = icmp slt i32 %storemerge.i.i.i.i124.i.i.i, 0
-  br i1 %1061, label %1062, label %1064
+1055:                                             ; preds = %1052, %1040
+  %1056 = phi i32 [ %1054, %1052 ], [ %1049, %1040 ]
+  %1057 = add nsw i32 %1056, 1
+  store i32 %1057, ptr %1048, align 4, !tbaa !223
+  %1058 = icmp slt i32 %.sroa.0.0.extract.trunc.i.i.i.i.i.i, 0
+  %1059 = sub nsw i32 0, %.1.i.i.i.i122.i.i.i
+  %storemerge.i.p.i.i.i123.i.i.i = select i1 %1058, i32 %1059, i32 %.1.i.i.i.i122.i.i.i
+  %storemerge.i.i.i.i124.i.i.i = add i32 %storemerge.i.p.i.i.i123.i.i.i, %929
+  %1060 = icmp slt i32 %storemerge.i.i.i.i124.i.i.i, 0
+  br i1 %1060, label %1061, label %1063
 
-1062:                                             ; preds = %1056
-  %1063 = add nsw i32 %1040, %storemerge.i.i.i.i124.i.i.i
-  br label %1069
+1061:                                             ; preds = %1055
+  %1062 = add nsw i32 %1039, %storemerge.i.i.i.i124.i.i.i
+  br label %1068
 
-1064:                                             ; preds = %1056
-  %1065 = load i32, ptr %841, align 4, !tbaa !93
-  %1066 = icmp sgt i32 %storemerge.i.i.i.i124.i.i.i, %1065
-  br i1 %1066, label %1067, label %.thread.i.i.i.i.i.i
+1063:                                             ; preds = %1055
+  %1064 = load i32, ptr %840, align 4, !tbaa !93
+  %1065 = icmp sgt i32 %storemerge.i.i.i.i124.i.i.i, %1064
+  br i1 %1065, label %1066, label %.thread.i.i.i.i.i.i
 
-1067:                                             ; preds = %1064
-  %1068 = sub nsw i32 %storemerge.i.i.i.i124.i.i.i, %1040
-  br label %1069
+1066:                                             ; preds = %1063
+  %1067 = sub nsw i32 %storemerge.i.i.i.i124.i.i.i, %1039
+  br label %1068
 
-1069:                                             ; preds = %1067, %1062
-  %.0.i37.i.i126.i.i.i = phi i32 [ %1063, %1062 ], [ %1068, %1067 ]
-  %1070 = icmp slt i32 %.0.i37.i.i126.i.i.i, 0
-  br i1 %1070, label %"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block23fuji_bayer_decode_blockEiENK3$_0clENS0_8xt_linesEiRSt5arrayINS0_8int_pairELm41EEiii.exit.i.i.i.i.i", label %..thread_crit_edge.i.i.i.i.i.i
+1068:                                             ; preds = %1066, %1061
+  %.0.i37.i.i126.i.i.i = phi i32 [ %1062, %1061 ], [ %1067, %1066 ]
+  %1069 = icmp slt i32 %.0.i37.i.i126.i.i.i, 0
+  br i1 %1069, label %"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block23fuji_bayer_decode_blockEiENK3$_0clENS0_8xt_linesEiRSt5arrayINS0_8int_pairELm41EEiii.exit.i.i.i.i.i", label %..thread_crit_edge.i.i.i.i.i.i
 
-..thread_crit_edge.i.i.i.i.i.i:                   ; preds = %1069
-  %.pre.i.i.i127.i.i.i = load i32, ptr %841, align 4, !tbaa !93
+..thread_crit_edge.i.i.i.i.i.i:                   ; preds = %1068
+  %.pre.i.i.i127.i.i.i = load i32, ptr %840, align 4, !tbaa !93
   br label %.thread.i.i.i.i.i.i
 
-.thread.i.i.i.i.i.i:                              ; preds = %..thread_crit_edge.i.i.i.i.i.i, %1064
-  %1071 = phi i32 [ %.pre.i.i.i127.i.i.i, %..thread_crit_edge.i.i.i.i.i.i ], [ %1065, %1064 ]
-  %.060.i.i.i.i.i.i = phi i32 [ %.0.i37.i.i126.i.i.i, %..thread_crit_edge.i.i.i.i.i.i ], [ %storemerge.i.i.i.i124.i.i.i, %1064 ]
-  %.sroa.speculated52.i.i.i125.i.i.i = call i32 @llvm.smin.i32(i32 %1071, i32 %.060.i.i.i.i.i.i)
-  %1072 = trunc i32 %.sroa.speculated52.i.i.i125.i.i.i to i16
+.thread.i.i.i.i.i.i:                              ; preds = %..thread_crit_edge.i.i.i.i.i.i, %1063
+  %1070 = phi i32 [ %.pre.i.i.i127.i.i.i, %..thread_crit_edge.i.i.i.i.i.i ], [ %1064, %1063 ]
+  %.060.i.i.i.i.i.i = phi i32 [ %.0.i37.i.i126.i.i.i, %..thread_crit_edge.i.i.i.i.i.i ], [ %storemerge.i.i.i.i124.i.i.i, %1063 ]
+  %.sroa.speculated52.i.i.i125.i.i.i = call i32 @llvm.smin.i32(i32 %1070, i32 %.060.i.i.i.i.i.i)
+  %1071 = trunc i32 %.sroa.speculated52.i.i.i125.i.i.i to i16
   br label %"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block23fuji_bayer_decode_blockEiENK3$_0clENS0_8xt_linesEiRSt5arrayINS0_8int_pairELm41EEiii.exit.i.i.i.i.i"
 
-"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block23fuji_bayer_decode_blockEiENK3$_0clENS0_8xt_linesEiRSt5arrayINS0_8int_pairELm41EEiii.exit.i.i.i.i.i": ; preds = %.thread.i.i.i.i.i.i, %1069
-  %.034.i.i.i.i.i.i.i = phi i16 [ %1072, %.thread.i.i.i.i.i.i ], [ 0, %1069 ]
-  %1073 = icmp samesign ugt i32 %872, %885
-  call void @llvm.assume(i1 %1073)
-  %1074 = mul nuw nsw i32 %885, %873
-  %1075 = zext nneg i32 %1074 to i64
-  %1076 = getelementptr inbounds nuw i16, ptr %870, i64 %1075
-  %1077 = getelementptr inbounds nuw i16, ptr %1076, i64 %895
-  store i16 %.034.i.i.i.i.i.i.i, ptr %1077, align 2, !tbaa !90
-  %1078 = add nsw i32 %884, 1
-  store i32 %1078, ptr %indvars.iv.i.sroa.phi.i106.i.i.i, align 4, !tbaa !93
-  br i1 %.not30.i.i105.i.i.i, label %.loopexit146.i.i.i.i.i, label %883, !llvm.loop !239
+"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block23fuji_bayer_decode_blockEiENK3$_0clENS0_8xt_linesEiRSt5arrayINS0_8int_pairELm41EEiii.exit.i.i.i.i.i": ; preds = %.thread.i.i.i.i.i.i, %1068
+  %.034.i.i.i.i.i.i.i = phi i16 [ %1071, %.thread.i.i.i.i.i.i ], [ 0, %1068 ]
+  %1072 = icmp samesign ugt i32 %871, %884
+  call void @llvm.assume(i1 %1072)
+  %1073 = mul nuw nsw i32 %884, %872
+  %1074 = zext nneg i32 %1073 to i64
+  %1075 = getelementptr inbounds nuw i16, ptr %869, i64 %1074
+  %1076 = getelementptr inbounds nuw i16, ptr %1075, i64 %894
+  store i16 %.034.i.i.i.i.i.i.i, ptr %1076, align 2, !tbaa !90
+  %1077 = add nsw i32 %883, 1
+  store i32 %1077, ptr %indvars.iv.i.sroa.phi.i106.i.i.i, align 4, !tbaa !93
+  br i1 %.not30.i.i105.i.i.i, label %.loopexit146.i.i.i.i.i, label %882, !llvm.loop !239
 
-.loopexit146.i.i.i.i.i:                           ; preds = %"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block23fuji_bayer_decode_blockEiENK3$_0clENS0_8xt_linesEiRSt5arrayINS0_8int_pairELm41EEiii.exit.i.i.i.i.i", %881
-  %.promoted16.i.pre.i126.i.i.i.i = phi i32 [ %.promoted16.i.pre.i131.i.i.i.i, %881 ], [ %.promoted16.i.pre.i127.i.i.i.i, %"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block23fuji_bayer_decode_blockEiENK3$_0clENS0_8xt_linesEiRSt5arrayINS0_8int_pairELm41EEiii.exit.i.i.i.i.i" ]
-  %.promoted.i.pre.i114.i.i.i.i = phi i32 [ %.promoted.i.pre.i115.i.i.i.i, %881 ], [ %.promoted.i.pre.i118.i.i.i.i, %"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block23fuji_bayer_decode_blockEiENK3$_0clENS0_8xt_linesEiRSt5arrayINS0_8int_pairELm41EEiii.exit.i.i.i.i.i" ]
-  %1079 = icmp samesign ugt i32 %.0156.i.i.i.i.i, 3
-  br i1 %1079, label %.preheader.i.i73.i.i.i, label %.loopexit.i.i57.i.i.i
+.loopexit146.i.i.i.i.i:                           ; preds = %"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block23fuji_bayer_decode_blockEiENK3$_0clENS0_8xt_linesEiRSt5arrayINS0_8int_pairELm41EEiii.exit.i.i.i.i.i", %880
+  %.promoted16.i.pre.i126.i.i.i.i = phi i32 [ %.promoted16.i.pre.i131.i.i.i.i, %880 ], [ %.promoted16.i.pre.i127.i.i.i.i, %"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block23fuji_bayer_decode_blockEiENK3$_0clENS0_8xt_linesEiRSt5arrayINS0_8int_pairELm41EEiii.exit.i.i.i.i.i" ]
+  %.promoted.i.pre.i114.i.i.i.i = phi i32 [ %.promoted.i.pre.i115.i.i.i.i, %880 ], [ %.promoted.i.pre.i118.i.i.i.i, %"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block23fuji_bayer_decode_blockEiENK3$_0clENS0_8xt_linesEiRSt5arrayINS0_8int_pairELm41EEiii.exit.i.i.i.i.i" ]
+  %1078 = icmp samesign ugt i32 %.0156.i.i.i.i.i, 3
+  br i1 %1078, label %.preheader.i.i73.i.i.i, label %.loopexit.i.i57.i.i.i
 
 .preheader.i.i73.i.i.i:                           ; preds = %.loopexit146.i.i.i.i.i
+  call void @llvm.assume(i1 %873)
   call void @llvm.assume(i1 %874)
   call void @llvm.assume(i1 %875)
-  call void @llvm.assume(i1 %876)
   %.val35.i.i74.i.i.i = load ptr, ptr %257, align 8, !tbaa !174
-  call void @llvm.assume(i1 %879)
+  call void @llvm.assume(i1 %878)
   br label %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_odd_innerENS0_8xt_linesEi.exit.i.i75.i.i.i
 
 _ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_odd_innerENS0_8xt_linesEi.exit.i.i75.i.i.i: ; preds = %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i94.i.i.i, %.preheader.i.i73.i.i.i
   %.promoted16.i.pre.i125.i.i.i.i = phi i32 [ %.promoted16.i.pre.i126.i.i.i.i, %.preheader.i.i73.i.i.i ], [ %.promoted16.i.pre.i122.i.i.i.i, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i94.i.i.i ]
-  %1080 = phi i32 [ %.promoted16.i.pre.i126.i.i.i.i, %.preheader.i.i73.i.i.i ], [ %1228, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i94.i.i.i ]
-  %1081 = phi i32 [ %.promoted16.i.pre.i126.i.i.i.i, %.preheader.i.i73.i.i.i ], [ %1241, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i94.i.i.i ]
+  %1079 = phi i32 [ %.promoted16.i.pre.i126.i.i.i.i, %.preheader.i.i73.i.i.i ], [ %1226, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i94.i.i.i ]
+  %1080 = phi i32 [ %.promoted16.i.pre.i126.i.i.i.i, %.preheader.i.i73.i.i.i ], [ %1239, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i94.i.i.i ]
   %.promoted.i.i.i76.i.i.i = phi i32 [ %.promoted.i.pre.i114.i.i.i.i, %.preheader.i.i73.i.i.i ], [ %.promoted.i.pre.i116.i.i.i.i, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i94.i.i.i ]
   %.not31.i.i77.i.i.i = phi i1 [ false, %.preheader.i.i73.i.i.i ], [ true, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i94.i.i.i ]
   %indvars.iv164.i.sroa.phi.i.i.i.i = phi ptr [ %4, %.preheader.i.i73.i.i.i ], [ %indvars.iv164.i.sroa.gep88.i.i.i.i, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i94.i.i.i ]
-  %indvars.iv164.i.sroa.phi90.sroa.speculated.in.i.i.i.i = phi i32 [ %858, %.preheader.i.i73.i.i.i ], [ %864, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i94.i.i.i ]
-  %1082 = getelementptr inbounds nuw i8, ptr %indvars.iv164.i.sroa.phi.i.i.i.i, i64 4
-  %1083 = load i32, ptr %1082, align 4, !tbaa !93
-  %1084 = and i32 %indvars.iv164.i.sroa.phi90.sroa.speculated.in.i.i.i.i, 255
-  %1085 = shl i32 %1083, 1
-  %1086 = or disjoint i32 %1085, 1
-  %1087 = icmp sgt i32 %1085, -1
+  %indvars.iv164.i.sroa.phi90.sroa.speculated.in.i.i.i.i = phi i32 [ %857, %.preheader.i.i73.i.i.i ], [ %863, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i94.i.i.i ]
+  %1081 = getelementptr inbounds nuw i8, ptr %indvars.iv164.i.sroa.phi.i.i.i.i, i64 4
+  %1082 = load i32, ptr %1081, align 4, !tbaa !93
+  %1083 = and i32 %indvars.iv164.i.sroa.phi90.sroa.speculated.in.i.i.i.i, 255
+  %1084 = shl i32 %1082, 1
+  %1085 = or disjoint i32 %1084, 1
+  %1086 = icmp sgt i32 %1084, -1
+  call void @llvm.assume(i1 %1086)
+  %1087 = icmp samesign ugt i32 %871, %1083
   call void @llvm.assume(i1 %1087)
-  %1088 = icmp samesign ugt i32 %872, %1084
-  call void @llvm.assume(i1 %1088)
-  %1089 = mul nuw nsw i32 %1084, %873
-  %1090 = zext nneg i32 %1089 to i64
-  %1091 = getelementptr inbounds nuw i16, ptr %870, i64 %1090
-  %1092 = zext nneg i32 %1086 to i64
-  %1093 = getelementptr inbounds nuw i16, ptr %1091, i64 %1092
-  %1094 = load i16, ptr %1093, align 2, !tbaa !90
-  %1095 = zext i16 %1094 to i32
-  %1096 = add nsw i32 %1084, -1
-  %1097 = add nuw nsw i32 %1085, 2
-  %1098 = icmp samesign ult i32 %1097, %871
+  %1088 = mul nuw nsw i32 %1083, %872
+  %1089 = zext nneg i32 %1088 to i64
+  %1090 = getelementptr inbounds nuw i16, ptr %869, i64 %1089
+  %1091 = zext nneg i32 %1085 to i64
+  %1092 = getelementptr inbounds nuw i16, ptr %1090, i64 %1091
+  %1093 = load i16, ptr %1092, align 2, !tbaa !90
+  %1094 = zext i16 %1093 to i32
+  %1095 = add nsw i32 %1083, -1
+  %1096 = add nuw nsw i32 %1084, 2
+  %1097 = icmp samesign ult i32 %1096, %870
+  call void @llvm.assume(i1 %1097)
+  %1098 = icmp samesign ult i32 %1095, %871
   call void @llvm.assume(i1 %1098)
-  %1099 = icmp samesign ult i32 %1096, %872
-  call void @llvm.assume(i1 %1099)
-  %1100 = mul nuw nsw i32 %1096, %873
-  %1101 = zext nneg i32 %1100 to i64
-  %1102 = getelementptr inbounds nuw i16, ptr %870, i64 %1101
-  %1103 = zext nneg i32 %1097 to i64
-  %1104 = getelementptr inbounds nuw i16, ptr %1102, i64 %1103
-  %1105 = load i16, ptr %1104, align 2, !tbaa !90
-  %1106 = zext i16 %1105 to i32
-  %1107 = getelementptr inbounds nuw i16, ptr %1102, i64 %1092
-  %1108 = load i16, ptr %1107, align 2, !tbaa !90
-  %1109 = zext i16 %1108 to i32
-  %1110 = add nuw nsw i32 %1085, 3
-  %1111 = icmp samesign ult i32 %1110, %871
-  call void @llvm.assume(i1 %1111)
-  %1112 = zext nneg i32 %1110 to i64
-  %1113 = getelementptr inbounds nuw i16, ptr %1102, i64 %1112
-  %1114 = load i16, ptr %1113, align 2, !tbaa !90
-  %1115 = getelementptr inbounds nuw i16, ptr %1091, i64 %1112
-  %1116 = load i16, ptr %1115, align 2, !tbaa !90
-  %1117 = zext i16 %1116 to i32
-  %1118 = add nuw nsw i32 %1117, %1095
-  %1119 = call i16 @llvm.umin.i16(i16 %1114, i16 %1108)
-  %1120 = icmp ugt i16 %1119, %1105
-  %1121 = call i16 @llvm.umax.i16(i16 %1114, i16 %1108)
-  %1122 = icmp ult i16 %1121, %1105
-  %or.cond.i.i78.i.i.i = or i1 %1120, %1122
-  %1123 = lshr i32 %1118, 1
-  %1124 = add nuw nsw i32 %1123, %1106
-  %.0135.i.i.i.i.i = select i1 %or.cond.i.i78.i.i.i, i32 %1124, i32 %1118
-  %1125 = lshr i32 %.0135.i.i.i.i.i, 1
-  %1126 = sub nsw i32 %1106, %1109
-  %1127 = sub nsw i32 %1109, %1095
-  %1128 = load i32, ptr %841, align 4, !tbaa !93
-  %1129 = add nsw i32 %1126, %1128
-  %1130 = sext i32 %1129 to i64
-  %1131 = getelementptr inbounds nuw i8, ptr %.val35.i.i74.i.i.i, i64 %1130
-  %1132 = load i8, ptr %1131, align 1, !tbaa !92
-  %1133 = sext i8 %1132 to i32
-  %1134 = mul nsw i32 %1133, 9
-  %1135 = add nsw i32 %1127, %1128
-  %1136 = sext i32 %1135 to i64
-  %1137 = getelementptr inbounds nuw i8, ptr %.val35.i.i74.i.i.i, i64 %1136
-  %1138 = load i8, ptr %1137, align 1, !tbaa !92
-  %1139 = sext i8 %1138 to i32
-  %.sroa.077.0.extract.trunc.i.i.i.i.i = add nsw i32 %1134, %1139
-  %1140 = call i32 @llvm.abs.i32(i32 %.sroa.077.0.extract.trunc.i.i.i.i.i, i1 true)
+  %1099 = mul nuw nsw i32 %1095, %872
+  %1100 = zext nneg i32 %1099 to i64
+  %1101 = getelementptr inbounds nuw i16, ptr %869, i64 %1100
+  %1102 = zext nneg i32 %1096 to i64
+  %1103 = getelementptr inbounds nuw i16, ptr %1101, i64 %1102
+  %1104 = load i16, ptr %1103, align 2, !tbaa !90
+  %1105 = zext i16 %1104 to i32
+  %1106 = getelementptr inbounds nuw i16, ptr %1101, i64 %1091
+  %1107 = load i16, ptr %1106, align 2, !tbaa !90
+  %1108 = zext i16 %1107 to i32
+  %1109 = add nuw nsw i32 %1084, 3
+  %1110 = icmp samesign ult i32 %1109, %870
+  call void @llvm.assume(i1 %1110)
+  %1111 = zext nneg i32 %1109 to i64
+  %1112 = getelementptr inbounds nuw i16, ptr %1101, i64 %1111
+  %1113 = load i16, ptr %1112, align 2, !tbaa !90
+  %1114 = getelementptr inbounds nuw i16, ptr %1090, i64 %1111
+  %1115 = load i16, ptr %1114, align 2, !tbaa !90
+  %1116 = zext i16 %1115 to i32
+  %1117 = add nuw nsw i32 %1116, %1094
+  %1118 = call i16 @llvm.umin.i16(i16 %1113, i16 %1107)
+  %1119 = icmp ugt i16 %1118, %1104
+  %1120 = call i16 @llvm.umax.i16(i16 %1113, i16 %1107)
+  %1121 = icmp ult i16 %1120, %1104
+  %or.cond.i.i78.i.i.i = or i1 %1119, %1121
+  %1122 = lshr i32 %1117, 1
+  %1123 = add nuw nsw i32 %1122, %1105
+  %.0135.i.i.i.i.i = select i1 %or.cond.i.i78.i.i.i, i32 %1123, i32 %1117
+  %1124 = lshr i32 %.0135.i.i.i.i.i, 1
+  %1125 = sub nsw i32 %1105, %1108
+  %1126 = sub nsw i32 %1108, %1094
+  %1127 = load i32, ptr %840, align 4, !tbaa !93
+  %1128 = add nsw i32 %1125, %1127
+  %1129 = sext i32 %1128 to i64
+  %1130 = getelementptr inbounds nuw i8, ptr %.val35.i.i74.i.i.i, i64 %1129
+  %1131 = load i8, ptr %1130, align 1, !tbaa !92
+  %1132 = sext i8 %1131 to i32
+  %1133 = mul nsw i32 %1132, 9
+  %1134 = add nsw i32 %1126, %1127
+  %1135 = sext i32 %1134 to i64
+  %1136 = getelementptr inbounds nuw i8, ptr %.val35.i.i74.i.i.i, i64 %1135
+  %1137 = load i8, ptr %1136, align 1, !tbaa !92
+  %1138 = sext i8 %1137 to i32
+  %.sroa.077.0.extract.trunc.i.i.i.i.i = add nsw i32 %1133, %1138
+  %1139 = call i32 @llvm.abs.i32(i32 %.sroa.077.0.extract.trunc.i.i.i.i.i, i1 true)
   %.promoted17.i.i.i79.i.i.i = load i64, ptr %160, align 8
-  br label %1141
+  br label %1140
 
-1141:                                             ; preds = %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i50.i.i.i.i.i, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_odd_innerENS0_8xt_linesEi.exit.i.i75.i.i.i
+1140:                                             ; preds = %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i50.i.i.i.i.i, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_odd_innerENS0_8xt_linesEi.exit.i.i75.i.i.i
   %.promoted16.i.pre.i124.i.i.i.i = phi i32 [ %.promoted16.i.pre.i125.i.i.i.i, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_odd_innerENS0_8xt_linesEi.exit.i.i75.i.i.i ], [ %.promoted16.i.pre.i123.i.i.i.i, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i50.i.i.i.i.i ]
+  %1141 = phi i32 [ %1079, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_odd_innerENS0_8xt_linesEi.exit.i.i75.i.i.i ], [ %1168, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i50.i.i.i.i.i ]
   %1142 = phi i32 [ %1080, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_odd_innerENS0_8xt_linesEi.exit.i.i75.i.i.i ], [ %1169, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i50.i.i.i.i.i ]
-  %1143 = phi i32 [ %1081, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_odd_innerENS0_8xt_linesEi.exit.i.i75.i.i.i ], [ %1170, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i50.i.i.i.i.i ]
-  %1144 = phi i64 [ %.promoted17.i.i.i79.i.i.i, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_odd_innerENS0_8xt_linesEi.exit.i.i75.i.i.i ], [ %1183, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i50.i.i.i.i.i ]
-  %1145 = phi i32 [ %1081, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_odd_innerENS0_8xt_linesEi.exit.i.i75.i.i.i ], [ %1172, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i50.i.i.i.i.i ]
-  %1146 = phi i32 [ %.promoted.i.i.i76.i.i.i, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_odd_innerENS0_8xt_linesEi.exit.i.i75.i.i.i ], [ %1181, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i50.i.i.i.i.i ]
-  %.014.i.i.i80.i.i.i = phi i32 [ 0, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_odd_innerENS0_8xt_linesEi.exit.i.i75.i.i.i ], [ %1178, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i50.i.i.i.i.i ]
-  %1147 = icmp samesign ult i32 %1146, 65
-  call void @llvm.assume(i1 %1147)
-  %.not.i.i49.i.i.i.i.i = icmp samesign ult i32 %1146, 32
-  br i1 %.not.i.i49.i.i.i.i.i, label %1148, label %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i50.i.i.i.i.i
+  %1143 = phi i64 [ %.promoted17.i.i.i79.i.i.i, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_odd_innerENS0_8xt_linesEi.exit.i.i75.i.i.i ], [ %1181, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i50.i.i.i.i.i ]
+  %1144 = phi i32 [ %1080, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_odd_innerENS0_8xt_linesEi.exit.i.i75.i.i.i ], [ %1171, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i50.i.i.i.i.i ]
+  %1145 = phi i32 [ %.promoted.i.i.i76.i.i.i, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_odd_innerENS0_8xt_linesEi.exit.i.i75.i.i.i ], [ %1179, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i50.i.i.i.i.i ]
+  %.014.i.i.i80.i.i.i = phi i32 [ 0, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_odd_innerENS0_8xt_linesEi.exit.i.i75.i.i.i ], [ %1176, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i50.i.i.i.i.i ]
+  %1146 = icmp samesign ult i32 %1145, 65
+  call void @llvm.assume(i1 %1146)
+  %.not.i.i49.i.i.i.i.i = icmp samesign ult i32 %1145, 32
+  br i1 %.not.i.i49.i.i.i.i.i, label %1147, label %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i50.i.i.i.i.i
 
-1148:                                             ; preds = %1141
+1147:                                             ; preds = %1140
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i48.i.i.i.i.i)
-  %1149 = add nuw nsw i32 %1145, 4
-  %.not.i.i.i52.i.i.i.i.i = icmp samesign ugt i32 %1149, %878
-  br i1 %.not.i.i.i52.i.i.i.i.i, label %1153, label %1150, !prof !162
+  %1148 = add nuw nsw i32 %1144, 4
+  %.not.i.i.i52.i.i.i.i.i = icmp samesign ugt i32 %1148, %877
+  br i1 %.not.i.i.i52.i.i.i.i.i, label %1152, label %1149, !prof !162
 
-1150:                                             ; preds = %1148
-  %1151 = zext nneg i32 %1145 to i64
-  %1152 = getelementptr inbounds nuw i8, ptr %877, i64 %1151
+1149:                                             ; preds = %1147
+  %1150 = zext nneg i32 %1144 to i64
+  %1151 = getelementptr inbounds nuw i8, ptr %876, i64 %1150
   br label %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i53.i.i.i.i.i
 
-1153:                                             ; preds = %1148
-  %1154 = icmp samesign ugt i32 %1145, %880
-  br i1 %1154, label %.invoke228.i.i, label %1155, !prof !162
+1152:                                             ; preds = %1147
+  %1153 = icmp samesign ugt i32 %1144, %879
+  br i1 %1153, label %.invoke228.i.i, label %1154, !prof !162
 
-1155:                                             ; preds = %1153
+1154:                                             ; preds = %1152
   store i32 0, ptr %.sroa.0.i.i.i48.i.i.i.i.i, align 4
-  %.sroa.speculated26.i.i.i.i56.i.i.i.i.i = call i32 @llvm.umin.i32(i32 %878, i32 %1145)
-  %1156 = add nuw nsw i32 %.sroa.speculated26.i.i.i.i56.i.i.i.i.i, 4
-  %.sroa.speculated.i.i.i.i57.i.i.i.i.i = call i32 @llvm.umin.i32(i32 %878, i32 %1156)
-  %1157 = sub nsw i32 %.sroa.speculated.i.i.i.i57.i.i.i.i.i, %.sroa.speculated26.i.i.i.i56.i.i.i.i.i
-  %1158 = icmp ult i32 %1157, 5
-  call void @llvm.assume(i1 %1158)
-  %1159 = zext nneg i32 %.sroa.speculated26.i.i.i.i56.i.i.i.i.i to i64
-  %1160 = getelementptr inbounds nuw i8, ptr %877, i64 %1159
-  %1161 = zext nneg i32 %1157 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.0.i.i.i48.i.i.i.i.i, ptr nonnull align 1 %1160, i64 %1161, i1 false)
+  %.sroa.speculated26.i.i.i.i56.i.i.i.i.i = call i32 @llvm.umin.i32(i32 %877, i32 %1144)
+  %1155 = add nuw nsw i32 %.sroa.speculated26.i.i.i.i56.i.i.i.i.i, 4
+  %.sroa.speculated.i.i.i.i57.i.i.i.i.i = call i32 @llvm.umin.i32(i32 %877, i32 %1155)
+  %1156 = sub nsw i32 %.sroa.speculated.i.i.i.i57.i.i.i.i.i, %.sroa.speculated26.i.i.i.i56.i.i.i.i.i
+  %1157 = icmp ult i32 %1156, 5
+  call void @llvm.assume(i1 %1157)
+  %1158 = zext nneg i32 %.sroa.speculated26.i.i.i.i56.i.i.i.i.i to i64
+  %1159 = getelementptr inbounds nuw i8, ptr %876, i64 %1158
+  %1160 = zext nneg i32 %1156 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.0.i.i.i48.i.i.i.i.i, ptr nonnull align 1 %1159, i64 %1160, i1 false)
   br label %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i53.i.i.i.i.i
 
-_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i53.i.i.i.i.i: ; preds = %1155, %1150
-  %.sroa.0.0..sroa.0.0..in.i.i.i54.i.i.i.i.i = phi ptr [ %.sroa.0.i.i.i48.i.i.i.i.i, %1155 ], [ %1152, %1150 ]
+_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i53.i.i.i.i.i: ; preds = %1154, %1149
+  %.sroa.0.0..sroa.0.0..in.i.i.i54.i.i.i.i.i = phi ptr [ %.sroa.0.i.i.i48.i.i.i.i.i, %1154 ], [ %1151, %1149 ]
   %.sroa.0.0..sroa.0.0..i.i.i55.i.i.i.i.i = load i32, ptr %.sroa.0.0..sroa.0.0..in.i.i.i54.i.i.i.i.i, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i48.i.i.i.i.i)
-  %1162 = call i32 @llvm.bswap.i32(i32 %.sroa.0.0..sroa.0.0..i.i.i55.i.i.i.i.i)
-  %1163 = zext i32 %1162 to i64
-  %1164 = or disjoint i32 %1146, 32
-  %1165 = sub nuw nsw i32 32, %1146
-  %1166 = zext nneg i32 %1165 to i64
-  %1167 = shl nuw i64 %1163, %1166
-  %1168 = or i64 %1167, %1144
-  store i32 %1149, ptr %.sroa.842.0..sroa_idx.i.i, align 8, !tbaa !228
+  %1161 = call i32 @llvm.bswap.i32(i32 %.sroa.0.0..sroa.0.0..i.i.i55.i.i.i.i.i)
+  %1162 = zext i32 %1161 to i64
+  %1163 = or disjoint i32 %1145, 32
+  %1164 = sub nuw nsw i32 32, %1145
+  %1165 = zext nneg i32 %1164 to i64
+  %1166 = shl nuw i64 %1162, %1165
+  %1167 = or i64 %1166, %1143
+  store i32 %1148, ptr %.sroa.842.0..sroa_idx.i.i, align 8, !tbaa !228
   br label %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i50.i.i.i.i.i
 
-_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i50.i.i.i.i.i: ; preds = %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i53.i.i.i.i.i, %1141
-  %.promoted16.i.pre.i123.i.i.i.i = phi i32 [ %.promoted16.i.pre.i124.i.i.i.i, %1141 ], [ %1149, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i53.i.i.i.i.i ]
-  %1169 = phi i32 [ %1142, %1141 ], [ %1149, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i53.i.i.i.i.i ]
-  %1170 = phi i32 [ %1143, %1141 ], [ %1149, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i53.i.i.i.i.i ]
-  %1171 = phi i64 [ %1144, %1141 ], [ %1168, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i53.i.i.i.i.i ]
-  %1172 = phi i32 [ %1145, %1141 ], [ %1149, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i53.i.i.i.i.i ]
-  %1173 = phi i32 [ %1146, %1141 ], [ %1164, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i53.i.i.i.i.i ]
-  %1174 = icmp sgt i32 %1172, -1
-  call void @llvm.assume(i1 %1174)
-  %1175 = lshr i64 %1171, 32
-  %1176 = trunc nuw i64 %1175 to i32
-  %1177 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1176, i1 false)
-  %1178 = add nuw nsw i32 %1177, %.014.i.i.i80.i.i.i
-  %1179 = icmp eq i64 %1175, 0
-  %1180 = add nuw nsw i32 %1177, 1
-  %spec.select.i51.i.i.i.i.i = select i1 %1179, i32 32, i32 %1180
-  %1181 = sub nuw nsw i32 %1173, %spec.select.i51.i.i.i.i.i
-  store i32 %1181, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !231
-  %1182 = zext nneg i32 %spec.select.i51.i.i.i.i.i to i64
-  %1183 = shl i64 %1171, %1182
-  store i64 %1183, ptr %160, align 8, !tbaa !233
-  br i1 %1179, label %1141, label %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i81.i.i.i
+_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i50.i.i.i.i.i: ; preds = %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i53.i.i.i.i.i, %1140
+  %.promoted16.i.pre.i123.i.i.i.i = phi i32 [ %.promoted16.i.pre.i124.i.i.i.i, %1140 ], [ %1148, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i53.i.i.i.i.i ]
+  %1168 = phi i32 [ %1141, %1140 ], [ %1148, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i53.i.i.i.i.i ]
+  %1169 = phi i32 [ %1142, %1140 ], [ %1148, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i53.i.i.i.i.i ]
+  %1170 = phi i64 [ %1143, %1140 ], [ %1167, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i53.i.i.i.i.i ]
+  %1171 = phi i32 [ %1144, %1140 ], [ %1148, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i53.i.i.i.i.i ]
+  %1172 = phi i32 [ %1145, %1140 ], [ %1163, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i53.i.i.i.i.i ]
+  %1173 = lshr i64 %1170, 32
+  %1174 = trunc nuw i64 %1173 to i32
+  %1175 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1174, i1 false)
+  %1176 = add nuw nsw i32 %1175, %.014.i.i.i80.i.i.i
+  %1177 = icmp eq i64 %1173, 0
+  %1178 = add nuw nsw i32 %1175, 1
+  %spec.select.i51.i.i.i.i.i = select i1 %1177, i32 32, i32 %1178
+  %1179 = sub nuw nsw i32 %1172, %spec.select.i51.i.i.i.i.i
+  store i32 %1179, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !231
+  %1180 = zext nneg i32 %spec.select.i51.i.i.i.i.i to i64
+  %1181 = shl i64 %1170, %1180
+  store i64 %1181, ptr %160, align 8, !tbaa !233
+  br i1 %1177, label %1140, label %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i81.i.i.i
 
 _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i81.i.i.i: ; preds = %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i50.i.i.i.i.i
-  %1184 = load i32, ptr %842, align 4, !tbaa !180
-  %1185 = load i32, ptr %843, align 4, !tbaa !179
-  %1186 = xor i32 %1185, -1
-  %1187 = add i32 %1184, %1186
-  %1188 = icmp slt i32 %1178, %1187
-  br i1 %1188, label %1189, label %1204
+  %1182 = load i32, ptr %841, align 4, !tbaa !180
+  %1183 = load i32, ptr %842, align 4, !tbaa !179
+  %1184 = xor i32 %1183, -1
+  %1185 = add i32 %1182, %1184
+  %1186 = icmp slt i32 %1176, %1185
+  br i1 %1186, label %1187, label %1202
 
-1189:                                             ; preds = %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i81.i.i.i
-  %1190 = zext nneg i32 %1140 to i64
-  %1191 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %869, i64 %1190
-  %1192 = load i32, ptr %1191, align 8, !tbaa !221
-  %1193 = getelementptr inbounds nuw i8, ptr %1191, i64 4
-  %1194 = load i32, ptr %1193, align 4, !tbaa !223
-  %1195 = icmp sgt i32 %1192, -1
-  call void @llvm.assume(i1 %1195)
-  %1196 = icmp sgt i32 %1194, 0
-  call void @llvm.assume(i1 %1196)
-  %1197 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1192, i1 false)
-  %1198 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1194, i1 true)
-  %1199 = sub nsw i32 %1198, %1197
-  %.sroa.speculated11.i.i.i104.i.i.i = call i32 @llvm.smax.i32(i32 %1199, i32 0)
-  %1200 = shl i32 %1194, %.sroa.speculated11.i.i.i104.i.i.i
-  %1201 = icmp slt i32 %1200, %1192
-  %1202 = zext i1 %1201 to i32
-  %spec.select.i58.i.i.i.i.i = add nuw nsw i32 %.sroa.speculated11.i.i.i104.i.i.i, %1202
+1187:                                             ; preds = %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i81.i.i.i
+  %1188 = zext nneg i32 %1139 to i64
+  %1189 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %868, i64 %1188
+  %1190 = load i32, ptr %1189, align 8, !tbaa !221
+  %1191 = getelementptr inbounds nuw i8, ptr %1189, i64 4
+  %1192 = load i32, ptr %1191, align 4, !tbaa !223
+  %1193 = icmp sgt i32 %1190, -1
+  call void @llvm.assume(i1 %1193)
+  %1194 = icmp sgt i32 %1192, 0
+  call void @llvm.assume(i1 %1194)
+  %1195 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1190, i1 false)
+  %1196 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1192, i1 true)
+  %1197 = sub nsw i32 %1196, %1195
+  %.sroa.speculated11.i.i.i104.i.i.i = call i32 @llvm.smax.i32(i32 %1197, i32 0)
+  %1198 = shl i32 %1192, %.sroa.speculated11.i.i.i104.i.i.i
+  %1199 = icmp slt i32 %1198, %1190
+  %1200 = zext i1 %1199 to i32
+  %spec.select.i58.i.i.i.i.i = add nuw nsw i32 %.sroa.speculated11.i.i.i104.i.i.i, %1200
   %.sroa.speculated.i59.i.i.i.i.i = call noundef range(i32 0, 16) i32 @llvm.umin.i32(i32 %spec.select.i58.i.i.i.i.i, i32 15)
-  %1203 = shl i32 %1178, %.sroa.speculated.i59.i.i.i.i.i
-  br label %1204
+  %1201 = shl i32 %1176, %.sroa.speculated.i59.i.i.i.i.i
+  br label %1202
 
-1204:                                             ; preds = %1189, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i81.i.i.i
-  %.033.i.i.i82.i.i.i = phi i32 [ %.sroa.speculated.i59.i.i.i.i.i, %1189 ], [ %1185, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i81.i.i.i ]
-  %.032.i.i.i83.i.i.i = phi i32 [ %1203, %1189 ], [ 1, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i81.i.i.i ]
-  %1205 = icmp sgt i32 %1170, -1
-  call void @llvm.assume(i1 %1205)
-  %.not.i60.i.i.i.i.i = icmp samesign ult i32 %1181, 32
-  br i1 %.not.i60.i.i.i.i.i, label %1206, label %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i84.i.i.i
+1202:                                             ; preds = %1187, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i81.i.i.i
+  %.033.i.i.i82.i.i.i = phi i32 [ %.sroa.speculated.i59.i.i.i.i.i, %1187 ], [ %1183, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i81.i.i.i ]
+  %.032.i.i.i83.i.i.i = phi i32 [ %1201, %1187 ], [ 1, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i81.i.i.i ]
+  %1203 = icmp sgt i32 %1169, -1
+  call void @llvm.assume(i1 %1203)
+  %.not.i60.i.i.i.i.i = icmp samesign ult i32 %1179, 32
+  br i1 %.not.i60.i.i.i.i.i, label %1204, label %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i84.i.i.i
+
+1204:                                             ; preds = %1202
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i46.i.i.i)
+  %1205 = add nuw nsw i32 %1169, 4
+  %.not.i.i61.i.i.i.i.i = icmp samesign ugt i32 %1205, %877
+  br i1 %.not.i.i61.i.i.i.i.i, label %1209, label %1206, !prof !162
 
 1206:                                             ; preds = %1204
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i46.i.i.i)
-  %1207 = add nuw nsw i32 %1170, 4
-  %.not.i.i61.i.i.i.i.i = icmp samesign ugt i32 %1207, %878
-  br i1 %.not.i.i61.i.i.i.i.i, label %1211, label %1208, !prof !162
-
-1208:                                             ; preds = %1206
-  %1209 = zext nneg i32 %1170 to i64
-  %1210 = getelementptr inbounds nuw i8, ptr %877, i64 %1209
+  %1207 = zext nneg i32 %1169 to i64
+  %1208 = getelementptr inbounds nuw i8, ptr %876, i64 %1207
   br label %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i99.i.i.i
 
-1211:                                             ; preds = %1206
-  %1212 = icmp samesign ugt i32 %1170, %880
-  br i1 %1212, label %.invoke228.i.i, label %1213, !prof !162
+1209:                                             ; preds = %1204
+  %1210 = icmp samesign ugt i32 %1169, %879
+  br i1 %1210, label %.invoke228.i.i, label %1211, !prof !162
 
-.invoke228.i.i:                                   ; preds = %1010, %1211, %505, %712, %955, %1153, %449, %654
+.invoke228.i.i:                                   ; preds = %1009, %1209, %505, %711, %954, %1152, %449, %654
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.23, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv) #17
-          to label %.cont229.i.i unwind label %1542
+          to label %.cont229.i.i unwind label %1539
 
 .cont229.i.i:                                     ; preds = %.invoke228.i.i
   unreachable
 
-1213:                                             ; preds = %1211
+1211:                                             ; preds = %1209
   store i32 0, ptr %.sroa.0.i.i.i.i46.i.i.i, align 4
-  %.sroa.speculated26.i.i.i.i.i102.i.i.i = call i32 @llvm.umin.i32(i32 %878, i32 %1170)
-  %1214 = add nuw nsw i32 %.sroa.speculated26.i.i.i.i.i102.i.i.i, 4
-  %.sroa.speculated.i.i.i.i.i103.i.i.i = call i32 @llvm.umin.i32(i32 %878, i32 %1214)
-  %1215 = sub nsw i32 %.sroa.speculated.i.i.i.i.i103.i.i.i, %.sroa.speculated26.i.i.i.i.i102.i.i.i
-  %1216 = icmp ult i32 %1215, 5
-  call void @llvm.assume(i1 %1216)
-  %1217 = zext nneg i32 %.sroa.speculated26.i.i.i.i.i102.i.i.i to i64
-  %1218 = getelementptr inbounds nuw i8, ptr %877, i64 %1217
-  %1219 = zext nneg i32 %1215 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.0.i.i.i.i46.i.i.i, ptr nonnull align 1 %1218, i64 %1219, i1 false)
+  %.sroa.speculated26.i.i.i.i.i102.i.i.i = call i32 @llvm.umin.i32(i32 %877, i32 %1169)
+  %1212 = add nuw nsw i32 %.sroa.speculated26.i.i.i.i.i102.i.i.i, 4
+  %.sroa.speculated.i.i.i.i.i103.i.i.i = call i32 @llvm.umin.i32(i32 %877, i32 %1212)
+  %1213 = sub nsw i32 %.sroa.speculated.i.i.i.i.i103.i.i.i, %.sroa.speculated26.i.i.i.i.i102.i.i.i
+  %1214 = icmp ult i32 %1213, 5
+  call void @llvm.assume(i1 %1214)
+  %1215 = zext nneg i32 %.sroa.speculated26.i.i.i.i.i102.i.i.i to i64
+  %1216 = getelementptr inbounds nuw i8, ptr %876, i64 %1215
+  %1217 = zext nneg i32 %1213 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.0.i.i.i.i46.i.i.i, ptr nonnull align 1 %1216, i64 %1217, i1 false)
   br label %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i99.i.i.i
 
-_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i99.i.i.i: ; preds = %1213, %1208
-  %.sroa.0.0..sroa.0.0..in.i.i.i.i100.i.i.i = phi ptr [ %.sroa.0.i.i.i.i46.i.i.i, %1213 ], [ %1210, %1208 ]
+_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i99.i.i.i: ; preds = %1211, %1206
+  %.sroa.0.0..sroa.0.0..in.i.i.i.i100.i.i.i = phi ptr [ %.sroa.0.i.i.i.i46.i.i.i, %1211 ], [ %1208, %1206 ]
   %.sroa.0.0..sroa.0.0..i.i.i.i101.i.i.i = load i32, ptr %.sroa.0.0..sroa.0.0..in.i.i.i.i100.i.i.i, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i46.i.i.i)
-  %1220 = call i32 @llvm.bswap.i32(i32 %.sroa.0.0..sroa.0.0..i.i.i.i101.i.i.i)
-  %1221 = zext i32 %1220 to i64
-  %1222 = or disjoint i32 %1181, 32
-  %1223 = sub nuw nsw i32 32, %1181
-  %1224 = zext nneg i32 %1223 to i64
-  %1225 = shl nuw i64 %1221, %1224
-  %1226 = or i64 %1225, %1183
-  store i64 %1226, ptr %160, align 8, !tbaa !233
-  store i32 %1222, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !231
-  store i32 %1207, ptr %.sroa.842.0..sroa_idx.i.i, align 8, !tbaa !228
+  %1218 = call i32 @llvm.bswap.i32(i32 %.sroa.0.0..sroa.0.0..i.i.i.i101.i.i.i)
+  %1219 = zext i32 %1218 to i64
+  %1220 = or disjoint i32 %1179, 32
+  %1221 = sub nuw nsw i32 32, %1179
+  %1222 = zext nneg i32 %1221 to i64
+  %1223 = shl nuw i64 %1219, %1222
+  %1224 = or i64 %1223, %1181
+  store i64 %1224, ptr %160, align 8, !tbaa !233
+  store i32 %1220, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !231
+  store i32 %1205, ptr %.sroa.842.0..sroa_idx.i.i, align 8, !tbaa !228
   br label %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i84.i.i.i
 
-_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i84.i.i.i: ; preds = %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i99.i.i.i, %1204
-  %.promoted16.i.pre.i122.i.i.i.i = phi i32 [ %.promoted16.i.pre.i123.i.i.i.i, %1204 ], [ %1207, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i99.i.i.i ]
-  %.promoted.i.pre.i117.i.i.i.i = phi i32 [ %1181, %1204 ], [ %1222, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i99.i.i.i ]
-  %1227 = phi i64 [ %1183, %1204 ], [ %1226, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i99.i.i.i ]
-  %1228 = phi i32 [ %1169, %1204 ], [ %1207, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i99.i.i.i ]
-  %1229 = phi i32 [ %1170, %1204 ], [ %1207, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i99.i.i.i ]
+_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i84.i.i.i: ; preds = %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i99.i.i.i, %1202
+  %.promoted16.i.pre.i122.i.i.i.i = phi i32 [ %.promoted16.i.pre.i123.i.i.i.i, %1202 ], [ %1205, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i99.i.i.i ]
+  %.promoted.i.pre.i117.i.i.i.i = phi i32 [ %1179, %1202 ], [ %1220, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i99.i.i.i ]
+  %1225 = phi i64 [ %1181, %1202 ], [ %1224, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i99.i.i.i ]
+  %1226 = phi i32 [ %1168, %1202 ], [ %1205, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i99.i.i.i ]
+  %1227 = phi i32 [ %1169, %1202 ], [ %1205, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.i99.i.i.i ]
   %.not.i.i.i85.i.i.i = icmp eq i32 %.033.i.i.i82.i.i.i, 0
-  br i1 %.not.i.i.i85.i.i.i, label %1240, label %1230
+  br i1 %.not.i.i.i85.i.i.i, label %1238, label %1228
 
-1230:                                             ; preds = %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i84.i.i.i
-  %1231 = icmp sgt i32 %1228, -1
-  call void @llvm.assume(i1 %1231)
-  %1232 = icmp samesign ult i32 %.033.i.i.i82.i.i.i, 33
-  call void @llvm.assume(i1 %1232)
-  %1233 = sub nuw nsw i32 64, %.033.i.i.i82.i.i.i
-  %1234 = zext nneg i32 %1233 to i64
-  %1235 = lshr i64 %1227, %1234
-  %1236 = trunc nuw i64 %1235 to i32
-  %1237 = sub nuw nsw i32 %.promoted.i.pre.i117.i.i.i.i, %.033.i.i.i82.i.i.i
-  store i32 %1237, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !231
-  %1238 = zext nneg i32 %.033.i.i.i82.i.i.i to i64
-  %1239 = shl i64 %1227, %1238
-  store i64 %1239, ptr %160, align 8, !tbaa !233
-  br label %1240
+1228:                                             ; preds = %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i84.i.i.i
+  %1229 = icmp sgt i32 %1226, -1
+  call void @llvm.assume(i1 %1229)
+  %1230 = icmp samesign ult i32 %.033.i.i.i82.i.i.i, 33
+  call void @llvm.assume(i1 %1230)
+  %1231 = sub nuw nsw i32 64, %.033.i.i.i82.i.i.i
+  %1232 = zext nneg i32 %1231 to i64
+  %1233 = lshr i64 %1225, %1232
+  %1234 = trunc nuw i64 %1233 to i32
+  %1235 = sub nuw nsw i32 %.promoted.i.pre.i117.i.i.i.i, %.033.i.i.i82.i.i.i
+  store i32 %1235, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !231
+  %1236 = zext nneg i32 %.033.i.i.i82.i.i.i to i64
+  %1237 = shl i64 %1225, %1236
+  store i64 %1237, ptr %160, align 8, !tbaa !233
+  br label %1238
 
-1240:                                             ; preds = %1230, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i84.i.i.i
-  %.promoted.i.pre.i116.i.i.i.i = phi i32 [ %1237, %1230 ], [ %.promoted.i.pre.i117.i.i.i.i, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i84.i.i.i ]
-  %1241 = phi i32 [ %1228, %1230 ], [ %1229, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i84.i.i.i ]
-  %.0.i.i.i86.i.i.i = phi i32 [ %1236, %1230 ], [ 0, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i84.i.i.i ]
-  %1242 = add nsw i32 %.0.i.i.i86.i.i.i, %.032.i.i.i83.i.i.i
-  %1243 = icmp slt i32 %1242, 0
-  br i1 %1243, label %.invoke.i.i14, label %1244
+1238:                                             ; preds = %1228, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i84.i.i.i
+  %.promoted.i.pre.i116.i.i.i.i = phi i32 [ %1235, %1228 ], [ %.promoted.i.pre.i117.i.i.i.i, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i84.i.i.i ]
+  %1239 = phi i32 [ %1226, %1228 ], [ %1227, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i84.i.i.i ]
+  %.0.i.i.i86.i.i.i = phi i32 [ %1234, %1228 ], [ 0, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i84.i.i.i ]
+  %1240 = add nsw i32 %.0.i.i.i86.i.i.i, %.032.i.i.i83.i.i.i
+  %1241 = icmp slt i32 %1240, 0
+  br i1 %1241, label %.invoke.i.i14, label %1242
 
-1244:                                             ; preds = %1240
-  %1245 = load i32, ptr %844, align 8, !tbaa !178
-  %.not39.i.i.i87.i.i.i = icmp slt i32 %1242, %1245
-  br i1 %.not39.i.i.i87.i.i.i, label %1246, label %.invoke.i.i14
+1242:                                             ; preds = %1238
+  %1243 = load i32, ptr %843, align 8, !tbaa !178
+  %.not39.i.i.i87.i.i.i = icmp slt i32 %1240, %1243
+  br i1 %.not39.i.i.i87.i.i.i, label %1244, label %.invoke.i.i14
 
-.invoke.i.i14:                                    ; preds = %1039, %1036, %1244, %1240, %537, %533, %746, %742
+.invoke.i.i14:                                    ; preds = %1038, %1035, %1242, %1238, %537, %533, %745, %741
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.21, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE) #17
-          to label %.cont.i.i16 unwind label %1542
+          to label %.cont.i.i16 unwind label %1539
 
 .cont.i.i16:                                      ; preds = %.invoke.i.i14
   unreachable
 
-1246:                                             ; preds = %1244
-  %1247 = lshr i32 %1242, 1
-  %1248 = and i32 %1242, 1
-  %sext.i.i88.i.i.i = sub nsw i32 0, %1248
-  %.1.i.i.i89.i.i.i = xor i32 %1247, %sext.i.i88.i.i.i
-  %1249 = call i32 @llvm.abs.i32(i32 %.1.i.i.i89.i.i.i, i1 true)
-  %1250 = zext nneg i32 %1140 to i64
-  %1251 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %869, i64 %1250
-  %1252 = load i32, ptr %1251, align 8, !tbaa !221
-  %1253 = add nsw i32 %1252, %1249
-  store i32 %1253, ptr %1251, align 8, !tbaa !221
-  %1254 = getelementptr inbounds nuw i8, ptr %1251, i64 4
-  %1255 = load i32, ptr %1254, align 4, !tbaa !223
-  %1256 = load i32, ptr %845, align 8, !tbaa !173
-  %1257 = icmp eq i32 %1255, %1256
-  br i1 %1257, label %1258, label %1261
+1244:                                             ; preds = %1242
+  %1245 = lshr i32 %1240, 1
+  %1246 = and i32 %1240, 1
+  %sext.i.i88.i.i.i = sub nsw i32 0, %1246
+  %.1.i.i.i89.i.i.i = xor i32 %1245, %sext.i.i88.i.i.i
+  %1247 = call i32 @llvm.abs.i32(i32 %.1.i.i.i89.i.i.i, i1 true)
+  %1248 = zext nneg i32 %1139 to i64
+  %1249 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %868, i64 %1248
+  %1250 = load i32, ptr %1249, align 8, !tbaa !221
+  %1251 = add nsw i32 %1250, %1247
+  store i32 %1251, ptr %1249, align 8, !tbaa !221
+  %1252 = getelementptr inbounds nuw i8, ptr %1249, i64 4
+  %1253 = load i32, ptr %1252, align 4, !tbaa !223
+  %1254 = load i32, ptr %844, align 8, !tbaa !173
+  %1255 = icmp eq i32 %1253, %1254
+  br i1 %1255, label %1256, label %1259
 
-1258:                                             ; preds = %1246
-  %1259 = ashr i32 %1253, 1
-  store i32 %1259, ptr %1251, align 8, !tbaa !221
-  %1260 = ashr i32 %1255, 1
-  br label %1261
+1256:                                             ; preds = %1244
+  %1257 = ashr i32 %1251, 1
+  store i32 %1257, ptr %1249, align 8, !tbaa !221
+  %1258 = ashr i32 %1253, 1
+  br label %1259
 
-1261:                                             ; preds = %1258, %1246
-  %1262 = phi i32 [ %1260, %1258 ], [ %1255, %1246 ]
-  %1263 = add nsw i32 %1262, 1
-  store i32 %1263, ptr %1254, align 4, !tbaa !223
-  %1264 = icmp slt i32 %.sroa.077.0.extract.trunc.i.i.i.i.i, 0
-  %1265 = sub nsw i32 0, %.1.i.i.i89.i.i.i
-  %storemerge.i.p.i.i90.i.i.i = select i1 %1264, i32 %1265, i32 %.1.i.i.i89.i.i.i
-  %storemerge.i.i.i91.i.i.i = add i32 %storemerge.i.p.i.i90.i.i.i, %1125
-  %1266 = icmp slt i32 %storemerge.i.i.i91.i.i.i, 0
-  br i1 %1266, label %1267, label %1269
+1259:                                             ; preds = %1256, %1244
+  %1260 = phi i32 [ %1258, %1256 ], [ %1253, %1244 ]
+  %1261 = add nsw i32 %1260, 1
+  store i32 %1261, ptr %1252, align 4, !tbaa !223
+  %1262 = icmp slt i32 %.sroa.077.0.extract.trunc.i.i.i.i.i, 0
+  %1263 = sub nsw i32 0, %.1.i.i.i89.i.i.i
+  %storemerge.i.p.i.i90.i.i.i = select i1 %1262, i32 %1263, i32 %.1.i.i.i89.i.i.i
+  %storemerge.i.i.i91.i.i.i = add i32 %storemerge.i.p.i.i90.i.i.i, %1124
+  %1264 = icmp slt i32 %storemerge.i.i.i91.i.i.i, 0
+  br i1 %1264, label %1265, label %1267
 
-1267:                                             ; preds = %1261
-  %1268 = add nsw i32 %1245, %storemerge.i.i.i91.i.i.i
-  br label %1274
+1265:                                             ; preds = %1259
+  %1266 = add nsw i32 %1243, %storemerge.i.i.i91.i.i.i
+  br label %1272
 
-1269:                                             ; preds = %1261
-  %1270 = load i32, ptr %841, align 4, !tbaa !93
-  %1271 = icmp sgt i32 %storemerge.i.i.i91.i.i.i, %1270
-  br i1 %1271, label %1272, label %.thread.i.i92.i.i.i
+1267:                                             ; preds = %1259
+  %1268 = load i32, ptr %840, align 4, !tbaa !93
+  %1269 = icmp sgt i32 %storemerge.i.i.i91.i.i.i, %1268
+  br i1 %1269, label %1270, label %.thread.i.i92.i.i.i
 
-1272:                                             ; preds = %1269
-  %1273 = sub nsw i32 %storemerge.i.i.i91.i.i.i, %1245
-  br label %1274
+1270:                                             ; preds = %1267
+  %1271 = sub nsw i32 %storemerge.i.i.i91.i.i.i, %1243
+  br label %1272
 
-1274:                                             ; preds = %1272, %1267
-  %.0136.i.i96.i.i.i = phi i32 [ %1268, %1267 ], [ %1273, %1272 ]
-  %1275 = icmp slt i32 %.0136.i.i96.i.i.i, 0
-  br i1 %1275, label %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i94.i.i.i, label %..thread_crit_edge.i.i97.i.i.i
+1272:                                             ; preds = %1270, %1265
+  %.0136.i.i96.i.i.i = phi i32 [ %1266, %1265 ], [ %1271, %1270 ]
+  %1273 = icmp slt i32 %.0136.i.i96.i.i.i, 0
+  br i1 %1273, label %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i94.i.i.i, label %..thread_crit_edge.i.i97.i.i.i
 
-..thread_crit_edge.i.i97.i.i.i:                   ; preds = %1274
-  %.pre.i.i98.i.i.i = load i32, ptr %841, align 4, !tbaa !93
+..thread_crit_edge.i.i97.i.i.i:                   ; preds = %1272
+  %.pre.i.i98.i.i.i = load i32, ptr %840, align 4, !tbaa !93
   br label %.thread.i.i92.i.i.i
 
-.thread.i.i92.i.i.i:                              ; preds = %..thread_crit_edge.i.i97.i.i.i, %1269
-  %1276 = phi i32 [ %.pre.i.i98.i.i.i, %..thread_crit_edge.i.i97.i.i.i ], [ %1270, %1269 ]
-  %.0136138.i.i.i.i.i = phi i32 [ %.0136.i.i96.i.i.i, %..thread_crit_edge.i.i97.i.i.i ], [ %storemerge.i.i.i91.i.i.i, %1269 ]
-  %.sroa.speculated.i.i93.i.i.i = call i32 @llvm.smin.i32(i32 %1276, i32 %.0136138.i.i.i.i.i)
-  %1277 = trunc i32 %.sroa.speculated.i.i93.i.i.i to i16
+.thread.i.i92.i.i.i:                              ; preds = %..thread_crit_edge.i.i97.i.i.i, %1267
+  %1274 = phi i32 [ %.pre.i.i98.i.i.i, %..thread_crit_edge.i.i97.i.i.i ], [ %1268, %1267 ]
+  %.0136138.i.i.i.i.i = phi i32 [ %.0136.i.i96.i.i.i, %..thread_crit_edge.i.i97.i.i.i ], [ %storemerge.i.i.i91.i.i.i, %1267 ]
+  %.sroa.speculated.i.i93.i.i.i = call i32 @llvm.smin.i32(i32 %1274, i32 %.0136138.i.i.i.i.i)
+  %1275 = trunc i32 %.sroa.speculated.i.i93.i.i.i to i16
   br label %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i94.i.i.i
 
-_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i94.i.i.i: ; preds = %.thread.i.i92.i.i.i, %1274
-  %.034.i.i.i95.i.i.i = phi i16 [ %1277, %.thread.i.i92.i.i.i ], [ 0, %1274 ]
-  %1278 = getelementptr inbounds nuw i16, ptr %1091, i64 %1103
-  store i16 %.034.i.i.i95.i.i.i, ptr %1278, align 2, !tbaa !90
-  %1279 = add nsw i32 %1083, 1
-  store i32 %1279, ptr %1082, align 4, !tbaa !93
+_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i94.i.i.i: ; preds = %.thread.i.i92.i.i.i, %1272
+  %.034.i.i.i95.i.i.i = phi i16 [ %1275, %.thread.i.i92.i.i.i ], [ 0, %1272 ]
+  %1276 = getelementptr inbounds nuw i16, ptr %1090, i64 %1102
+  store i16 %.034.i.i.i95.i.i.i, ptr %1276, align 2, !tbaa !90
+  %1277 = add nsw i32 %1082, 1
+  store i32 %1277, ptr %1081, align 4, !tbaa !93
   br i1 %.not31.i.i77.i.i.i, label %.loopexit.i.i57.i.i.i, label %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_odd_innerENS0_8xt_linesEi.exit.i.i75.i.i.i, !llvm.loop !240
 
 .loopexit.i.i57.i.i.i:                            ; preds = %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i94.i.i.i, %.loopexit146.i.i.i.i.i
   %.promoted16.i.pre.i121.i.i.i.i = phi i32 [ %.promoted16.i.pre.i126.i.i.i.i, %.loopexit146.i.i.i.i.i ], [ %.promoted16.i.pre.i122.i.i.i.i, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i94.i.i.i ]
   %.promoted.i.pre.i113.i.i.i.i = phi i32 [ %.promoted.i.pre.i114.i.i.i.i, %.loopexit146.i.i.i.i.i ], [ %.promoted.i.pre.i116.i.i.i.i, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i94.i.i.i ]
-  %1280 = add nuw nsw i32 %.0156.i.i.i.i.i, 1
-  %.not.i8.i58.i.i.i = icmp eq i32 %.0156.i.i.i.i.i, %846
-  br i1 %.not.i8.i58.i.i.i, label %"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_blockIZNS1_23fuji_bayer_decode_blockEiE3$_0EEvT_iENKUlSt5arrayINS0_8xt_linesELm2EEiE_clES7_i.exit.i.i.i.i", label %881, !llvm.loop !241
+  %1278 = add nuw nsw i32 %.0156.i.i.i.i.i, 1
+  %.not.i8.i58.i.i.i = icmp eq i32 %.0156.i.i.i.i.i, %845
+  br i1 %.not.i8.i58.i.i.i, label %"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_blockIZNS1_23fuji_bayer_decode_blockEiE3$_0EEvT_iENKUlSt5arrayINS0_8xt_linesELm2EEiE_clES7_i.exit.i.i.i.i", label %880, !llvm.loop !241
 
 "_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_blockIZNS1_23fuji_bayer_decode_blockEiE3$_0EEvT_iENKUlSt5arrayINS0_8xt_linesELm2EEiE_clES7_i.exit.i.i.i.i": ; preds = %.loopexit.i.i57.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %1281 = load ptr, ptr %145, align 8, !nonnull !132
-  %1282 = load i32, ptr %150, align 4
-  %1283 = load i32, ptr %151, align 8
-  %1284 = load i32, ptr %149, align 8
-  %1285 = icmp ne i32 %1284, 0
-  %1286 = icmp sgt i32 %1284, -1
-  %1287 = icmp samesign uge i32 %1284, %1282
-  %1288 = icmp samesign ugt i32 %1282, 1
-  %1289 = zext nneg i32 %1282 to i64
-  %1290 = zext nneg i32 %1284 to i64
-  %1291 = zext nneg i32 %1283 to i64
+  %1279 = load ptr, ptr %145, align 8, !nonnull !132
+  %1280 = load i32, ptr %150, align 4
+  %1281 = load i32, ptr %151, align 8
+  %1282 = load i32, ptr %149, align 8
+  %1283 = icmp ne i32 %1282, 0
+  %1284 = icmp sgt i32 %1282, -1
+  %1285 = icmp samesign uge i32 %1282, %1280
+  %1286 = icmp samesign ugt i32 %1280, 1
+  %1287 = zext nneg i32 %1280 to i64
+  %1288 = zext nneg i32 %1282 to i64
+  %1289 = zext nneg i32 %1281 to i64
+  call void @llvm.assume(i1 %1283)
+  call void @llvm.assume(i1 %1284)
   call void @llvm.assume(i1 %1285)
   call void @llvm.assume(i1 %1286)
-  call void @llvm.assume(i1 %1287)
-  call void @llvm.assume(i1 %1288)
-  br label %1293
+  br label %1291
 
 _ZSt4fillIPiiEvT_S1_RKT0_.exit.i65.i.i.i:         ; preds = %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block15fuji_extend_redEv.exit.i64.i.i.i
-  %1292 = add nuw nsw i32 %.0.i139.i.i.i.i, 1
-  %.not.i.i66.i.i.i = icmp eq i32 %1292, 6
+  %1290 = add nuw nsw i32 %.0.i139.i.i.i.i, 1
+  %.not.i.i66.i.i.i = icmp eq i32 %1290, 6
   br i1 %.not.i.i66.i.i.i, label %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block23fuji_bayer_decode_blockEi.exit.i.i.i, label %switch.lookup298, !llvm.loop !242
 
-1293:                                             ; preds = %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block15fuji_extend_redEv.exit.i64.i.i.i, %"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_blockIZNS1_23fuji_bayer_decode_blockEiE3$_0EEvT_iENKUlSt5arrayINS0_8xt_linesELm2EEiE_clES7_i.exit.i.i.i.i"
+1291:                                             ; preds = %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block15fuji_extend_redEv.exit.i64.i.i.i, %"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_blockIZNS1_23fuji_bayer_decode_blockEiE3$_0EEvT_iENKUlSt5arrayINS0_8xt_linesELm2EEiE_clES7_i.exit.i.i.i.i"
   %.not18.i.i59.i.i.i = phi i1 [ false, %"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_blockIZNS1_23fuji_bayer_decode_blockEiE3$_0EEvT_iENKUlSt5arrayINS0_8xt_linesELm2EEiE_clES7_i.exit.i.i.i.i" ], [ true, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block15fuji_extend_redEv.exit.i64.i.i.i ]
-  %.017.i.idx138.i.sroa.phi.sroa.speculated.i.i.i = phi i8 [ %851, %"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_blockIZNS1_23fuji_bayer_decode_blockEiE3$_0EEvT_iENKUlSt5arrayINS0_8xt_linesELm2EEiE_clES7_i.exit.i.i.i.i" ], [ %853, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block15fuji_extend_redEv.exit.i64.i.i.i ]
-  switch i8 %.017.i.idx138.i.sroa.phi.sroa.speculated.i.i.i, label %1336 [
+  %.017.i.idx138.i.sroa.phi.sroa.speculated.i.i.i = phi i8 [ %850, %"_ZZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_blockIZNS1_23fuji_bayer_decode_blockEiE3$_0EEvT_iENKUlSt5arrayINS0_8xt_linesELm2EEiE_clES7_i.exit.i.i.i.i" ], [ %852, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block15fuji_extend_redEv.exit.i64.i.i.i ]
+  switch i8 %.017.i.idx138.i.sroa.phi.sroa.speculated.i.i.i, label %1334 [
     i8 0, label %.preheader67.i.i.i
     i8 1, label %.preheader68.i.i.i
     i8 2, label %.preheader70.i.i.i
   ]
 
-.preheader67.i.i.i:                               ; preds = %1293, %.preheader67.i.i.i
-  %indvars.iv.i.i10.i70.i.i.i = phi i64 [ %indvars.iv.next.i.i.i71.i.i.i, %.preheader67.i.i.i ], [ 2, %1293 ]
-  %1294 = add nsw i64 %indvars.iv.i.i10.i70.i.i.i, -1
-  %1295 = icmp samesign ult i64 %1294, %1291
-  call void @llvm.assume(i1 %1295)
-  %1296 = mul nuw nsw i64 %1294, %1290
-  %1297 = getelementptr inbounds nuw i16, ptr %1281, i64 %1296
-  %1298 = getelementptr inbounds nuw i8, ptr %1297, i64 2
-  %1299 = load i16, ptr %1298, align 2, !tbaa !90
-  %1300 = icmp samesign ult i64 %indvars.iv.i.i10.i70.i.i.i, %1291
-  call void @llvm.assume(i1 %1300)
-  %1301 = mul nuw nsw i64 %indvars.iv.i.i10.i70.i.i.i, %1290
-  %1302 = getelementptr inbounds nuw i16, ptr %1281, i64 %1301
-  store i16 %1299, ptr %1302, align 2, !tbaa !90
-  %1303 = getelementptr i16, ptr %1297, i64 %1289
-  %1304 = getelementptr i8, ptr %1303, i64 -4
-  %1305 = load i16, ptr %1304, align 2, !tbaa !90
-  %1306 = getelementptr i16, ptr %1302, i64 %1289
-  %1307 = getelementptr i8, ptr %1306, i64 -2
-  store i16 %1305, ptr %1307, align 2, !tbaa !90
+.preheader67.i.i.i:                               ; preds = %1291, %.preheader67.i.i.i
+  %indvars.iv.i.i10.i70.i.i.i = phi i64 [ %indvars.iv.next.i.i.i71.i.i.i, %.preheader67.i.i.i ], [ 2, %1291 ]
+  %1292 = add nsw i64 %indvars.iv.i.i10.i70.i.i.i, -1
+  %1293 = icmp samesign ult i64 %1292, %1289
+  call void @llvm.assume(i1 %1293)
+  %1294 = mul nuw nsw i64 %1292, %1288
+  %1295 = getelementptr inbounds nuw i16, ptr %1279, i64 %1294
+  %1296 = getelementptr inbounds nuw i8, ptr %1295, i64 2
+  %1297 = load i16, ptr %1296, align 2, !tbaa !90
+  %1298 = icmp samesign ult i64 %indvars.iv.i.i10.i70.i.i.i, %1289
+  call void @llvm.assume(i1 %1298)
+  %1299 = mul nuw nsw i64 %indvars.iv.i.i10.i70.i.i.i, %1288
+  %1300 = getelementptr inbounds nuw i16, ptr %1279, i64 %1299
+  store i16 %1297, ptr %1300, align 2, !tbaa !90
+  %1301 = getelementptr i16, ptr %1295, i64 %1287
+  %1302 = getelementptr i8, ptr %1301, i64 -4
+  %1303 = load i16, ptr %1302, align 2, !tbaa !90
+  %1304 = getelementptr i16, ptr %1300, i64 %1287
+  %1305 = getelementptr i8, ptr %1304, i64 -2
+  store i16 %1303, ptr %1305, align 2, !tbaa !90
   %indvars.iv.next.i.i.i71.i.i.i = add nuw nsw i64 %indvars.iv.i.i10.i70.i.i.i, 1
   %exitcond.not.i.i.i72.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i71.i.i.i, 5
   br i1 %exitcond.not.i.i.i72.i.i.i, label %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block15fuji_extend_redEv.exit.i64.i.i.i, label %.preheader67.i.i.i, !llvm.loop !238
 
-.preheader68.i.i.i:                               ; preds = %1293, %.preheader68.i.i.i
-  %indvars.iv.i.i11.i67.i.i.i = phi i64 [ %indvars.iv.next.i.i12.i68.i.i.i, %.preheader68.i.i.i ], [ 7, %1293 ]
-  %1308 = add nsw i64 %indvars.iv.i.i11.i67.i.i.i, -1
-  %1309 = icmp samesign ult i64 %1308, %1291
-  call void @llvm.assume(i1 %1309)
-  %1310 = mul nuw nsw i64 %1308, %1290
-  %1311 = getelementptr inbounds nuw i16, ptr %1281, i64 %1310
-  %1312 = getelementptr inbounds nuw i8, ptr %1311, i64 2
-  %1313 = load i16, ptr %1312, align 2, !tbaa !90
-  %1314 = icmp samesign ult i64 %indvars.iv.i.i11.i67.i.i.i, %1291
-  call void @llvm.assume(i1 %1314)
-  %1315 = mul nuw nsw i64 %indvars.iv.i.i11.i67.i.i.i, %1290
-  %1316 = getelementptr inbounds nuw i16, ptr %1281, i64 %1315
-  store i16 %1313, ptr %1316, align 2, !tbaa !90
-  %1317 = getelementptr i16, ptr %1311, i64 %1289
-  %1318 = getelementptr i8, ptr %1317, i64 -4
-  %1319 = load i16, ptr %1318, align 2, !tbaa !90
-  %1320 = getelementptr i16, ptr %1316, i64 %1289
-  %1321 = getelementptr i8, ptr %1320, i64 -2
-  store i16 %1319, ptr %1321, align 2, !tbaa !90
+.preheader68.i.i.i:                               ; preds = %1291, %.preheader68.i.i.i
+  %indvars.iv.i.i11.i67.i.i.i = phi i64 [ %indvars.iv.next.i.i12.i68.i.i.i, %.preheader68.i.i.i ], [ 7, %1291 ]
+  %1306 = add nsw i64 %indvars.iv.i.i11.i67.i.i.i, -1
+  %1307 = icmp samesign ult i64 %1306, %1289
+  call void @llvm.assume(i1 %1307)
+  %1308 = mul nuw nsw i64 %1306, %1288
+  %1309 = getelementptr inbounds nuw i16, ptr %1279, i64 %1308
+  %1310 = getelementptr inbounds nuw i8, ptr %1309, i64 2
+  %1311 = load i16, ptr %1310, align 2, !tbaa !90
+  %1312 = icmp samesign ult i64 %indvars.iv.i.i11.i67.i.i.i, %1289
+  call void @llvm.assume(i1 %1312)
+  %1313 = mul nuw nsw i64 %indvars.iv.i.i11.i67.i.i.i, %1288
+  %1314 = getelementptr inbounds nuw i16, ptr %1279, i64 %1313
+  store i16 %1311, ptr %1314, align 2, !tbaa !90
+  %1315 = getelementptr i16, ptr %1309, i64 %1287
+  %1316 = getelementptr i8, ptr %1315, i64 -4
+  %1317 = load i16, ptr %1316, align 2, !tbaa !90
+  %1318 = getelementptr i16, ptr %1314, i64 %1287
+  %1319 = getelementptr i8, ptr %1318, i64 -2
+  store i16 %1317, ptr %1319, align 2, !tbaa !90
   %indvars.iv.next.i.i12.i68.i.i.i = add nuw nsw i64 %indvars.iv.i.i11.i67.i.i.i, 1
   %exitcond.not.i.i13.i69.i.i.i = icmp eq i64 %indvars.iv.next.i.i12.i68.i.i.i, 13
   br i1 %exitcond.not.i.i13.i69.i.i.i, label %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block15fuji_extend_redEv.exit.i64.i.i.i, label %.preheader68.i.i.i, !llvm.loop !238
 
-.preheader70.i.i.i:                               ; preds = %1293, %.preheader70.i.i.i
-  %indvars.iv.i.i14.i61.i.i.i = phi i64 [ %indvars.iv.next.i.i15.i62.i.i.i, %.preheader70.i.i.i ], [ 15, %1293 ]
-  %1322 = add nsw i64 %indvars.iv.i.i14.i61.i.i.i, -1
-  %1323 = icmp samesign ult i64 %1322, %1291
-  call void @llvm.assume(i1 %1323)
-  %1324 = mul nuw nsw i64 %1322, %1290
-  %1325 = getelementptr inbounds nuw i16, ptr %1281, i64 %1324
-  %1326 = getelementptr inbounds nuw i8, ptr %1325, i64 2
-  %1327 = load i16, ptr %1326, align 2, !tbaa !90
-  %1328 = icmp samesign ult i64 %indvars.iv.i.i14.i61.i.i.i, %1291
-  call void @llvm.assume(i1 %1328)
-  %1329 = mul nuw nsw i64 %indvars.iv.i.i14.i61.i.i.i, %1290
-  %1330 = getelementptr inbounds nuw i16, ptr %1281, i64 %1329
-  store i16 %1327, ptr %1330, align 2, !tbaa !90
-  %1331 = getelementptr i16, ptr %1325, i64 %1289
-  %1332 = getelementptr i8, ptr %1331, i64 -4
-  %1333 = load i16, ptr %1332, align 2, !tbaa !90
-  %1334 = getelementptr i16, ptr %1330, i64 %1289
-  %1335 = getelementptr i8, ptr %1334, i64 -2
-  store i16 %1333, ptr %1335, align 2, !tbaa !90
+.preheader70.i.i.i:                               ; preds = %1291, %.preheader70.i.i.i
+  %indvars.iv.i.i14.i61.i.i.i = phi i64 [ %indvars.iv.next.i.i15.i62.i.i.i, %.preheader70.i.i.i ], [ 15, %1291 ]
+  %1320 = add nsw i64 %indvars.iv.i.i14.i61.i.i.i, -1
+  %1321 = icmp samesign ult i64 %1320, %1289
+  call void @llvm.assume(i1 %1321)
+  %1322 = mul nuw nsw i64 %1320, %1288
+  %1323 = getelementptr inbounds nuw i16, ptr %1279, i64 %1322
+  %1324 = getelementptr inbounds nuw i8, ptr %1323, i64 2
+  %1325 = load i16, ptr %1324, align 2, !tbaa !90
+  %1326 = icmp samesign ult i64 %indvars.iv.i.i14.i61.i.i.i, %1289
+  call void @llvm.assume(i1 %1326)
+  %1327 = mul nuw nsw i64 %indvars.iv.i.i14.i61.i.i.i, %1288
+  %1328 = getelementptr inbounds nuw i16, ptr %1279, i64 %1327
+  store i16 %1325, ptr %1328, align 2, !tbaa !90
+  %1329 = getelementptr i16, ptr %1323, i64 %1287
+  %1330 = getelementptr i8, ptr %1329, i64 -4
+  %1331 = load i16, ptr %1330, align 2, !tbaa !90
+  %1332 = getelementptr i16, ptr %1328, i64 %1287
+  %1333 = getelementptr i8, ptr %1332, i64 -2
+  store i16 %1331, ptr %1333, align 2, !tbaa !90
   %indvars.iv.next.i.i15.i62.i.i.i = add nuw nsw i64 %indvars.iv.i.i14.i61.i.i.i, 1
   %exitcond.not.i.i16.i63.i.i.i = icmp eq i64 %indvars.iv.next.i.i15.i62.i.i.i, 18
   br i1 %exitcond.not.i.i16.i63.i.i.i, label %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block15fuji_extend_redEv.exit.i64.i.i.i, label %.preheader70.i.i.i, !llvm.loop !238
 
-1336:                                             ; preds = %1293
+1334:                                             ; preds = %1291
   unreachable
 
 _ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block15fuji_extend_redEv.exit.i64.i.i.i: ; preds = %.preheader70.i.i.i, %.preheader68.i.i.i, %.preheader67.i.i.i
-  br i1 %.not18.i.i59.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit.i65.i.i.i, label %1293
+  br i1 %.not18.i.i59.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit.i65.i.i.i, label %1291
 
 _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block23fuji_bayer_decode_blockEi.exit.i.i.i: ; preds = %_ZSt4fillIPiiEvT_S1_RKT0_.exit.i65.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %1337
+  br label %1335
 
-1337:                                             ; preds = %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block23fuji_bayer_decode_blockEi.exit.i.i.i, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block19xtrans_decode_blockEi.exit.i.i.i
-  br i1 %256, label %1338, label %.preheader.i.i.i.i144.i.i.i
+1335:                                             ; preds = %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block23fuji_bayer_decode_blockEi.exit.i.i.i, %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block19xtrans_decode_blockEi.exit.i.i.i
+  br i1 %256, label %1336, label %.preheader.i.i.i.i144.i.i.i
 
-1338:                                             ; preds = %1337
+1336:                                             ; preds = %1335
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %.preheader.i.i.i.i.i.i.i
 
-.preheader.i.i.i.i.i.i.i:                         ; preds = %1346, %1338
-  %indvars.iv85.i.i.i.i.i.i.i = phi i64 [ 0, %1338 ], [ %indvars.iv.next86.i.i.i.i.i.i.i, %1346 ]
-  %1339 = trunc i64 %indvars.iv85.i.i.i.i.i.i.i to i32
-  %1340 = urem i32 %1339, 6
-  %1341 = mul nuw nsw i32 %1340, 6
-  %1342 = zext nneg i32 %1341 to i64
-  %1343 = getelementptr inbounds nuw i8, ptr @__const._ZN8rawspeed14getAsCFAColorsENS_8iPoint2DE.basePat, i64 %1342
-  %1344 = mul nuw nsw i64 %indvars.iv85.i.i.i.i.i.i.i, 6
-  %1345 = getelementptr inbounds nuw i8, ptr %3, i64 %1344
-  br label %1347
+.preheader.i.i.i.i.i.i.i:                         ; preds = %1344, %1336
+  %indvars.iv85.i.i.i.i.i.i.i = phi i64 [ 0, %1336 ], [ %indvars.iv.next86.i.i.i.i.i.i.i, %1344 ]
+  %1337 = trunc i64 %indvars.iv85.i.i.i.i.i.i.i to i32
+  %1338 = urem i32 %1337, 6
+  %1339 = mul nuw nsw i32 %1338, 6
+  %1340 = zext nneg i32 %1339 to i64
+  %1341 = getelementptr inbounds nuw i8, ptr @__const._ZN8rawspeed14getAsCFAColorsENS_8iPoint2DE.basePat, i64 %1340
+  %1342 = mul nuw nsw i64 %indvars.iv85.i.i.i.i.i.i.i, 6
+  %1343 = getelementptr inbounds nuw i8, ptr %3, i64 %1342
+  br label %1345
 
-1346:                                             ; preds = %1347
+1344:                                             ; preds = %1345
   %indvars.iv.next86.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv85.i.i.i.i.i.i.i, 1
   %exitcond88.not.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next86.i.i.i.i.i.i.i, 6
   br i1 %exitcond88.not.i.i.i.i.i.i.i, label %_ZN8rawspeed14getAsCFAColorsENS_8iPoint2DE.exit.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i, !llvm.loop !120
 
-1347:                                             ; preds = %1347, %.preheader.i.i.i.i.i.i.i
-  %indvars.iv.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i.i, %1347 ]
-  %1348 = trunc i64 %indvars.iv.i.i.i.i.i.i.i to i32
-  %1349 = urem i32 %1348, 6
-  %1350 = zext nneg i32 %1349 to i64
-  %1351 = getelementptr inbounds nuw i8, ptr %1343, i64 %1350
-  %1352 = load i8, ptr %1351, align 1, !tbaa !111, !noalias !243
-  %1353 = getelementptr inbounds nuw i8, ptr %1345, i64 %indvars.iv.i.i.i.i.i.i.i
-  store i8 %1352, ptr %1353, align 1
+1345:                                             ; preds = %1345, %.preheader.i.i.i.i.i.i.i
+  %indvars.iv.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i.i, %1345 ]
+  %1346 = trunc i64 %indvars.iv.i.i.i.i.i.i.i to i32
+  %1347 = urem i32 %1346, 6
+  %1348 = zext nneg i32 %1347 to i64
+  %1349 = getelementptr inbounds nuw i8, ptr %1341, i64 %1348
+  %1350 = load i8, ptr %1349, align 1, !tbaa !111, !noalias !243
+  %1351 = getelementptr inbounds nuw i8, ptr %1343, i64 %indvars.iv.i.i.i.i.i.i.i
+  store i8 %1350, ptr %1351, align 1
   %indvars.iv.next.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i, 6
-  br i1 %exitcond.not.i.i.i.i.i.i.i, label %1346, label %1347, !llvm.loop !122
+  br i1 %exitcond.not.i.i.i.i.i.i.i, label %1344, label %1345, !llvm.loop !122
 
-_ZN8rawspeed14getAsCFAColorsENS_8iPoint2DE.exit.i.i.i.i.i: ; preds = %1346
-  %1354 = load i8, ptr %169, align 2, !tbaa !153
-  %1355 = zext i8 %1354 to i64
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %245, %1355
-  %1356 = load i16, ptr %247, align 4, !tbaa !152
-  %1357 = zext i16 %1356 to i32
-  br i1 %.not.i.i.i.i.i.i.i, label %1358, label %_ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i.i.i.i
+_ZN8rawspeed14getAsCFAColorsENS_8iPoint2DE.exit.i.i.i.i.i: ; preds = %1344
+  %1352 = load i8, ptr %169, align 2, !tbaa !153
+  %1353 = zext i8 %1352 to i64
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %245, %1353
+  %1354 = load i16, ptr %247, align 4, !tbaa !152
+  %1355 = zext i16 %1354 to i32
+  br i1 %.not.i.i.i.i.i.i.i, label %1356, label %_ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i.i.i.i
 
-1358:                                             ; preds = %_ZN8rawspeed14getAsCFAColorsENS_8iPoint2DE.exit.i.i.i.i.i
-  %1359 = mul nuw nsw i32 %246, %1357
-  %1360 = load i16, ptr %248, align 2, !tbaa !150
-  %1361 = zext i16 %1360 to i32
-  %1362 = icmp samesign uge i32 %1359, %1361
-  call void @llvm.assume(i1 %1362)
-  %1363 = mul nuw nsw i32 %1357, %indvars133.i.i
-  %1364 = sub nsw i32 %1361, %1363
+1356:                                             ; preds = %_ZN8rawspeed14getAsCFAColorsENS_8iPoint2DE.exit.i.i.i.i.i
+  %1357 = mul nuw nsw i32 %246, %1355
+  %1358 = load i16, ptr %248, align 2, !tbaa !150
+  %1359 = zext i16 %1358 to i32
+  %1360 = icmp samesign uge i32 %1357, %1359
+  call void @llvm.assume(i1 %1360)
+  %1361 = mul nuw nsw i32 %1355, %indvars133.i.i
+  %1362 = sub nsw i32 %1359, %1361
   br label %_ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i.i.i.i
 
-_ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i.i.i.i: ; preds = %1358, %_ZN8rawspeed14getAsCFAColorsENS_8iPoint2DE.exit.i.i.i.i.i
-  %.0.i.i.i.i141.i.i.i = phi i32 [ %1364, %1358 ], [ %1357, %_ZN8rawspeed14getAsCFAColorsENS_8iPoint2DE.exit.i.i.i.i.i ]
+_ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i.i.i.i: ; preds = %1356, %_ZN8rawspeed14getAsCFAColorsENS_8iPoint2DE.exit.i.i.i.i.i
+  %.0.i.i.i.i141.i.i.i = phi i32 [ %1362, %1356 ], [ %1355, %_ZN8rawspeed14getAsCFAColorsENS_8iPoint2DE.exit.i.i.i.i.i ]
   %.0.i.i.off.i.i.i.i.i = add nsw i32 %.0.i.i.i.i141.i.i.i, 5
   %.not63.i.i.i.i.i = icmp ult i32 %.0.i.i.off.i.i.i.i.i, 11
   br i1 %.not63.i.i.i.i.i, label %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block19copy_line_to_xtransERKNS0_9FujiStripEi.exit.i.i.i, label %.preheader59.lr.ph.i.i.i.i.i
 
 .preheader59.lr.ph.i.i.i.i.i:                     ; preds = %_ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i.i.i.i
-  %1365 = sdiv i32 %.0.i.i.i.i141.i.i.i, 6
+  %1363 = sdiv i32 %.0.i.i.i.i141.i.i.i, 6
   %.sroa.053.0.copyload.i.i.i.i.i = load ptr, ptr %12, align 8, !tbaa !192, !nonnull !132, !noundef !132
   %.sroa.455.0.copyload.i.i.i.i.i = load i32, ptr %.sroa.656.0..sroa_idx.i.i, align 8, !tbaa !93
   %.sroa.556.0.copyload.i.i.i.i.i = load i32, ptr %.sroa.757.0..sroa_idx.i.i, align 4, !tbaa !93
   %.sroa.657.0.copyload.i.i.i.i.i = load i32, ptr %.sroa.858.0..sroa_idx.i.i, align 8, !tbaa !93
-  %1366 = icmp ne i32 %.sroa.455.0.copyload.i.i.i.i.i, 0
+  %1364 = icmp ne i32 %.sroa.455.0.copyload.i.i.i.i.i, 0
+  call void @llvm.assume(i1 %1364)
+  %1365 = icmp sgt i32 %.sroa.455.0.copyload.i.i.i.i.i, -1
+  call void @llvm.assume(i1 %1365)
+  %1366 = icmp samesign uge i32 %.sroa.455.0.copyload.i.i.i.i.i, %.sroa.556.0.copyload.i.i.i.i.i
   call void @llvm.assume(i1 %1366)
-  %1367 = icmp sgt i32 %.sroa.455.0.copyload.i.i.i.i.i, -1
-  call void @llvm.assume(i1 %1367)
-  %1368 = icmp samesign uge i32 %.sroa.455.0.copyload.i.i.i.i.i, %.sroa.556.0.copyload.i.i.i.i.i
-  call void @llvm.assume(i1 %1368)
-  %1369 = zext nneg i32 %.sroa.556.0.copyload.i.i.i.i.i to i64
-  %1370 = zext nneg i32 %.sroa.657.0.copyload.i.i.i.i.i to i64
-  %1371 = zext nneg i32 %.sroa.455.0.copyload.i.i.i.i.i to i64
-  %1372 = mul nuw nsw i64 %indvars.iv.i20.i.i, 6
-  %1373 = zext i32 %1365 to i64
+  %1367 = zext nneg i32 %.sroa.556.0.copyload.i.i.i.i.i to i64
+  %1368 = zext nneg i32 %.sroa.657.0.copyload.i.i.i.i.i to i64
+  %1369 = zext nneg i32 %.sroa.455.0.copyload.i.i.i.i.i to i64
+  %1370 = mul nuw nsw i64 %indvars.iv.i20.i.i, 6
+  %1371 = zext i32 %1363 to i64
   br label %.preheader59.i.i.i.i.i
 
-.preheader59.i.i.i.i.i:                           ; preds = %1401, %.preheader59.lr.ph.i.i.i.i.i
-  %indvars.iv72.i.i.i.i.i = phi i64 [ 0, %.preheader59.lr.ph.i.i.i.i.i ], [ %indvars.iv.next73.i.i.i.i.i, %1401 ]
-  %1374 = mul nuw nsw i64 %indvars.iv72.i.i.i.i.i, 6
+.preheader59.i.i.i.i.i:                           ; preds = %1399, %.preheader59.lr.ph.i.i.i.i.i
+  %indvars.iv72.i.i.i.i.i = phi i64 [ 0, %.preheader59.lr.ph.i.i.i.i.i ], [ %indvars.iv.next73.i.i.i.i.i, %1399 ]
+  %1372 = mul nuw nsw i64 %indvars.iv72.i.i.i.i.i, 6
   %.val.val.i.i.i.i.i = load i16, ptr %247, align 4, !tbaa !152
-  %1375 = zext i16 %.val.val.i.i.i.i.i to i32
-  %1376 = mul nuw nsw i32 %1375, %indvars133.i.i
-  %1377 = trunc nuw nsw i64 %1374 to i32
-  %1378 = add nsw i32 %1376, %1377
+  %1373 = zext i16 %.val.val.i.i.i.i.i to i32
+  %1374 = mul nuw nsw i32 %1373, %indvars133.i.i
+  %1375 = trunc nuw nsw i64 %1372 to i32
+  %1376 = add nsw i32 %1374, %1375
   %.val32.val.i.i.i.i.i = load i16, ptr %240, align 4, !tbaa !154
-  %1379 = zext i16 %.val32.val.i.i.i.i.i to i64
-  %1380 = icmp samesign ult i64 %indvars.iv.i20.i.i, %1379
-  call void @llvm.assume(i1 %1380)
-  %1381 = icmp sgt i32 %1378, -1
-  call void @llvm.assume(i1 %1381)
-  %1382 = zext nneg i32 %1378 to i64
+  %1377 = zext i16 %.val32.val.i.i.i.i.i to i64
+  %1378 = icmp samesign ult i64 %indvars.iv.i20.i.i, %1377
+  call void @llvm.assume(i1 %1378)
+  %1379 = icmp sgt i32 %1376, -1
+  call void @llvm.assume(i1 %1379)
+  %1380 = zext nneg i32 %1376 to i64
   br label %.preheader.i.i142.i.i.i
 
-.preheader.i.i142.i.i.i:                          ; preds = %1402, %.preheader59.i.i.i.i.i
-  %indvars.iv66.i.i.i.i.i = phi i64 [ 0, %.preheader59.i.i.i.i.i ], [ %indvars.iv.next67.i.i.i.i.i, %1402 ]
-  %1383 = mul nuw nsw i64 %indvars.iv66.i.i.i.i.i, 6
-  %1384 = getelementptr inbounds nuw i8, ptr %3, i64 %1383
-  %1385 = trunc i64 %indvars.iv66.i.i.i.i.i to i32
-  %1386 = lshr i32 %1385, 1
-  %1387 = add nuw nsw i32 %1386, 15
-  %1388 = add nuw nsw i32 %1386, 2
-  %1389 = load ptr, ptr %145, align 8, !nonnull !132
-  %1390 = load i32, ptr %150, align 4
-  %1391 = load i32, ptr %151, align 8
-  %1392 = load i32, ptr %149, align 8
-  %1393 = icmp ne i32 %1392, 0
-  %1394 = icmp sgt i32 %1392, -1
-  %1395 = icmp samesign uge i32 %1392, %1390
-  %1396 = add nuw nsw i64 %indvars.iv66.i.i.i.i.i, %1372
-  %1397 = icmp samesign ult i64 %1396, %1370
-  %1398 = mul nuw nsw i64 %1396, %1371
-  %1399 = getelementptr inbounds nuw i16, ptr %.sroa.053.0.copyload.i.i.i.i.i, i64 %1398
-  %1400 = add i32 %1385, 7
-  br label %1403
+.preheader.i.i142.i.i.i:                          ; preds = %1400, %.preheader59.i.i.i.i.i
+  %indvars.iv66.i.i.i.i.i = phi i64 [ 0, %.preheader59.i.i.i.i.i ], [ %indvars.iv.next67.i.i.i.i.i, %1400 ]
+  %1381 = mul nuw nsw i64 %indvars.iv66.i.i.i.i.i, 6
+  %1382 = getelementptr inbounds nuw i8, ptr %3, i64 %1381
+  %1383 = trunc i64 %indvars.iv66.i.i.i.i.i to i32
+  %1384 = lshr i32 %1383, 1
+  %1385 = add nuw nsw i32 %1384, 15
+  %1386 = add nuw nsw i32 %1384, 2
+  %1387 = load ptr, ptr %145, align 8, !nonnull !132
+  %1388 = load i32, ptr %150, align 4
+  %1389 = load i32, ptr %151, align 8
+  %1390 = load i32, ptr %149, align 8
+  %1391 = icmp ne i32 %1390, 0
+  %1392 = icmp sgt i32 %1390, -1
+  %1393 = icmp samesign uge i32 %1390, %1388
+  %1394 = add nuw nsw i64 %indvars.iv66.i.i.i.i.i, %1370
+  %1395 = icmp samesign ult i64 %1394, %1368
+  %1396 = mul nuw nsw i64 %1394, %1369
+  %1397 = getelementptr inbounds nuw i16, ptr %.sroa.053.0.copyload.i.i.i.i.i, i64 %1396
+  %1398 = add i32 %1383, 7
+  br label %1401
 
-1401:                                             ; preds = %1402
+1399:                                             ; preds = %1400
   %indvars.iv.next73.i.i.i.i.i = add nuw nsw i64 %indvars.iv72.i.i.i.i.i, 1
-  %.not.i.i143.i.i.i = icmp eq i64 %indvars.iv.next73.i.i.i.i.i, %1373
+  %.not.i.i143.i.i.i = icmp eq i64 %indvars.iv.next73.i.i.i.i.i, %1371
   br i1 %.not.i.i143.i.i.i, label %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block19copy_line_to_xtransERKNS0_9FujiStripEi.exit.i.i.i, label %.preheader59.i.i.i.i.i, !llvm.loop !248
 
-1402:                                             ; preds = %1410
+1400:                                             ; preds = %1408
   %indvars.iv.next67.i.i.i.i.i = add nuw nsw i64 %indvars.iv66.i.i.i.i.i, 1
   %.not24.i.i.i.i.i = icmp eq i64 %indvars.iv.next67.i.i.i.i.i, 6
-  br i1 %.not24.i.i.i.i.i, label %1401, label %.preheader.i.i142.i.i.i, !llvm.loop !249
+  br i1 %.not24.i.i.i.i.i, label %1399, label %.preheader.i.i142.i.i.i, !llvm.loop !249
 
-1403:                                             ; preds = %1410, %.preheader.i.i142.i.i.i
-  %indvars.iv.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i142.i.i.i ], [ %indvars.iv.next.i.i.i.i.i, %1410 ]
-  %1404 = add nuw nsw i64 %indvars.iv.i.i.i.i.i, %1374
-  %1405 = getelementptr inbounds nuw i8, ptr %1384, i64 %indvars.iv.i.i.i.i.i
-  %1406 = load i8, ptr %1405, align 1
-  switch i8 %1406, label %1409 [
-    i8 0, label %1410
-    i8 1, label %1407
-    i8 2, label %1408
+1401:                                             ; preds = %1408, %.preheader.i.i142.i.i.i
+  %indvars.iv.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i142.i.i.i ], [ %indvars.iv.next.i.i.i.i.i, %1408 ]
+  %1402 = add nuw nsw i64 %indvars.iv.i.i.i.i.i, %1372
+  %1403 = getelementptr inbounds nuw i8, ptr %1382, i64 %indvars.iv.i.i.i.i.i
+  %1404 = load i8, ptr %1403, align 1
+  switch i8 %1404, label %1407 [
+    i8 0, label %1408
+    i8 1, label %1405
+    i8 2, label %1406
   ]
 
-1407:                                             ; preds = %1403
-  br label %1410
+1405:                                             ; preds = %1401
+  br label %1408
 
-1408:                                             ; preds = %1403
-  br label %1410
+1406:                                             ; preds = %1401
+  br label %1408
 
-1409:                                             ; preds = %1403
+1407:                                             ; preds = %1401
   unreachable
 
-1410:                                             ; preds = %1408, %1407, %1403
-  %.0.i.i.i.i.i13 = phi i32 [ %1387, %1408 ], [ %1400, %1407 ], [ %1388, %1403 ]
-  %.tr.i.i.i.i.i = trunc i64 %1404 to i32
-  %1411 = shl i32 %.tr.i.i.i.i.i, 1
-  %1412 = udiv i32 %1411, 3
-  %1413 = and i32 %1412, 1073741822
-  %1414 = urem i32 %.tr.i.i.i.i.i, 3
-  %1415 = and i32 %1414, 1
-  %1416 = lshr i32 %1414, 1
-  %1417 = add nuw nsw i32 %1415, 1
-  %1418 = add nuw nsw i32 %1417, %1416
-  %1419 = add nuw nsw i32 %1418, %1413
+1408:                                             ; preds = %1406, %1405, %1401
+  %.0.i.i.i.i.i13 = phi i32 [ %1385, %1406 ], [ %1398, %1405 ], [ %1386, %1401 ]
+  %.tr.i.i.i.i.i = trunc i64 %1402 to i32
+  %1409 = shl i32 %.tr.i.i.i.i.i, 1
+  %1410 = udiv i32 %1409, 3
+  %1411 = and i32 %1410, 1073741822
+  %1412 = urem i32 %.tr.i.i.i.i.i, 3
+  %1413 = and i32 %1412, 1
+  %1414 = lshr i32 %1412, 1
+  %1415 = add nuw nsw i32 %1413, 1
+  %1416 = add nuw nsw i32 %1415, %1414
+  %1417 = add nuw nsw i32 %1416, %1411
+  call void @llvm.assume(i1 %1391)
+  call void @llvm.assume(i1 %1392)
   call void @llvm.assume(i1 %1393)
-  call void @llvm.assume(i1 %1394)
+  %1418 = icmp samesign ult i32 %1417, %1388
+  call void @llvm.assume(i1 %1418)
+  %1419 = icmp samesign ult i32 %.0.i.i.i.i.i13, %1389
+  call void @llvm.assume(i1 %1419)
+  %1420 = mul nuw nsw i32 %.0.i.i.i.i.i13, %1390
+  %1421 = zext nneg i32 %1420 to i64
+  %1422 = getelementptr inbounds nuw i16, ptr %1387, i64 %1421
+  %1423 = zext nneg i32 %1417 to i64
+  %1424 = getelementptr inbounds nuw i16, ptr %1422, i64 %1423
+  %1425 = load i16, ptr %1424, align 2, !tbaa !90
   call void @llvm.assume(i1 %1395)
-  %1420 = icmp samesign ult i32 %1419, %1390
-  call void @llvm.assume(i1 %1420)
-  %1421 = icmp sgt i32 %.0.i.i.i.i.i13, -1
-  call void @llvm.assume(i1 %1421)
-  %1422 = icmp samesign ult i32 %.0.i.i.i.i.i13, %1391
-  call void @llvm.assume(i1 %1422)
-  %1423 = mul nuw nsw i32 %.0.i.i.i.i.i13, %1392
-  %1424 = zext nneg i32 %1423 to i64
-  %1425 = getelementptr inbounds nuw i16, ptr %1389, i64 %1424
-  %1426 = zext nneg i32 %1419 to i64
-  %1427 = getelementptr inbounds nuw i16, ptr %1425, i64 %1426
-  %1428 = load i16, ptr %1427, align 2, !tbaa !90
-  call void @llvm.assume(i1 %1397)
-  %1429 = add nuw nsw i64 %indvars.iv.i.i.i.i.i, %1382
-  %1430 = icmp samesign ule i64 %1429, %1369
-  call void @llvm.assume(i1 %1430)
-  %1431 = getelementptr inbounds nuw i16, ptr %1399, i64 %1429
-  store i16 %1428, ptr %1431, align 2, !tbaa !90
+  %1426 = add nuw nsw i64 %indvars.iv.i.i.i.i.i, %1380
+  %1427 = icmp samesign ule i64 %1426, %1367
+  call void @llvm.assume(i1 %1427)
+  %1428 = getelementptr inbounds nuw i16, ptr %1397, i64 %1426
+  store i16 %1425, ptr %1428, align 2, !tbaa !90
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %.not25.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, 6
-  br i1 %.not25.i.i.i.i.i, label %1402, label %1403, !llvm.loop !250
+  br i1 %.not25.i.i.i.i.i, label %1400, label %1401, !llvm.loop !250
 
-_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block19copy_line_to_xtransERKNS0_9FujiStripEi.exit.i.i.i: ; preds = %1401, %_ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i.i.i.i
+_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block19copy_line_to_xtransERKNS0_9FujiStripEi.exit.i.i.i: ; preds = %1399, %_ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %1502
+  br label %1499
 
-.preheader.i.i.i.i144.i.i.i:                      ; preds = %1337
+.preheader.i.i.i.i144.i.i.i:                      ; preds = %1335
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   store i8 1, ptr %163, align 1
   store i8 1, ptr %indvars.iv83.i.i.sroa.gep76.i.i.i.i.i, align 1
   store i8 2, ptr %164, align 1
-  %1432 = load i8, ptr %169, align 2, !tbaa !153
-  %1433 = zext i8 %1432 to i64
-  %.not.i.i.i.i146.i.i.i = icmp eq i64 %245, %1433
-  %1434 = load i16, ptr %247, align 4, !tbaa !152
-  %1435 = zext i16 %1434 to i32
-  br i1 %.not.i.i.i.i146.i.i.i, label %1436, label %_ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i147.i.i.i
+  %1429 = load i8, ptr %169, align 2, !tbaa !153
+  %1430 = zext i8 %1429 to i64
+  %.not.i.i.i.i146.i.i.i = icmp eq i64 %245, %1430
+  %1431 = load i16, ptr %247, align 4, !tbaa !152
+  %1432 = zext i16 %1431 to i32
+  br i1 %.not.i.i.i.i146.i.i.i, label %1433, label %_ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i147.i.i.i
 
-1436:                                             ; preds = %.preheader.i.i.i.i144.i.i.i
-  %1437 = mul nuw nsw i32 %246, %1435
-  %1438 = load i16, ptr %248, align 2, !tbaa !150
-  %1439 = zext i16 %1438 to i32
-  %1440 = icmp samesign uge i32 %1437, %1439
-  call void @llvm.assume(i1 %1440)
-  %1441 = mul nuw nsw i32 %1435, %indvars133.i.i
-  %1442 = sub nsw i32 %1439, %1441
+1433:                                             ; preds = %.preheader.i.i.i.i144.i.i.i
+  %1434 = mul nuw nsw i32 %246, %1432
+  %1435 = load i16, ptr %248, align 2, !tbaa !150
+  %1436 = zext i16 %1435 to i32
+  %1437 = icmp samesign uge i32 %1434, %1436
+  call void @llvm.assume(i1 %1437)
+  %1438 = mul nuw nsw i32 %1432, %indvars133.i.i
+  %1439 = sub nsw i32 %1436, %1438
   br label %_ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i147.i.i.i
 
-_ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i147.i.i.i: ; preds = %1436, %.preheader.i.i.i.i144.i.i.i
-  %.0.i.i.i.i148.i.i.i = phi i32 [ %1442, %1436 ], [ %1435, %.preheader.i.i.i.i144.i.i.i ]
-  %1443 = and i32 %.0.i.i.i.i148.i.i.i, 1
-  %1444 = icmp eq i32 %1443, 0
-  call void @llvm.assume(i1 %1444)
+_ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i147.i.i.i: ; preds = %1433, %.preheader.i.i.i.i144.i.i.i
+  %.0.i.i.i.i148.i.i.i = phi i32 [ %1439, %1433 ], [ %1432, %.preheader.i.i.i.i144.i.i.i ]
+  %1440 = and i32 %.0.i.i.i.i148.i.i.i, 1
+  %1441 = icmp eq i32 %1440, 0
+  call void @llvm.assume(i1 %1441)
   %.not61.i.i.i.i.i = icmp eq i32 %.0.i.i.i.i148.i.i.i, 0
   br i1 %.not61.i.i.i.i.i, label %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block18copy_line_to_bayerERKNS0_9FujiStripEi.exit.i.i.i, label %.preheader57.lr.ph.i.i.i.i.i
 
 .preheader57.lr.ph.i.i.i.i.i:                     ; preds = %_ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i147.i.i.i
-  %1445 = ashr exact i32 %.0.i.i.i.i148.i.i.i, 1
+  %1442 = ashr exact i32 %.0.i.i.i.i148.i.i.i, 1
   %.sroa.052.0.copyload.i.i.i.i.i = load ptr, ptr %12, align 8, !tbaa !192, !nonnull !132, !noundef !132
   %.sroa.453.0.copyload.i.i.i.i.i = load i32, ptr %.sroa.656.0..sroa_idx.i.i, align 8, !tbaa !93
   %.sroa.554.0.copyload.i.i.i.i.i = load i32, ptr %.sroa.757.0..sroa_idx.i.i, align 4, !tbaa !93
   %.sroa.655.0.copyload.i.i.i.i.i = load i32, ptr %.sroa.858.0..sroa_idx.i.i, align 8, !tbaa !93
-  %1446 = mul nuw nsw i64 %indvars.iv.i20.i.i, 6
-  %1447 = icmp ne i32 %.sroa.453.0.copyload.i.i.i.i.i, 0
-  call void @llvm.assume(i1 %1447)
-  %1448 = icmp sgt i32 %.sroa.453.0.copyload.i.i.i.i.i, -1
-  call void @llvm.assume(i1 %1448)
-  %1449 = icmp samesign uge i32 %.sroa.453.0.copyload.i.i.i.i.i, %.sroa.554.0.copyload.i.i.i.i.i
-  call void @llvm.assume(i1 %1449)
-  %1450 = zext nneg i32 %.sroa.554.0.copyload.i.i.i.i.i to i64
-  %1451 = zext nneg i32 %.sroa.453.0.copyload.i.i.i.i.i to i64
-  %1452 = zext nneg i32 %.sroa.655.0.copyload.i.i.i.i.i to i64
-  %1453 = zext i32 %1445 to i64
+  %1443 = mul nuw nsw i64 %indvars.iv.i20.i.i, 6
+  %1444 = icmp ne i32 %.sroa.453.0.copyload.i.i.i.i.i, 0
+  call void @llvm.assume(i1 %1444)
+  %1445 = icmp sgt i32 %.sroa.453.0.copyload.i.i.i.i.i, -1
+  call void @llvm.assume(i1 %1445)
+  %1446 = icmp samesign uge i32 %.sroa.453.0.copyload.i.i.i.i.i, %.sroa.554.0.copyload.i.i.i.i.i
+  call void @llvm.assume(i1 %1446)
+  %1447 = zext nneg i32 %.sroa.554.0.copyload.i.i.i.i.i to i64
+  %1448 = zext nneg i32 %.sroa.453.0.copyload.i.i.i.i.i to i64
+  %1449 = zext nneg i32 %.sroa.655.0.copyload.i.i.i.i.i to i64
+  %1450 = zext i32 %1442 to i64
   br label %.preheader57.i.i.i.i.i
 
-.preheader57.i.i.i.i.i:                           ; preds = %1501, %.preheader57.lr.ph.i.i.i.i.i
-  %indvars.iv70.i.i.i.i.i = phi i64 [ 0, %.preheader57.lr.ph.i.i.i.i.i ], [ %indvars.iv.next71.i.i.i.i.i, %1501 ]
+.preheader57.i.i.i.i.i:                           ; preds = %1498, %.preheader57.lr.ph.i.i.i.i.i
+  %indvars.iv70.i.i.i.i.i = phi i64 [ 0, %.preheader57.lr.ph.i.i.i.i.i ], [ %indvars.iv.next71.i.i.i.i.i, %1498 ]
   %indvars.iv.next71.i.i.i.i.i = add nuw nsw i64 %indvars.iv70.i.i.i.i.i, 1
   %indvars.iv70.tr.i.i.i.i.i = trunc i64 %indvars.iv70.i.i.i.i.i to i32
-  %1454 = shl i32 %indvars.iv70.tr.i.i.i.i.i, 1
-  br label %1455
+  %1451 = shl i32 %indvars.iv70.tr.i.i.i.i.i, 1
+  br label %1452
 
-1455:                                             ; preds = %1485, %.preheader57.i.i.i.i.i
-  %indvars.iv67.i.i.i.i.i = phi i64 [ 0, %.preheader57.i.i.i.i.i ], [ %indvars.iv.next68.i.i.i.i.i, %1485 ]
+1452:                                             ; preds = %1482, %.preheader57.i.i.i.i.i
+  %indvars.iv67.i.i.i.i.i = phi i64 [ 0, %.preheader57.i.i.i.i.i ], [ %indvars.iv.next68.i.i.i.i.i, %1482 ]
   %indvars69.i.i.i.i.i = trunc nuw nsw i64 %indvars.iv67.i.i.i.i.i to i32
   %.val.val.i.i149.i.i.i = load i16, ptr %247, align 4, !tbaa !152
-  %1456 = zext i16 %.val.val.i.i149.i.i.i to i32
-  %1457 = mul nuw nsw i32 %1456, %indvars133.i.i
-  %1458 = add nsw i32 %1457, %1454
+  %1453 = zext i16 %.val.val.i.i149.i.i.i to i32
+  %1454 = mul nuw nsw i32 %1453, %indvars133.i.i
+  %1455 = add nsw i32 %1454, %1451
   %.val33.val.i.i.i.i.i = load i16, ptr %240, align 4, !tbaa !154
-  %1459 = zext i16 %.val33.val.i.i.i.i.i to i64
-  %1460 = icmp samesign ult i64 %indvars.iv.i20.i.i, %1459
+  %1456 = zext i16 %.val33.val.i.i.i.i.i to i64
+  %1457 = icmp samesign ult i64 %indvars.iv.i20.i.i, %1456
+  call void @llvm.assume(i1 %1457)
+  %1458 = shl nuw nsw i64 %indvars.iv67.i.i.i.i.i, 1
+  %1459 = add nuw nsw i64 %1458, %1443
+  %1460 = icmp sgt i32 %1455, -1
   call void @llvm.assume(i1 %1460)
-  %1461 = shl nuw nsw i64 %indvars.iv67.i.i.i.i.i, 1
-  %1462 = add nuw nsw i64 %1461, %1446
-  %1463 = icmp sgt i32 %1458, -1
-  call void @llvm.assume(i1 %1463)
-  %1464 = add nuw nsw i32 %indvars69.i.i.i.i.i, 15
-  %1465 = add nuw nsw i64 %1461, 7
-  %1466 = zext nneg i32 %1458 to i64
-  %1467 = add nuw nsw i32 %indvars69.i.i.i.i.i, 2
+  %1461 = add nuw nsw i32 %indvars69.i.i.i.i.i, 15
+  %1462 = add nuw nsw i64 %1458, 7
+  %1463 = zext nneg i32 %1455 to i64
+  %1464 = add nuw nsw i32 %indvars69.i.i.i.i.i, 2
   br label %.preheader.i.i150.i.i.i
 
-.preheader.i.i150.i.i.i:                          ; preds = %1486, %1455
-  %.not25.i.i151.i.i.i = phi i1 [ false, %1455 ], [ true, %1486 ]
-  %indvars.iv64.i.i.i.i.i = phi i64 [ 0, %1455 ], [ 1, %1486 ]
-  %1468 = shl nuw nsw i64 %indvars.iv64.i.i.i.i.i, 1
-  %1469 = getelementptr inbounds nuw i8, ptr %2, i64 %1468
-  %1470 = add nuw nsw i64 %1465, %indvars.iv64.i.i.i.i.i
-  %1471 = load ptr, ptr %145, align 8, !nonnull !132
-  %1472 = load i32, ptr %150, align 4
-  %1473 = load i32, ptr %151, align 8
-  %1474 = load i32, ptr %149, align 8
-  %1475 = icmp ne i32 %1474, 0
-  %1476 = icmp sgt i32 %1474, -1
-  %1477 = icmp samesign uge i32 %1474, %1472
-  %1478 = zext i32 %1472 to i64
-  %1479 = icmp samesign ult i64 %indvars.iv.next71.i.i.i.i.i, %1478
-  %invariant.gep.i.i.i.i.i = getelementptr inbounds nuw i16, ptr %1471, i64 %indvars.iv.next71.i.i.i.i.i
-  %1480 = or disjoint i64 %indvars.iv64.i.i.i.i.i, %1462
-  %1481 = icmp samesign ult i64 %1480, %1452
-  %1482 = mul nuw nsw i64 %1480, %1451
-  %1483 = getelementptr inbounds nuw i16, ptr %.sroa.052.0.copyload.i.i.i.i.i, i64 %1482
-  %1484 = trunc nuw nsw i64 %1470 to i32
-  br label %1487
+.preheader.i.i150.i.i.i:                          ; preds = %1483, %1452
+  %.not25.i.i151.i.i.i = phi i1 [ false, %1452 ], [ true, %1483 ]
+  %indvars.iv64.i.i.i.i.i = phi i64 [ 0, %1452 ], [ 1, %1483 ]
+  %1465 = shl nuw nsw i64 %indvars.iv64.i.i.i.i.i, 1
+  %1466 = getelementptr inbounds nuw i8, ptr %2, i64 %1465
+  %1467 = add nuw nsw i64 %1462, %indvars.iv64.i.i.i.i.i
+  %1468 = load ptr, ptr %145, align 8, !nonnull !132
+  %1469 = load i32, ptr %150, align 4
+  %1470 = load i32, ptr %151, align 8
+  %1471 = load i32, ptr %149, align 8
+  %1472 = icmp ne i32 %1471, 0
+  %1473 = icmp sgt i32 %1471, -1
+  %1474 = icmp samesign uge i32 %1471, %1469
+  %1475 = zext i32 %1469 to i64
+  %1476 = icmp samesign ult i64 %indvars.iv.next71.i.i.i.i.i, %1475
+  %invariant.gep.i.i.i.i.i = getelementptr inbounds nuw i16, ptr %1468, i64 %indvars.iv.next71.i.i.i.i.i
+  %1477 = or disjoint i64 %indvars.iv64.i.i.i.i.i, %1459
+  %1478 = icmp samesign ult i64 %1477, %1449
+  %1479 = mul nuw nsw i64 %1477, %1448
+  %1480 = getelementptr inbounds nuw i16, ptr %.sroa.052.0.copyload.i.i.i.i.i, i64 %1479
+  %1481 = trunc nuw nsw i64 %1467 to i32
+  br label %1484
 
-1485:                                             ; preds = %1486
+1482:                                             ; preds = %1483
   %indvars.iv.next68.i.i.i.i.i = add nuw nsw i64 %indvars.iv67.i.i.i.i.i, 1
   %.not24.i.i154.i.i.i = icmp eq i64 %indvars.iv.next68.i.i.i.i.i, 3
-  br i1 %.not24.i.i154.i.i.i, label %1501, label %1455, !llvm.loop !251
+  br i1 %.not24.i.i154.i.i.i, label %1498, label %1452, !llvm.loop !251
 
-1486:                                             ; preds = %1493
-  br i1 %.not25.i.i151.i.i.i, label %1485, label %.preheader.i.i150.i.i.i, !llvm.loop !252
+1483:                                             ; preds = %1490
+  br i1 %.not25.i.i151.i.i.i, label %1482, label %.preheader.i.i150.i.i.i, !llvm.loop !252
 
-1487:                                             ; preds = %1493, %.preheader.i.i150.i.i.i
-  %.not26.i.i.i.i.i = phi i1 [ false, %.preheader.i.i150.i.i.i ], [ true, %1493 ]
-  %indvars.iv.i.i152.i.i.i = phi i64 [ 0, %.preheader.i.i150.i.i.i ], [ 1, %1493 ]
-  %1488 = getelementptr inbounds nuw i8, ptr %1469, i64 %indvars.iv.i.i152.i.i.i
-  %1489 = load i8, ptr %1488, align 1
-  switch i8 %1489, label %1492 [
-    i8 0, label %1493
-    i8 1, label %1490
-    i8 2, label %1491
+1484:                                             ; preds = %1490, %.preheader.i.i150.i.i.i
+  %.not26.i.i.i.i.i = phi i1 [ false, %.preheader.i.i150.i.i.i ], [ true, %1490 ]
+  %indvars.iv.i.i152.i.i.i = phi i64 [ 0, %.preheader.i.i150.i.i.i ], [ 1, %1490 ]
+  %1485 = getelementptr inbounds nuw i8, ptr %1466, i64 %indvars.iv.i.i152.i.i.i
+  %1486 = load i8, ptr %1485, align 1
+  switch i8 %1486, label %1489 [
+    i8 0, label %1490
+    i8 1, label %1487
+    i8 2, label %1488
   ]
 
-1490:                                             ; preds = %1487
-  br label %1493
+1487:                                             ; preds = %1484
+  br label %1490
 
-1491:                                             ; preds = %1487
-  br label %1493
+1488:                                             ; preds = %1484
+  br label %1490
 
-1492:                                             ; preds = %1487
+1489:                                             ; preds = %1484
   unreachable
 
-1493:                                             ; preds = %1491, %1490, %1487
-  %.0.i.i153.i.i.i = phi i32 [ %1464, %1491 ], [ %1484, %1490 ], [ %1467, %1487 ]
-  call void @llvm.assume(i1 %1475)
+1490:                                             ; preds = %1488, %1487, %1484
+  %.0.i.i153.i.i.i = phi i32 [ %1461, %1488 ], [ %1481, %1487 ], [ %1464, %1484 ]
+  call void @llvm.assume(i1 %1472)
+  call void @llvm.assume(i1 %1473)
+  call void @llvm.assume(i1 %1474)
   call void @llvm.assume(i1 %1476)
-  call void @llvm.assume(i1 %1477)
-  call void @llvm.assume(i1 %1479)
-  %1494 = icmp samesign ult i32 %.0.i.i153.i.i.i, %1473
-  call void @llvm.assume(i1 %1494)
-  %1495 = mul nuw nsw i32 %.0.i.i153.i.i.i, %1474
-  %1496 = zext nneg i32 %1495 to i64
-  %gep.i.i.i.i.i = getelementptr inbounds nuw i16, ptr %invariant.gep.i.i.i.i.i, i64 %1496
-  %1497 = load i16, ptr %gep.i.i.i.i.i, align 2, !tbaa !90
-  call void @llvm.assume(i1 %1481)
-  %1498 = add nuw nsw i64 %indvars.iv.i.i152.i.i.i, %1466
-  %1499 = icmp samesign ule i64 %1498, %1450
-  call void @llvm.assume(i1 %1499)
-  %1500 = getelementptr inbounds nuw i16, ptr %1483, i64 %1498
-  store i16 %1497, ptr %1500, align 2, !tbaa !90
-  br i1 %.not26.i.i.i.i.i, label %1486, label %1487, !llvm.loop !253
+  %1491 = icmp samesign ult i32 %.0.i.i153.i.i.i, %1470
+  call void @llvm.assume(i1 %1491)
+  %1492 = mul nuw nsw i32 %.0.i.i153.i.i.i, %1471
+  %1493 = zext nneg i32 %1492 to i64
+  %gep.i.i.i.i.i = getelementptr inbounds nuw i16, ptr %invariant.gep.i.i.i.i.i, i64 %1493
+  %1494 = load i16, ptr %gep.i.i.i.i.i, align 2, !tbaa !90
+  call void @llvm.assume(i1 %1478)
+  %1495 = add nuw nsw i64 %indvars.iv.i.i152.i.i.i, %1463
+  %1496 = icmp samesign ule i64 %1495, %1447
+  call void @llvm.assume(i1 %1496)
+  %1497 = getelementptr inbounds nuw i16, ptr %1480, i64 %1495
+  store i16 %1494, ptr %1497, align 2, !tbaa !90
+  br i1 %.not26.i.i.i.i.i, label %1483, label %1484, !llvm.loop !253
 
-1501:                                             ; preds = %1485
-  %.not.i.i155.i.i.i = icmp eq i64 %indvars.iv.next71.i.i.i.i.i, %1453
+1498:                                             ; preds = %1482
+  %.not.i.i155.i.i.i = icmp eq i64 %indvars.iv.next71.i.i.i.i.i, %1450
   br i1 %.not.i.i155.i.i.i, label %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block18copy_line_to_bayerERKNS0_9FujiStripEi.exit.i.i.i, label %.preheader57.i.i.i.i.i, !llvm.loop !254
 
-_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block18copy_line_to_bayerERKNS0_9FujiStripEi.exit.i.i.i: ; preds = %1501, %_ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i147.i.i.i
+_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block18copy_line_to_bayerERKNS0_9FujiStripEi.exit.i.i.i: ; preds = %1498, %_ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i147.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %1502
+  br label %1499
 
-1502:                                             ; preds = %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block18copy_line_to_bayerERKNS0_9FujiStripEi.exit.i.i.i, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block19copy_line_to_xtransERKNS0_9FujiStripEi.exit.i.i.i
+1499:                                             ; preds = %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block18copy_line_to_bayerERKNS0_9FujiStripEi.exit.i.i.i, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block19copy_line_to_xtransERKNS0_9FujiStripEi.exit.i.i.i
   %indvars.iv.next.i21.i.i = add nuw nsw i64 %indvars.iv.i20.i.i, 1
   %.val41.val.i.i.i = load i16, ptr %240, align 4, !tbaa !154
-  %1503 = zext i16 %.val41.val.i.i.i to i64
-  %1504 = icmp eq i64 %indvars.iv.next.i21.i.i, %1503
-  br i1 %1504, label %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_stripERKNS0_9FujiStripE.exit.i.i, label %.preheader73.i.i.i
+  %1500 = zext i16 %.val41.val.i.i.i to i64
+  %1501 = icmp eq i64 %indvars.iv.next.i21.i.i, %1500
+  br i1 %1501, label %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_stripERKNS0_9FujiStripE.exit.i.i, label %.preheader73.i.i.i
 
 .preheader72.i.i.i:                               ; preds = %.preheader73.i.i.i
   %.sroa.053.0.copyload.i.i.i = load ptr, ptr %145, align 8, !tbaa !192, !nonnull !132, !noundef !132
   %.sroa.454.0.copyload.i.i.i = load i32, ptr %149, align 8, !tbaa !93
   %.sroa.555.0.copyload.i.i.i = load i32, ptr %150, align 4, !tbaa !93
   %.sroa.656.0.copyload.i.i.i = load i32, ptr %151, align 8, !tbaa !93
-  %1505 = icmp sgt i32 %.sroa.555.0.copyload.i.i.i, -1
+  %1502 = icmp sgt i32 %.sroa.555.0.copyload.i.i.i, -1
+  call void @llvm.assume(i1 %1502)
+  %1503 = icmp ne i32 %.sroa.454.0.copyload.i.i.i, 0
+  call void @llvm.assume(i1 %1503)
+  %1504 = icmp sgt i32 %.sroa.454.0.copyload.i.i.i, -1
+  call void @llvm.assume(i1 %1504)
+  %1505 = icmp samesign uge i32 %.sroa.454.0.copyload.i.i.i, %.sroa.555.0.copyload.i.i.i
   call void @llvm.assume(i1 %1505)
-  %1506 = icmp ne i32 %.sroa.454.0.copyload.i.i.i, 0
+  %1506 = icmp ne i32 %.sroa.555.0.copyload.i.i.i, 0
   call void @llvm.assume(i1 %1506)
-  %1507 = icmp sgt i32 %.sroa.454.0.copyload.i.i.i, -1
-  call void @llvm.assume(i1 %1507)
-  %1508 = icmp samesign uge i32 %.sroa.454.0.copyload.i.i.i, %.sroa.555.0.copyload.i.i.i
-  call void @llvm.assume(i1 %1508)
-  %1509 = icmp ne i32 %.sroa.555.0.copyload.i.i.i, 0
-  call void @llvm.assume(i1 %1509)
-  %1510 = zext nneg i32 %.sroa.555.0.copyload.i.i.i to i64
-  %invariant.gep.i24.i.i = getelementptr i16, ptr %.sroa.053.0.copyload.i.i.i, i64 %1510
-  br label %1529
+  %1507 = zext nneg i32 %.sroa.555.0.copyload.i.i.i to i64
+  %invariant.gep.i24.i.i = getelementptr i16, ptr %.sroa.053.0.copyload.i.i.i, i64 %1507
+  br label %1526
 
-.preheader73.i.i.i:                               ; preds = %1502, %.preheader73.i.i.i
-  %.028.idx96.i.i.i = phi i64 [ %.028.add.i.i.i, %.preheader73.i.i.i ], [ 0, %1502 ]
+.preheader73.i.i.i:                               ; preds = %1499, %.preheader73.i.i.i
+  %.028.idx96.i.i.i = phi i64 [ %.028.add.i.i.i, %.preheader73.i.i.i ], [ 0, %1499 ]
   %.028.ptr.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_stripERKNS0_9FujiStripE.colors, i64 %.028.idx96.i.i.i
   %.sroa.08.0.copyload.i.i.i = load i32, ptr %.028.ptr.i.i.i, align 4, !tbaa !93
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.028.ptr.i.i.i, i64 4
   %.sroa.5.0.copyload.i.i.i = load i32, ptr %.sroa.5.0..sroa_idx.i.i.i, align 4, !tbaa !93
-  %1511 = load ptr, ptr %145, align 8, !tbaa !209, !nonnull !132, !noundef !132
-  %1512 = load i32, ptr %150, align 4, !tbaa !205
-  %1513 = load i32, ptr %151, align 8, !tbaa !206
-  %1514 = load i32, ptr %149, align 8, !tbaa !202
-  %1515 = icmp ne i32 %1514, 0
+  %1508 = load ptr, ptr %145, align 8, !tbaa !209, !nonnull !132, !noundef !132
+  %1509 = load i32, ptr %150, align 4, !tbaa !205
+  %1510 = load i32, ptr %151, align 8, !tbaa !206
+  %1511 = load i32, ptr %149, align 8, !tbaa !202
+  %1512 = icmp ne i32 %1511, 0
+  call void @llvm.assume(i1 %1512)
+  %1513 = icmp sgt i32 %1511, -1
+  call void @llvm.assume(i1 %1513)
+  %1514 = icmp samesign uge i32 %1511, %1509
+  call void @llvm.assume(i1 %1514)
+  %1515 = icmp sgt i32 %.sroa.08.0.copyload.i.i.i, -1
   call void @llvm.assume(i1 %1515)
-  %1516 = icmp sgt i32 %1514, -1
+  %1516 = icmp samesign ult i32 %.sroa.08.0.copyload.i.i.i, %1510
   call void @llvm.assume(i1 %1516)
-  %1517 = icmp samesign uge i32 %1514, %1512
-  call void @llvm.assume(i1 %1517)
-  %1518 = icmp sgt i32 %.sroa.08.0.copyload.i.i.i, -1
-  call void @llvm.assume(i1 %1518)
-  %1519 = icmp samesign ult i32 %.sroa.08.0.copyload.i.i.i, %1513
-  call void @llvm.assume(i1 %1519)
-  %1520 = mul nuw nsw i32 %1514, %.sroa.08.0.copyload.i.i.i
-  %1521 = zext nneg i32 %1520 to i64
-  %1522 = getelementptr inbounds nuw i16, ptr %1511, i64 %1521
-  %1523 = add nsw i32 %.sroa.08.0.copyload.i.i.i, -2
-  %1524 = add i32 %1523, %.sroa.5.0.copyload.i.i.i
-  %1525 = icmp samesign ult i32 %1524, %1513
-  call void @llvm.assume(i1 %1525)
-  %1526 = mul nuw nsw i32 %1514, %1524
-  %1527 = zext nneg i32 %1526 to i64
-  %1528 = getelementptr inbounds nuw i16, ptr %1511, i64 %1527
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %1522, ptr noundef nonnull align 2 dereferenceable(1) %1528, i64 %249, i1 false)
+  %1517 = mul nuw nsw i32 %1511, %.sroa.08.0.copyload.i.i.i
+  %1518 = zext nneg i32 %1517 to i64
+  %1519 = getelementptr inbounds nuw i16, ptr %1508, i64 %1518
+  %1520 = add nsw i32 %.sroa.08.0.copyload.i.i.i, -2
+  %1521 = add i32 %1520, %.sroa.5.0.copyload.i.i.i
+  %1522 = icmp samesign ult i32 %1521, %1510
+  call void @llvm.assume(i1 %1522)
+  %1523 = mul nuw nsw i32 %1511, %1521
+  %1524 = zext nneg i32 %1523 to i64
+  %1525 = getelementptr inbounds nuw i16, ptr %1508, i64 %1524
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %1519, ptr noundef nonnull align 2 dereferenceable(1) %1525, i64 %249, i1 false)
   %.028.add.i.i.i = add nuw nsw i64 %.028.idx96.i.i.i, 8
   %.not.i22.i.i = icmp eq i64 %.028.add.i.i.i, 24
   br i1 %.not.i22.i.i, label %.preheader72.i.i.i, label %.preheader73.i.i.i
 
-1529:                                             ; preds = %1529, %.preheader72.i.i.i
-  %.029.idx99.i.i.i = phi i64 [ 0, %.preheader72.i.i.i ], [ %.029.add.i.i.i, %1529 ]
+1526:                                             ; preds = %1526, %.preheader72.i.i.i
+  %.029.idx99.i.i.i = phi i64 [ 0, %.preheader72.i.i.i ], [ %.029.add.i.i.i, %1526 ]
   %.029.ptr.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_stripERKNS0_9FujiStripE.colors, i64 %.029.idx99.i.i.i
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %.029.ptr.i.i.i, align 4, !tbaa !93
-  %1530 = add nsw i32 %.sroa.0.0.copyload.i.i.i, 2
-  %1531 = icmp sgt i32 %.sroa.0.0.copyload.i.i.i, -3
-  call void @llvm.assume(i1 %1531)
-  %1532 = add nsw i32 %.sroa.0.0.copyload.i.i.i, 1
-  %1533 = icmp samesign ult i32 %1532, %.sroa.656.0.copyload.i.i.i
-  call void @llvm.assume(i1 %1533)
-  %1534 = mul nuw nsw i32 %1532, %.sroa.454.0.copyload.i.i.i
-  %1535 = zext nneg i32 %1534 to i64
-  %gep.i25.i.i = getelementptr i16, ptr %invariant.gep.i24.i.i, i64 %1535
-  %1536 = getelementptr i8, ptr %gep.i25.i.i, i64 -4
-  %1537 = load i16, ptr %1536, align 2, !tbaa !90
-  %1538 = icmp samesign ult i32 %1530, %.sroa.656.0.copyload.i.i.i
-  call void @llvm.assume(i1 %1538)
-  %1539 = mul nuw nsw i32 %1530, %.sroa.454.0.copyload.i.i.i
-  %1540 = zext nneg i32 %1539 to i64
-  %gep98.i.i.i = getelementptr i16, ptr %invariant.gep.i24.i.i, i64 %1540
-  %1541 = getelementptr i8, ptr %gep98.i.i.i, i64 -2
-  store i16 %1537, ptr %1541, align 2, !tbaa !90
+  %1527 = add nsw i32 %.sroa.0.0.copyload.i.i.i, 2
+  %1528 = icmp sgt i32 %.sroa.0.0.copyload.i.i.i, -3
+  call void @llvm.assume(i1 %1528)
+  %1529 = add nsw i32 %.sroa.0.0.copyload.i.i.i, 1
+  %1530 = icmp samesign ult i32 %1529, %.sroa.656.0.copyload.i.i.i
+  call void @llvm.assume(i1 %1530)
+  %1531 = mul nuw nsw i32 %1529, %.sroa.454.0.copyload.i.i.i
+  %1532 = zext nneg i32 %1531 to i64
+  %gep.i25.i.i = getelementptr i16, ptr %invariant.gep.i24.i.i, i64 %1532
+  %1533 = getelementptr i8, ptr %gep.i25.i.i, i64 -4
+  %1534 = load i16, ptr %1533, align 2, !tbaa !90
+  %1535 = icmp samesign ult i32 %1527, %.sroa.656.0.copyload.i.i.i
+  call void @llvm.assume(i1 %1535)
+  %1536 = mul nuw nsw i32 %1527, %.sroa.454.0.copyload.i.i.i
+  %1537 = zext nneg i32 %1536 to i64
+  %gep98.i.i.i = getelementptr i16, ptr %invariant.gep.i24.i.i, i64 %1537
+  %1538 = getelementptr i8, ptr %gep98.i.i.i, i64 -2
+  store i16 %1534, ptr %1538, align 2, !tbaa !90
   %.029.add.i.i.i = add nuw nsw i64 %.029.idx99.i.i.i, 8
   %.not31.i.i.i = icmp eq i64 %.029.add.i.i.i, 24
-  br i1 %.not31.i.i.i, label %.loopexit.i.i.i, label %1529
+  br i1 %.not31.i.i.i, label %.loopexit.i.i.i, label %1526
 
-1542:                                             ; preds = %.invoke.i.i14, %.invoke228.i.i
-  %1543 = landingpad { ptr, i32 }
+1539:                                             ; preds = %.invoke.i.i14, %.invoke228.i.i
+  %1540 = landingpad { ptr, i32 }
           catch ptr @_ZTIN8rawspeed17RawspeedExceptionE
           catch ptr null
-  br label %1546
+  br label %1543
 
-1544:                                             ; preds = %236
-  %1545 = landingpad { ptr, i32 }
+1541:                                             ; preds = %236
+  %1542 = landingpad { ptr, i32 }
           catch ptr @_ZTIN8rawspeed17RawspeedExceptionE
           catch ptr null
-  br label %1546
+  br label %1543
 
-1546:                                             ; preds = %1544, %1542
-  %.pn.i.i15 = phi { ptr, i32 } [ %1543, %1542 ], [ %1545, %1544 ]
+1543:                                             ; preds = %1541, %1539
+  %.pn.i.i15 = phi { ptr, i32 } [ %1540, %1539 ], [ %1542, %1541 ]
   %.011.i.i = extractvalue { ptr, i32 } %.pn.i.i15, 0
   %.012.i.i = extractvalue { ptr, i32 } %.pn.i.i15, 1
-  %1547 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8rawspeed17RawspeedExceptionE) #31
-  %1548 = icmp eq i32 %.012.i.i, %1547
-  %1549 = call ptr @__cxa_begin_catch(ptr %.011.i.i) #31
-  call void @llvm.assume(i1 %1548)
-  %1550 = load ptr, ptr %15, align 8, !tbaa !6
+  %1544 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8rawspeed17RawspeedExceptionE) #31
+  %1545 = icmp eq i32 %.012.i.i, %1544
+  %1546 = call ptr @__cxa_begin_catch(ptr %.011.i.i) #31
+  call void @llvm.assume(i1 %1545)
+  %1547 = load ptr, ptr %15, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %1551 = load ptr, ptr %1549, align 8, !tbaa !160
-  %1552 = getelementptr inbounds nuw i8, ptr %1551, i64 16
-  %1553 = load ptr, ptr %1552, align 8
-  %1554 = call noundef ptr %1553(ptr noundef nonnull align 8 dereferenceable(16) %1549) #31
+  %1548 = load ptr, ptr %1546, align 8, !tbaa !160
+  %1549 = getelementptr inbounds nuw i8, ptr %1548, i64 16
+  %1550 = load ptr, ptr %1549, align 8
+  %1551 = call noundef ptr %1550(ptr noundef nonnull align 8 dereferenceable(16) %1546) #31
   store ptr %161, ptr %13, align 8, !tbaa !255
-  %1555 = icmp eq ptr %1554, null
-  br i1 %1555, label %1556, label %1557
+  %1552 = icmp eq ptr %1551, null
+  br i1 %1552, label %1553, label %1554
 
-1556:                                             ; preds = %1546
+1553:                                             ; preds = %1543
   invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.24) #30
           to label %.noexc.i unwind label %.loopexit.i.loopexit.split-lp.i
 
-.noexc.i:                                         ; preds = %1556
+.noexc.i:                                         ; preds = %1553
   unreachable
 
-1557:                                             ; preds = %1546
-  %1558 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1554) #31
-  %1559 = icmp ugt i64 %1558, 15
-  br i1 %1559, label %1560, label %._crit_edge.i.i.i
+1554:                                             ; preds = %1543
+  %1555 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1551) #31
+  %1556 = icmp ugt i64 %1555, 15
+  br i1 %1556, label %1557, label %._crit_edge.i.i.i
 
-1560:                                             ; preds = %1557
-  %1561 = icmp slt i64 %1558, 0
-  br i1 %1561, label %.noexc.i5.i, label %1562
+1557:                                             ; preds = %1554
+  %1558 = icmp slt i64 %1555, 0
+  br i1 %1558, label %.noexc.i5.i, label %1559
 
-.noexc.i5.i:                                      ; preds = %1560
+.noexc.i5.i:                                      ; preds = %1557
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.25) #30
           to label %.noexc6.i unwind label %.loopexit.i.loopexit.split-lp.i
 
 .noexc6.i:                                        ; preds = %.noexc.i5.i
   unreachable
 
-1562:                                             ; preds = %1560
-  %1563 = add nuw i64 %1558, 1
-  %1564 = icmp slt i64 %1563, 0
-  br i1 %1564, label %.noexc11.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i.i, !prof !162
+1559:                                             ; preds = %1557
+  %1560 = add nuw i64 %1555, 1
+  %1561 = icmp slt i64 %1560, 0
+  br i1 %1561, label %.noexc11.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i.i, !prof !162
 
-.noexc11.i.i:                                     ; preds = %1562
+.noexc11.i.i:                                     ; preds = %1559
   invoke void @_ZSt17__throw_bad_allocv() #30
           to label %.noexc7.i unwind label %.loopexit.i.loopexit.split-lp.i
 
 .noexc7.i:                                        ; preds = %.noexc11.i.i
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i.i: ; preds = %1562
-  %1565 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1563) #28
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i.i: ; preds = %1559
+  %1562 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1560) #28
           to label %.noexc8.i unwind label %.loopexit.i.loopexit.i
 
 .noexc8.i:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i.i
-  store ptr %1565, ptr %13, align 8, !tbaa !256
-  store i64 %1558, ptr %161, align 8, !tbaa !92
+  store ptr %1562, ptr %13, align 8, !tbaa !256
+  store i64 %1555, ptr %161, align 8, !tbaa !92
   br label %._crit_edge.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %.noexc8.i, %1557
-  %1566 = phi ptr [ %1565, %.noexc8.i ], [ %161, %1557 ]
-  switch i64 %1558, label %1569 [
-    i64 1, label %1567
-    i64 0, label %1570
+._crit_edge.i.i.i:                                ; preds = %.noexc8.i, %1554
+  %1563 = phi ptr [ %1562, %.noexc8.i ], [ %161, %1554 ]
+  switch i64 %1555, label %1566 [
+    i64 1, label %1564
+    i64 0, label %1567
   ]
 
-1567:                                             ; preds = %._crit_edge.i.i.i
-  %1568 = load i8, ptr %1554, align 1, !tbaa !92
-  store i8 %1568, ptr %1566, align 1, !tbaa !92
-  br label %1570
+1564:                                             ; preds = %._crit_edge.i.i.i
+  %1565 = load i8, ptr %1551, align 1, !tbaa !92
+  store i8 %1565, ptr %1563, align 1, !tbaa !92
+  br label %1567
 
-1569:                                             ; preds = %._crit_edge.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1566, ptr nonnull align 1 %1554, i64 %1558, i1 false)
-  br label %1570
+1566:                                             ; preds = %._crit_edge.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1563, ptr nonnull align 1 %1551, i64 %1555, i1 false)
+  br label %1567
 
-1570:                                             ; preds = %1569, %1567, %._crit_edge.i.i.i
-  store i64 %1558, ptr %162, align 8, !tbaa !257
-  %1571 = getelementptr inbounds nuw i8, ptr %1566, i64 %1558
-  store i8 0, ptr %1571, align 1, !tbaa !92
-  %1572 = getelementptr inbounds nuw i8, ptr %1550, i64 8
-  invoke void @_ZN8rawspeed8ErrorLog8setErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %1572, ptr noundef nonnull align 8 dereferenceable(32) %13)
-          to label %1573 unwind label %.loopexit.i.loopexit.i
+1567:                                             ; preds = %1566, %1564, %._crit_edge.i.i.i
+  store i64 %1555, ptr %162, align 8, !tbaa !257
+  %1568 = getelementptr inbounds nuw i8, ptr %1563, i64 %1555
+  store i8 0, ptr %1568, align 1, !tbaa !92
+  %1569 = getelementptr inbounds nuw i8, ptr %1547, i64 8
+  invoke void @_ZN8rawspeed8ErrorLog8setErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %1569, ptr noundef nonnull align 8 dereferenceable(32) %13)
+          to label %1570 unwind label %.loopexit.i.loopexit.i
 
-1573:                                             ; preds = %1570
-  %1574 = load ptr, ptr %13, align 8, !tbaa !256
-  %1575 = icmp eq ptr %1574, %161
-  br i1 %1575, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
+1570:                                             ; preds = %1567
+  %1571 = load ptr, ptr %13, align 8, !tbaa !256
+  %1572 = icmp eq ptr %1571, %161
+  br i1 %1572, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %1573
-  %1576 = load i64, ptr %161, align 8, !tbaa !92
-  %1577 = add i64 %1576, 1
-  call void @_ZdlPvm(ptr noundef %1574, i64 noundef %1577) #29
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %1570
+  %1573 = load i64, ptr %161, align 8, !tbaa !92
+  %1574 = add i64 %1573, 1
+  call void @_ZdlPvm(ptr noundef %1571, i64 noundef %1574) #29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1573, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1570, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   invoke void @__cxa_end_catch()
           to label %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_stripERKNS0_9FujiStripE.exit.i.i unwind label %.loopexit.i.loopexit.i
 
-_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_stripERKNS0_9FujiStripE.exit.i.i: ; preds = %1502, %.loopexit.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %_ZN8rawspeed8OptionalINS_14BitStreamerMSBEEaSIS1_Qsr3stdE7same_asITL0__T_EEERS2_OS5_.exit.i.i
+_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_stripERKNS0_9FujiStripE.exit.i.i: ; preds = %1499, %.loopexit.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %_ZN8rawspeed8OptionalINS_14BitStreamerMSBEEaSIS1_Qsr3stdE7same_asITL0__T_EEERS2_OS5_.exit.i.i
   %indvars.iv.next.i.i11 = add nuw nsw i64 %indvars.iv.i.i9, 1
-  %1578 = load ptr, ptr %44, align 8, !tbaa !182
-  %1579 = getelementptr inbounds nuw i8, ptr %1578, i64 14
-  %1580 = load i8, ptr %1579, align 2, !tbaa !153
-  %1581 = zext i8 %1580 to i64
-  %1582 = icmp samesign ult i64 %indvars.iv.next.i.i11, %1581
-  br i1 %1582, label %168, label %._crit_edge.i.i12, !llvm.loop !258
+  %1575 = load ptr, ptr %44, align 8, !tbaa !182
+  %1576 = getelementptr inbounds nuw i8, ptr %1575, i64 14
+  %1577 = load i8, ptr %1576, align 2, !tbaa !153
+  %1578 = zext i8 %1577 to i64
+  %1579 = icmp samesign ult i64 %indvars.iv.next.i.i11, %1578
+  br i1 %1579, label %168, label %._crit_edge.i.i12, !llvm.loop !258
 
-.loopexit.i.loopexit.i:                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %1570, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i.i
+.loopexit.i.loopexit.i:                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %1567, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit.i.i
 
-.loopexit.i.loopexit.split-lp.i:                  ; preds = %.noexc11.i.i, %.noexc.i5.i, %1556
+.loopexit.i.loopexit.split-lp.i:                  ; preds = %.noexc11.i.i, %.noexc.i5.i, %1553
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit.i.i
@@ -4191,132 +4185,132 @@ _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_stripERKNS0_9Fuji
 
 .loopexit.i.i:                                    ; preds = %.loopexit.split-lp.i.i, %.loopexit.i.loopexit.split-lp.i, %.loopexit.i.loopexit.i
   %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ], [ %lpad.loopexit.i, %.loopexit.i.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.i.loopexit.split-lp.i ]
-  %1583 = extractvalue { ptr, i32 } %lpad.phi.i.i, 0
-  call void @__clang_call_terminate(ptr %1583) #32
+  %1580 = extractvalue { ptr, i32 } %lpad.phi.i.i, 0
+  call void @__clang_call_terminate(ptr %1580) #32
   unreachable
 
 _ZNK8rawspeed12_GLOBAL__N_120FujiDecompressorImpl16decompressThreadEv.exit.i: ; preds = %._crit_edge.thread.i.i, %._crit_edge.i.i12
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %1584 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr %1584, ptr %14, align 8, !tbaa !255
-  %1585 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 0, ptr %1585, align 8, !tbaa !257
-  store i8 0, ptr %1584, align 8, !tbaa !92
-  %1586 = load ptr, ptr %15, align 8, !tbaa !6
-  %1587 = getelementptr inbounds nuw i8, ptr %1586, i64 8
-  %1588 = invoke noundef zeroext i1 @_ZN8rawspeed8ErrorLog15isTooManyErrorsEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %1587, i32 noundef 1, ptr noundef nonnull %14)
-          to label %1589 unwind label %1593
+  %1581 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store ptr %1581, ptr %14, align 8, !tbaa !255
+  %1582 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store i64 0, ptr %1582, align 8, !tbaa !257
+  store i8 0, ptr %1581, align 8, !tbaa !92
+  %1583 = load ptr, ptr %15, align 8, !tbaa !6
+  %1584 = getelementptr inbounds nuw i8, ptr %1583, i64 8
+  %1585 = invoke noundef zeroext i1 @_ZN8rawspeed8ErrorLog15isTooManyErrorsEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %1584, i32 noundef 1, ptr noundef nonnull %14)
+          to label %1586 unwind label %1590
 
-1589:                                             ; preds = %_ZNK8rawspeed12_GLOBAL__N_120FujiDecompressorImpl16decompressThreadEv.exit.i
-  %1590 = load ptr, ptr %14, align 8, !tbaa !256
-  br i1 %1588, label %1591, label %1599
+1586:                                             ; preds = %_ZNK8rawspeed12_GLOBAL__N_120FujiDecompressorImpl16decompressThreadEv.exit.i
+  %1587 = load ptr, ptr %14, align 8, !tbaa !256
+  br i1 %1585, label %1588, label %1596
 
-1591:                                             ; preds = %1589
-  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.18, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed12_GLOBAL__N_120FujiDecompressorImpl10decompressEv, ptr noundef %1590) #17
-          to label %1592 unwind label %1593
+1588:                                             ; preds = %1586
+  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.18, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed12_GLOBAL__N_120FujiDecompressorImpl10decompressEv, ptr noundef %1587) #17
+          to label %1589 unwind label %1590
 
-1592:                                             ; preds = %1591
+1589:                                             ; preds = %1588
   unreachable
 
-1593:                                             ; preds = %1591, %_ZNK8rawspeed12_GLOBAL__N_120FujiDecompressorImpl16decompressThreadEv.exit.i
-  %1594 = landingpad { ptr, i32 }
+1590:                                             ; preds = %1588, %_ZNK8rawspeed12_GLOBAL__N_120FujiDecompressorImpl16decompressThreadEv.exit.i
+  %1591 = landingpad { ptr, i32 }
           cleanup
-  %1595 = load ptr, ptr %14, align 8, !tbaa !256
-  %1596 = icmp eq ptr %1595, %1584
-  br i1 %1596, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %1592 = load ptr, ptr %14, align 8, !tbaa !256
+  %1593 = icmp eq ptr %1592, %1581
+  br i1 %1593, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %1593
-  %1597 = load i64, ptr %1584, align 8, !tbaa !92
-  %1598 = add i64 %1597, 1
-  call void @_ZdlPvm(ptr noundef %1595, i64 noundef %1598) #29
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %1590
+  %1594 = load i64, ptr %1581, align 8, !tbaa !92
+  %1595 = add i64 %1594, 1
+  call void @_ZdlPvm(ptr noundef %1592, i64 noundef %1595) #29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %1593, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %1590, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call fastcc void @_ZN8rawspeed12_GLOBAL__N_120FujiDecompressorImplD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %15) #31
-  br label %1630
+  br label %1627
 
-1599:                                             ; preds = %1589
-  %1600 = icmp eq ptr %1590, %1584
-  br i1 %1600, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i2.i
+1596:                                             ; preds = %1586
+  %1597 = icmp eq ptr %1587, %1581
+  br i1 %1597, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i2.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i2.i: ; preds = %1599
-  %1601 = load i64, ptr %1584, align 8, !tbaa !92
-  %1602 = add i64 %1601, 1
-  call void @_ZdlPvm(ptr noundef %1590, i64 noundef %1602) #29
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i2.i: ; preds = %1596
+  %1598 = load i64, ptr %1581, align 8, !tbaa !92
+  %1599 = add i64 %1598, 1
+  call void @_ZdlPvm(ptr noundef %1587, i64 noundef %1599) #29
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i: ; preds = %1599, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i2.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i: ; preds = %1596, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i2.i
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.val.i = load ptr, ptr %45, align 8, !tbaa !174
   %.not.i.i.i.i.i20 = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i.i.i.i20, label %_ZN8rawspeed12_GLOBAL__N_122fuji_compressed_paramsD2Ev.exit.i, label %1603
+  br i1 %.not.i.i.i.i.i20, label %_ZN8rawspeed12_GLOBAL__N_122fuji_compressed_paramsD2Ev.exit.i, label %1600
 
-1603:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i
-  %1604 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %.val1.i = load ptr, ptr %1604, align 8
-  %1605 = ptrtoint ptr %.val1.i to i64
-  %1606 = ptrtoint ptr %.val.i to i64
-  %1607 = sub i64 %1605, %1606
-  call void @_ZdlPvm(ptr noundef nonnull %.val.i, i64 noundef %1607) #29
+1600:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i
+  %1601 = getelementptr inbounds nuw i8, ptr %15, i64 56
+  %.val1.i = load ptr, ptr %1601, align 8
+  %1602 = ptrtoint ptr %.val1.i to i64
+  %1603 = ptrtoint ptr %.val.i to i64
+  %1604 = sub i64 %1602, %1603
+  call void @_ZdlPvm(ptr noundef nonnull %.val.i, i64 noundef %1604) #29
   br label %_ZN8rawspeed12_GLOBAL__N_122fuji_compressed_paramsD2Ev.exit.i
 
-_ZN8rawspeed12_GLOBAL__N_122fuji_compressed_paramsD2Ev.exit.i: ; preds = %1603, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i
-  %1608 = load ptr, ptr %42, align 8, !tbaa !14
-  %.not.i.i.i.i21 = icmp eq ptr %1608, null
-  br i1 %.not.i.i.i.i21, label %_ZN8rawspeed12_GLOBAL__N_120FujiDecompressorImplD2Ev.exit, label %1609
+_ZN8rawspeed12_GLOBAL__N_122fuji_compressed_paramsD2Ev.exit.i: ; preds = %1600, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i
+  %1605 = load ptr, ptr %42, align 8, !tbaa !14
+  %.not.i.i.i.i21 = icmp eq ptr %1605, null
+  br i1 %.not.i.i.i.i21, label %_ZN8rawspeed12_GLOBAL__N_120FujiDecompressorImplD2Ev.exit, label %1606
 
-1609:                                             ; preds = %_ZN8rawspeed12_GLOBAL__N_122fuji_compressed_paramsD2Ev.exit.i
-  %1610 = getelementptr inbounds nuw i8, ptr %1608, i64 8
-  %1611 = load atomic i64, ptr %1610 acquire, align 8
-  %1612 = icmp eq i64 %1611, 4294967297
-  %1613 = trunc i64 %1611 to i32
-  br i1 %1612, label %1614, label %1622
+1606:                                             ; preds = %_ZN8rawspeed12_GLOBAL__N_122fuji_compressed_paramsD2Ev.exit.i
+  %1607 = getelementptr inbounds nuw i8, ptr %1605, i64 8
+  %1608 = load atomic i64, ptr %1607 acquire, align 8
+  %1609 = icmp eq i64 %1608, 4294967297
+  %1610 = trunc i64 %1608 to i32
+  br i1 %1609, label %1611, label %1619
 
-1614:                                             ; preds = %1609
-  store i32 0, ptr %1610, align 8, !tbaa !157
-  %1615 = getelementptr inbounds nuw i8, ptr %1608, i64 12
-  store i32 0, ptr %1615, align 4, !tbaa !159
-  %1616 = load ptr, ptr %1608, align 8, !tbaa !160
-  %1617 = getelementptr inbounds nuw i8, ptr %1616, i64 16
+1611:                                             ; preds = %1606
+  store i32 0, ptr %1607, align 8, !tbaa !157
+  %1612 = getelementptr inbounds nuw i8, ptr %1605, i64 12
+  store i32 0, ptr %1612, align 4, !tbaa !159
+  %1613 = load ptr, ptr %1605, align 8, !tbaa !160
+  %1614 = getelementptr inbounds nuw i8, ptr %1613, i64 16
+  %1615 = load ptr, ptr %1614, align 8
+  call void %1615(ptr noundef nonnull align 8 dereferenceable(16) %1605) #31
+  %1616 = load ptr, ptr %1605, align 8, !tbaa !160
+  %1617 = getelementptr inbounds nuw i8, ptr %1616, i64 24
   %1618 = load ptr, ptr %1617, align 8
-  call void %1618(ptr noundef nonnull align 8 dereferenceable(16) %1608) #31
-  %1619 = load ptr, ptr %1608, align 8, !tbaa !160
-  %1620 = getelementptr inbounds nuw i8, ptr %1619, i64 24
-  %1621 = load ptr, ptr %1620, align 8
-  call void %1621(ptr noundef nonnull align 8 dereferenceable(16) %1608) #31
+  call void %1618(ptr noundef nonnull align 8 dereferenceable(16) %1605) #31
   br label %_ZN8rawspeed12_GLOBAL__N_120FujiDecompressorImplD2Ev.exit
 
-1622:                                             ; preds = %1609
-  %1623 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !92
-  %.not.i.i.i.i2.i = icmp eq i8 %1623, 0
-  br i1 %.not.i.i.i.i2.i, label %1626, label %1624
+1619:                                             ; preds = %1606
+  %1620 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !92
+  %.not.i.i.i.i2.i = icmp eq i8 %1620, 0
+  br i1 %.not.i.i.i.i2.i, label %1623, label %1621
 
-1624:                                             ; preds = %1622
-  %1625 = add nsw i32 %1613, -1
-  store i32 %1625, ptr %1610, align 4, !tbaa !93
+1621:                                             ; preds = %1619
+  %1622 = add nsw i32 %1610, -1
+  store i32 %1622, ptr %1607, align 4, !tbaa !93
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
-1626:                                             ; preds = %1622
-  %1627 = atomicrmw volatile add ptr %1610, i32 -1 acq_rel, align 4
+1623:                                             ; preds = %1619
+  %1624 = atomicrmw volatile add ptr %1607, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %1626, %1624
-  %.0.i.i.i.i.i.i22 = phi i32 [ %1613, %1624 ], [ %1627, %1626 ]
-  %1628 = icmp eq i32 %.0.i.i.i.i.i.i22, 1
-  br i1 %1628, label %1629, label %_ZN8rawspeed12_GLOBAL__N_120FujiDecompressorImplD2Ev.exit, !prof !162
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %1623, %1621
+  %.0.i.i.i.i.i.i22 = phi i32 [ %1610, %1621 ], [ %1624, %1623 ]
+  %1625 = icmp eq i32 %.0.i.i.i.i.i.i22, 1
+  br i1 %1625, label %1626, label %_ZN8rawspeed12_GLOBAL__N_120FujiDecompressorImplD2Ev.exit, !prof !162
 
-1629:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %1608) #31
+1626:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %1605) #31
   br label %_ZN8rawspeed12_GLOBAL__N_120FujiDecompressorImplD2Ev.exit
 
-_ZN8rawspeed12_GLOBAL__N_120FujiDecompressorImplD2Ev.exit: ; preds = %_ZN8rawspeed12_GLOBAL__N_122fuji_compressed_paramsD2Ev.exit.i, %1614, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %1629
+_ZN8rawspeed12_GLOBAL__N_120FujiDecompressorImplD2Ev.exit: ; preds = %_ZN8rawspeed12_GLOBAL__N_122fuji_compressed_paramsD2Ev.exit.i, %1611, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %1626
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret void
 
-1630:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %.body.i
-  %.pn = phi { ptr, i32 } [ %1594, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %.pn.i.i, %.body.i ]
+1627:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %.body.i
+  %.pn = phi { ptr, i32 } [ %1591, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %.pn.i.i, %.body.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   resume { ptr, i32 } %.pn
 }

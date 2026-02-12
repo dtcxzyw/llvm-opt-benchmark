@@ -85,7 +85,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @list_create(ptr noundef %0) #0 {
-  %2 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4064, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 158, ptr noundef nonnull @__func__.list_create) #9
+  %2 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4064, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 158, ptr noundef nonnull @__func__.list_create) #8
   store i32 -559038737, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8
@@ -98,14 +98,14 @@ define dso_local noundef ptr @list_create(ptr noundef %0) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %9 = tail call i32 @pthread_rwlock_init(ptr noundef nonnull %8, ptr noundef null) #9
+  %9 = tail call i32 @pthread_rwlock_init(ptr noundef nonnull %8, ptr noundef null) #8
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %12, label %10
 
 10:                                               ; preds = %1
-  %11 = tail call ptr @__errno_location() #10
+  %11 = tail call ptr @__errno_location() #9
   store i32 %9, ptr %11, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.list_create) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.list_create) #10
   unreachable
 
 12:                                               ; preds = %1
@@ -139,14 +139,14 @@ define dso_local void @list_destroy(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %5) #9
+  %6 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %5) #8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %1
-  %8 = tail call ptr @__errno_location() #10
+  %8 = tail call ptr @__errno_location() #9
   store i32 %6, ptr %8, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_destroy) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_destroy) #10
   unreachable
 
 9:                                                ; preds = %1
@@ -172,7 +172,7 @@ define dso_local void @list_destroy(ptr noundef %0) #0 {
   %13 = load ptr, ptr %3, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8
-  call void @slurm_xfree(ptr noundef nonnull %3) #9
+  call void @slurm_xfree(ptr noundef nonnull %3) #8
   store ptr %15, ptr %3, align 8
   %.not14 = icmp eq ptr %15, null
   br i1 %.not14, label %.preheader, label %.lr.ph, !llvm.loop !11
@@ -189,7 +189,7 @@ define dso_local void @list_destroy(ptr noundef %0) #0 {
   br i1 %.not22, label %20, label %19
 
 19:                                               ; preds = %17
-  call void %18(ptr noundef nonnull %16) #9
+  call void %18(ptr noundef nonnull %16) #8
   br label %20
 
 20:                                               ; preds = %19, %17, %.lr.ph30
@@ -209,36 +209,36 @@ define dso_local void @list_destroy(ptr noundef %0) #0 {
   %storemerge1732 = phi ptr [ %24, %.lr.ph34 ], [ %22, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %storemerge1732, i64 8
   %24 = load ptr, ptr %23, align 8
-  call void @slurm_xfree(ptr noundef nonnull %4) #9
+  call void @slurm_xfree(ptr noundef nonnull %4) #8
   store ptr %24, ptr %4, align 8
   %.not18 = icmp eq ptr %24, null
   br i1 %.not18, label %._crit_edge35, label %.lr.ph34, !llvm.loop !13
 
 ._crit_edge35:                                    ; preds = %.lr.ph34, %._crit_edge
   store i32 559038736, ptr %0, align 8
-  %25 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %5) #9
+  %25 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %5) #8
   %.not19 = icmp eq i32 %25, 0
   br i1 %.not19, label %28, label %26
 
 26:                                               ; preds = %._crit_edge35
-  %27 = tail call ptr @__errno_location() #10
+  %27 = tail call ptr @__errno_location() #9
   store i32 %25, ptr %27, align 4
-  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_destroy) #11
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_destroy) #10
   unreachable
 
 28:                                               ; preds = %._crit_edge35
-  %29 = call i32 @pthread_rwlock_destroy(ptr noundef nonnull %5) #9
+  %29 = call i32 @pthread_rwlock_destroy(ptr noundef nonnull %5) #8
   %.not20 = icmp eq i32 %29, 0
   br i1 %.not20, label %32, label %30
 
 30:                                               ; preds = %28
-  %31 = tail call ptr @__errno_location() #10
+  %31 = tail call ptr @__errno_location() #9
   store i32 %29, ptr %31, align 4
-  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.list_destroy) #11
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.list_destroy) #10
   unreachable
 
 32:                                               ; preds = %28
-  call void @slurm_xfree(ptr noundef nonnull %2) #9
+  call void @slurm_xfree(ptr noundef nonnull %2) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -247,27 +247,27 @@ define dso_local void @list_destroy(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @list_is_empty(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull %2) #9
+  %3 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull %2) #8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @__errno_location() #10
+  %5 = tail call ptr @__errno_location() #9
   store i32 %3, ptr %5, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.list_is_empty) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.list_is_empty) #10
   unreachable
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %2) #9
+  %9 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %2) #8
   %.not8 = icmp eq i32 %9, 0
   br i1 %.not8, label %12, label %10
 
 10:                                               ; preds = %6
-  %11 = tail call ptr @__errno_location() #10
+  %11 = tail call ptr @__errno_location() #9
   store i32 %9, ptr %11, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_is_empty) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_is_empty) #10
   unreachable
 
 12:                                               ; preds = %6
@@ -283,27 +283,27 @@ define dso_local i32 @list_count(ptr noundef %0) #0 {
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull %3) #9
+  %4 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull %3) #8
   %.not12 = icmp eq i32 %4, 0
   br i1 %.not12, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @__errno_location() #10
+  %6 = tail call ptr @__errno_location() #9
   store i32 %4, ptr %6, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.list_count) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.list_count) #10
   unreachable
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
-  %10 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %3) #9
+  %10 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %3) #8
   %.not13 = icmp eq i32 %10, 0
   br i1 %.not13, label %13, label %11
 
 11:                                               ; preds = %7
-  %12 = tail call ptr @__errno_location() #10
+  %12 = tail call ptr @__errno_location() #9
   store i32 %10, ptr %12, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_count) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_count) #10
   unreachable
 
 13:                                               ; preds = %7, %1
@@ -313,7 +313,7 @@ define dso_local i32 @list_count(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @list_shallow_copy(ptr noundef %0) #0 {
-  %2 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4064, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 158, ptr noundef nonnull @__func__.list_create) #9
+  %2 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4064, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 158, ptr noundef nonnull @__func__.list_create) #8
   store i32 -559038737, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8
@@ -324,14 +324,14 @@ define dso_local noundef ptr @list_shallow_copy(ptr noundef %0) #0 {
   store i32 0, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %8 = tail call i32 @pthread_rwlock_init(ptr noundef nonnull %7, ptr noundef null) #9
+  %8 = tail call i32 @pthread_rwlock_init(ptr noundef nonnull %7, ptr noundef null) #8
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %11, label %9
 
 9:                                                ; preds = %1
-  %10 = tail call ptr @__errno_location() #10
+  %10 = tail call ptr @__errno_location() #9
   store i32 %8, ptr %10, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.list_create) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.list_create) #10
   unreachable
 
 11:                                               ; preds = %1
@@ -360,14 +360,14 @@ list_create.exit:                                 ; preds = %15
 ; Function Attrs: nounwind uwtable
 define dso_local void @list_append(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %3) #9
+  %4 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %3) #8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @__errno_location() #10
+  %6 = tail call ptr @__errno_location() #9
   store i32 %4, ptr %6, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_append) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_append) #10
   unreachable
 
 7:                                                ; preds = %2
@@ -379,7 +379,7 @@ define dso_local void @list_append(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not.i, label %12, label %.loopexit.i
 
 12:                                               ; preds = %7
-  %13 = tail call ptr @slurm_xcalloc(i64 noundef 247, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 972, ptr noundef nonnull @__func__._list_node_create) #9
+  %13 = tail call ptr @slurm_xcalloc(i64 noundef 247, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 972, ptr noundef nonnull @__func__._list_node_create) #8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -458,14 +458,14 @@ define dso_local void @list_append(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not37.i, label %_list_node_create.exit, label %.lr.ph.i, !llvm.loop !15
 
 _list_node_create.exit:                           ; preds = %42, %27
-  %44 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %3) #9
+  %44 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %3) #8
   %.not9 = icmp eq i32 %44, 0
   br i1 %.not9, label %47, label %45
 
 45:                                               ; preds = %_list_node_create.exit
-  %46 = tail call ptr @__errno_location() #10
+  %46 = tail call ptr @__errno_location() #9
   store i32 %44, ptr %46, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_append) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_append) #10
   unreachable
 
 47:                                               ; preds = %_list_node_create.exit
@@ -475,19 +475,19 @@ _list_node_create.exit:                           ; preds = %42, %27
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @list_append_list(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %3) #9
+  %4 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %3) #8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @__errno_location() #10
+  %6 = tail call ptr @__errno_location() #9
   store i32 %4, ptr %6, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_append_list) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_append_list) #10
   unreachable
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %9 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %8) #9
+  %9 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %8) #8
   %.not24 = icmp eq i32 %9, 0
   br i1 %.not24, label %.preheader, label %15
 
@@ -506,9 +506,9 @@ define dso_local i32 @list_append_list(ptr noundef %0, ptr noundef %1) #0 {
   br label %17
 
 15:                                               ; preds = %7
-  %16 = tail call ptr @__errno_location() #10
+  %16 = tail call ptr @__errno_location() #9
   store i32 %9, ptr %16, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_append_list) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_append_list) #10
   unreachable
 
 17:                                               ; preds = %.lr.ph, %_list_node_create.exit
@@ -521,7 +521,7 @@ define dso_local i32 @list_append_list(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not.i, label %21, label %.loopexit.i
 
 21:                                               ; preds = %17
-  %22 = tail call ptr @slurm_xcalloc(i64 noundef 247, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 972, ptr noundef nonnull @__func__._list_node_create) #9
+  %22 = tail call ptr @slurm_xcalloc(i64 noundef 247, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 972, ptr noundef nonnull @__func__._list_node_create) #8
   %23 = load ptr, ptr %12, align 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %23, ptr %24, align 8
@@ -605,25 +605,25 @@ _list_node_create.exit:                           ; preds = %48, %35
 
 ._crit_edge:                                      ; preds = %_list_node_create.exit, %.preheader
   %.0.lcssa = phi i32 [ 0, %.preheader ], [ %50, %_list_node_create.exit ]
-  %51 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %8) #9
+  %51 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %8) #8
   %.not26 = icmp eq i32 %51, 0
   br i1 %.not26, label %54, label %52
 
 52:                                               ; preds = %._crit_edge
-  %53 = tail call ptr @__errno_location() #10
+  %53 = tail call ptr @__errno_location() #9
   store i32 %51, ptr %53, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_append_list) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_append_list) #10
   unreachable
 
 54:                                               ; preds = %._crit_edge
-  %55 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %3) #9
+  %55 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %3) #8
   %.not27 = icmp eq i32 %55, 0
   br i1 %.not27, label %58, label %56
 
 56:                                               ; preds = %54
-  %57 = tail call ptr @__errno_location() #10
+  %57 = tail call ptr @__errno_location() #9
   store i32 %55, ptr %57, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_append_list) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_append_list) #10
   unreachable
 
 58:                                               ; preds = %54
@@ -639,19 +639,19 @@ define dso_local i32 @list_transfer(ptr noundef %0, ptr noundef %1) #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @list_transfer_max(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #9
+  %5 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @__errno_location() #10
+  %7 = tail call ptr @__errno_location() #9
   store i32 %5, ptr %7, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_transfer_max) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_transfer_max) #10
   unreachable
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %10 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %9) #9
+  %10 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %9) #8
   %.not27 = icmp eq i32 %10, 0
   br i1 %.not27, label %.preheader, label %21
 
@@ -674,9 +674,9 @@ define dso_local i32 @list_transfer_max(ptr noundef %0, ptr noundef %1, i32 noun
   br label %23
 
 21:                                               ; preds = %8
-  %22 = tail call ptr @__errno_location() #10
+  %22 = tail call ptr @__errno_location() #9
   store i32 %10, ptr %22, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_transfer_max) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_transfer_max) #10
   unreachable
 
 23:                                               ; preds = %.lr.ph, %_list_node_create.exit
@@ -749,7 +749,7 @@ _list_node_destroy.exit:                          ; preds = %44, %30
   br i1 %.not.i33, label %50, label %.loopexit.i
 
 50:                                               ; preds = %47
-  %51 = tail call ptr @slurm_xcalloc(i64 noundef 247, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 972, ptr noundef nonnull @__func__._list_node_create) #9
+  %51 = tail call ptr @slurm_xcalloc(i64 noundef 247, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 972, ptr noundef nonnull @__func__._list_node_create) #8
   %52 = load ptr, ptr %18, align 8
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr %52, ptr %53, align 8
@@ -832,25 +832,25 @@ _list_node_create.exit:                           ; preds = %77, %64
 
 .critedge:                                        ; preds = %_list_node_destroy.exit, %_list_node_create.exit, %23, %.preheader
   %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.039, %23 ], [ %79, %_list_node_create.exit ], [ %.039, %_list_node_destroy.exit ]
-  %80 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %9) #9
+  %80 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %9) #8
   %.not31 = icmp eq i32 %80, 0
   br i1 %.not31, label %83, label %81
 
 81:                                               ; preds = %.critedge
-  %82 = tail call ptr @__errno_location() #10
+  %82 = tail call ptr @__errno_location() #9
   store i32 %80, ptr %82, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_transfer_max) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_transfer_max) #10
   unreachable
 
 83:                                               ; preds = %.critedge
-  %84 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #9
+  %84 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #8
   %.not32 = icmp eq i32 %84, 0
   br i1 %.not32, label %87, label %85
 
 85:                                               ; preds = %83
-  %86 = tail call ptr @__errno_location() #10
+  %86 = tail call ptr @__errno_location() #9
   store i32 %84, ptr %86, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_transfer_max) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_transfer_max) #10
   unreachable
 
 87:                                               ; preds = %83
@@ -860,26 +860,26 @@ _list_node_create.exit:                           ; preds = %77, %64
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @list_transfer_unique(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #9
+  %5 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @__errno_location() #10
+  %7 = tail call ptr @__errno_location() #9
   store i32 %5, ptr %7, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_transfer_unique) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_transfer_unique) #10
   unreachable
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %10 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %9) #9
+  %10 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %9) #8
   %.not32 = icmp eq i32 %10, 0
   br i1 %.not32, label %13, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call ptr @__errno_location() #10
+  %12 = tail call ptr @__errno_location() #9
   store i32 %10, ptr %12, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_transfer_unique) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_transfer_unique) #10
   unreachable
 
 13:                                               ; preds = %8
@@ -916,7 +916,7 @@ define dso_local i32 @list_transfer_unique(ptr noundef %0, ptr noundef readonly 
 
 29:                                               ; preds = %28
   %30 = load ptr, ptr %.08.i, align 8
-  %31 = tail call i32 %1(ptr noundef %30, ptr noundef %27) #9
+  %31 = tail call i32 %1(ptr noundef %30, ptr noundef %27) #8
   %.not10.i = icmp eq i32 %31, 0
   br i1 %.not10.i, label %28, label %_list_find_first_locked.exit, !llvm.loop !19
 
@@ -932,7 +932,7 @@ _list_find_first_locked.exit.thread:              ; preds = %28, %_list_find_fir
   br i1 %.not.i37, label %35, label %.loopexit.i
 
 35:                                               ; preds = %_list_find_first_locked.exit.thread
-  %36 = tail call ptr @slurm_xcalloc(i64 noundef 247, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 972, ptr noundef nonnull @__func__._list_node_create) #9
+  %36 = tail call ptr @slurm_xcalloc(i64 noundef 247, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 972, ptr noundef nonnull @__func__._list_node_create) #8
   %37 = load ptr, ptr %18, align 8
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %37, ptr %38, align 8
@@ -1085,25 +1085,25 @@ _list_node_destroy.exit:                          ; preds = %_list_node_create.e
 
 ._crit_edge:                                      ; preds = %90, %13
   %.025.lcssa = phi i32 [ 0, %13 ], [ %.126, %90 ]
-  %92 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %9) #9
+  %92 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %9) #8
   %.not34 = icmp eq i32 %92, 0
   br i1 %.not34, label %95, label %93
 
 93:                                               ; preds = %._crit_edge
-  %94 = tail call ptr @__errno_location() #10
+  %94 = tail call ptr @__errno_location() #9
   store i32 %92, ptr %94, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_transfer_unique) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_transfer_unique) #10
   unreachable
 
 95:                                               ; preds = %._crit_edge
-  %96 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #9
+  %96 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #8
   %.not35 = icmp eq i32 %96, 0
   br i1 %.not35, label %99, label %97
 
 97:                                               ; preds = %95
-  %98 = tail call ptr @__errno_location() #10
+  %98 = tail call ptr @__errno_location() #9
   store i32 %96, ptr %98, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_transfer_unique) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_transfer_unique) #10
   unreachable
 
 99:                                               ; preds = %95
@@ -1113,14 +1113,14 @@ _list_node_destroy.exit:                          ; preds = %_list_node_create.e
 ; Function Attrs: nounwind uwtable
 define dso_local void @list_push(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %3) #9
+  %4 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %3) #8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @__errno_location() #10
+  %6 = tail call ptr @__errno_location() #9
   store i32 %4, ptr %6, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_push) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_push) #10
   unreachable
 
 7:                                                ; preds = %2
@@ -1131,7 +1131,7 @@ define dso_local void @list_push(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not.i, label %11, label %.loopexit.i
 
 11:                                               ; preds = %7
-  %12 = tail call ptr @slurm_xcalloc(i64 noundef 247, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 972, ptr noundef nonnull @__func__._list_node_create) #9
+  %12 = tail call ptr @slurm_xcalloc(i64 noundef 247, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 972, ptr noundef nonnull @__func__._list_node_create) #8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -1211,14 +1211,14 @@ define dso_local void @list_push(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not37.i, label %_list_node_create.exit, label %.lr.ph.i, !llvm.loop !15
 
 _list_node_create.exit:                           ; preds = %42, %27
-  %44 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %3) #9
+  %44 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %3) #8
   %.not9 = icmp eq i32 %44, 0
   br i1 %.not9, label %47, label %45
 
 45:                                               ; preds = %_list_node_create.exit
-  %46 = tail call ptr @__errno_location() #10
+  %46 = tail call ptr @__errno_location() #9
   store i32 %44, ptr %46, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_push) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_push) #10
   unreachable
 
 47:                                               ; preds = %_list_node_create.exit
@@ -1228,14 +1228,14 @@ _list_node_create.exit:                           ; preds = %42, %27
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @list_find_first(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #9
+  %5 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #8
   %.not15.i = icmp eq i32 %5, 0
   br i1 %.not15.i, label %.preheader, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @__errno_location() #10
+  %7 = tail call ptr @__errno_location() #9
   store i32 %5, ptr %7, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__._list_find_first_lock) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__._list_find_first_lock) #10
   unreachable
 
 .preheader:                                       ; preds = %3, %8
@@ -1247,7 +1247,7 @@ define dso_local ptr @list_find_first(ptr noundef %0, ptr noundef readonly captu
 
 8:                                                ; preds = %.preheader
   %9 = load ptr, ptr %.08.i.i, align 8
-  %10 = tail call i32 %1(ptr noundef %9, ptr noundef %2) #9
+  %10 = tail call i32 %1(ptr noundef %9, ptr noundef %2) #8
   %.not10.i.i = icmp eq i32 %10, 0
   br i1 %.not10.i.i, label %.preheader, label %11, !llvm.loop !19
 
@@ -1257,14 +1257,14 @@ define dso_local ptr @list_find_first(ptr noundef %0, ptr noundef readonly captu
 
 _list_find_first_locked.exit.i:                   ; preds = %.preheader, %11
   %13 = phi ptr [ %12, %11 ], [ null, %.preheader ]
-  %14 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #9
+  %14 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #8
   %.not16.i = icmp eq i32 %14, 0
   br i1 %.not16.i, label %_list_find_first_lock.exit, label %15
 
 15:                                               ; preds = %_list_find_first_locked.exit.i
-  %16 = tail call ptr @__errno_location() #10
+  %16 = tail call ptr @__errno_location() #9
   store i32 %14, ptr %16, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__._list_find_first_lock) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__._list_find_first_lock) #10
   unreachable
 
 _list_find_first_lock.exit:                       ; preds = %_list_find_first_locked.exit.i
@@ -1274,14 +1274,14 @@ _list_find_first_lock.exit:                       ; preds = %_list_find_first_lo
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @list_find_first_ro(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull %4) #9
+  %5 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull %4) #8
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %.preheader, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @__errno_location() #10
+  %7 = tail call ptr @__errno_location() #9
   store i32 %5, ptr %7, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__._list_find_first_lock) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__._list_find_first_lock) #10
   unreachable
 
 .preheader:                                       ; preds = %3, %8
@@ -1293,7 +1293,7 @@ define dso_local ptr @list_find_first_ro(ptr noundef %0, ptr noundef readonly ca
 
 8:                                                ; preds = %.preheader
   %9 = load ptr, ptr %.08.i.i, align 8
-  %10 = tail call i32 %1(ptr noundef %9, ptr noundef %2) #9
+  %10 = tail call i32 %1(ptr noundef %9, ptr noundef %2) #8
   %.not10.i.i = icmp eq i32 %10, 0
   br i1 %.not10.i.i, label %.preheader, label %11, !llvm.loop !19
 
@@ -1303,14 +1303,14 @@ define dso_local ptr @list_find_first_ro(ptr noundef %0, ptr noundef readonly ca
 
 _list_find_first_locked.exit.i:                   ; preds = %.preheader, %11
   %13 = phi ptr [ %12, %11 ], [ null, %.preheader ]
-  %14 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #9
+  %14 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #8
   %.not16.i = icmp eq i32 %14, 0
   br i1 %.not16.i, label %_list_find_first_lock.exit, label %15
 
 15:                                               ; preds = %_list_find_first_locked.exit.i
-  %16 = tail call ptr @__errno_location() #10
+  %16 = tail call ptr @__errno_location() #9
   store i32 %14, ptr %16, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__._list_find_first_lock) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__._list_find_first_lock) #10
   unreachable
 
 _list_find_first_lock.exit:                       ; preds = %_list_find_first_locked.exit.i
@@ -1320,14 +1320,14 @@ _list_find_first_lock.exit:                       ; preds = %_list_find_first_lo
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @list_delete_all(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #9
+  %5 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @__errno_location() #10
+  %7 = tail call ptr @__errno_location() #9
   store i32 %5, ptr %7, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_delete_all) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_delete_all) #10
   unreachable
 
 8:                                                ; preds = %3
@@ -1349,7 +1349,7 @@ define dso_local i32 @list_delete_all(ptr noundef %0, ptr noundef readonly captu
   %.034 = phi ptr [ %9, %.lr.ph ], [ %.1.ph, %_list_node_destroy.exit.thread ]
   %.01833 = phi i32 [ 0, %.lr.ph ], [ %.119.ph, %_list_node_destroy.exit.thread ]
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 %1(ptr noundef %18, ptr noundef %2) #9
+  %19 = tail call i32 %1(ptr noundef %18, ptr noundef %2) #8
   %.not27 = icmp eq i32 %19, 0
   %20 = load ptr, ptr %.034, align 8
   br i1 %.not27, label %49, label %21
@@ -1421,7 +1421,7 @@ _list_node_destroy.exit:                          ; preds = %41, %27
   br i1 %.not29, label %47, label %46
 
 46:                                               ; preds = %44
-  tail call void %45(ptr noundef nonnull %23) #9
+  tail call void %45(ptr noundef nonnull %23) #8
   br label %47
 
 47:                                               ; preds = %46, %44
@@ -1441,14 +1441,14 @@ _list_node_destroy.exit.thread:                   ; preds = %_list_node_destroy.
 
 ._crit_edge:                                      ; preds = %21, %_list_node_destroy.exit.thread, %8
   %.018.lcssa = phi i32 [ 0, %8 ], [ %.01833, %21 ], [ %.119.ph, %_list_node_destroy.exit.thread ]
-  %51 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #9
+  %51 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #8
   %.not26 = icmp eq i32 %51, 0
   br i1 %.not26, label %54, label %52
 
 52:                                               ; preds = %._crit_edge
-  %53 = tail call ptr @__errno_location() #10
+  %53 = tail call ptr @__errno_location() #9
   store i32 %51, ptr %53, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_delete_all) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_delete_all) #10
   unreachable
 
 54:                                               ; preds = %._crit_edge
@@ -1458,7 +1458,7 @@ _list_node_destroy.exit.thread:                   ; preds = %_list_node_destroy.
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 2) i32 @list_delete_first(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #9
+  %5 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.preheader, label %7
 
@@ -1469,16 +1469,16 @@ define dso_local range(i32 -1, 2) i32 @list_delete_first(ptr noundef %0, ptr nou
   br i1 %.not2940, label %.thread, label %.lr.ph
 
 7:                                                ; preds = %3
-  %8 = tail call ptr @__errno_location() #10
+  %8 = tail call ptr @__errno_location() #9
   store i32 %5, ptr %8, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_delete_first) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_delete_first) #10
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader, %47
   %9 = phi ptr [ %49, %47 ], [ %6, %.preheader ]
   %.041 = phi ptr [ %.0, %47 ], [ %.039, %.preheader ]
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %1(ptr noundef %10, ptr noundef %2) #9
+  %11 = tail call i32 %1(ptr noundef %10, ptr noundef %2) #8
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %13, label %45
 
@@ -1555,7 +1555,7 @@ _list_node_destroy.exit:                          ; preds = %37, %21
   br i1 %.not31, label %.thread, label %44
 
 44:                                               ; preds = %41
-  tail call void %43(ptr noundef nonnull %16) #9
+  tail call void %43(ptr noundef nonnull %16) #8
   br label %.thread
 
 45:                                               ; preds = %.lr.ph
@@ -1571,14 +1571,14 @@ _list_node_destroy.exit:                          ; preds = %37, %21
 
 .thread:                                          ; preds = %47, %45, %.preheader, %13, %44, %41, %_list_node_destroy.exit
   %.2 = phi i32 [ 1, %41 ], [ 1, %_list_node_destroy.exit ], [ 1, %13 ], [ 1, %44 ], [ 0, %.preheader ], [ 0, %47 ], [ -1, %45 ]
-  %50 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #9
+  %50 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #8
   %.not32 = icmp eq i32 %50, 0
   br i1 %.not32, label %53, label %51
 
 51:                                               ; preds = %.thread
-  %52 = tail call ptr @__errno_location() #10
+  %52 = tail call ptr @__errno_location() #9
   store i32 %50, ptr %52, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_delete_first) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_delete_first) #10
   unreachable
 
 53:                                               ; preds = %.thread
@@ -1588,14 +1588,14 @@ _list_node_destroy.exit:                          ; preds = %37, %21
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @list_delete_ptr(ptr noundef %0, ptr noundef readnone captures(address) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %3) #9
+  %4 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %3) #8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @__errno_location() #10
+  %6 = tail call ptr @__errno_location() #9
   store i32 %4, ptr %6, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_delete_ptr) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_delete_ptr) #10
   unreachable
 
 7:                                                ; preds = %2
@@ -1681,7 +1681,7 @@ _list_node_destroy.exit:                          ; preds = %36, %22
   br i1 %.not24, label %.loopexit, label %42
 
 42:                                               ; preds = %39
-  tail call void %41(ptr noundef nonnull %16) #9
+  tail call void %41(ptr noundef nonnull %16) #8
   br label %.loopexit
 
 43:                                               ; preds = %14, %_list_node_destroy.exit
@@ -1692,14 +1692,14 @@ _list_node_destroy.exit:                          ; preds = %36, %22
 
 .loopexit:                                        ; preds = %43, %7, %39, %42
   %.016 = phi i32 [ 1, %39 ], [ 1, %42 ], [ 0, %7 ], [ 0, %43 ]
-  %45 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %3) #9
+  %45 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %3) #8
   %.not25 = icmp eq i32 %45, 0
   br i1 %.not25, label %48, label %46
 
 46:                                               ; preds = %.loopexit
-  %47 = tail call ptr @__errno_location() #10
+  %47 = tail call ptr @__errno_location() #9
   store i32 %45, ptr %47, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_delete_ptr) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_delete_ptr) #10
   unreachable
 
 48:                                               ; preds = %.loopexit
@@ -1733,25 +1733,25 @@ define dso_local i32 @list_for_each_max(ptr noundef %0, ptr noundef captures(non
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %7) #9
+  %9 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %7) #8
   %.not36 = icmp eq i32 %9, 0
   br i1 %.not36, label %16, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call ptr @__errno_location() #10
+  %11 = tail call ptr @__errno_location() #9
   store i32 %9, ptr %11, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_for_each_max) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_for_each_max) #10
   unreachable
 
 12:                                               ; preds = %6
-  %13 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull %7) #9
+  %13 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull %7) #8
   %.not35 = icmp eq i32 %13, 0
   br i1 %.not35, label %16, label %14
 
 14:                                               ; preds = %12
-  %15 = tail call ptr @__errno_location() #10
+  %15 = tail call ptr @__errno_location() #9
   store i32 %13, ptr %15, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.list_for_each_max) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.list_for_each_max) #10
   unreachable
 
 16:                                               ; preds = %12, %8
@@ -1781,7 +1781,7 @@ define dso_local i32 @list_for_each_max(ptr noundef %0, ptr noundef captures(non
 23:                                               ; preds = %22, %19
   %24 = add nuw nsw i32 %.027.us, 1
   %25 = load ptr, ptr %.0.us, align 8
-  %26 = tail call i32 %2(ptr noundef %25, ptr noundef %3) #9
+  %26 = tail call i32 %2(ptr noundef %25, ptr noundef %3) #8
   %27 = icmp slt i32 %26, 0
   %spec.select40 = select i1 %27, i1 true, i1 %.028.us
   br label %.split.us, !llvm.loop !23
@@ -1808,7 +1808,7 @@ define dso_local i32 @list_for_each_max(ptr noundef %0, ptr noundef captures(non
 34:                                               ; preds = %30, %33
   %35 = add nuw nsw i32 %.027, 1
   %36 = load ptr, ptr %.0, align 8
-  %37 = tail call i32 %2(ptr noundef %36, ptr noundef %3) #9
+  %37 = tail call i32 %2(ptr noundef %36, ptr noundef %3) #8
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %.critedge, label %.split, !llvm.loop !23
 
@@ -1820,14 +1820,14 @@ define dso_local i32 @list_for_each_max(ptr noundef %0, ptr noundef captures(non
   %41 = sub nsw i32 %40, %.us-phi39
   store i32 %41, ptr %1, align 4
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %43 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %42) #9
+  %43 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %42) #8
   %.not38 = icmp eq i32 %43, 0
   br i1 %.not38, label %46, label %44
 
 44:                                               ; preds = %.critedge
-  %45 = tail call ptr @__errno_location() #10
+  %45 = tail call ptr @__errno_location() #9
   store i32 %43, ptr %45, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_for_each_max) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_for_each_max) #10
   unreachable
 
 46:                                               ; preds = %.critedge
@@ -1845,14 +1845,14 @@ define dso_local i32 @list_flush(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @list_flush_max(ptr noundef %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %3) #9
+  %4 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %3) #8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @__errno_location() #10
+  %6 = tail call ptr @__errno_location() #9
   store i32 %4, ptr %6, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_flush_max) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_flush_max) #10
   unreachable
 
 7:                                                ; preds = %2
@@ -1878,7 +1878,7 @@ define dso_local i32 @list_flush_max(ptr noundef %0, i32 noundef %1) #0 {
 
 .critedge:                                        ; preds = %15, %45, %7
   %.0.lcssa = phi i32 [ 0, %7 ], [ %.1, %45 ], [ %.030, %15 ]
-  %17 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %3) #9
+  %17 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %3) #8
   %.not25 = icmp eq i32 %17, 0
   br i1 %.not25, label %50, label %48
 
@@ -1945,7 +1945,7 @@ _list_node_destroy.exit:                          ; preds = %37, %23
   br i1 %.not27, label %43, label %42
 
 42:                                               ; preds = %40
-  tail call void %41(ptr noundef nonnull %19) #9
+  tail call void %41(ptr noundef nonnull %19) #8
   br label %43
 
 43:                                               ; preds = %42, %40
@@ -1960,9 +1960,9 @@ _list_node_destroy.exit:                          ; preds = %37, %23
   br i1 %or.cond, label %15, label %.critedge, !llvm.loop !24
 
 48:                                               ; preds = %.critedge
-  %49 = tail call ptr @__errno_location() #10
+  %49 = tail call ptr @__errno_location() #9
   store i32 %17, ptr %49, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_flush_max) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_flush_max) #10
   unreachable
 
 50:                                               ; preds = %.critedge
@@ -1974,14 +1974,14 @@ define dso_local void @list_sort(ptr noundef %0, ptr noundef captures(none) %1) 
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #9
+  %5 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @__errno_location() #10
+  %7 = tail call ptr @__errno_location() #9
   store i32 %5, ptr %7, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_sort) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_sort) #10
   unreachable
 
 8:                                                ; preds = %2
@@ -1991,20 +1991,20 @@ define dso_local void @list_sort(ptr noundef %0, ptr noundef captures(none) %1) 
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %8
-  %13 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #9
+  %13 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #8
   %.not40 = icmp eq i32 %13, 0
   br i1 %.not40, label %101, label %14
 
 14:                                               ; preds = %12
-  %15 = tail call ptr @__errno_location() #10
+  %15 = tail call ptr @__errno_location() #9
   store i32 %13, ptr %15, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_sort) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_sort) #10
   unreachable
 
 16:                                               ; preds = %8
   %17 = zext nneg i32 %10 to i64
   %18 = shl nuw nsw i64 %17, 3
-  %19 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %18, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 687, ptr noundef nonnull @__func__.list_sort) #9
+  %19 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %18, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 687, ptr noundef nonnull @__func__.list_sort) #8
   store ptr %19, ptr %3, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
@@ -2091,13 +2091,12 @@ _list_node_destroy.exit.thread.loopexit:          ; preds = %48, %_list_node_des
 
 .lr.ph50:                                         ; preds = %16, %_list_node_destroy.exit.thread.loopexit
   %.0.lcssa = phi i64 [ 0, %16 ], [ %51, %_list_node_destroy.exit.thread.loopexit ]
-  tail call void @qsort(ptr noundef %19, i64 noundef %.0.lcssa, i64 noundef 8, ptr noundef %1) #9
+  tail call void @qsort(ptr noundef %19, i64 noundef %.0.lcssa, i64 noundef 8, ptr noundef %1) #8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %smax = tail call i32 @llvm.smax.i32(i32 %10, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %10 to i64
   br label %56
 
 56:                                               ; preds = %.lr.ph50, %_list_node_create.exit
@@ -2110,7 +2109,7 @@ _list_node_destroy.exit.thread.loopexit:          ; preds = %48, %_list_node_des
   br i1 %.not.i41, label %61, label %.loopexit.i
 
 61:                                               ; preds = %56
-  %62 = tail call ptr @slurm_xcalloc(i64 noundef 247, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 972, ptr noundef nonnull @__func__._list_node_create) #9
+  %62 = tail call ptr @slurm_xcalloc(i64 noundef 247, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 972, ptr noundef nonnull @__func__._list_node_create) #8
   %63 = load ptr, ptr %54, align 8
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %63, ptr %64, align 8
@@ -2191,7 +2190,7 @@ _list_node_create.exit:                           ; preds = %88, %75
   br i1 %exitcond.not, label %._crit_edge, label %56, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %_list_node_create.exit
-  call void @slurm_xfree(ptr noundef nonnull %3) #9
+  call void @slurm_xfree(ptr noundef nonnull %3) #8
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.03151 = load ptr, ptr %90, align 8
   %.not3852 = icmp eq ptr %.03151, null
@@ -2213,14 +2212,14 @@ _list_node_create.exit:                           ; preds = %88, %75
   br i1 %.not38, label %._crit_edge56, label %.lr.ph55, !llvm.loop !27
 
 ._crit_edge56:                                    ; preds = %.lr.ph55, %._crit_edge
-  %98 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #9
+  %98 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #8
   %.not39 = icmp eq i32 %98, 0
   br i1 %.not39, label %101, label %99
 
 99:                                               ; preds = %._crit_edge56
-  %100 = tail call ptr @__errno_location() #10
+  %100 = tail call ptr @__errno_location() #9
   store i32 %98, ptr %100, align 4
-  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_sort) #11
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_sort) #10
   unreachable
 
 101:                                              ; preds = %._crit_edge56, %12
@@ -2231,14 +2230,14 @@ _list_node_create.exit:                           ; preds = %88, %75
 ; Function Attrs: nounwind uwtable
 define dso_local void @list_flip(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %2) #9
+  %3 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %2) #8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @__errno_location() #10
+  %5 = tail call ptr @__errno_location() #9
   store i32 %3, ptr %5, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_flip) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_flip) #10
   unreachable
 
 6:                                                ; preds = %1
@@ -2248,14 +2247,14 @@ define dso_local void @list_flip(ptr noundef %0) #0 {
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %6
-  %11 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %2) #9
+  %11 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %2) #8
   %.not35 = icmp eq i32 %11, 0
   br i1 %.not35, label %32, label %12
 
 12:                                               ; preds = %10
-  %13 = tail call ptr @__errno_location() #10
+  %13 = tail call ptr @__errno_location() #9
   store i32 %11, ptr %13, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_flip) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_flip) #10
   unreachable
 
 14:                                               ; preds = %6
@@ -2300,14 +2299,14 @@ define dso_local void @list_flip(ptr noundef %0) #0 {
   br i1 %.not33, label %._crit_edge44, label %.lr.ph43, !llvm.loop !29
 
 ._crit_edge44:                                    ; preds = %.lr.ph43, %._crit_edge
-  %29 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %2) #9
+  %29 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %2) #8
   %.not34 = icmp eq i32 %29, 0
   br i1 %.not34, label %32, label %30
 
 30:                                               ; preds = %._crit_edge44
-  %31 = tail call ptr @__errno_location() #10
+  %31 = tail call ptr @__errno_location() #9
   store i32 %29, ptr %31, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_flip) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_flip) #10
   unreachable
 
 32:                                               ; preds = %._crit_edge44, %10
@@ -2317,14 +2316,14 @@ define dso_local void @list_flip(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @list_pop(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %2) #9
+  %3 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %2) #8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @__errno_location() #10
+  %5 = tail call ptr @__errno_location() #9
   store i32 %3, ptr %5, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_pop) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_pop) #10
   unreachable
 
 6:                                                ; preds = %1
@@ -2395,14 +2394,14 @@ define dso_local ptr @list_pop(ptr noundef %0) #0 {
 
 _list_node_destroy.exit:                          ; preds = %6, %._crit_edge.i
   %.026.i = phi ptr [ %10, %._crit_edge.i ], [ null, %6 ]
-  %35 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %2) #9
+  %35 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %2) #8
   %.not9 = icmp eq i32 %35, 0
   br i1 %.not9, label %38, label %36
 
 36:                                               ; preds = %_list_node_destroy.exit
-  %37 = tail call ptr @__errno_location() #10
+  %37 = tail call ptr @__errno_location() #9
   store i32 %35, ptr %37, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_pop) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_pop) #10
   unreachable
 
 38:                                               ; preds = %_list_node_destroy.exit
@@ -2412,14 +2411,14 @@ _list_node_destroy.exit:                          ; preds = %6, %._crit_edge.i
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @list_peek(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull %2) #9
+  %3 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull %2) #8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @__errno_location() #10
+  %5 = tail call ptr @__errno_location() #9
   store i32 %3, ptr %5, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.list_peek) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.list_peek) #10
   unreachable
 
 6:                                                ; preds = %1
@@ -2434,14 +2433,14 @@ define dso_local ptr @list_peek(ptr noundef %0) #0 {
 
 11:                                               ; preds = %6, %9
   %12 = phi ptr [ %10, %9 ], [ null, %6 ]
-  %13 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %2) #9
+  %13 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %2) #8
   %.not11 = icmp eq i32 %13, 0
   br i1 %.not11, label %16, label %14
 
 14:                                               ; preds = %11
-  %15 = tail call ptr @__errno_location() #10
+  %15 = tail call ptr @__errno_location() #9
   store i32 %13, ptr %15, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_peek) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_peek) #10
   unreachable
 
 16:                                               ; preds = %11
@@ -2450,19 +2449,19 @@ define dso_local ptr @list_peek(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @list_iterator_create(ptr noundef %0) #0 {
-  %2 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 788, ptr noundef nonnull @__func__.list_iterator_create) #9
+  %2 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 788, ptr noundef nonnull @__func__.list_iterator_create) #8
   store i32 -559038721, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #9
+  %5 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call ptr @__errno_location() #10
+  %7 = tail call ptr @__errno_location() #9
   store i32 %5, ptr %7, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_iterator_create) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_iterator_create) #10
   unreachable
 
 8:                                                ; preds = %1
@@ -2477,14 +2476,14 @@ define dso_local noundef ptr @list_iterator_create(ptr noundef %0) #0 {
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %14, ptr %15, align 8
   store ptr %2, ptr %13, align 8
-  %16 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #9
+  %16 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #8
   %.not18 = icmp eq i32 %16, 0
   br i1 %.not18, label %19, label %17
 
 17:                                               ; preds = %8
-  %18 = tail call ptr @__errno_location() #10
+  %18 = tail call ptr @__errno_location() #9
   store i32 %16, ptr %18, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_iterator_create) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_iterator_create) #10
   unreachable
 
 19:                                               ; preds = %8
@@ -2496,14 +2495,14 @@ define dso_local void @list_iterator_reset(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %5 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #9
+  %5 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call ptr @__errno_location() #10
+  %7 = tail call ptr @__errno_location() #9
   store i32 %5, ptr %7, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_iterator_reset) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_iterator_reset) #10
   unreachable
 
 8:                                                ; preds = %1
@@ -2515,14 +2514,14 @@ define dso_local void @list_iterator_reset(ptr noundef captures(none) %0) #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %10, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %15 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #9
+  %15 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #8
   %.not10 = icmp eq i32 %15, 0
   br i1 %.not10, label %18, label %16
 
 16:                                               ; preds = %8
-  %17 = tail call ptr @__errno_location() #10
+  %17 = tail call ptr @__errno_location() #9
   store i32 %15, ptr %17, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_iterator_reset) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_iterator_reset) #10
   unreachable
 
 18:                                               ; preds = %8
@@ -2536,14 +2535,14 @@ define dso_local void @list_iterator_destroy(ptr noundef %0) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %6 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %5) #9
+  %6 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %5) #8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %1
-  %8 = tail call ptr @__errno_location() #10
+  %8 = tail call ptr @__errno_location() #9
   store i32 %6, ptr %8, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_iterator_destroy) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_iterator_destroy) #10
   unreachable
 
 9:                                                ; preds = %1
@@ -2584,19 +2583,19 @@ define dso_local void @list_iterator_destroy(ptr noundef %0) #0 {
 .loopexit:                                        ; preds = %.lr.ph27, %9, %.lr.ph._crit_edge
   %21 = phi ptr [ %.pre, %.lr.ph._crit_edge ], [ %10, %9 ], [ %10, %.lr.ph27 ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  %23 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %22) #9
+  %23 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %22) #8
   %.not12 = icmp eq i32 %23, 0
   br i1 %.not12, label %26, label %24
 
 24:                                               ; preds = %.loopexit
-  %25 = tail call ptr @__errno_location() #10
+  %25 = tail call ptr @__errno_location() #9
   store i32 %23, ptr %25, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_iterator_destroy) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_iterator_destroy) #10
   unreachable
 
 26:                                               ; preds = %.loopexit
   store i32 559038720, ptr %0, align 8
-  call void @slurm_xfree(ptr noundef nonnull %2) #9
+  call void @slurm_xfree(ptr noundef nonnull %2) #8
   ret void
 }
 
@@ -2605,14 +2604,14 @@ define dso_local ptr @list_next(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %5 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #9
+  %5 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call ptr @__errno_location() #10
+  %7 = tail call ptr @__errno_location() #9
   store i32 %5, ptr %7, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_next) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_next) #10
   unreachable
 
 8:                                                ; preds = %1
@@ -2650,14 +2649,14 @@ _list_next_locked.exit:                           ; preds = %20, %21
   %23 = phi ptr [ %22, %21 ], [ null, %20 ]
   %24 = load ptr, ptr %2, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %26 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %25) #9
+  %26 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %25) #8
   %.not8 = icmp eq i32 %26, 0
   br i1 %.not8, label %29, label %27
 
 27:                                               ; preds = %_list_next_locked.exit
-  %28 = tail call ptr @__errno_location() #10
+  %28 = tail call ptr @__errno_location() #9
   store i32 %26, ptr %28, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_next) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_next) #10
   unreachable
 
 29:                                               ; preds = %_list_next_locked.exit
@@ -2669,14 +2668,14 @@ define dso_local void @list_insert(ptr noundef readonly captures(none) %0, ptr n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %6 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %5) #9
+  %6 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %5) #8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call ptr @__errno_location() #10
+  %8 = tail call ptr @__errno_location() #9
   store i32 %6, ptr %8, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_insert) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_insert) #10
   unreachable
 
 9:                                                ; preds = %2
@@ -2689,7 +2688,7 @@ define dso_local void @list_insert(ptr noundef readonly captures(none) %0, ptr n
   br i1 %.not.i, label %15, label %.loopexit.i
 
 15:                                               ; preds = %9
-  %16 = tail call ptr @slurm_xcalloc(i64 noundef 247, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 972, ptr noundef nonnull @__func__._list_node_create) #9
+  %16 = tail call ptr @slurm_xcalloc(i64 noundef 247, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 972, ptr noundef nonnull @__func__._list_node_create) #8
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -2771,14 +2770,14 @@ define dso_local void @list_insert(ptr noundef readonly captures(none) %0, ptr n
 _list_node_create.exit:                           ; preds = %46, %31
   %48 = load ptr, ptr %3, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  %50 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %49) #9
+  %50 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %49) #8
   %.not9 = icmp eq i32 %50, 0
   br i1 %.not9, label %53, label %51
 
 51:                                               ; preds = %_list_node_create.exit
-  %52 = tail call ptr @__errno_location() #10
+  %52 = tail call ptr @__errno_location() #9
   store i32 %50, ptr %52, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_insert) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_insert) #10
   unreachable
 
 53:                                               ; preds = %_list_node_create.exit
@@ -2790,7 +2789,7 @@ define dso_local ptr @list_find(ptr noundef captures(none) %0, ptr noundef reado
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %7 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %6) #9
+  %7 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %6) #8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %.preheader, label %10
 
@@ -2800,9 +2799,9 @@ define dso_local ptr @list_find(ptr noundef captures(none) %0, ptr noundef reado
   br label %12
 
 10:                                               ; preds = %3
-  %11 = tail call ptr @__errno_location() #10
+  %11 = tail call ptr @__errno_location() #9
   store i32 %7, ptr %11, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_find) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_find) #10
   unreachable
 
 12:                                               ; preds = %.preheader, %24
@@ -2836,7 +2835,7 @@ _list_next_locked.exit:                           ; preds = %22
   br i1 %.not12, label %.critedge, label %24
 
 24:                                               ; preds = %_list_next_locked.exit
-  %25 = tail call i32 %1(ptr noundef nonnull %23, ptr noundef %2) #9
+  %25 = tail call i32 %1(ptr noundef nonnull %23, ptr noundef %2) #8
   %.not13 = icmp eq i32 %25, 0
   br i1 %.not13, label %12, label %.critedge, !llvm.loop !31
 
@@ -2844,14 +2843,14 @@ _list_next_locked.exit:                           ; preds = %22
   %26 = phi ptr [ null, %_list_next_locked.exit ], [ %23, %24 ], [ null, %22 ]
   %27 = load ptr, ptr %4, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
-  %29 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %28) #9
+  %29 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %28) #8
   %.not14 = icmp eq i32 %29, 0
   br i1 %.not14, label %32, label %30
 
 30:                                               ; preds = %.critedge
-  %31 = tail call ptr @__errno_location() #10
+  %31 = tail call ptr @__errno_location() #9
   store i32 %29, ptr %31, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_find) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_find) #10
   unreachable
 
 32:                                               ; preds = %.critedge
@@ -2863,14 +2862,14 @@ define dso_local ptr @list_remove(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %5 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #9
+  %5 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call ptr @__errno_location() #10
+  %7 = tail call ptr @__errno_location() #9
   store i32 %5, ptr %7, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_remove) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_remove) #10
   unreachable
 
 8:                                                ; preds = %1
@@ -2950,14 +2949,14 @@ _list_node_destroy.exit:                          ; preds = %._crit_edge.i, %8
   %40 = phi ptr [ %.pre14, %8 ], [ %.pre, %._crit_edge.i ]
   %.0 = phi ptr [ null, %8 ], [ %15, %._crit_edge.i ]
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  %42 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %41) #9
+  %42 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %41) #8
   %.not13 = icmp eq i32 %42, 0
   br i1 %.not13, label %45, label %43
 
 43:                                               ; preds = %_list_node_destroy.exit
-  %44 = tail call ptr @__errno_location() #10
+  %44 = tail call ptr @__errno_location() #9
   store i32 %42, ptr %44, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_remove) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_remove) #10
   unreachable
 
 45:                                               ; preds = %_list_node_destroy.exit
@@ -2967,7 +2966,7 @@ _list_node_destroy.exit:                          ; preds = %._crit_edge.i, %8
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @list_remove_first(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #9
+  %5 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.preheader, label %7
 
@@ -2978,16 +2977,16 @@ define dso_local ptr @list_remove_first(ptr noundef %0, ptr noundef readonly cap
   br i1 %.not1823, label %_list_node_destroy.exit, label %.lr.ph
 
 7:                                                ; preds = %3
-  %8 = tail call ptr @__errno_location() #10
+  %8 = tail call ptr @__errno_location() #9
   store i32 %5, ptr %8, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_remove_first) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_remove_first) #10
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader, %40
   %9 = phi ptr [ %41, %40 ], [ %6, %.preheader ]
   %.024 = phi ptr [ %.0, %40 ], [ %.022, %.preheader ]
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %1(ptr noundef %10, ptr noundef %2) #9
+  %11 = tail call i32 %1(ptr noundef %10, ptr noundef %2) #8
   %.not19 = icmp eq i32 %11, 0
   %12 = load ptr, ptr %.024, align 8
   br i1 %.not19, label %40, label %13
@@ -3064,14 +3063,14 @@ define dso_local ptr @list_remove_first(ptr noundef %0, ptr noundef readonly cap
 
 _list_node_destroy.exit:                          ; preds = %40, %.preheader, %._crit_edge.i, %13
   %.014 = phi ptr [ null, %13 ], [ %15, %._crit_edge.i ], [ null, %.preheader ], [ null, %40 ]
-  %42 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #9
+  %42 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #8
   %.not20 = icmp eq i32 %42, 0
   br i1 %.not20, label %45, label %43
 
 43:                                               ; preds = %_list_node_destroy.exit
-  %44 = tail call ptr @__errno_location() #10
+  %44 = tail call ptr @__errno_location() #9
   store i32 %42, ptr %44, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_remove_first) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_remove_first) #10
   unreachable
 
 45:                                               ; preds = %_list_node_destroy.exit
@@ -3093,7 +3092,7 @@ define dso_local range(i32 0, 2) i32 @list_delete_item(ptr noundef readonly capt
   br i1 %.not6, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void %7(ptr noundef nonnull %2) #9
+  tail call void %7(ptr noundef nonnull %2) #8
   br label %9
 
 9:                                                ; preds = %1, %3, %8
@@ -3129,26 +3128,26 @@ declare i32 @pthread_rwlock_rdlock(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @list_transfer_match(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %5) #9
+  %6 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %5) #8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @__errno_location() #10
+  %8 = tail call ptr @__errno_location() #9
   store i32 %6, ptr %8, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_transfer_match) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_transfer_match) #10
   unreachable
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %11 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %10) #9
+  %11 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %10) #8
   %.not34 = icmp eq i32 %11, 0
   br i1 %.not34, label %14, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call ptr @__errno_location() #10
+  %13 = tail call ptr @__errno_location() #9
   store i32 %11, ptr %13, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_transfer_match) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.list_transfer_match) #10
   unreachable
 
 14:                                               ; preds = %9
@@ -3174,7 +3173,7 @@ define dso_local i32 @list_transfer_match(ptr noundef %0, ptr noundef %1, ptr no
   %.064 = phi ptr [ %15, %.lr.ph ], [ %.1, %_list_node_create.exit ]
   %.02463 = phi i32 [ 0, %.lr.ph ], [ %.2, %_list_node_create.exit ]
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call i32 %2(ptr noundef %28, ptr noundef %3) #9
+  %29 = tail call i32 %2(ptr noundef %28, ptr noundef %3) #8
   %.not38 = icmp eq i32 %29, 0
   %30 = load ptr, ptr %.064, align 8
   br i1 %.not38, label %117, label %31
@@ -3247,7 +3246,7 @@ _list_node_destroy.exit:                          ; preds = %51, %37
   br i1 %.not.i40, label %56, label %.loopexit.i
 
 56:                                               ; preds = %.split
-  %57 = tail call ptr @slurm_xcalloc(i64 noundef 247, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 972, ptr noundef nonnull @__func__._list_node_create) #9
+  %57 = tail call ptr @slurm_xcalloc(i64 noundef 247, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 972, ptr noundef nonnull @__func__._list_node_create) #8
   %58 = load ptr, ptr %23, align 8
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %58, ptr %59, align 8
@@ -3330,7 +3329,7 @@ _list_node_destroy.exit:                          ; preds = %51, %37
   br i1 %.not.i43, label %88, label %.loopexit.i44
 
 88:                                               ; preds = %.split27
-  %89 = tail call ptr @slurm_xcalloc(i64 noundef 247, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 972, ptr noundef nonnull @__func__._list_node_create) #9
+  %89 = tail call ptr @slurm_xcalloc(i64 noundef 247, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 972, ptr noundef nonnull @__func__._list_node_create) #8
   %90 = load ptr, ptr %23, align 8
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store ptr %90, ptr %91, align 8
@@ -3418,25 +3417,25 @@ _list_node_create.exit:                           ; preds = %115, %83, %102, %70
 
 ._crit_edge:                                      ; preds = %_list_node_create.exit, %14
   %.024.lcssa = phi i32 [ 0, %14 ], [ %.2, %_list_node_create.exit ]
-  %120 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #9
+  %120 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #8
   %.not36 = icmp eq i32 %120, 0
   br i1 %.not36, label %123, label %121
 
 121:                                              ; preds = %._crit_edge
-  %122 = tail call ptr @__errno_location() #10
+  %122 = tail call ptr @__errno_location() #9
   store i32 %120, ptr %122, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_transfer_match) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_transfer_match) #10
   unreachable
 
 123:                                              ; preds = %._crit_edge
-  %124 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %5) #9
+  %124 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %5) #8
   %.not37 = icmp eq i32 %124, 0
   br i1 %.not37, label %127, label %125
 
 125:                                              ; preds = %123
-  %126 = tail call ptr @__errno_location() #10
+  %126 = tail call ptr @__errno_location() #9
   store i32 %124, ptr %126, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_transfer_match) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_transfer_match) #10
   unreachable
 
 127:                                              ; preds = %123
@@ -3461,14 +3460,14 @@ define dso_local ptr @list_peek_next(ptr noundef readonly captures(none) %0) loc
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %5 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull %4) #9
+  %5 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call ptr @__errno_location() #10
+  %7 = tail call ptr @__errno_location() #9
   store i32 %5, ptr %7, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.list_peek_next) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.list_peek_next) #10
   unreachable
 
 8:                                                ; preds = %1
@@ -3476,14 +3475,14 @@ define dso_local ptr @list_peek_next(ptr noundef readonly captures(none) %0) loc
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %2, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %13 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %12) #9
+  %13 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %12) #8
   %.not10 = icmp eq i32 %13, 0
   br i1 %.not10, label %16, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @__errno_location() #10
+  %15 = tail call ptr @__errno_location() #9
   store i32 %13, ptr %15, align 4
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_peek_next) #11
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.list_peek_next) #10
   unreachable
 
 16:                                               ; preds = %8
@@ -3508,9 +3507,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
-
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3519,10 +3515,9 @@ attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #5 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(none) }
-attributes #11 = { noreturn nounwind }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(none) }
+attributes #10 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 

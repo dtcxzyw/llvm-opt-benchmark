@@ -1173,10 +1173,10 @@ _ZN6icu_779HashtableC2EaR10UErrorCode.exit.i:     ; preds = %161
 
 _ZN6icu_779HashtableC2EaR10UErrorCode.exit26.i:   ; preds = %171
   %.pr30.pre.i = load i32, ptr %3, align 4, !tbaa !13
-  %173 = getelementptr inbounds nuw i8, ptr %56, i64 184
-  store ptr null, ptr %173, align 8, !tbaa !100
-  %174 = icmp slt i32 %.pr30.pre.i, 1
-  br i1 %174, label %175, label %183
+  %173 = icmp slt i32 %.pr30.pre.i, 1
+  %174 = getelementptr inbounds nuw i8, ptr %56, i64 184
+  store ptr null, ptr %174, align 8, !tbaa !100
+  br i1 %173, label %175, label %183
 
 175:                                              ; preds = %_ZN6icu_779HashtableC2EaR10UErrorCode.exit26.i
   %176 = getelementptr inbounds nuw i8, ptr %56, i64 192
@@ -1189,7 +1189,7 @@ _ZN6icu_779HashtableC2EaR10UErrorCode.exit26.i:   ; preds = %171
   br i1 %179, label %183, label %180
 
 180:                                              ; preds = %.noexc27.i
-  store ptr %176, ptr %173, align 8, !tbaa !100
+  store ptr %176, ptr %174, align 8, !tbaa !100
   %181 = invoke ptr @uhash_setKeyDeleter_77(ptr noundef nonnull %176, ptr noundef nonnull @uprv_deleteUObject_77)
           to label %183 unwind label %196
 
@@ -1200,7 +1200,7 @@ _ZN6icu_779HashtableC2EaR10UErrorCode.exit26.i:   ; preds = %171
   br label %183
 
 183:                                              ; preds = %.sink.split.i, %180, %.noexc27.i, %_ZN6icu_779HashtableC2EaR10UErrorCode.exit26.i
-  %184 = phi ptr [ %173, %180 ], [ %173, %_ZN6icu_779HashtableC2EaR10UErrorCode.exit26.i ], [ %173, %.noexc27.i ], [ %182, %.sink.split.i ]
+  %184 = phi ptr [ %174, %180 ], [ %174, %_ZN6icu_779HashtableC2EaR10UErrorCode.exit26.i ], [ %174, %.noexc27.i ], [ %182, %.sink.split.i ]
   %185 = phi ptr [ %164, %180 ], [ %164, %_ZN6icu_779HashtableC2EaR10UErrorCode.exit26.i ], [ %164, %.noexc27.i ], [ %.ph38.i, %.sink.split.i ]
   %186 = getelementptr inbounds nuw i8, ptr %56, i64 272
   store i32 0, ptr %186, align 8, !tbaa !106
@@ -10224,7 +10224,7 @@ define void @_ZN6icu_7717DateFormatSymbols17createZoneStringsEPKPKNS_13UnicodeSt
 
 12:                                               ; preds = %.lr.ph28, %._crit_edge
   %13 = phi i32 [ %.pre, %.lr.ph28 ], [ %45, %._crit_edge ]
-  %indvars.iv35 = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next36, %._crit_edge ]
+  %indvars.iv33 = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next34, %._crit_edge ]
   %14 = tail call i32 @llvm.umax.i32(i32 %13, i32 1)
   %15 = sext i32 %14 to i64
   %16 = icmp slt i32 %13, 0
@@ -10233,7 +10233,7 @@ define void @_ZN6icu_7717DateFormatSymbols17createZoneStringsEPKPKNS_13UnicodeSt
   %19 = select i1 %16, i64 -1, i64 %18
   %20 = tail call noundef ptr @_ZN6icu_777UMemorynaEm(i64 noundef %19) #19
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %.lr.ph30.preheader, label %22
+  br i1 %21, label %.preheader22.preheader, label %22
 
 22:                                               ; preds = %12
   store i64 %15, ptr %20, align 8
@@ -10250,32 +10250,32 @@ define void @_ZN6icu_7717DateFormatSymbols17createZoneStringsEPKPKNS_13UnicodeSt
   %26 = icmp eq i64 %25, %17
   br i1 %26, label %.preheader23, label %23
 
+.preheader22.preheader:                           ; preds = %12
+  %27 = load ptr, ptr %8, align 8, !tbaa !147
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv33
+  store ptr null, ptr %28, align 8, !tbaa !127
+  br label %.preheader22
+
 .preheader23:                                     ; preds = %23
   %.ptr11.i = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %27 = load ptr, ptr %8, align 8, !tbaa !147
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv35
-  store ptr %.ptr11.i, ptr %28, align 8, !tbaa !127
-  %29 = load i32, ptr %11, align 4, !tbaa !148
-  %30 = icmp sgt i32 %29, 0
-  br i1 %30, label %.lr.ph, label %._crit_edge
+  %29 = load ptr, ptr %8, align 8, !tbaa !147
+  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv33
+  store ptr %.ptr11.i, ptr %30, align 8, !tbaa !127
+  %31 = load i32, ptr %11, align 4, !tbaa !148
+  %32 = icmp sgt i32 %31, 0
+  br i1 %32, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader23
-  %31 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv35
+  %33 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv33
   br label %34
-
-.lr.ph30.preheader:                               ; preds = %12
-  %32 = load ptr, ptr %8, align 8, !tbaa !147
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv35
-  store ptr null, ptr %33, align 8, !tbaa !127
-  br label %.lr.ph30
 
 34:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %35 = load ptr, ptr %8, align 8, !tbaa !147
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv35
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv33
   %37 = load ptr, ptr %36, align 8, !tbaa !127
   %38 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %37, i64 %indvars.iv
-  %39 = load ptr, ptr %31, align 8, !tbaa !127
+  %39 = load ptr, ptr %33, align 8, !tbaa !127
   %40 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %39, i64 %indvars.iv
   %41 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %38, ptr noundef nonnull align 8 dereferenceable(64) %40)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -10285,55 +10285,55 @@ define void @_ZN6icu_7717DateFormatSymbols17createZoneStringsEPKPKNS_13UnicodeSt
   br i1 %44, label %34, label %._crit_edge, !llvm.loop !151
 
 ._crit_edge:                                      ; preds = %34, %.preheader23
-  %45 = phi i32 [ %29, %.preheader23 ], [ %42, %34 ]
-  %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
+  %45 = phi i32 [ %31, %.preheader23 ], [ %42, %34 ]
+  %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %46 = load i32, ptr %3, align 8, !tbaa !149
   %47 = sext i32 %46 to i64
-  %48 = icmp slt i64 %indvars.iv.next36, %47
+  %48 = icmp slt i64 %indvars.iv.next34, %47
   br i1 %48, label %12, label %.critedge, !llvm.loop !152
 
-._crit_edge31:                                    ; preds = %61
-  %.pre42 = load ptr, ptr %8, align 8, !tbaa !147
-  tail call void @uprv_free_77(ptr noundef %.pre42)
+49:                                               ; preds = %63
+  %50 = load ptr, ptr %8, align 8, !tbaa !147
+  tail call void @uprv_free_77(ptr noundef %50)
   store ptr null, ptr %8, align 8, !tbaa !147
   br label %.critedge
 
-.lr.ph30:                                         ; preds = %.lr.ph30.preheader, %61
-  %indvars.iv39 = phi i64 [ %indvars.iv35, %.lr.ph30.preheader ], [ %indvars.iv.next40, %61 ]
-  %49 = load ptr, ptr %8, align 8, !tbaa !147
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv39
-  %51 = load ptr, ptr %50, align 8, !tbaa !127
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %61, label %53
+.preheader22:                                     ; preds = %.preheader22.preheader, %63
+  %indvars.iv37 = phi i64 [ %indvars.iv33, %.preheader22.preheader ], [ %indvars.iv.next38, %63 ]
+  %51 = load ptr, ptr %8, align 8, !tbaa !147
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv37
+  %53 = load ptr, ptr %52, align 8, !tbaa !127
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %63, label %55
 
-53:                                               ; preds = %.lr.ph30
-  %54 = getelementptr inbounds i8, ptr %51, i64 -8
-  %55 = load i64, ptr %54, align 8
-  %56 = icmp eq i64 %55, 0
-  br i1 %56, label %.loopexit, label %.preheader.preheader
+55:                                               ; preds = %.preheader22
+  %56 = getelementptr inbounds i8, ptr %53, i64 -8
+  %57 = load i64, ptr %56, align 8
+  %58 = icmp eq i64 %57, 0
+  br i1 %58, label %.loopexit, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %53
-  %.idx = shl nsw i64 %55, 6
-  %57 = getelementptr inbounds i8, ptr %51, i64 %.idx
+.preheader.preheader:                             ; preds = %55
+  %.idx = shl nsw i64 %57, 6
+  %59 = getelementptr inbounds i8, ptr %53, i64 %.idx
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %58 = phi ptr [ %59, %.preheader ], [ %57, %.preheader.preheader ]
-  %59 = getelementptr inbounds i8, ptr %58, i64 -64
-  tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %59) #19
-  %60 = icmp eq ptr %59, %51
-  br i1 %60, label %.loopexit, label %.preheader
+  %60 = phi ptr [ %61, %.preheader ], [ %59, %.preheader.preheader ]
+  %61 = getelementptr inbounds i8, ptr %60, i64 -64
+  tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %61) #19
+  %62 = icmp eq ptr %61, %53
+  br i1 %62, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %.preheader, %53
-  tail call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %54) #19
-  br label %61
+.loopexit:                                        ; preds = %.preheader, %55
+  tail call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %56) #19
+  br label %63
 
-61:                                               ; preds = %.lr.ph30, %.loopexit
-  %indvars.iv.next40 = add nsw i64 %indvars.iv39, -1
-  %62 = icmp sgt i64 %indvars.iv39, 0
-  br i1 %62, label %.lr.ph30, label %._crit_edge31, !llvm.loop !153
+63:                                               ; preds = %.preheader22, %.loopexit
+  %indvars.iv.next38 = add nsw i64 %indvars.iv37, -1
+  %64 = icmp sgt i64 %indvars.iv37, 0
+  br i1 %64, label %.preheader22, label %49, !llvm.loop !153
 
-.critedge:                                        ; preds = %._crit_edge, %2, %._crit_edge31
+.critedge:                                        ; preds = %._crit_edge, %2, %49
   ret void
 }
 

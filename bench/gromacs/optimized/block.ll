@@ -152,7 +152,7 @@ define void @_Z8pr_blockP8_IO_FILEiPKcPK7t_blockb(ptr noundef %0, i32 noundef %1
   %10 = tail call noundef i32 @_Z8pr_titleP8_IO_FILEiPKc(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   %11 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %10)
   %12 = load i32, ptr %3, align 8, !tbaa !4
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %12) #6
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %12) #5
   br label %_ZL14pr_block_titleP8_IO_FILEiPKcPK7t_block.exit
 
 _ZL14pr_block_titleP8_IO_FILEiPKcPK7t_block.exit: ; preds = %7, %9
@@ -184,13 +184,13 @@ _ZL14pr_block_titleP8_IO_FILEiPKcPK7t_block.exit: ; preds = %7, %9
 
 23:                                               ; preds = %.lr.ph.split.us
   %24 = trunc nuw nsw i64 %indvars.iv39 to i32
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef %2, i32 noundef %24) #6
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef %2, i32 noundef %24) #5
   br label %30
 
 26:                                               ; preds = %.lr.ph.split.us
   %27 = add nsw i32 %21, -1
   %28 = trunc nuw nsw i64 %indvars.iv39 to i32
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef %2, i32 noundef %28, i32 noundef %.03235.us, i32 noundef %27) #6
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef %2, i32 noundef %28, i32 noundef %.03235.us, i32 noundef %27) #5
   br label %30
 
 30:                                               ; preds = %26, %23
@@ -200,7 +200,7 @@ _ZL14pr_block_titleP8_IO_FILEiPKcPK7t_block.exit: ; preds = %7, %9
   br i1 %33, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !24
 
 34:                                               ; preds = %_ZL14pr_block_titleP8_IO_FILEiPKcPK7t_block.exit
-  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef 0) #6
+  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef 0) #5
   br label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %45
@@ -216,11 +216,11 @@ _ZL14pr_block_titleP8_IO_FILEiPKcPK7t_block.exit: ; preds = %7, %9
 
 40:                                               ; preds = %.lr.ph.split
   %41 = trunc nuw nsw i64 %indvars.iv to i32
-  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef %2, i32 noundef %41) #6
+  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef %2, i32 noundef %41) #5
   br label %45
 
 43:                                               ; preds = %.lr.ph.split
-  %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef %2, i32 noundef -1, i32 noundef -1, i32 noundef -1) #6
+  %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef %2, i32 noundef -1, i32 noundef -1, i32 noundef -1) #5
   br label %45
 
 45:                                               ; preds = %43, %40
@@ -251,13 +251,12 @@ define void @_Z9pr_blockaP8_IO_FILEiPKcN3gmx8ArrayRefIK10IndexGroupEEb(ptr nound
   %11 = trunc i64 %10 to i32
   %12 = tail call noundef i32 @_Z8pr_titleP8_IO_FILEiPKc(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   %13 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %12)
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %11) #6
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %11) #5
   %15 = icmp sgt i64 %9, 0
   br i1 %15, label %.lr.ph46, label %._crit_edge47
 
 .lr.ph46:                                         ; preds = %6
   %16 = add nsw i32 %12, 3
-  %smax = tail call i64 @llvm.smax.i64(i64 %10, i64 1)
   br label %17
 
 ._crit_edge47:                                    ; preds = %._crit_edge, %6
@@ -275,7 +274,7 @@ define void @_Z9pr_blockaP8_IO_FILEiPKcN3gmx8ArrayRefIK10IndexGroupEEb(ptr nound
   %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = or i1 %24, %5
   %.sink = select i1 %26, i32 %25, i32 -1
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %2, i32 noundef %.sink) #6
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %2, i32 noundef %.sink) #5
   %28 = load ptr, ptr %19, align 8, !tbaa !12
   %29 = load ptr, ptr %22, align 8, !tbaa !12
   %.not40 = icmp eq ptr %28, %29
@@ -288,7 +287,7 @@ define void @_Z9pr_blockaP8_IO_FILEiPKcN3gmx8ArrayRefIK10IndexGroupEEb(ptr nound
 ._crit_edge:                                      ; preds = %39, %17
   %30 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 2, i64 1, ptr %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %smax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %10
   br i1 %exitcond.not, label %._crit_edge47, label %17, !llvm.loop !25
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %39
@@ -299,7 +298,7 @@ define void @_Z9pr_blockaP8_IO_FILEiPKcN3gmx8ArrayRefIK10IndexGroupEEb(ptr nound
   br i1 %.03143, label %35, label %32
 
 32:                                               ; preds = %.lr.ph
-  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9) #6
+  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9) #5
   %34 = add nsw i32 %33, %.142
   br label %35
 
@@ -315,7 +314,7 @@ define void @_Z9pr_blockaP8_IO_FILEiPKcN3gmx8ArrayRefIK10IndexGroupEEb(ptr nound
 
 39:                                               ; preds = %37, %35
   %.3 = phi i32 [ %38, %37 ], [ %.2, %35 ]
-  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %31) #6
+  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %31) #5
   %41 = add nsw i32 %40, %.3
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.035.041, i64 4
   %.not = icmp eq ptr %42, %29
@@ -342,12 +341,12 @@ define void @_Z14pr_listoflistsP8_IO_FILEiPKcPKN3gmx11ListOfListsIiEEb(ptr nound
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 2
   %19 = add nsw i64 %18, -1
-  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.14, i64 noundef %19) #6
+  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.14, i64 noundef %19) #5
   %21 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %10)
   %22 = load ptr, ptr %12, align 8, !tbaa !12
   %23 = getelementptr inbounds i8, ptr %22, i64 -4
   %24 = load i32, ptr %23, align 4, !tbaa !13
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.15, i32 noundef %24) #6
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.15, i32 noundef %24) #5
   br label %_ZL20pr_listoflists_titleP8_IO_FILEiPKcPKN3gmx11ListOfListsIiEE.exit
 
 _ZL20pr_listoflists_titleP8_IO_FILEiPKcPKN3gmx11ListOfListsIiEE.exit: ; preds = %7, %9
@@ -386,14 +385,14 @@ _ZL20pr_listoflists_titleP8_IO_FILEiPKcPKN3gmx11ListOfListsIiEE.exit: ; preds = 
   br i1 %47, label %49, label %51
 
 49:                                               ; preds = %35
-  %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %2, i32 noundef %48) #6
+  %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %2, i32 noundef %48) #5
   br label %55
 
 51:                                               ; preds = %35
   %52 = select i1 %4, i32 %48, i32 -1
   %gepdiff = sub nsw i64 %.idx, %.idx45
   %53 = ashr exact i64 %gepdiff, 2
-  %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %2, i32 noundef %52, i64 noundef %53) #6
+  %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %2, i32 noundef %52, i64 noundef %53) #5
   br label %55
 
 55:                                               ; preds = %51, %49
@@ -426,7 +425,7 @@ _ZL20pr_listoflists_titleP8_IO_FILEiPKcPKN3gmx11ListOfListsIiEE.exit: ; preds = 
   br i1 %.03948, label %70, label %67
 
 67:                                               ; preds = %.lr.ph
-  %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9) #6
+  %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9) #5
   %69 = add nsw i32 %68, %.149
   br label %70
 
@@ -442,7 +441,7 @@ _ZL20pr_listoflists_titleP8_IO_FILEiPKcPKN3gmx11ListOfListsIiEE.exit: ; preds = 
 
 74:                                               ; preds = %72, %70
   %.3 = phi i32 [ %73, %72 ], [ %.2, %70 ]
-  %75 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %66) #6
+  %75 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %66) #5
   %76 = add nsw i32 %75, %.3
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.0.047, i64 4
   %.not = icmp eq ptr %77, %46
@@ -461,16 +460,12 @@ declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unname
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #5
-
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

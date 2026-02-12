@@ -899,8 +899,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %69, %
 .lr.ph89:                                         ; preds = %110
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %99 = zext nneg i32 %47 to i64
-  %smax94 = call i32 @llvm.smax.i32(i32 %53, i32 1)
-  %wide.trip.count95 = zext nneg i32 %smax94 to i64
+  %wide.trip.count95 = zext nneg i32 %53 to i64
   %invariant.gep = getelementptr inbounds nuw %"class.cv::Mat", ptr %96, i64 %99
   br label %118
 
@@ -1410,8 +1409,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %77, %
 .lr.ph87:                                         ; preds = %118
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %107 = zext nneg i32 %48 to i64
-  %smax92 = call i32 @llvm.smax.i32(i32 %54, i32 1)
-  %wide.trip.count93 = zext nneg i32 %smax92 to i64
+  %wide.trip.count93 = zext nneg i32 %54 to i64
   %invariant.gep = getelementptr inbounds nuw %"class.cv::Mat", ptr %104, i64 %107
   br label %126
 
@@ -2806,9 +2804,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #11
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

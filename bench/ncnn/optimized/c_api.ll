@@ -171,8 +171,8 @@ define hidden noundef nonnull ptr @ncnn_version() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @ncnn_allocator_create_pool_allocator() local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %1 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #25
-  %2 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
+  %1 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #24
+  %2 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
   invoke void @_ZN4ncnn13PoolAllocatorC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %3 unwind label %7
 
@@ -190,7 +190,7 @@ define hidden noundef ptr @ncnn_allocator_create_pool_allocator() local_unnamed_
 7:                                                ; preds = %0
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 24) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 24) #26
   resume { ptr, i32 } %8
 }
 
@@ -226,8 +226,8 @@ declare void @_ZN4ncnn13PoolAllocatorD2Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19PoolAllocator_c_apiD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN4ncnn13PoolAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #28
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #27
+  tail call void @_ZN4ncnn13PoolAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #26
   ret void
 }
 
@@ -257,8 +257,8 @@ declare void @_ZN4ncnn13PoolAllocator8fastFreeEPv(ptr noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @ncnn_allocator_create_unlocked_pool_allocator() local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %1 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #25
-  %2 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
+  %1 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #24
+  %2 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
   invoke void @_ZN4ncnn21UnlockedPoolAllocatorC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %3 unwind label %7
 
@@ -276,7 +276,7 @@ define hidden noundef ptr @ncnn_allocator_create_unlocked_pool_allocator() local
 7:                                                ; preds = %0
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 24) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 24) #26
   resume { ptr, i32 } %8
 }
 
@@ -301,8 +301,8 @@ declare void @_ZN4ncnn21UnlockedPoolAllocatorD2Ev(ptr noundef nonnull align 8 de
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27UnlockedPoolAllocator_c_apiD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN4ncnn21UnlockedPoolAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #28
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #27
+  tail call void @_ZN4ncnn21UnlockedPoolAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #26
   ret void
 }
 
@@ -344,11 +344,11 @@ define hidden void @ncnn_allocator_destroy(ptr noundef captures(address_is_null)
   %6 = load ptr, ptr %3, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %3) #28
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %3) #27
   br label %9
 
 9:                                                ; preds = %5, %2
-  tail call void @free(ptr noundef nonnull %0) #28
+  tail call void @free(ptr noundef nonnull %0) #27
   br label %10
 
 10:                                               ; preds = %9, %1
@@ -360,7 +360,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @ncnn_option_create() local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %1 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #26
+  %1 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
   invoke void @_ZN4ncnn6OptionC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
           to label %2 unwind label %3
 
@@ -370,7 +370,7 @@ define hidden noundef nonnull ptr @ncnn_option_create() local_unnamed_addr #1 pe
 3:                                                ; preds = %0
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 64) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 64) #26
   resume { ptr, i32 } %4
 }
 
@@ -382,7 +382,7 @@ define hidden void @ncnn_option_destroy(ptr noundef %0) local_unnamed_addr #8 {
   br i1 %2, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #26
   br label %4
 
 4:                                                ; preds = %3, %1
@@ -464,7 +464,7 @@ define hidden void @ncnn_option_set_use_vulkan_compute(ptr noundef readnone capt
 
 ; Function Attrs: mustprogress uwtable
 define hidden noalias noundef nonnull ptr @ncnn_mat_create() local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %1 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %1 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i64 0, ptr %3, align 8, !tbaa !33
@@ -475,7 +475,7 @@ define hidden noalias noundef nonnull ptr @ncnn_mat_create() local_unnamed_addr 
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @ncnn_mat_create_1d(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %3 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %3 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %4
 
@@ -499,7 +499,7 @@ _ZN4ncnn3MatC2EimPNS_9AllocatorE.exit:            ; preds = %6
 10:                                               ; preds = %6
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #26
   resume { ptr, i32 } %11
 }
 
@@ -507,7 +507,7 @@ declare void @_ZN4ncnn3Mat6createEimPNS_9AllocatorE(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @ncnn_mat_create_2d(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %4 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %4 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %5
 
@@ -531,7 +531,7 @@ _ZN4ncnn3MatC2EiimPNS_9AllocatorE.exit:           ; preds = %7
 11:                                               ; preds = %7
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 72) #26
   resume { ptr, i32 } %12
 }
 
@@ -539,7 +539,7 @@ declare void @_ZN4ncnn3Mat6createEiimPNS_9AllocatorE(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @ncnn_mat_create_3d(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %5 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %5 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %6
 
@@ -563,7 +563,7 @@ _ZN4ncnn3MatC2EiiimPNS_9AllocatorE.exit:          ; preds = %8
 12:                                               ; preds = %8
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 72) #26
   resume { ptr, i32 } %13
 }
 
@@ -571,7 +571,7 @@ declare void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @ncnn_mat_create_4d(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %7
 
@@ -595,7 +595,7 @@ _ZN4ncnn3MatC2EiiiimPNS_9AllocatorE.exit:         ; preds = %9
 13:                                               ; preds = %9
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 72) #26
   resume { ptr, i32 } %14
 }
 
@@ -603,7 +603,7 @@ declare void @_ZN4ncnn3Mat6createEiiiimPNS_9AllocatorE(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress uwtable
 define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_1d(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %4 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %4 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %5
 
@@ -640,7 +640,7 @@ define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_1d(i32 nound
 
 ; Function Attrs: mustprogress uwtable
 define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_2d(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %5 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %5 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %6
 
@@ -679,7 +679,7 @@ define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_2d(i32 nound
 
 ; Function Attrs: mustprogress uwtable
 define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_3d(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %7
 
@@ -720,7 +720,7 @@ define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_3d(i32 nound
 
 ; Function Attrs: mustprogress uwtable
 define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_4d(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %7 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %7 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %10, label %8
 
@@ -763,7 +763,7 @@ define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_4d(i32 nound
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @ncnn_mat_create_1d_elem(i32 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %5 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %5 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %6
 
@@ -787,7 +787,7 @@ _ZN4ncnn3MatC2EimiPNS_9AllocatorE.exit:           ; preds = %8
 12:                                               ; preds = %8
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 72) #26
   resume { ptr, i32 } %13
 }
 
@@ -795,7 +795,7 @@ declare void @_ZN4ncnn3Mat6createEimiPNS_9AllocatorE(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @ncnn_mat_create_2d_elem(i32 noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %7
 
@@ -819,7 +819,7 @@ _ZN4ncnn3MatC2EiimiPNS_9AllocatorE.exit:          ; preds = %9
 13:                                               ; preds = %9
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 72) #26
   resume { ptr, i32 } %14
 }
 
@@ -827,7 +827,7 @@ declare void @_ZN4ncnn3Mat6createEiimiPNS_9AllocatorE(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @ncnn_mat_create_3d_elem(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %7 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %7 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %10, label %8
 
@@ -851,7 +851,7 @@ _ZN4ncnn3MatC2EiiimiPNS_9AllocatorE.exit:         ; preds = %10
 14:                                               ; preds = %10
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 72) #26
   resume { ptr, i32 } %15
 }
 
@@ -859,7 +859,7 @@ declare void @_ZN4ncnn3Mat6createEiiimiPNS_9AllocatorE(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @ncnn_mat_create_4d_elem(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %8 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %8 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %11, label %9
 
@@ -883,7 +883,7 @@ _ZN4ncnn3MatC2EiiiimiPNS_9AllocatorE.exit:        ; preds = %11
 15:                                               ; preds = %11
   %16 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef 72) #26
   resume { ptr, i32 } %16
 }
 
@@ -891,7 +891,7 @@ declare void @_ZN4ncnn3Mat6createEiiiimiPNS_9AllocatorE(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress uwtable
 define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_1d_elem(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %7
 
@@ -928,7 +928,7 @@ define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_1d_elem(i32 
 
 ; Function Attrs: mustprogress uwtable
 define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_2d_elem(i32 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %7 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %7 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %10, label %8
 
@@ -967,7 +967,7 @@ define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_2d_elem(i32 
 
 ; Function Attrs: mustprogress uwtable
 define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_3d_elem(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %8 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %8 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %11, label %9
 
@@ -1010,7 +1010,7 @@ define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_3d_elem(i32 
 
 ; Function Attrs: mustprogress uwtable
 define hidden noalias noundef nonnull ptr @ncnn_mat_create_external_4d_elem(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %9 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %9 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %12, label %10
 
@@ -1088,18 +1088,18 @@ define hidden void @ncnn_mat_destroy(ptr noundef %0) local_unnamed_addr #8 perso
   br i1 %.not.i1, label %_ZN4ncnn3MatD2Ev.exit, label %18
 
 18:                                               ; preds = %17
-  tail call void @free(ptr noundef nonnull %12) #28
+  tail call void @free(ptr noundef nonnull %12) #27
   br label %_ZN4ncnn3MatD2Ev.exit
 
 19:                                               ; preds = %13
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #29
+  tail call void @__clang_call_terminate(ptr %21) #28
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit:                            ; preds = %6, %3, %13, %17, %18
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #26
   br label %22
 
 22:                                               ; preds = %_ZN4ncnn3MatD2Ev.exit, %1
@@ -1108,8 +1108,8 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %6, %3, %13, %17, %1
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #13 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #28
-  tail call void @_ZSt9terminatev() #29
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #27
+  tail call void @_ZSt9terminatev() #28
   unreachable
 }
 
@@ -1148,7 +1148,7 @@ _ZN4ncnn3Mat4fillEf.exit:                         ; preds = %.lr.ph, %2
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @ncnn_mat_clone(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %3 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %3 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %4
 
@@ -1167,7 +1167,7 @@ define hidden noundef nonnull ptr @ncnn_mat_clone(ptr noundef %0, ptr noundef re
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #26
   resume { ptr, i32 } %10
 }
 
@@ -1175,7 +1175,7 @@ declare void @_ZNK4ncnn3Mat5cloneEPNS_9AllocatorE(ptr dead_on_unwind writable sr
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @ncnn_mat_reshape_1d(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %4 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %4 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %5
 
@@ -1194,7 +1194,7 @@ define hidden noundef nonnull ptr @ncnn_mat_reshape_1d(ptr noundef %0, i32 nound
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 72) #26
   resume { ptr, i32 } %11
 }
 
@@ -1202,7 +1202,7 @@ declare void @_ZNK4ncnn3Mat7reshapeEiPNS_9AllocatorE(ptr dead_on_unwind writable
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @ncnn_mat_reshape_2d(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %5 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %5 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %6
 
@@ -1221,7 +1221,7 @@ define hidden noundef nonnull ptr @ncnn_mat_reshape_2d(ptr noundef %0, i32 nound
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 72) #26
   resume { ptr, i32 } %12
 }
 
@@ -1229,7 +1229,7 @@ declare void @_ZNK4ncnn3Mat7reshapeEiiPNS_9AllocatorE(ptr dead_on_unwind writabl
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @ncnn_mat_reshape_3d(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %7
 
@@ -1248,7 +1248,7 @@ define hidden noundef nonnull ptr @ncnn_mat_reshape_3d(ptr noundef %0, i32 nound
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 72) #26
   resume { ptr, i32 } %13
 }
 
@@ -1256,7 +1256,7 @@ declare void @_ZNK4ncnn3Mat7reshapeEiiiPNS_9AllocatorE(ptr dead_on_unwind writab
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @ncnn_mat_reshape_4d(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %7 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %7 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %10, label %8
 
@@ -1275,7 +1275,7 @@ define hidden noundef nonnull ptr @ncnn_mat_reshape_4d(ptr noundef %0, i32 nound
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 72) #26
   resume { ptr, i32 } %14
 }
 
@@ -1360,7 +1360,7 @@ _ZN4ncnn3MatD2Ev.exit:
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @ncnn_mat_from_pixels(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %7 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %7 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %10, label %8
 
@@ -1379,7 +1379,7 @@ define hidden noundef nonnull ptr @ncnn_mat_from_pixels(ptr noundef %0, i32 noun
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 72) #26
   resume { ptr, i32 } %14
 }
 
@@ -1387,7 +1387,7 @@ declare void @_ZN4ncnn3Mat11from_pixelsEPKhiiiiPNS_9AllocatorE(ptr dead_on_unwin
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @ncnn_mat_from_pixels_resize(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %9 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %9 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %12, label %10
 
@@ -1406,7 +1406,7 @@ define hidden noundef nonnull ptr @ncnn_mat_from_pixels_resize(ptr noundef %0, i
 15:                                               ; preds = %12
   %16 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef 72) #26
   resume { ptr, i32 } %16
 }
 
@@ -1414,7 +1414,7 @@ declare void @_ZN4ncnn3Mat18from_pixels_resizeEPKhiiiiiiPNS_9AllocatorE(ptr dead
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @ncnn_mat_from_pixels_roi(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef readonly captures(address_is_null) %9) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %11 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %11 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %14, label %12
 
@@ -1433,7 +1433,7 @@ define hidden noundef nonnull ptr @ncnn_mat_from_pixels_roi(ptr noundef %0, i32 
 17:                                               ; preds = %14
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 72) #26
   resume { ptr, i32 } %18
 }
 
@@ -1441,7 +1441,7 @@ declare void @_ZN4ncnn3Mat15from_pixels_roiEPKhiiiiiiiiPNS_9AllocatorE(ptr dead_
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @ncnn_mat_from_pixels_roi_resize(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef readonly captures(address_is_null) %11) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %13 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %13 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %16, label %14
 
@@ -1460,7 +1460,7 @@ define hidden noundef nonnull ptr @ncnn_mat_from_pixels_roi_resize(ptr noundef %
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef 72) #26
   resume { ptr, i32 } %20
 }
 
@@ -1511,7 +1511,7 @@ define hidden void @ncnn_convert_packing(ptr noundef nonnull %0, ptr noundef wri
           to label %16 unwind label %56
 
 16:                                               ; preds = %4
-  %17 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %17 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
           to label %18 unwind label %56
 
 18:                                               ; preds = %16
@@ -1584,14 +1584,14 @@ _ZN4ncnn3Mat6addrefEv.exit:                       ; preds = %18
   br i1 %.not.i13, label %_ZN4ncnn3MatD2Ev.exit7, label %52
 
 52:                                               ; preds = %51
-  call void @free(ptr noundef nonnull %46) #28
+  call void @free(ptr noundef nonnull %46) #27
   br label %_ZN4ncnn3MatD2Ev.exit7
 
 53:                                               ; preds = %47
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #29
+  call void @__clang_call_terminate(ptr %55) #28
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit7:                           ; preds = %_ZN4ncnn3Mat6addrefEv.exit.thread, %41, %_ZN4ncnn3Mat6addrefEv.exit, %47, %51, %52
@@ -1628,14 +1628,14 @@ _ZN4ncnn3MatD2Ev.exit7:                           ; preds = %_ZN4ncnn3Mat6addref
   br i1 %.not.i12, label %_ZN4ncnn3MatD2Ev.exit, label %70
 
 70:                                               ; preds = %69
-  call void @free(ptr noundef nonnull %64) #28
+  call void @free(ptr noundef nonnull %64) #27
   br label %_ZN4ncnn3MatD2Ev.exit
 
 71:                                               ; preds = %65
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #29
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit:                            ; preds = %59, %56, %65, %69, %70
@@ -1666,7 +1666,7 @@ define hidden void @ncnn_flatten(ptr noundef nonnull %0, ptr noundef writeonly c
           to label %15 unwind label %55
 
 15:                                               ; preds = %3
-  %16 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %16 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
           to label %17 unwind label %55
 
 17:                                               ; preds = %15
@@ -1739,14 +1739,14 @@ _ZN4ncnn3Mat6addrefEv.exit:                       ; preds = %17
   br i1 %.not.i12, label %_ZN4ncnn3MatD2Ev.exit6, label %51
 
 51:                                               ; preds = %50
-  call void @free(ptr noundef nonnull %45) #28
+  call void @free(ptr noundef nonnull %45) #27
   br label %_ZN4ncnn3MatD2Ev.exit6
 
 52:                                               ; preds = %46
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #29
+  call void @__clang_call_terminate(ptr %54) #28
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit6:                           ; preds = %_ZN4ncnn3Mat6addrefEv.exit.thread, %40, %_ZN4ncnn3Mat6addrefEv.exit, %46, %50, %51
@@ -1783,14 +1783,14 @@ _ZN4ncnn3MatD2Ev.exit6:                           ; preds = %_ZN4ncnn3Mat6addref
   br i1 %.not.i11, label %_ZN4ncnn3MatD2Ev.exit, label %69
 
 69:                                               ; preds = %68
-  call void @free(ptr noundef nonnull %63) #28
+  call void @free(ptr noundef nonnull %63) #27
   br label %_ZN4ncnn3MatD2Ev.exit
 
 70:                                               ; preds = %64
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  call void @__clang_call_terminate(ptr %72) #29
+  call void @__clang_call_terminate(ptr %72) #28
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit:                            ; preds = %58, %55, %64, %68, %69
@@ -1839,7 +1839,7 @@ define hidden void @ncnn_blob_get_shape(ptr noundef readonly captures(none) %0, 
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @ncnn_paramdict_create() local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %1 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
+  %1 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   invoke void @_ZN4ncnn9ParamDictC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %2 unwind label %3
 
@@ -1849,7 +1849,7 @@ define hidden noundef nonnull ptr @ncnn_paramdict_create() local_unnamed_addr #1
 3:                                                ; preds = %0
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 16) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 16) #26
   resume { ptr, i32 } %4
 }
 
@@ -1864,7 +1864,7 @@ define hidden void @ncnn_paramdict_destroy(ptr noundef %0) local_unnamed_addr #8
   %4 = load ptr, ptr %0, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #27
   br label %7
 
 7:                                                ; preds = %3, %1
@@ -1897,7 +1897,7 @@ declare noundef nofpclass(nan inf) float @_ZNK4ncnn9ParamDict3getEif(ptr noundef
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @ncnn_paramdict_get_array(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %4 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %4 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   invoke void @_ZNK4ncnn9ParamDict3getEiRKNS_3MatE(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(72) %2)
           to label %5 unwind label %6
 
@@ -1907,7 +1907,7 @@ define hidden noundef nonnull ptr @ncnn_paramdict_get_array(ptr noundef %0, i32 
 6:                                                ; preds = %3
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 72) #26
   resume { ptr, i32 } %7
 }
 
@@ -1939,8 +1939,8 @@ declare void @_ZN4ncnn9ParamDict3setEiRKNS_3MatE(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @ncnn_datareader_create() local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %1 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #25
-  %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
+  %1 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #24
+  %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   invoke void @_ZN4ncnn10DataReaderC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %3 unwind label %7
 
@@ -1958,7 +1958,7 @@ define hidden noundef ptr @ncnn_datareader_create() local_unnamed_addr #1 person
 7:                                                ; preds = %0
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 16) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 16) #26
   resume { ptr, i32 } %8
 }
 
@@ -1983,8 +1983,8 @@ declare void @_ZN4ncnn10DataReaderD2Ev(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN16DataReader_c_apiD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN4ncnn10DataReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #27
+  tail call void @_ZN4ncnn10DataReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #26
   ret void
 }
 
@@ -2016,8 +2016,8 @@ declare noundef i64 @_ZNK4ncnn10DataReader4readEPvm(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @ncnn_datareader_create_from_stdio(ptr noundef %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #25
-  %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
+  %2 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #24
+  %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
   invoke void @_ZN4ncnn19DataReaderFromStdioC2EP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %0)
           to label %4 unwind label %8
 
@@ -2035,7 +2035,7 @@ define hidden noundef ptr @ncnn_datareader_create_from_stdio(ptr noundef %0) loc
 8:                                                ; preds = %1
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 24) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 24) #26
   resume { ptr, i32 } %9
 }
 
@@ -2060,8 +2060,8 @@ declare void @_ZN4ncnn19DataReaderFromStdioD2Ev(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN25DataReaderFromStdio_c_apiD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN4ncnn19DataReaderFromStdioD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #28
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #27
+  tail call void @_ZN4ncnn19DataReaderFromStdioD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #26
   ret void
 }
 
@@ -2091,8 +2091,8 @@ declare noundef i64 @_ZNK4ncnn19DataReaderFromStdio4readEPvm(ptr noundef nonnull
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @ncnn_datareader_create_from_memory(ptr noundef %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #25
-  %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
+  %2 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #24
+  %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
   invoke void @_ZN4ncnn20DataReaderFromMemoryC2ERPKh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %4 unwind label %8
 
@@ -2110,7 +2110,7 @@ define hidden noundef ptr @ncnn_datareader_create_from_memory(ptr noundef %0) lo
 8:                                                ; preds = %1
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 24) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 24) #26
   resume { ptr, i32 } %9
 }
 
@@ -2135,8 +2135,8 @@ declare void @_ZN4ncnn20DataReaderFromMemoryD2Ev(ptr noundef nonnull align 8 der
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26DataReaderFromMemory_c_apiD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN4ncnn20DataReaderFromMemoryD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #28
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #27
+  tail call void @_ZN4ncnn20DataReaderFromMemoryD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #26
   ret void
 }
 
@@ -2176,18 +2176,18 @@ define hidden void @ncnn_datareader_destroy(ptr noundef captures(none) %0) local
   %5 = load ptr, ptr %2, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %2) #28
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %2) #27
   br label %8
 
 8:                                                ; preds = %4, %1
-  tail call void @free(ptr noundef nonnull %0) #28
+  tail call void @free(ptr noundef nonnull %0) #27
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @ncnn_modelbin_create_from_datareader(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #25
-  %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
+  %2 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #24
+  %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
   %4 = load ptr, ptr %0, align 8, !tbaa !68
   invoke void @_ZN4ncnn22ModelBinFromDataReaderC2ERKNS_10DataReaderE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %5 unwind label %10
@@ -2208,13 +2208,13 @@ define hidden noundef ptr @ncnn_modelbin_create_from_datareader(ptr noundef read
 10:                                               ; preds = %1
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 24) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 24) #26
   resume { ptr, i32 } %11
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef nonnull ptr @_ZL37__ncnn_ModelBinFromDataReader_load_1dP17__ncnn_modelbin_tii(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
-  %4 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %4 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %5 = load ptr, ptr %0, align 8, !tbaa !86
   invoke void @_ZNK4ncnn22ModelBinFromDataReader4loadEii(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %1, i32 noundef %2)
           to label %6 unwind label %7
@@ -2225,13 +2225,13 @@ define internal noundef nonnull ptr @_ZL37__ncnn_ModelBinFromDataReader_load_1dP
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 72) #26
   resume { ptr, i32 } %8
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef nonnull ptr @_ZL37__ncnn_ModelBinFromDataReader_load_2dP17__ncnn_modelbin_tiii(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #1 personality ptr @__gxx_personality_v0 {
-  %5 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %5 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %6 = load ptr, ptr %0, align 8, !tbaa !86
   invoke void @_ZNK4ncnn8ModelBin4loadEiii(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %1, i32 noundef %2, i32 noundef %3)
           to label %7 unwind label %8
@@ -2242,13 +2242,13 @@ define internal noundef nonnull ptr @_ZL37__ncnn_ModelBinFromDataReader_load_2dP
 8:                                                ; preds = %4
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 72) #26
   resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef nonnull ptr @_ZL37__ncnn_ModelBinFromDataReader_load_3dP17__ncnn_modelbin_tiiii(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #1 personality ptr @__gxx_personality_v0 {
-  %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %7 = load ptr, ptr %0, align 8, !tbaa !86
   invoke void @_ZNK4ncnn8ModelBin4loadEiiii(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
           to label %8 unwind label %9
@@ -2259,7 +2259,7 @@ define internal noundef nonnull ptr @_ZL37__ncnn_ModelBinFromDataReader_load_3dP
 9:                                                ; preds = %5
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 72) #26
   resume { ptr, i32 } %10
 }
 
@@ -2270,8 +2270,8 @@ declare void @_ZN4ncnn22ModelBinFromDataReaderD2Ev(ptr noundef nonnull align 8 d
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN28ModelBinFromDataReader_c_apiD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN4ncnn22ModelBinFromDataReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #28
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #27
+  tail call void @_ZN4ncnn22ModelBinFromDataReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #26
   ret void
 }
 
@@ -2356,18 +2356,18 @@ _ZN4ncnn3Mat6addrefEv.exit:                       ; preds = %4
   br i1 %.not.i1.i, label %ncnn_mat_destroy.exit, label %53
 
 53:                                               ; preds = %52
-  tail call void @free(ptr noundef nonnull %47) #28
+  tail call void @free(ptr noundef nonnull %47) #27
   br label %ncnn_mat_destroy.exit
 
 54:                                               ; preds = %48
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  tail call void @__clang_call_terminate(ptr %56) #29
+  tail call void @__clang_call_terminate(ptr %56) #28
   unreachable
 
 ncnn_mat_destroy.exit:                            ; preds = %4, %_ZN4ncnn3Mat6addrefEv.exit, %42, %48, %52, %53
-  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef 72) #26
   ret void
 }
 
@@ -2452,18 +2452,18 @@ _ZN4ncnn3Mat6addrefEv.exit:                       ; preds = %5
   br i1 %.not.i1.i, label %ncnn_mat_destroy.exit, label %54
 
 54:                                               ; preds = %53
-  tail call void @free(ptr noundef nonnull %48) #28
+  tail call void @free(ptr noundef nonnull %48) #27
   br label %ncnn_mat_destroy.exit
 
 55:                                               ; preds = %49
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  tail call void @__clang_call_terminate(ptr %57) #29
+  tail call void @__clang_call_terminate(ptr %57) #28
   unreachable
 
 ncnn_mat_destroy.exit:                            ; preds = %5, %_ZN4ncnn3Mat6addrefEv.exit, %43, %49, %53, %54
-  tail call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef 72) #26
   ret void
 }
 
@@ -2548,18 +2548,18 @@ _ZN4ncnn3Mat6addrefEv.exit:                       ; preds = %6
   br i1 %.not.i1.i, label %ncnn_mat_destroy.exit, label %55
 
 55:                                               ; preds = %54
-  tail call void @free(ptr noundef nonnull %49) #28
+  tail call void @free(ptr noundef nonnull %49) #27
   br label %ncnn_mat_destroy.exit
 
 56:                                               ; preds = %50
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  tail call void @__clang_call_terminate(ptr %58) #29
+  tail call void @__clang_call_terminate(ptr %58) #28
   unreachable
 
 ncnn_mat_destroy.exit:                            ; preds = %6, %_ZN4ncnn3Mat6addrefEv.exit, %44, %50, %54, %55
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 72) #26
   ret void
 }
 
@@ -2580,7 +2580,7 @@ define hidden noundef ptr @ncnn_modelbin_create_from_mat_array(ptr noundef reado
   br i1 %5, label %.noexc24, label %_ZNSt6vectorIN4ncnn3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 
 .noexc24:                                         ; preds = %2
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #29
   unreachable
 
 _ZNSt6vectorIN4ncnn3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %2
@@ -2594,7 +2594,7 @@ _ZNSt6vectorIN4ncnn3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %2
 
 _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vectorIN4ncnn3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %7 = mul nuw nsw i64 %4, 72
-  %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #26
+  %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #25
   store ptr %8, ptr %3, align 8, !tbaa !91
   %9 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %8, i64 %4
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2622,8 +2622,8 @@ _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vector
 
 ._crit_edge:                                      ; preds = %_ZN4ncnn3MataSERKS0_.exit, %.loopexit.thread
   %16 = phi ptr [ %6, %.loopexit.thread ], [ %15, %_ZN4ncnn3MataSERKS0_.exit ]
-  %17 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #25
-  %18 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
+  %17 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #24
+  %18 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
           to label %76 unwind label %112
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4ncnn3MataSERKS0_.exit
@@ -2675,7 +2675,7 @@ _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vector
   br i1 %.not.i18.i, label %_ZN4ncnn3Mat7releaseEv.exit.i, label %44
 
 44:                                               ; preds = %43
-  tail call void @free(ptr noundef nonnull %38) #28
+  tail call void @free(ptr noundef nonnull %38) #27
   br label %_ZN4ncnn3Mat7releaseEv.exit.i
 
 _ZN4ncnn3Mat7releaseEv.exit.i:                    ; preds = %43, %44, %39, %32, %29
@@ -2786,14 +2786,14 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %_ZN4ncnn3Mat7releas
   br i1 %.not.i1.i.i.i.i.i, label %_ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i, label %98
 
 98:                                               ; preds = %97
-  tail call void @free(ptr noundef nonnull %92) #28
+  tail call void @free(ptr noundef nonnull %92) #27
   br label %_ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i
 
 99:                                               ; preds = %93
   %100 = landingpad { ptr, i32 }
           catch ptr null
   %101 = extractvalue { ptr, i32 } %100, 0
-  tail call void @__clang_call_terminate(ptr %101) #29
+  tail call void @__clang_call_terminate(ptr %101) #28
   unreachable
 
 _ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i:      ; preds = %98, %97, %93, %86, %.lr.ph.i.i.i.i
@@ -2821,7 +2821,7 @@ _ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN
   %109 = ptrtoint ptr %108 to i64
   %110 = ptrtoint ptr %105 to i64
   %111 = sub i64 %109, %110
-  tail call void @_ZdlPvm(ptr noundef nonnull %105, i64 noundef %111) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %105, i64 noundef %111) #26
   br label %_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit:        ; preds = %_ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exit.i, %106
@@ -2836,19 +2836,19 @@ _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit:        ; preds = %_ZSt8_DestroyIPN4nc
 114:                                              ; preds = %76
   %115 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef 24) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef 24) #26
   br label %116
 
 116:                                              ; preds = %112, %114, %74
   %.pn21 = phi { ptr, i32 } [ %75, %74 ], [ %115, %114 ], [ %113, %112 ]
-  call void @_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #28
+  call void @_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn21
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef nonnull ptr @_ZL35__ncnn_ModelBinFromMatArray_load_1dP17__ncnn_modelbin_tii(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
-  %4 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %4 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %5 = load ptr, ptr %0, align 8, !tbaa !86
   invoke void @_ZNK4ncnn20ModelBinFromMatArray4loadEii(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %1, i32 noundef %2)
           to label %6 unwind label %7
@@ -2859,13 +2859,13 @@ define internal noundef nonnull ptr @_ZL35__ncnn_ModelBinFromMatArray_load_1dP17
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 72) #26
   resume { ptr, i32 } %8
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef nonnull ptr @_ZL35__ncnn_ModelBinFromMatArray_load_2dP17__ncnn_modelbin_tiii(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #1 personality ptr @__gxx_personality_v0 {
-  %5 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %5 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %6 = load ptr, ptr %0, align 8, !tbaa !86
   invoke void @_ZNK4ncnn8ModelBin4loadEiii(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %1, i32 noundef %2, i32 noundef %3)
           to label %7 unwind label %8
@@ -2876,13 +2876,13 @@ define internal noundef nonnull ptr @_ZL35__ncnn_ModelBinFromMatArray_load_2dP17
 8:                                                ; preds = %4
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 72) #26
   resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef nonnull ptr @_ZL35__ncnn_ModelBinFromMatArray_load_3dP17__ncnn_modelbin_tiiii(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #1 personality ptr @__gxx_personality_v0 {
-  %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %7 = load ptr, ptr %0, align 8, !tbaa !86
   invoke void @_ZNK4ncnn8ModelBin4loadEiiii(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
           to label %8 unwind label %9
@@ -2893,7 +2893,7 @@ define internal noundef nonnull ptr @_ZL35__ncnn_ModelBinFromMatArray_load_3dP17
 9:                                                ; preds = %5
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 72) #26
   resume { ptr, i32 } %10
 }
 
@@ -2936,14 +2936,14 @@ define linkonce_odr hidden void @_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev(ptr nounde
   br i1 %.not.i1.i.i.i.i, label %_ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i, label %19
 
 19:                                               ; preds = %18
-  tail call void @free(ptr noundef nonnull %13) #28
+  tail call void @free(ptr noundef nonnull %13) #27
   br label %_ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i
 
 20:                                               ; preds = %14
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #29
+  tail call void @__clang_call_terminate(ptr %22) #28
   unreachable
 
 _ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i:        ; preds = %19, %18, %14, %7, %.lr.ph.i.i.i
@@ -2971,7 +2971,7 @@ _ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN4n
   %30 = ptrtoint ptr %29 to i64
   %31 = ptrtoint ptr %26 to i64
   %32 = sub i64 %30, %31
-  tail call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef %32) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef %32) #26
   br label %_ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exit, %27
@@ -2988,8 +2988,8 @@ declare void @_ZN4ncnn20ModelBinFromMatArrayD2Ev(ptr noundef nonnull align 8 der
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26ModelBinFromMatArray_c_apiD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN4ncnn20ModelBinFromMatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #28
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #27
+  tail call void @_ZN4ncnn20ModelBinFromMatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #26
   ret void
 }
 
@@ -3074,18 +3074,18 @@ _ZN4ncnn3Mat6addrefEv.exit:                       ; preds = %4
   br i1 %.not.i1.i, label %ncnn_mat_destroy.exit, label %53
 
 53:                                               ; preds = %52
-  tail call void @free(ptr noundef nonnull %47) #28
+  tail call void @free(ptr noundef nonnull %47) #27
   br label %ncnn_mat_destroy.exit
 
 54:                                               ; preds = %48
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  tail call void @__clang_call_terminate(ptr %56) #29
+  tail call void @__clang_call_terminate(ptr %56) #28
   unreachable
 
 ncnn_mat_destroy.exit:                            ; preds = %4, %_ZN4ncnn3Mat6addrefEv.exit, %42, %48, %52, %53
-  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef 72) #26
   ret void
 }
 
@@ -3170,18 +3170,18 @@ _ZN4ncnn3Mat6addrefEv.exit:                       ; preds = %5
   br i1 %.not.i1.i, label %ncnn_mat_destroy.exit, label %54
 
 54:                                               ; preds = %53
-  tail call void @free(ptr noundef nonnull %48) #28
+  tail call void @free(ptr noundef nonnull %48) #27
   br label %ncnn_mat_destroy.exit
 
 55:                                               ; preds = %49
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  tail call void @__clang_call_terminate(ptr %57) #29
+  tail call void @__clang_call_terminate(ptr %57) #28
   unreachable
 
 ncnn_mat_destroy.exit:                            ; preds = %5, %_ZN4ncnn3Mat6addrefEv.exit, %43, %49, %53, %54
-  tail call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef 72) #26
   ret void
 }
 
@@ -3266,18 +3266,18 @@ _ZN4ncnn3Mat6addrefEv.exit:                       ; preds = %6
   br i1 %.not.i1.i, label %ncnn_mat_destroy.exit, label %55
 
 55:                                               ; preds = %54
-  tail call void @free(ptr noundef nonnull %49) #28
+  tail call void @free(ptr noundef nonnull %49) #27
   br label %ncnn_mat_destroy.exit
 
 56:                                               ; preds = %50
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  tail call void @__clang_call_terminate(ptr %58) #29
+  tail call void @__clang_call_terminate(ptr %58) #28
   unreachable
 
 ncnn_mat_destroy.exit:                            ; preds = %6, %_ZN4ncnn3Mat6addrefEv.exit, %44, %50, %54, %55
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 72) #26
   ret void
 }
 
@@ -3293,18 +3293,18 @@ define hidden void @ncnn_modelbin_destroy(ptr noundef captures(none) %0) local_u
   %5 = load ptr, ptr %2, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %2) #28
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %2) #27
   br label %8
 
 8:                                                ; preds = %4, %1
-  tail call void @free(ptr noundef nonnull %0) #28
+  tail call void @free(ptr noundef nonnull %0) #27
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @ncnn_layer_create() local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %1 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #25
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #26
+  %1 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #24
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #25
   invoke void @_ZN4ncnn5LayerC2Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %13
 
@@ -3334,7 +3334,7 @@ define hidden noundef ptr @ncnn_layer_create() local_unnamed_addr #1 personality
 13:                                               ; preds = %0
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #26
   resume { ptr, i32 } %14
 }
 
@@ -3388,7 +3388,7 @@ define internal noundef i32 @_ZL22__ncnn_Layer_forward_1P14__ncnn_layer_tP12__nc
           to label %18 unwind label %58
 
 18:                                               ; preds = %4
-  %19 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %19 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
           to label %20 unwind label %58
 
 20:                                               ; preds = %18
@@ -3461,14 +3461,14 @@ _ZN4ncnn3Mat6addrefEv.exit:                       ; preds = %20
   br i1 %.not.i14, label %_ZN4ncnn3MatD2Ev.exit8, label %54
 
 54:                                               ; preds = %53
-  call void @free(ptr noundef nonnull %48) #28
+  call void @free(ptr noundef nonnull %48) #27
   br label %_ZN4ncnn3MatD2Ev.exit8
 
 55:                                               ; preds = %49
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #29
+  call void @__clang_call_terminate(ptr %57) #28
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit8:                           ; preds = %_ZN4ncnn3Mat6addrefEv.exit.thread, %43, %_ZN4ncnn3Mat6addrefEv.exit, %49, %53, %54
@@ -3505,14 +3505,14 @@ _ZN4ncnn3MatD2Ev.exit8:                           ; preds = %_ZN4ncnn3Mat6addref
   br i1 %.not.i13, label %_ZN4ncnn3MatD2Ev.exit, label %72
 
 72:                                               ; preds = %71
-  call void @free(ptr noundef nonnull %66) #28
+  call void @free(ptr noundef nonnull %66) #27
   br label %_ZN4ncnn3MatD2Ev.exit
 
 73:                                               ; preds = %67
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #29
+  call void @__clang_call_terminate(ptr %75) #28
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit:                            ; preds = %61, %58, %67, %71, %72
@@ -3530,7 +3530,7 @@ define internal noundef i32 @_ZL22__ncnn_Layer_forward_nP14__ncnn_layer_tPKP12__
   br i1 %10, label %.noexc32, label %_ZNSt6vectorIN4ncnn3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 
 .noexc32:                                         ; preds = %6
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #29
   unreachable
 
 _ZNSt6vectorIN4ncnn3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %6
@@ -3543,7 +3543,7 @@ _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.thread.i: ; preds = %_ZNSt
 
 _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vectorIN4ncnn3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %11 = mul nuw nsw i64 %9, 72
-  %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #26
+  %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #25
   store ptr %12, ptr %7, align 8, !tbaa !91
   %13 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %12, i64 %9
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -3573,7 +3573,7 @@ _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vector
   br i1 %21, label %22, label %_ZNSt6vectorIN4ncnn3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i34
 
 22:                                               ; preds = %.loopexit61
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #30
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #29
           to label %.noexc43 unwind label %34
 
 .noexc43:                                         ; preds = %22
@@ -3589,7 +3589,7 @@ _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.thread.i42: ; preds = %_ZN
 
 _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.i36: ; preds = %_ZNSt6vectorIN4ncnn3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i34
   %23 = mul nuw nsw i64 %20, 72
-  %24 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #26
+  %24 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #25
           to label %.noexc44 unwind label %34
 
 .noexc44:                                         ; preds = %_ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.i36
@@ -3631,8 +3631,7 @@ _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.i36: ; preds = %_ZNSt6vect
   br i1 %.not.i.i.i.i35, label %._crit_edge66, label %.lr.ph65.preheader
 
 .lr.ph65.preheader:                               ; preds = %.preheader
-  %smax73 = call i32 @llvm.smax.i32(i32 %4, i32 1)
-  %wide.trip.count74 = zext nneg i32 %smax73 to i64
+  %wide.trip.count74 = zext nneg i32 %4 to i64
   br label %.lr.ph65
 
 34:                                               ; preds = %_ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.i36, %22
@@ -3689,7 +3688,7 @@ _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.i36: ; preds = %_ZNSt6vect
   br i1 %.not.i18.i, label %_ZN4ncnn3Mat7releaseEv.exit.i, label %61
 
 61:                                               ; preds = %60
-  tail call void @free(ptr noundef nonnull %55) #28
+  tail call void @free(ptr noundef nonnull %55) #27
   br label %_ZN4ncnn3Mat7releaseEv.exit.i
 
 _ZN4ncnn3Mat7releaseEv.exit.i:                    ; preds = %60, %61, %56, %49, %46
@@ -3785,14 +3784,14 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %_ZN4ncnn3Mat7releas
   br i1 %.not.i1.i.i.i.i.i, label %_ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i, label %109
 
 109:                                              ; preds = %108
-  call void @free(ptr noundef nonnull %103) #28
+  call void @free(ptr noundef nonnull %103) #27
   br label %_ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i
 
 110:                                              ; preds = %104
   %111 = landingpad { ptr, i32 }
           catch ptr null
   %112 = extractvalue { ptr, i32 } %111, 0
-  call void @__clang_call_terminate(ptr %112) #29
+  call void @__clang_call_terminate(ptr %112) #28
   unreachable
 
 _ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i:      ; preds = %109, %108, %104, %97, %.lr.ph.i.i.i.i
@@ -3820,7 +3819,7 @@ _ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN
   %120 = ptrtoint ptr %119 to i64
   %121 = ptrtoint ptr %116 to i64
   %122 = sub i64 %120, %121
-  call void @_ZdlPvm(ptr noundef nonnull %116, i64 noundef %122) #27
+  call void @_ZdlPvm(ptr noundef nonnull %116, i64 noundef %122) #26
   br label %_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit:        ; preds = %_ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exit.i, %117
@@ -3861,14 +3860,14 @@ _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit:        ; preds = %_ZSt8_DestroyIPN4nc
   br i1 %.not.i1.i.i.i.i.i58, label %_ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i51, label %139
 
 139:                                              ; preds = %138
-  call void @free(ptr noundef nonnull %133) #28
+  call void @free(ptr noundef nonnull %133) #27
   br label %_ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i51
 
 140:                                              ; preds = %134
   %141 = landingpad { ptr, i32 }
           catch ptr null
   %142 = extractvalue { ptr, i32 } %141, 0
-  call void @__clang_call_terminate(ptr %142) #29
+  call void @__clang_call_terminate(ptr %142) #28
   unreachable
 
 _ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i51:    ; preds = %139, %138, %134, %127, %.lr.ph.i.i.i.i48
@@ -3896,7 +3895,7 @@ _ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exit.i55: ; preds = %_ZSt8_DestroyI
   %150 = ptrtoint ptr %149 to i64
   %151 = ptrtoint ptr %146 to i64
   %152 = sub i64 %150, %151
-  call void @_ZdlPvm(ptr noundef nonnull %146, i64 noundef %152) #27
+  call void @_ZdlPvm(ptr noundef nonnull %146, i64 noundef %152) #26
   br label %_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit59
 
 _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit59:      ; preds = %_ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exit.i55, %147
@@ -3910,7 +3909,7 @@ _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit59:      ; preds = %_ZSt8_DestroyIPN4nc
 
 .lr.ph65:                                         ; preds = %.lr.ph65.preheader, %_ZN4ncnn3Mat6addrefEv.exit
   %indvars.iv70 = phi i64 [ 0, %.lr.ph65.preheader ], [ %indvars.iv.next71, %_ZN4ncnn3Mat6addrefEv.exit ]
-  %155 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %155 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
           to label %156 unwind label %193
 
 156:                                              ; preds = %.lr.ph65
@@ -3979,13 +3978,13 @@ _ZN4ncnn3Mat6addrefEv.exit:                       ; preds = %190, %156
 
 195:                                              ; preds = %153, %193, %91
   %.pn27 = phi { ptr, i32 } [ %92, %91 ], [ %154, %153 ], [ %194, %193 ]
-  call void @_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #28
+  call void @_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #27
   br label %196
 
 196:                                              ; preds = %195, %34
   %.pn27.pn = phi { ptr, i32 } [ %.pn27, %195 ], [ %35, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #28
+  call void @_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn27.pn
 }
@@ -4006,7 +4005,7 @@ define internal noundef i32 @_ZL30__ncnn_Layer_forward_inplace_nP14__ncnn_layer_
   br i1 %7, label %.noexc15, label %_ZNSt6vectorIN4ncnn3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 
 .noexc15:                                         ; preds = %4
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #29
   unreachable
 
 _ZNSt6vectorIN4ncnn3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %4
@@ -4020,7 +4019,7 @@ _ZNSt6vectorIN4ncnn3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %4
 
 _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vectorIN4ncnn3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %9 = mul nuw nsw i64 %6, 72
-  %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #26
+  %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #25
   store ptr %10, ptr %5, align 8, !tbaa !91
   %11 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %10, i64 %6
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4101,7 +4100,7 @@ _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vector
   br i1 %.not.i18.i, label %_ZN4ncnn3Mat7releaseEv.exit.i, label %46
 
 46:                                               ; preds = %45
-  tail call void @free(ptr noundef nonnull %40) #28
+  tail call void @free(ptr noundef nonnull %40) #27
   br label %_ZN4ncnn3Mat7releaseEv.exit.i
 
 _ZN4ncnn3Mat7releaseEv.exit.i:                    ; preds = %45, %46, %41, %34, %31
@@ -4197,14 +4196,14 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %_ZN4ncnn3Mat7releas
   br i1 %.not.i1.i.i.i.i.i, label %_ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i, label %95
 
 95:                                               ; preds = %94
-  call void @free(ptr noundef nonnull %89) #28
+  call void @free(ptr noundef nonnull %89) #27
   br label %_ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i
 
 96:                                               ; preds = %90
   %97 = landingpad { ptr, i32 }
           catch ptr null
   %98 = extractvalue { ptr, i32 } %97, 0
-  call void @__clang_call_terminate(ptr %98) #29
+  call void @__clang_call_terminate(ptr %98) #28
   unreachable
 
 _ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i:      ; preds = %95, %94, %90, %83, %.lr.ph.i.i.i.i
@@ -4232,7 +4231,7 @@ _ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN
   %106 = ptrtoint ptr %105 to i64
   %107 = ptrtoint ptr %102 to i64
   %108 = sub i64 %106, %107
-  call void @_ZdlPvm(ptr noundef nonnull %102, i64 noundef %108) #27
+  call void @_ZdlPvm(ptr noundef nonnull %102, i64 noundef %108) #26
   br label %_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit:        ; preds = %_ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exit.i, %103
@@ -4246,7 +4245,7 @@ _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit:        ; preds = %_ZSt8_DestroyIPN4nc
 
 111:                                              ; preds = %109, %76
   %.pn = phi { ptr, i32 } [ %77, %76 ], [ %110, %109 ]
-  call void @_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #28
+  call void @_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 }
@@ -4258,8 +4257,8 @@ declare void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(208
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11Layer_c_apiD0Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) #28
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 216) #27
+  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 216) #26
   ret void
 }
 
@@ -4337,7 +4336,7 @@ define linkonce_odr hidden noundef i32 @_ZNK11Layer_c_api7forwardERKSt6vectorIN4
   br i1 %22, label %.noexc33, label %_ZNSt6vectorIP12__ncnn_mat_tSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 
 .noexc33:                                         ; preds = %4
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #29
   unreachable
 
 _ZNSt6vectorIP12__ncnn_mat_tSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %4
@@ -4346,7 +4345,7 @@ _ZNSt6vectorIP12__ncnn_mat_tSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds =
 
 .noexc34:                                         ; preds = %_ZNSt6vectorIP12__ncnn_mat_tSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %23 = ashr exact i64 %sext, 29
-  %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #26
+  %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #25
   %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %21
   store ptr null, ptr %24, align 8, !tbaa !54
   %26 = add nsw i64 %21, -1
@@ -4376,7 +4375,7 @@ _ZNSt6vectorIP12__ncnn_mat_tSaIS1_EEC2EmRKS2_.exit: ; preds = %_ZSt6fill_nIPP12_
   br i1 %31, label %32, label %_ZNSt6vectorIP12__ncnn_mat_tSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i35
 
 32:                                               ; preds = %._crit_edge
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #30
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #29
           to label %.noexc38 unwind label %51
 
 .noexc38:                                         ; preds = %32
@@ -4388,7 +4387,7 @@ _ZNSt6vectorIP12__ncnn_mat_tSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i35: ; preds
 
 33:                                               ; preds = %_ZNSt6vectorIP12__ncnn_mat_tSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i35
   %34 = ashr exact i64 %sext29, 29
-  %35 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %34) #26
+  %35 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %34) #25
           to label %.noexc39 unwind label %51
 
 .noexc39:                                         ; preds = %33
@@ -4427,11 +4426,11 @@ _ZNSt6vectorIP12__ncnn_mat_tSaIS1_EEC2EmRKS1_RKS2_.exit: ; preds = %.noexc39, %_
 _ZNSt6vectorIP12__ncnn_mat_tSaIS1_EED2Ev.exit41:  ; preds = %ncnn_mat_destroy.exit, %.preheader
   %46 = ptrtoint ptr %.sroa.048.0 to i64
   %47 = sub i64 %.sroa.12.0, %46
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.048.0, i64 noundef %47) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.048.0, i64 noundef %47) #26
   %48 = ptrtoint ptr %.sroa.1159.0 to i64
   %49 = ptrtoint ptr %.sroa.055.0 to i64
   %50 = sub i64 %48, %49
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.055.0, i64 noundef %50) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.055.0, i64 noundef %50) #26
   ret i32 %44
 
 51:                                               ; preds = %33, %32
@@ -4493,7 +4492,7 @@ _ZNSt6vectorIP12__ncnn_mat_tSaIS1_EED2Ev.exit41:  ; preds = %ncnn_mat_destroy.ex
   br i1 %.not.i18.i, label %_ZN4ncnn3Mat7releaseEv.exit.i, label %80
 
 80:                                               ; preds = %79
-  tail call void @free(ptr noundef nonnull %74) #28
+  tail call void @free(ptr noundef nonnull %74) #27
   br label %_ZN4ncnn3Mat7releaseEv.exit.i
 
 _ZN4ncnn3Mat7releaseEv.exit.i:                    ; preds = %79, %80, %75, %68, %65
@@ -4578,18 +4577,18 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %_ZN4ncnn3Mat7releas
   br i1 %.not.i1.i, label %_ZN4ncnn3MatD2Ev.exit.i, label %127
 
 127:                                              ; preds = %126
-  tail call void @free(ptr noundef nonnull %121) #28
+  tail call void @free(ptr noundef nonnull %121) #27
   br label %_ZN4ncnn3MatD2Ev.exit.i
 
 128:                                              ; preds = %122
   %129 = landingpad { ptr, i32 }
           catch ptr null
   %130 = extractvalue { ptr, i32 } %129, 0
-  tail call void @__clang_call_terminate(ptr %130) #29
+  tail call void @__clang_call_terminate(ptr %130) #28
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit.i:                          ; preds = %127, %126, %122, %115, %112
-  tail call void @_ZdlPvm(ptr noundef nonnull %110, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %110, i64 noundef 72) #26
   br label %ncnn_mat_destroy.exit
 
 ncnn_mat_destroy.exit:                            ; preds = %_ZN4ncnn3MataSERKS0_.exit, %_ZN4ncnn3MatD2Ev.exit.i
@@ -4606,7 +4605,7 @@ _ZNSt6vectorIP12__ncnn_mat_tSaIS1_EED2Ev.exit45:  ; preds = %131, %53
   %.pn = phi { ptr, i32 } [ %132, %131 ], [ %54, %53 ]
   %133 = ptrtoint ptr %.sroa.048.0 to i64
   %134 = sub i64 %.sroa.12.0, %133
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.048.0, i64 noundef %134) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.048.0, i64 noundef %134) #26
   br label %135
 
 135:                                              ; preds = %_ZNSt6vectorIP12__ncnn_mat_tSaIS1_EED2Ev.exit45, %51
@@ -4618,7 +4617,7 @@ _ZNSt6vectorIP12__ncnn_mat_tSaIS1_EED2Ev.exit45:  ; preds = %131, %53
   %137 = ptrtoint ptr %.sroa.1159.0 to i64
   %138 = ptrtoint ptr %.sroa.055.0 to i64
   %139 = sub i64 %137, %138
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.055.0, i64 noundef %139) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.055.0, i64 noundef %139) #26
   br label %_ZNSt6vectorIP12__ncnn_mat_tSaIS1_EED2Ev.exit47
 
 _ZNSt6vectorIP12__ncnn_mat_tSaIS1_EED2Ev.exit47:  ; preds = %136, %135
@@ -4679,7 +4678,7 @@ define linkonce_odr hidden noundef i32 @_ZNK11Layer_c_api7forwardERKN4ncnn3MatER
   br i1 %.not.i18.i, label %_ZN4ncnn3Mat7releaseEv.exit.i, label %33
 
 33:                                               ; preds = %32
-  call void @free(ptr noundef nonnull %27) #28
+  call void @free(ptr noundef nonnull %27) #27
   br label %_ZN4ncnn3Mat7releaseEv.exit.i
 
 _ZN4ncnn3Mat7releaseEv.exit.i:                    ; preds = %32, %33, %28, %21, %18
@@ -4764,18 +4763,18 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %4, %_ZN4ncnn3Mat7re
   br i1 %.not.i1.i, label %_ZN4ncnn3MatD2Ev.exit.i, label %80
 
 80:                                               ; preds = %79
-  call void @free(ptr noundef nonnull %74) #28
+  call void @free(ptr noundef nonnull %74) #27
   br label %_ZN4ncnn3MatD2Ev.exit.i
 
 81:                                               ; preds = %75
   %82 = landingpad { ptr, i32 }
           catch ptr null
   %83 = extractvalue { ptr, i32 } %82, 0
-  call void @__clang_call_terminate(ptr %83) #29
+  call void @__clang_call_terminate(ptr %83) #28
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit.i:                          ; preds = %80, %79, %75, %68, %65
-  call void @_ZdlPvm(ptr noundef nonnull %63, i64 noundef 72) #27
+  call void @_ZdlPvm(ptr noundef nonnull %63, i64 noundef 72) #26
   br label %ncnn_mat_destroy.exit
 
 ncnn_mat_destroy.exit:                            ; preds = %_ZN4ncnn3MataSERKS0_.exit, %_ZN4ncnn3MatD2Ev.exit.i
@@ -4799,7 +4798,7 @@ define linkonce_odr hidden noundef i32 @_ZNK11Layer_c_api15forward_inplaceERSt6v
   br i1 %13, label %.noexc, label %_ZNSt6vectorIP12__ncnn_mat_tSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 
 .noexc:                                           ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #29
   unreachable
 
 _ZNSt6vectorIP12__ncnn_mat_tSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %3
@@ -4808,7 +4807,7 @@ _ZNSt6vectorIP12__ncnn_mat_tSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds =
 
 .noexc16:                                         ; preds = %_ZNSt6vectorIP12__ncnn_mat_tSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %14 = ashr exact i64 %sext, 29
-  %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #26
+  %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #25
   %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %12
   store ptr null, ptr %15, align 8, !tbaa !54
   %17 = add nsw i64 %12, -1
@@ -4852,7 +4851,7 @@ _ZNSt6vectorIP12__ncnn_mat_tSaIS1_EED2Ev.exit:    ; preds = %._crit_edge
   %28 = ptrtoint ptr %.sroa.11.0 to i64
   %29 = ptrtoint ptr %.sroa.019.0 to i64
   %30 = sub i64 %28, %29
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.019.0, i64 noundef %30) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.019.0, i64 noundef %30) #26
   ret i32 %25
 
 _ZNSt6vectorIP12__ncnn_mat_tSaIS1_EED2Ev.exit18:  ; preds = %._crit_edge
@@ -4861,7 +4860,7 @@ _ZNSt6vectorIP12__ncnn_mat_tSaIS1_EED2Ev.exit18:  ; preds = %._crit_edge
   %32 = ptrtoint ptr %.sroa.11.0 to i64
   %33 = ptrtoint ptr %.sroa.019.0 to i64
   %34 = sub i64 %32, %33
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.019.0, i64 noundef %34) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.019.0, i64 noundef %34) #26
   resume { ptr, i32 } %31
 }
 
@@ -4877,7 +4876,7 @@ define linkonce_odr hidden noundef i32 @_ZNK11Layer_c_api15forward_inplaceERN4nc
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef nonnull ptr @_ZL23__ncnn_modelbin_load_1dP17__ncnn_modelbin_tii(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #1 personality ptr @__gxx_personality_v0 {
-  %4 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %4 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %5 = load ptr, ptr %0, align 8, !tbaa !86
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -4891,13 +4890,13 @@ define internal noundef nonnull ptr @_ZL23__ncnn_modelbin_load_1dP17__ncnn_model
 10:                                               ; preds = %3
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 72) #26
   resume { ptr, i32 } %11
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef nonnull ptr @_ZL23__ncnn_modelbin_load_2dP17__ncnn_modelbin_tiii(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #1 personality ptr @__gxx_personality_v0 {
-  %5 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %5 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %6 = load ptr, ptr %0, align 8, !tbaa !86
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -4911,13 +4910,13 @@ define internal noundef nonnull ptr @_ZL23__ncnn_modelbin_load_2dP17__ncnn_model
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 72) #26
   resume { ptr, i32 } %12
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef nonnull ptr @_ZL23__ncnn_modelbin_load_3dP17__ncnn_modelbin_tiiii(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #1 personality ptr @__gxx_personality_v0 {
-  %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %7 = load ptr, ptr %0, align 8, !tbaa !86
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -4931,7 +4930,7 @@ define internal noundef nonnull ptr @_ZL23__ncnn_modelbin_load_3dP17__ncnn_model
 12:                                               ; preds = %5
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 72) #26
   resume { ptr, i32 } %13
 }
 
@@ -4958,7 +4957,7 @@ define hidden noalias noundef ptr @ncnn_layer_create_by_typeindex(i32 noundef %0
   br i1 %.not, label %13, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #25
+  %4 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #24
   store ptr %2, ptr %4, align 8, !tbaa !114
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @_ZL23__ncnn_layer_load_paramP14__ncnn_layer_tP18__ncnn_paramdict_t, ptr %5, align 8, !tbaa !116
@@ -5050,7 +5049,7 @@ define internal noundef i32 @_ZL22__ncnn_layer_forward_1P14__ncnn_layer_tP12__nc
           to label %21 unwind label %61
 
 21:                                               ; preds = %4
-  %22 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %22 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
           to label %23 unwind label %61
 
 23:                                               ; preds = %21
@@ -5123,14 +5122,14 @@ _ZN4ncnn3Mat6addrefEv.exit:                       ; preds = %23
   br i1 %.not.i14, label %_ZN4ncnn3MatD2Ev.exit8, label %57
 
 57:                                               ; preds = %56
-  call void @free(ptr noundef nonnull %51) #28
+  call void @free(ptr noundef nonnull %51) #27
   br label %_ZN4ncnn3MatD2Ev.exit8
 
 58:                                               ; preds = %52
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #29
+  call void @__clang_call_terminate(ptr %60) #28
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit8:                           ; preds = %_ZN4ncnn3Mat6addrefEv.exit.thread, %46, %_ZN4ncnn3Mat6addrefEv.exit, %52, %56, %57
@@ -5167,14 +5166,14 @@ _ZN4ncnn3MatD2Ev.exit8:                           ; preds = %_ZN4ncnn3Mat6addref
   br i1 %.not.i13, label %_ZN4ncnn3MatD2Ev.exit, label %75
 
 75:                                               ; preds = %74
-  call void @free(ptr noundef nonnull %69) #28
+  call void @free(ptr noundef nonnull %69) #27
   br label %_ZN4ncnn3MatD2Ev.exit
 
 76:                                               ; preds = %70
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #29
+  call void @__clang_call_terminate(ptr %78) #28
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit:                            ; preds = %64, %61, %70, %74, %75
@@ -5192,7 +5191,7 @@ define internal noundef i32 @_ZL22__ncnn_layer_forward_nP14__ncnn_layer_tPKP12__
   br i1 %10, label %.noexc32, label %_ZNSt6vectorIN4ncnn3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 
 .noexc32:                                         ; preds = %6
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #29
   unreachable
 
 _ZNSt6vectorIN4ncnn3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %6
@@ -5205,7 +5204,7 @@ _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.thread.i: ; preds = %_ZNSt
 
 _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vectorIN4ncnn3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %11 = mul nuw nsw i64 %9, 72
-  %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #26
+  %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #25
   store ptr %12, ptr %7, align 8, !tbaa !91
   %13 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %12, i64 %9
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -5235,7 +5234,7 @@ _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vector
   br i1 %21, label %22, label %_ZNSt6vectorIN4ncnn3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i34
 
 22:                                               ; preds = %.loopexit61
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #30
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #29
           to label %.noexc43 unwind label %37
 
 .noexc43:                                         ; preds = %22
@@ -5251,7 +5250,7 @@ _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.thread.i42: ; preds = %_ZN
 
 _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.i36: ; preds = %_ZNSt6vectorIN4ncnn3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i34
   %23 = mul nuw nsw i64 %20, 72
-  %24 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #26
+  %24 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #25
           to label %.noexc44 unwind label %37
 
 .noexc44:                                         ; preds = %_ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.i36
@@ -5296,8 +5295,7 @@ _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.i36: ; preds = %_ZNSt6vect
   br i1 %.not.i.i.i.i35, label %._crit_edge66, label %.lr.ph65.preheader
 
 .lr.ph65.preheader:                               ; preds = %.preheader
-  %smax73 = call i32 @llvm.smax.i32(i32 %4, i32 1)
-  %wide.trip.count74 = zext nneg i32 %smax73 to i64
+  %wide.trip.count74 = zext nneg i32 %4 to i64
   br label %.lr.ph65
 
 37:                                               ; preds = %_ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.i36, %22
@@ -5354,7 +5352,7 @@ _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.i36: ; preds = %_ZNSt6vect
   br i1 %.not.i18.i, label %_ZN4ncnn3Mat7releaseEv.exit.i, label %64
 
 64:                                               ; preds = %63
-  tail call void @free(ptr noundef nonnull %58) #28
+  tail call void @free(ptr noundef nonnull %58) #27
   br label %_ZN4ncnn3Mat7releaseEv.exit.i
 
 _ZN4ncnn3Mat7releaseEv.exit.i:                    ; preds = %63, %64, %59, %52, %49
@@ -5450,14 +5448,14 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %_ZN4ncnn3Mat7releas
   br i1 %.not.i1.i.i.i.i.i, label %_ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i, label %112
 
 112:                                              ; preds = %111
-  call void @free(ptr noundef nonnull %106) #28
+  call void @free(ptr noundef nonnull %106) #27
   br label %_ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i
 
 113:                                              ; preds = %107
   %114 = landingpad { ptr, i32 }
           catch ptr null
   %115 = extractvalue { ptr, i32 } %114, 0
-  call void @__clang_call_terminate(ptr %115) #29
+  call void @__clang_call_terminate(ptr %115) #28
   unreachable
 
 _ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i:      ; preds = %112, %111, %107, %100, %.lr.ph.i.i.i.i
@@ -5485,7 +5483,7 @@ _ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN
   %123 = ptrtoint ptr %122 to i64
   %124 = ptrtoint ptr %119 to i64
   %125 = sub i64 %123, %124
-  call void @_ZdlPvm(ptr noundef nonnull %119, i64 noundef %125) #27
+  call void @_ZdlPvm(ptr noundef nonnull %119, i64 noundef %125) #26
   br label %_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit:        ; preds = %_ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exit.i, %120
@@ -5526,14 +5524,14 @@ _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit:        ; preds = %_ZSt8_DestroyIPN4nc
   br i1 %.not.i1.i.i.i.i.i58, label %_ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i51, label %142
 
 142:                                              ; preds = %141
-  call void @free(ptr noundef nonnull %136) #28
+  call void @free(ptr noundef nonnull %136) #27
   br label %_ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i51
 
 143:                                              ; preds = %137
   %144 = landingpad { ptr, i32 }
           catch ptr null
   %145 = extractvalue { ptr, i32 } %144, 0
-  call void @__clang_call_terminate(ptr %145) #29
+  call void @__clang_call_terminate(ptr %145) #28
   unreachable
 
 _ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i51:    ; preds = %142, %141, %137, %130, %.lr.ph.i.i.i.i48
@@ -5561,7 +5559,7 @@ _ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exit.i55: ; preds = %_ZSt8_DestroyI
   %153 = ptrtoint ptr %152 to i64
   %154 = ptrtoint ptr %149 to i64
   %155 = sub i64 %153, %154
-  call void @_ZdlPvm(ptr noundef nonnull %149, i64 noundef %155) #27
+  call void @_ZdlPvm(ptr noundef nonnull %149, i64 noundef %155) #26
   br label %_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit59
 
 _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit59:      ; preds = %_ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exit.i55, %150
@@ -5575,7 +5573,7 @@ _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit59:      ; preds = %_ZSt8_DestroyIPN4nc
 
 .lr.ph65:                                         ; preds = %.lr.ph65.preheader, %_ZN4ncnn3Mat6addrefEv.exit
   %indvars.iv70 = phi i64 [ 0, %.lr.ph65.preheader ], [ %indvars.iv.next71, %_ZN4ncnn3Mat6addrefEv.exit ]
-  %158 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %158 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
           to label %159 unwind label %196
 
 159:                                              ; preds = %.lr.ph65
@@ -5644,13 +5642,13 @@ _ZN4ncnn3Mat6addrefEv.exit:                       ; preds = %193, %159
 
 198:                                              ; preds = %156, %196, %94
   %.pn27 = phi { ptr, i32 } [ %95, %94 ], [ %157, %156 ], [ %197, %196 ]
-  call void @_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #28
+  call void @_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #27
   br label %199
 
 199:                                              ; preds = %198, %37
   %.pn27.pn = phi { ptr, i32 } [ %.pn27, %198 ], [ %38, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #28
+  call void @_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn27.pn
 }
@@ -5674,7 +5672,7 @@ define internal noundef i32 @_ZL30__ncnn_layer_forward_inplace_nP14__ncnn_layer_
   br i1 %7, label %.noexc15, label %_ZNSt6vectorIN4ncnn3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 
 .noexc15:                                         ; preds = %4
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #29
   unreachable
 
 _ZNSt6vectorIN4ncnn3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %4
@@ -5688,7 +5686,7 @@ _ZNSt6vectorIN4ncnn3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %4
 
 _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vectorIN4ncnn3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %9 = mul nuw nsw i64 %6, 72
-  %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #26
+  %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #25
   store ptr %10, ptr %5, align 8, !tbaa !91
   %11 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %10, i64 %6
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -5772,7 +5770,7 @@ _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vector
   br i1 %.not.i18.i, label %_ZN4ncnn3Mat7releaseEv.exit.i, label %49
 
 49:                                               ; preds = %48
-  tail call void @free(ptr noundef nonnull %43) #28
+  tail call void @free(ptr noundef nonnull %43) #27
   br label %_ZN4ncnn3Mat7releaseEv.exit.i
 
 _ZN4ncnn3Mat7releaseEv.exit.i:                    ; preds = %48, %49, %44, %37, %34
@@ -5868,14 +5866,14 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %_ZN4ncnn3Mat7releas
   br i1 %.not.i1.i.i.i.i.i, label %_ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i, label %98
 
 98:                                               ; preds = %97
-  call void @free(ptr noundef nonnull %92) #28
+  call void @free(ptr noundef nonnull %92) #27
   br label %_ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i
 
 99:                                               ; preds = %93
   %100 = landingpad { ptr, i32 }
           catch ptr null
   %101 = extractvalue { ptr, i32 } %100, 0
-  call void @__clang_call_terminate(ptr %101) #29
+  call void @__clang_call_terminate(ptr %101) #28
   unreachable
 
 _ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i:      ; preds = %98, %97, %93, %86, %.lr.ph.i.i.i.i
@@ -5903,7 +5901,7 @@ _ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN
   %109 = ptrtoint ptr %108 to i64
   %110 = ptrtoint ptr %105 to i64
   %111 = sub i64 %109, %110
-  call void @_ZdlPvm(ptr noundef nonnull %105, i64 noundef %111) #27
+  call void @_ZdlPvm(ptr noundef nonnull %105, i64 noundef %111) #26
   br label %_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit:        ; preds = %_ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exit.i, %106
@@ -5917,7 +5915,7 @@ _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit:        ; preds = %_ZSt8_DestroyIPN4nc
 
 114:                                              ; preds = %112, %79
   %.pn = phi { ptr, i32 } [ %80, %79 ], [ %113, %112 ]
-  call void @_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #28
+  call void @_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 }
@@ -5929,7 +5927,7 @@ define hidden noalias noundef ptr @ncnn_layer_create_by_type(ptr noundef %0) loc
   br i1 %.not, label %13, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #25
+  %4 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #24
   store ptr %2, ptr %4, align 8, !tbaa !114
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @_ZL23__ncnn_layer_load_paramP14__ncnn_layer_tP18__ncnn_paramdict_t, ptr %5, align 8, !tbaa !116
@@ -5974,11 +5972,11 @@ define hidden void @ncnn_layer_destroy(ptr noundef captures(none) %0) local_unna
   %5 = load ptr, ptr %2, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(208) %2) #28
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(208) %2) #27
   br label %8
 
 8:                                                ; preds = %4, %1
-  tail call void @free(ptr noundef nonnull %0) #28
+  tail call void @free(ptr noundef nonnull %0) #27
   ret void
 }
 
@@ -6237,8 +6235,8 @@ define hidden void @ncnn_blob_get_top_shape(ptr noundef readonly captures(none) 
 
 ; Function Attrs: mustprogress uwtable
 define hidden noalias noundef ptr @ncnn_net_create() local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %1 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
-  %2 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #26
+  %1 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #24
+  %2 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #25
   invoke void @_ZN4ncnn3NetC1Ev(ptr noundef nonnull align 8 dereferenceable(80) %2)
           to label %3 unwind label %5
 
@@ -6251,7 +6249,7 @@ define hidden noalias noundef ptr @ncnn_net_create() local_unnamed_addr #1 perso
 5:                                                ; preds = %0
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 80) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 80) #26
   resume { ptr, i32 } %6
 }
 
@@ -6267,7 +6265,7 @@ define hidden void @ncnn_net_destroy(ptr noundef captures(none) %0) local_unname
   %5 = load ptr, ptr %2, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(80) %2) #28
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(80) %2) #27
   br label %8
 
 8:                                                ; preds = %4, %1
@@ -6280,12 +6278,12 @@ define hidden void @ncnn_net_destroy(ptr noundef captures(none) %0) local_unname
   %.09 = phi ptr [ %12, %.lr.ph ], [ %10, %8 ]
   %11 = getelementptr inbounds nuw i8, ptr %.09, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !147
-  tail call void @free(ptr noundef nonnull %.09) #28
+  tail call void @free(ptr noundef nonnull %.09) #27
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !149
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
-  tail call void @free(ptr noundef nonnull %0) #28
+  tail call void @free(ptr noundef nonnull %0) #27
   ret void
 }
 
@@ -6309,7 +6307,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @ncnn_net_register_custom_layer_by_type(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
-  %6 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #25
+  %6 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #24
   store ptr %2, ptr %6, align 8, !tbaa !153
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %7, align 8, !tbaa !154
@@ -6353,7 +6351,7 @@ define internal void @_ZL29__Layer_c_api_layer_destroyerPN4ncnn5LayerEPv(ptr nou
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @ncnn_net_register_custom_layer_by_typeindex(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
-  %6 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #25
+  %6 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #24
   store ptr %2, ptr %6, align 8, !tbaa !153
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %7, align 8, !tbaa !154
@@ -6548,7 +6546,7 @@ define hidden i32 @ncnn_net_get_output_index(ptr noundef readonly captures(none)
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @ncnn_extractor_create(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
+  %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   %3 = load ptr, ptr %0, align 8, !tbaa !143
   invoke void @_ZNK4ncnn3Net16create_extractorEv(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Extractor") align 8 %2, ptr noundef nonnull align 8 dereferenceable(80) %3)
           to label %4 unwind label %5
@@ -6559,7 +6557,7 @@ define hidden noundef nonnull ptr @ncnn_extractor_create(ptr noundef readonly ca
 5:                                                ; preds = %1
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 16) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 16) #26
   resume { ptr, i32 } %6
 }
 
@@ -6574,7 +6572,7 @@ define hidden void @ncnn_extractor_destroy(ptr noundef %0) local_unnamed_addr #8
   %4 = load ptr, ptr %0, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #27
   br label %7
 
 7:                                                ; preds = %3, %1
@@ -6620,7 +6618,7 @@ define hidden noundef i32 @ncnn_extractor_extract(ptr noundef nonnull %0, ptr no
           to label %16 unwind label %56
 
 16:                                               ; preds = %3
-  %17 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %17 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
           to label %18 unwind label %56
 
 18:                                               ; preds = %16
@@ -6693,14 +6691,14 @@ _ZN4ncnn3Mat6addrefEv.exit:                       ; preds = %18
   br i1 %.not.i13, label %_ZN4ncnn3MatD2Ev.exit7, label %52
 
 52:                                               ; preds = %51
-  call void @free(ptr noundef nonnull %46) #28
+  call void @free(ptr noundef nonnull %46) #27
   br label %_ZN4ncnn3MatD2Ev.exit7
 
 53:                                               ; preds = %47
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #29
+  call void @__clang_call_terminate(ptr %55) #28
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit7:                           ; preds = %_ZN4ncnn3Mat6addrefEv.exit.thread, %41, %_ZN4ncnn3Mat6addrefEv.exit, %47, %51, %52
@@ -6737,14 +6735,14 @@ _ZN4ncnn3MatD2Ev.exit7:                           ; preds = %_ZN4ncnn3Mat6addref
   br i1 %.not.i12, label %_ZN4ncnn3MatD2Ev.exit, label %70
 
 70:                                               ; preds = %69
-  call void @free(ptr noundef nonnull %64) #28
+  call void @free(ptr noundef nonnull %64) #27
   br label %_ZN4ncnn3MatD2Ev.exit
 
 71:                                               ; preds = %65
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #29
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit:                            ; preds = %59, %56, %65, %69, %70
@@ -6783,7 +6781,7 @@ define hidden noundef i32 @ncnn_extractor_extract_index(ptr noundef nonnull %0, 
           to label %16 unwind label %56
 
 16:                                               ; preds = %3
-  %17 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
+  %17 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
           to label %18 unwind label %56
 
 18:                                               ; preds = %16
@@ -6856,14 +6854,14 @@ _ZN4ncnn3Mat6addrefEv.exit:                       ; preds = %18
   br i1 %.not.i13, label %_ZN4ncnn3MatD2Ev.exit7, label %52
 
 52:                                               ; preds = %51
-  call void @free(ptr noundef nonnull %46) #28
+  call void @free(ptr noundef nonnull %46) #27
   br label %_ZN4ncnn3MatD2Ev.exit7
 
 53:                                               ; preds = %47
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #29
+  call void @__clang_call_terminate(ptr %55) #28
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit7:                           ; preds = %_ZN4ncnn3Mat6addrefEv.exit.thread, %41, %_ZN4ncnn3Mat6addrefEv.exit, %47, %51, %52
@@ -6900,14 +6898,14 @@ _ZN4ncnn3MatD2Ev.exit7:                           ; preds = %_ZN4ncnn3Mat6addref
   br i1 %.not.i12, label %_ZN4ncnn3MatD2Ev.exit, label %70
 
 70:                                               ; preds = %69
-  call void @free(ptr noundef nonnull %64) #28
+  call void @free(ptr noundef nonnull %64) #27
   br label %_ZN4ncnn3MatD2Ev.exit
 
 71:                                               ; preds = %65
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #29
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit:                            ; preds = %59, %56, %65, %69, %70
@@ -7158,9 +7156,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #23
 
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #24
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #1 = { mustprogress uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
@@ -7185,13 +7180,12 @@ attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #23 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #24 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #25 = { nounwind allocsize(0) }
-attributes #26 = { builtin allocsize(0) }
-attributes #27 = { builtin nounwind }
-attributes #28 = { nounwind }
-attributes #29 = { noreturn nounwind }
-attributes #30 = { noreturn }
+attributes #24 = { nounwind allocsize(0) }
+attributes #25 = { builtin allocsize(0) }
+attributes #26 = { builtin nounwind }
+attributes #27 = { nounwind }
+attributes #28 = { noreturn nounwind }
+attributes #29 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -3791,8 +3791,7 @@ define hidden zeroext i1 @SDL_BindAudioStreams_REAL(i32 noundef %0, ptr noundef 
 
 .lr.ph87:                                         ; preds = %.critedge, %23
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %smax = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
-  %wide.trip.count106 = zext nneg i32 %smax to i64
+  %wide.trip.count106 = zext nneg i32 %2 to i64
   br label %49
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge
@@ -3987,8 +3986,7 @@ define hidden void @SDL_UnbindAudioStreams_REAL(ptr noundef readonly captures(ad
   br i1 %exitcond.not, label %.lr.ph, label %.preheader74, !llvm.loop !25
 
 .lr.ph78.preheader:                               ; preds = %52
-  %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
-  %wide.trip.count88 = zext nneg i32 %smax to i64
+  %wide.trip.count88 = zext nneg i32 %1 to i64
   br label %.lr.ph78
 
 .lr.ph:                                           ; preds = %.thread, %52

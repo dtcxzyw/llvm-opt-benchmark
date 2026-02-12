@@ -1231,8 +1231,6 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc197
   %351 = getelementptr inbounds nuw i8, ptr %336, i64 40
   %352 = getelementptr inbounds nuw i8, ptr %336, i64 32
   %353 = getelementptr inbounds nuw i8, ptr %336, i64 8
-  %smax100.i = call i32 @llvm.smax.i32(i32 %.sroa.0610.0.copyload, i32 1)
-  %wide.trip.count101.i = zext nneg i32 %smax100.i to i64
   %354 = getelementptr inbounds nuw i8, ptr %336, i64 16
   %355 = getelementptr inbounds nuw i8, ptr %336, i64 24
   br label %374
@@ -1590,7 +1588,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %476 = getelementptr inbounds nuw i8, ptr %475, i64 %474
   store ptr %476, ptr %11, align 8, !tbaa !6
   %indvars.iv.next98.i = add nuw nsw i64 %indvars.iv97.i, 1
-  %exitcond102.not.i = icmp eq i64 %indvars.iv.next98.i, %wide.trip.count101.i
+  %exitcond102.not.i = icmp eq i64 %indvars.iv.next98.i, %wide.trip.count.i
   br i1 %exitcond102.not.i, label %.loopexit132.i, label %374, !llvm.loop !54
 
 .loopexit.i:                                      ; preds = %.noexc.i.i
@@ -2541,8 +2539,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc35
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %smax77 = tail call i32 @llvm.smax.i32(i32 %21, i32 1)
-  %wide.trip.count78 = zext nneg i32 %smax77 to i64
+  %wide.trip.count78 = zext nneg i32 %21 to i64
   br label %51
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN7Imf_3_412_GLOBAL__N_125readVariableLengthIntegerERPKcS2_.exit

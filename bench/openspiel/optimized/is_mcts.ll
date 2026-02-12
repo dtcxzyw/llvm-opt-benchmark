@@ -2662,7 +2662,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEElET_S8_S8_RKT0_.e
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEElET_S8_S8_RKT0_.exit: ; preds = %41, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEElET_S8_S8_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEElET_S8_S8_RKT0_.exit.loopexit.split.loop.exit67, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEElET_S8_S8_RKT0_.exit.loopexit.split.loop.exit69, %73, %67, %61
   %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.1.i.i.i, %67 ], [ %spec.select.i.i.i, %73 ], [ %.sroa.032.0.lcssa.i.i.i, %61 ], [ %79, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEElET_S8_S8_RKT0_.exit.loopexit.split.loop.exit69 ], [ %78, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEElET_S8_S8_RKT0_.exit.loopexit.split.loop.exit67 ], [ %77, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEElET_S8_S8_RKT0_.exit.loopexit.split.loop.exit ], [ %.sroa.032.051.i.i.i, %41 ]
   %80 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %33
-  br i1 %80, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEElET_S8_S8_RKT0_.exit.thread, label %87
+  br i1 %80, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEElET_S8_S8_RKT0_.exit.thread, label %_ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEElET_S8_S8_RKT0_.exit.thread: ; preds = %._crit_edge.i.i.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEElET_S8_S8_RKT0_.exit
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.7.044, i64 8
@@ -2671,11 +2671,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEElET_S8_S8_RKT0_.e
   %84 = sub nsw i32 %83, %82
   store i32 %84, ptr %6, align 8
   %85 = invoke noundef i64 @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIlN10open_spiel10algorithms9ChildInfoEEENS0_13hash_internal4HashIlEESt8equal_toIlESaISt4pairIKlS6_EEE5eraseIlEEmRSE_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.7.044)
-          to label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEElET_S8_S8_RKT0_.exit.thread._crit_edge unwind label %_ZNSt6vectorIlSaIlEED2Ev.exit
-
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEElET_S8_S8_RKT0_.exit.thread._crit_edge: ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEElET_S8_S8_RKT0_.exit.thread
-  %.pre = load i8, ptr %.sroa.021.043, align 1
-  br label %87
+          to label %87 unwind label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
 _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEElET_S8_S8_RKT0_.exit.thread
   %86 = landingpad { ptr, i32 }
@@ -2683,44 +2679,44 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZSt4findIN9__gnu_c
   call void @_ZN10open_spiel10algorithms10ISMCTSNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #28
   resume { ptr, i32 } %86
 
-87:                                               ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEElET_S8_S8_RKT0_.exit.thread._crit_edge, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEElET_S8_S8_RKT0_.exit
-  %88 = phi i8 [ %.pre, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEElET_S8_S8_RKT0_.exit.thread._crit_edge ], [ %30, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEElET_S8_S8_RKT0_.exit ]
-  %89 = icmp sgt i8 %88, -1
-  br i1 %89, label %_ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i, label %.critedge.i.i14
+87:                                               ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEElET_S8_S8_RKT0_.exit.thread
+  %.pre = load i8, ptr %.sroa.021.043, align 1
+  %88 = icmp sgt i8 %.pre, -1
+  br i1 %88, label %_ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i, label %.critedge.i.i14
 
 .critedge.i.i14:                                  ; preds = %87
   call void @llvm.trap()
   unreachable
 
-_ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i: ; preds = %87
-  %90 = getelementptr inbounds nuw i8, ptr %.sroa.021.043, i64 1
-  %91 = getelementptr inbounds nuw i8, ptr %.sroa.7.044, i64 24
-  %92 = load i8, ptr %90, align 1
-  %93 = icmp slt i8 %92, -1
-  br i1 %93, label %.lr.ph.i.i16, label %._crit_edge.i.i
+_ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i: ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEElET_S8_S8_RKT0_.exit, %87
+  %89 = getelementptr inbounds nuw i8, ptr %.sroa.021.043, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.7.044, i64 24
+  %91 = load i8, ptr %89, align 1
+  %92 = icmp slt i8 %91, -1
+  br i1 %92, label %.lr.ph.i.i16, label %._crit_edge.i.i
 
 .lr.ph.i.i16:                                     ; preds = %_ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i, %.lr.ph.i.i16
-  %94 = phi ptr [ %104, %.lr.ph.i.i16 ], [ %91, %_ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i ]
-  %95 = phi ptr [ %103, %.lr.ph.i.i16 ], [ %90, %_ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i ]
-  %96 = load <16 x i8>, ptr %95, align 1
-  %97 = icmp slt <16 x i8> %96, splat (i8 -1)
-  %98 = bitcast <16 x i1> %97 to i16
-  %99 = zext i16 %98 to i32
-  %100 = add nuw nsw i32 %99, 1
-  %101 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %100, i1 true)
-  %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds nuw i8, ptr %95, i64 %102
-  %104 = getelementptr inbounds nuw %"union.absl::debian2::container_internal::map_slot_type", ptr %94, i64 %102
-  %105 = load i8, ptr %103, align 1
-  %106 = icmp slt i8 %105, -1
-  br i1 %106, label %.lr.ph.i.i16, label %._crit_edge.i.i, !llvm.loop !57
+  %93 = phi ptr [ %103, %.lr.ph.i.i16 ], [ %90, %_ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i ]
+  %94 = phi ptr [ %102, %.lr.ph.i.i16 ], [ %89, %_ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i ]
+  %95 = load <16 x i8>, ptr %94, align 1
+  %96 = icmp slt <16 x i8> %95, splat (i8 -1)
+  %97 = bitcast <16 x i1> %96 to i16
+  %98 = zext i16 %97 to i32
+  %99 = add nuw nsw i32 %98, 1
+  %100 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %99, i1 true)
+  %101 = zext nneg i32 %100 to i64
+  %102 = getelementptr inbounds nuw i8, ptr %94, i64 %101
+  %103 = getelementptr inbounds nuw %"union.absl::debian2::container_internal::map_slot_type", ptr %93, i64 %101
+  %104 = load i8, ptr %102, align 1
+  %105 = icmp slt i8 %104, -1
+  br i1 %105, label %.lr.ph.i.i16, label %._crit_edge.i.i, !llvm.loop !57
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i16, %_ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i
-  %.sroa.021.1 = phi ptr [ %90, %_ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i ], [ %103, %.lr.ph.i.i16 ]
-  %.sroa.7.1 = phi ptr [ %91, %_ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i ], [ %104, %.lr.ph.i.i16 ]
-  %.lcssa.i.i15 = phi i8 [ %92, %_ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i ], [ %105, %.lr.ph.i.i16 ]
-  %107 = icmp eq i8 %.lcssa.i.i15, -1
-  br i1 %107, label %_ZNSt6vectorIlSaIlEED2Ev.exit18, label %29
+  %.sroa.021.1 = phi ptr [ %89, %_ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i ], [ %102, %.lr.ph.i.i16 ]
+  %.sroa.7.1 = phi ptr [ %90, %_ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i ], [ %103, %.lr.ph.i.i16 ]
+  %.lcssa.i.i15 = phi i8 [ %91, %_ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i ], [ %104, %.lr.ph.i.i16 ]
+  %106 = icmp eq i8 %.lcssa.i.i15, -1
+  br i1 %106, label %_ZNSt6vectorIlSaIlEED2Ev.exit18, label %29
 
 _ZNSt6vectorIlSaIlEED2Ev.exit18:                  ; preds = %._crit_edge.i.i, %.loopexit
   ret void

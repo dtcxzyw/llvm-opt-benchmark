@@ -390,8 +390,7 @@ SystemAttributeByName.exit:                       ; preds = %17
   br i1 %.not51, label %._crit_edge, label %.lr.ph50.preheader
 
 .lr.ph50.preheader:                               ; preds = %.preheader
-  %smax = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
-  %wide.trip.count69 = zext nneg i32 %smax to i64
+  %wide.trip.count69 = zext nneg i32 %4 to i64
   br label %.lr.ph50
 
 33:                                               ; preds = %34
@@ -4847,9 +4846,6 @@ declare i32 @llvm.ctpop.i32(i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8

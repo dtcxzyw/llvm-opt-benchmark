@@ -4646,8 +4646,7 @@ _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %505, %499, %492
 .lr.ph605:                                        ; preds = %.preheader
   %577 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %578 = load ptr, ptr %577, align 8, !tbaa !46
-  %smax696 = call i32 @llvm.smax.i32(i32 %115, i32 1)
-  %wide.trip.count697 = zext nneg i32 %smax696 to i64
+  %wide.trip.count697 = zext nneg i32 %115 to i64
   br label %579
 
 579:                                              ; preds = %.lr.ph605, %579

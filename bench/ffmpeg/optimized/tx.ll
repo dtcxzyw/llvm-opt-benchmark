@@ -349,12 +349,10 @@ mulinv.exit108:                                   ; preds = %.lr.ph121
 .preheader112.us.preheader:                       ; preds = %33, %30
   %53 = zext nneg i32 %4 to i64
   %54 = zext nneg i32 %.011.i119 to i64
-  %smax = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
   %55 = zext nneg i32 %3 to i64
   %56 = zext nneg i32 %.011.i106120 to i64
-  %smax151 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
-  %wide.trip.count152 = zext nneg i32 %smax151 to i64
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count152 = zext nneg i32 %4 to i64
+  %wide.trip.count = zext nneg i32 %3 to i64
   br label %.preheader112.us
 
 .preheader112.us:                                 ; preds = %.preheader112.us.preheader, %._crit_edge129.us
@@ -402,8 +400,7 @@ mulinv.exit108:                                   ; preds = %.lr.ph121
 
 .lr.ph133.us.preheader:                           ; preds = %.lr.ph136
   %74 = zext nneg i32 %3 to i64
-  %smax162 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
-  %wide.trip.count163 = zext nneg i32 %smax162 to i64
+  %wide.trip.count163 = zext nneg i32 %4 to i64
   %wide.trip.count157 = zext nneg i32 %73 to i64
   br label %.lr.ph133.us
 

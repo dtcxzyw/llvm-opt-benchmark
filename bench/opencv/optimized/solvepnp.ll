@@ -8941,8 +8941,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit249:              ; preds = %349
   %453 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %454 = getelementptr inbounds nuw i8, ptr %60, i64 72
   %455 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %smax = call i32 @llvm.smax.i32(i32 %.086, i32 1)
-  %wide.trip.count320 = zext nneg i32 %smax to i64
+  %wide.trip.count320 = zext nneg i32 %.086 to i64
   br label %460
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %560

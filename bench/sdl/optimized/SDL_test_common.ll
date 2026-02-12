@@ -4578,11 +4578,11 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 8
   %.not = icmp eq i32 %14, 0
-  %.pre330 = load i32, ptr %1, align 8
+  %.pre331 = load i32, ptr %1, align 8
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %2
-  switch i32 %.pre330, label %18 [
+  switch i32 %.pre331, label %18 [
     i32 1024, label %16
     i32 1794, label %16
     i32 4870, label %16
@@ -4601,7 +4601,7 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
   br label %19
 
 19:                                               ; preds = %16, %18, %2
-  %20 = phi i32 [ %.pre330, %16 ], [ %.pre, %18 ], [ %.pre330, %2 ]
+  %20 = phi i32 [ %.pre331, %16 ], [ %.pre, %18 ], [ %.pre331, %2 ]
   switch i32 %20, label %.critedge [
     i32 532, label %21
     i32 527, label %43
@@ -4713,35 +4713,35 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %67 = load i32, ptr %66, align 8
   %68 = icmp sgt i32 %67, 0
-  br i1 %68, label %.lr.ph320, label %.critedge
+  br i1 %68, label %.lr.ph321, label %.critedge
 
-.lr.ph320:                                        ; preds = %.preheader
+.lr.ph321:                                        ; preds = %.preheader
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 216
   br label %71
 
-71:                                               ; preds = %.lr.ph320, %81
-  %72 = phi i32 [ %67, %.lr.ph320 ], [ %82, %81 ]
-  %indvars.iv327 = phi i64 [ 0, %.lr.ph320 ], [ %indvars.iv.next328, %81 ]
+71:                                               ; preds = %.lr.ph321, %81
+  %72 = phi i32 [ %67, %.lr.ph321 ], [ %82, %81 ]
+  %indvars.iv328 = phi i64 [ 0, %.lr.ph321 ], [ %indvars.iv.next329, %81 ]
   %73 = load ptr, ptr %69, align 8
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv327
+  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv328
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %65, %75
   br i1 %76, label %77, label %81
 
 77:                                               ; preds = %71
   %78 = load ptr, ptr %70, align 8
-  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv327
+  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv328
   %80 = load ptr, ptr %79, align 8
   tail call fastcc void @SDLTest_CopyScreenShot(ptr noundef %80)
-  %.pre332 = load i32, ptr %66, align 8
+  %.pre333 = load i32, ptr %66, align 8
   br label %81
 
 81:                                               ; preds = %71, %77
-  %82 = phi i32 [ %72, %71 ], [ %.pre332, %77 ]
-  %indvars.iv.next328 = add nuw nsw i64 %indvars.iv327, 1
+  %82 = phi i32 [ %72, %71 ], [ %.pre333, %77 ]
+  %indvars.iv.next329 = add nuw nsw i64 %indvars.iv328, 1
   %83 = sext i32 %82 to i64
-  %84 = icmp slt i64 %indvars.iv.next328, %83
+  %84 = icmp slt i64 %indvars.iv.next329, %83
   br i1 %84, label %71, label %.critedge, !llvm.loop !30
 
 85:                                               ; preds = %55
@@ -4798,32 +4798,32 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %109 = call ptr @SDL_GetDisplays(ptr noundef nonnull %7) #11
   %.not298 = icmp eq ptr %109, null
-  br i1 %.not298, label %.thread, label %110
+  br i1 %.not298, label %.loopexit, label %110
 
 110:                                              ; preds = %108
   %111 = call i32 @SDL_GetDisplayForWindow(ptr noundef nonnull %107) #11
   %112 = load i32, ptr %7, align 4
   %113 = icmp sgt i32 %112, 0
-  br i1 %113, label %.lr.ph318.preheader, label %.thread
+  br i1 %113, label %.lr.ph319.preheader, label %.loopexit
 
-.lr.ph318.preheader:                              ; preds = %110
+.lr.ph319.preheader:                              ; preds = %110
   %wide.trip.count = zext nneg i32 %112 to i64
-  br label %.lr.ph318
+  br label %.lr.ph319
 
-.lr.ph318:                                        ; preds = %.lr.ph318.preheader, %117
-  %indvars.iv324 = phi i64 [ 0, %.lr.ph318.preheader ], [ %indvars.iv.next325, %117 ]
-  %114 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv324
+.lr.ph319:                                        ; preds = %.lr.ph319.preheader, %117
+  %indvars.iv325 = phi i64 [ 0, %.lr.ph319.preheader ], [ %indvars.iv.next326, %117 ]
+  %114 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv325
   %115 = load i32, ptr %114, align 4
   %116 = icmp eq i32 %111, %115
   br i1 %116, label %118, label %117
 
-117:                                              ; preds = %.lr.ph318
-  %indvars.iv.next325 = add nuw nsw i64 %indvars.iv324, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next325, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %.lr.ph318, !llvm.loop !31
+117:                                              ; preds = %.lr.ph319
+  %indvars.iv.next326 = add nuw nsw i64 %indvars.iv325, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next326, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph319, !llvm.loop !31
 
-118:                                              ; preds = %.lr.ph318
-  %119 = trunc nuw nsw i64 %indvars.iv324 to i32
+118:                                              ; preds = %.lr.ph319
+  %119 = trunc nuw nsw i64 %indvars.iv325 to i32
   %120 = load i32, ptr %62, align 4
   switch i32 %120, label %124 [
     i32 1073741906, label %121
@@ -4841,21 +4841,21 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
   br label %127
 
 127:                                              ; preds = %124, %121
-  %.pn311 = phi i32 [ %123, %121 ], [ %126, %124 ]
-  %.pn.in = srem i32 %.pn311, %112
+  %.pn312 = phi i32 [ %123, %121 ], [ %126, %124 ]
+  %.pn.in = srem i32 %.pn312, %112
   %.pn = sext i32 %.pn.in to i64
   %.0230.in = getelementptr inbounds i32, ptr %109, i64 %.pn
   %.0230 = load i32, ptr %.0230.in, align 4
   call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.165, i32 noundef %.0230) #11
   %128 = or i32 %.0230, 805240832
   %129 = call zeroext i1 @SDL_SetWindowPosition(ptr noundef nonnull %107, i32 noundef %128, i32 noundef %128) #11
-  br label %.thread
+  br label %.loopexit
 
-.thread:                                          ; preds = %117, %110, %127, %108
+.loopexit:                                        ; preds = %117, %110, %127, %108
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %130
 
-130:                                              ; preds = %106, %.thread, %105
+130:                                              ; preds = %106, %.loopexit, %105
   br i1 %.not268, label %.critedge, label %131
 
 131:                                              ; preds = %130
@@ -4868,31 +4868,31 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %134 = call zeroext i1 @SDL_GetWindowPosition(ptr noundef nonnull %132, ptr noundef nonnull %8, ptr noundef nonnull %9) #11
   %135 = load i32, ptr %62, align 4
-  switch i32 %135, label %.thread310 [
-    i32 1073741906, label %.thread310.sink.split
+  switch i32 %135, label %.thread311 [
+    i32 1073741906, label %.thread311.sink.split
     i32 1073741905, label %136
     i32 1073741904, label %137
     i32 1073741903, label %138
   ]
 
 136:                                              ; preds = %133
-  br label %.thread310.sink.split
+  br label %.thread311.sink.split
 
 137:                                              ; preds = %133
-  br label %.thread310.sink.split
+  br label %.thread311.sink.split
 
 138:                                              ; preds = %133
-  br label %.thread310.sink.split
+  br label %.thread311.sink.split
 
-.thread310.sink.split:                            ; preds = %133, %138, %137, %136
+.thread311.sink.split:                            ; preds = %133, %138, %137, %136
   %.sink = phi ptr [ %9, %136 ], [ %8, %138 ], [ %8, %137 ], [ %9, %133 ]
-  %.sink364 = phi i32 [ 100, %136 ], [ 100, %138 ], [ -100, %137 ], [ -100, %133 ]
+  %.sink365 = phi i32 [ 100, %136 ], [ 100, %138 ], [ -100, %137 ], [ -100, %133 ]
   %139 = load i32, ptr %.sink, align 4
-  %140 = add nsw i32 %139, %.sink364
+  %140 = add nsw i32 %139, %.sink365
   store i32 %140, ptr %.sink, align 4
-  br label %.thread310
+  br label %.thread311
 
-.thread310:                                       ; preds = %.thread310.sink.split, %133
+.thread311:                                       ; preds = %.thread311.sink.split, %133
   %141 = load i32, ptr %8, align 4
   %142 = load i32, ptr %9, align 4
   call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.166, i32 noundef %141, i32 noundef %142) #11
@@ -4950,15 +4950,15 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
 164:                                              ; preds = %163
   %165 = tail call ptr @SDL_GetWindowFromEvent(ptr noundef nonnull %1) #11
   %.not295 = icmp eq ptr %165, null
-  br i1 %.not295, label %.critedge, label %.preheader312
+  br i1 %.not295, label %.critedge, label %.preheader313
 
-.preheader312:                                    ; preds = %164
+.preheader313:                                    ; preds = %164
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %167 = load i32, ptr %166, align 8
   %168 = icmp sgt i32 %167, 0
   br i1 %168, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %.preheader312
+.lr.ph:                                           ; preds = %.preheader313
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 216
   br label %171
@@ -4977,11 +4977,11 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
   %179 = getelementptr inbounds nuw ptr, ptr %178, i64 %indvars.iv
   %180 = load ptr, ptr %179, align 8
   tail call fastcc void @SDLTest_CopyScreenShot(ptr noundef %180)
-  %.pre331 = load i32, ptr %166, align 8
+  %.pre332 = load i32, ptr %166, align 8
   br label %181
 
 181:                                              ; preds = %171, %177
-  %182 = phi i32 [ %172, %171 ], [ %.pre331, %177 ]
+  %182 = phi i32 [ %172, %171 ], [ %.pre332, %177 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %183 = sext i32 %182 to i64
   %184 = icmp slt i64 %indvars.iv.next, %183
@@ -5355,7 +5355,7 @@ switch.lookup:                                    ; preds = %211
   tail call fastcc void @FullscreenTo(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %344)
   br label %.critedge
 
-.critedge:                                        ; preds = %181, %81, %.preheader312, %.preheader, %85, %95, %130, %146, %155, %157, %152, %185, %162, %160, %194, %202, %196, %193, %203, %219, %226, %233, %257, %266, %273, %283, %302, %315, %323, %334, %333, %338, %337, %342, %341, %55, %64, %88, %86, %98, %96, %.thread310, %131, %149, %147, %164, %206, %204, %217, %209, %222, %220, %229, %227, %236, %234, %260, %258, %269, %267, %279, %281, %274, %286, %284, %296, %300, %289, %310, %313, %303, %318, %316, %326, %324, %51, %53, %47, %49, %25, %27, %19, %43, %21
+.critedge:                                        ; preds = %181, %81, %.preheader313, %.preheader, %85, %95, %130, %146, %155, %157, %152, %185, %162, %160, %194, %202, %196, %193, %203, %219, %226, %233, %257, %266, %273, %283, %302, %315, %323, %334, %333, %338, %337, %342, %341, %55, %64, %88, %86, %98, %96, %.thread311, %131, %149, %147, %164, %206, %204, %217, %209, %222, %220, %229, %227, %236, %234, %260, %258, %269, %267, %279, %281, %274, %286, %284, %296, %300, %289, %310, %313, %303, %318, %316, %326, %324, %51, %53, %47, %49, %25, %27, %19, %43, %21
   br label %345
 
 345:                                              ; preds = %19, %55, %.critedge

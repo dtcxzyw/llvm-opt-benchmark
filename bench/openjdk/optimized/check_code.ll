@@ -8458,8 +8458,7 @@ split:                                            ; preds = %38
   %116 = load i8, ptr %115, align 4
   %117 = or i8 %116, 1
   store i8 %117, ptr %115, align 4
-  %smax = tail call i32 @llvm.smax.i32(i32 %29, i32 1)
-  %wide.trip.count280 = zext nneg i32 %smax to i64
+  %wide.trip.count280 = zext nneg i32 %29 to i64
   br label %118
 
 118:                                              ; preds = %.lr.ph224, %.loopexit

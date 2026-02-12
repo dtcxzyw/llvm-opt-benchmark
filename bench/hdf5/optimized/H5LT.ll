@@ -4655,8 +4655,7 @@ define internal fastcc noundef ptr @print_enum(i64 noundef %0, ptr noundef nonnu
   %42 = add i64 %4, 3
   %43 = icmp ult i64 %42, 80
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 %42
-  %smax162 = tail call i32 @llvm.smax.i32(i32 %8, i32 1)
-  %wide.trip.count163 = zext nneg i32 %smax162 to i64
+  %wide.trip.count163 = zext nneg i32 %8 to i64
   br label %46
 
 45:                                               ; preds = %70
@@ -4665,8 +4664,7 @@ define internal fastcc noundef ptr @print_enum(i64 noundef %0, ptr noundef nonnu
   br i1 %exitcond164.not, label %.lr.ph152.preheader, label %46, !llvm.loop !38
 
 .lr.ph152.preheader:                              ; preds = %45
-  %smax168 = call i32 @llvm.smax.i32(i32 %8, i32 1)
-  %wide.trip.count169 = zext nneg i32 %smax168 to i64
+  %wide.trip.count169 = zext nneg i32 %8 to i64
   br label %.lr.ph152
 
 46:                                               ; preds = %.lr.ph150, %45

@@ -10289,8 +10289,7 @@ TextLength.exit:                                  ; preds = %3, %.preheader.i, %
 
 .lr.ph.preheader:                                 ; preds = %7
   %10 = sext i32 %1 to i64
-  %smax = tail call i32 @llvm.smax.i32(i32 %spec.store.select, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %spec.store.select to i64
   %invariant.gep = getelementptr i8, ptr %0, i64 %10
   br label %.lr.ph
 

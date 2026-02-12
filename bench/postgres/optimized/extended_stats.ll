@@ -2077,13 +2077,13 @@ define dso_local ptr @build_sorted_items(ptr noundef readonly captures(none) %0,
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %40, label %._crit_edge117.thread144, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %.preheader.lr.ph
-  %wide.trip.count135 = zext nneg i32 %3 to i64
-  br label %.preheader
-
 ._crit_edge117.thread144:                         ; preds = %.preheader.lr.ph
   store i32 %38, ptr %1, align 4
   br label %103
+
+.preheader.preheader:                             ; preds = %.preheader.lr.ph
+  %wide.trip.count135 = zext nneg i32 %3 to i64
+  br label %.preheader
 
 44:                                               ; preds = %.lr.ph102, %44
   %indvars.iv123 = phi i64 [ 0, %.lr.ph102 ], [ %indvars.iv.next124, %44 ]

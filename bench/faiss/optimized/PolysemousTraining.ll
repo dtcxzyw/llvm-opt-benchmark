@@ -191,7 +191,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc19
 .lr.ph.preheader:                                 ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc19
   %18 = zext nneg i32 %9 to i64
   %19 = shl nuw nsw i64 %18, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %13, ptr noundef nonnull align 4 dereferenceable(1) %1, i64 %19, i1 false), !tbaa !11
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %13, ptr align 4 %1, i64 %19, i1 false), !tbaa !11
   %20 = ptrtoint ptr %14 to i64
   br label %._crit_edge
 

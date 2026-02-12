@@ -37589,7 +37589,7 @@ _ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit848: ; preds = %1267, %
   %1319 = sub nsw i32 0, %1179
   %1320 = getelementptr i8, ptr %837, i64 2
   %1321 = zext nneg i32 %1319 to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1320, i8 48, i64 %1321, i1 false), !tbaa !75
+  tail call void @llvm.memset.p0.i64(ptr align 1 %1320, i8 48, i64 %1321, i1 false), !tbaa !75
   br label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit540
 
 1322:                                             ; preds = %1197
@@ -41493,7 +41493,7 @@ _ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit782: ; preds = %3683, %
   %3735 = sub nsw i32 0, %3595
   %3736 = getelementptr i8, ptr %3253, i64 2
   %3737 = zext nneg i32 %3735 to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3736, i8 48, i64 %3737, i1 false), !tbaa !75
+  tail call void @llvm.memset.p0.i64(ptr align 1 %3736, i8 48, i64 %3737, i1 false), !tbaa !75
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit547.thread
 
 3738:                                             ; preds = %3597
@@ -45811,7 +45811,7 @@ _ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit: ; preds = %6329, %634
   %6381 = sub nsw i32 0, %6241
   %6382 = getelementptr i8, ptr %5899, i64 2
   %6383 = zext nneg i32 %6381 to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %6382, i8 48, i64 %6383, i1 false), !tbaa !75
+  tail call void @llvm.memset.p0.i64(ptr align 1 %6382, i8 48, i64 %6383, i1 false), !tbaa !75
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread
 
 6384:                                             ; preds = %6243
@@ -50168,7 +50168,7 @@ _ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit.i: ; preds = %1306, %1
   %1322 = sub nsw i32 0, %1180
   %1323 = getelementptr i8, ptr %838, i64 2
   %1324 = zext nneg i32 %1322 to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1323, i8 48, i64 %1324, i1 false), !tbaa !75
+  tail call void @llvm.memset.p0.i64(ptr align 1 %1323, i8 48, i64 %1324, i1 false), !tbaa !75
   br label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit97.i
 
 1325:                                             ; preds = %1198
@@ -54082,7 +54082,7 @@ _ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit.i54: ; preds = %3727, 
   %3743 = sub nsw i32 0, %3601
   %3744 = getelementptr i8, ptr %3259, i64 2
   %3745 = zext nneg i32 %3743 to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3744, i8 48, i64 %3745, i1 false), !tbaa !75
+  tail call void @llvm.memset.p0.i64(ptr align 1 %3744, i8 48, i64 %3745, i1 false), !tbaa !75
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i40.thread
 
 3746:                                             ; preds = %3603
@@ -58437,7 +58437,7 @@ _ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit.i229: ; preds = %6397,
   %6413 = sub nsw i32 0, %6271
   %6414 = getelementptr i8, ptr %5929, i64 2
   %6415 = zext nneg i32 %6413 to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %6414, i8 48, i64 %6415, i1 false), !tbaa !75
+  tail call void @llvm.memset.p0.i64(ptr align 1 %6414, i8 48, i64 %6415, i1 false), !tbaa !75
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i209.thread
 
 6416:                                             ; preds = %6273

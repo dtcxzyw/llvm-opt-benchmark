@@ -1276,9 +1276,8 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %.critedge.thread, %
   br i1 %91, label %.lr.ph560.us.preheader, label %._crit_edge563.split.us
 
 .lr.ph560.us.preheader:                           ; preds = %.preheader551
-  %smax = call i32 @llvm.smax.i32(i32 %.09.i493, i32 1)
   %wide.trip.count706 = zext nneg i32 %78 to i64
-  %wide.trip.count701 = zext nneg i32 %smax to i64
+  %wide.trip.count701 = zext nneg i32 %.09.i493 to i64
   br label %.lr.ph560.us
 
 .lr.ph560.us:                                     ; preds = %.lr.ph560.us.preheader, %._crit_edge.us
@@ -1523,9 +1522,8 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %._crit_edge563.spli
   br i1 %197, label %.lr.ph576.us.preheader, label %._crit_edge579.split.us
 
 .lr.ph576.us.preheader:                           ; preds = %.preheader
-  %smax724 = call i32 @llvm.smax.i32(i32 %.09.i495, i32 1)
   %wide.trip.count730 = zext nneg i32 %182 to i64
-  %wide.trip.count725 = zext nneg i32 %smax724 to i64
+  %wide.trip.count725 = zext nneg i32 %.09.i495 to i64
   br label %.lr.ph576.us
 
 .lr.ph576.us:                                     ; preds = %.lr.ph576.us.preheader, %._crit_edge.us580

@@ -178,9 +178,9 @@ define dso_local void @diffcore_rename_extended(ptr noundef captures(none) %0, p
 
 38:                                               ; preds = %6
   %or.cond = select i1 %37, i1 true, i1 %35
-  br i1 %or.cond, label %40, label %.thread467
+  br i1 %or.cond, label %40, label %.thread468
 
-.thread467:                                       ; preds = %38
+.thread468:                                       ; preds = %38
   %39 = icmp ne ptr %2, null
   br label %44
 
@@ -197,8 +197,8 @@ define dso_local void @diffcore_rename_extended(ptr noundef captures(none) %0, p
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 1414, ptr noundef nonnull @.str.4) #15
   unreachable
 
-44:                                               ; preds = %.thread467, %41
-  %45 = phi i1 [ %39, %.thread467 ], [ %42, %41 ]
+44:                                               ; preds = %.thread468, %41
+  %45 = phi i1 [ %39, %.thread468 ], [ %42, %41 ]
   %.not198 = icmp eq i32 %29, 0
   %spec.store.select = select i1 %.not198, i32 30000, i32 %29
   %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !53
@@ -1030,7 +1030,7 @@ initialize_dir_rename_info.exit:                  ; preds = %get_highest_rename_
   br i1 %424, label %.lr.ph90.i.preheader, label %._crit_edge.i253
 
 .lr.ph90.i.preheader:                             ; preds = %.preheader.i252
-  %.pre398 = load ptr, ptr @rename_dst, align 8, !tbaa !82
+  %.pre399 = load ptr, ptr @rename_dst, align 8, !tbaa !82
   br label %.lr.ph90.i
 
 .lr.ph.i256:                                      ; preds = %initialize_dir_rename_info.exit, %.lr.ph.i256
@@ -1058,7 +1058,7 @@ initialize_dir_rename_info.exit:                  ; preds = %get_highest_rename_
 
 .lr.ph90.i:                                       ; preds = %.lr.ph90.i.preheader, %456
   %440 = phi i32 [ %457, %456 ], [ %423, %.lr.ph90.i.preheader ]
-  %441 = phi ptr [ %458, %456 ], [ %.pre398, %.lr.ph90.i.preheader ]
+  %441 = phi ptr [ %458, %456 ], [ %.pre399, %.lr.ph90.i.preheader ]
   %indvars.iv97.i = phi i64 [ %indvars.iv.next98.i, %456 ], [ 0, %.lr.ph90.i.preheader ]
   %442 = getelementptr inbounds nuw %struct.diff_rename_dst, ptr %441, i64 %indvars.iv97.i
   %443 = getelementptr inbounds nuw i8, ptr %442, i64 16
@@ -1081,13 +1081,13 @@ initialize_dir_rename_info.exit:                  ; preds = %get_highest_rename_
   %454 = inttoptr i64 %indvars.iv97.i to ptr
   %.sink108.i = select i1 %.not74.i, ptr %454, ptr inttoptr (i64 -1 to ptr)
   %455 = call ptr @strmap_put(ptr noundef nonnull %13, ptr noundef nonnull %452, ptr noundef %.sink108.i) #14
-  %.pre397 = load ptr, ptr @rename_dst, align 8, !tbaa !82
-  %.pre399 = load i32, ptr @rename_dst_nr, align 4, !tbaa !81
+  %.pre398 = load ptr, ptr @rename_dst, align 8, !tbaa !82
+  %.pre400 = load i32, ptr @rename_dst_nr, align 4, !tbaa !81
   br label %456
 
 456:                                              ; preds = %.sink.split.i, %.lr.ph90.i
-  %457 = phi i32 [ %.pre399, %.sink.split.i ], [ %440, %.lr.ph90.i ]
-  %458 = phi ptr [ %.pre397, %.sink.split.i ], [ %441, %.lr.ph90.i ]
+  %457 = phi i32 [ %.pre400, %.sink.split.i ], [ %440, %.lr.ph90.i ]
+  %458 = phi ptr [ %.pre398, %.sink.split.i ], [ %441, %.lr.ph90.i ]
   %indvars.iv.next98.i = add nuw nsw i64 %indvars.iv97.i, 1
   %459 = sext i32 %457 to i64
   %460 = icmp slt i64 %indvars.iv.next98.i, %459
@@ -1842,19 +1842,19 @@ st_mult.exit:                                     ; preds = %789
   %793 = call ptr @xcalloc(i64 noundef %792, i64 noundef 12) #14
   %794 = load i32, ptr @rename_dst_nr, align 4, !tbaa !81
   %795 = icmp sgt i32 %794, 0
-  br i1 %795, label %.lr.ph357, label %._crit_edge358
+  br i1 %795, label %.lr.ph358, label %._crit_edge359
 
-.lr.ph357:                                        ; preds = %st_mult.exit
+.lr.ph358:                                        ; preds = %st_mult.exit
   %796 = sext i32 %739 to i64
-  %.pre401 = load ptr, ptr @rename_dst, align 8, !tbaa !82
+  %.pre402 = load ptr, ptr @rename_dst, align 8, !tbaa !82
   br label %797
 
-797:                                              ; preds = %.lr.ph357, %924
-  %798 = phi i32 [ %794, %.lr.ph357 ], [ %925, %924 ]
-  %799 = phi ptr [ %.pre401, %.lr.ph357 ], [ %926, %924 ]
-  %indvars.iv388 = phi i64 [ 0, %.lr.ph357 ], [ %indvars.iv.next389, %924 ]
-  %.0185354 = phi i32 [ 0, %.lr.ph357 ], [ %.1186, %924 ]
-  %800 = getelementptr inbounds nuw %struct.diff_rename_dst, ptr %799, i64 %indvars.iv388
+797:                                              ; preds = %.lr.ph358, %924
+  %798 = phi i32 [ %794, %.lr.ph358 ], [ %925, %924 ]
+  %799 = phi ptr [ %.pre402, %.lr.ph358 ], [ %926, %924 ]
+  %indvars.iv389 = phi i64 [ 0, %.lr.ph358 ], [ %indvars.iv.next390, %924 ]
+  %.0185355 = phi i32 [ 0, %.lr.ph358 ], [ %.1186, %924 ]
+  %800 = getelementptr inbounds nuw %struct.diff_rename_dst, ptr %799, i64 %indvars.iv389
   %801 = load ptr, ptr %800, align 8, !tbaa !84
   %802 = getelementptr inbounds nuw i8, ptr %801, i64 8
   %803 = load ptr, ptr %802, align 8, !tbaa !24
@@ -1864,7 +1864,7 @@ st_mult.exit:                                     ; preds = %789
   br i1 %.not202, label %806, label %924
 
 806:                                              ; preds = %797
-  %807 = shl nsw i32 %.0185354, 2
+  %807 = shl nsw i32 %.0185355, 2
   %808 = sext i32 %807 to i64
   %809 = getelementptr inbounds %struct.diff_score, ptr %793, i64 %808
   br label %814
@@ -1872,26 +1872,26 @@ st_mult.exit:                                     ; preds = %789
 .preheader:                                       ; preds = %814
   %810 = load i32, ptr @rename_src_nr, align 4, !tbaa !81
   %811 = icmp sgt i32 %810, 0
-  br i1 %811, label %.lr.ph352, label %._crit_edge353
+  br i1 %811, label %.lr.ph353, label %._crit_edge354
 
-.lr.ph352:                                        ; preds = %.preheader
+.lr.ph353:                                        ; preds = %.preheader
   %812 = getelementptr i8, ptr %803, i64 40
-  %813 = trunc nuw nsw i64 %indvars.iv388 to i32
+  %813 = trunc nuw nsw i64 %indvars.iv389 to i32
   br label %817
 
 814:                                              ; preds = %806, %814
-  %indvars.iv382 = phi i64 [ 0, %806 ], [ %indvars.iv.next383, %814 ]
-  %815 = getelementptr inbounds nuw %struct.diff_score, ptr %809, i64 %indvars.iv382
+  %indvars.iv383 = phi i64 [ 0, %806 ], [ %indvars.iv.next384, %814 ]
+  %815 = getelementptr inbounds nuw %struct.diff_score, ptr %809, i64 %indvars.iv383
   %816 = getelementptr inbounds nuw i8, ptr %815, i64 4
   store i32 -1, ptr %816, align 4, !tbaa !142
-  %indvars.iv.next383 = add nuw nsw i64 %indvars.iv382, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next383, 4
+  %indvars.iv.next384 = add nuw nsw i64 %indvars.iv383, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next384, 4
   br i1 %exitcond.not, label %.preheader, label %814, !llvm.loop !144
 
-817:                                              ; preds = %.lr.ph352, %916
-  %indvars.iv385 = phi i64 [ 0, %.lr.ph352 ], [ %indvars.iv.next386, %916 ]
+817:                                              ; preds = %.lr.ph353, %916
+  %indvars.iv386 = phi i64 [ 0, %.lr.ph353 ], [ %indvars.iv.next387, %916 ]
   %818 = load ptr, ptr @rename_src, align 8, !tbaa !91
-  %819 = getelementptr inbounds nuw %struct.diff_rename_src, ptr %818, i64 %indvars.iv385
+  %819 = getelementptr inbounds nuw %struct.diff_rename_src, ptr %818, i64 %indvars.iv386
   %820 = load ptr, ptr %819, align 8, !tbaa !93
   %821 = load ptr, ptr %820, align 8, !tbaa !15
   br i1 %.not203, label %824, label %822
@@ -2066,7 +2066,7 @@ score_compare.exit14.i:                           ; preds = %910, %904
   br i1 %914, label %score_compare.exit14.i.thread, label %record_if_better.exit
 
 score_compare.exit14.i.thread:                    ; preds = %893, %score_compare.exit14.i
-  %915 = trunc nuw nsw i64 %indvars.iv385 to i32
+  %915 = trunc nuw nsw i64 %indvars.iv386 to i32
   store i32 %915, ptr %896, align 4, !tbaa !81
   store i32 %813, ptr %897, align 4, !tbaa !81
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %896, i64 8
@@ -2081,43 +2081,43 @@ record_if_better.exit:                            ; preds = %score_compare.exit1
   br label %916
 
 916:                                              ; preds = %822, %record_if_better.exit
-  %indvars.iv.next386 = add nuw nsw i64 %indvars.iv385, 1
+  %indvars.iv.next387 = add nuw nsw i64 %indvars.iv386, 1
   %917 = load i32, ptr @rename_src_nr, align 4, !tbaa !81
   %918 = sext i32 %917 to i64
-  %919 = icmp slt i64 %indvars.iv.next386, %918
-  br i1 %919, label %817, label %._crit_edge353, !llvm.loop !149
+  %919 = icmp slt i64 %indvars.iv.next387, %918
+  br i1 %919, label %817, label %._crit_edge354, !llvm.loop !149
 
-._crit_edge353:                                   ; preds = %916, %.preheader
-  %920 = add nsw i32 %.0185354, 1
+._crit_edge354:                                   ; preds = %916, %.preheader
+  %920 = add nsw i32 %.0185355, 1
   %921 = load ptr, ptr %21, align 8, !tbaa !38
   %922 = sext i32 %920 to i64
   %923 = mul nsw i64 %922, %796
   call void @display_progress(ptr noundef %921, i64 noundef %923) #14
-  %.pre400 = load ptr, ptr @rename_dst, align 8, !tbaa !82
-  %.pre402 = load i32, ptr @rename_dst_nr, align 4, !tbaa !81
+  %.pre401 = load ptr, ptr @rename_dst, align 8, !tbaa !82
+  %.pre403 = load i32, ptr @rename_dst_nr, align 4, !tbaa !81
   br label %924
 
-924:                                              ; preds = %797, %._crit_edge353
-  %925 = phi i32 [ %.pre402, %._crit_edge353 ], [ %798, %797 ]
-  %926 = phi ptr [ %.pre400, %._crit_edge353 ], [ %799, %797 ]
-  %.1186 = phi i32 [ %920, %._crit_edge353 ], [ %.0185354, %797 ]
-  %indvars.iv.next389 = add nuw nsw i64 %indvars.iv388, 1
+924:                                              ; preds = %797, %._crit_edge354
+  %925 = phi i32 [ %.pre403, %._crit_edge354 ], [ %798, %797 ]
+  %926 = phi ptr [ %.pre401, %._crit_edge354 ], [ %799, %797 ]
+  %.1186 = phi i32 [ %920, %._crit_edge354 ], [ %.0185355, %797 ]
+  %indvars.iv.next390 = add nuw nsw i64 %indvars.iv389, 1
   %927 = sext i32 %925 to i64
-  %928 = icmp slt i64 %indvars.iv.next389, %927
-  br i1 %928, label %797, label %._crit_edge358, !llvm.loop !150
+  %928 = icmp slt i64 %indvars.iv.next390, %927
+  br i1 %928, label %797, label %._crit_edge359, !llvm.loop !150
 
-._crit_edge358:                                   ; preds = %924, %st_mult.exit
+._crit_edge359:                                   ; preds = %924, %st_mult.exit
   %.0185.lcssa = phi i32 [ 0, %st_mult.exit ], [ %.1186, %924 ]
   %929 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !81
   %.not4.i.i = icmp eq i32 %929, 0
   br i1 %.not4.i.i, label %stop_progress.exit, label %930
 
-930:                                              ; preds = %._crit_edge358
+930:                                              ; preds = %._crit_edge359
   %931 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.20, i32 noundef 5) #14
   br label %stop_progress.exit
 
-stop_progress.exit:                               ; preds = %._crit_edge358, %930
-  %.0.i.i298 = phi ptr [ %931, %930 ], [ @.str.20, %._crit_edge358 ]
+stop_progress.exit:                               ; preds = %._crit_edge359, %930
+  %.0.i.i298 = phi ptr [ %931, %930 ], [ @.str.20, %._crit_edge359 ]
   call void @stop_progress_msg(ptr noundef nonnull %21, ptr noundef %.0.i.i298) #14
   %932 = shl nsw i32 %.0185.lcssa, 2
   %933 = sext i32 %932 to i64
@@ -2140,16 +2140,16 @@ too_many_rename_candidates.exit.thread319:        ; preds = %st_mult.exit39.i, %
   call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str, i32 noundef 1640, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, ptr noundef %937) #14
   %938 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !53
   %939 = icmp sgt i32 %938, 0
-  br i1 %939, label %.lr.ph360, label %._crit_edge361
+  br i1 %939, label %.lr.ph361, label %._crit_edge362
 
-.lr.ph360:                                        ; preds = %too_many_rename_candidates.exit.thread319
+.lr.ph361:                                        ; preds = %too_many_rename_candidates.exit.thread319
   %.not.i302 = icmp eq ptr %1, null
   br label %940
 
-940:                                              ; preds = %.lr.ph360, %pool_diff_free_filepair.exit
-  %indvars.iv391 = phi i64 [ 0, %.lr.ph360 ], [ %indvars.iv.next392, %pool_diff_free_filepair.exit ]
+940:                                              ; preds = %.lr.ph361, %pool_diff_free_filepair.exit
+  %indvars.iv392 = phi i64 [ 0, %.lr.ph361 ], [ %indvars.iv.next393, %pool_diff_free_filepair.exit ]
   %941 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !56
-  %942 = getelementptr inbounds nuw ptr, ptr %941, i64 %indvars.iv391
+  %942 = getelementptr inbounds nuw ptr, ptr %941, i64 %indvars.iv392
   %943 = load ptr, ptr %942, align 8, !tbaa !57
   %944 = getelementptr inbounds nuw i8, ptr %943, i64 19
   %945 = load i8, ptr %944, align 1
@@ -2218,8 +2218,8 @@ strintmap_get.exit.i301:                          ; preds = %970, %967
   %976 = icmp eq i32 %.fr.i, -1
   %977 = load ptr, ptr @rename_dst, align 8
   %.not214 = icmp eq ptr %977, null
-  %or.cond331 = select i1 %976, i1 true, i1 %.not214
-  br i1 %or.cond331, label %locate_rename_dst.exit.thread, label %978
+  %or.cond332 = select i1 %976, i1 true, i1 %.not214
+  br i1 %or.cond332, label %locate_rename_dst.exit.thread, label %978
 
 locate_rename_dst.exit.thread:                    ; preds = %strintmap_get.exit.i301, %961
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 1673, ptr noundef nonnull @.str.15) #15
@@ -2231,15 +2231,15 @@ locate_rename_dst.exit.thread:                    ; preds = %strintmap_get.exit.
   %981 = getelementptr inbounds nuw i8, ptr %980, i64 16
   %982 = load i32, ptr %981, align 8, !tbaa !87
   %.not215 = icmp eq i32 %982, 0
-  br i1 %.not215, label %select.unfold322, label %988
+  br i1 %.not215, label %select.unfold323, label %988
 
 983:                                              ; preds = %959
   %984 = getelementptr inbounds nuw i8, ptr %949, i64 76
   %985 = load i32, ptr %984, align 4, !tbaa !89
   %.not213 = icmp eq i32 %985, 0
-  br i1 %.not213, label %select.unfold322, label %988
+  br i1 %.not213, label %select.unfold323, label %988
 
-select.unfold322:                                 ; preds = %983, %978
+select.unfold323:                                 ; preds = %983, %978
   call void @diff_q(ptr noundef nonnull %20, ptr noundef nonnull %943) #14
   br label %pool_diff_free_filepair.exit
 
@@ -2286,29 +2286,29 @@ free_filespec_data.exit.i:                        ; preds = %995, %990
   call void @diff_free_filespec_data(ptr noundef nonnull %997) #14
   br label %pool_diff_free_filepair.exit
 
-pool_diff_free_filepair.exit:                     ; preds = %select.unfold322, %987, %957, %947, %1001, %free_filespec_data.exit.i, %989
-  %indvars.iv.next392 = add nuw nsw i64 %indvars.iv391, 1
+pool_diff_free_filepair.exit:                     ; preds = %select.unfold323, %987, %957, %947, %1001, %free_filespec_data.exit.i, %989
+  %indvars.iv.next393 = add nuw nsw i64 %indvars.iv392, 1
   %1002 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !53
   %1003 = sext i32 %1002 to i64
-  %1004 = icmp slt i64 %indvars.iv.next392, %1003
-  br i1 %1004, label %940, label %._crit_edge361, !llvm.loop !151
+  %1004 = icmp slt i64 %indvars.iv.next393, %1003
+  br i1 %1004, label %940, label %._crit_edge362, !llvm.loop !151
 
-._crit_edge361:                                   ; preds = %pool_diff_free_filepair.exit, %too_many_rename_candidates.exit.thread319
+._crit_edge362:                                   ; preds = %pool_diff_free_filepair.exit, %too_many_rename_candidates.exit.thread319
   %1005 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !56
   call void @free(ptr noundef %1005) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @diff_queued_diff, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false), !tbaa.struct !152
   %1006 = load i32, ptr @rename_dst_nr, align 4, !tbaa !81
   %1007 = icmp sgt i32 %1006, 0
-  br i1 %1007, label %.lr.ph364, label %._crit_edge365
+  br i1 %1007, label %.lr.ph365, label %._crit_edge366
 
-.lr.ph364:                                        ; preds = %._crit_edge361
+.lr.ph365:                                        ; preds = %._crit_edge362
   %.not.i304 = icmp eq ptr %1, null
   br label %1008
 
-1008:                                             ; preds = %.lr.ph364, %pool_free_filespec.exit
-  %indvars.iv394 = phi i64 [ 0, %.lr.ph364 ], [ %indvars.iv.next395, %pool_free_filespec.exit ]
+1008:                                             ; preds = %.lr.ph365, %pool_free_filespec.exit
+  %indvars.iv395 = phi i64 [ 0, %.lr.ph365 ], [ %indvars.iv.next396, %pool_free_filespec.exit ]
   %1009 = load ptr, ptr @rename_dst, align 8, !tbaa !82
-  %1010 = getelementptr inbounds nuw %struct.diff_rename_dst, ptr %1009, i64 %indvars.iv394
+  %1010 = getelementptr inbounds nuw %struct.diff_rename_dst, ptr %1009, i64 %indvars.iv395
   %1011 = getelementptr inbounds nuw i8, ptr %1010, i64 8
   %1012 = load ptr, ptr %1011, align 8, !tbaa !86
   %.not206 = icmp eq ptr %1012, null
@@ -2334,14 +2334,14 @@ pool_diff_free_filepair.exit:                     ; preds = %select.unfold322, %
   br label %pool_free_filespec.exit
 
 pool_free_filespec.exit:                          ; preds = %1019, %1015, %1014, %1008
-  %indvars.iv.next395 = add nuw nsw i64 %indvars.iv394, 1
+  %indvars.iv.next396 = add nuw nsw i64 %indvars.iv395, 1
   %1020 = load i32, ptr @rename_dst_nr, align 4, !tbaa !81
   %1021 = sext i32 %1020 to i64
-  %1022 = icmp slt i64 %indvars.iv.next395, %1021
-  br i1 %1022, label %1008, label %._crit_edge365, !llvm.loop !154
+  %1022 = icmp slt i64 %indvars.iv.next396, %1021
+  br i1 %1022, label %1008, label %._crit_edge366, !llvm.loop !154
 
-._crit_edge365:                                   ; preds = %pool_free_filespec.exit, %._crit_edge361
-  %.not332 = icmp eq ptr %4, null
+._crit_edge366:                                   ; preds = %pool_free_filespec.exit, %._crit_edge362
+  %.not333 = icmp eq ptr %4, null
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false)
@@ -2349,7 +2349,7 @@ pool_free_filespec.exit:                          ; preds = %1019, %1015, %1014,
   %.not.i307 = icmp eq i32 %1023, 0
   br i1 %.not.i307, label %cleanup_dir_rename_info.exit, label %1024
 
-1024:                                             ; preds = %._crit_edge365
+1024:                                             ; preds = %._crit_edge366
   call void @strmap_clear(ptr noundef nonnull %23, i32 noundef 0) #14
   %1025 = getelementptr inbounds nuw i8, ptr %23, i64 72
   call void @strmap_clear(ptr noundef nonnull %1025, i32 noundef 1) #14
@@ -2370,7 +2370,7 @@ pool_free_filespec.exit:                          ; preds = %1019, %1015, %1014,
 1030:                                             ; preds = %1028, %1024
   %1031 = getelementptr inbounds nuw i8, ptr %23, i64 136
   %1032 = load ptr, ptr %1031, align 8, !tbaa !109
-  br i1 %.not332, label %1033, label %1040
+  br i1 %.not333, label %1033, label %1040
 
 1033:                                             ; preds = %1030
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -2475,7 +2475,7 @@ strintmap_get.exit.i310:                          ; preds = %1052, %1050
   %1070 = icmp ult i64 %1068, %1069
   br i1 %1070, label %.lr.ph39.i, label %._crit_edge.i314, !llvm.loop !162
 
-cleanup_dir_rename_info.exit:                     ; preds = %._crit_edge365, %partial_clear_dir_rename_count.exit.i, %._crit_edge.i314
+cleanup_dir_rename_info.exit:                     ; preds = %._crit_edge366, %partial_clear_dir_rename_count.exit.i, %._crit_edge.i314
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %1071 = load ptr, ptr @rename_dst, align 8, !tbaa !82

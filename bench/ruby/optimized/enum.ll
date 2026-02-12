@@ -3384,8 +3384,7 @@ RARRAY_PTR.exit:                                  ; preds = %9, %11
 
 .lr.ph51.preheader:                               ; preds = %.lr.ph.i, %20
   %.lcssa.i = phi i64 [ %.pr.i, %20 ], [ %21, %.lr.ph.i ]
-  %smax = tail call i32 @llvm.smax.i32(i32 %0, i32 1)
-  %wide.trip.count59 = zext nneg i32 %smax to i64
+  %wide.trip.count59 = zext nneg i32 %0 to i64
   br label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %.lr.ph51.preheader, %29
@@ -11200,9 +11199,6 @@ declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #13

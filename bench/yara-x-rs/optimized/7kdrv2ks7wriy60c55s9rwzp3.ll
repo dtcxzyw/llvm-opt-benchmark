@@ -7724,7 +7724,7 @@ default.unreachable34:                            ; preds = %_ZN4core4iter6trait
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1023)
   %18 = load i8, ptr %.sroa.0.0626.i, align 1, !alias.scope !1026, !noalias !1027, !noundef !8
   %19 = icmp sgt i8 %18, -1
-  br i1 %19, label %_ZN4bstr4utf86decode17h7e1f8521516268d6E.exit.thread.i.i, label %.preheader.i.i.i
+  br i1 %19, label %_ZN4bstr4utf86decode17h7e1f8521516268d6E.exit.thread.i.i.thread, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i, %_ZN4bstr4utf811decode_step17hb2ff0ea77c96b8a7E.exit.i.i.i
   %.sroa.019.0.i.i.i = phi i64 [ %44, %_ZN4bstr4utf811decode_step17hb2ff0ea77c96b8a7E.exit.i.i.i ], [ 12, %.lr.ph.i ]
@@ -7785,8 +7785,8 @@ _ZN4bstr4utf86decode17h7e1f8521516268d6E.exit.i.i: ; preds = %_ZN4bstr4utf811dec
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %_ZN4core4iter6traits8iterator8Iterator4fold17h9b97e20f4280aab4E.exit.loopexit, label %_ZN4bstr4utf86decode17h7e1f8521516268d6E.exit.thread.i.i
 
-_ZN4bstr4utf86decode17h7e1f8521516268d6E.exit.thread.i.i: ; preds = %_ZN4bstr4utf86decode17h7e1f8521516268d6E.exit.i.i, %.thread19.i.i, %.lr.ph.i
-  %.sroa.6.1.i1621.i.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i, %.thread19.i.i ], [ %45, %_ZN4bstr4utf86decode17h7e1f8521516268d6E.exit.i.i ], [ 1, %.lr.ph.i ]
+_ZN4bstr4utf86decode17h7e1f8521516268d6E.exit.thread.i.i: ; preds = %_ZN4bstr4utf86decode17h7e1f8521516268d6E.exit.i.i, %.thread19.i.i
+  %.sroa.6.1.i1621.i.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i, %.thread19.i.i ], [ %45, %_ZN4bstr4utf86decode17h7e1f8521516268d6E.exit.i.i ]
   %47 = icmp ugt i64 %.sroa.6.1.i1621.i.i, %.sroa.3.025.i
   br i1 %47, label %48, label %_ZN4bstr4utf86decode17h7e1f8521516268d6E.exit.thread.i.i.thread, !prof !1034
 
@@ -7794,8 +7794,8 @@ _ZN4bstr4utf86decode17h7e1f8521516268d6E.exit.thread.i.i: ; preds = %_ZN4bstr4ut
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h1f1e39c09f57820bE(i64 noundef %.sroa.6.1.i1621.i.i, i64 noundef %.sroa.3.025.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.828c7d0e2a3e1195b6b60d15d45f1915.207) #39, !noalias !1035
   unreachable
 
-_ZN4bstr4utf86decode17h7e1f8521516268d6E.exit.thread.i.i.thread: ; preds = %.preheader.i.i.i, %_ZN4bstr4utf86decode17h7e1f8521516268d6E.exit.thread.i.i
-  %.sroa.6.1.i1621.i.i8 = phi i64 [ %.sroa.6.1.i1621.i.i, %_ZN4bstr4utf86decode17h7e1f8521516268d6E.exit.thread.i.i ], [ %.sroa.3.025.i, %.preheader.i.i.i ]
+_ZN4bstr4utf86decode17h7e1f8521516268d6E.exit.thread.i.i.thread: ; preds = %.preheader.i.i.i, %.lr.ph.i, %_ZN4bstr4utf86decode17h7e1f8521516268d6E.exit.thread.i.i
+  %.sroa.6.1.i1621.i.i8 = phi i64 [ %.sroa.6.1.i1621.i.i, %_ZN4bstr4utf86decode17h7e1f8521516268d6E.exit.thread.i.i ], [ 1, %.lr.ph.i ], [ %.sroa.3.025.i, %.preheader.i.i.i ]
   %49 = sub nuw i64 %.sroa.3.025.i, %.sroa.6.1.i1621.i.i8
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.0626.i, i64 %.sroa.6.1.i1621.i.i8
   %51 = add i64 %.sroa.0.027.i, 1
@@ -104599,7 +104599,7 @@ attributes #45 = { nounwind memory(inaccessiblemem: readwrite) }
 !1031 = distinct !{!1031, !1032, !"_ZN4bstr4utf811decode_step17hb2ff0ea77c96b8a7E: argument 0"}
 !1032 = distinct !{!1032, !"_ZN4bstr4utf811decode_step17hb2ff0ea77c96b8a7E"}
 !1033 = distinct !{!1033, !1032, !"_ZN4bstr4utf811decode_step17hb2ff0ea77c96b8a7E: argument 1"}
-!1034 = !{!"branch_weights", !"expected", i32 1234651, i32 2146248997}
+!1034 = !{!"branch_weights", !"expected", i32 4437739, i32 2143045909}
 !1035 = !{!1028, !1021}
 !1036 = !{!1037, !1039}
 !1037 = distinct !{!1037, !1038, !"_ZN3std3sys12thread_local6native4lazy20Storage$LT$T$C$D$GT$11get_or_init17hb43c787450335a07E: argument 0"}

@@ -355,7 +355,6 @@ _ZNSt12_Vector_baseIN2cv4Mat_IdEESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_ZNSt6vect
   %167 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %168 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %169 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %smax = call i32 @llvm.smax.i32(i32 %3, i32 1)
   %wide.trip.count376 = zext nneg i32 %59 to i64
   %wide.trip.count371 = zext nneg i32 %135 to i64
   %170 = zext nneg i32 %135 to i64
@@ -1283,7 +1282,7 @@ _ZN2cv12MatIterator_IdEppEv.exit8.i:              ; preds = %453, %448, %_ZN2cv1
 
 ._crit_edge353:                                   ; preds = %._crit_edge350, %.preheader293
   %561 = add nuw nsw i32 %.1170354, 1
-  %exitcond406.not = icmp eq i32 %561, %smax
+  %exitcond406.not = icmp eq i32 %561, %3
   br i1 %exitcond406.not, label %._crit_edge356, label %199, !llvm.loop !97
 
 ._crit_edge356:                                   ; preds = %._crit_edge353

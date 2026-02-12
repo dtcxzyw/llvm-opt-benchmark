@@ -329,9 +329,8 @@ st_mult.exit:                                     ; preds = %46
   br i1 %136, label %.lr.ph456, label %._crit_edge457
 
 .lr.ph456:                                        ; preds = %.split.us
-  %smax493 = tail call i32 @llvm.smax.i32(i32 %0, i32 1)
   %wide.trip.count521 = zext nneg i32 %.3.lcssa.us to i64
-  %wide.trip.count494 = zext nneg i32 %smax493 to i64
+  %wide.trip.count494 = zext nneg i32 %0 to i64
   br label %.lr.ph433
 
 .lr.ph433:                                        ; preds = %243, %.lr.ph456

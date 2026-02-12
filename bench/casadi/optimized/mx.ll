@@ -109564,7 +109564,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit414: ; preds = %_Z
   %644 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %645 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %646 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %smax = call i64 @llvm.smax.i64(i64 %91, i64 1)
   %647 = getelementptr inbounds nuw i8, ptr %75, i64 32
   %648 = getelementptr inbounds nuw i8, ptr %75, i64 16
   br label %682
@@ -109975,7 +109974,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EE9push_backERKS1_.exit455: ; preds = %.noexc453,
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %73) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
   %768 = add nuw nsw i64 %.0121756, 1
-  %exitcond.not = icmp eq i64 %768, %smax
+  %exitcond.not = icmp eq i64 %768, %91
   br i1 %exitcond.not, label %._crit_edge759, label %682, !llvm.loop !1336
 
 769:                                              ; preds = %682

@@ -2861,8 +2861,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_intra_plane(ptr nou
   %78 = load i32, ptr %3, align 4, !tbaa !72
   %79 = mul nsw i32 %78, %.6
   %80 = trunc i32 %79 to i16
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %..i, i32 1)
-  %wide.trip.count.i = zext nneg i32 %smax.i to i64
+  %wide.trip.count.i = zext nneg i32 %..i to i64
   br label %81
 
 81:                                               ; preds = %81, %.lr.ph.i
@@ -5118,9 +5117,6 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #11
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #11

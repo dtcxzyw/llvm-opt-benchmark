@@ -461,8 +461,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263: ; preds = %11
   %187 = or disjoint i32 %smax400, 1
   %188 = or disjoint i32 %26, 1
   %smax406 = call i32 @llvm.smax.i32(i32 %188, i32 1)
-  %smax411 = call i32 @llvm.smax.i32(i32 %54, i32 1)
-  %wide.trip.count412 = zext nneg i32 %smax411 to i64
+  %wide.trip.count412 = zext nneg i32 %54 to i64
   %wide.trip.count404 = zext nneg i32 %187 to i64
   br label %189
 

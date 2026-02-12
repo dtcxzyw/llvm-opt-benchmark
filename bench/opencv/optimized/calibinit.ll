@@ -10008,7 +10008,7 @@ _ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EED2Ev.exit: ; preds = %._crit_edge55
   %332 = fmul float %329, %331
   %333 = call float @llvm.fmuladd.f32(float %327, float %328, float %332)
   %334 = fcmp olt float %333, 0.000000e+00
-  br i1 %334, label %335, label %.loopexit
+  br i1 %334, label %335, label %.thread
 
 335:                                              ; preds = %318
   %336 = and i32 %.0392, 1
@@ -10019,7 +10019,7 @@ _ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EED2Ev.exit: ; preds = %._crit_edge55
   %338 = icmp sgt i32 %.0392, 0
   %339 = icmp sgt i32 %.0391, 1
   %or.cond853 = select i1 %338, i1 %339, i1 false
-  br i1 %or.cond853, label %.preheader466.us.preheader, label %.loopexit
+  br i1 %or.cond853, label %.preheader466.us.preheader, label %.thread
 
 .preheader466.us.preheader:                       ; preds = %.preheader467
   %340 = lshr i32 %.0391, 1
@@ -10054,16 +10054,16 @@ _ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EED2Ev.exit: ; preds = %._crit_edge55
 ._crit_edge559.us:                                ; preds = %343
   %indvars.iv.next657 = add nuw nsw i64 %indvars.iv656, 1
   %exitcond660.not = icmp eq i64 %indvars.iv.next657, %wide.trip.count659
-  br i1 %exitcond660.not, label %.loopexit, label %.preheader466.us, !llvm.loop !337
+  br i1 %exitcond660.not, label %.thread, label %.preheader466.us, !llvm.loop !337
 
 .preheader465:                                    ; preds = %335
   %350 = icmp sgt i32 %.0391, 0
-  br i1 %350, label %.preheader.lr.ph, label %.loopexit
+  br i1 %350, label %.preheader.lr.ph, label %.thread
 
 .preheader.lr.ph:                                 ; preds = %.preheader465
   %351 = ashr exact i32 %.0392, 1
   %352 = icmp sgt i32 %351, 0
-  br i1 %352, label %.preheader.us.preheader, label %.loopexit
+  br i1 %352, label %.preheader.us.preheader, label %.thread
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %353 = zext nneg i32 %.0392 to i64
@@ -10098,114 +10098,110 @@ _ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EED2Ev.exit: ; preds = %._crit_edge55
 
 ._crit_edge563.us:                                ; preds = %357
   %exitcond670.not = icmp eq i64 %indvars.iv.next667, %wide.trip.count669
-  br i1 %exitcond670.not, label %.loopexit, label %.preheader.us, !llvm.loop !339
+  br i1 %exitcond670.not, label %.thread, label %.preheader.us, !llvm.loop !339
 
-.loopexit:                                        ; preds = %._crit_edge559.us, %._crit_edge563.us, %.preheader.lr.ph, %.preheader467, %.preheader465, %318
-  %365 = icmp slt i32 %.5398, 1
-  br i1 %365, label %.thread454, label %.thread
-
-.thread:                                          ; preds = %.loopexit
+.thread:                                          ; preds = %._crit_edge559.us, %._crit_edge563.us, %318, %.preheader465, %.preheader467, %.preheader.lr.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %398
+  br label %397
 
-.thread454:                                       ; preds = %53, %49, %60, %64, %192, %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EE9push_backERKS2_.exit312, %303, %.split.us, %.thread426.us535, %._crit_edge.thread, %._crit_edge512, %104, %142, %224, %._crit_edge551, %156, %155, %152, %._crit_edge, %.loopexit
-  %.sroa.0375.0736 = phi ptr [ %17, %60 ], [ %17, %.loopexit ], [ %17, %224 ], [ %17, %._crit_edge ], [ %17, %._crit_edge512 ], [ %17, %104 ], [ %17, %._crit_edge551 ], [ null, %._crit_edge.thread ], [ %17, %.split.us ], [ %17, %142 ], [ %17, %152 ], [ %17, %155 ], [ %17, %156 ], [ %17, %303 ], [ %17, %192 ], [ %17, %.thread426.us535 ], [ %17, %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EE9push_backERKS2_.exit312 ], [ %17, %64 ], [ %17, %49 ], [ %17, %53 ]
-  %.1394414457 = phi i32 [ %.4397, %60 ], [ %.5398, %.loopexit ], [ %.5398, %224 ], [ %.5398, %._crit_edge ], [ %.5398, %._crit_edge512 ], [ %.5398, %104 ], [ %.5398, %._crit_edge551 ], [ 0, %._crit_edge.thread ], [ %.5398, %.split.us ], [ %.5398, %142 ], [ %.5398, %152 ], [ %.5398, %155 ], [ %.5398, %156 ], [ %.5398, %303 ], [ %.5398, %192 ], [ %.5398, %.thread426.us535 ], [ %.5398, %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EE9push_backERKS2_.exit312 ], [ %.4397, %64 ], [ %.4397, %49 ], [ %.4397, %53 ]
-  %366 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %367 = load i32, ptr %366, align 8, !tbaa !134
-  %368 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %369 = load i32, ptr %368, align 4, !tbaa !135
-  %370 = mul nsw i32 %369, %367
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %370, i32 %.1394414457)
-  %371 = sext i32 %.sroa.speculated to i64
-  %372 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %373 = load ptr, ptr %372, align 8, !tbaa !232
-  %374 = load ptr, ptr %2, align 8, !tbaa !228
+.thread454:                                       ; preds = %53, %49, %60, %64, %192, %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EE9push_backERKS2_.exit312, %303, %.split.us, %.thread426.us535, %._crit_edge.thread, %._crit_edge512, %104, %142, %224, %._crit_edge551, %156, %155, %152, %._crit_edge
+  %.sroa.0375.0736 = phi ptr [ %17, %.thread426.us535 ], [ %17, %.split.us ], [ %17, %224 ], [ %17, %._crit_edge ], [ %17, %._crit_edge512 ], [ %17, %104 ], [ %17, %._crit_edge551 ], [ null, %._crit_edge.thread ], [ %17, %192 ], [ %17, %142 ], [ %17, %152 ], [ %17, %155 ], [ %17, %156 ], [ %17, %303 ], [ %17, %60 ], [ %17, %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EE9push_backERKS2_.exit312 ], [ %17, %64 ], [ %17, %49 ], [ %17, %53 ]
+  %.1394414457 = phi i32 [ %.5398, %.thread426.us535 ], [ %.5398, %.split.us ], [ %.5398, %224 ], [ %.5398, %._crit_edge ], [ %.5398, %._crit_edge512 ], [ %.5398, %104 ], [ %.5398, %._crit_edge551 ], [ 0, %._crit_edge.thread ], [ %.5398, %192 ], [ %.5398, %142 ], [ %.5398, %152 ], [ %.5398, %155 ], [ %.5398, %156 ], [ %.5398, %303 ], [ %.4397, %60 ], [ %.5398, %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EE9push_backERKS2_.exit312 ], [ %.4397, %64 ], [ %.4397, %49 ], [ %.4397, %53 ]
+  %365 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %366 = load i32, ptr %365, align 8, !tbaa !134
+  %367 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %368 = load i32, ptr %367, align 4, !tbaa !135
+  %369 = mul nsw i32 %368, %366
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %369, i32 %.1394414457)
+  %370 = sext i32 %.sroa.speculated to i64
+  %371 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %372 = load ptr, ptr %371, align 8, !tbaa !232
+  %373 = load ptr, ptr %2, align 8, !tbaa !228
+  %374 = ptrtoint ptr %372 to i64
   %375 = ptrtoint ptr %373 to i64
-  %376 = ptrtoint ptr %374 to i64
-  %377 = sub i64 %375, %376
-  %378 = ashr exact i64 %377, 3
-  %379 = icmp ult i64 %378, %371
-  br i1 %379, label %380, label %382
+  %376 = sub i64 %374, %375
+  %377 = ashr exact i64 %376, 3
+  %378 = icmp ult i64 %377, %370
+  br i1 %378, label %379, label %381
 
-380:                                              ; preds = %.thread454
-  %381 = sub nuw nsw i64 %371, %378
-  invoke void @_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %381)
-          to label %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EE6resizeEm.exit unwind label %399
+379:                                              ; preds = %.thread454
+  %380 = sub nuw nsw i64 %370, %377
+  invoke void @_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %380)
+          to label %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EE6resizeEm.exit unwind label %398
 
-382:                                              ; preds = %.thread454
-  %383 = icmp ugt i64 %378, %371
-  br i1 %383, label %384, label %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EE6resizeEm.exit
+381:                                              ; preds = %.thread454
+  %382 = icmp ugt i64 %377, %370
+  br i1 %382, label %383, label %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EE6resizeEm.exit
 
-384:                                              ; preds = %382
-  %385 = getelementptr inbounds nuw ptr, ptr %374, i64 %371
-  %.not.i.i325 = icmp eq ptr %373, %385
-  br i1 %.not.i.i325, label %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EE6resizeEm.exit, label %386
+383:                                              ; preds = %381
+  %384 = getelementptr inbounds nuw ptr, ptr %373, i64 %370
+  %.not.i.i325 = icmp eq ptr %372, %384
+  br i1 %.not.i.i325, label %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EE6resizeEm.exit, label %385
 
-386:                                              ; preds = %384
-  store ptr %385, ptr %372, align 8, !tbaa !232
+385:                                              ; preds = %383
+  store ptr %384, ptr %371, align 8, !tbaa !232
   br label %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EE6resizeEm.exit
 
-_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EE6resizeEm.exit: ; preds = %380, %382, %384, %386
-  %387 = icmp sgt i32 %.sroa.speculated, 0
-  br i1 %387, label %.lr.ph566, label %.loopexit777
+_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EE6resizeEm.exit: ; preds = %379, %381, %383, %385
+  %386 = icmp sgt i32 %.sroa.speculated, 0
+  br i1 %386, label %.lr.ph566, label %.loopexit777
 
 .lr.ph566:                                        ; preds = %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EE6resizeEm.exit
-  %388 = load ptr, ptr %2, align 8, !tbaa !228
+  %387 = load ptr, ptr %2, align 8, !tbaa !228
   %wide.trip.count674 = zext nneg i32 %.sroa.speculated to i64
-  br label %389
+  br label %388
 
-389:                                              ; preds = %.lr.ph566, %389
-  %indvars.iv671 = phi i64 [ 0, %.lr.ph566 ], [ %indvars.iv.next672, %389 ]
-  %390 = getelementptr inbounds nuw ptr, ptr %.sroa.0375.0736, i64 %indvars.iv671
-  %391 = load ptr, ptr %390, align 8, !tbaa !53
-  %392 = getelementptr inbounds nuw ptr, ptr %388, i64 %indvars.iv671
-  store ptr %391, ptr %392, align 8, !tbaa !53
+388:                                              ; preds = %.lr.ph566, %388
+  %indvars.iv671 = phi i64 [ 0, %.lr.ph566 ], [ %indvars.iv.next672, %388 ]
+  %389 = getelementptr inbounds nuw ptr, ptr %.sroa.0375.0736, i64 %indvars.iv671
+  %390 = load ptr, ptr %389, align 8, !tbaa !53
+  %391 = getelementptr inbounds nuw ptr, ptr %387, i64 %indvars.iv671
+  store ptr %390, ptr %391, align 8, !tbaa !53
   %indvars.iv.next672 = add nuw nsw i64 %indvars.iv671, 1
   %exitcond675.not = icmp eq i64 %indvars.iv.next672, %wide.trip.count674
-  br i1 %exitcond675.not, label %.loopexit777, label %389, !llvm.loop !340
+  br i1 %exitcond675.not, label %.loopexit777, label %388, !llvm.loop !340
 
-.loopexit777:                                     ; preds = %389, %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EE6resizeEm.exit
-  %393 = sub nsw i32 0, %.sroa.speculated
-  %394 = load i32, ptr %366, align 8, !tbaa !134
-  %395 = load i32, ptr %368, align 4, !tbaa !135
-  %396 = mul nsw i32 %395, %394
-  %397 = icmp eq i32 %396, %.sroa.speculated
-  %spec.select296 = select i1 %397, i32 %.sroa.speculated, i32 %393
+.loopexit777:                                     ; preds = %388, %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EE6resizeEm.exit
+  %392 = sub nsw i32 0, %.sroa.speculated
+  %393 = load i32, ptr %365, align 8, !tbaa !134
+  %394 = load i32, ptr %367, align 4, !tbaa !135
+  %395 = mul nsw i32 %394, %393
+  %396 = icmp eq i32 %395, %.sroa.speculated
+  %spec.select296 = select i1 %396, i32 %.sroa.speculated, i32 %392
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i.i.i327 = icmp eq ptr %.sroa.0375.0736, null
-  br i1 %.not.i.i.i327, label %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EED2Ev.exit328, label %398
+  br i1 %.not.i.i.i327, label %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EED2Ev.exit328, label %397
 
-398:                                              ; preds = %.thread, %.loopexit777
+397:                                              ; preds = %.thread, %.loopexit777
   %.0203768 = phi i32 [ %.5398, %.thread ], [ %spec.select296, %.loopexit777 ]
   %.sroa.0375.0735767 = phi ptr [ %17, %.thread ], [ %.sroa.0375.0736, %.loopexit777 ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0375.0735767) #40
   br label %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EED2Ev.exit328
 
-_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EED2Ev.exit328: ; preds = %.loopexit777, %398
-  %.0203769 = phi i32 [ %spec.select296, %.loopexit777 ], [ %.0203768, %398 ]
+_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EED2Ev.exit328: ; preds = %.loopexit777, %397
+  %.0203769 = phi i32 [ %spec.select296, %.loopexit777 ], [ %.0203768, %397 ]
   ret i32 %.0203769
 
 .thread770:                                       ; preds = %316, %.loopexit.split-lp480, %.loopexit479, %.loopexit474, %.loopexit.split-lp
   %.pn286.ph = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit474 ], [ %lpad.loopexit481, %.loopexit479 ], [ %lpad.loopexit.split-lp482, %.loopexit.split-lp480 ], [ %317, %316 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %401
+  br label %400
 
-399:                                              ; preds = %380
-  %400 = landingpad { ptr, i32 }
+398:                                              ; preds = %379
+  %399 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i.i.i329 = icmp eq ptr %.sroa.0375.0736, null
-  br i1 %.not.i.i.i329, label %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EED2Ev.exit330, label %401
+  br i1 %.not.i.i.i329, label %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EED2Ev.exit330, label %400
 
-401:                                              ; preds = %.thread770, %399
-  %.pn286775 = phi { ptr, i32 } [ %.pn286.ph, %.thread770 ], [ %400, %399 ]
-  %.sroa.0375.0738774 = phi ptr [ %17, %.thread770 ], [ %.sroa.0375.0736, %399 ]
+400:                                              ; preds = %.thread770, %398
+  %.pn286775 = phi { ptr, i32 } [ %.pn286.ph, %.thread770 ], [ %399, %398 ]
+  %.sroa.0375.0738774 = phi ptr [ %17, %.thread770 ], [ %.sroa.0375.0736, %398 ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0375.0738774) #40
   br label %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EED2Ev.exit330
 
-_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EED2Ev.exit330: ; preds = %401, %399
-  %.pn286776 = phi { ptr, i32 } [ %.pn286775, %401 ], [ %400, %399 ]
+_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EED2Ev.exit330: ; preds = %400, %398
+  %.pn286776 = phi { ptr, i32 } [ %.pn286775, %400 ], [ %399, %398 ]
   resume { ptr, i32 } %.pn286776
 }
 
@@ -43370,8 +43366,7 @@ _ZN7cvflann15PooledAllocator8allocateIPNS_27HierarchicalClusteringIndexINS_9L2_S
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %216 = add nsw i32 %5, 1
   %smax = call i32 @llvm.smax.i32(i32 %3, i32 1)
-  %smax181 = call i32 @llvm.smax.i32(i32 %4, i32 1)
-  %wide.trip.count182 = zext nneg i32 %smax181 to i64
+  %wide.trip.count182 = zext nneg i32 %4 to i64
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %.preheader
 

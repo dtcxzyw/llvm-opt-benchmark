@@ -3954,16 +3954,12 @@ Vec_IntAlloc.exit1143:                            ; preds = %Gia_AigerReadInt.ex
   %1465 = getelementptr inbounds nuw i8, ptr %1457, i64 8
   store ptr %1464, ptr %1465, align 8, !tbaa !35
   %1466 = icmp sgt i32 %1453, 0
-  br i1 %1466, label %.lr.ph1427.preheader, label %._crit_edge1428
+  br i1 %1466, label %.lr.ph1427, label %._crit_edge1428
 
-.lr.ph1427.preheader:                             ; preds = %Vec_IntAlloc.exit1143
-  %smax = call i32 @llvm.smax.i32(i32 %1456, i32 1)
-  br label %.lr.ph1427
-
-.lr.ph1427:                                       ; preds = %.lr.ph1427.preheader, %Vec_IntPush.exit1155
-  %1467 = phi ptr [ %.pre.i11511566, %Vec_IntPush.exit1155 ], [ %1464, %.lr.ph1427.preheader ]
-  %1468 = phi ptr [ %1499, %Vec_IntPush.exit1155 ], [ %1455, %.lr.ph1427.preheader ]
-  %.05981426 = phi i32 [ %1500, %Vec_IntPush.exit1155 ], [ 0, %.lr.ph1427.preheader ]
+.lr.ph1427:                                       ; preds = %Vec_IntAlloc.exit1143, %Vec_IntPush.exit1155
+  %1467 = phi ptr [ %.pre.i11511566, %Vec_IntPush.exit1155 ], [ %1464, %Vec_IntAlloc.exit1143 ]
+  %1468 = phi ptr [ %1499, %Vec_IntPush.exit1155 ], [ %1455, %Vec_IntAlloc.exit1143 ]
+  %.05981426 = phi i32 [ %1500, %Vec_IntPush.exit1155 ], [ 0, %Vec_IntAlloc.exit1143 ]
   br label %1469
 
 1469:                                             ; preds = %1469, %.lr.ph1427
@@ -4035,7 +4031,7 @@ Vec_IntPush.exit1155:                             ; preds = %Vec_IntPush.exit115
   %1499 = getelementptr inbounds nuw i8, ptr %1498, i64 4
   store ptr %1499, ptr %6, align 8, !tbaa !40
   %1500 = add nuw nsw i32 %.05981426, 1
-  %exitcond1538.not = icmp eq i32 %1500, %smax
+  %exitcond1538.not = icmp eq i32 %1500, %1456
   br i1 %exitcond1538.not, label %._crit_edge1428, label %.lr.ph1427, !llvm.loop !119
 
 ._crit_edge1428:                                  ; preds = %Vec_IntPush.exit1155, %Vec_IntAlloc.exit1143

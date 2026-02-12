@@ -3524,17 +3524,12 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit110:            ; preds = %_ZSt6fill_nIPfmfET_
   br i1 %87, label %.lr.ph157, label %._crit_edge158
 
 .lr.ph157:                                        ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit110
-  br i1 %.not.i.i.i.i99, label %.lr.ph155.us.preheader, label %.loopexit.preheader
+  %wide.trip.count206 = zext nneg i32 %86 to i64
+  br i1 %.not.i.i.i.i99, label %.lr.ph155.us.preheader, label %.loopexit
 
 .lr.ph155.us.preheader:                           ; preds = %.lr.ph157
-  %smax = tail call i32 @llvm.smax.i32(i32 %52, i32 1)
-  %wide.trip.count201 = zext nneg i32 %86 to i64
-  %wide.trip.count196 = zext nneg i32 %smax to i64
+  %wide.trip.count196 = zext nneg i32 %52 to i64
   br label %.lr.ph155.us
-
-.loopexit.preheader:                              ; preds = %.lr.ph157
-  %wide.trip.count206 = zext nneg i32 %86 to i64
-  br label %.loopexit
 
 .lr.ph155.us:                                     ; preds = %.lr.ph155.us.preheader, %..loopexit_crit_edge.us
   %88 = phi float [ 0.000000e+00, %.lr.ph155.us.preheader ], [ %96, %..loopexit_crit_edge.us ]
@@ -3558,11 +3553,11 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit110:            ; preds = %_ZSt6fill_nIPfmfET_
   br i1 %exitcond197.not, label %..loopexit_crit_edge.us, label %92, !llvm.loop !155
 
 ..loopexit_crit_edge.us:                          ; preds = %92
-  %exitcond202.not = icmp eq i64 %indvars.iv.next199, %wide.trip.count201
+  %exitcond202.not = icmp eq i64 %indvars.iv.next199, %wide.trip.count206
   br i1 %exitcond202.not, label %._crit_edge158, label %.lr.ph155.us, !llvm.loop !156
 
-.loopexit:                                        ; preds = %.loopexit.preheader, %.loopexit
-  %indvars.iv203 = phi i64 [ 0, %.loopexit.preheader ], [ %indvars.iv.next204, %.loopexit ]
+.loopexit:                                        ; preds = %.lr.ph157, %.loopexit
+  %indvars.iv203 = phi i64 [ %indvars.iv.next204, %.loopexit ], [ 0, %.lr.ph157 ]
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
   %97 = getelementptr inbounds nuw float, ptr %82, i64 %indvars.iv.next204
   store float 0.000000e+00, ptr %97, align 4, !tbaa !60
@@ -3588,9 +3583,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
 
 .preheader136.us.preheader:                       ; preds = %.preheader136.lr.ph
   %103 = sext i32 %86 to i64
-  %smax211 = tail call i32 @llvm.smax.i32(i32 %.lcssa139, i32 1)
   %wide.trip.count217 = zext i32 %77 to i64
-  %wide.trip.count212 = zext nneg i32 %smax211 to i64
+  %wide.trip.count212 = zext nneg i32 %.lcssa139 to i64
   br label %.preheader136.us
 
 .preheader136.us:                                 ; preds = %.preheader136.us.preheader, %._crit_edge165.us
@@ -4216,16 +4210,11 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit180:            ; preds = %_ZSt6fill_nIPfmfET_
 .lr.ph278:                                        ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit180
   %155 = load ptr, ptr %2, align 8
   %156 = icmp sgt i32 %154, 0
-  br i1 %156, label %.preheader234.lr.ph.us.us.preheader, label %.preheader234.lr.ph.us.preheader
-
-.preheader234.lr.ph.us.preheader:                 ; preds = %.lr.ph278
-  %wide.trip.count368 = zext nneg i32 %151 to i64
-  br label %.preheader234.lr.ph.us
+  %wide.trip.count383 = zext nneg i32 %151 to i64
+  br i1 %156, label %.preheader234.lr.ph.us.us.preheader, label %.preheader234.lr.ph.us
 
 .preheader234.lr.ph.us.us.preheader:              ; preds = %.lr.ph278
-  %smax = tail call i32 @llvm.smax.i32(i32 %.lcssa244490494501511519, i32 1)
-  %wide.trip.count383 = zext nneg i32 %151 to i64
-  %wide.trip.count378 = zext nneg i32 %smax to i64
+  %wide.trip.count378 = zext nneg i32 %.lcssa244490494501511519 to i64
   %wide.trip.count373 = zext nneg i32 %154 to i64
   br label %.preheader234.lr.ph.us.us
 
@@ -4266,12 +4255,12 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit180:            ; preds = %_ZSt6fill_nIPfmfET_
   %exitcond384.not = icmp eq i64 %indvars.iv.next381, %wide.trip.count383
   br i1 %exitcond384.not, label %._crit_edge279, label %.preheader234.lr.ph.us.us, !llvm.loop !175
 
-.preheader234.lr.ph.us:                           ; preds = %.preheader234.lr.ph.us.preheader, %.preheader234.lr.ph.us
-  %indvars.iv365 = phi i64 [ 0, %.preheader234.lr.ph.us.preheader ], [ %indvars.iv.next366, %.preheader234.lr.ph.us ]
+.preheader234.lr.ph.us:                           ; preds = %.lr.ph278, %.preheader234.lr.ph.us
+  %indvars.iv365 = phi i64 [ %indvars.iv.next366, %.preheader234.lr.ph.us ], [ 0, %.lr.ph278 ]
   %indvars.iv.next366 = add nuw nsw i64 %indvars.iv365, 1
   %168 = getelementptr inbounds nuw float, ptr %147, i64 %indvars.iv.next366
   store float 0.000000e+00, ptr %168, align 4, !tbaa !60
-  %exitcond369.not = icmp eq i64 %indvars.iv.next366, %wide.trip.count368
+  %exitcond369.not = icmp eq i64 %indvars.iv.next366, %wide.trip.count383
   br i1 %exitcond369.not, label %._crit_edge279, label %.preheader234.lr.ph.us, !llvm.loop !175
 
 169:                                              ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i172.thread, %143
@@ -4320,11 +4309,9 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit189:            ; preds = %_ZSt6fill_nIPfmfET_
 
 .lr.ph295:                                        ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit189
   %183 = load ptr, ptr %2, align 8
-  %smax393 = tail call i32 @llvm.smax.i32(i32 %172, i32 1)
-  %smax399 = tail call i32 @llvm.smax.i32(i32 %.lcssa244490494501511519, i32 1)
-  %wide.trip.count405 = zext nneg i32 %181 to i64
-  %wide.trip.count400 = zext nneg i32 %smax399 to i64
-  %wide.trip.count394 = zext nneg i32 %smax393 to i64
+  %wide.trip.count415 = zext nneg i32 %181 to i64
+  %wide.trip.count400 = zext nneg i32 %.lcssa244490494501511519 to i64
+  %wide.trip.count394 = zext nneg i32 %172 to i64
   br label %.preheader233.lr.ph.us.us
 
 .preheader233.lr.ph.us.us:                        ; preds = %.lr.ph295, %..loopexit_crit_edge.split.us.us.us
@@ -4361,7 +4348,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit189:            ; preds = %_ZSt6fill_nIPfmfET_
   br i1 %exitcond401.not, label %..loopexit_crit_edge.split.us.us.us, label %.preheader233.us.us.us, !llvm.loop !177
 
 ..loopexit_crit_edge.split.us.us.us:              ; preds = %._crit_edge290.us.us.us
-  %exitcond406.not = icmp eq i64 %indvars.iv.next403, %wide.trip.count405
+  %exitcond406.not = icmp eq i64 %indvars.iv.next403, %wide.trip.count415
   br i1 %exitcond406.not, label %._crit_edge296, label %.preheader233.lr.ph.us.us, !llvm.loop !178
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i181, %175
@@ -4388,17 +4375,14 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %203 = sext i32 %144 to i64
   %204 = zext i32 %144 to i64
-  %smax420 = tail call i32 @llvm.smax.i32(i32 %.lcssa244490494501511519, i32 1)
   %205 = zext i32 %171 to i64
   %206 = sext i32 %171 to i64
-  %smax426 = tail call i32 @llvm.smax.i32(i32 %172, i32 1)
   %207 = zext i32 %181 to i64
   %208 = sext i32 %181 to i64
-  %smax432 = tail call i32 @llvm.smax.i32(i32 %154, i32 1)
-  %wide.trip.count433 = zext nneg i32 %smax432 to i64
+  %wide.trip.count433 = zext nneg i32 %154 to i64
   %.pre440.pre = load ptr, ptr %2, align 8
-  %wide.trip.count427 = zext nneg i32 %smax426 to i64
-  %wide.trip.count421 = zext nneg i32 %smax420 to i64
+  %wide.trip.count427 = zext nneg i32 %172 to i64
+  %wide.trip.count421 = zext nneg i32 %.lcssa244490494501511519 to i64
   br label %.preheader232.us.us
 
 .preheader232.us.us:                              ; preds = %.preheader232.lr.ph, %._crit_edge310.split.us.us.us

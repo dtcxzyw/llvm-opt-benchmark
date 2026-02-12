@@ -15701,13 +15701,13 @@ define hidden noundef ptr @_ZN5zxing6qrcode7Version24decodeVersionInformationEj(
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5zxing12ErrorHandlerC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %4)
   %5 = load i32, ptr @_ZN5zxing6qrcode7Version22N_VERSION_DECODE_INFOSE, align 4, !tbaa !66
-  %.not4275 = icmp sgt i32 %5, 0
-  br i1 %.not4275, label %.lr.ph, label %._crit_edge.thread
+  %.not4274 = icmp sgt i32 %5, 0
+  br i1 %.not4274, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %1, %41
   %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ 0, %1 ]
-  %.02178 = phi i32 [ %.324, %41 ], [ 2147483647, %1 ]
-  %.02977 = phi i64 [ %.332, %41 ], [ 0, %1 ]
+  %.02177 = phi i32 [ %.324, %41 ], [ 2147483647, %1 ]
+  %.02976 = phi i64 [ %.332, %41 ], [ 0, %1 ]
   %6 = getelementptr inbounds nuw i32, ptr @_ZN5zxing6qrcode7Version19VERSION_DECODE_INFOE, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !66
   %.not41 = icmp eq i32 %7, %0
@@ -15746,7 +15746,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN5zxing12ErrorHandlerD2Ev.exit.i:               ; preds = %16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.thread65
+  br label %.thread64
 
 21:                                               ; preds = %.noexc
   %22 = landingpad { ptr, i32 }
@@ -15772,9 +15772,9 @@ _ZN5zxing12ErrorHandlerD2Ev.exit10.i:             ; preds = %21, %_ZNKSt7__cxx11
   %30 = getelementptr %"class.zxing::Ref", ptr %28, i64 %29
   %31 = getelementptr i8, ptr %30, i64 -8
   %32 = load ptr, ptr %31, align 8, !tbaa !29
-  br label %.thread65
+  br label %.thread64
 
-.thread65:                                        ; preds = %27, %_ZN5zxing12ErrorHandlerD2Ev.exit.i
+.thread64:                                        ; preds = %27, %_ZN5zxing12ErrorHandlerD2Ev.exit.i
   %.0.i = phi ptr [ null, %_ZN5zxing12ErrorHandlerD2Ev.exit.i ], [ %32, %27 ]
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %34 = load i32, ptr %33, align 4, !tbaa !67
@@ -15797,10 +15797,10 @@ _ZN5zxing12ErrorHandlerD2Ev.exit10.i:             ; preds = %21, %_ZNKSt7__cxx11
   br label %.body
 
 41:                                               ; preds = %37
-  %42 = icmp slt i32 %38, %.02178
+  %42 = icmp slt i32 %38, %.02177
   %43 = add nuw nsw i64 %indvars.iv, 7
-  %.332 = select i1 %42, i64 %43, i64 %.02977
-  %.324 = call i32 @llvm.smin.i32(i32 %38, i32 %.02178)
+  %.332 = select i1 %42, i64 %43, i64 %.02976
+  %.324 = call i32 @llvm.smin.i32(i32 %38, i32 %.02177)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = load i32, ptr @_ZN5zxing6qrcode7Version22N_VERSION_DECODE_INFOSE, align 4, !tbaa !66
   %45 = sext i32 %44 to i64
@@ -15816,38 +15816,38 @@ _ZN5zxing12ErrorHandlerD2Ev.exit10.i:             ; preds = %21, %_ZNKSt7__cxx11
   %49 = icmp eq i64 %.332, 0
   %50 = load i32, ptr @_ZN5zxing6qrcodeL10N_VERSIONSE, align 4
   %51 = icmp slt i32 %50, %48
-  %or.cond.i47 = select i1 %49, i1 true, i1 %51
-  br i1 %or.cond.i47, label %52, label %66
+  %or.cond.i = select i1 %49, i1 true, i1 %51
+  br i1 %or.cond.i, label %52, label %66
 
 52:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   invoke void @_ZN5zxing12ErrorHandlerC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull @.str)
-          to label %.noexc55 unwind label %73
+          to label %.noexc54 unwind label %73
 
-.noexc55:                                         ; preds = %52
+.noexc54:                                         ; preds = %52
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing18ReaderErrorHandlerE, i64 16), ptr %2, align 8, !tbaa !34
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 3, ptr %53, align 8, !tbaa !55
   %54 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorHandleraSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %2)
           to label %55 unwind label %60
 
-55:                                               ; preds = %.noexc55
+55:                                               ; preds = %.noexc54
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %2, align 8, !tbaa !34
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %57 = load ptr, ptr %56, align 8, !tbaa !61
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %59 = icmp eq ptr %57, %58
-  br i1 %59, label %_ZN5zxing12ErrorHandlerD2Ev.exit.i53, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i52
+  br i1 %59, label %_ZN5zxing12ErrorHandlerD2Ev.exit.i52, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i51
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i52: ; preds = %55
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i51: ; preds = %55
   call void @_ZdlPv(ptr noundef %57) #18
-  br label %_ZN5zxing12ErrorHandlerD2Ev.exit.i53
+  br label %_ZN5zxing12ErrorHandlerD2Ev.exit.i52
 
-_ZN5zxing12ErrorHandlerD2Ev.exit.i53:             ; preds = %55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i52
+_ZN5zxing12ErrorHandlerD2Ev.exit.i52:             ; preds = %55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i51
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %_ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12ErrorHandlerE.exit58
+  br label %_ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12ErrorHandlerE.exit57
 
-60:                                               ; preds = %.noexc55
+60:                                               ; preds = %.noexc54
   %61 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %2, align 8, !tbaa !34
@@ -15855,13 +15855,13 @@ _ZN5zxing12ErrorHandlerD2Ev.exit.i53:             ; preds = %55, %_ZNKSt7__cxx11
   %63 = load ptr, ptr %62, align 8, !tbaa !61
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %65 = icmp eq ptr %63, %64
-  br i1 %65, label %_ZN5zxing12ErrorHandlerD2Ev.exit10.i50, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i8.i49
+  br i1 %65, label %_ZN5zxing12ErrorHandlerD2Ev.exit10.i49, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i8.i48
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i8.i49: ; preds = %60
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i8.i48: ; preds = %60
   call void @_ZdlPv(ptr noundef %63) #18
-  br label %_ZN5zxing12ErrorHandlerD2Ev.exit10.i50
+  br label %_ZN5zxing12ErrorHandlerD2Ev.exit10.i49
 
-_ZN5zxing12ErrorHandlerD2Ev.exit10.i50:           ; preds = %60, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i8.i49
+_ZN5zxing12ErrorHandlerD2Ev.exit10.i49:           ; preds = %60, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i8.i48
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.body
 
@@ -15870,14 +15870,14 @@ _ZN5zxing12ErrorHandlerD2Ev.exit10.i50:           ; preds = %60, %_ZNKSt7__cxx11
   %68 = getelementptr %"class.zxing::Ref", ptr %67, i64 %.332
   %69 = getelementptr i8, ptr %68, i64 -8
   %70 = load ptr, ptr %69, align 8, !tbaa !29
-  br label %_ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12ErrorHandlerE.exit58
+  br label %_ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12ErrorHandlerE.exit57
 
-_ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12ErrorHandlerE.exit58: ; preds = %66, %_ZN5zxing12ErrorHandlerD2Ev.exit.i53
-  %.0.i48 = phi ptr [ null, %_ZN5zxing12ErrorHandlerD2Ev.exit.i53 ], [ %70, %66 ]
+_ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12ErrorHandlerE.exit57: ; preds = %66, %_ZN5zxing12ErrorHandlerD2Ev.exit.i52
+  %.0.i47 = phi ptr [ null, %_ZN5zxing12ErrorHandlerD2Ev.exit.i52 ], [ %70, %66 ]
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %72 = load i32, ptr %71, align 4, !tbaa !67
   %.not45 = icmp eq i32 %72, 0
-  %.46 = select i1 %.not45, ptr %.0.i48, ptr null
+  %.46 = select i1 %.not45, ptr %.0.i47, ptr null
   br label %._crit_edge.thread
 
 73:                                               ; preds = %52
@@ -15885,8 +15885,8 @@ _ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12ErrorHandlerE.exit58: ; pre
           cleanup
   br label %.body
 
-._crit_edge.thread:                               ; preds = %1, %.thread65, %._crit_edge, %_ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12ErrorHandlerE.exit58
-  %.4 = phi ptr [ %.46, %_ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12ErrorHandlerE.exit58 ], [ %., %.thread65 ], [ null, %._crit_edge ], [ null, %1 ]
+._crit_edge.thread:                               ; preds = %1, %.thread64, %._crit_edge, %_ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12ErrorHandlerE.exit57
+  %.4 = phi ptr [ %.46, %_ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12ErrorHandlerE.exit57 ], [ %., %.thread64 ], [ null, %._crit_edge ], [ null, %1 ]
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8, !tbaa !34
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %76 = load ptr, ptr %75, align 8, !tbaa !61
@@ -15902,20 +15902,20 @@ _ZN5zxing12ErrorHandlerD2Ev.exit:                 ; preds = %._crit_edge.thread,
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.4
 
-.body:                                            ; preds = %73, %_ZN5zxing12ErrorHandlerD2Ev.exit10.i50, %35, %_ZN5zxing12ErrorHandlerD2Ev.exit10.i, %39
-  %.pn43 = phi { ptr, i32 } [ %22, %_ZN5zxing12ErrorHandlerD2Ev.exit10.i ], [ %40, %39 ], [ %36, %35 ], [ %74, %73 ], [ %61, %_ZN5zxing12ErrorHandlerD2Ev.exit10.i50 ]
+.body:                                            ; preds = %73, %_ZN5zxing12ErrorHandlerD2Ev.exit10.i49, %35, %_ZN5zxing12ErrorHandlerD2Ev.exit10.i, %39
+  %.pn43 = phi { ptr, i32 } [ %22, %_ZN5zxing12ErrorHandlerD2Ev.exit10.i ], [ %40, %39 ], [ %36, %35 ], [ %74, %73 ], [ %61, %_ZN5zxing12ErrorHandlerD2Ev.exit10.i49 ]
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8, !tbaa !34
   %79 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %80 = load ptr, ptr %79, align 8, !tbaa !61
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %82 = icmp eq ptr %80, %81
-  br i1 %82, label %_ZN5zxing12ErrorHandlerD2Ev.exit61, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i59
+  br i1 %82, label %_ZN5zxing12ErrorHandlerD2Ev.exit60, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i58
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i59: ; preds = %.body
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i58: ; preds = %.body
   call void @_ZdlPv(ptr noundef %80) #18
-  br label %_ZN5zxing12ErrorHandlerD2Ev.exit61
+  br label %_ZN5zxing12ErrorHandlerD2Ev.exit60
 
-_ZN5zxing12ErrorHandlerD2Ev.exit61:               ; preds = %.body, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i59
+_ZN5zxing12ErrorHandlerD2Ev.exit60:               ; preds = %.body, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i58
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn43
 }

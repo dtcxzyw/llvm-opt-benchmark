@@ -7119,14 +7119,12 @@ Io_MvGetLine.exit103:                             ; preds = %87, %75, %.critedge
   %96 = icmp sgt i32 %.074, 0
   %97 = sext i32 %72 to i64
   %wide.trip.count.i57.i = zext nneg i32 %.074 to i64
-  %smax = tail call i32 @llvm.smax.i32(i32 %.071, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext i32 %.071 to i64
   br label %117
 
 .preheader:                                       ; preds = %90
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %.not80 = icmp eq i32 %2, 0
-  %smax174 = tail call i32 @llvm.smax.i32(i32 %.071, i32 1)
   br label %99
 
 99:                                               ; preds = %.preheader, %109
@@ -7157,7 +7155,7 @@ Io_MvGetLine.exit103:                             ; preds = %87, %75, %.critedge
   %115 = tail call ptr @Abc_NtkCreateNodeConst0(ptr noundef %114) #23
   tail call void @Abc_ObjAddFanin(ptr noundef %.077, ptr noundef %115) #23
   %116 = add nuw nsw i32 %.1143, 1
-  %exitcond175.not = icmp eq i32 %116, %smax174
+  %exitcond175.not = icmp eq i32 %116, %.071
   br i1 %exitcond175.not, label %Io_MvParseLineNamesMvOne.exit.thread, label %99, !llvm.loop !184
 
 117:                                              ; preds = %.preheader115, %264
@@ -8824,9 +8822,6 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #19
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #20

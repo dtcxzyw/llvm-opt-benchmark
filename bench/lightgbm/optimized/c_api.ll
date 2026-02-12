@@ -44367,8 +44367,7 @@ _ZNSt6vectorI15CSC_RowIteratorSaIS0_EED2Ev.exit:  ; preds = %_ZSt8_DestroyIP15CS
   br i1 %or.cond, label %.lr.ph.us.preheader, label %._crit_edge120
 
 .lr.ph.us.preheader:                              ; preds = %_ZNSt6vectorI15CSC_RowIteratorSaIS0_EED2Ev.exit
-  %smax123 = call i32 @llvm.smax.i32(i32 %133, i32 1)
-  %wide.trip.count = zext nneg i32 %smax123 to i64
+  %wide.trip.count = zext nneg i32 %133 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -53324,8 +53323,7 @@ _ZNSt6vectorI15CSC_RowIteratorSaIS0_EED2Ev.exit:  ; preds = %_ZSt8_DestroyIP15CS
   br i1 %or.cond, label %.lr.ph.us.preheader, label %._crit_edge78
 
 .lr.ph.us.preheader:                              ; preds = %_ZNSt6vectorI15CSC_RowIteratorSaIS0_EED2Ev.exit
-  %smax81 = call i32 @llvm.smax.i32(i32 %38, i32 1)
-  %wide.trip.count = zext nneg i32 %smax81 to i64
+  %wide.trip.count = zext nneg i32 %38 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -63004,9 +63002,6 @@ declare i64 @llvm.umin.i64(i64, i64) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #38
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #37
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #39

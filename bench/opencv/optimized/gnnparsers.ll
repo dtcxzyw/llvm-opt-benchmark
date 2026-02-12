@@ -841,8 +841,7 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   resume { ptr, i32 } %common.resume.op
 
 .lr.ph.preheader:                                 ; preds = %77, %108, %.preheader1.i
-  %smax = tail call i32 @llvm.smax.i32(i32 %26, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %26 to i64
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph

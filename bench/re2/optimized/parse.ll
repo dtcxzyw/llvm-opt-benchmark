@@ -7188,7 +7188,7 @@ sw.bb118:                                         ; preds = %invoke.cont31
 sw.bb119:                                         ; preds = %invoke.cont31
   br label %invoke.cont120
 
-invoke.cont120:                                   ; preds = %sw.bb118, %sw.bb119, %invoke.cont31
+invoke.cont120:                                   ; preds = %invoke.cont31, %sw.bb119, %sw.bb118
   %op.0 = phi i32 [ 9, %sw.bb119 ], [ 8, %sw.bb118 ], [ 7, %invoke.cont31 ]
   %add.ptr.i117 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %add.ptr.i117, ptr %t, align 8

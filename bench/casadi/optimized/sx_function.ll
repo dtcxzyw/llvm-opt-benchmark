@@ -30151,7 +30151,6 @@ _ZNSt6vectorIS_IN6casadi6MatrixINS0_6SXElemEEESaIS3_EESaIS5_EED2Ev.exit: ; preds
   %343 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %344 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %345 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %smax = call i64 @llvm.smax.i64(i64 %204, i64 1)
   %.pre1481 = load ptr, ptr %2, align 8, !tbaa !625
   br label %539
 
@@ -30731,7 +30730,7 @@ _ZNSt12_Vector_baseIN6casadi10SXFunction6TapeElINS0_6SXElemEEESaIS4_EEC2EmRKS5_.
 .critedge583:                                     ; preds = %581, %539
   %548 = phi ptr [ %543, %539 ], [ %583, %581 ]
   %549 = add nuw nsw i64 %.04701375, 1
-  %exitcond.not = icmp eq i64 %549, %smax
+  %exitcond.not = icmp eq i64 %549, %204
   br i1 %exitcond.not, label %.critedge583._crit_edge, label %539, !llvm.loop !640
 
 .lr.ph1373:                                       ; preds = %539, %581
@@ -33423,11 +33422,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit853: ; preds = %_Z
   %1817 = load ptr, ptr %644, align 8, !tbaa !106
   %1818 = load ptr, ptr %646, align 8, !tbaa !106
   %1819 = icmp eq ptr %1817, %1818
-  br i1 %1819, label %._crit_edge1423, label %.lr.ph1422.split.preheader
-
-.lr.ph1422.split.preheader:                       ; preds = %.lr.ph1422
-  %smax1476 = call i64 @llvm.smax.i64(i64 %204, i64 1)
-  br label %.lr.ph1422.split
+  br i1 %1819, label %._crit_edge1423, label %.lr.ph1422.split
 
 ._crit_edge1423:                                  ; preds = %._crit_edge1419, %.lr.ph1422, %1810
   %1820 = load ptr, ptr %59, align 8, !tbaa !67
@@ -33491,8 +33486,8 @@ _ZSt8_DestroyIPN6casadi10SXFunction6TapeElINS0_6SXElemEEES4_EvT_S6_RSaIT0_E.exit
   call void @_ZdlPvm(ptr noundef nonnull %534, i64 noundef %.idx1292) #31
   br label %_ZNSt6vectorIN6casadi10SXFunction6TapeElINS0_6SXElemEEESaIS4_EED2Ev.exit
 
-.lr.ph1422.split:                                 ; preds = %.lr.ph1422.split.preheader, %._crit_edge1419
-  %.04721420 = phi i64 [ %1839, %._crit_edge1419 ], [ 0, %.lr.ph1422.split.preheader ]
+.lr.ph1422.split:                                 ; preds = %.lr.ph1422, %._crit_edge1419
+  %.04721420 = phi i64 [ %1839, %._crit_edge1419 ], [ 0, %.lr.ph1422 ]
   %1837 = load ptr, ptr %644, align 8, !tbaa !106
   %1838 = load ptr, ptr %646, align 8, !tbaa !106
   %.not12931414 = icmp eq ptr %1837, %1838
@@ -33500,7 +33495,7 @@ _ZSt8_DestroyIPN6casadi10SXFunction6TapeElINS0_6SXElemEEES4_EvT_S6_RSaIT0_E.exit
 
 ._crit_edge1419:                                  ; preds = %2451, %.lr.ph1422.split
   %1839 = add nuw nsw i64 %.04721420, 1
-  %exitcond1477.not = icmp eq i64 %1839, %smax1476
+  %exitcond1477.not = icmp eq i64 %1839, %204
   br i1 %exitcond1477.not, label %._crit_edge1423, label %.lr.ph1422.split, !llvm.loop !646
 
 .lr.ph1418:                                       ; preds = %.lr.ph1422.split, %2451
@@ -36937,7 +36932,6 @@ _ZNSt6vectorIS_IN6casadi6MatrixINS0_6SXElemEEESaIS3_EESaIS5_EE6resizeEm.exit: ; 
 .lr.ph1393:                                       ; preds = %.critedge595.preheader
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %smax = call i64 @llvm.smax.i64(i64 %212, i64 1)
   %.pre = load i64, ptr %235, align 8, !tbaa !145
   br label %355
 
@@ -37308,7 +37302,6 @@ _ZNSt6vectorIS_IN6casadi6MatrixINS0_6SXElemEEESaIS3_EESaIS5_EED2Ev.exit: ; preds
   %352 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %353 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %354 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %smax1508 = call i64 @llvm.smax.i64(i64 %212, i64 1)
   %.pre1516 = load ptr, ptr %2, align 8, !tbaa !625
   br label %536
 
@@ -37564,7 +37557,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit660: ; preds = %_Z
   %435 = phi i64 [ %356, %.preheader1331 ], [ %446, %.critedge.loopexit ]
   %.1465.lcssa = phi i8 [ %.04641392, %.preheader1331 ], [ %434, %.critedge.loopexit ]
   %436 = add nuw nsw i64 %.04661391, 1
-  %exitcond.not = icmp eq i64 %436, %smax
+  %exitcond.not = icmp eq i64 %436, %212
   br i1 %exitcond.not, label %.critedge595._crit_edge, label %355, !llvm.loop !679
 
 .lr.ph:                                           ; preds = %.preheader1331, %.lr.ph
@@ -37594,15 +37587,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit660: ; preds = %_Z
   %453 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %454 = load i64, ptr %448, align 8, !tbaa !145
   %.not1456 = icmp eq i64 %454, 0
-  br i1 %.not1456, label %._crit_edge1398, label %.preheader1330.preheader
+  br i1 %.not1456, label %._crit_edge1398, label %.preheader1330
 
-.preheader1330.preheader:                         ; preds = %.preheader1330.lr.ph
-  %smax1506 = call i64 @llvm.smax.i64(i64 %212, i64 1)
-  br label %.preheader1330
-
-.preheader1330:                                   ; preds = %.preheader1330.preheader, %._crit_edge
-  %455 = phi i64 [ %456, %._crit_edge ], [ 1, %.preheader1330.preheader ]
-  %.04771397 = phi i64 [ %457, %._crit_edge ], [ 0, %.preheader1330.preheader ]
+.preheader1330:                                   ; preds = %.preheader1330.lr.ph, %._crit_edge
+  %455 = phi i64 [ %456, %._crit_edge ], [ 1, %.preheader1330.lr.ph ]
+  %.04771397 = phi i64 [ %457, %._crit_edge ], [ 0, %.preheader1330.lr.ph ]
   %.not1457 = icmp eq i64 %455, 0
   br i1 %.not1457, label %._crit_edge, label %.lr.ph1396
 
@@ -37613,7 +37602,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit660: ; preds = %_Z
 ._crit_edge:                                      ; preds = %500, %.preheader1330
   %456 = phi i64 [ 0, %.preheader1330 ], [ %502, %500 ]
   %457 = add nuw nsw i64 %.04771397, 1
-  %exitcond1507.not = icmp eq i64 %457, %smax1506
+  %exitcond1507.not = icmp eq i64 %457, %212
   br i1 %exitcond1507.not, label %._crit_edge1398, label %.preheader1330, !llvm.loop !681
 
 .lr.ph1396:                                       ; preds = %.preheader1330, %500
@@ -37833,7 +37822,7 @@ _ZNSt12_Vector_baseIN6casadi10SXFunction6TapeElINS0_6SXElemEEESaIS4_EEC2EmRKS5_.
 ._crit_edge1402:                                  ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN6casadi6SXElemESt6vectorIS3_SaIS3_EEEEiEvT_S9_RKT0_.exit, %536
   %545 = phi ptr [ %540, %536 ], [ %595, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN6casadi6SXElemESt6vectorIS3_SaIS3_EEEEiEvT_S9_RKT0_.exit ]
   %546 = add nuw nsw i64 %.04791403, 1
-  %exitcond1509.not = icmp eq i64 %546, %smax1508
+  %exitcond1509.not = icmp eq i64 %546, %212
   br i1 %exitcond1509.not, label %._crit_edge1405, label %536, !llvm.loop !683
 
 .lr.ph1401:                                       ; preds = %536, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN6casadi6SXElemESt6vectorIS3_SaIS3_EEEEiEvT_S9_RKT0_.exit
@@ -40545,11 +40534,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit868: ; preds = %_Z
   %1826 = load ptr, ptr %658, align 8, !tbaa !106, !noalias !689
   %1827 = load ptr, ptr %656, align 8, !tbaa !106, !noalias !692
   %1828 = icmp eq ptr %1826, %1827
-  br i1 %1828, label %._crit_edge1455, label %.lr.ph1454.split.preheader
-
-.lr.ph1454.split.preheader:                       ; preds = %.lr.ph1454
-  %smax1514 = call i64 @llvm.smax.i64(i64 %212, i64 1)
-  br label %.lr.ph1454.split
+  br i1 %1828, label %._crit_edge1455, label %.lr.ph1454.split
 
 ._crit_edge1455:                                  ; preds = %._crit_edge1451, %.lr.ph1454, %1819
   %1829 = load ptr, ptr %67, align 8, !tbaa !67
@@ -40630,9 +40615,9 @@ _ZSt8_DestroyIPN6casadi10SXFunction6TapeElINS0_6SXElemEEES4_EvT_S6_RSaIT0_E.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   br label %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit1054
 
-.lr.ph1454.split:                                 ; preds = %.lr.ph1454.split.preheader, %._crit_edge1451
-  %1851 = phi ptr [ %1853, %._crit_edge1451 ], [ %1827, %.lr.ph1454.split.preheader ]
-  %.04671452 = phi i64 [ %1854, %._crit_edge1451 ], [ 0, %.lr.ph1454.split.preheader ]
+.lr.ph1454.split:                                 ; preds = %.lr.ph1454, %._crit_edge1451
+  %1851 = phi ptr [ %1853, %._crit_edge1451 ], [ %1827, %.lr.ph1454 ]
+  %.04671452 = phi i64 [ %1854, %._crit_edge1451 ], [ 0, %.lr.ph1454 ]
   %1852 = load ptr, ptr %658, align 8, !tbaa !106, !noalias !689
   %.not13201446 = icmp eq ptr %1852, %1851
   br i1 %.not13201446, label %._crit_edge1451, label %.lr.ph1450
@@ -40640,7 +40625,7 @@ _ZSt8_DestroyIPN6casadi10SXFunction6TapeElINS0_6SXElemEEES4_EvT_S6_RSaIT0_E.exit
 ._crit_edge1451:                                  ; preds = %2532, %.lr.ph1454.split
   %1853 = phi ptr [ %1851, %.lr.ph1454.split ], [ %1856, %2532 ]
   %1854 = add nuw nsw i64 %.04671452, 1
-  %exitcond1515.not = icmp eq i64 %1854, %smax1514
+  %exitcond1515.not = icmp eq i64 %1854, %212
   br i1 %exitcond1515.not, label %._crit_edge1455, label %.lr.ph1454.split, !llvm.loop !695
 
 .lr.ph1450:                                       ; preds = %.lr.ph1454.split, %2532

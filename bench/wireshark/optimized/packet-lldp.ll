@@ -1840,40 +1840,33 @@ define internal void @latitude_or_longitude_resolution(ptr noundef %0, i8 nounde
   %6 = icmp samesign ult i8 %3, 8
   br i1 %6, label %.lr.ph, label %.preheader
 
-.preheader.loopexit:                              ; preds = %.lr.ph
-  %smin = tail call i32 @llvm.smin.i32(i32 %5, i32 1)
-  %7 = add nsw i32 %smin, -1
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.loopexit, %2
-  %.015.lcssa = phi double [ 1.000000e+00, %2 ], [ %9, %.preheader.loopexit ]
-  %.014.lcssa = phi i32 [ %5, %2 ], [ %7, %.preheader.loopexit ]
-  %8 = icmp slt i32 %.014.lcssa, 0
-  br i1 %8, label %.lr.ph23, label %._crit_edge
+.preheader:                                       ; preds = %2
+  %.not = icmp eq i8 %3, 8
+  br i1 %.not, label %._crit_edge, label %.lr.ph23
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.01419 = phi i32 [ %10, %.lr.ph ], [ %5, %2 ]
-  %.01518 = phi double [ %9, %.lr.ph ], [ 1.000000e+00, %2 ]
-  %9 = fmul double %.01518, 2.000000e+00
-  %10 = add nsw i32 %.01419, -1
-  %11 = icmp sgt i32 %.01419, 1
-  br i1 %11, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !6
+  %.01419 = phi i32 [ %8, %.lr.ph ], [ %5, %2 ]
+  %.01518 = phi double [ %7, %.lr.ph ], [ 1.000000e+00, %2 ]
+  %7 = fmul double %.01518, 2.000000e+00
+  %8 = add nsw i32 %.01419, -1
+  %9 = icmp sgt i32 %.01419, 1
+  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 .lr.ph23:                                         ; preds = %.preheader, %.lr.ph23
-  %.122 = phi i32 [ %13, %.lr.ph23 ], [ %.014.lcssa, %.preheader ]
-  %.11621 = phi double [ %12, %.lr.ph23 ], [ %.015.lcssa, %.preheader ]
-  %12 = fmul double %.11621, 5.000000e-01
-  %13 = add nsw i32 %.122, 1
-  %exitcond.not = icmp eq i32 %13, 0
+  %.122 = phi i32 [ %11, %.lr.ph23 ], [ %5, %.preheader ]
+  %.11621 = phi double [ %10, %.lr.ph23 ], [ 1.000000e+00, %.preheader ]
+  %10 = fmul double %.11621, 5.000000e-01
+  %11 = add nsw i32 %.122, 1
+  %exitcond.not = icmp eq i32 %11, 0
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph23, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %.lr.ph23, %.preheader
-  %.116.lcssa = phi double [ %.015.lcssa, %.preheader ], [ %12, %.lr.ph23 ]
-  %14 = icmp samesign ugt i8 %3, 34
-  %15 = icmp samesign ult i8 %3, 2
-  %spec.select = select i1 %15, ptr @.str.1026, ptr @.str.1024
-  %.0 = select i1 %14, ptr @.str.1025, ptr %spec.select
-  %16 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1027, ptr noundef nonnull %.0, double noundef %.116.lcssa, i32 noundef %4)
+._crit_edge:                                      ; preds = %.lr.ph23, %.lr.ph, %.preheader
+  %.116.lcssa = phi double [ 1.000000e+00, %.preheader ], [ %7, %.lr.ph ], [ %10, %.lr.ph23 ]
+  %12 = icmp samesign ugt i8 %3, 34
+  %13 = icmp samesign ult i8 %3, 2
+  %spec.select = select i1 %13, ptr @.str.1026, ptr @.str.1024
+  %.0 = select i1 %12, ptr @.str.1025, ptr %spec.select
+  %14 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1027, ptr noundef nonnull %.0, double noundef %.116.lcssa, i32 noundef %4)
   ret void
 }
 

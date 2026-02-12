@@ -5783,8 +5783,7 @@ _ZN12_GLOBAL__N_110t_pdbchainD2Ev.exit:           ; preds = %_ZNSt6vectorIN12_GL
   br label %1227
 
 .lr.ph5138:                                       ; preds = %1237
-  %smax6310 = call i32 @llvm.smax.i32(i32 %.1628, i32 1)
-  %wide.trip.count6311 = zext nneg i32 %smax6310 to i64
+  %wide.trip.count6311 = zext nneg i32 %.1628 to i64
   br label %1240
 
 1225:                                             ; preds = %935, %934
@@ -5957,8 +5956,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_17t_chainESaIS1_EEC2EmRKS2_.exit.i: ; preds = 
   %1287 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %1288 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %1289 = getelementptr inbounds nuw i8, ptr %134, i64 48
-  %smax6329 = call i32 @llvm.smax.i32(i32 %.0627.lcssa7327733373557368, i32 1)
-  %wide.trip.count6330 = zext nneg i32 %smax6329 to i64
+  %wide.trip.count6330 = zext nneg i32 %.0627.lcssa7327733373557368 to i64
   br label %1295
 
 ._crit_edge5157:                                  ; preds = %._crit_edge5153, %.loopexit2520.thread
@@ -6560,8 +6558,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit1174:             ; preds = %1558, %_ZNKSt7__cxx
   %1565 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %1566 = getelementptr inbounds nuw i8, ptr %153, i64 32
   %.val920 = load ptr, ptr %149, align 8
-  %smax6335 = call i32 @llvm.smax.i32(i32 %.0627.lcssa732773337355736874097429, i32 1)
-  %wide.trip.count6336 = zext nneg i32 %smax6335 to i64
+  %wide.trip.count6336 = zext nneg i32 %.0627.lcssa732773337355736874097429 to i64
   %1567 = getelementptr inbounds nuw i8, ptr %153, i64 16
   br label %1741
 
@@ -7595,8 +7592,7 @@ _ZL13gmx_snew_implIP7t_atomsEvPKcS3_iRPT_m.exit1228.preheader: ; preds = %_ZL13g
   %2129 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %2130 = getelementptr inbounds nuw i8, ptr %176, i64 16
   %2131 = getelementptr inbounds nuw i8, ptr %175, i64 16
-  %smax6352 = call i32 @llvm.smax.i32(i32 %.0627.lcssa732773337355736874097429, i32 1)
-  %wide.trip.count6353 = zext nneg i32 %smax6352 to i64
+  %wide.trip.count6353 = zext nneg i32 %.0627.lcssa732773337355736874097429 to i64
   %2132 = getelementptr inbounds nuw i8, ptr %168, i64 16
   %2133 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %2134 = getelementptr inbounds nuw i8, ptr %169, i64 16
@@ -7621,8 +7617,7 @@ _ZL13gmx_snew_implIP7t_atomsEvPKcS3_iRPT_m.exit1228._crit_edge.thread: ; preds =
 
 .lr.ph5191:                                       ; preds = %_ZL13gmx_snew_implIP7t_atomsEvPKcS3_iRPT_m.exit1228._crit_edge
   %.val927 = load ptr, ptr %149, align 8, !tbaa !280
-  %smax6358 = call i32 @llvm.smax.i32(i32 %.0627.lcssa732773337355736874097429, i32 1)
-  %wide.trip.count6359 = zext nneg i32 %smax6358 to i64
+  %wide.trip.count6359 = zext nneg i32 %.0627.lcssa732773337355736874097429 to i64
   br label %6156
 
 2146:                                             ; preds = %1844
@@ -18639,8 +18634,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit1826:      ; preds = %_ZNSt10filesystem7_
 
 .lr.ph5195:                                       ; preds = %.preheader2367
   %.val928 = load ptr, ptr %149, align 8, !tbaa !280
-  %smax6364 = call i32 @llvm.smax.i32(i32 %.0627.lcssa732773337355736874097429, i32 1)
-  %wide.trip.count6365 = zext nneg i32 %smax6364 to i64
+  %wide.trip.count6365 = zext nneg i32 %.0627.lcssa732773337355736874097429 to i64
   br label %6293
 
 ._crit_edge5196:                                  ; preds = %6293, %.preheader2367
@@ -18736,8 +18730,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE5clearEv.exit: ; preds = %6321, %6325
   %6331 = getelementptr inbounds nuw i8, ptr %6292, i64 16
   %6332 = getelementptr inbounds nuw i8, ptr %166, i64 16
   %6333 = getelementptr inbounds nuw i8, ptr %0, i64 27
-  %smax6387 = call i32 @llvm.smax.i32(i32 %.0627.lcssa732773337355736874097429, i32 1)
-  %wide.trip.count6388 = zext nneg i32 %smax6387 to i64
+  %wide.trip.count6388 = zext nneg i32 %.0627.lcssa732773337355736874097429 to i64
   %6334 = getelementptr inbounds nuw i8, ptr %230, i64 16
   br label %6336
 
@@ -19231,8 +19224,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit1870:      ; preds = %_ZNSt10filesystem7_
   br i1 %.not.i.i.i.i10667337735173727405, label %._crit_edge5223, label %.lr.ph5222.preheader
 
 .lr.ph5222.preheader:                             ; preds = %.preheader
-  %smax6393 = call i32 @llvm.smax.i32(i32 %.0627.lcssa732773337355736874097429, i32 1)
-  %wide.trip.count6394 = zext nneg i32 %smax6393 to i64
+  %wide.trip.count6394 = zext nneg i32 %.0627.lcssa732773337355736874097429 to i64
   br label %.lr.ph5222
 
 ._crit_edge5223:                                  ; preds = %_ZL14gmx_sfree_implI7t_atomsEvPKcS2_iPT_.exit1874, %.preheader

@@ -9404,20 +9404,20 @@ get_bits.exit783:                                 ; preds = %get_bits.exit783.lo
   %.pre1104 = ptrtoint ptr %.pre1100 to i64
   %.pre1105 = ptrtoint ptr %.pre1101 to i64
   %.pre1107 = sub i64 %.pre1104, %.pre1105
+  %894 = icmp slt i64 %.pre1107, 1
   br label %._crit_edge1002
 
 ._crit_edge1002:                                  ; preds = %._crit_edge1002.loopexit, %.preheader910
-  %.pre-phi1108 = phi i64 [ %.pre1107, %._crit_edge1002.loopexit ], [ %126, %.preheader910 ]
+  %.pre-phi1108 = phi i1 [ %894, %._crit_edge1002.loopexit ], [ false, %.preheader910 ]
   %.pre-phi = phi i64 [ %.pre1104, %._crit_edge1002.loopexit ], [ %113, %.preheader910 ]
-  %894 = phi ptr [ %.pre1101, %._crit_edge1002.loopexit ], [ %122, %.preheader910 ]
-  %895 = phi ptr [ %.pre1100, %._crit_edge1002.loopexit ], [ %112, %.preheader910 ]
-  %896 = icmp slt i64 %.pre-phi1108, 1
-  br i1 %896, label %.sink.split.i786, label %bytestream2_get_byte.exit.i784
+  %895 = phi ptr [ %.pre1101, %._crit_edge1002.loopexit ], [ %122, %.preheader910 ]
+  %896 = phi ptr [ %.pre1100, %._crit_edge1002.loopexit ], [ %112, %.preheader910 ]
+  br i1 %.pre-phi1108, label %.sink.split.i786, label %bytestream2_get_byte.exit.i784
 
 bytestream2_get_byte.exit.i784:                   ; preds = %._crit_edge1002
-  %897 = getelementptr inbounds nuw i8, ptr %894, i64 1
+  %897 = getelementptr inbounds nuw i8, ptr %895, i64 1
   store ptr %897, ptr %110, align 8, !tbaa !43
-  %898 = load i8, ptr %894, align 1, !tbaa !44
+  %898 = load i8, ptr %895, align 1, !tbaa !44
   %899 = icmp eq i8 %898, -1
   br i1 %899, label %900, label %jpeg2000_flush.exit788
 
@@ -9429,7 +9429,7 @@ bytestream2_get_byte.exit.i784:                   ; preds = %._crit_edge1002
   br label %.sink.split.i786
 
 .sink.split.i786:                                 ; preds = %900, %._crit_edge1002
-  %.sink.i787 = phi ptr [ %903, %900 ], [ %895, %._crit_edge1002 ]
+  %.sink.i787 = phi ptr [ %903, %900 ], [ %896, %._crit_edge1002 ]
   store ptr %.sink.i787, ptr %110, align 8, !tbaa !39
   br label %jpeg2000_flush.exit788
 

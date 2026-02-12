@@ -2636,8 +2636,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNSt10filesystem7_
   br i1 %787, label %.lr.ph506, label %._crit_edge507
 
 .lr.ph506:                                        ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit
-  %smax = call i32 @llvm.smax.i32(i32 %586, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %586 to i64
   br label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %._crit_edge504, %.lr.ph506
@@ -12745,8 +12744,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNSt10filesystem7_
   %279 = sitofp i32 %.0248 to double
   %280 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %281 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %smax151 = call i32 @llvm.smax.i32(i32 %78, i32 1)
-  %wide.trip.count152 = zext nneg i32 %smax151 to i64
+  %wide.trip.count152 = zext nneg i32 %78 to i64
   br label %282
 
 282:                                              ; preds = %.lr.ph79, %.loopexit18

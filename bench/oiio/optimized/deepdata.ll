@@ -2688,11 +2688,11 @@ _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i: ; preds = %37, %_ZNK11O
   %41 = load i64, ptr %40, align 4
   %42 = trunc i64 %39 to i24
   %43 = trunc i64 %41 to i24
-  %or.cond35.not38.i = icmp eq i24 %42, %43
+  %or.cond20.i = icmp eq i24 %42, %43
   %.unshifted.i = xor i64 %41, %39
   %44 = icmp ult i64 %.unshifted.i, 4294967296
-  %or.cond36.not.i = and i1 %or.cond35.not38.i, %44
-  br i1 %or.cond36.not.i, label %37, label %_ZNK11OpenImageIO6v3_1_08DeepData17same_channeltypesERKS1_.exit
+  %or.cond21.not.i = and i1 %or.cond20.i, %44
+  br i1 %or.cond21.not.i, label %37, label %_ZNK11OpenImageIO6v3_1_08DeepData17same_channeltypesERKS1_.exit
 
 _ZNK11OpenImageIO6v3_1_08DeepData17same_channeltypesERKS1_.exit: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i, %24, %27
   %45 = icmp sgt i32 %15, 0
@@ -5429,17 +5429,17 @@ _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit: ; preds = %_ZNK11OpenImag
   %20 = load i64, ptr %19, align 4
   %21 = trunc i64 %18 to i24
   %22 = trunc i64 %20 to i24
-  %or.cond35.not38 = icmp eq i24 %21, %22
-  %.unshifted = xor i64 %18, %20
+  %or.cond20 = icmp eq i24 %21, %22
+  %.unshifted = xor i64 %20, %18
   %23 = icmp ult i64 %.unshifted, 4294967296
-  %or.cond36.not = and i1 %or.cond35.not38, %23
+  %or.cond21.not = and i1 %or.cond20, %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
-  %or.cond.not = select i1 %or.cond36.not, i1 %exitcond.not, i1 false
+  %or.cond.not = select i1 %or.cond21.not, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit, label %_ZNK11OpenImageIO6v3_1_08TypeDescneERKS1_.exit.thread, !llvm.loop !125
 
 _ZNK11OpenImageIO6v3_1_08TypeDescneERKS1_.exit.thread: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit, %.preheader, %7, %2
-  %.010 = phi i1 [ false, %7 ], [ false, %2 ], [ true, %.preheader ], [ %or.cond36.not, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit ]
+  %.010 = phi i1 [ false, %7 ], [ false, %2 ], [ true, %.preheader ], [ %or.cond21.not, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit ]
   ret i1 %.010
 }
 
@@ -6140,8 +6140,7 @@ _ZNSt17_Temporary_bufferIPiiEC2ES0_l.exit.i.i:    ; preds = %.lr.ph.i.i.i.i
   %39 = phi ptr [ %38, %37 ], [ null, %.loopexit._crit_edge.i.i ]
   %40 = call noundef ptr @_ZN11OpenImageIO6v3_1_08DeepData8data_ptrElii(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef 0, i32 noundef 0)
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %39, ptr align 1 %40, i64 %36, i1 false)
-  %smax = call i32 @llvm.smax.i32(i32 %15, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %15 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

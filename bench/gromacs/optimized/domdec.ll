@@ -13547,8 +13547,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit57:               ; preds = %34, %_ZNKSt7__cxx11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %63 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %smax98 = call i32 @llvm.smax.i32(i32 %3, i32 1)
-  %wide.trip.count99 = zext nneg i32 %smax98 to i64
+  %wide.trip.count99 = zext nneg i32 %3 to i64
   br label %88
 
 65:                                               ; preds = %50

@@ -3399,10 +3399,8 @@ get_p_cbp.exit:                                   ; preds = %525, %526
 
 .preheader699.lr.ph.split.us:                     ; preds = %593
   %599 = load i64, ptr %556, align 8, !tbaa !164
-  %smax = tail call i32 @llvm.smax.i32(i32 %spec.select504, i32 1)
-  %smax759 = tail call i32 @llvm.smax.i32(i32 %596, i32 1)
-  %wide.trip.count760 = zext nneg i32 %smax759 to i64
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count760 = zext nneg i32 %596 to i64
+  %wide.trip.count = zext nneg i32 %spec.select504 to i64
   br label %.preheader699.us
 
 .preheader699.us:                                 ; preds = %._crit_edge.us, %.preheader699.lr.ph.split.us

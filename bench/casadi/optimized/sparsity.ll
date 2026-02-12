@@ -17072,11 +17072,10 @@ _ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc371
   %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIxSaIxEEC2EmRKS0_.exit.thread.i ], [ %467, %.noexc371 ], [ %470, %_ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
   %473 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr %.0.i.i.i.i.i, ptr %473, align 8, !tbaa !43
-  %smax606 = tail call i64 @llvm.smax.i64(i64 %2, i64 1)
   br label %484
 
 .loopexit519:                                     ; preds = %.lr.ph559, %484
-  %exitcond607.not = icmp eq i64 %486, %smax606
+  %exitcond607.not = icmp eq i64 %486, %2
   br i1 %exitcond607.not, label %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i.i, label %484, !llvm.loop !246
 
 _ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %.loopexit519

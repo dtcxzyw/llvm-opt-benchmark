@@ -1201,9 +1201,9 @@ reset_rects.exit:                                 ; preds = %441, %._crit_edge.i
 
 decode_dvd_subtitles.exit.thread:                 ; preds = %.critedge.i
   %.not45 = icmp eq i32 %.1211.i, 0
-  br i1 %.not45, label %.thread143, label %583
+  br i1 %.not45, label %.thread144, label %583
 
-.thread143:                                       ; preds = %decode_dvd_subtitles.exit.thread
+.thread144:                                       ; preds = %decode_dvd_subtitles.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   br label %461
@@ -1217,7 +1217,7 @@ decode_dvd_subtitles.exit.thread:                 ; preds = %.critedge.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   br i1 %460, label %find_smallest_bounding_rectangle.exit.thread, label %461
 
-461:                                              ; preds = %.thread143, %459
+461:                                              ; preds = %.thread144, %459
   %462 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %463 = load ptr, ptr %462, align 8, !tbaa !49
   %.not.i61 = icmp eq ptr %463, null
@@ -1313,12 +1313,12 @@ decode_dvd_subtitles.exit.thread:                 ; preds = %.critedge.i
 506:                                              ; preds = %503
   %indvars.iv.next179.i = add nuw nsw i64 %indvars.iv178.i, 1
   %exitcond182.not.i = icmp eq i64 %indvars.iv.next179.i, %495
-  br i1 %exitcond182.not.i, label %.critedge.i71.thread, label %496, !llvm.loop !70
+  br i1 %exitcond182.not.i, label %.critedge.thread.i, label %496, !llvm.loop !70
 
 .critedge.i71:                                    ; preds = %.lr.ph.i.i69
   %507 = trunc nuw nsw i64 %indvars.iv178.i to i32
   %508 = icmp eq i32 %471, %507
-  br i1 %508, label %.critedge.i71.thread, label %.preheader134.i
+  br i1 %508, label %.critedge.thread.i, label %.preheader134.i
 
 .preheader134.i:                                  ; preds = %.critedge.i71
   %.not165.i = icmp eq i32 %471, 1
@@ -1329,7 +1329,7 @@ decode_dvd_subtitles.exit.thread:                 ; preds = %.critedge.i
   %509 = zext nneg i32 %.087152.i to i64
   br label %514
 
-.critedge.i71.thread:                             ; preds = %506, %.critedge.i71
+.critedge.thread.i:                               ; preds = %506, %.critedge.i71
   tail call void @av_freep(ptr noundef nonnull %490) #14
   %510 = load ptr, ptr %462, align 8, !tbaa !49
   %511 = load ptr, ptr %510, align 8, !tbaa !51
@@ -1450,9 +1450,9 @@ is_transp.exit123.i:                              ; preds = %547
   br label %.critedge6.i
 
 .critedge6.i:                                     ; preds = %is_transp.exit123.i, %.critedge6.loopexit.i, %.critedge2.i
-  %.090142215.i = phi i32 [ %.090142.i, %.critedge6.loopexit.i ], [ 0, %.critedge2.i ], [ %.090142.i, %is_transp.exit123.i ]
+  %.090142216.i = phi i32 [ %.090142.i, %.critedge6.loopexit.i ], [ 0, %.critedge2.i ], [ %.090142.i, %is_transp.exit123.i ]
   %.089140.i = phi i32 [ %552, %.critedge6.loopexit.i ], [ 0, %.critedge2.i ], [ %540, %is_transp.exit123.i ]
-  %553 = sub nsw i32 %.089140.i, %.090142215.i
+  %553 = sub nsw i32 %.089140.i, %.090142216.i
   %554 = add nsw i32 %553, 1
   %555 = sub i32 %.087144.i, %507
   %556 = add i32 %555, 1
@@ -1469,10 +1469,10 @@ is_transp.exit123.i:                              ; preds = %547
   br i1 %.not101161.i, label %._crit_edge164.i, label %.lr.ph163.i
 
 .lr.ph163.i:                                      ; preds = %.preheader.i72
-  %560 = zext nneg i32 %.090142215.i to i64
+  %560 = zext nneg i32 %.090142216.i to i64
   %561 = sext i32 %554 to i64
-  %sext = shl i64 %indvars.iv178.i, 32
-  %562 = ashr exact i64 %sext, 32
+  %sext.i = shl i64 %indvars.iv178.i, 32
+  %562 = ashr exact i64 %sext.i, 32
   %wide.trip.count198.i = zext i32 %556 to i64
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre204.i, i64 24
   %.pre200.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !54
@@ -1508,7 +1508,7 @@ is_transp.exit123.i:                              ; preds = %547
   %577 = getelementptr inbounds nuw i8, ptr %573, i64 12
   store i32 %556, ptr %577, align 4, !tbaa !64
   %578 = load i32, ptr %573, align 8, !tbaa !61
-  %579 = add nsw i32 %578, %.090142215.i
+  %579 = add nsw i32 %578, %.090142216.i
   store i32 %579, ptr %573, align 8, !tbaa !61
   %580 = getelementptr inbounds nuw i8, ptr %573, i64 4
   %581 = load i32, ptr %580, align 4, !tbaa !62
@@ -1516,7 +1516,7 @@ is_transp.exit123.i:                              ; preds = %547
   store i32 %582, ptr %580, align 4, !tbaa !62
   br label %find_smallest_bounding_rectangle.exit
 
-find_smallest_bounding_rectangle.exit.thread:     ; preds = %._crit_edge.i68, %459, %.critedge.i71.thread, %469, %464, %461, %.preheader138.i
+find_smallest_bounding_rectangle.exit.thread:     ; preds = %._crit_edge.i68, %459, %.critedge.thread.i, %469, %464, %461, %.preheader138.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %441
 
