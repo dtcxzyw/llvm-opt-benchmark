@@ -4220,58 +4220,61 @@ define linkonce_odr void @_ZNSt6vectorIPN3nix5ValueE19traceable_allocatorIS2_EE7
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 3
   %13 = icmp ult i64 %12, %1
-  br i1 %13, label %14, label %33
+  br i1 %13, label %14, label %35
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = sub i64 %17, %10
-  %19 = shl nuw nsw i64 %1, 3
-  %20 = tail call noalias ptr @GC_malloc_uncollectable(i64 noundef %19) #39
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %_ZNSt12_Vector_baseIPN3nix5ValueE19traceable_allocatorIS2_EE11_M_allocateEm.exit.i
+  %19 = ptrtoaddr ptr %8 to i64
+  %20 = ptrtoaddr ptr %16 to i64
+  %21 = shl nuw nsw i64 %1, 3
+  %22 = tail call noalias ptr @GC_malloc_uncollectable(i64 noundef %21) #39
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %24, label %_ZNSt12_Vector_baseIPN3nix5ValueE19traceable_allocatorIS2_EE11_M_allocateEm.exit.i
 
-22:                                               ; preds = %14
-  %23 = tail call ptr @__cxa_allocate_exception(i64 8) #33
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %23, align 8
-  tail call void @__cxa_throw(ptr nonnull %23, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #36
+24:                                               ; preds = %14
+  %25 = tail call ptr @__cxa_allocate_exception(i64 8) #33
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %25, align 8
+  tail call void @__cxa_throw(ptr nonnull %25, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #36
   unreachable
 
 _ZNSt12_Vector_baseIPN3nix5ValueE19traceable_allocatorIS2_EE11_M_allocateEm.exit.i: ; preds = %14
-  %24 = icmp eq ptr %8, %16
-  br i1 %24, label %_ZNSt6vectorIPN3nix5ValueE19traceable_allocatorIS2_EE20_M_allocate_and_copyISt13move_iteratorIPS2_EEES8_mT_SA_.exit, label %.lr.ph.i.preheader.i
+  %26 = icmp eq ptr %8, %16
+  br i1 %26, label %_ZNSt6vectorIPN3nix5ValueE19traceable_allocatorIS2_EE20_M_allocate_and_copyISt13move_iteratorIPS2_EEES8_mT_SA_.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZNSt12_Vector_baseIPN3nix5ValueE19traceable_allocatorIS2_EE11_M_allocateEm.exit.i
-  %25 = and i64 %18, -8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %20, ptr align 8 %8, i64 %25, i1 false)
+  %reass.sub = sub i64 %20, %19
+  %27 = and i64 %reass.sub, -8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr align 8 %8, i64 %27, i1 false)
   br label %_ZNSt6vectorIPN3nix5ValueE19traceable_allocatorIS2_EE20_M_allocate_and_copyISt13move_iteratorIPS2_EEES8_mT_SA_.exit
 
 _ZNSt6vectorIPN3nix5ValueE19traceable_allocatorIS2_EE20_M_allocate_and_copyISt13move_iteratorIPS2_EEES8_mT_SA_.exit: ; preds = %_ZNSt12_Vector_baseIPN3nix5ValueE19traceable_allocatorIS2_EE11_M_allocateEm.exit.i, %.lr.ph.i.preheader.i
-  %26 = load ptr, ptr %0, align 8
-  %.not.i = icmp eq ptr %26, null
-  br i1 %.not.i, label %_ZNSt12_Vector_baseIPN3nix5ValueE19traceable_allocatorIS2_EE13_M_deallocateEPS2_m.exit, label %27
+  %28 = load ptr, ptr %0, align 8
+  %.not.i = icmp eq ptr %28, null
+  br i1 %.not.i, label %_ZNSt12_Vector_baseIPN3nix5ValueE19traceable_allocatorIS2_EE13_M_deallocateEPS2_m.exit, label %29
 
-27:                                               ; preds = %_ZNSt6vectorIPN3nix5ValueE19traceable_allocatorIS2_EE20_M_allocate_and_copyISt13move_iteratorIPS2_EEES8_mT_SA_.exit
-  invoke void @GC_free(ptr noundef nonnull %26)
-          to label %_ZNSt12_Vector_baseIPN3nix5ValueE19traceable_allocatorIS2_EE13_M_deallocateEPS2_m.exit unwind label %28
+29:                                               ; preds = %_ZNSt6vectorIPN3nix5ValueE19traceable_allocatorIS2_EE20_M_allocate_and_copyISt13move_iteratorIPS2_EEES8_mT_SA_.exit
+  invoke void @GC_free(ptr noundef nonnull %28)
+          to label %_ZNSt12_Vector_baseIPN3nix5ValueE19traceable_allocatorIS2_EE13_M_deallocateEPS2_m.exit unwind label %30
 
-28:                                               ; preds = %27
-  %29 = landingpad { ptr, i32 }
+30:                                               ; preds = %29
+  %31 = landingpad { ptr, i32 }
           catch ptr null
-  %30 = extractvalue { ptr, i32 } %29, 0
-  tail call void @__clang_call_terminate(ptr %30) #37
+  %32 = extractvalue { ptr, i32 } %31, 0
+  tail call void @__clang_call_terminate(ptr %32) #37
   unreachable
 
-_ZNSt12_Vector_baseIPN3nix5ValueE19traceable_allocatorIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIPN3nix5ValueE19traceable_allocatorIS2_EE20_M_allocate_and_copyISt13move_iteratorIPS2_EEES8_mT_SA_.exit, %27
-  store ptr %20, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %20, i64 %18
-  store ptr %31, ptr %15, align 8
-  %32 = getelementptr inbounds nuw ptr, ptr %20, i64 %1
-  store ptr %32, ptr %6, align 8
-  br label %33
+_ZNSt12_Vector_baseIPN3nix5ValueE19traceable_allocatorIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIPN3nix5ValueE19traceable_allocatorIS2_EE20_M_allocate_and_copyISt13move_iteratorIPS2_EEES8_mT_SA_.exit, %29
+  store ptr %22, ptr %0, align 8
+  %33 = getelementptr inbounds i8, ptr %22, i64 %18
+  store ptr %33, ptr %15, align 8
+  %34 = getelementptr inbounds nuw ptr, ptr %22, i64 %1
+  store ptr %34, ptr %6, align 8
+  br label %35
 
-33:                                               ; preds = %_ZNSt12_Vector_baseIPN3nix5ValueE19traceable_allocatorIS2_EE13_M_deallocateEPS2_m.exit, %5
+35:                                               ; preds = %_ZNSt12_Vector_baseIPN3nix5ValueE19traceable_allocatorIS2_EE13_M_deallocateEPS2_m.exit, %5
   ret void
 }
 

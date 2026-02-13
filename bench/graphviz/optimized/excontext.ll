@@ -7,10 +7,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @excontext(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = ptrtoint ptr %0 to i64
+  %4 = ptrtoaddr ptr %0 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %6 = load ptr, ptr %5, align 8, !tbaa !3
-  %7 = ptrtoint ptr %6 to i64
+  %7 = ptrtoaddr ptr %6 to i64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %9 = icmp ugt ptr %6, %8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 808
@@ -81,10 +81,10 @@ gv_isspace.exit:                                  ; preds = %.lr.ph, %.lr.ph, %.
   %spec.select = select i1 %36, ptr %5, ptr %37
   %.1 = select i1 %32, ptr %spec.select, ptr %.0.lcssa
   %38 = icmp ult ptr %.1, %5
-  br i1 %38, label %.lr.ph77.preheader, label %thread-pre-split.thread115
+  br i1 %38, label %.lr.ph77.preheader, label %thread-pre-split.thread114
 
 .lr.ph77.preheader:                               ; preds = %.critedge
-  %.192 = ptrtoint ptr %.1 to i64
+  %.192 = ptrtoaddr ptr %.1 to i64
   %39 = add i64 %4, 792
   %40 = sub i64 %39, %.192
   %scevgep93 = getelementptr i8, ptr %.1, i64 %40
@@ -103,26 +103,25 @@ gv_isspace.exit:                                  ; preds = %.lr.ph, %.lr.ph, %.
 thread-pre-split:                                 ; preds = %.lr.ph77
   %.pr.pre = load i32, ptr %21, align 8, !tbaa !22
   %44 = icmp eq i32 %.pr.pre, 0
-  br i1 %44, label %.preheader, label %thread-pre-split.thread115
+  br i1 %44, label %.preheader, label %thread-pre-split.thread114
 
 .preheader:                                       ; preds = %15, %thread-pre-split
-  %.152114 = phi ptr [ %43, %thread-pre-split ], [ %1, %15 ]
+  %.152113 = phi ptr [ %43, %thread-pre-split ], [ %1, %15 ]
   %45 = phi ptr [ %19, %thread-pre-split ], [ %18, %15 ]
   %46 = load ptr, ptr %5, align 8, !tbaa !3
-  %47 = ptrtoint ptr %46 to i64
-  %48 = icmp ult ptr %8, %46
-  br i1 %48, label %.lr.ph80.preheader, label %.critedge2
+  %47 = icmp ult ptr %8, %46
+  br i1 %47, label %.lr.ph80.preheader, label %.critedge2
 
 .lr.ph80.preheader:                               ; preds = %.preheader
-  %49 = sub i64 %47, %4
+  %48 = ptrtoaddr ptr %46 to i64
+  %49 = sub i64 %48, %4
   %scevgep95 = getelementptr i8, ptr %0, i64 %49
   br label %.lr.ph80
 
-thread-pre-split.thread115:                       ; preds = %.critedge, %thread-pre-split
-  %.152118 = phi ptr [ %43, %thread-pre-split ], [ %1, %.critedge ]
+thread-pre-split.thread114:                       ; preds = %.critedge, %thread-pre-split
+  %.152117 = phi ptr [ %43, %thread-pre-split ], [ %1, %.critedge ]
   store i32 0, ptr %21, align 8, !tbaa !22
   %.pre101 = load ptr, ptr %5, align 8, !tbaa !3
-  %.pre102 = ptrtoint ptr %.pre101 to i64
   br label %.critedge2
 
 .lr.ph80:                                         ; preds = %.lr.ph80.preheader, %51
@@ -142,56 +141,56 @@ thread-pre-split.thread115:                       ; preds = %.critedge, %thread-
   %exitcond96.not = icmp eq ptr %52, %46
   br i1 %exitcond96.not, label %.critedge2, label %.lr.ph80, !llvm.loop !27
 
-.critedge2:                                       ; preds = %51, %.lr.ph80, %.preheader, %thread-pre-split.thread115
-  %.152113 = phi ptr [ %.152118, %thread-pre-split.thread115 ], [ %.152114, %.preheader ], [ %.152114, %.lr.ph80 ], [ %.152114, %51 ]
-  %53 = phi ptr [ %19, %thread-pre-split.thread115 ], [ %45, %.preheader ], [ %45, %.lr.ph80 ], [ %45, %51 ]
-  %.pre-phi = phi i64 [ %.pre102, %thread-pre-split.thread115 ], [ %47, %.preheader ], [ %47, %.lr.ph80 ], [ %47, %51 ]
-  %54 = phi ptr [ %.pre101, %thread-pre-split.thread115 ], [ %46, %.preheader ], [ %46, %.lr.ph80 ], [ %46, %51 ]
-  %.3 = phi ptr [ %8, %thread-pre-split.thread115 ], [ %8, %.preheader ], [ %scevgep95, %51 ], [ %.479, %.lr.ph80 ]
-  %55 = ptrtoint ptr %.3 to i64
-  %56 = sub i64 %.pre-phi, %55
-  %57 = ptrtoint ptr %53 to i64
-  %58 = ptrtoint ptr %.152113 to i64
-  %.neg = sub i64 %58, %57
-  %59 = add i64 %56, %.neg
-  %60 = trunc i64 %59 to i32
-  %61 = icmp sgt i32 %60, 0
-  %62 = and i64 %59, 2147483647
-  %.5.idx = select i1 %61, i64 %62, i64 0
+.critedge2:                                       ; preds = %51, %.lr.ph80, %.preheader, %thread-pre-split.thread114
+  %.152112 = phi ptr [ %.152117, %thread-pre-split.thread114 ], [ %.152113, %.preheader ], [ %.152113, %.lr.ph80 ], [ %.152113, %51 ]
+  %53 = phi ptr [ %19, %thread-pre-split.thread114 ], [ %45, %.preheader ], [ %45, %.lr.ph80 ], [ %45, %51 ]
+  %54 = phi ptr [ %.pre101, %thread-pre-split.thread114 ], [ %46, %.preheader ], [ %46, %.lr.ph80 ], [ %46, %51 ]
+  %.3 = phi ptr [ %8, %thread-pre-split.thread114 ], [ %8, %.preheader ], [ %scevgep95, %51 ], [ %.479, %.lr.ph80 ]
+  %55 = ptrtoint ptr %54 to i64
+  %56 = ptrtoint ptr %.3 to i64
+  %57 = sub i64 %55, %56
+  %58 = ptrtoint ptr %53 to i64
+  %59 = ptrtoint ptr %.152112 to i64
+  %.neg = sub i64 %59, %58
+  %60 = add i64 %57, %.neg
+  %61 = trunc i64 %60 to i32
+  %62 = icmp sgt i32 %61, 0
+  %63 = and i64 %60, 2147483647
+  %.5.idx = select i1 %62, i64 %63, i64 0
   %.5 = getelementptr inbounds nuw i8, ptr %.3, i64 %.5.idx
-  %63 = icmp ult ptr %.5, %54
-  br i1 %63, label %.lr.ph86, label %._crit_edge
+  %64 = icmp ult ptr %.5, %54
+  br i1 %64, label %.lr.ph86, label %._crit_edge
 
 .lr.ph86:                                         ; preds = %.critedge2, %.lr.ph86
-  %.685 = phi ptr [ %64, %.lr.ph86 ], [ %.5, %.critedge2 ]
-  %.35484 = phi ptr [ %66, %.lr.ph86 ], [ %.152113, %.critedge2 ]
-  %64 = getelementptr inbounds nuw i8, ptr %.685, i64 1
-  %65 = load i8, ptr %.685, align 1, !tbaa !23
-  %66 = getelementptr inbounds nuw i8, ptr %.35484, i64 1
-  store i8 %65, ptr %.35484, align 1, !tbaa !23
-  %67 = load ptr, ptr %5, align 8, !tbaa !3
-  %68 = icmp ult ptr %64, %67
-  br i1 %68, label %.lr.ph86, label %._crit_edge, !llvm.loop !28
+  %.685 = phi ptr [ %65, %.lr.ph86 ], [ %.5, %.critedge2 ]
+  %.35484 = phi ptr [ %67, %.lr.ph86 ], [ %.152112, %.critedge2 ]
+  %65 = getelementptr inbounds nuw i8, ptr %.685, i64 1
+  %66 = load i8, ptr %.685, align 1, !tbaa !23
+  %67 = getelementptr inbounds nuw i8, ptr %.35484, i64 1
+  store i8 %66, ptr %.35484, align 1, !tbaa !23
+  %68 = load ptr, ptr %5, align 8, !tbaa !3
+  %69 = icmp ult ptr %65, %68
+  br i1 %69, label %.lr.ph86, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph86, %.critedge2
-  %.354.lcssa = phi ptr [ %.152113, %.critedge2 ], [ %66, %.lr.ph86 ]
+  %.354.lcssa = phi ptr [ %.152112, %.critedge2 ], [ %67, %.lr.ph86 ]
   store ptr %8, ptr %5, align 8, !tbaa !3
   store i8 60, ptr %.354.lcssa, align 1, !tbaa !23
-  br label %69
+  br label %70
 
-69:                                               ; preds = %._crit_edge, %69
-  %.789.idx = phi i64 [ 0, %._crit_edge ], [ %.789.add, %69 ]
-  %.45588 = phi ptr [ %.354.lcssa, %._crit_edge ], [ %70, %69 ]
+70:                                               ; preds = %._crit_edge, %70
+  %.789.idx = phi i64 [ 0, %._crit_edge ], [ %.789.add, %70 ]
+  %.45588 = phi ptr [ %.354.lcssa, %._crit_edge ], [ %71, %70 ]
   %.789.add = add nuw nsw i64 %.789.idx, 1
   %.ptr = getelementptr inbounds nuw i8, ptr @.str, i64 %.789.add
-  %70 = getelementptr inbounds nuw i8, ptr %.45588, i64 1
-  %71 = load i8, ptr %.ptr, align 1, !tbaa !23
-  store i8 %71, ptr %70, align 1, !tbaa !23
+  %71 = getelementptr inbounds nuw i8, ptr %.45588, i64 1
+  %72 = load i8, ptr %.ptr, align 1, !tbaa !23
+  store i8 %72, ptr %71, align 1, !tbaa !23
   %exitcond98 = icmp eq i64 %.789.add, 4
-  br i1 %exitcond98, label %.loopexit, label %69, !llvm.loop !29
+  br i1 %exitcond98, label %.loopexit, label %70, !llvm.loop !29
 
-.loopexit:                                        ; preds = %69, %11
-  %.051 = phi ptr [ %1, %11 ], [ %70, %69 ]
+.loopexit:                                        ; preds = %70, %11
+  %.051 = phi ptr [ %1, %11 ], [ %71, %70 ]
   store i8 0, ptr %.051, align 1, !tbaa !23
   ret ptr %.051
 }

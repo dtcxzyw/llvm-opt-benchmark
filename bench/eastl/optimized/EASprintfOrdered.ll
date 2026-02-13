@@ -800,9 +800,9 @@ for.body337.i:                                    ; preds = %for.inc465.i, %for.
   %arrayidx340.i = getelementptr inbounds nuw %"struct.EA::StdC::SprintfLocal::Span", ptr %spans.i, i64 %indvars.iv229.i
   %mpEnd341.i = getelementptr inbounds nuw i8, ptr %arrayidx340.i, i64 8
   %96 = load ptr, ptr %mpEnd341.i, align 8, !noalias !8
-  %97 = ptrtoint ptr %96 to i64
+  %97 = ptrtoaddr ptr %96 to i64
   %98 = load ptr, ptr %arrayidx340.i, align 16, !noalias !8
-  %99 = ptrtoint ptr %98 to i64
+  %99 = ptrtoaddr ptr %98 to i64
   %cmp343.not.i = icmp eq ptr %96, %98
   br i1 %cmp343.not.i, label %for.inc465.i, label %if.then344.i
 
@@ -980,7 +980,9 @@ if.end447.i:                                      ; preds = %for.body443.i
   br i1 %exitcond228.not.i, label %for.inc465.i, label %for.body443.i, !llvm.loop !14
 
 if.else452.i:                                     ; preds = %if.else435.i
-  %sub.ptr.sub.i = sub i64 %97, %99
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %96 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %98 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %call453.i = call noundef i32 %pWriteFunction8(ptr noundef %98, i64 noundef %sub.ptr.sub.i, ptr noundef %pWriteFunctionContext8, i32 noundef 1)
   %cmp454.i = icmp slt i32 %call453.i, 0
   br i1 %cmp454.i, label %_ZN2EA4StdC12SprintfLocal8InternalL12OVprintfCoreINS1_4SpanIcEEPFiPKcmPvNS0_18WriteFunctionStateEEcEEiT0_S8_PKT1_P13__va_list_tag.exit, label %if.end456.i

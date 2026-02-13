@@ -12397,8 +12397,8 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit
   br i1 %.not5.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEiEvT_S7_RKT0_.exit, label %.lr.ph.i.i.i.i135.preheader
 
 .lr.ph.i.i.i.i135.preheader:                      ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit134
-  %200 = ptrtoint ptr %199 to i64
-  %201 = ptrtoint ptr %197 to i64
+  %200 = ptrtoaddr ptr %199 to i64
+  %201 = ptrtoaddr ptr %197 to i64
   %202 = add i64 %200, -8
   %203 = sub i64 %202, %201
   %204 = and i64 %203, -8
@@ -12416,8 +12416,8 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEiEvT_S7_RKT0_.exit
   br i1 %.not5.i.i.i.i137, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEiEvT_S7_RKT0_.exit141, label %.lr.ph.i.i.i.i138.preheader
 
 .lr.ph.i.i.i.i138.preheader:                      ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEiEvT_S7_RKT0_.exit
-  %210 = ptrtoint ptr %209 to i64
-  %211 = ptrtoint ptr %207 to i64
+  %210 = ptrtoaddr ptr %209 to i64
+  %211 = ptrtoaddr ptr %207 to i64
   %212 = add i64 %210, -8
   %213 = sub i64 %212, %211
   %214 = and i64 %213, -8

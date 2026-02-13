@@ -8,8 +8,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.ac4fd1d65e6e66d260219a31c252ffb6.3 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.ac4fd1d65e6e66d260219a31c252ffb6.0, [16 x i8] c"+\00\00\00\00\00\00\00\1F\00\00\00&\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_suffix17h9de619b85a272a61E(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, ptr noalias noundef nonnull writeonly align 1 captures(none) %4, i64 noundef %5, i64 noundef %6, ptr noalias noundef readonly align 1 captures(none) dereferenceable(256) %7, i1 noundef zeroext %8, i8 noundef %9) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %11 = ptrtoint ptr %1 to i64
+define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_suffix17h9de619b85a272a61E(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 captures(address) %1, i64 noundef %2, i64 noundef %3, ptr noalias noundef nonnull writeonly align 1 captures(none) %4, i64 noundef %5, i64 noundef %6, ptr noalias noundef readonly align 1 captures(none) dereferenceable(256) %7, i1 noundef zeroext %8, i8 noundef %9) unnamed_addr #0 personality ptr @rust_eh_personality {
+  %11 = ptrtoaddr ptr %1 to i64
   %12 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4
@@ -53,7 +53,7 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
   unreachable
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.thread.loopexit": ; preds = %104
-  %.sroa.0.0.ph182232.le = ptrtoint ptr %.sroa.0.0.ph182 to i64
+  %.sroa.0.0.ph182232.le = ptrtoaddr ptr %.sroa.0.0.ph182 to i64
   %25 = sub i64 %18, %.sroa.0.0.ph182232.le
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.thread"
 

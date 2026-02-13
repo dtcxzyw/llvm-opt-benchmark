@@ -218,15 +218,15 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9ddf1b452ad0340fE"(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9ddf1b452ad0340fE"(ptr noundef nonnull captures(address) %0, ptr noundef captures(address) %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = icmp eq ptr %0, %1
   br i1 %5, label %_ZN4core4iter6traits8iterator8Iterator4fold17hb3f41ad519f9fd2eE.llvm.4120737428893778768.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %3
-  %6 = ptrtoint ptr %1 to i64
-  %7 = ptrtoint ptr %0 to i64
+  %6 = ptrtoaddr ptr %1 to i64
+  %7 = ptrtoaddr ptr %0 to i64
   %reass.sub = sub i64 %6, %7
   %8 = add i64 %reass.sub, -16
   %9 = lshr i64 %8, 4
@@ -240,15 +240,15 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hb3f41ad519f9fd2eE.llvm.41207374288
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcf3682626923f399E"(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcf3682626923f399E"(ptr noundef nonnull captures(address) %0, ptr noundef captures(address) %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = icmp eq ptr %0, %1
   br i1 %5, label %_ZN4core4iter6traits8iterator8Iterator4fold17h1ecd9e00ac056aefE.llvm.4120737428893778768.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %3
-  %6 = ptrtoint ptr %1 to i64
-  %7 = ptrtoint ptr %0 to i64
+  %6 = ptrtoaddr ptr %1 to i64
+  %7 = ptrtoaddr ptr %0 to i64
   %reass.sub = sub i64 %6, %7
   %8 = add i64 %reass.sub, -16
   %9 = lshr i64 %8, 4
@@ -262,15 +262,15 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h1ecd9e00ac056aefE.llvm.41207374288
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd73fbee357e078e4E"(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd73fbee357e078e4E"(ptr noundef nonnull captures(address) %0, ptr noundef captures(address) %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = icmp eq ptr %0, %1
   br i1 %5, label %_ZN4core4iter6traits8iterator8Iterator4fold17ha856a632d6f3d324E.llvm.4120737428893778768.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %3
-  %6 = ptrtoint ptr %1 to i64
-  %7 = ptrtoint ptr %0 to i64
+  %6 = ptrtoaddr ptr %1 to i64
+  %7 = ptrtoaddr ptr %0 to i64
   %reass.sub = sub i64 %6, %7
   %8 = add i64 %reass.sub, -16
   %9 = lshr i64 %8, 4
@@ -2792,15 +2792,15 @@ define internal fastcc void @"_ZN4core3ptr92drop_in_place$LT$mini_lsm_mvcc..lsm_
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h1ecd9e00ac056aefE.llvm.4120737428893778768(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h1ecd9e00ac056aefE.llvm.4120737428893778768(ptr noundef nonnull captures(address) %0, ptr noundef captures(address) %1, i64 noundef %2) unnamed_addr #6 personality ptr @rust_eh_personality {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = icmp eq ptr %0, %1
   br i1 %5, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
-  %6 = ptrtoint ptr %1 to i64
-  %7 = ptrtoint ptr %0 to i64
+  %6 = ptrtoaddr ptr %1 to i64
+  %7 = ptrtoaddr ptr %0 to i64
   %8 = add i64 %6, -16
   %9 = sub i64 %8, %7
   %10 = lshr i64 %9, 4
@@ -2814,15 +2814,15 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h1ecd9e0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17ha856a632d6f3d324E.llvm.4120737428893778768(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17ha856a632d6f3d324E.llvm.4120737428893778768(ptr noundef nonnull captures(address) %0, ptr noundef captures(address) %1, i64 noundef %2) unnamed_addr #6 personality ptr @rust_eh_personality {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = icmp eq ptr %0, %1
   br i1 %5, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
-  %6 = ptrtoint ptr %1 to i64
-  %7 = ptrtoint ptr %0 to i64
+  %6 = ptrtoaddr ptr %1 to i64
+  %7 = ptrtoaddr ptr %0 to i64
   %8 = add i64 %6, -16
   %9 = sub i64 %8, %7
   %10 = lshr i64 %9, 4
@@ -2836,15 +2836,15 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17ha856a63
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hb3f41ad519f9fd2eE.llvm.4120737428893778768(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hb3f41ad519f9fd2eE.llvm.4120737428893778768(ptr noundef nonnull captures(address) %0, ptr noundef captures(address) %1, i64 noundef %2) unnamed_addr #6 personality ptr @rust_eh_personality {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = icmp eq ptr %0, %1
   br i1 %5, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
-  %6 = ptrtoint ptr %1 to i64
-  %7 = ptrtoint ptr %0 to i64
+  %6 = ptrtoaddr ptr %1 to i64
+  %7 = ptrtoaddr ptr %0 to i64
   %8 = add i64 %6, -16
   %9 = sub i64 %8, %7
   %10 = lshr i64 %9, 4

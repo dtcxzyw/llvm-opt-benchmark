@@ -76,13 +76,13 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable
 define i32 @get_token_len(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 {
-  %4 = ptrtoint ptr %1 to i64
-  %5 = ptrtoint ptr %0 to i64
+  %4 = ptrtoaddr ptr %0 to i64
+  %5 = ptrtoaddr ptr %1 to i64
   %6 = icmp ult ptr %0, %1
   br i1 %6, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %3
-  %7 = sub i64 %4, %5
+  %7 = sub i64 %5, %4
   %scevgep = getelementptr i8, ptr %0, i64 %7
   br label %.lr.ph
 
@@ -102,17 +102,17 @@ define i32 @get_token_len(ptr noundef %0, ptr noundef readnone captures(address)
 
 .critedge.loopexit:                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %9
   %.0.lcssa.ph = phi ptr [ %scevgep, %9 ], [ %.020, %.lr.ph ], [ %.020, %.lr.ph ], [ %.020, %.lr.ph ]
-  %.pre = ptrtoint ptr %.0.lcssa.ph to i64
+  %.pre = ptrtoaddr ptr %.0.lcssa.ph to i64
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %3
-  %.0.lcssa32.pre-phi = phi i64 [ %.pre, %.critedge.loopexit ], [ %5, %3 ]
+  %.0.lcssa32.pre-phi = phi i64 [ %.pre, %.critedge.loopexit ], [ %4, %3 ]
   %.0.lcssa = phi ptr [ %.0.lcssa.ph, %.critedge.loopexit ], [ %0, %3 ]
   %11 = icmp ult ptr %.0.lcssa, %1
   br i1 %11, label %.lr.ph28.preheader, label %.critedge2
 
 .lr.ph28.preheader:                               ; preds = %.critedge
-  %12 = sub i64 %4, %.0.lcssa32.pre-phi
+  %12 = sub i64 %5, %.0.lcssa32.pre-phi
   %scevgep33 = getelementptr i8, ptr %.0.lcssa, i64 %12
   br label %.lr.ph28
 
@@ -129,10 +129,12 @@ define i32 @get_token_len(ptr noundef %0, ptr noundef readnone captures(address)
 
 .critedge2:                                       ; preds = %.lr.ph28, %15, %.critedge
   %.1.lcssa = phi ptr [ %.0.lcssa, %.critedge ], [ %scevgep33, %15 ], [ %.127, %.lr.ph28 ]
-  %17 = sub i64 %.0.lcssa32.pre-phi, %5
-  %18 = trunc i64 %17 to i32
+  %17 = ptrtoint ptr %.0.lcssa to i64
+  %18 = ptrtoint ptr %0 to i64
+  %19 = sub i64 %17, %18
+  %20 = trunc i64 %19 to i32
   store ptr %.1.lcssa, ptr %2, align 8
-  ret i32 %18
+  ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

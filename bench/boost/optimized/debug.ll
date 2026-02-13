@@ -1313,7 +1313,7 @@ define internal void @_ZN5boost5debug12_GLOBAL__N_118start_gdb_in_emacsERKNS0_16
   %2 = alloca [500 x i8], align 16
   %3 = tail call fastcc noundef ptr @_ZN5boost5debug12_GLOBAL__N_121prepare_gdb_cmnd_fileERKNS0_16dbg_startup_infoE(ptr noundef nonnull align 8 dereferenceable(64) %0)
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %33, label %4
+  br i1 %.not, label %34, label %4
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -1322,13 +1322,13 @@ define internal void @_ZN5boost5debug12_GLOBAL__N_118start_gdb_in_emacsERKNS0_16
   %7 = load ptr, ptr %6, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !17
-  %10 = ptrtoint ptr %9 to i64
-  %11 = icmp eq ptr %7, %9
-  br i1 %11, label %_ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit.i, label %.preheader.i.i
+  %10 = icmp eq ptr %7, %9
+  br i1 %10, label %_ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %4
-  %12 = ptrtoint ptr %7 to i64
-  %13 = sub i64 %12, %10
+  %11 = ptrtoaddr ptr %7 to i64
+  %12 = ptrtoaddr ptr %9 to i64
+  %13 = sub i64 %11, %12
   %scevgep132.i.i = getelementptr i8, ptr %9, i64 %13
   br label %14
 
@@ -1360,31 +1360,32 @@ _ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit.i: ; preds =
   %19 = icmp eq ptr %.021.i.i, %9
   %20 = getelementptr inbounds nuw i8, ptr %.021.i.i, i64 1
   %.0.i.i = select i1 %19, ptr %7, ptr %20
-  %21 = ptrtoint ptr %.0.i.i to i64
-  %22 = sub i64 %10, %21
-  %23 = trunc i64 %22 to i32
-  %24 = load i64, ptr %0, align 8, !tbaa !37
-  %25 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZN5boost5debug12_GLOBAL__N_120prepare_window_titleERKNS0_16dbg_startup_infoEE9title_str, i64 noundef 50, ptr noundef nonnull @.str.31, i32 noundef %23, ptr noundef %.0.i.i, i64 noundef %24) #32
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %28 = load ptr, ptr %27, align 8, !tbaa !17
-  %29 = load ptr, ptr %26, align 8, !tbaa !15
-  %30 = icmp eq ptr %28, %29
-  br i1 %30, label %31, label %32
+  %21 = ptrtoint ptr %9 to i64
+  %22 = ptrtoint ptr %.0.i.i to i64
+  %23 = sub i64 %21, %22
+  %24 = trunc i64 %23 to i32
+  %25 = load i64, ptr %0, align 8, !tbaa !37
+  %26 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZN5boost5debug12_GLOBAL__N_120prepare_window_titleERKNS0_16dbg_startup_infoEE9title_str, i64 noundef 50, ptr noundef nonnull @.str.31, i32 noundef %24, ptr noundef %.0.i.i, i64 noundef %25) #32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %29 = load ptr, ptr %28, align 8, !tbaa !17
+  %30 = load ptr, ptr %27, align 8, !tbaa !15
+  %31 = icmp eq ptr %29, %30
+  br i1 %31, label %32, label %33
 
-31:                                               ; preds = %_ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit.i
+32:                                               ; preds = %_ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit.i
   call void (ptr, ...) @_ZN5boost5debug12_GLOBAL__N_111safe_execlpEPKcz(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @_ZZN5boost5debug12_GLOBAL__N_120prepare_window_titleERKNS0_16dbg_startup_infoEE9title_str, ptr noundef nonnull @.str.28, ptr noundef nonnull %2, i32 noundef 0)
   br label %_ZN5boost5debug12_GLOBAL__N_123start_debugger_in_emacsERKNS0_16dbg_startup_infoEPKcS6_.exit
 
-32:                                               ; preds = %_ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit.i
-  call void (ptr, ...) @_ZN5boost5debug12_GLOBAL__N_111safe_execlpEPKcz(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @_ZZN5boost5debug12_GLOBAL__N_120prepare_window_titleERKNS0_16dbg_startup_infoEE9title_str, ptr noundef nonnull @.str.29, ptr noundef %29, ptr noundef nonnull @.str.28, ptr noundef nonnull %2, i32 noundef 0)
+33:                                               ; preds = %_ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit.i
+  call void (ptr, ...) @_ZN5boost5debug12_GLOBAL__N_111safe_execlpEPKcz(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @_ZZN5boost5debug12_GLOBAL__N_120prepare_window_titleERKNS0_16dbg_startup_infoEE9title_str, ptr noundef nonnull @.str.29, ptr noundef %30, ptr noundef nonnull @.str.28, ptr noundef nonnull %2, i32 noundef 0)
   br label %_ZN5boost5debug12_GLOBAL__N_123start_debugger_in_emacsERKNS0_16dbg_startup_infoEPKcS6_.exit
 
-_ZN5boost5debug12_GLOBAL__N_123start_debugger_in_emacsERKNS0_16dbg_startup_infoEPKcS6_.exit: ; preds = %31, %32
+_ZN5boost5debug12_GLOBAL__N_123start_debugger_in_emacsERKNS0_16dbg_startup_infoEPKcS6_.exit: ; preds = %32, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %33
+  br label %34
 
-33:                                               ; preds = %1, %_ZN5boost5debug12_GLOBAL__N_123start_debugger_in_emacsERKNS0_16dbg_startup_infoEPKcS6_.exit
+34:                                               ; preds = %1, %_ZN5boost5debug12_GLOBAL__N_123start_debugger_in_emacsERKNS0_16dbg_startup_infoEPKcS6_.exit
   ret void
 }
 
@@ -1394,13 +1395,13 @@ define internal void @_ZN5boost5debug12_GLOBAL__N_118start_gdb_in_xtermERKNS0_16
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !17
-  %6 = ptrtoint ptr %5 to i64
-  %7 = icmp eq ptr %3, %5
-  br i1 %7, label %_ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit, label %.preheader.i
+  %6 = icmp eq ptr %3, %5
+  br i1 %6, label %_ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %1
-  %8 = ptrtoint ptr %3 to i64
-  %9 = sub i64 %8, %6
+  %7 = ptrtoaddr ptr %3 to i64
+  %8 = ptrtoaddr ptr %5 to i64
+  %9 = sub i64 %7, %8
   %scevgep132.i = getelementptr i8, ptr %5, i64 %9
   br label %10
 
@@ -1432,22 +1433,23 @@ _ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit: ; preds = %
   %15 = icmp eq ptr %.021.i, %5
   %16 = getelementptr inbounds nuw i8, ptr %.021.i, i64 1
   %.0.i = select i1 %15, ptr %3, ptr %16
-  %17 = ptrtoint ptr %.0.i to i64
-  %18 = sub i64 %6, %17
-  %19 = trunc i64 %18 to i32
-  %20 = load i64, ptr %0, align 8, !tbaa !37
-  %21 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZN5boost5debug12_GLOBAL__N_120prepare_window_titleERKNS0_16dbg_startup_infoEE9title_str, i64 noundef 50, ptr noundef nonnull @.str.31, i32 noundef %19, ptr noundef %.0.i, i64 noundef %20) #32
-  %22 = tail call fastcc noundef ptr @_ZN5boost5debug12_GLOBAL__N_121prepare_gdb_cmnd_fileERKNS0_16dbg_startup_infoE(ptr noundef nonnull align 8 dereferenceable(64) %0)
-  %.not = icmp eq ptr %22, null
-  br i1 %.not, label %26, label %23
+  %17 = ptrtoint ptr %5 to i64
+  %18 = ptrtoint ptr %.0.i to i64
+  %19 = sub i64 %17, %18
+  %20 = trunc i64 %19 to i32
+  %21 = load i64, ptr %0, align 8, !tbaa !37
+  %22 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZN5boost5debug12_GLOBAL__N_120prepare_window_titleERKNS0_16dbg_startup_infoEE9title_str, i64 noundef 50, ptr noundef nonnull @.str.31, i32 noundef %20, ptr noundef %.0.i, i64 noundef %21) #32
+  %23 = tail call fastcc noundef ptr @_ZN5boost5debug12_GLOBAL__N_121prepare_gdb_cmnd_fileERKNS0_16dbg_startup_infoE(ptr noundef nonnull align 8 dereferenceable(64) %0)
+  %.not = icmp eq ptr %23, null
+  br i1 %.not, label %27, label %24
 
-23:                                               ; preds = %_ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !15
-  tail call void (ptr, ...) @_ZN5boost5debug12_GLOBAL__N_111safe_execlpEPKcz(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef nonnull @_ZZN5boost5debug12_GLOBAL__N_120prepare_window_titleERKNS0_16dbg_startup_infoEE9title_str, ptr noundef nonnull @.str.29, ptr noundef %25, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef nonnull %22, i32 noundef 0)
-  br label %26
+24:                                               ; preds = %_ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %26 = load ptr, ptr %25, align 8, !tbaa !15
+  tail call void (ptr, ...) @_ZN5boost5debug12_GLOBAL__N_111safe_execlpEPKcz(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef nonnull @_ZZN5boost5debug12_GLOBAL__N_120prepare_window_titleERKNS0_16dbg_startup_infoEE9title_str, ptr noundef nonnull @.str.29, ptr noundef %26, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef nonnull %23, i32 noundef 0)
+  br label %27
 
-26:                                               ; preds = %_ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit, %23
+27:                                               ; preds = %_ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit, %24
   ret void
 }
 
@@ -1488,13 +1490,13 @@ define internal void @_ZN5boost5debug12_GLOBAL__N_118start_dbx_in_xtermERKNS0_16
   %4 = load ptr, ptr %3, align 8, !tbaa !15
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !17
-  %7 = ptrtoint ptr %6 to i64
-  %8 = icmp eq ptr %4, %6
-  br i1 %8, label %_ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit, label %.preheader.i
+  %7 = icmp eq ptr %4, %6
+  br i1 %7, label %_ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %1
-  %9 = ptrtoint ptr %4 to i64
-  %10 = sub i64 %9, %7
+  %8 = ptrtoaddr ptr %4 to i64
+  %9 = ptrtoaddr ptr %6 to i64
+  %10 = sub i64 %8, %9
   %scevgep132.i = getelementptr i8, ptr %6, i64 %10
   br label %11
 
@@ -1526,25 +1528,26 @@ _ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit: ; preds = %
   %16 = icmp eq ptr %.021.i, %6
   %17 = getelementptr inbounds nuw i8, ptr %.021.i, i64 1
   %.0.i = select i1 %16, ptr %4, ptr %17
-  %18 = ptrtoint ptr %.0.i to i64
-  %19 = sub i64 %7, %18
-  %20 = trunc i64 %19 to i32
-  %21 = load i64, ptr %0, align 8, !tbaa !37
-  %22 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZN5boost5debug12_GLOBAL__N_120prepare_window_titleERKNS0_16dbg_startup_infoEE9title_str, i64 noundef 50, ptr noundef nonnull @.str.31, i32 noundef %20, ptr noundef %.0.i, i64 noundef %21) #32
+  %18 = ptrtoint ptr %6 to i64
+  %19 = ptrtoint ptr %.0.i to i64
+  %20 = sub i64 %18, %19
+  %21 = trunc i64 %20 to i32
+  %22 = load i64, ptr %0, align 8, !tbaa !37
+  %23 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZN5boost5debug12_GLOBAL__N_120prepare_window_titleERKNS0_16dbg_startup_infoEE9title_str, i64 noundef 50, ptr noundef nonnull @.str.31, i32 noundef %21, ptr noundef %.0.i, i64 noundef %22) #32
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %23 = load i64, ptr %0, align 8, !tbaa !37
-  %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 16, ptr noundef nonnull @.str.15, i64 noundef %23) #32
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !15
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val = load i8, ptr %27, align 8, !tbaa !40, !range !51, !noundef !52
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.val7 = load ptr, ptr %28, align 8, !tbaa !15
-  %29 = trunc nuw i8 %.val to i1
-  %30 = select i1 %29, ptr @.str.45, ptr @.str.46
-  %31 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZN5boost5debug12_GLOBAL__N_120prepare_dbx_cmd_lineERKNS0_16dbg_startup_infoEbE13cmd_line_buff, i64 noundef 500, ptr noundef nonnull @.str.44, ptr noundef %.val7, ptr noundef nonnull %30, ptr noundef nonnull @.str.47) #32
-  %32 = load ptr, ptr %3, align 8, !tbaa !15
-  call void (ptr, ...) @_ZN5boost5debug12_GLOBAL__N_111safe_execlpEPKcz(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef nonnull @_ZZN5boost5debug12_GLOBAL__N_120prepare_window_titleERKNS0_16dbg_startup_infoEE9title_str, ptr noundef nonnull @.str.29, ptr noundef %26, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.43, ptr noundef nonnull @_ZZN5boost5debug12_GLOBAL__N_120prepare_dbx_cmd_lineERKNS0_16dbg_startup_infoEbE13cmd_line_buff, ptr noundef %32, ptr noundef nonnull %2, i32 noundef 0)
+  %24 = load i64, ptr %0, align 8, !tbaa !37
+  %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 16, ptr noundef nonnull @.str.15, i64 noundef %24) #32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %27 = load ptr, ptr %26, align 8, !tbaa !15
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val = load i8, ptr %28, align 8, !tbaa !40, !range !51, !noundef !52
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %.val7 = load ptr, ptr %29, align 8, !tbaa !15
+  %30 = trunc nuw i8 %.val to i1
+  %31 = select i1 %30, ptr @.str.45, ptr @.str.46
+  %32 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZN5boost5debug12_GLOBAL__N_120prepare_dbx_cmd_lineERKNS0_16dbg_startup_infoEbE13cmd_line_buff, i64 noundef 500, ptr noundef nonnull @.str.44, ptr noundef %.val7, ptr noundef nonnull %31, ptr noundef nonnull @.str.47) #32
+  %33 = load ptr, ptr %3, align 8, !tbaa !15
+  call void (ptr, ...) @_ZN5boost5debug12_GLOBAL__N_111safe_execlpEPKcz(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef nonnull @_ZZN5boost5debug12_GLOBAL__N_120prepare_window_titleERKNS0_16dbg_startup_infoEE9title_str, ptr noundef nonnull @.str.29, ptr noundef %27, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.43, ptr noundef nonnull @_ZZN5boost5debug12_GLOBAL__N_120prepare_dbx_cmd_lineERKNS0_16dbg_startup_infoEbE13cmd_line_buff, ptr noundef %33, ptr noundef nonnull %2, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -1561,13 +1564,13 @@ define internal void @_ZN5boost5debug12_GLOBAL__N_116start_dbx_in_dddERKNS0_16db
   %4 = load ptr, ptr %3, align 8, !tbaa !15
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !17
-  %7 = ptrtoint ptr %6 to i64
-  %8 = icmp eq ptr %4, %6
-  br i1 %8, label %_ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit, label %.preheader.i
+  %7 = icmp eq ptr %4, %6
+  br i1 %7, label %_ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %1
-  %9 = ptrtoint ptr %4 to i64
-  %10 = sub i64 %9, %7
+  %8 = ptrtoaddr ptr %4 to i64
+  %9 = ptrtoaddr ptr %6 to i64
+  %10 = sub i64 %8, %9
   %scevgep132.i = getelementptr i8, ptr %6, i64 %10
   br label %11
 
@@ -1599,25 +1602,26 @@ _ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit: ; preds = %
   %16 = icmp eq ptr %.021.i, %6
   %17 = getelementptr inbounds nuw i8, ptr %.021.i, i64 1
   %.0.i = select i1 %16, ptr %4, ptr %17
-  %18 = ptrtoint ptr %.0.i to i64
-  %19 = sub i64 %7, %18
-  %20 = trunc i64 %19 to i32
-  %21 = load i64, ptr %0, align 8, !tbaa !37
-  %22 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZN5boost5debug12_GLOBAL__N_120prepare_window_titleERKNS0_16dbg_startup_infoEE9title_str, i64 noundef 50, ptr noundef nonnull @.str.31, i32 noundef %20, ptr noundef %.0.i, i64 noundef %21) #32
+  %18 = ptrtoint ptr %6 to i64
+  %19 = ptrtoint ptr %.0.i to i64
+  %20 = sub i64 %18, %19
+  %21 = trunc i64 %20 to i32
+  %22 = load i64, ptr %0, align 8, !tbaa !37
+  %23 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZN5boost5debug12_GLOBAL__N_120prepare_window_titleERKNS0_16dbg_startup_infoEE9title_str, i64 noundef 50, ptr noundef nonnull @.str.31, i32 noundef %21, ptr noundef %.0.i, i64 noundef %22) #32
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %23 = load i64, ptr %0, align 8, !tbaa !37
-  %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 16, ptr noundef nonnull @.str.15, i64 noundef %23) #32
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !15
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val = load i8, ptr %27, align 8, !tbaa !40, !range !51, !noundef !52
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.val6 = load ptr, ptr %28, align 8, !tbaa !15
-  %29 = trunc nuw i8 %.val to i1
-  %30 = select i1 %29, ptr @.str.45, ptr @.str.46
-  %31 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZN5boost5debug12_GLOBAL__N_120prepare_dbx_cmd_lineERKNS0_16dbg_startup_infoEbE13cmd_line_buff, i64 noundef 500, ptr noundef nonnull @.str.44, ptr noundef %.val6, ptr noundef nonnull %30, ptr noundef nonnull @.str.46) #32
-  %32 = load ptr, ptr %3, align 8, !tbaa !15
-  call void (ptr, ...) @_ZN5boost5debug12_GLOBAL__N_111safe_execlpEPKcz(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.29, ptr noundef %26, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.43, ptr noundef nonnull @_ZZN5boost5debug12_GLOBAL__N_120prepare_dbx_cmd_lineERKNS0_16dbg_startup_infoEbE13cmd_line_buff, ptr noundef %32, ptr noundef nonnull %2, i32 noundef 0)
+  %24 = load i64, ptr %0, align 8, !tbaa !37
+  %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 16, ptr noundef nonnull @.str.15, i64 noundef %24) #32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %27 = load ptr, ptr %26, align 8, !tbaa !15
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val = load i8, ptr %28, align 8, !tbaa !40, !range !51, !noundef !52
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %.val6 = load ptr, ptr %29, align 8, !tbaa !15
+  %30 = trunc nuw i8 %.val to i1
+  %31 = select i1 %30, ptr @.str.45, ptr @.str.46
+  %32 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZN5boost5debug12_GLOBAL__N_120prepare_dbx_cmd_lineERKNS0_16dbg_startup_infoEbE13cmd_line_buff, i64 noundef 500, ptr noundef nonnull @.str.44, ptr noundef %.val6, ptr noundef nonnull %31, ptr noundef nonnull @.str.46) #32
+  %33 = load ptr, ptr %3, align 8, !tbaa !15
+  call void (ptr, ...) @_ZN5boost5debug12_GLOBAL__N_111safe_execlpEPKcz(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.29, ptr noundef %27, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.43, ptr noundef nonnull @_ZZN5boost5debug12_GLOBAL__N_120prepare_dbx_cmd_lineERKNS0_16dbg_startup_infoEbE13cmd_line_buff, ptr noundef %33, ptr noundef nonnull %2, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }

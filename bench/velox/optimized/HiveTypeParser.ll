@@ -7040,7 +7040,6 @@ _ZNSt12_Vector_baseISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EED2Ev.exit: ; 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK8facebook5velox4type6fbhive14HiveTypeParser9nextTokenEN5folly5RangeIPKcEEb(ptr noalias writeonly sret(%"struct.facebook::velox::type::fbhive::TokenAndRemaining") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr %sp.coerce0, ptr %sp.coerce1, i1 noundef zeroext %ignorePredefined) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %sp.coerce195 = ptrtoint ptr %sp.coerce1 to i64
   %ref.tmp.i = alloca [3 x i8], align 1
   %ref.tmp2.i = alloca %"struct.std::hash", align 1
   %ref.tmp3.i = alloca %"struct.std::equal_to", align 1
@@ -7049,7 +7048,8 @@ entry:
   br i1 %cmp.i78, label %if.then, label %land.rhs.preheader
 
 land.rhs.preheader:                               ; preds = %entry
-  %sp.coerce096 = ptrtoint ptr %sp.coerce0 to i64
+  %sp.coerce195 = ptrtoaddr ptr %sp.coerce1 to i64
+  %sp.coerce096 = ptrtoaddr ptr %sp.coerce0 to i64
   %0 = sub i64 %sp.coerce195, %sp.coerce096
   %scevgep = getelementptr i8, ptr %sp.coerce0, i64 %0
   br label %land.rhs
@@ -7086,8 +7086,9 @@ if.then7:                                         ; preds = %if.end
   br i1 %cmp.i12.not82, label %if.end35, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then7
+  %sub.ptr.lhs.cast.i.i19 = ptrtoint ptr %sp.coerce1 to i64
   %sub.ptr.rhs.cast.i.i20 = ptrtoint ptr %sp.sroa.0.079 to i64
-  %sub.ptr.sub.i.i21 = sub i64 %sp.coerce195, %sub.ptr.rhs.cast.i.i20
+  %sub.ptr.sub.i.i21 = sub i64 %sub.ptr.lhs.cast.i.i19, %sub.ptr.rhs.cast.i.i20
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc32
@@ -7273,8 +7274,9 @@ while.end43:                                      ; preds = %if.end15.i.i.i.i, %
   br i1 %cmp44.not, label %if.end48, label %if.then45
 
 if.then45:                                        ; preds = %while.end43
+  %sub.ptr.lhs.cast.i.i.i38 = ptrtoint ptr %sp.coerce1 to i64
   %sub.ptr.rhs.cast.i.i.i39 = ptrtoint ptr %sp.sroa.0.079 to i64
-  %sub.ptr.sub.i.i.i40 = sub i64 %sp.coerce195, %sub.ptr.rhs.cast.i.i.i39
+  %sub.ptr.sub.i.i.i40 = sub i64 %sub.ptr.lhs.cast.i.i.i38, %sub.ptr.rhs.cast.i.i.i39
   %cmp.i.i41 = icmp ugt i64 %len.0, %sub.ptr.sub.i.i.i40
   br i1 %cmp.i.i41, label %if.then.i.i47, label %_ZNK8facebook5velox4type6fbhive14HiveTypeParser17makeExtendedTokenEPNS2_13TokenMetadataEN5folly5RangeIPKcEEm.exit48
 

@@ -1609,8 +1609,8 @@ RSTRING_PTR.exit345:                              ; preds = %append_fspath.exit,
   br i1 %137, label %.lr.ph.preheader.i, label %skiproot.exit
 
 .lr.ph.preheader.i:                               ; preds = %136
-  %138 = ptrtoint ptr %.2258 to i64
-  %139 = ptrtoint ptr %.1251 to i64
+  %138 = ptrtoaddr ptr %.2258 to i64
+  %139 = ptrtoaddr ptr %.1251 to i64
   %140 = sub i64 %138, %139
   %scevgep.i = getelementptr i8, ptr %.1251, i64 %140
   br label %.lr.ph.i347
@@ -2037,15 +2037,11 @@ ruby_nonempty_memcpy.exit386:                     ; preds = %RSTRING_PTR.exit383
   %294 = zext i1 %293 to i64
   %295 = getelementptr i8, ptr %.12, i64 %294
   %296 = icmp ult ptr %.10, %295
-  br i1 %296, label %.lr.ph.preheader.i388, label %.skiproot.exit393_crit_edge
-
-.skiproot.exit393_crit_edge:                      ; preds = %291
-  %.pre442 = ptrtoint ptr %.10 to i64
-  br label %skiproot.exit393
+  br i1 %296, label %.lr.ph.preheader.i388, label %skiproot.exit393
 
 .lr.ph.preheader.i388:                            ; preds = %291
-  %297 = ptrtoint ptr %295 to i64
-  %298 = ptrtoint ptr %.10 to i64
+  %297 = ptrtoaddr ptr %295 to i64
+  %298 = ptrtoaddr ptr %.10 to i64
   %299 = sub i64 %297, %298
   %scevgep.i389 = getelementptr i8, ptr %.10, i64 %299
   br label %.lr.ph.i390
@@ -2061,21 +2057,21 @@ ruby_nonempty_memcpy.exit386:                     ; preds = %RSTRING_PTR.exit383
   %exitcond.not.i392 = icmp eq ptr %303, %295
   br i1 %exitcond.not.i392, label %skiproot.exit393, label %.lr.ph.i390, !llvm.loop !133
 
-skiproot.exit393:                                 ; preds = %.lr.ph.i390, %302, %.skiproot.exit393_crit_edge
-  %.pre-phi443 = phi i64 [ %.pre442, %.skiproot.exit393_crit_edge ], [ %298, %302 ], [ %298, %.lr.ph.i390 ]
-  %.0.lcssa.i387 = phi ptr [ %.10, %.skiproot.exit393_crit_edge ], [ %.01.i391, %.lr.ph.i390 ], [ %scevgep.i389, %302 ]
+skiproot.exit393:                                 ; preds = %.lr.ph.i390, %302, %291
+  %.0.lcssa.i387 = phi ptr [ %.10, %291 ], [ %.01.i391, %.lr.ph.i390 ], [ %scevgep.i389, %302 ]
   %304 = getelementptr i8, ptr %.0.lcssa.i387, i64 -1
   %305 = icmp eq ptr %.12, %304
   %spec.select318.idx = zext i1 %305 to i64
   %spec.select318 = getelementptr i8, ptr %.12, i64 %spec.select318.idx
   %306 = ptrtoint ptr %spec.select318 to i64
-  %307 = sub i64 %306, %.pre-phi443
-  call void @rb_str_set_len(i64 noundef %4, i64 noundef %307) #23
-  %308 = load i64, ptr %6, align 8, !tbaa !12
-  %309 = call ptr @rb_enc_check(i64 noundef %308, i64 noundef %4) #23
-  %310 = load i64, ptr %15, align 8, !tbaa !7
-  %311 = and i64 %310, -3145729
-  store i64 %311, ptr %15, align 8, !tbaa !7
+  %307 = ptrtoint ptr %.10 to i64
+  %308 = sub i64 %306, %307
+  call void @rb_str_set_len(i64 noundef %4, i64 noundef %308) #23
+  %309 = load i64, ptr %6, align 8, !tbaa !12
+  %310 = call ptr @rb_enc_check(i64 noundef %309, i64 noundef %4) #23
+  %311 = load i64, ptr %15, align 8, !tbaa !7
+  %312 = and i64 %311, -3145729
+  store i64 %312, ptr %15, align 8, !tbaa !7
   ret i64 %4
 }
 

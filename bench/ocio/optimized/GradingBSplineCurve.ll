@@ -840,7 +840,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev23GradingBSplineCurveImplELN9__gnu_cxx
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN19OpenColorIO_v2_5dev19GradingControlPointESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, %0
-  br i1 %.not, label %46, label %3
+  br i1 %.not, label %48, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -856,67 +856,69 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = icmp ugt i64 %9, %15
-  br i1 %16, label %17, label %27
+  br i1 %16, label %17, label %29
 
 17:                                               ; preds = %3
-  %18 = icmp ugt i64 %9, 9223372036854775800
-  br i1 %18, label %19, label %_ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev19GradingControlPointESaIS1_EE11_M_allocateEm.exit.i, !prof !28
+  %18 = ptrtoaddr ptr %6 to i64
+  %19 = ptrtoaddr ptr %5 to i64
+  %20 = icmp ugt i64 %9, 9223372036854775800
+  br i1 %20, label %21, label %_ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev19GradingControlPointESaIS1_EE11_M_allocateEm.exit.i, !prof !28
 
-19:                                               ; preds = %17
+21:                                               ; preds = %17
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #23
   unreachable
 
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev19GradingControlPointESaIS1_EE11_M_allocateEm.exit.i: ; preds = %17
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #24
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #24
   %.not7.i.i.i.i.i = icmp eq ptr %6, %5
   br i1 %.not7.i.i.i.i.i, label %_ZNSt6vectorIN19OpenColorIO_v2_5dev19GradingControlPointESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev19GradingControlPointESaIS1_EE11_M_allocateEm.exit.i
-  %21 = add i64 %7, -8
-  %22 = sub i64 %21, %8
-  %23 = and i64 %22, -8
-  %24 = add i64 %23, 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %20, ptr align 4 %6, i64 %24, i1 false)
+  %23 = add i64 %19, -8
+  %24 = sub i64 %23, %18
+  %25 = and i64 %24, -8
+  %26 = add i64 %25, 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %22, ptr align 4 %6, i64 %26, i1 false)
   br label %_ZNSt6vectorIN19OpenColorIO_v2_5dev19GradingControlPointESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit
 
 _ZNSt6vectorIN19OpenColorIO_v2_5dev19GradingControlPointESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit: ; preds = %_ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev19GradingControlPointESaIS1_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i.preheader.i
   %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %_ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev19GradingControlPointESaIS1_EE13_M_deallocateEPS1_m.exit, label %25
+  br i1 %.not.i, label %_ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev19GradingControlPointESaIS1_EE13_M_deallocateEPS1_m.exit, label %27
 
-25:                                               ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_5dev19GradingControlPointESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit
+27:                                               ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_5dev19GradingControlPointESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit
   tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %15) #25
   br label %_ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev19GradingControlPointESaIS1_EE13_M_deallocateEPS1_m.exit
 
-_ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev19GradingControlPointESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_5dev19GradingControlPointESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit, %25
-  store ptr %20, ptr %0, align 8, !tbaa !32
-  %26 = getelementptr inbounds nuw i8, ptr %20, i64 %9
-  store ptr %26, ptr %10, align 8, !tbaa !35
+_ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev19GradingControlPointESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_5dev19GradingControlPointESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit, %27
+  store ptr %22, ptr %0, align 8, !tbaa !32
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 %9
+  store ptr %28, ptr %10, align 8, !tbaa !35
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN19OpenColorIO_v2_5dev19GradingControlPointESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit
 
-27:                                               ; preds = %3
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !36
-  %30 = ptrtoint ptr %29 to i64
-  %31 = sub i64 %30, %14
-  %.not24 = icmp ult i64 %31, %9
-  br i1 %.not24, label %34, label %32
+29:                                               ; preds = %3
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !36
+  %32 = ptrtoint ptr %31 to i64
+  %33 = sub i64 %32, %14
+  %.not24 = icmp ult i64 %33, %9
+  br i1 %.not24, label %36, label %34
 
-32:                                               ; preds = %27
+34:                                               ; preds = %29
   %.not.i.i.i.i.i = icmp eq ptr %5, %6
-  br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN19OpenColorIO_v2_5dev19GradingControlPointESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit, label %33
+  br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN19OpenColorIO_v2_5dev19GradingControlPointESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit, label %35
 
-33:                                               ; preds = %32
+35:                                               ; preds = %34
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %12, ptr align 4 %6, i64 %9, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN19OpenColorIO_v2_5dev19GradingControlPointESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit
 
-34:                                               ; preds = %27
-  %.not.i.i.i.i.i25 = icmp eq ptr %29, %12
-  br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPN19OpenColorIO_v2_5dev19GradingControlPointES2_ET0_T_S4_S3_.exit, label %35
+36:                                               ; preds = %29
+  %.not.i.i.i.i.i25 = icmp eq ptr %31, %12
+  br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPN19OpenColorIO_v2_5dev19GradingControlPointES2_ET0_T_S4_S3_.exit, label %37
 
-35:                                               ; preds = %34
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %12, ptr align 4 %6, i64 %31, i1 false)
+37:                                               ; preds = %36
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %12, ptr align 4 %6, i64 %33, i1 false)
   %.pre = load ptr, ptr %1, align 8, !tbaa !32
-  %.pre26 = load ptr, ptr %28, align 8, !tbaa !36
+  %.pre26 = load ptr, ptr %30, align 8, !tbaa !36
   %.pre27 = load ptr, ptr %0, align 8, !tbaa !32
   %.pre28 = load ptr, ptr %4, align 8, !tbaa !36
   %.pre29 = ptrtoint ptr %.pre26 to i64
@@ -924,33 +926,33 @@ _ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev19GradingControlPointESaIS1_EE13_M_dea
   %.pre32 = sub i64 %.pre29, %.pre30
   br label %_ZSt4copyIPN19OpenColorIO_v2_5dev19GradingControlPointES2_ET0_T_S4_S3_.exit
 
-_ZSt4copyIPN19OpenColorIO_v2_5dev19GradingControlPointES2_ET0_T_S4_S3_.exit: ; preds = %34, %35
-  %.pre-phi33 = phi i64 [ 0, %34 ], [ %.pre32, %35 ]
-  %36 = phi ptr [ %5, %34 ], [ %.pre28, %35 ]
-  %37 = phi ptr [ %29, %34 ], [ %.pre26, %35 ]
-  %38 = phi ptr [ %6, %34 ], [ %.pre, %35 ]
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 %.pre-phi33
-  %.not9.i.i.i.i = icmp eq ptr %39, %36
+_ZSt4copyIPN19OpenColorIO_v2_5dev19GradingControlPointES2_ET0_T_S4_S3_.exit: ; preds = %36, %37
+  %.pre-phi33 = phi i64 [ 0, %36 ], [ %.pre32, %37 ]
+  %38 = phi ptr [ %5, %36 ], [ %.pre28, %37 ]
+  %39 = phi ptr [ %31, %36 ], [ %.pre26, %37 ]
+  %40 = phi ptr [ %6, %36 ], [ %.pre, %37 ]
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 %.pre-phi33
+  %.not9.i.i.i.i = icmp eq ptr %41, %38
   br i1 %.not9.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN19OpenColorIO_v2_5dev19GradingControlPointESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt4copyIPN19OpenColorIO_v2_5dev19GradingControlPointES2_ET0_T_S4_S3_.exit, %.lr.ph.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i ], [ %37, %_ZSt4copyIPN19OpenColorIO_v2_5dev19GradingControlPointES2_ET0_T_S4_S3_.exit ]
-  %.0810.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i ], [ %39, %_ZSt4copyIPN19OpenColorIO_v2_5dev19GradingControlPointES2_ET0_T_S4_S3_.exit ]
-  %40 = load i64, ptr %.0810.i.i.i.i, align 4
-  store i64 %40, ptr %.011.i.i.i.i, align 4
-  %41 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
-  %42 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  %.not.i.i.i.i = icmp eq ptr %41, %36
+  %.011.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i ], [ %39, %_ZSt4copyIPN19OpenColorIO_v2_5dev19GradingControlPointES2_ET0_T_S4_S3_.exit ]
+  %.0810.i.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i.i ], [ %41, %_ZSt4copyIPN19OpenColorIO_v2_5dev19GradingControlPointES2_ET0_T_S4_S3_.exit ]
+  %42 = load i64, ptr %.0810.i.i.i.i, align 4
+  store i64 %42, ptr %.011.i.i.i.i, align 4
+  %43 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
+  %.not.i.i.i.i = icmp eq ptr %43, %38
   br i1 %.not.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN19OpenColorIO_v2_5dev19GradingControlPointESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !50
 
-_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN19OpenColorIO_v2_5dev19GradingControlPointESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZSt4copyIPN19OpenColorIO_v2_5dev19GradingControlPointES2_ET0_T_S4_S3_.exit, %33, %32, %_ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev19GradingControlPointESaIS1_EE13_M_deallocateEPS1_m.exit
-  %43 = load ptr, ptr %0, align 8, !tbaa !32
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 %9
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %44, ptr %45, align 8, !tbaa !36
-  br label %46
+_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN19OpenColorIO_v2_5dev19GradingControlPointESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZSt4copyIPN19OpenColorIO_v2_5dev19GradingControlPointES2_ET0_T_S4_S3_.exit, %35, %34, %_ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev19GradingControlPointESaIS1_EE13_M_deallocateEPS1_m.exit
+  %45 = load ptr, ptr %0, align 8, !tbaa !32
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 %9
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %46, ptr %47, align 8, !tbaa !36
+  br label %48
 
-46:                                               ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN19OpenColorIO_v2_5dev19GradingControlPointESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit, %2
+48:                                               ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN19OpenColorIO_v2_5dev19GradingControlPointESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit, %2
   ret ptr %0
 }
 

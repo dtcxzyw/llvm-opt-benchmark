@@ -7391,6 +7391,8 @@ if.then:                                          ; preds = %entry
 
 cond.true.i.i:                                    ; preds = %if.then
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
+  %__first.coerce3.i = ptrtoaddr ptr %__first.coerce.fr.i to i64
+  %__last.coerce2.i = ptrtoaddr ptr %__last.coerce.fr.i to i64
   %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.div.i, 384307168202282325
   br i1 %cmp.i.i.i.i, label %if.then3.i.i.i.i, label %_ZNSt12_Vector_baseISt4pairIN4llvh9StringRefEjESaIS3_EE11_M_allocateEm.exit.i
 
@@ -7404,8 +7406,8 @@ _ZNSt12_Vector_baseISt4pairIN4llvh9StringRefEjESaIS3_EE11_M_allocateEm.exit.i: ;
   br i1 %cmp.i.not5.i.i.i.i.i, label %_ZNSt6vectorISt4pairIN4llvh9StringRefEjESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit, label %for.body.i.i.i.i.preheader.i
 
 for.body.i.i.i.i.preheader.i:                     ; preds = %_ZNSt12_Vector_baseISt4pairIN4llvh9StringRefEjESaIS3_EE11_M_allocateEm.exit.i
-  %4 = add i64 %sub.ptr.lhs.cast.i, -24
-  %5 = sub i64 %4, %sub.ptr.rhs.cast.i
+  %4 = add i64 %__last.coerce2.i, -24
+  %5 = sub i64 %4, %__first.coerce3.i
   %6 = urem i64 %5, 24
   %7 = add i64 %5, 24
   %8 = sub i64 %7, %6

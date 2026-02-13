@@ -259,7 +259,7 @@ define dso_local noundef ptr @_ZN6snappy8internal16CompressFragmentEPKcmPcPti(pt
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %0 to i64
   %15 = ptrtoint ptr %3 to i64
-  %16 = ptrtoint ptr %8 to i64
+  %16 = ptrtoaddr ptr %8 to i64
   %17 = getelementptr inbounds i8, ptr %8, i64 -16
   %18 = getelementptr inbounds i8, ptr %8, i64 -8
   br label %19
@@ -499,7 +499,7 @@ _ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread: ; preds = %116
   br i1 %133, label %.lr.ph104.preheader.i, label %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit, !prof !31
 
 .lr.ph104.preheader.i:                            ; preds = %.preheader.i
-  %.2.lcssa114.i = ptrtoint ptr %.2.lcssa.i to i64
+  %.2.lcssa114.i = ptrtoaddr ptr %.2.lcssa.i to i64
   %134 = add i64 %.283.lcssa.i, %16
   %135 = sub i64 %134, %.2.lcssa114.i
   br label %.lr.ph104.i
@@ -781,7 +781,7 @@ define dso_local noundef ptr @_ZN6snappy8internal26CompressFragmentDoubleHashEPK
   %14 = ptrtoint ptr %5 to i64
   %15 = ptrtoint ptr %0 to i64
   %16 = ptrtoint ptr %3 to i64
-  %17 = ptrtoint ptr %10 to i64
+  %17 = ptrtoaddr ptr %10 to i64
   %18 = getelementptr inbounds i8, ptr %10, i64 -8
   %19 = trunc i64 %17 to i32
   %20 = icmp slt i64 %1, 17
@@ -853,7 +853,7 @@ define dso_local noundef ptr @_ZN6snappy8internal26CompressFragmentDoubleHashEPK
   br i1 %55, label %.lr.ph40.preheader.i, label %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit
 
 .lr.ph40.preheader.i:                             ; preds = %.critedge28.preheader.i
-  %.0.lcssa50.i = ptrtoint ptr %.0.lcssa.i to i64
+  %.0.lcssa50.i = ptrtoaddr ptr %.0.lcssa.i to i64
   %56 = zext i32 %.026.lcssa.i to i64
   %57 = add i32 %.026.lcssa.i, %19
   %58 = trunc i64 %.0.lcssa50.i to i32
@@ -941,7 +941,7 @@ _ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit: ; preds = %.critedge2
   br i1 %93, label %.lr.ph40.preheader.i234, label %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit243
 
 .lr.ph40.preheader.i234:                          ; preds = %.critedge28.preheader.i231
-  %.0.lcssa50.i235 = ptrtoint ptr %.0.lcssa.i233 to i64
+  %.0.lcssa50.i235 = ptrtoaddr ptr %.0.lcssa.i233 to i64
   %94 = zext i32 %.026.lcssa.i232 to i64
   %95 = add i32 %.026.lcssa.i232, %19
   %96 = trunc i64 %.0.lcssa50.i235 to i32
@@ -1020,7 +1020,7 @@ _ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit243: ; preds = %.crited
   br i1 %127, label %.lr.ph40.preheader.i259, label %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268
 
 .lr.ph40.preheader.i259:                          ; preds = %.critedge28.preheader.i256
-  %.0.lcssa50.i260 = ptrtoint ptr %.0.lcssa.i258 to i64
+  %.0.lcssa50.i260 = ptrtoaddr ptr %.0.lcssa.i258 to i64
   %128 = zext i32 %.026.lcssa.i257 to i64
   %129 = add i32 %.026.lcssa.i257, %19
   %130 = trunc i64 %.0.lcssa50.i260 to i32
@@ -1424,7 +1424,7 @@ _ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit:          ; preds = %270, %257, %228
   br i1 %348, label %.lr.ph40.preheader.i299, label %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit308
 
 .lr.ph40.preheader.i299:                          ; preds = %.critedge28.preheader.i296
-  %.0.lcssa50.i300 = ptrtoint ptr %.0.lcssa.i298 to i64
+  %.0.lcssa50.i300 = ptrtoaddr ptr %.0.lcssa.i298 to i64
   %349 = zext i32 %.026.lcssa.i297 to i64
   %350 = add i32 %.026.lcssa.i297, %19
   %351 = trunc i64 %.0.lcssa50.i300 to i32
@@ -1507,7 +1507,7 @@ _ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit:          ; preds = %270, %257, %228
   br i1 %384, label %.lr.ph40.preheader.i326, label %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit308
 
 .lr.ph40.preheader.i326:                          ; preds = %.critedge28.preheader.i323
-  %.0.lcssa50.i327 = ptrtoint ptr %.0.lcssa.i325 to i64
+  %.0.lcssa50.i327 = ptrtoaddr ptr %.0.lcssa.i325 to i64
   %385 = zext i32 %.026.lcssa.i324 to i64
   %386 = add i32 %.026.lcssa.i324, %19
   %387 = trunc i64 %.0.lcssa50.i327 to i32

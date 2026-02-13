@@ -584,14 +584,14 @@ define i32 @load_regex_matcher(ptr noundef readonly captures(none) %0, ptr nound
 
 41:                                               ; preds = %37
   %42 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %9, i32 noundef 58) #15
-  %43 = ptrtoint ptr %42 to i64
+  %43 = ptrtoaddr ptr %42 to i64
   %.not.i = icmp eq ptr %42, null
   br i1 %.not.i, label %.loopexit, label %44
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 1
   %46 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %45, i32 noundef 45) #15
-  %47 = ptrtoint ptr %46 to i64
+  %47 = ptrtoaddr ptr %46 to i64
   %.not32.i = icmp eq ptr %46, null
   br i1 %.not32.i, label %.loopexit, label %48
 

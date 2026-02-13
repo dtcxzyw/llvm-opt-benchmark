@@ -7163,8 +7163,8 @@ entry:
   br i1 %or.cond13, label %if.then, label %if.else6
 
 if.then:                                          ; preds = %entry
-  %end18.i = ptrtoint ptr %end to i64
-  %2 = ptrtoint ptr %begin to i64
+  %end18.i = ptrtoaddr ptr %end to i64
+  %2 = ptrtoaddr ptr %begin to i64
   %3 = sub i64 %end18.i, %2
   %scevgep.i = getelementptr i8, ptr %begin, i64 %3
   br label %do.body.i
@@ -7190,7 +7190,8 @@ land.lhs.true6.i:                                 ; preds = %do.body.i
 do.end.i:                                         ; preds = %land.lhs.true6.i, %do.body.i
   %incdec.ptr.lcssa.i = phi ptr [ %incdec.ptr.i, %land.lhs.true6.i ], [ %scevgep.i, %do.body.i ]
   %sub.ptr.lhs.cast.i = ptrtoint ptr %incdec.ptr.lcssa.i to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %2
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %begin to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp13.i = icmp slt i64 %sub.ptr.sub.i, 10
   br i1 %cmp13.i, label %_ZN3fmt2v96detail21parse_nonnegative_intIcEEiRPKT_S5_i.exit, label %if.end.i14
 
@@ -7307,8 +7308,8 @@ cond.end:                                         ; preds = %entry
   br i1 %or.cond, label %if.then, label %if.else6
 
 if.then:                                          ; preds = %cond.end
-  %end18.i = ptrtoint ptr %end to i64
-  %3 = ptrtoint ptr %incdec.ptr to i64
+  %end18.i = ptrtoaddr ptr %end to i64
+  %3 = ptrtoaddr ptr %incdec.ptr to i64
   %4 = sub i64 %end18.i, %3
   %scevgep.i = getelementptr i8, ptr %incdec.ptr, i64 %4
   br label %do.body.i
@@ -7334,7 +7335,8 @@ land.lhs.true6.i:                                 ; preds = %do.body.i
 do.end.i:                                         ; preds = %land.lhs.true6.i, %do.body.i
   %incdec.ptr.lcssa.i = phi ptr [ %incdec.ptr.i, %land.lhs.true6.i ], [ %scevgep.i, %do.body.i ]
   %sub.ptr.lhs.cast.i = ptrtoint ptr %incdec.ptr.lcssa.i to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %3
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %incdec.ptr to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp13.i = icmp slt i64 %sub.ptr.sub.i, 10
   br i1 %cmp13.i, label %_ZN3fmt2v96detail21parse_nonnegative_intIcEEiRPKT_S5_i.exit, label %if.end.i18
 
@@ -7462,8 +7464,8 @@ declare void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef) local_unnam
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN3fmt2v96detail15do_parse_arg_idIcRZNS1_11parse_widthIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SE_SE_OT0_E13width_adapterEESE_SE_SE_SG_(ptr noundef %begin, ptr noundef %end, ptr noundef nonnull align 8 dereferenceable(8) %handler) local_unnamed_addr #3 comdat {
 entry:
-  %begin32 = ptrtoint ptr %begin to i64
-  %end31 = ptrtoint ptr %end to i64
+  %begin32 = ptrtoaddr ptr %begin to i64
+  %end31 = ptrtoaddr ptr %end to i64
   %0 = load i8, ptr %begin, align 1
   %1 = add i8 %0, -48
   %or.cond = icmp ult i8 %1, 10
@@ -7499,7 +7501,8 @@ land.lhs.true6.i:                                 ; preds = %do.body.i
 do.end.i:                                         ; preds = %land.lhs.true6.i, %do.body.i
   %incdec.ptr.lcssa.i = phi ptr [ %incdec.ptr.i, %land.lhs.true6.i ], [ %scevgep.i, %do.body.i ]
   %sub.ptr.lhs.cast.i = ptrtoint ptr %incdec.ptr.lcssa.i to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %begin32
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %begin to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp13.i = icmp slt i64 %sub.ptr.sub.i, 10
   br i1 %cmp13.i, label %if.end, label %if.end.i
 
@@ -7603,7 +7606,8 @@ land.rhs:                                         ; preds = %do.body
 do.end:                                           ; preds = %land.rhs, %do.body
   %incdec.ptr21.lcssa = phi ptr [ %incdec.ptr21, %land.rhs ], [ %scevgep, %do.body ]
   %sub.ptr.lhs.cast = ptrtoint ptr %incdec.ptr21.lcssa to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %begin32
+  %sub.ptr.rhs.cast = ptrtoint ptr %begin to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %20 = load ptr, ptr %handler, align 8
   %specs_.i.i22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %21 = load ptr, ptr %specs_.i.i22, align 8
@@ -7623,8 +7627,8 @@ return:                                           ; preds = %_ZZN3fmt2v96detail1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN3fmt2v96detail15do_parse_arg_idIcRZNS1_15parse_precisionIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SE_SE_OT0_E17precision_adapterEESE_SE_SE_SG_(ptr noundef %begin, ptr noundef %end, ptr noundef nonnull align 8 dereferenceable(8) %handler) local_unnamed_addr #3 comdat {
 entry:
-  %begin32 = ptrtoint ptr %begin to i64
-  %end31 = ptrtoint ptr %end to i64
+  %begin32 = ptrtoaddr ptr %begin to i64
+  %end31 = ptrtoaddr ptr %end to i64
   %0 = load i8, ptr %begin, align 1
   %1 = add i8 %0, -48
   %or.cond = icmp ult i8 %1, 10
@@ -7660,7 +7664,8 @@ land.lhs.true6.i:                                 ; preds = %do.body.i
 do.end.i:                                         ; preds = %land.lhs.true6.i, %do.body.i
   %incdec.ptr.lcssa.i = phi ptr [ %incdec.ptr.i, %land.lhs.true6.i ], [ %scevgep.i, %do.body.i ]
   %sub.ptr.lhs.cast.i = ptrtoint ptr %incdec.ptr.lcssa.i to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %begin32
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %begin to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp13.i = icmp slt i64 %sub.ptr.sub.i, 10
   br i1 %cmp13.i, label %if.end, label %if.end.i
 
@@ -7764,7 +7769,8 @@ land.rhs:                                         ; preds = %do.body
 do.end:                                           ; preds = %land.rhs, %do.body
   %incdec.ptr21.lcssa = phi ptr [ %incdec.ptr21, %land.rhs ], [ %scevgep, %do.body ]
   %sub.ptr.lhs.cast = ptrtoint ptr %incdec.ptr21.lcssa to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %begin32
+  %sub.ptr.rhs.cast = ptrtoint ptr %begin to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %20 = load ptr, ptr %handler, align 8
   %specs_.i.i22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %21 = load ptr, ptr %specs_.i.i22, align 8
@@ -8738,8 +8744,9 @@ _ZN3fmt2v96detail11find_escapeEPKcS3_.exit:       ; preds = %_ZZN3fmt2v96detail1
   call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i), !noalias !115
   %39 = load ptr, ptr %escape, align 8
   %cmp.not3.i = icmp eq ptr %begin.0, %39
-  %end6.i = ptrtoint ptr %39 to i64
-  %40 = sub i64 %out.sroa.0.0, %sub.ptr.rhs.cast.i
+  %end6.i = ptrtoaddr ptr %39 to i64
+  %begin7.i = ptrtoaddr ptr %begin.0 to i64
+  %40 = sub i64 %out.sroa.0.0, %begin7.i
   %41 = add i64 %40, %end6.i
   %out.sroa.0.0.lcssa.i = select i1 %cmp.not3.i, i64 %out.sroa.0.0, i64 %41
   %42 = load ptr, ptr %end2.i, align 8
@@ -9108,8 +9115,8 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.th
 
 _ZN3fmt2v96detail15write_codepointILm2EcNS1_17counting_iteratorEEET1_S4_cj.exit: ; preds = %do.body.i.i
   %inc.i.i2.i = add i64 %out.coerce, 2
-  %end6.i.i = ptrtoint ptr %add.ptr.i3.i to i64
-  %begin7.i.i = ptrtoint ptr %buf.i to i64
+  %end6.i.i = ptrtoaddr ptr %add.ptr.i3.i to i64
+  %begin7.i.i = ptrtoaddr ptr %buf.i to i64
   %2 = sub i64 %inc.i.i2.i, %begin7.i.i
   %3 = add i64 %2, %end6.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
@@ -9139,8 +9146,8 @@ do.body.i.i23:                                    ; preds = %do.body.i.i23, %if.
 
 _ZN3fmt2v96detail15write_codepointILm4EcNS1_17counting_iteratorEEET1_S4_cj.exit: ; preds = %do.body.i.i23
   %inc.i.i2.i32 = add i64 %out.coerce, 2
-  %end6.i.i33 = ptrtoint ptr %add.ptr.i3.i22 to i64
-  %begin7.i.i34 = ptrtoint ptr %buf.i21 to i64
+  %end6.i.i33 = ptrtoaddr ptr %add.ptr.i3.i22 to i64
+  %begin7.i.i34 = ptrtoaddr ptr %buf.i21 to i64
   %5 = sub i64 %inc.i.i2.i32, %begin7.i.i34
   %6 = add i64 %5, %end6.i.i33
   call void @llvm.lifetime.end.p0(ptr nonnull %buf.i21)
@@ -9170,8 +9177,8 @@ do.body.i.i37:                                    ; preds = %do.body.i.i37, %if.
 
 _ZN3fmt2v96detail15write_codepointILm8EcNS1_17counting_iteratorEEET1_S4_cj.exit: ; preds = %do.body.i.i37
   %inc.i.i2.i46 = add i64 %out.coerce, 2
-  %end6.i.i47 = ptrtoint ptr %add.ptr.i3.i36 to i64
-  %begin7.i.i48 = ptrtoint ptr %buf.i35 to i64
+  %end6.i.i47 = ptrtoaddr ptr %add.ptr.i3.i36 to i64
+  %begin7.i.i48 = ptrtoaddr ptr %buf.i35 to i64
   %8 = sub i64 %inc.i.i2.i46, %begin7.i.i48
   %9 = add i64 %8, %end6.i.i47
   call void @llvm.lifetime.end.p0(ptr nonnull %buf.i35)

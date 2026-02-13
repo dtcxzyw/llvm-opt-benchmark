@@ -2989,7 +2989,7 @@ declare i32 @ull2string(ptr noundef, i64 noundef, i64 noundef) local_unnamed_add
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef ptr @sdstrim(ptr noundef returned %0, ptr noundef readonly %1) local_unnamed_addr #15 {
-  %3 = ptrtoint ptr %0 to i64
+  %3 = ptrtoaddr ptr %0 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 -1
   %5 = load i8, ptr %4, align 1, !tbaa !13
   %6 = zext i8 %5 to i32
@@ -3056,7 +3056,7 @@ sdslen.exit:                                      ; preds = %9, %12, %16, %20, %
 
 .critedge.loopexit:                               ; preds = %32, %.lr.ph
   %.0.lcssa.ph = phi ptr [ %.032, %.lr.ph ], [ %33, %32 ]
-  %.pre = ptrtoint ptr %.0.lcssa.ph to i64
+  %.pre = ptrtoaddr ptr %.0.lcssa.ph to i64
   br label %.critedge
 
 .critedge:                                        ; preds = %sdslen.exit.thread, %.critedge.loopexit, %sdslen.exit
@@ -3087,58 +3087,59 @@ sdslen.exit:                                      ; preds = %9, %12, %16, %20, %
 .critedge2:                                       ; preds = %.lr.ph36, %40, %.critedge
   %.026.lcssa = phi ptr [ %34, %.critedge ], [ %scevgep, %40 ], [ %.02635, %.lr.ph36 ]
   %43 = ptrtoint ptr %.026.lcssa to i64
-  %44 = sub i64 %43, %.0.lcssa40.pre-phi
-  %45 = add nsw i64 %44, 1
+  %44 = ptrtoint ptr %.0.lcssa to i64
+  %45 = sub i64 %43, %44
+  %46 = add nsw i64 %45, 1
   %.not30 = icmp eq ptr %0, %.0.lcssa
-  br i1 %.not30, label %47, label %46
+  br i1 %.not30, label %48, label %47
 
-46:                                               ; preds = %.critedge2
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %0, ptr align 1 %.0.lcssa, i64 %45, i1 false)
-  br label %47
+47:                                               ; preds = %.critedge2
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %0, ptr align 1 %.0.lcssa, i64 %46, i1 false)
+  br label %48
 
-47:                                               ; preds = %46, %.critedge2
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 %45
-  store i8 0, ptr %48, align 1, !tbaa !13
-  %49 = load i8, ptr %4, align 1, !tbaa !13
-  %50 = and i8 %49, 7
-  switch i8 %50, label %sdssetlen.exit [
-    i8 0, label %51
-    i8 1, label %53
-    i8 2, label %56
-    i8 3, label %59
-    i8 4, label %62
+48:                                               ; preds = %47, %.critedge2
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 %46
+  store i8 0, ptr %49, align 1, !tbaa !13
+  %50 = load i8, ptr %4, align 1, !tbaa !13
+  %51 = and i8 %50, 7
+  switch i8 %51, label %sdssetlen.exit [
+    i8 0, label %52
+    i8 1, label %54
+    i8 2, label %57
+    i8 3, label %60
+    i8 4, label %63
   ]
 
-51:                                               ; preds = %47
-  %.tr.i = trunc i64 %45 to i8
-  %52 = shl i8 %.tr.i, 3
-  store i8 %52, ptr %4, align 1, !tbaa !13
+52:                                               ; preds = %48
+  %.tr.i = trunc i64 %46 to i8
+  %53 = shl i8 %.tr.i, 3
+  store i8 %53, ptr %4, align 1, !tbaa !13
   br label %sdssetlen.exit
 
-53:                                               ; preds = %47
-  %54 = trunc i64 %45 to i8
-  %55 = getelementptr inbounds i8, ptr %0, i64 -3
-  store i8 %54, ptr %55, align 1, !tbaa !13
+54:                                               ; preds = %48
+  %55 = trunc i64 %46 to i8
+  %56 = getelementptr inbounds i8, ptr %0, i64 -3
+  store i8 %55, ptr %56, align 1, !tbaa !13
   br label %sdssetlen.exit
 
-56:                                               ; preds = %47
-  %57 = trunc i64 %45 to i16
-  %58 = getelementptr inbounds i8, ptr %0, i64 -5
-  store i16 %57, ptr %58, align 1, !tbaa !14
+57:                                               ; preds = %48
+  %58 = trunc i64 %46 to i16
+  %59 = getelementptr inbounds i8, ptr %0, i64 -5
+  store i16 %58, ptr %59, align 1, !tbaa !14
   br label %sdssetlen.exit
 
-59:                                               ; preds = %47
-  %60 = trunc i64 %45 to i32
-  %61 = getelementptr inbounds i8, ptr %0, i64 -9
-  store i32 %60, ptr %61, align 1, !tbaa !16
+60:                                               ; preds = %48
+  %61 = trunc i64 %46 to i32
+  %62 = getelementptr inbounds i8, ptr %0, i64 -9
+  store i32 %61, ptr %62, align 1, !tbaa !16
   br label %sdssetlen.exit
 
-62:                                               ; preds = %47
-  %63 = getelementptr inbounds i8, ptr %0, i64 -17
-  store i64 %45, ptr %63, align 1, !tbaa !11
+63:                                               ; preds = %48
+  %64 = getelementptr inbounds i8, ptr %0, i64 -17
+  store i64 %46, ptr %64, align 1, !tbaa !11
   br label %sdssetlen.exit
 
-sdssetlen.exit:                                   ; preds = %47, %51, %53, %56, %59, %62
+sdssetlen.exit:                                   ; preds = %48, %52, %54, %57, %60, %63
   ret ptr %0
 }
 

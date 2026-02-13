@@ -14984,9 +14984,6 @@ _ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEC2EPKNS_8DataTypeE.exit
   %.sroa.gep.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %54, i64 23
   %.sroa.gep52.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %54, i64 22
   %5662 = ptrtoint ptr %.sroa.gep.i.i.i.i.i.i.i.i.i to i64
-  %.pre87.i.i.i.i.i = ptrtoint ptr %5654 to i64
-  %.pre86.i.i.i.i.i = ptrtoint ptr %5657 to i64
-  %.pre85.i.i.i.i.i = ptrtoint ptr %5660 to i64
   %5663 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %5664
 
@@ -15107,8 +15104,8 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit.i.i.i.i.i1956:
   %5726 = load ptr, ptr %108, align 8, !tbaa !62, !noalias !740
   %5727 = getelementptr inbounds nuw i8, ptr %5726, i64 16
   %5728 = load i64, ptr %5727, align 8, !tbaa !242, !noalias !740
-  %.not106.i.i.i.i.i = icmp eq i64 %5725, %5728
-  br i1 %.not106.i.i.i.i.i, label %5730, label %5756
+  %.not103.i.i.i.i.i = icmp eq i64 %5725, %5728
+  br i1 %.not103.i.i.i.i.i, label %5730, label %5756
 
 _ZNK5arrow5Array6IsNullEl.exit.i.i.i.i.i1950:     ; preds = %5715
   %5729 = invoke noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %5666, i64 noundef %.02970.i.i.i.i.i)
@@ -15239,8 +15236,8 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit44.i.i.i.i.i194
   br label %5784
 
 5784:                                             ; preds = %5783, %5782
-  %.063.i.i.i.i.pre-phi.i.i.i.i.i = phi i64 [ %.pre86.i.i.i.i.i, %5783 ], [ %5658, %5782 ]
-  %.0.i.i.i.i.i.i.i.i.i = phi ptr [ %5657, %5783 ], [ %5656, %5782 ]
+  %.0.i.i.i.i.i.i.i.i.i = phi ptr [ %5656, %5782 ], [ %5657, %5783 ]
+  %.063.i.i.i.i.i.i.i.i.i = ptrtoaddr ptr %.0.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i.i.i = call i64 @llvm.abs.i64(i64 %.sroa.036.0.i.i.i.i.i.i.i.i.i, i1 true)
   %5785 = udiv i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i, 3600000
   %5786 = udiv i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i, 60000
@@ -15307,11 +15304,11 @@ _ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i.i.i.i.i.i.i.i.i:
   br i1 %5813, label %.lr.ph.i.i.preheader.i.i.i.i.i.i.i.i.i, label %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i.i.i.i.i.i:           ; preds = %_ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i.i.i.i.i.i.i.i.i
-  %5814 = add i64 %.3.idx.i.i.i.i.i.i.i.i.i, %.063.i.i.i.i.pre-phi.i.i.i.i.i
+  %5814 = add i64 %.3.idx.i.i.i.i.i.i.i.i.i, %.063.i.i.i.i.i.i.i.i.i
   %5815 = add i64 %5814, -2
-  %5816 = add i64 %.063.i.i.i.i.pre-phi.i.i.i.i.i, -3
+  %5816 = add i64 %.063.i.i.i.i.i.i.i.i.i, -3
   %umin.i.i.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %5815, i64 %5816)
-  %5817 = sub i64 %umin.i.i.i.i.i.i.i.i.i, %.063.i.i.i.i.pre-phi.i.i.i.i.i
+  %5817 = sub i64 %umin.i.i.i.i.i.i.i.i.i, %.063.i.i.i.i.i.i.i.i.i
   %scevgep.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %.0.i.i.i.i.i.i.i.i.i, i64 %5817
   %5818 = xor i64 %umin.i.i.i.i.i.i.i.i.i, -1
   %5819 = add i64 %5814, %5818
@@ -15513,8 +15510,8 @@ _ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_d
   br label %5942
 
 5942:                                             ; preds = %5941, %5940
-  %.063.i25.i.i.i.pre-phi.i.i.i.i.i = phi i64 [ %.pre87.i.i.i.i.i, %5941 ], [ %5655, %5940 ]
-  %.0.i24.i.i.i.i.i.i.i.i = phi ptr [ %5654, %5941 ], [ %5653, %5940 ]
+  %.0.i24.i.i.i.i.i.i.i.i = phi ptr [ %5653, %5940 ], [ %5654, %5941 ]
+  %.063.i25.i.i.i.i.i.i.i.i = ptrtoaddr ptr %.0.i24.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i26.i.i.i.i.i.i.i.i = call i64 @llvm.abs.i64(i64 %.sroa.036.0.i21.i.i.i.i.i.i.i.i, i1 true)
   %5943 = udiv i64 %spec.select.i.i.i.i26.i.i.i.i.i.i.i.i, 3600000000
   %5944 = udiv i64 %spec.select.i.i.i.i26.i.i.i.i.i.i.i.i, 60000000
@@ -15581,11 +15578,11 @@ _ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i34.i.i.i.i.i.i.i.
   br i1 %5971, label %.lr.ph.i.i.preheader.i52.i.i.i.i.i.i.i.i, label %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.preheader.i52.i.i.i.i.i.i.i.i:         ; preds = %_ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i34.i.i.i.i.i.i.i.i
-  %5972 = add i64 %.3.idx.i35.i.i.i.i.i.i.i.i, %.063.i25.i.i.i.pre-phi.i.i.i.i.i
+  %5972 = add i64 %.3.idx.i35.i.i.i.i.i.i.i.i, %.063.i25.i.i.i.i.i.i.i.i
   %5973 = add i64 %5972, -2
-  %5974 = add i64 %.063.i25.i.i.i.pre-phi.i.i.i.i.i, -6
+  %5974 = add i64 %.063.i25.i.i.i.i.i.i.i.i, -6
   %umin.i53.i.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %5973, i64 %5974)
-  %5975 = sub i64 %umin.i53.i.i.i.i.i.i.i.i, %.063.i25.i.i.i.pre-phi.i.i.i.i.i
+  %5975 = sub i64 %umin.i53.i.i.i.i.i.i.i.i, %.063.i25.i.i.i.i.i.i.i.i
   %scevgep.i54.i.i.i.i.i.i.i.i = getelementptr i8, ptr %.0.i24.i.i.i.i.i.i.i.i, i64 %5975
   %5976 = xor i64 %umin.i53.i.i.i.i.i.i.i.i, -1
   %5977 = add i64 %5972, %5976
@@ -15782,8 +15779,8 @@ _ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_d
   br label %6098
 
 6098:                                             ; preds = %6097, %6096
-  %.063.i71.i.i.i.pre-phi.i.i.i.i.i = phi i64 [ %.pre85.i.i.i.i.i, %6097 ], [ %5661, %6096 ]
-  %.0.i70.i.i.i.i.i.i.i.i = phi ptr [ %5660, %6097 ], [ %5659, %6096 ]
+  %.0.i70.i.i.i.i.i.i.i.i = phi ptr [ %5659, %6096 ], [ %5660, %6097 ]
+  %.063.i71.i.i.i.i.i.i.i.i = ptrtoaddr ptr %.0.i70.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i72.i.i.i.i.i.i.i.i = call i64 @llvm.abs.i64(i64 %.sroa.036.0.i67.i.i.i.i.i.i.i.i, i1 true)
   %6099 = udiv i64 %spec.select.i.i.i.i72.i.i.i.i.i.i.i.i, 3600000000000
   %6100 = udiv i64 %spec.select.i.i.i.i72.i.i.i.i.i.i.i.i, 60000000000
@@ -15850,11 +15847,11 @@ _ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i80.i.i.i.i.i.i.i.
   br i1 %6127, label %.lr.ph.i.i.preheader.i97.i.i.i.i.i.i.i.i, label %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.preheader.i97.i.i.i.i.i.i.i.i:         ; preds = %_ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i80.i.i.i.i.i.i.i.i
-  %6128 = add i64 %.3.idx.i81.i.i.i.i.i.i.i.i, %.063.i71.i.i.i.pre-phi.i.i.i.i.i
+  %6128 = add i64 %.3.idx.i81.i.i.i.i.i.i.i.i, %.063.i71.i.i.i.i.i.i.i.i
   %6129 = add i64 %6128, -2
-  %6130 = add i64 %.063.i71.i.i.i.pre-phi.i.i.i.i.i, -9
+  %6130 = add i64 %.063.i71.i.i.i.i.i.i.i.i, -9
   %umin.i98.i.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %6129, i64 %6130)
-  %6131 = sub i64 %umin.i98.i.i.i.i.i.i.i.i, %.063.i71.i.i.i.pre-phi.i.i.i.i.i
+  %6131 = sub i64 %umin.i98.i.i.i.i.i.i.i.i, %.063.i71.i.i.i.i.i.i.i.i
   %scevgep.i99.i.i.i.i.i.i.i.i = getelementptr i8, ptr %.0.i70.i.i.i.i.i.i.i.i, i64 %6131
   %6132 = xor i64 %umin.i98.i.i.i.i.i.i.i.i, -1
   %6133 = add i64 %6128, %6132
@@ -16537,15 +16534,15 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter9OpenArrayERKNS_5ArrayE.exit.i1976: ; pred
   %6489 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6490 = xor i64 %6488, -1
   %6491 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6492 = ptrtoint ptr %50 to i64
+  %6492 = ptrtoaddr ptr %50 to i64
   %.ptr24.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %50, i64 15
   %6493 = add nuw i64 %6492, 9
   %6494 = ptrtoint ptr %.ptr24.i.i.i.i.i.i.i.i.i to i64
-  %6495 = ptrtoint ptr %51 to i64
+  %6495 = ptrtoaddr ptr %51 to i64
   %.ptr26.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %51, i64 12
   %6496 = add nuw i64 %6495, 9
   %6497 = ptrtoint ptr %.ptr26.i.i.i.i.i.i.i.i.i to i64
-  %6498 = ptrtoint ptr %49 to i64
+  %6498 = ptrtoaddr ptr %49 to i64
   %.ptr23.i40.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %49, i64 18
   %6499 = add nuw i64 %6498, 9
   %6500 = ptrtoint ptr %.ptr23.i40.i.i.i.i.i.i.i.i to i64
@@ -17468,15 +17465,15 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter9OpenArrayERKNS_5ArrayE.exit.i2073: ; pred
   %6929 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6930 = xor i64 %6928, -1
   %6931 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6932 = ptrtoint ptr %44 to i64
+  %6932 = ptrtoaddr ptr %44 to i64
   %.ptr23.i.i.i.i.i.i.i.i.i2081 = getelementptr inbounds nuw i8, ptr %44, i64 15
   %6933 = add nuw i64 %6932, 9
   %6934 = ptrtoint ptr %.ptr23.i.i.i.i.i.i.i.i.i2081 to i64
-  %6935 = ptrtoint ptr %45 to i64
+  %6935 = ptrtoaddr ptr %45 to i64
   %.ptr26.i.i.i.i.i.i.i.i.i2082 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %6936 = add nuw i64 %6935, 9
   %6937 = ptrtoint ptr %.ptr26.i.i.i.i.i.i.i.i.i2082 to i64
-  %6938 = ptrtoint ptr %43 to i64
+  %6938 = ptrtoaddr ptr %43 to i64
   %.ptr23.i39.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %43, i64 18
   %6939 = add nuw i64 %6938, 9
   %6940 = ptrtoint ptr %.ptr23.i39.i.i.i.i.i.i.i.i to i64

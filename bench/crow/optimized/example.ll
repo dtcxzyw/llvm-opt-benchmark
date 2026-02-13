@@ -43634,7 +43634,7 @@ _ZSt7advanceIPN4crow4json6rvalueElEvRT_T0_.exit.i.i: ; preds = %.thread26.i.i, %
   br i1 %.not22.i.i.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4crow4json6rvalueixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4PredEclIPS4_SB_EEbT_RT0_.exit.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i.i.i:             ; preds = %_ZSt7advanceIPN4crow4json6rvalueElEvRT_T0_.exit.i.i
-  %63 = ptrtoint ptr %62 to i64
+  %63 = ptrtoaddr ptr %62 to i64
   %64 = sub i64 %63, %58
   %scevgep.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %.fr.i.i, i64 %64
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
@@ -43848,7 +43848,7 @@ _ZSt14__partial_sortIPN4crow4json6rvalueEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS
   br i1 %.not22.i.i.i.i.i.i.i.i.i.i, label %.critedge.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i.i.i:             ; preds = %31
-  %42 = ptrtoint ptr %41 to i64
+  %42 = ptrtoaddr ptr %41 to i64
   %43 = sub i64 %42, %37
   %scevgep.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %26, i64 %43
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
@@ -43902,7 +43902,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4crow4json6rvalueixERKNSt7__cxx1112basic
   br i1 %.not22.i.i.i.i.i.i.i.i15.i.i, label %.critedge.i.i.i.i.i.i.i.i22.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i16.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i16.i.i:           ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4crow4json6rvalueixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4PredEclIPS4_SG_EEbT_T0_.exit.i.i
-  %65 = ptrtoint ptr %64 to i64
+  %65 = ptrtoaddr ptr %64 to i64
   %66 = sub i64 %65, %29
   %scevgep.i.i.i.i.i.i.i.i17.i.i = getelementptr i8, ptr %56, i64 %66
   br label %.lr.ph.i.i.i.i.i.i.i.i18.i.i
@@ -44456,7 +44456,7 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIPN4crow4json6rvalueElS2_
   br i1 %.not22.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4crow4json6rvalueixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4PredEclIPS4_SG_EEbT_T0_.exit, label %.lr.ph.preheader.i.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i:                 ; preds = %.lr.ph
-  %31 = ptrtoint ptr %30 to i64
+  %31 = ptrtoaddr ptr %30 to i64
   %32 = sub i64 %31, %23
   %scevgep.i.i.i.i.i.i.i.i = getelementptr i8, ptr %19, i64 %32
   br label %.lr.ph.i.i.i.i.i.i.i.i
@@ -44764,7 +44764,7 @@ define linkonce_odr dso_local void @_ZSt11__push_heapIPN4crow4json6rvalueElS2_N9
   br i1 %.not22.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4crow4json6rvalueixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4PredEclIPS4_S4_EEbT_RT0_.exit, label %.lr.ph.preheader.i.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i:                 ; preds = %9
-  %26 = ptrtoint ptr %25 to i64
+  %26 = ptrtoaddr ptr %25 to i64
   %27 = sub i64 %26, %18
   %scevgep.i.i.i.i.i.i.i.i = getelementptr i8, ptr %15, i64 %27
   br label %.lr.ph.i.i.i.i.i.i.i.i
@@ -44942,7 +44942,7 @@ define linkonce_odr dso_local void @_ZSt22__move_median_to_firstIPN4crow4json6rv
   br i1 %.not22.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4crow4json6rvalueixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4PredEclIPS4_SG_EEbT_T0_.exit, label %.lr.ph.preheader.i.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i:                 ; preds = %4
-  %22 = ptrtoint ptr %21 to i64
+  %22 = ptrtoaddr ptr %21 to i64
   %23 = sub i64 %22, %14
   %scevgep.i.i.i.i.i.i.i.i = getelementptr i8, ptr %10, i64 %23
   br label %.lr.ph.i.i.i.i.i.i.i.i
@@ -44985,7 +44985,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4crow4json6rvalueixERKNSt7__cxx1112basic
   br i1 %.not22.i.i.i.i.i.i.i.i22, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4crow4json6rvalueixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4PredEclIPS4_SG_EEbT_T0_.exit32, label %.lr.ph.preheader.i.i.i.i.i.i.i.i23
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i23:               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4crow4json6rvalueixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4PredEclIPS4_SG_EEbT_T0_.exit.thread
-  %42 = ptrtoint ptr %41 to i64
+  %42 = ptrtoaddr ptr %41 to i64
   %43 = sub i64 %42, %17
   %scevgep.i.i.i.i.i.i.i.i24 = getelementptr i8, ptr %33, i64 %43
   br label %.lr.ph.i.i.i.i.i.i.i.i25
@@ -45021,7 +45021,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4crow4json6rvalueixERKNSt7__cxx1112basic
   br i1 %.not22.i.i.i.i.i.i.i.i33, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4crow4json6rvalueixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4PredEclIPS4_SG_EEbT_T0_.exit43, label %.lr.ph.preheader.i.i.i.i.i.i.i.i34
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i34:               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4crow4json6rvalueixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4PredEclIPS4_SG_EEbT_T0_.exit32.thread70
-  %55 = ptrtoint ptr %54 to i64
+  %55 = ptrtoaddr ptr %54 to i64
   %56 = sub i64 %55, %14
   %scevgep.i.i.i.i.i.i.i.i35 = getelementptr i8, ptr %33, i64 %56
   br label %.lr.ph.i.i.i.i.i.i.i.i36
@@ -45067,7 +45067,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4crow4json6rvalueixERKNSt7__cxx1112basic
   br i1 %.not22.i.i.i.i.i.i.i.i44, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4crow4json6rvalueixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4PredEclIPS4_SG_EEbT_T0_.exit54, label %.lr.ph.preheader.i.i.i.i.i.i.i.i45
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i45:               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4crow4json6rvalueixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4PredEclIPS4_SG_EEbT_T0_.exit.thread67
-  %75 = ptrtoint ptr %74 to i64
+  %75 = ptrtoaddr ptr %74 to i64
   %76 = sub i64 %75, %14
   %scevgep.i.i.i.i.i.i.i.i46 = getelementptr i8, ptr %66, i64 %76
   br label %.lr.ph.i.i.i.i.i.i.i.i47
@@ -45103,7 +45103,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4crow4json6rvalueixERKNSt7__cxx1112basic
   br i1 %.not22.i.i.i.i.i.i.i.i55, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4crow4json6rvalueixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4PredEclIPS4_SG_EEbT_T0_.exit65, label %.lr.ph.preheader.i.i.i.i.i.i.i.i56
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i56:               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4crow4json6rvalueixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4PredEclIPS4_SG_EEbT_T0_.exit54.thread76
-  %88 = ptrtoint ptr %87 to i64
+  %88 = ptrtoaddr ptr %87 to i64
   %89 = sub i64 %88, %17
   %scevgep.i.i.i.i.i.i.i.i57 = getelementptr i8, ptr %66, i64 %89
   br label %.lr.ph.i.i.i.i.i.i.i.i58
@@ -45305,7 +45305,7 @@ define linkonce_odr dso_local void @_ZSt16__insertion_sortIPN4crow4json6rvalueEN
   br i1 %.not22.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4crow4json6rvalueixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4PredEclIPS4_SG_EEbT_T0_.exit, label %.lr.ph.preheader.i.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i:                 ; preds = %26
-  %42 = ptrtoint ptr %41 to i64
+  %42 = ptrtoaddr ptr %41 to i64
   %43 = sub i64 %42, %34
   %scevgep.i.i.i.i.i.i.i.i = getelementptr i8, ptr %31, i64 %43
   br label %.lr.ph.i.i.i.i.i.i.i.i
@@ -45596,7 +45596,7 @@ _ZN4crow4json6rvalueC2EOS1_.exit:                 ; preds = %1, %11
   br i1 %.not22.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4crow4json6rvalueixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4PredEclIS4_PS4_EEbRT_T0_.exit, label %.lr.ph.preheader.i.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i:                 ; preds = %27
-  %38 = ptrtoint ptr %37 to i64
+  %38 = ptrtoaddr ptr %37 to i64
   %39 = sub i64 %38, %25
   %scevgep.i.i.i.i.i.i.i.i = getelementptr i8, ptr %29, i64 %39
   br label %.lr.ph.i.i.i.i.i.i.i.i
