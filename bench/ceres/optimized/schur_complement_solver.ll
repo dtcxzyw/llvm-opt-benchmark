@@ -6543,25 +6543,25 @@ _ZNSt6vectorIN5ceres8internal27SchurEliminatorForOneFBlockILi2ELi3ELi6EE5ChunkES
   %94 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 8
   %95 = load ptr, ptr %94, align 8, !tbaa !180
   %96 = load i32, ptr %95, align 4, !tbaa !182
-  %.not4595 = icmp eq i32 %96, %60
-  br i1 %.not4595, label %.lr.ph97, label %.thread
+  %.not4596 = icmp eq i32 %96, %60
+  br i1 %.not4596, label %.lr.ph98, label %.thread
 
-97:                                               ; preds = %.lr.ph97
+97:                                               ; preds = %.lr.ph98
   %gep = getelementptr %"struct.ceres::internal::CompressedList", ptr %invariant.gep, i64 %indvars.iv.next
   %98 = getelementptr inbounds nuw i8, ptr %gep, i64 8
   %99 = load ptr, ptr %98, align 8, !tbaa !180
   %100 = load i32, ptr %99, align 4, !tbaa !182
   %.not45 = icmp eq i32 %100, %60
-  br i1 %.not45, label %.lr.ph97, label %.thread.loopexit
+  br i1 %.not45, label %.lr.ph98, label %.thread.loopexit
 
-.lr.ph97:                                         ; preds = %.lr.ph, %97
-  %indvars.iv96 = phi i64 [ %indvars.iv.next, %97 ], [ 0, %.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv96, 1
+.lr.ph98:                                         ; preds = %.lr.ph, %97
+  %indvars.iv97 = phi i64 [ %indvars.iv.next, %97 ], [ 0, %.lr.ph ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv97, 1
   %101 = trunc nsw i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread.loopexit, label %97
 
-.thread.loopexit:                                 ; preds = %.lr.ph97, %97
+.thread.loopexit:                                 ; preds = %.lr.ph98, %97
   store i32 %101, ptr %90, align 4, !tbaa !419
   br label %.thread
 

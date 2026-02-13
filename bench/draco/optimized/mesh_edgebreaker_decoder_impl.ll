@@ -27343,7 +27343,7 @@ _ZN5draco13TraverserBaseINS_11CornerTableENS_36MeshAttributeIndicesEncodingObser
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, %0
-  br i1 %.not, label %57, label %3
+  br i1 %.not, label %55, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -27360,7 +27360,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %17 = icmp ugt i64 %9, %16
-  br i1 %17, label %18, label %30
+  br i1 %17, label %18, label %28
 
 18:                                               ; preds = %3
   %19 = ptrtoaddr ptr %6 to i64
@@ -27368,101 +27368,101 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
   %21 = icmp ugt i64 %10, 2305843009213693951
   br i1 %21, label %22, label %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE11_M_allocateEm.exit.i, !prof !701
 
-22:                                               ; preds = %18
+20:                                               ; preds = %18
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #23
   unreachable
 
 _ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE11_M_allocateEm.exit.i: ; preds = %18
-  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #22
+  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #22
   %.not7.i.i.i.i.i = icmp eq ptr %6, %5
   br i1 %.not7.i.i.i.i.i, label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE11_M_allocateEm.exit.i
-  %24 = add i64 %20, -4
-  %25 = sub i64 %24, %19
-  %26 = and i64 %25, -4
-  %27 = add i64 %26, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %23, ptr align 4 %6, i64 %27, i1 false), !tbaa !201
+  %22 = add i64 %20, -4
+  %23 = sub i64 %22, %19
+  %24 = and i64 %23, -4
+  %25 = add i64 %24, 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %21, ptr align 4 %6, i64 %25, i1 false), !tbaa !201
   br label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit
 
 _ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit: ; preds = %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i.preheader.i
   %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE13_M_deallocateEPS3_m.exit, label %28
+  br i1 %.not.i, label %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE13_M_deallocateEPS3_m.exit, label %26
 
-28:                                               ; preds = %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit
+26:                                               ; preds = %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit
   tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %16) #21
   br label %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE13_M_deallocateEPS3_m.exit
 
-_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit, %28
-  store ptr %23, ptr %0, align 8, !tbaa !92
-  %29 = getelementptr inbounds nuw i8, ptr %23, i64 %9
-  store ptr %29, ptr %11, align 8, !tbaa !93
+_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit, %26
+  store ptr %21, ptr %0, align 8, !tbaa !92
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 %9
+  store ptr %27, ptr %11, align 8, !tbaa !93
   br label %_ZSt22__uninitialized_copy_aIPN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEES4_S3_ET0_T_S6_S5_RSaIT1_E.exit
 
-30:                                               ; preds = %3
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !206
-  %33 = ptrtoint ptr %32 to i64
-  %34 = sub i64 %33, %15
-  %.not24 = icmp ult i64 %34, %9
-  br i1 %.not24, label %42, label %35
+28:                                               ; preds = %3
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !206
+  %31 = ptrtoint ptr %30 to i64
+  %32 = sub i64 %31, %15
+  %.not24 = icmp ult i64 %32, %9
+  br i1 %.not24, label %40, label %33
 
-35:                                               ; preds = %30
-  %36 = icmp sgt i64 %10, 0
-  br i1 %36, label %.lr.ph.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEES4_S3_ET0_T_S6_S5_RSaIT1_E.exit
+33:                                               ; preds = %28
+  %34 = icmp sgt i64 %10, 0
+  br i1 %34, label %.lr.ph.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEES4_S3_ET0_T_S6_S5_RSaIT1_E.exit
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %35, %.lr.ph.i.i.i.i.i
-  %.012.i.i.i.i.i = phi i64 [ %40, %.lr.ph.i.i.i.i.i ], [ %10, %35 ]
-  %.0811.i.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i.i ], [ %13, %35 ]
-  %.0910.i.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i.i ], [ %6, %35 ]
-  %37 = load i32, ptr %.0910.i.i.i.i.i, align 4, !tbaa !244
-  store i32 %37, ptr %.0811.i.i.i.i.i, align 4, !tbaa !244
-  %38 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 4
-  %39 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 4
-  %40 = add nsw i64 %.012.i.i.i.i.i, -1
-  %41 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
-  br i1 %41, label %.lr.ph.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEES4_S3_ET0_T_S6_S5_RSaIT1_E.exit, !llvm.loop !702
+.lr.ph.i.i.i.i.i:                                 ; preds = %33, %.lr.ph.i.i.i.i.i
+  %.012.i.i.i.i.i = phi i64 [ %38, %.lr.ph.i.i.i.i.i ], [ %10, %35 ]
+  %.0811.i.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i.i ], [ %13, %35 ]
+  %.0910.i.i.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i.i.i ], [ %6, %35 ]
+  %35 = load i32, ptr %.0910.i.i.i.i.i, align 4, !tbaa !244
+  store i32 %35, ptr %.0811.i.i.i.i.i, align 4, !tbaa !244
+  %36 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 4
+  %38 = add nsw i64 %.012.i.i.i.i.i, -1
+  %39 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
+  br i1 %39, label %.lr.ph.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEES4_S3_ET0_T_S6_S5_RSaIT1_E.exit, !llvm.loop !702
 
-42:                                               ; preds = %30
-  %43 = getelementptr inbounds nuw i8, ptr %6, i64 %34
-  %44 = ashr exact i64 %34, 2
-  %45 = icmp sgt i64 %44, 0
-  br i1 %45, label %.lr.ph.i.i.i.i.i26, label %_ZSt4copyIPN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEES4_ET0_T_S6_S5_.exit
+40:                                               ; preds = %28
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 %32
+  %42 = ashr exact i64 %32, 2
+  %43 = icmp sgt i64 %42, 0
+  br i1 %43, label %.lr.ph.i.i.i.i.i26, label %_ZSt4copyIPN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEES4_ET0_T_S6_S5_.exit
 
-.lr.ph.i.i.i.i.i26:                               ; preds = %42, %.lr.ph.i.i.i.i.i26
-  %.012.i.i.i.i.i27 = phi i64 [ %49, %.lr.ph.i.i.i.i.i26 ], [ %44, %42 ]
-  %.0811.i.i.i.i.i28 = phi ptr [ %48, %.lr.ph.i.i.i.i.i26 ], [ %13, %42 ]
-  %.0910.i.i.i.i.i29 = phi ptr [ %47, %.lr.ph.i.i.i.i.i26 ], [ %6, %42 ]
-  %46 = load i32, ptr %.0910.i.i.i.i.i29, align 4, !tbaa !244
-  store i32 %46, ptr %.0811.i.i.i.i.i28, align 4, !tbaa !244
-  %47 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i29, i64 4
-  %48 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i28, i64 4
-  %49 = add nsw i64 %.012.i.i.i.i.i27, -1
-  %50 = icmp samesign ugt i64 %.012.i.i.i.i.i27, 1
-  br i1 %50, label %.lr.ph.i.i.i.i.i26, label %_ZSt4copyIPN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEES4_ET0_T_S6_S5_.exit, !llvm.loop !703
+.lr.ph.i.i.i.i.i26:                               ; preds = %40, %.lr.ph.i.i.i.i.i26
+  %.012.i.i.i.i.i27 = phi i64 [ %47, %.lr.ph.i.i.i.i.i26 ], [ %42, %42 ]
+  %.0811.i.i.i.i.i28 = phi ptr [ %46, %.lr.ph.i.i.i.i.i26 ], [ %13, %42 ]
+  %.0910.i.i.i.i.i29 = phi ptr [ %45, %.lr.ph.i.i.i.i.i26 ], [ %6, %42 ]
+  %44 = load i32, ptr %.0910.i.i.i.i.i29, align 4, !tbaa !244
+  store i32 %44, ptr %.0811.i.i.i.i.i28, align 4, !tbaa !244
+  %45 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i29, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i28, i64 4
+  %47 = add nsw i64 %.012.i.i.i.i.i27, -1
+  %48 = icmp samesign ugt i64 %.012.i.i.i.i.i27, 1
+  br i1 %48, label %.lr.ph.i.i.i.i.i26, label %_ZSt4copyIPN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEES4_ET0_T_S6_S5_.exit, !llvm.loop !703
 
-_ZSt4copyIPN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i26, %42
-  %.not9.i.i.i.i = icmp eq ptr %43, %5
+_ZSt4copyIPN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i26, %40
+  %.not9.i.i.i.i = icmp eq ptr %41, %5
   br i1 %.not9.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEES4_S3_ET0_T_S6_S5_RSaIT1_E.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt4copyIPN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEES4_ET0_T_S6_S5_.exit, %.lr.ph.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i ], [ %32, %_ZSt4copyIPN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEES4_ET0_T_S6_S5_.exit ]
-  %.0810.i.i.i.i = phi ptr [ %52, %.lr.ph.i.i.i.i ], [ %43, %_ZSt4copyIPN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEES4_ET0_T_S6_S5_.exit ]
-  %51 = load i32, ptr %.0810.i.i.i.i, align 4, !tbaa !201
-  store i32 %51, ptr %.011.i.i.i.i, align 4, !tbaa !201
-  %52 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
-  %53 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
-  %.not.i.i.i.i = icmp eq ptr %52, %5
+  %.011.i.i.i.i = phi ptr [ %51, %.lr.ph.i.i.i.i ], [ %30, %_ZSt4copyIPN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEES4_ET0_T_S6_S5_.exit ]
+  %.0810.i.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i.i ], [ %41, %_ZSt4copyIPN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEES4_ET0_T_S6_S5_.exit ]
+  %49 = load i32, ptr %.0810.i.i.i.i, align 4, !tbaa !201
+  store i32 %49, ptr %.011.i.i.i.i, align 4, !tbaa !201
+  %50 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 4
+  %.not.i.i.i.i = icmp eq ptr %50, %5
   br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEES4_S3_ET0_T_S6_S5_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !704
 
-_ZSt22__uninitialized_copy_aIPN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEES4_S3_ET0_T_S6_S5_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i, %35, %_ZSt4copyIPN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEES4_ET0_T_S6_S5_.exit, %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE13_M_deallocateEPS3_m.exit
-  %54 = phi ptr [ %13, %.lr.ph.i.i.i.i ], [ %23, %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE13_M_deallocateEPS3_m.exit ], [ %13, %35 ], [ %13, %_ZSt4copyIPN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEES4_ET0_T_S6_S5_.exit ], [ %13, %.lr.ph.i.i.i.i.i ]
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 %9
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %55, ptr %56, align 8, !tbaa !206
-  br label %57
+_ZSt22__uninitialized_copy_aIPN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEES4_S3_ET0_T_S6_S5_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i, %33, %_ZSt4copyIPN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEES4_ET0_T_S6_S5_.exit, %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE13_M_deallocateEPS3_m.exit
+  %52 = phi ptr [ %13, %.lr.ph.i.i.i.i ], [ %21, %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE13_M_deallocateEPS3_m.exit ], [ %13, %35 ], [ %13, %_ZSt4copyIPN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEES4_ET0_T_S6_S5_.exit ], [ %13, %.lr.ph.i.i.i.i.i ]
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 %9
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %53, ptr %54, align 8, !tbaa !206
+  br label %55
 
-57:                                               ; preds = %_ZSt22__uninitialized_copy_aIPN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEES4_S3_ET0_T_S6_S5_RSaIT1_E.exit, %2
+55:                                               ; preds = %_ZSt22__uninitialized_copy_aIPN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEES4_S3_ET0_T_S6_S5_RSaIT1_E.exit, %2
   ret ptr %0
 }
 

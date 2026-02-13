@@ -19850,9 +19850,9 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %35, %37, %39, %41
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %_ZNSt6vectorImSaImEE6resizeEm.exit
-  %50 = load ptr, ptr %4, align 8, !tbaa !292
-  %51 = load ptr, ptr %3, align 8, !tbaa !290
-  %.not27 = icmp eq ptr %50, %51
+  %49 = load ptr, ptr %4, align 8, !tbaa !292
+  %50 = load ptr, ptr %3, align 8, !tbaa !290
+  %.not27 = icmp eq ptr %49, %50
   br i1 %.not27, label %.loopexit, label %.lr.ph26
 
 .lr.ph26:                                         ; preds = %._crit_edge
@@ -19867,22 +19867,22 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %35, %37, %39, %41
   %60 = add nuw nsw i64 %59, 4294967295
   br label %61
 
-61:                                               ; preds = %.lr.ph26, %61
-  %.024 = phi i64 [ 0, %.lr.ph26 ], [ %69, %61 ]
-  %62 = getelementptr inbounds nuw %"struct.entt::internal::dense_map_node", ptr %51, i64 %.024
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %64 = load i32, ptr %63, align 4, !tbaa !72
-  %65 = zext i32 %64 to i64
-  %66 = and i64 %60, %65
-  %67 = getelementptr inbounds nuw i64, ptr %43, i64 %66
-  %68 = load i64, ptr %67, align 8, !tbaa !215
-  store i64 %.024, ptr %67, align 8, !tbaa !215
-  store i64 %68, ptr %62, align 8, !tbaa !406
-  %69 = add nuw i64 %.024, 1
-  %exitcond.not = icmp eq i64 %69, %55
-  br i1 %exitcond.not, label %.loopexit, label %61, !llvm.loop !439
+58:                                               ; preds = %.lr.ph26, %58
+  %.024 = phi i64 [ 0, %.lr.ph26 ], [ %66, %61 ]
+  %59 = getelementptr inbounds nuw %"struct.entt::internal::dense_map_node", ptr %50, i64 %.024
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %61 = load i32, ptr %60, align 4, !tbaa !72
+  %62 = zext i32 %61 to i64
+  %63 = and i64 %60, %62
+  %64 = getelementptr inbounds nuw i64, ptr %43, i64 %63
+  %65 = load i64, ptr %64, align 8, !tbaa !215
+  store i64 %.024, ptr %64, align 8, !tbaa !215
+  store i64 %65, ptr %59, align 8, !tbaa !406
+  %66 = add nuw i64 %.024, 1
+  %exitcond.not = icmp eq i64 %66, %55
+  br i1 %exitcond.not, label %.loopexit, label %58, !llvm.loop !439
 
-.loopexit:                                        ; preds = %61, %._crit_edge, %_ZN4entt17next_power_of_twoImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_.exit
+.loopexit:                                        ; preds = %58, %._crit_edge, %_ZN4entt17next_power_of_twoImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_.exit
   ret void
 }
 

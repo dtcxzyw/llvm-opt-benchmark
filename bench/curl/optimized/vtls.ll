@@ -1727,17 +1727,17 @@ define internal fastcc i32 @pubkey_pem_to_der(ptr noundef %0, ptr noundef nonnul
 
 27:                                               ; preds = %.lr.ph, %.lr.ph, %25
   %28 = add nuw i64 %.02842, 1
-  %29 = icmp ult i64 %28, %21
-  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !181
+  %exitcond.not = icmp ult i64 %28, %21
+  br i1 %exitcond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !181
 
 ._crit_edge:                                      ; preds = %27, %19
-  %30 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %4) #18
-  %31 = call i32 @Curl_base64_decode(ptr noundef %30, ptr noundef nonnull %1, ptr noundef nonnull %2) #18
+  %29 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %4) #18
+  %30 = call i32 @Curl_base64_decode(ptr noundef %29, ptr noundef nonnull %1, ptr noundef nonnull %2) #18
   call void @Curl_dyn_free(ptr noundef nonnull %4) #18
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %15, %11, %5, %3, %._crit_edge
-  %.0 = phi i32 [ 61, %5 ], [ 61, %15 ], [ %31, %._crit_edge ], [ 61, %11 ], [ 61, %3 ], [ %26, %25 ]
+  %.0 = phi i32 [ 61, %5 ], [ 61, %15 ], [ %30, %._crit_edge ], [ 61, %11 ], [ 61, %3 ], [ %26, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

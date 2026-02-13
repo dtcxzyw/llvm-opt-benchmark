@@ -212,7 +212,7 @@ define hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE13pa
   %27 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0, i64 noundef %23, ptr noundef nonnull %11, i64 noundef %26)
   tail call void @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE26translate_escape_sequencesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %2)
   %28 = getelementptr inbounds nuw i8, ptr %.059, i64 1
-  br label %40
+  br label %39
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %33
   %.356 = phi ptr [ %.3, %33 ], [ %11, %.lr.ph.preheader ]
@@ -246,7 +246,7 @@ switch.early.test._crit_edge:                     ; preds = %33, %switch.early.t
   %39 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0, i64 noundef %35, ptr noundef nonnull %0, i64 noundef %38)
   br label %40
 
-40:                                               ; preds = %switch.early.test._crit_edge, %21
+39:                                               ; preds = %switch.early.test._crit_edge, %21
   %.2 = phi ptr [ %28, %21 ], [ %.3.lcssa, %switch.early.test._crit_edge ]
   ret ptr %.2
 }

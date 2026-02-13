@@ -289,7 +289,7 @@ define noundef i64 @_ZN24LibRaw_buffer_datastream4tellEv(ptr noundef nonnull rea
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @_ZN24LibRaw_buffer_datastream4getsEPci(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #9 align 2 {
   %4 = icmp slt i32 %2, 1
-  br i1 %4, label %46, label %5
+  br i1 %4, label %50, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -298,7 +298,7 @@ define noundef ptr @_ZN24LibRaw_buffer_datastream4getsEPci(ptr noundef nonnull a
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8, !tbaa !61
   %.not = icmp ult i64 %8, %10
-  br i1 %.not, label %.lr.ph, label %46
+  br i1 %.not, label %.lr.ph, label %50
 
 .lr.ph:                                           ; preds = %5
   %11 = load ptr, ptr %6, align 8, !tbaa !57
@@ -311,7 +311,7 @@ define noundef ptr @_ZN24LibRaw_buffer_datastream4getsEPci(ptr noundef nonnull a
   %.not92 = icmp eq i32 %15, 0
   br i1 %.not92, label %.critedge, label %.lr.ph78
 
-18:                                               ; preds = %25
+18: ; preds = %25
   %19 = sub i64 %32, %14
   %20 = icmp slt i64 %19, %16
   br i1 %20, label %.lr.ph78, label %.critedge, !llvm.loop !62
@@ -326,56 +326,56 @@ define noundef ptr @_ZN24LibRaw_buffer_datastream4getsEPci(ptr noundef nonnull a
   %24 = icmp eq i8 %23, 10
   %.pre.pre = load ptr, ptr %6, align 8, !tbaa !57
   %.pre40.pre = load i64, ptr %9, align 8, !tbaa !61
-  br i1 %24, label %.critedge, label %25
+  br i1 %24, label %.critedge, label %29
 
-25:                                               ; preds = %.lr.ph78
-  %26 = getelementptr inbounds nuw i8, ptr %.0242877, i64 1
-  %27 = getelementptr inbounds nuw i8, ptr %.0232976, i64 1
-  %28 = ptrtoint ptr %26 to i64
-  %29 = ptrtoint ptr %.pre.pre to i64
-  %30 = sub i64 %28, %29
-  %31 = icmp ult i64 %30, %.pre40.pre
-  %32 = ptrtoint ptr %27 to i64
-  br i1 %31, label %18, label %..critedge.loopexit_crit_edge, !llvm.loop !62
+29:                                               ; preds = %.lr.ph78
+  %30 = getelementptr inbounds nuw i8, ptr %.0242877, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.0232976, i64 1
+  %32 = ptrtoint ptr %30 to i64
+  %33 = ptrtoint ptr %.pre.pre to i64
+  %34 = sub i64 %32, %33
+  %35 = icmp ult i64 %34, %.pre40.pre
+  %36 = ptrtoint ptr %31 to i64
+  br i1 %35, label %18, label %..critedge.loopexit_crit_edge, !llvm.loop !62
 
-..critedge.loopexit_crit_edge:                    ; preds = %25
+..critedge.loopexit_crit_edge:                    ; preds = %29
   br label %.critedge, !llvm.loop !62
 
 .critedge:                                        ; preds = %.lr.ph78, %18, %.lr.ph, %..critedge.loopexit_crit_edge
-  %.pre54.pre-phi = phi i64 [ %32, %..critedge.loopexit_crit_edge ], [ %17, %.lr.ph ], [ %32, %18 ], [ %21, %.lr.ph78 ]
+  %.pre54.pre-phi = phi i64 [ %36, %..critedge.loopexit_crit_edge ], [ %17, %.lr.ph ], [ %36, %18 ], [ %21, %.lr.ph78 ]
   %.pre40 = phi i64 [ %.pre40.pre, %..critedge.loopexit_crit_edge ], [ %10, %.lr.ph ], [ %.pre40.pre, %18 ], [ %.pre40.pre, %.lr.ph78 ]
   %.pre = phi ptr [ %.pre.pre, %..critedge.loopexit_crit_edge ], [ %11, %.lr.ph ], [ %.pre.pre, %18 ], [ %.pre.pre, %.lr.ph78 ]
-  %.024.lcssa.ph = phi ptr [ %26, %..critedge.loopexit_crit_edge ], [ %12, %.lr.ph ], [ %26, %18 ], [ %.0242877, %.lr.ph78 ]
-  %.023.lcssa.ph = phi ptr [ %27, %..critedge.loopexit_crit_edge ], [ %1, %.lr.ph ], [ %27, %18 ], [ %.0232976, %.lr.ph78 ]
-  %.lcssa.ph = phi i64 [ %28, %..critedge.loopexit_crit_edge ], [ %13, %.lr.ph ], [ %28, %18 ], [ %22, %.lr.ph78 ]
+  %.024.lcssa.ph = phi ptr [ %30, %..critedge.loopexit_crit_edge ], [ %12, %.lr.ph ], [ %30, %18 ], [ %.0242877, %.lr.ph78 ]
+  %.023.lcssa.ph = phi ptr [ %31, %..critedge.loopexit_crit_edge ], [ %1, %.lr.ph ], [ %31, %18 ], [ %.0232976, %.lr.ph78 ]
+  %.lcssa.ph = phi i64 [ %32, %..critedge.loopexit_crit_edge ], [ %13, %.lr.ph ], [ %28, %18 ], [ %22, %.lr.ph78 ]
   %.pre45 = ptrtoint ptr %.pre to i64
   %.pre46 = sub i64 %.lcssa.ph, %.pre45
-  %33 = icmp ult i64 %.pre46, %.pre40
-  %34 = zext i1 %33 to i64
-  %35 = sub i64 %.pre54.pre-phi, %14
-  %36 = icmp slt i64 %35, %16
-  %spec.select = getelementptr inbounds nuw i8, ptr %.024.lcssa.ph, i64 %34
-  br i1 %36, label %37, label %39
+  %37 = icmp ult i64 %.pre46, %.pre40
+  %38 = zext i1 %37 to i64
+  %39 = sub i64 %.pre54.pre-phi, %14
+  %40 = icmp slt i64 %39, %16
+  %spec.select = getelementptr inbounds nuw i8, ptr %.024.lcssa.ph, i64 %38
+  br i1 %40, label %41, label %43
 
-37:                                               ; preds = %.critedge
-  %38 = getelementptr inbounds nuw i8, ptr %.023.lcssa.ph, i64 1
-  store i8 0, ptr %38, align 1, !tbaa !64
-  br label %41
+41:                                               ; preds = %.critedge
+  %42 = getelementptr inbounds nuw i8, ptr %.023.lcssa.ph, i64 1
+  store i8 0, ptr %42, align 1, !tbaa !64
+  br label %45
 
-39:                                               ; preds = %.critedge
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 %16
-  store i8 0, ptr %40, align 1, !tbaa !64
-  br label %41
+43:                                               ; preds = %.critedge
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 %16
+  store i8 0, ptr %44, align 1, !tbaa !64
+  br label %45
 
-41:                                               ; preds = %39, %37
-  %42 = load ptr, ptr %6, align 8, !tbaa !57
-  %43 = ptrtoint ptr %spec.select to i64
-  %44 = ptrtoint ptr %42 to i64
-  %45 = sub i64 %43, %44
-  store i64 %45, ptr %7, align 8, !tbaa !60
-  br label %46
+45:                                               ; preds = %43, %41
+  %46 = load ptr, ptr %6, align 8, !tbaa !57
+  %47 = ptrtoint ptr %spec.select to i64
+  %48 = ptrtoint ptr %46 to i64
+  %49 = sub i64 %47, %48
+  store i64 %49, ptr %7, align 8, !tbaa !60
+  br label %50
 
-46:                                               ; preds = %41, %5, %3
+50:                                               ; preds = %45, %5, %3
   %.0 = phi ptr [ null, %3 ], [ %1, %41 ], [ null, %5 ]
   ret ptr %.0
 }

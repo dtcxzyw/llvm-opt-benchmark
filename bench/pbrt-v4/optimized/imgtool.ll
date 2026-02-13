@@ -108942,7 +108942,7 @@ _ZN4pbrt11ThreadLocalINS_7Array2DISt6vectorINS_17VarianceEstimatorIdEESaIS4_EEEE
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN4pbrt17VarianceEstimatorIdEESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, %0
-  br i1 %.not, label %49, label %3
+  br i1 %.not, label %47, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -108960,7 +108960,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = icmp ugt i64 %9, %15
-  br i1 %16, label %17, label %31
+  br i1 %16, label %17, label %29
 
 17:                                               ; preds = %3
   %18 = sdiv exact i64 %9, 24
@@ -108969,62 +108969,62 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
   %21 = icmp ugt i64 %18, 384307168202282325
   br i1 %21, label %22, label %_ZNSt12_Vector_baseIN4pbrt17VarianceEstimatorIdEESaIS2_EE11_M_allocateEm.exit.i, !prof !894
 
-22:                                               ; preds = %17
+20:                                               ; preds = %17
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #41
   unreachable
 
 _ZNSt12_Vector_baseIN4pbrt17VarianceEstimatorIdEESaIS2_EE11_M_allocateEm.exit.i: ; preds = %17
-  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #46
+  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #46
   %.not7.i.i.i.i.i = icmp eq ptr %.fr14.i, %.fr13.i
   br i1 %.not7.i.i.i.i.i, label %_ZNSt6vectorIN4pbrt17VarianceEstimatorIdEESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEPS2_mT_SC_.exit, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZNSt12_Vector_baseIN4pbrt17VarianceEstimatorIdEESaIS2_EE11_M_allocateEm.exit.i
-  %24 = add i64 %20, -24
-  %25 = sub i64 %24, %19
-  %26 = urem i64 %25, 24
-  %27 = add i64 %25, 24
-  %28 = sub i64 %27, %26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr align 8 %.fr14.i, i64 %28, i1 false)
+  %22 = add i64 %20, -24
+  %23 = sub i64 %22, %19
+  %24 = urem i64 %23, 24
+  %25 = add i64 %23, 24
+  %26 = sub i64 %25, %24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr align 8 %.fr14.i, i64 %26, i1 false)
   br label %_ZNSt6vectorIN4pbrt17VarianceEstimatorIdEESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEPS2_mT_SC_.exit
 
 _ZNSt6vectorIN4pbrt17VarianceEstimatorIdEESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEPS2_mT_SC_.exit: ; preds = %_ZNSt12_Vector_baseIN4pbrt17VarianceEstimatorIdEESaIS2_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i.preheader.i
   %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %_ZNSt12_Vector_baseIN4pbrt17VarianceEstimatorIdEESaIS2_EE13_M_deallocateEPS2_m.exit, label %29
+  br i1 %.not.i, label %_ZNSt12_Vector_baseIN4pbrt17VarianceEstimatorIdEESaIS2_EE13_M_deallocateEPS2_m.exit, label %27
 
-29:                                               ; preds = %_ZNSt6vectorIN4pbrt17VarianceEstimatorIdEESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEPS2_mT_SC_.exit
+27:                                               ; preds = %_ZNSt6vectorIN4pbrt17VarianceEstimatorIdEESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEPS2_mT_SC_.exit
   tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %15) #39
   br label %_ZNSt12_Vector_baseIN4pbrt17VarianceEstimatorIdEESaIS2_EE13_M_deallocateEPS2_m.exit
 
-_ZNSt12_Vector_baseIN4pbrt17VarianceEstimatorIdEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN4pbrt17VarianceEstimatorIdEESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEPS2_mT_SC_.exit, %29
-  store ptr %23, ptr %0, align 8, !tbaa !518
-  %30 = getelementptr inbounds nuw i8, ptr %23, i64 %9
-  store ptr %30, ptr %10, align 8, !tbaa !532
+_ZNSt12_Vector_baseIN4pbrt17VarianceEstimatorIdEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN4pbrt17VarianceEstimatorIdEESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEPS2_mT_SC_.exit, %27
+  store ptr %21, ptr %0, align 8, !tbaa !518
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 %9
+  store ptr %28, ptr %10, align 8, !tbaa !532
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4pbrt17VarianceEstimatorIdEESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit
 
-31:                                               ; preds = %3
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !528
-  %34 = ptrtoint ptr %33 to i64
-  %35 = sub i64 %34, %14
-  %.not24 = icmp ult i64 %35, %9
-  br i1 %.not24, label %38, label %36
+29:                                               ; preds = %3
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !528
+  %32 = ptrtoint ptr %31 to i64
+  %33 = sub i64 %32, %14
+  %.not24 = icmp ult i64 %33, %9
+  br i1 %.not24, label %36, label %34
 
-36:                                               ; preds = %31
+34:                                               ; preds = %29
   %.not.i.i.i.i.i = icmp eq ptr %.fr13.i, %.fr14.i
-  br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4pbrt17VarianceEstimatorIdEESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit, label %37
+  br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4pbrt17VarianceEstimatorIdEESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit, label %35
 
-37:                                               ; preds = %36
+35:                                               ; preds = %34
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %12, ptr align 8 %.fr14.i, i64 %9, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4pbrt17VarianceEstimatorIdEESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit
 
-38:                                               ; preds = %31
-  %.not.i.i.i.i.i25 = icmp eq ptr %33, %12
-  br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPN4pbrt17VarianceEstimatorIdEES3_ET0_T_S5_S4_.exit, label %39
+36:                                               ; preds = %29
+  %.not.i.i.i.i.i25 = icmp eq ptr %31, %12
+  br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPN4pbrt17VarianceEstimatorIdEES3_ET0_T_S5_S4_.exit, label %37
 
-39:                                               ; preds = %38
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %12, ptr align 8 %.fr14.i, i64 %35, i1 false)
+37:                                               ; preds = %36
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %12, ptr align 8 %.fr14.i, i64 %33, i1 false)
   %.pre = load ptr, ptr %1, align 8, !tbaa !518
-  %.pre27 = load ptr, ptr %32, align 8, !tbaa !528
+  %.pre27 = load ptr, ptr %30, align 8, !tbaa !528
   %.pre28 = load ptr, ptr %0, align 8, !tbaa !518
   %.pre29 = load ptr, ptr %4, align 8, !tbaa !528
   %.pre30 = ptrtoint ptr %.pre27 to i64
@@ -109032,32 +109032,32 @@ _ZNSt12_Vector_baseIN4pbrt17VarianceEstimatorIdEESaIS2_EE13_M_deallocateEPS2_m.e
   %.pre33 = sub i64 %.pre30, %.pre31
   br label %_ZSt4copyIPN4pbrt17VarianceEstimatorIdEES3_ET0_T_S5_S4_.exit
 
-_ZSt4copyIPN4pbrt17VarianceEstimatorIdEES3_ET0_T_S5_S4_.exit: ; preds = %38, %39
+_ZSt4copyIPN4pbrt17VarianceEstimatorIdEES3_ET0_T_S5_S4_.exit: ; preds = %36, %37
   %.pre-phi34 = phi i64 [ 0, %38 ], [ %.pre33, %39 ]
-  %40 = phi ptr [ %.fr13.i, %38 ], [ %.pre29, %39 ]
-  %41 = phi ptr [ %33, %38 ], [ %.pre27, %39 ]
-  %42 = phi ptr [ %.fr14.i, %38 ], [ %.pre, %39 ]
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.pre-phi34
-  %.not9.i.i.i.i = icmp eq ptr %43, %40
+  %38 = phi ptr [ %.fr13.i, %38 ], [ %.pre29, %39 ]
+  %39 = phi ptr [ %31, %38 ], [ %.pre27, %39 ]
+  %40 = phi ptr [ %.fr14.i, %38 ], [ %.pre, %39 ]
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 %.pre-phi34
+  %.not9.i.i.i.i = icmp eq ptr %41, %38
   br i1 %.not9.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4pbrt17VarianceEstimatorIdEESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt4copyIPN4pbrt17VarianceEstimatorIdEES3_ET0_T_S5_S4_.exit, %.lr.ph.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %45, %.lr.ph.i.i.i.i ], [ %41, %_ZSt4copyIPN4pbrt17VarianceEstimatorIdEES3_ET0_T_S5_S4_.exit ]
-  %.0810.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i ], [ %43, %_ZSt4copyIPN4pbrt17VarianceEstimatorIdEES3_ET0_T_S5_S4_.exit ]
+  %.011.i.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i.i ], [ %39, %_ZSt4copyIPN4pbrt17VarianceEstimatorIdEES3_ET0_T_S5_S4_.exit ]
+  %.0810.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i ], [ %41, %_ZSt4copyIPN4pbrt17VarianceEstimatorIdEES3_ET0_T_S5_S4_.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.011.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0810.i.i.i.i, i64 24, i1 false), !tbaa.struct !2081
-  %44 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 24
-  %45 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 24
-  %.not.i.i.i.i = icmp eq ptr %44, %40
+  %42 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 24
+  %.not.i.i.i.i = icmp eq ptr %42, %38
   br i1 %.not.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4pbrt17VarianceEstimatorIdEESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !2147
 
-_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4pbrt17VarianceEstimatorIdEESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZSt4copyIPN4pbrt17VarianceEstimatorIdEES3_ET0_T_S5_S4_.exit, %37, %36, %_ZNSt12_Vector_baseIN4pbrt17VarianceEstimatorIdEESaIS2_EE13_M_deallocateEPS2_m.exit
-  %46 = load ptr, ptr %0, align 8, !tbaa !518
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %9
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %47, ptr %48, align 8, !tbaa !528
-  br label %49
+_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4pbrt17VarianceEstimatorIdEESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZSt4copyIPN4pbrt17VarianceEstimatorIdEES3_ET0_T_S5_S4_.exit, %35, %34, %_ZNSt12_Vector_baseIN4pbrt17VarianceEstimatorIdEESaIS2_EE13_M_deallocateEPS2_m.exit
+  %44 = load ptr, ptr %0, align 8, !tbaa !518
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 %9
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %45, ptr %46, align 8, !tbaa !528
+  br label %47
 
-49:                                               ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4pbrt17VarianceEstimatorIdEESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit, %2
+47:                                               ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4pbrt17VarianceEstimatorIdEESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit, %2
   ret ptr %0
 }
 

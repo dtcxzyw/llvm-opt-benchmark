@@ -1137,7 +1137,7 @@ HashObject.exit:                                  ; preds = %14
   %.not.i.i = icmp eq i32 %66, 0
   br i1 %.not.i.i, label %.lr.ph29.i.i.preheader, label %.lr.ph.i.i, !llvm.loop !44
 
-.preheader.i.i:                                   ; preds = %.lr.ph29.i.i
+.lr.ph29.i.i.preheader:                           ; preds = %.lr.ph29.i.i
   %.not2232.i.i = icmp eq i32 %69, 0
   br i1 %.not2232.i.i, label %EvictSessionFromCache.exit, label %.lr.ph35.i.i
 
@@ -1150,7 +1150,7 @@ HashObject.exit:                                  ; preds = %14
   %70 = icmp ugt i32 %69, 7
   br i1 %70, label %.lr.ph29.i.i, label %.preheader.i.i, !llvm.loop !45
 
-.lr.ph35.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph35.i.i
+.lr.ph35.i.i:                                     ; preds = %.lr.ph29.i.i.preheader, %.lr.ph35.i.i
   %.11734.i.i = phi ptr [ %72, %.lr.ph35.i.i ], [ %68, %.preheader.i.i ]
   %.11933.i.i = phi i32 [ %71, %.lr.ph35.i.i ], [ %69, %.preheader.i.i ]
   %71 = add i32 %.11933.i.i, -1
@@ -1822,7 +1822,7 @@ define void @wolfSSL_CTX_flush_sessions(ptr noundef readnone captures(none) %0, 
   %.not.i.i = icmp eq i32 %26, 0
   br i1 %.not.i.i, label %.lr.ph29.i.i.preheader, label %.lr.ph.i.i, !llvm.loop !44
 
-.preheader.i.i:                                   ; preds = %.lr.ph29.i.i
+.lr.ph29.i.i.preheader:                           ; preds = %.lr.ph29.i.i
   %.not2232.i.i = icmp eq i32 %29, 0
   br i1 %.not2232.i.i, label %EvictSessionFromCache.exit, label %.lr.ph35.i.i
 
@@ -1835,7 +1835,7 @@ define void @wolfSSL_CTX_flush_sessions(ptr noundef readnone captures(none) %0, 
   %30 = icmp ugt i32 %29, 7
   br i1 %30, label %.lr.ph29.i.i, label %.preheader.i.i, !llvm.loop !45
 
-.lr.ph35.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph35.i.i
+.lr.ph35.i.i:                                     ; preds = %.lr.ph29.i.i.preheader, %.lr.ph35.i.i
   %.11734.i.i = phi ptr [ %32, %.lr.ph35.i.i ], [ %28, %.preheader.i.i ]
   %.11933.i.i = phi i32 [ %31, %.lr.ph35.i.i ], [ %29, %.preheader.i.i ]
   %31 = add i32 %.11933.i.i, -1
@@ -6772,7 +6772,7 @@ define range(i32 -241, 2) i32 @wolfSSL_Cleanup() local_unnamed_addr #0 {
   %.not.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i, label %.lr.ph29.i.i.preheader, label %.lr.ph.i.i, !llvm.loop !44
 
-.preheader.i.i:                                   ; preds = %.lr.ph29.i.i
+.lr.ph29.i.i.preheader:                           ; preds = %.lr.ph29.i.i
   %.not2232.i.i = icmp eq i32 %28, 0
   br i1 %.not2232.i.i, label %EvictSessionFromCache.exit, label %.lr.ph35.i.i
 
@@ -6785,7 +6785,7 @@ define range(i32 -241, 2) i32 @wolfSSL_Cleanup() local_unnamed_addr #0 {
   %29 = icmp ugt i32 %28, 7
   br i1 %29, label %.lr.ph29.i.i, label %.preheader.i.i, !llvm.loop !45
 
-.lr.ph35.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph35.i.i
+.lr.ph35.i.i:                                     ; preds = %.lr.ph29.i.i.preheader, %.lr.ph35.i.i
   %.11734.i.i = phi ptr [ %31, %.lr.ph35.i.i ], [ %27, %.preheader.i.i ]
   %.11933.i.i = phi i32 [ %30, %.lr.ph35.i.i ], [ %28, %.preheader.i.i ]
   %30 = add i32 %.11933.i.i, -1

@@ -15104,8 +15104,8 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit.i.i.i.i.i1956:
   %5726 = load ptr, ptr %108, align 8, !tbaa !62, !noalias !740
   %5727 = getelementptr inbounds nuw i8, ptr %5726, i64 16
   %5728 = load i64, ptr %5727, align 8, !tbaa !242, !noalias !740
-  %.not103.i.i.i.i.i = icmp eq i64 %5725, %5728
-  br i1 %.not103.i.i.i.i.i, label %5730, label %5756
+  %.not106.i.i.i.i.i = icmp eq i64 %5725, %5728
+  br i1 %.not106.i.i.i.i.i, label %5730, label %5756
 
 _ZNK5arrow5Array6IsNullEl.exit.i.i.i.i.i1950:     ; preds = %5715
   %5729 = invoke noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %5666, i64 noundef %.02970.i.i.i.i.i)
@@ -15236,7 +15236,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit44.i.i.i.i.i194
   br label %5784
 
 5784:                                             ; preds = %5783, %5782
-  %.0.i.i.i.i.i.i.i.i.i = phi ptr [ %5656, %5782 ], [ %5657, %5783 ]
+  %.063.i.i.i.i.pre-phi.i.i.i.i.i = phi ptr [ %5656, %5782 ], [ %5657, %5783 ]
   %.063.i.i.i.i.i.i.i.i.i = ptrtoaddr ptr %.0.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i.i.i = call i64 @llvm.abs.i64(i64 %.sroa.036.0.i.i.i.i.i.i.i.i.i, i1 true)
   %5785 = udiv i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i, 3600000
@@ -15510,8 +15510,8 @@ _ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_d
   br label %5942
 
 5942:                                             ; preds = %5941, %5940
-  %.0.i24.i.i.i.i.i.i.i.i = phi ptr [ %5653, %5940 ], [ %5654, %5941 ]
-  %.063.i25.i.i.i.i.i.i.i.i = ptrtoaddr ptr %.0.i24.i.i.i.i.i.i.i.i to i64
+  %.063.i25.i.i.i.pre-phi.i.i.i.i.i = phi ptr [ %5653, %5940 ], [ %5654, %5941 ]
+  %.063.i25.i.i.i.i.i.i.i.i = ptrtoaddr ptr %.063.i25.i.i.i.pre-phi.i.i.i.i.i to i64
   %spec.select.i.i.i.i26.i.i.i.i.i.i.i.i = call i64 @llvm.abs.i64(i64 %.sroa.036.0.i21.i.i.i.i.i.i.i.i, i1 true)
   %5943 = udiv i64 %spec.select.i.i.i.i26.i.i.i.i.i.i.i.i, 3600000000
   %5944 = udiv i64 %spec.select.i.i.i.i26.i.i.i.i.i.i.i.i, 60000000
@@ -15779,8 +15779,8 @@ _ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_d
   br label %6098
 
 6098:                                             ; preds = %6097, %6096
-  %.0.i70.i.i.i.i.i.i.i.i = phi ptr [ %5659, %6096 ], [ %5660, %6097 ]
-  %.063.i71.i.i.i.i.i.i.i.i = ptrtoaddr ptr %.0.i70.i.i.i.i.i.i.i.i to i64
+  %.063.i71.i.i.i.pre-phi.i.i.i.i.i = phi ptr [ %5659, %6096 ], [ %5660, %6097 ]
+  %.063.i71.i.i.i.i.i.i.i.i = ptrtoaddr ptr %.063.i71.i.i.i.pre-phi.i.i.i.i.i to i64
   %spec.select.i.i.i.i72.i.i.i.i.i.i.i.i = call i64 @llvm.abs.i64(i64 %.sroa.036.0.i67.i.i.i.i.i.i.i.i, i1 true)
   %6099 = udiv i64 %spec.select.i.i.i.i72.i.i.i.i.i.i.i.i, 3600000000000
   %6100 = udiv i64 %spec.select.i.i.i.i72.i.i.i.i.i.i.i.i, 60000000000
