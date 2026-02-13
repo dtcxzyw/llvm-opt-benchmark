@@ -1076,63 +1076,63 @@ define internal fastcc noundef zeroext i1 @_ZL21isSafeIncreasingBoundPKN4llvm4SC
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %26, ptr %27, align 8, !tbaa !51
   %28 = icmp ult i32 %25, 16640
-  br i1 %13, label %29, label %56
+  br i1 %13, label %29, label %57
 
 29:                                               ; preds = %19
   br i1 %28, label %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i, label %_ZN4llvm5APInt10getAllOnesEj.exit.i
 
 _ZN4llvm5APInt10getAllOnesEj.exit.thread.i:       ; preds = %29
-  %30 = add nuw nsw i32 %26, 63
+  %30 = sub nsw i32 0, %26
   %31 = and i32 %30, 63
-  %32 = xor i32 %31, 63
-  %33 = zext nneg i32 %32 to i64
-  %34 = lshr i64 -1, %33
-  %35 = icmp eq i32 %26, 0
-  %spec.select.i.i.i = select i1 %35, i64 0, i64 %34, !prof !80
-  %36 = zext nneg i32 %31 to i64
-  %37 = shl nuw i64 1, %36
-  %38 = xor i64 %37, -1
-  br label %45
+  %32 = zext nneg i32 %31 to i64
+  %33 = lshr i64 -1, %32
+  %34 = icmp eq i32 %26, 0
+  %spec.select.i.i.i = select i1 %34, i64 0, i64 %33, !prof !80
+  %35 = add nuw nsw i32 %26, 63
+  %36 = and i32 %35, 63
+  %37 = zext nneg i32 %36 to i64
+  %38 = shl nuw i64 1, %37
+  %39 = xor i64 %38, -1
+  br label %46
 
 _ZN4llvm5APInt10getAllOnesEj.exit.i:              ; preds = %29
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %9, i64 noundef -1, i1 noundef zeroext true) #16
   %.pre.i = load i32, ptr %27, align 8, !tbaa !51, !alias.scope !81
-  %39 = icmp ult i32 %.pre.i, 65
-  %40 = add nsw i32 %26, -1
-  %41 = and i32 %40, 63
-  %42 = zext nneg i32 %41 to i64
-  %43 = shl nuw i64 1, %42
-  %44 = xor i64 %43, -1
-  br i1 %39, label %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge, label %49
+  %40 = icmp ult i32 %.pre.i, 65
+  %41 = add nsw i32 %26, -1
+  %42 = and i32 %41, 63
+  %43 = zext nneg i32 %42 to i64
+  %44 = shl nuw i64 1, %43
+  %45 = xor i64 %44, -1
+  br i1 %40, label %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge, label %50
 
 _ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge:   ; preds = %_ZN4llvm5APInt10getAllOnesEj.exit.i
   %.pre = load i64, ptr %9, align 8, !tbaa !53, !alias.scope !81
-  br label %45
+  br label %46
 
-45:                                               ; preds = %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i
-  %46 = phi i64 [ %spec.select.i.i.i, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i ], [ %.pre, %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge ]
-  %47 = phi i64 [ %38, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i ], [ %44, %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge ]
-  %48 = and i64 %46, %47
-  store i64 %48, ptr %9, align 8, !tbaa !53, !alias.scope !81
+46:                                               ; preds = %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i
+  %47 = phi i64 [ %spec.select.i.i.i, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i ], [ %.pre, %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge ]
+  %48 = phi i64 [ %39, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i ], [ %45, %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge ]
+  %49 = and i64 %47, %48
+  store i64 %49, ptr %9, align 8, !tbaa !53, !alias.scope !81
   br label %_ZN4llvm5APInt17getSignedMaxValueEj.exit
 
-49:                                               ; preds = %_ZN4llvm5APInt10getAllOnesEj.exit.i
-  %50 = load ptr, ptr %9, align 8, !tbaa !53, !alias.scope !81
-  %51 = lshr i32 %40, 6
-  %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw i64, ptr %50, i64 %52
-  %54 = load i64, ptr %53, align 8, !tbaa !84
-  %55 = and i64 %54, %44
-  store i64 %55, ptr %53, align 8, !tbaa !84
+50:                                               ; preds = %_ZN4llvm5APInt10getAllOnesEj.exit.i
+  %51 = load ptr, ptr %9, align 8, !tbaa !53, !alias.scope !81
+  %52 = lshr i32 %41, 6
+  %53 = zext nneg i32 %52 to i64
+  %54 = getelementptr inbounds nuw i64, ptr %51, i64 %53
+  %55 = load i64, ptr %54, align 8, !tbaa !84
+  %56 = and i64 %55, %45
+  store i64 %56, ptr %54, align 8, !tbaa !84
   br label %_ZN4llvm5APInt17getSignedMaxValueEj.exit
 
-56:                                               ; preds = %19
-  br i1 %28, label %57, label %64
+57:                                               ; preds = %19
+  br i1 %28, label %58, label %64
 
-57:                                               ; preds = %56
-  %58 = add nuw nsw i32 %26, 63
-  %59 = and i32 %58, 63
-  %60 = xor i32 %59, 63
+58:                                               ; preds = %57
+  %59 = sub nsw i32 0, %26
+  %60 = and i32 %59, 63
   %61 = zext nneg i32 %60 to i64
   %62 = lshr i64 -1, %61
   %63 = icmp eq i32 %26, 0
@@ -1140,11 +1140,11 @@ _ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge:   ; preds = %_ZN4llvm5APInt10get
   store i64 %spec.select.i.i.i50, ptr %9, align 8, !tbaa !53, !alias.scope !85
   br label %_ZN4llvm5APInt17getSignedMaxValueEj.exit
 
-64:                                               ; preds = %56
+64:                                               ; preds = %57
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %9, i64 noundef -1, i1 noundef zeroext true) #16
   br label %_ZN4llvm5APInt17getSignedMaxValueEj.exit
 
-_ZN4llvm5APInt17getSignedMaxValueEj.exit:         ; preds = %64, %57, %49, %45
+_ZN4llvm5APInt17getSignedMaxValueEj.exit:         ; preds = %64, %58, %50, %46
   %65 = call noundef ptr @_ZN4llvm15ScalarEvolution11getConstantERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(1344) %6, ptr noundef nonnull align 8 dereferenceable(12) %9) #16
   %66 = call noundef ptr @_ZN4llvm15ScalarEvolution12getMinusSCEVEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj(ptr noundef nonnull align 8 dereferenceable(1344) %6, ptr noundef %65, ptr noundef %22, i32 noundef 0, i32 noundef 0) #16
   call void @llvm.lifetime.start.p0(ptr nonnull %8)

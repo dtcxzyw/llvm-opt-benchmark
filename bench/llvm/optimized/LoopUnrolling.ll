@@ -10090,7 +10090,7 @@ define linkonce_odr hidden void @_ZNK4llvm5APInt3absEv(ptr dead_on_unwind noalia
   %16 = and i64 %9, %15
   %.not = icmp eq i64 %16, 0
   %17 = ptrtoint ptr %11 to i64
-  br i1 %.not, label %36, label %18
+  br i1 %.not, label %35, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -10102,7 +10102,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %18
   %.pr = load i32, ptr %19, align 8, !tbaa !153, !noalias !1000
   call void @llvm.experimental.noalias.scope.decl(metadata !1000)
   %20 = icmp ult i32 %.pr, 65
-  br i1 %20, label %_ZN4llvm5APIntC2ERKS0_.exit._ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i.i_crit_edge, label %31
+  br i1 %20, label %_ZN4llvm5APIntC2ERKS0_.exit._ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i.i_crit_edge, label %30
 
 _ZN4llvm5APIntC2ERKS0_.exit._ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i.i_crit_edge: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit
   %.pre = load i64, ptr %3, align 8, !tbaa !38, !noalias !1000
@@ -10112,44 +10112,43 @@ _ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i.i:     ; preds = %18, %_ZN4llvm5APInt
   %21 = phi i64 [ %.pre, %_ZN4llvm5APIntC2ERKS0_.exit._ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i.i_crit_edge ], [ %17, %18 ]
   %22 = phi i32 [ %.pr, %_ZN4llvm5APIntC2ERKS0_.exit._ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i.i_crit_edge ], [ %5, %18 ]
   %23 = xor i64 %21, -1
-  %24 = add nuw nsw i32 %22, 63
+  %24 = sub nsw i32 0, %22
   %25 = and i32 %24, 63
-  %26 = xor i32 %25, 63
-  %27 = zext nneg i32 %26 to i64
-  %28 = lshr i64 -1, %27
-  %29 = icmp eq i32 %22, 0
-  %spec.select.i.i.i = select i1 %29, i64 0, i64 %28, !prof !1003
-  %30 = and i64 %spec.select.i.i.i, %23
-  store i64 %30, ptr %3, align 8, !tbaa !38, !noalias !1000
+  %26 = zext nneg i32 %25 to i64
+  %27 = lshr i64 -1, %26
+  %28 = icmp eq i32 %22, 0
+  %spec.select.i.i.i = select i1 %28, i64 0, i64 %27, !prof !1003
+  %29 = and i64 %spec.select.i.i.i, %23
+  store i64 %29, ptr %3, align 8, !tbaa !38, !noalias !1000
   br label %_ZN4llvm5APIntD2Ev.exit
 
-31:                                               ; preds = %_ZN4llvm5APIntC2ERKS0_.exit
+30:                                               ; preds = %_ZN4llvm5APIntC2ERKS0_.exit
   call void @_ZN4llvm5APInt19flipAllBitsSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %3) #19, !noalias !1000
   br label %_ZN4llvm5APIntD2Ev.exit
 
-_ZN4llvm5APIntD2Ev.exit:                          ; preds = %31, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i.i
-  %32 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntppEv(ptr noundef nonnull align 8 dereferenceable(12) %3) #19, !noalias !1000
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load i32, ptr %19, align 8, !tbaa !153, !noalias !1000
-  store i32 %34, ptr %33, align 8, !tbaa !153, !alias.scope !1000
-  %35 = load i64, ptr %3, align 8, !noalias !1000
-  store i64 %35, ptr %0, align 8, !alias.scope !1000
+_ZN4llvm5APIntD2Ev.exit:                          ; preds = %30, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i.i
+  %31 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntppEv(ptr noundef nonnull align 8 dereferenceable(12) %3) #19, !noalias !1000
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %33 = load i32, ptr %19, align 8, !tbaa !153, !noalias !1000
+  store i32 %33, ptr %32, align 8, !tbaa !153, !alias.scope !1000
+  %34 = load i64, ptr %3, align 8, !noalias !1000
+  store i64 %34, ptr %0, align 8, !alias.scope !1000
   br label %_ZN4llvm5APIntC2ERKS0_.exit1
 
-36:                                               ; preds = %2
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %5, ptr %37, align 8, !tbaa !153
-  br i1 %10, label %38, label %39
+35:                                               ; preds = %2
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %5, ptr %36, align 8, !tbaa !153
+  br i1 %10, label %37, label %38
 
-38:                                               ; preds = %36
+37:                                               ; preds = %35
   store i64 %17, ptr %0, align 8, !tbaa !38
   br label %_ZN4llvm5APIntC2ERKS0_.exit1
 
-39:                                               ; preds = %36
+38:                                               ; preds = %35
   tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) #19
   br label %_ZN4llvm5APIntC2ERKS0_.exit1
 
-_ZN4llvm5APIntC2ERKS0_.exit1:                     ; preds = %39, %38, %_ZN4llvm5APIntD2Ev.exit
+_ZN4llvm5APIntC2ERKS0_.exit1:                     ; preds = %38, %37, %_ZN4llvm5APIntD2Ev.exit
   ret void
 }
 

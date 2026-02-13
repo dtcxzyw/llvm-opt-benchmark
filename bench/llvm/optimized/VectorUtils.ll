@@ -7387,64 +7387,63 @@ define dso_local void @_ZN4llvm26possiblyDemandedEltsInMaskEPNS_5ValueE(ptr dead
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %6, ptr %7, align 8, !tbaa !73, !alias.scope !263
   %8 = icmp ult i32 %6, 65
-  br i1 %8, label %9, label %16
+  br i1 %8, label %9, label %15
 
 9:                                                ; preds = %2
-  %10 = add nuw nsw i32 %6, 63
+  %10 = sub nsw i32 0, %6
   %11 = and i32 %10, 63
-  %12 = xor i32 %11, 63
-  %13 = zext nneg i32 %12 to i64
-  %14 = lshr i64 -1, %13
-  %15 = icmp eq i32 %6, 0
-  %spec.select.i.i = select i1 %15, i64 0, i64 %14, !prof !266
+  %12 = zext nneg i32 %11 to i64
+  %13 = lshr i64 -1, %12
+  %14 = icmp eq i32 %6, 0
+  %spec.select.i.i = select i1 %14, i64 0, i64 %13, !prof !266
   store i64 %spec.select.i.i, ptr %0, align 8, !tbaa !75, !alias.scope !263
   br label %_ZN4llvm5APInt10getAllOnesEj.exit
 
-16:                                               ; preds = %2
+15:                                               ; preds = %2
   tail call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %0, i64 noundef -1, i1 noundef zeroext true) #21
   br label %_ZN4llvm5APInt10getAllOnesEj.exit
 
-_ZN4llvm5APInt10getAllOnesEj.exit:                ; preds = %9, %16
-  %17 = load i8, ptr %1, align 8, !tbaa !67
-  %.not = icmp eq i8 %17, 11
-  %18 = icmp ne i32 %6, 0
-  %or.cond = and i1 %.not, %18
+_ZN4llvm5APInt10getAllOnesEj.exit:                ; preds = %9, %15
+  %16 = load i8, ptr %1, align 8, !tbaa !67
+  %.not = icmp eq i8 %16, 11
+  %17 = icmp ne i32 %6, 0
+  %or.cond = and i1 %.not, %17
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZN4llvm5APInt10getAllOnesEj.exit, %_ZN4llvm5APInt8clearBitEj.exit
-  %.013 = phi i32 [ %38, %_ZN4llvm5APInt8clearBitEj.exit ], [ 0, %_ZN4llvm5APInt10getAllOnesEj.exit ]
-  %19 = tail call noundef ptr @_ZNK4llvm8Constant19getAggregateElementEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.013) #21
-  %20 = tail call noundef zeroext i1 @_ZNK4llvm8Constant11isNullValueEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #21
-  br i1 %20, label %21, label %_ZN4llvm5APInt8clearBitEj.exit
+  %.013 = phi i32 [ %37, %_ZN4llvm5APInt8clearBitEj.exit ], [ 0, %_ZN4llvm5APInt10getAllOnesEj.exit ]
+  %18 = tail call noundef ptr @_ZNK4llvm8Constant19getAggregateElementEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.013) #21
+  %19 = tail call noundef zeroext i1 @_ZNK4llvm8Constant11isNullValueEv(ptr noundef nonnull align 8 dereferenceable(24) %18) #21
+  br i1 %19, label %20, label %_ZN4llvm5APInt8clearBitEj.exit
 
-21:                                               ; preds = %.lr.ph
-  %22 = and i32 %.013, 63
-  %23 = zext nneg i32 %22 to i64
-  %24 = shl nuw i64 1, %23
-  %25 = xor i64 %24, -1
-  %26 = load i32, ptr %7, align 8, !tbaa !73
-  %27 = icmp ult i32 %26, 65
-  br i1 %27, label %28, label %31
+20:                                               ; preds = %.lr.ph
+  %21 = and i32 %.013, 63
+  %22 = zext nneg i32 %21 to i64
+  %23 = shl nuw i64 1, %22
+  %24 = xor i64 %23, -1
+  %25 = load i32, ptr %7, align 8, !tbaa !73
+  %26 = icmp ult i32 %25, 65
+  br i1 %26, label %27, label %30
 
-28:                                               ; preds = %21
-  %29 = load i64, ptr %0, align 8, !tbaa !75
-  %30 = and i64 %29, %25
-  store i64 %30, ptr %0, align 8, !tbaa !75
+27:                                               ; preds = %20
+  %28 = load i64, ptr %0, align 8, !tbaa !75
+  %29 = and i64 %28, %24
+  store i64 %29, ptr %0, align 8, !tbaa !75
   br label %_ZN4llvm5APInt8clearBitEj.exit
 
-31:                                               ; preds = %21
-  %32 = load ptr, ptr %0, align 8, !tbaa !75
-  %33 = lshr i32 %.013, 6
-  %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw i64, ptr %32, i64 %34
-  %36 = load i64, ptr %35, align 8, !tbaa !47
-  %37 = and i64 %36, %25
-  store i64 %37, ptr %35, align 8, !tbaa !47
+30:                                               ; preds = %20
+  %31 = load ptr, ptr %0, align 8, !tbaa !75
+  %32 = lshr i32 %.013, 6
+  %33 = zext nneg i32 %32 to i64
+  %34 = getelementptr inbounds nuw i64, ptr %31, i64 %33
+  %35 = load i64, ptr %34, align 8, !tbaa !47
+  %36 = and i64 %35, %24
+  store i64 %36, ptr %34, align 8, !tbaa !47
   br label %_ZN4llvm5APInt8clearBitEj.exit
 
-_ZN4llvm5APInt8clearBitEj.exit:                   ; preds = %31, %28, %.lr.ph
-  %38 = add nuw i32 %.013, 1
-  %exitcond.not = icmp eq i32 %38, %6
+_ZN4llvm5APInt8clearBitEj.exit:                   ; preds = %30, %27, %.lr.ph
+  %37 = add nuw i32 %.013, 1
+  %exitcond.not = icmp eq i32 %37, %6
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !267
 
 .loopexit:                                        ; preds = %_ZN4llvm5APInt8clearBitEj.exit, %_ZN4llvm5APInt10getAllOnesEj.exit

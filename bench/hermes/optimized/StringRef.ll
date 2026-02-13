@@ -2155,13 +2155,13 @@ while.cond.preheader:                             ; preds = %if.end
 
 land.rhs:                                         ; preds = %while.cond.preheader, %while.body
   %.pr = phi i64 [ %0, %while.cond.preheader ], [ %sub.i114, %while.body ]
-  %Str.promoted181 = phi ptr [ %Str.promoted, %while.cond.preheader ], [ %add.ptr.i112, %while.body ]
-  %1 = load i8, ptr %Str.promoted181, align 1
+  %Str.promoted171 = phi ptr [ %Str.promoted, %while.cond.preheader ], [ %add.ptr.i112, %while.body ]
+  %1 = load i8, ptr %Str.promoted171, align 1
   %cmp7 = icmp eq i8 %1, 48
   br i1 %cmp7, label %while.body, label %while.cond14
 
 while.body:                                       ; preds = %land.rhs
-  %add.ptr.i112 = getelementptr inbounds nuw i8, ptr %Str.promoted181, i64 1
+  %add.ptr.i112 = getelementptr inbounds nuw i8, ptr %Str.promoted171, i64 1
   %sub.i114 = add i64 %.pr, -1
   %cmp.i126 = icmp eq i64 %sub.i114, 0
   br i1 %cmp.i126, label %if.then10, label %land.rhs, !llvm.loop !35
@@ -2249,262 +2249,258 @@ if.then34:                                        ; preds = %if.end33
   br i1 %cmp.i.i57, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i74, label %if.else.i73
 
 _ZN4llvh5APInt15clearUnusedBitsEv.exit.i74:       ; preds = %if.then34
-  %sub.i.i = add nuw nsw i32 %BitWidth.0, 63
-  %rem.i.i = and i32 %sub.i.i, 63
-  %sub2.i.i = xor i32 %rem.i.i, 63
+  %11 = sub nsw i32 0, %BitWidth.0
+  %sub2.i.i = and i32 %11, 63
   %sh_prom.i.i = zext nneg i32 %sub2.i.i to i64
   %shr.i.i = lshr i64 -1, %sh_prom.i.i
   %and.i.i = and i64 %shr.i.i, %conv36
   store i64 %and.i.i, ptr %ref.tmp35, align 8
   store i64 %and.i.i, ptr %RadixAP, align 8
-  %11 = load i32, ptr %BitWidth.i56, align 8
-  store i32 %11, ptr %BitWidth.i54, align 8
+  %12 = load i32, ptr %BitWidth.i56, align 8
+  store i32 %12, ptr %BitWidth.i54, align 8
   store i32 0, ptr %BitWidth.i56, align 8
-  %BitWidth.i71238 = getelementptr inbounds nuw i8, ptr %ref.tmp38, i64 8
-  store i32 %BitWidth.0, ptr %BitWidth.i71238, align 8
+  %BitWidth.i71228 = getelementptr inbounds nuw i8, ptr %ref.tmp38, i64 8
+  store i32 %BitWidth.0, ptr %BitWidth.i71228, align 8
   store i64 0, ptr %ref.tmp38, align 8
-  br label %_ZN4llvh5APIntD2Ev.exit94
+  br label %_ZN4llvh5APIntD2Ev.exit92
 
 if.else.i73:                                      ; preds = %if.then34
   call void @_ZN4llvh5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp35, i64 noundef %conv36, i1 noundef zeroext false) #20
-  %12 = load i64, ptr %ref.tmp35, align 8
-  store i64 %12, ptr %RadixAP, align 8
-  %13 = load i32, ptr %BitWidth.i56, align 8
-  store i32 %13, ptr %BitWidth.i54, align 8
+  %13 = load i64, ptr %ref.tmp35, align 8
+  store i64 %13, ptr %RadixAP, align 8
+  %14 = load i32, ptr %BitWidth.i56, align 8
+  store i32 %14, ptr %BitWidth.i54, align 8
   store i32 0, ptr %BitWidth.i56, align 8
   %BitWidth.i71 = getelementptr inbounds nuw i8, ptr %ref.tmp38, i64 8
   store i32 %BitWidth.0, ptr %BitWidth.i71, align 8
   call void @_ZN4llvh5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp38, i64 noundef 0, i1 noundef zeroext false) #20
-  br label %_ZN4llvh5APIntD2Ev.exit94
+  br label %_ZN4llvh5APIntD2Ev.exit92
 
-_ZN4llvh5APIntD2Ev.exit94:                        ; preds = %if.else.i73, %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i74
-  %BitWidth.i71239 = phi ptr [ %BitWidth.i71238, %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i74 ], [ %BitWidth.i71, %if.else.i73 ]
-  %14 = load i64, ptr %ref.tmp38, align 8
-  store i64 %14, ptr %CharAP, align 8
-  %15 = load i32, ptr %BitWidth.i71239, align 8
-  store i32 %15, ptr %BitWidth.i55, align 8
-  store i32 0, ptr %BitWidth.i71239, align 8
+_ZN4llvh5APIntD2Ev.exit92:                        ; preds = %if.else.i73, %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i74
+  %BitWidth.i71229 = phi ptr [ %BitWidth.i71228, %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i74 ], [ %BitWidth.i71, %if.else.i73 ]
+  %15 = load i64, ptr %ref.tmp38, align 8
+  store i64 %15, ptr %CharAP, align 8
+  %16 = load i32, ptr %BitWidth.i71229, align 8
+  store i32 %16, ptr %BitWidth.i55, align 8
+  store i32 0, ptr %BitWidth.i71229, align 8
   %.pre = load i32, ptr %BitWidth.i38, align 8
   br label %if.end40
 
-if.end40:                                         ; preds = %_ZN4llvh5APIntD2Ev.exit94, %if.end33
-  %16 = phi i32 [ %15, %_ZN4llvh5APIntD2Ev.exit94 ], [ 1, %if.end33 ]
-  %17 = phi i32 [ %.pre, %_ZN4llvh5APIntD2Ev.exit94 ], [ %10, %if.end33 ]
-  %cmp.i.i96 = icmp ult i32 %17, 65
-  br i1 %cmp.i.i96, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i99, label %if.else.i97
+if.end40:                                         ; preds = %_ZN4llvh5APIntD2Ev.exit92, %if.end33
+  %17 = phi i32 [ %16, %_ZN4llvh5APIntD2Ev.exit92 ], [ 1, %if.end33 ]
+  %18 = phi i32 [ %.pre, %_ZN4llvh5APIntD2Ev.exit92 ], [ %10, %if.end33 ]
+  %cmp.i.i94 = icmp ult i32 %18, 65
+  br i1 %cmp.i.i94, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i97, label %if.else.i95
 
-_ZN4llvh5APInt15clearUnusedBitsEv.exit.i99:       ; preds = %if.end40
+_ZN4llvh5APInt15clearUnusedBitsEv.exit.i97:       ; preds = %if.end40
   store i64 0, ptr %Result, align 8
   br label %while.body44.lr.ph
 
-if.else.i97:                                      ; preds = %if.end40
-  %18 = load ptr, ptr %Result, align 8
-  store i64 0, ptr %18, align 8
+if.else.i95:                                      ; preds = %if.end40
   %19 = load ptr, ptr %Result, align 8
-  %add.ptr.i98 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %20 = load i32, ptr %BitWidth.i38, align 8
-  %conv.i.i.i = zext i32 %20 to i64
+  store i64 0, ptr %19, align 8
+  %20 = load ptr, ptr %Result, align 8
+  %add.ptr.i96 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %21 = load i32, ptr %BitWidth.i38, align 8
+  %conv.i.i.i = zext i32 %21 to i64
   %sub.i.i.i = add nuw nsw i64 %conv.i.i.i, 63
   %sh.diff.i = lshr i64 %sub.i.i.i, 3
   %mul.i = add nuw nsw i64 %sh.diff.i, 4294967288
   %conv.i = and i64 %mul.i, 4294967288
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr.i98, i8 0, i64 %conv.i, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr.i96, i8 0, i64 %conv.i, i1 false)
   br label %while.body44.lr.ph
 
-while.body44.lr.ph:                               ; preds = %if.else.i97, %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i99
+while.body44.lr.ph:                               ; preds = %if.else.i95, %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i97
   %sh_prom.i = zext nneg i32 %Log2Radix.0 to i64
   br i1 %cmp19, label %while.body44.us, label %while.body44
 
 while.body44.us:                                  ; preds = %while.body44.lr.ph, %if.end96.us
-  %21 = phi ptr [ %add.ptr.i.us, %if.end96.us ], [ %Str.promoted181, %while.body44.lr.ph ]
-  %sub.i184186.us = phi i64 [ %sub.i.us, %if.end96.us ], [ %.pr, %while.body44.lr.ph ]
-  %22 = load i8, ptr %21, align 1
-  %cmp47.us = icmp sgt i8 %22, 47
+  %22 = phi ptr [ %add.ptr.i.us, %if.end96.us ], [ %Str.promoted171, %while.body44.lr.ph ]
+  %sub.i174176.us = phi i64 [ %sub.i.us, %if.end96.us ], [ %.pr, %while.body44.lr.ph ]
+  %23 = load i8, ptr %22, align 1
+  %cmp47.us = icmp sgt i8 %23, 47
   br i1 %cmp47.us, label %land.lhs.true.us, label %cleanup
 
 land.lhs.true.us:                                 ; preds = %while.body44.us
-  %cmp50.us = icmp samesign ult i8 %22, 58
+  %cmp50.us = icmp samesign ult i8 %23, 58
   br i1 %cmp50.us, label %if.end82.us, label %if.else54.us
 
 if.else54.us:                                     ; preds = %land.lhs.true.us
-  %cmp57.us = icmp samesign ugt i8 %22, 96
+  %cmp57.us = icmp samesign ugt i8 %23, 96
   br i1 %cmp57.us, label %land.lhs.true58.us, label %if.else66.us
 
 if.else66.us:                                     ; preds = %if.else54.us
-  %23 = add nsw i8 %22, -65
-  %or.cond.us = icmp ult i8 %23, 26
+  %24 = add nsw i8 %23, -65
+  %or.cond.us = icmp ult i8 %24, 26
   br i1 %or.cond.us, label %if.end82.us, label %cleanup
 
 land.lhs.true58.us:                               ; preds = %if.else54.us
-  %cmp61.us = icmp samesign ult i8 %22, 123
+  %cmp61.us = icmp samesign ult i8 %23, 123
   br i1 %cmp61.us, label %if.end82.us, label %cleanup
 
 if.end82.us:                                      ; preds = %land.lhs.true.us, %land.lhs.true58.us, %if.else66.us
   %.sink = phi i32 [ -87, %land.lhs.true58.us ], [ -55, %if.else66.us ], [ -48, %land.lhs.true.us ]
-  %conv53.us = zext nneg i8 %22 to i32
+  %conv53.us = zext nneg i8 %23 to i32
   %sub.us = add nsw i32 %.sink, %conv53.us
   %cmp83.not.us = icmp ult i32 %sub.us, %Radix.addr.0
   br i1 %cmp83.not.us, label %if.end85.us, label %cleanup
 
 if.end85.us:                                      ; preds = %if.end82.us
-  %24 = load i32, ptr %BitWidth.i38, align 8
-  %cmp.i.i107.us = icmp ult i32 %24, 65
-  br i1 %cmp.i.i107.us, label %_ZN4llvh5APIntlSEj.exit.us.thread, label %_ZN4llvh5APIntlSEj.exit.us
+  %25 = load i32, ptr %BitWidth.i38, align 8
+  %cmp.i.i103.us = icmp ult i32 %25, 65
+  br i1 %cmp.i.i103.us, label %_ZN4llvh5APIntlSEj.exit.us.thread, label %_ZN4llvh5APIntlSEj.exit.us
 
 _ZN4llvh5APIntlSEj.exit.us.thread:                ; preds = %if.end85.us
-  %cmp.i109.us = icmp eq i32 %Log2Radix.0, %24
-  %25 = load i64, ptr %Result, align 8
-  %shl.i.us = shl i64 %25, %sh_prom.i
-  %storemerge.i.us = select i1 %cmp.i109.us, i64 0, i64 %shl.i.us
-  %sub.i.i110.us = add nuw nsw i32 %24, 63
-  %rem.i.i111.us = and i32 %sub.i.i110.us, 63
-  %sub2.i.i112.us = xor i32 %rem.i.i111.us, 63
-  %sh_prom.i.i113.us = zext nneg i32 %sub2.i.i112.us to i64
-  %shr.i.i114.us = lshr i64 -1, %sh_prom.i.i113.us
-  %and.i.i115.us = and i64 %storemerge.i.us, %shr.i.i114.us
-  store i64 %and.i.i115.us, ptr %Result, align 8
-  %conv89.us241 = zext nneg i32 %sub.us to i64
-  br label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i119.us
+  %cmp.i105.us = icmp eq i32 %Log2Radix.0, %25
+  %26 = load i64, ptr %Result, align 8
+  %shl.i.us = shl i64 %26, %sh_prom.i
+  %storemerge.i.us = select i1 %cmp.i105.us, i64 0, i64 %shl.i.us
+  %27 = sub nsw i32 0, %25
+  %sub2.i.i106.us = and i32 %27, 63
+  %sh_prom.i.i107.us = zext nneg i32 %sub2.i.i106.us to i64
+  %shr.i.i108.us = lshr i64 -1, %sh_prom.i.i107.us
+  %and.i.i109.us = and i64 %storemerge.i.us, %shr.i.i108.us
+  store i64 %and.i.i109.us, ptr %Result, align 8
+  %conv89.us231 = zext nneg i32 %sub.us to i64
+  br label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i113.us
 
 _ZN4llvh5APIntlSEj.exit.us:                       ; preds = %if.end85.us
   call void @_ZN4llvh5APInt11shlSlowCaseEj(ptr noundef nonnull align 8 dereferenceable(12) %Result, i32 noundef %Log2Radix.0) #20
-  %.pre224 = load i32, ptr %BitWidth.i38, align 8
+  %.pre214 = load i32, ptr %BitWidth.i38, align 8
   %conv89.us = zext nneg i32 %sub.us to i64
-  %cmp.i.i117.us = icmp ult i32 %.pre224, 65
-  br i1 %cmp.i.i117.us, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i119.us, label %if.else.i118.us
+  %cmp.i.i111.us = icmp ult i32 %.pre214, 65
+  br i1 %cmp.i.i111.us, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i113.us, label %if.else.i112.us
 
-if.else.i118.us:                                  ; preds = %_ZN4llvh5APIntlSEj.exit.us
-  %26 = load ptr, ptr %Result, align 8
-  %27 = load i64, ptr %26, align 8
-  %or4.i.us = or i64 %27, %conv89.us
-  store i64 %or4.i.us, ptr %26, align 8
+if.else.i112.us:                                  ; preds = %_ZN4llvh5APIntlSEj.exit.us
+  %28 = load ptr, ptr %Result, align 8
+  %29 = load i64, ptr %28, align 8
+  %or4.i.us = or i64 %29, %conv89.us
+  store i64 %or4.i.us, ptr %28, align 8
   br label %if.end96.us
 
-_ZN4llvh5APInt15clearUnusedBitsEv.exit.i119.us:   ; preds = %_ZN4llvh5APIntlSEj.exit.us.thread, %_ZN4llvh5APIntlSEj.exit.us
-  %conv89.us243 = phi i64 [ %conv89.us241, %_ZN4llvh5APIntlSEj.exit.us.thread ], [ %conv89.us, %_ZN4llvh5APIntlSEj.exit.us ]
-  %28 = phi i32 [ %24, %_ZN4llvh5APIntlSEj.exit.us.thread ], [ %.pre224, %_ZN4llvh5APIntlSEj.exit.us ]
-  %29 = load i64, ptr %Result, align 8
-  %or.i.us = or i64 %29, %conv89.us243
-  %sub.i.i120.us = add nuw nsw i32 %28, 63
-  %rem.i.i121.us = and i32 %sub.i.i120.us, 63
-  %sub2.i.i122.us = xor i32 %rem.i.i121.us, 63
-  %sh_prom.i.i123.us = zext nneg i32 %sub2.i.i122.us to i64
-  %shr.i.i124.us = lshr i64 -1, %sh_prom.i.i123.us
-  %and.i.i125.us = and i64 %or.i.us, %shr.i.i124.us
-  store i64 %and.i.i125.us, ptr %Result, align 8
+_ZN4llvh5APInt15clearUnusedBitsEv.exit.i113.us:   ; preds = %_ZN4llvh5APIntlSEj.exit.us.thread, %_ZN4llvh5APIntlSEj.exit.us
+  %conv89.us233 = phi i64 [ %conv89.us231, %_ZN4llvh5APIntlSEj.exit.us.thread ], [ %conv89.us, %_ZN4llvh5APIntlSEj.exit.us ]
+  %30 = phi i32 [ %25, %_ZN4llvh5APIntlSEj.exit.us.thread ], [ %.pre214, %_ZN4llvh5APIntlSEj.exit.us ]
+  %31 = load i64, ptr %Result, align 8
+  %or.i.us = or i64 %31, %conv89.us233
+  %32 = sub nsw i32 0, %30
+  %sub2.i.i114.us = and i32 %32, 63
+  %sh_prom.i.i115.us = zext nneg i32 %sub2.i.i114.us to i64
+  %shr.i.i116.us = lshr i64 -1, %sh_prom.i.i115.us
+  %and.i.i117.us = and i64 %or.i.us, %shr.i.i116.us
+  store i64 %and.i.i117.us, ptr %Result, align 8
   br label %if.end96.us
 
-if.end96.us:                                      ; preds = %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i119.us, %if.else.i118.us
-  %add.ptr.i.us = getelementptr inbounds nuw i8, ptr %21, i64 1
-  %sub.i.us = add i64 %sub.i184186.us, -1
+if.end96.us:                                      ; preds = %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i113.us, %if.else.i112.us
+  %add.ptr.i.us = getelementptr inbounds nuw i8, ptr %22, i64 1
+  %sub.i.us = add i64 %sub.i174176.us, -1
   %cmp.i.not.us.not = icmp eq i64 %sub.i.us, 0
   br i1 %cmp.i.not.us.not, label %cleanup, label %while.body44.us, !llvm.loop !37
 
-while.body44:                                     ; preds = %while.body44.lr.ph, %_ZN4llvh5APIntaSEm.exit142
-  %30 = phi ptr [ %add.ptr.i, %_ZN4llvh5APIntaSEm.exit142 ], [ %Str.promoted181, %while.body44.lr.ph ]
-  %sub.i184186 = phi i64 [ %sub.i, %_ZN4llvh5APIntaSEm.exit142 ], [ %.pr, %while.body44.lr.ph ]
-  %31 = load i8, ptr %30, align 1
-  %cmp47 = icmp sgt i8 %31, 47
-  br i1 %cmp47, label %land.lhs.true, label %cleanup.loopexit216
+while.body44:                                     ; preds = %while.body44.lr.ph, %_ZN4llvh5APIntaSEm.exit132
+  %33 = phi ptr [ %add.ptr.i, %_ZN4llvh5APIntaSEm.exit132 ], [ %Str.promoted171, %while.body44.lr.ph ]
+  %sub.i174176 = phi i64 [ %sub.i, %_ZN4llvh5APIntaSEm.exit132 ], [ %.pr, %while.body44.lr.ph ]
+  %34 = load i8, ptr %33, align 1
+  %cmp47 = icmp sgt i8 %34, 47
+  br i1 %cmp47, label %land.lhs.true, label %cleanup.loopexit206
 
 land.lhs.true:                                    ; preds = %while.body44
-  %cmp50 = icmp samesign ult i8 %31, 58
+  %cmp50 = icmp samesign ult i8 %34, 58
   br i1 %cmp50, label %if.end82, label %if.else54
 
 if.else54:                                        ; preds = %land.lhs.true
-  %cmp57 = icmp samesign ugt i8 %31, 96
+  %cmp57 = icmp samesign ugt i8 %34, 96
   br i1 %cmp57, label %land.lhs.true58, label %if.else66
 
 land.lhs.true58:                                  ; preds = %if.else54
-  %cmp61 = icmp samesign ult i8 %31, 123
-  br i1 %cmp61, label %if.end82, label %cleanup.loopexit216
+  %cmp61 = icmp samesign ult i8 %34, 123
+  br i1 %cmp61, label %if.end82, label %cleanup.loopexit206
 
 if.else66:                                        ; preds = %if.else54
-  %32 = add nsw i8 %31, -65
-  %or.cond = icmp ult i8 %32, 26
-  br i1 %or.cond, label %if.end82, label %cleanup.loopexit216
+  %35 = add nsw i8 %34, -65
+  %or.cond = icmp ult i8 %35, 26
+  br i1 %or.cond, label %if.end82, label %cleanup.loopexit206
 
 if.end82:                                         ; preds = %if.else66, %land.lhs.true58, %land.lhs.true
-  %.sink246 = phi i32 [ -48, %land.lhs.true ], [ -87, %land.lhs.true58 ], [ -55, %if.else66 ]
-  %conv64 = zext nneg i8 %31 to i32
-  %add = add nsw i32 %.sink246, %conv64
+  %.sink236 = phi i32 [ -48, %land.lhs.true ], [ -87, %land.lhs.true58 ], [ -55, %if.else66 ]
+  %conv64 = zext nneg i8 %34 to i32
+  %add = add nsw i32 %.sink236, %conv64
   %cmp83.not = icmp ult i32 %add, %Radix.addr.0
-  br i1 %cmp83.not, label %if.end85, label %cleanup.loopexit216
+  br i1 %cmp83.not, label %if.end85, label %cleanup.loopexit206
 
 if.end85:                                         ; preds = %if.end82
   %call92 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntmLERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %Result, ptr noundef nonnull align 8 dereferenceable(12) %RadixAP) #20
   %conv93 = zext nneg i32 %add to i64
-  %33 = load i32, ptr %BitWidth.i55, align 8
-  %cmp.i.i127 = icmp ult i32 %33, 65
-  br i1 %cmp.i.i127, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i135, label %if.else.i128
-
-_ZN4llvh5APInt15clearUnusedBitsEv.exit.i135:      ; preds = %if.end85
-  %sub.i.i136 = add nuw nsw i32 %33, 63
-  %rem.i.i137 = and i32 %sub.i.i136, 63
-  %sub2.i.i138 = xor i32 %rem.i.i137, 63
-  %sh_prom.i.i139 = zext nneg i32 %sub2.i.i138 to i64
-  %shr.i.i140 = lshr i64 -1, %sh_prom.i.i139
-  %and.i.i141 = and i64 %shr.i.i140, %conv93
-  store i64 %and.i.i141, ptr %CharAP, align 8
-  br label %_ZN4llvh5APIntaSEm.exit142
-
-if.else.i128:                                     ; preds = %if.end85
-  %34 = load ptr, ptr %CharAP, align 8
-  store i64 %conv93, ptr %34, align 8
-  %35 = load ptr, ptr %CharAP, align 8
-  %add.ptr.i129 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %36 = load i32, ptr %BitWidth.i55, align 8
-  %conv.i.i.i130 = zext i32 %36 to i64
-  %sub.i.i.i131 = add nuw nsw i64 %conv.i.i.i130, 63
-  %sh.diff.i132 = lshr i64 %sub.i.i.i131, 3
-  %mul.i133 = add nuw nsw i64 %sh.diff.i132, 4294967288
-  %conv.i134 = and i64 %mul.i133, 4294967288
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr.i129, i8 0, i64 %conv.i134, i1 false)
-  br label %_ZN4llvh5APIntaSEm.exit142
+  %cmp.i.i119 = icmp ult i32 %36, 65
+  br i1 %cmp.i.i119, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i127, label %if.else.i120
 
-_ZN4llvh5APIntaSEm.exit142:                       ; preds = %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i135, %if.else.i128
+_ZN4llvh5APInt15clearUnusedBitsEv.exit.i127:      ; preds = %if.end85
+  %37 = sub nsw i32 0, %36
+  %sub2.i.i128 = and i32 %37, 63
+  %sh_prom.i.i129 = zext nneg i32 %sub2.i.i128 to i64
+  %shr.i.i130 = lshr i64 -1, %sh_prom.i.i129
+  %and.i.i131 = and i64 %shr.i.i130, %conv93
+  store i64 %and.i.i131, ptr %CharAP, align 8
+  br label %_ZN4llvh5APIntaSEm.exit132
+
+if.else.i120:                                     ; preds = %if.end85
+  %38 = load ptr, ptr %CharAP, align 8
+  store i64 %conv93, ptr %38, align 8
+  %39 = load ptr, ptr %CharAP, align 8
+  %add.ptr.i121 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %40 = load i32, ptr %BitWidth.i55, align 8
+  %conv.i.i.i122 = zext i32 %40 to i64
+  %sub.i.i.i123 = add nuw nsw i64 %conv.i.i.i122, 63
+  %sh.diff.i124 = lshr i64 %sub.i.i.i123, 3
+  %mul.i125 = add nuw nsw i64 %sh.diff.i124, 4294967288
+  %conv.i126 = and i64 %mul.i125, 4294967288
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr.i121, i8 0, i64 %conv.i126, i1 false)
+  br label %_ZN4llvh5APIntaSEm.exit132
+
+_ZN4llvh5APIntaSEm.exit132:                       ; preds = %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i127, %if.else.i120
   %call95 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntpLERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %Result, ptr noundef nonnull align 8 dereferenceable(12) %CharAP) #20
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %30, i64 1
-  %sub.i = add i64 %sub.i184186, -1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %33, i64 1
+  %sub.i = add i64 %sub.i174176, -1
   %cmp.i.not.not = icmp eq i64 %sub.i, 0
-  br i1 %cmp.i.not.not, label %cleanup.loopexit216, label %while.body44, !llvm.loop !37
+  br i1 %cmp.i.not.not, label %cleanup.loopexit206, label %while.body44, !llvm.loop !37
 
-cleanup.loopexit216:                              ; preds = %land.lhs.true58, %while.body44, %_ZN4llvh5APIntaSEm.exit142, %if.end82, %if.else66
-  %cmp.i.not.lcssa.ph219 = phi i1 [ true, %if.else66 ], [ true, %if.end82 ], [ false, %_ZN4llvh5APIntaSEm.exit142 ], [ true, %while.body44 ], [ true, %land.lhs.true58 ]
-  %.pre225 = load i32, ptr %BitWidth.i55, align 8
+cleanup.loopexit206:                              ; preds = %land.lhs.true58, %while.body44, %_ZN4llvh5APIntaSEm.exit132, %if.end82, %if.else66
+  %cmp.i.not.lcssa.ph209 = phi i1 [ true, %if.else66 ], [ true, %if.end82 ], [ false, %_ZN4llvh5APIntaSEm.exit132 ], [ true, %while.body44 ], [ true, %land.lhs.true58 ]
+  %.pre215 = load i32, ptr %BitWidth.i55, align 8
   br label %cleanup
 
-cleanup:                                          ; preds = %if.else66.us, %if.end82.us, %if.end96.us, %while.body44.us, %land.lhs.true58.us, %cleanup.loopexit216
-  %37 = phi i32 [ %.pre225, %cleanup.loopexit216 ], [ %16, %land.lhs.true58.us ], [ %16, %while.body44.us ], [ %16, %if.end96.us ], [ %16, %if.end82.us ], [ %16, %if.else66.us ]
-  %cmp.i.not.lcssa = phi i1 [ %cmp.i.not.lcssa.ph219, %cleanup.loopexit216 ], [ true, %if.else66.us ], [ true, %if.end82.us ], [ false, %if.end96.us ], [ true, %while.body44.us ], [ true, %land.lhs.true58.us ]
-  %cmp.i.i.i148 = icmp ugt i32 %37, 64
-  br i1 %cmp.i.i.i148, label %if.then.i149, label %_ZN4llvh5APIntD2Ev.exit152
+cleanup:                                          ; preds = %if.else66.us, %if.end82.us, %if.end96.us, %while.body44.us, %land.lhs.true58.us, %cleanup.loopexit206
+  %41 = phi i32 [ %.pre215, %cleanup.loopexit206 ], [ %17, %land.lhs.true58.us ], [ %17, %while.body44.us ], [ %17, %if.end96.us ], [ %17, %if.end82.us ], [ %17, %if.else66.us ]
+  %cmp.i.not.lcssa = phi i1 [ %cmp.i.not.lcssa.ph209, %cleanup.loopexit206 ], [ true, %if.else66.us ], [ true, %if.end82.us ], [ false, %if.end96.us ], [ true, %while.body44.us ], [ true, %land.lhs.true58.us ]
+  %cmp.i.i.i138 = icmp ugt i32 %41, 64
+  br i1 %cmp.i.i.i138, label %if.then.i139, label %_ZN4llvh5APIntD2Ev.exit142
 
-if.then.i149:                                     ; preds = %cleanup
-  %38 = load ptr, ptr %CharAP, align 8
-  %isnull.i150 = icmp eq ptr %38, null
-  br i1 %isnull.i150, label %_ZN4llvh5APIntD2Ev.exit152, label %delete.notnull.i151
+if.then.i139:                                     ; preds = %cleanup
+  %42 = load ptr, ptr %CharAP, align 8
+  %isnull.i140 = icmp eq ptr %42, null
+  br i1 %isnull.i140, label %_ZN4llvh5APIntD2Ev.exit142, label %delete.notnull.i141
 
-delete.notnull.i151:                              ; preds = %if.then.i149
-  call void @_ZdaPv(ptr noundef nonnull %38) #19
-  br label %_ZN4llvh5APIntD2Ev.exit152
+delete.notnull.i141:                              ; preds = %if.then.i139
+  call void @_ZdaPv(ptr noundef nonnull %42) #19
+  br label %_ZN4llvh5APIntD2Ev.exit142
 
-_ZN4llvh5APIntD2Ev.exit152:                       ; preds = %cleanup, %if.then.i149, %delete.notnull.i151
-  %39 = load i32, ptr %BitWidth.i54, align 8
-  %cmp.i.i.i154 = icmp ugt i32 %39, 64
-  br i1 %cmp.i.i.i154, label %if.then.i155, label %return
+_ZN4llvh5APIntD2Ev.exit142:                       ; preds = %cleanup, %if.then.i139, %delete.notnull.i141
+  %43 = load i32, ptr %BitWidth.i54, align 8
+  %cmp.i.i.i144 = icmp ugt i32 %43, 64
+  br i1 %cmp.i.i.i144, label %if.then.i145, label %return
 
-if.then.i155:                                     ; preds = %_ZN4llvh5APIntD2Ev.exit152
-  %40 = load ptr, ptr %RadixAP, align 8
-  %isnull.i156 = icmp eq ptr %40, null
-  br i1 %isnull.i156, label %return, label %delete.notnull.i157
+if.then.i145:                                     ; preds = %_ZN4llvh5APIntD2Ev.exit142
+  %44 = load ptr, ptr %RadixAP, align 8
+  %isnull.i146 = icmp eq ptr %44, null
+  br i1 %isnull.i146, label %return, label %delete.notnull.i147
 
-delete.notnull.i157:                              ; preds = %if.then.i155
-  call void @_ZdaPv(ptr noundef nonnull %40) #19
+delete.notnull.i147:                              ; preds = %if.then.i145
+  call void @_ZdaPv(ptr noundef nonnull %44) #19
   br label %return
 
-return:                                           ; preds = %delete.notnull.i157, %if.then.i155, %_ZN4llvh5APIntD2Ev.exit152, %if.end, %_ZN4llvh5APIntD2Ev.exit
-  %retval.0 = phi i1 [ true, %if.end ], [ false, %_ZN4llvh5APIntD2Ev.exit ], [ %cmp.i.not.lcssa, %_ZN4llvh5APIntD2Ev.exit152 ], [ %cmp.i.not.lcssa, %if.then.i155 ], [ %cmp.i.not.lcssa, %delete.notnull.i157 ]
+return:                                           ; preds = %delete.notnull.i147, %if.then.i145, %_ZN4llvh5APIntD2Ev.exit142, %if.end, %_ZN4llvh5APIntD2Ev.exit
+  %retval.0 = phi i1 [ true, %if.end ], [ false, %_ZN4llvh5APIntD2Ev.exit ], [ %cmp.i.not.lcssa, %_ZN4llvh5APIntD2Ev.exit142 ], [ %cmp.i.not.lcssa, %if.then.i145 ], [ %cmp.i.not.lcssa, %delete.notnull.i147 ]
   ret i1 %retval.0
 }
 

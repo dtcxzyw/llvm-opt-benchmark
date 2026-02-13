@@ -11962,50 +11962,49 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
   %69 = load i32, ptr %68, align 8, !tbaa !730
   store i32 %69, ptr %16, align 8, !tbaa !698, !alias.scope !887
   %70 = icmp ult i32 %69, 65
-  br i1 %70, label %71, label %78
+  br i1 %70, label %71, label %77
 
 71:                                               ; preds = %67
-  %72 = add nuw nsw i32 %69, 63
+  %72 = sub nsw i32 0, %69
   %73 = and i32 %72, 63
-  %74 = xor i32 %73, 63
-  %75 = zext nneg i32 %74 to i64
-  %76 = lshr i64 -1, %75
-  %77 = icmp eq i32 %69, 0
-  %spec.select.i.i.i25 = select i1 %77, i64 0, i64 %76, !prof !247
+  %74 = zext nneg i32 %73 to i64
+  %75 = lshr i64 -1, %74
+  %76 = icmp eq i32 %69, 0
+  %spec.select.i.i.i25 = select i1 %76, i64 0, i64 %75, !prof !247
   store i64 %spec.select.i.i.i25, ptr %7, align 8, !tbaa !67, !alias.scope !887
   br label %_ZN4llvm5APInt10getAllOnesEj.exit.i
 
-78:                                               ; preds = %67
+77:                                               ; preds = %67
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %7, i64 noundef -1, i1 noundef zeroext true) #25
   br label %_ZN4llvm5APInt10getAllOnesEj.exit.i
 
-_ZN4llvm5APInt10getAllOnesEj.exit.i:              ; preds = %78, %71
+_ZN4llvm5APInt10getAllOnesEj.exit.i:              ; preds = %77, %71
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  %79 = call { i64, i32 } @_ZN4llvm10X86TTIImpl24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindENS_8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(12) %7, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef %5, ptr noundef nonnull byval(%"class.llvm::ArrayRef.929") align 8 %8) #25
-  %80 = load i32, ptr %16, align 8, !tbaa !698
-  %81 = icmp ugt i32 %80, 64
-  br i1 %81, label %82, label %_ZN4llvm5APIntD2Ev.exit.i
+  %78 = call { i64, i32 } @_ZN4llvm10X86TTIImpl24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindENS_8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(12) %7, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef %5, ptr noundef nonnull byval(%"class.llvm::ArrayRef.929") align 8 %8) #25
+  %79 = load i32, ptr %16, align 8, !tbaa !698
+  %80 = icmp ugt i32 %79, 64
+  br i1 %80, label %81, label %_ZN4llvm5APIntD2Ev.exit.i
 
-82:                                               ; preds = %_ZN4llvm5APInt10getAllOnesEj.exit.i
-  %83 = load ptr, ptr %7, align 8, !tbaa !67
-  %84 = icmp eq ptr %83, null
-  br i1 %84, label %_ZN4llvm5APIntD2Ev.exit.i, label %85
+81:                                               ; preds = %_ZN4llvm5APInt10getAllOnesEj.exit.i
+  %82 = load ptr, ptr %7, align 8, !tbaa !67
+  %83 = icmp eq ptr %82, null
+  br i1 %83, label %_ZN4llvm5APIntD2Ev.exit.i, label %84
 
-85:                                               ; preds = %82
-  call void @_ZdaPv(ptr noundef nonnull %83) #27
+84:                                               ; preds = %81
+  call void @_ZdaPv(ptr noundef nonnull %82) #27
   br label %_ZN4llvm5APIntD2Ev.exit.i
 
-_ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %85, %82, %_ZN4llvm5APInt10getAllOnesEj.exit.i
+_ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %84, %81, %_ZN4llvm5APInt10getAllOnesEj.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN4llvm16BasicTTIImplBaseINS_10X86TTIImplEE24getScalarizationOverheadEPNS_10VectorTypeEbbNS_19TargetTransformInfo14TargetCostKindE.exit
 
 _ZN4llvm16BasicTTIImplBaseINS_10X86TTIImplEE24getScalarizationOverheadEPNS_10VectorTypeEbbNS_19TargetTransformInfo14TargetCostKindE.exit: ; preds = %65, %_ZN4llvm5APIntD2Ev.exit.i
-  %.pn.i = phi { i64, i32 } [ %79, %_ZN4llvm5APIntD2Ev.exit.i ], [ { i64 0, i32 1 }, %65 ]
+  %.pn.i = phi { i64, i32 } [ %78, %_ZN4llvm5APIntD2Ev.exit.i ], [ { i64 0, i32 1 }, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.fca.0.extract = extractvalue { i64, i32 } %.pn.i, 0
   %.fca.1.extract = extractvalue { i64, i32 } %.pn.i, 1
-  %86 = icmp eq i32 %.fca.1.extract, 1
-  %spec.select = select i1 %86, i32 1, i32 %.sroa.434.040
+  %85 = icmp eq i32 %.fca.1.extract, 1
+  %spec.select = select i1 %85, i32 1, i32 %.sroa.434.040
   %.0.i = call i64 @llvm.sadd.sat.i64(i64 %.sroa.032.039, i64 %.fca.0.extract)
   br label %.critedge
 

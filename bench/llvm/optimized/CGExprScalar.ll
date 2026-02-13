@@ -31257,63 +31257,62 @@ _ZNK5clang12APIntStorage8getValueEv.exit:         ; preds = %21, %27
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %30, ptr %42, align 8, !tbaa !1165
   %43 = icmp ult i32 %30, 65
-  br i1 %43, label %44, label %52
+  br i1 %43, label %44, label %51
 
 44:                                               ; preds = %_ZNK5clang12APIntStorage8getValueEv.exit
   store i64 %36, ptr %2, align 8, !tbaa !3
   br i1 %41, label %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i, label %_ZN4llvm5APIntC2Ejmbb.exit
 
 _ZN4llvm5APInt15clearUnusedBitsEv.exit.i:         ; preds = %44
-  %45 = add nuw nsw i32 %30, 63
+  %45 = sub nsw i32 0, %30
   %46 = and i32 %45, 63
-  %47 = xor i32 %46, 63
-  %48 = zext nneg i32 %47 to i64
-  %49 = lshr i64 -1, %48
-  %50 = icmp eq i32 %30, 0
-  %spec.select.i = select i1 %50, i64 0, i64 %49, !prof !1407
-  %51 = and i64 %spec.select.i, %36
-  store i64 %51, ptr %2, align 8, !tbaa !3
+  %47 = zext nneg i32 %46 to i64
+  %48 = lshr i64 -1, %47
+  %49 = icmp eq i32 %30, 0
+  %spec.select.i = select i1 %49, i64 0, i64 %48, !prof !1407
+  %50 = and i64 %spec.select.i, %36
+  store i64 %50, ptr %2, align 8, !tbaa !3
   br label %_ZN4llvm5APIntC2Ejmbb.exit
 
-52:                                               ; preds = %_ZNK5clang12APIntStorage8getValueEv.exit
+51:                                               ; preds = %_ZNK5clang12APIntStorage8getValueEv.exit
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %2, i64 noundef %36, i1 noundef zeroext %41) #21
   br label %_ZN4llvm5APIntC2Ejmbb.exit
 
-_ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %44, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i, %52
+_ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %44, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i, %51
   call void @_ZN5clang16APNumericStorage11setIntValueERKNS_10ASTContextERKN4llvm5APIntE(ptr noundef nonnull align 8 dereferenceable(12) %15, ptr noundef nonnull align 8 dereferenceable(23216) %17, ptr noundef nonnull align 8 dereferenceable(12) %2) #21
-  %53 = load i32, ptr %42, align 8, !tbaa !1165
-  %54 = icmp ugt i32 %53, 64
-  br i1 %54, label %55, label %_ZN4llvm5APIntD2Ev.exit
+  %52 = load i32, ptr %42, align 8, !tbaa !1165
+  %53 = icmp ugt i32 %52, 64
+  br i1 %53, label %54, label %_ZN4llvm5APIntD2Ev.exit
 
-55:                                               ; preds = %_ZN4llvm5APIntC2Ejmbb.exit
-  %56 = load ptr, ptr %2, align 8, !tbaa !3
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %_ZN4llvm5APIntD2Ev.exit, label %58
+54:                                               ; preds = %_ZN4llvm5APIntC2Ejmbb.exit
+  %55 = load ptr, ptr %2, align 8, !tbaa !3
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %_ZN4llvm5APIntD2Ev.exit, label %57
 
-58:                                               ; preds = %55
-  call void @_ZdaPv(ptr noundef nonnull %56) #24
+57:                                               ; preds = %54
+  call void @_ZdaPv(ptr noundef nonnull %55) #24
   br label %_ZN4llvm5APIntD2Ev.exit
 
-_ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APIntC2Ejmbb.exit, %55, %58
-  %59 = load i32, ptr %31, align 8, !tbaa !1165
-  %60 = icmp ugt i32 %59, 64
-  br i1 %60, label %61, label %_ZN4llvm5APIntD2Ev.exit4
+_ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APIntC2Ejmbb.exit, %54, %57
+  %58 = load i32, ptr %31, align 8, !tbaa !1165
+  %59 = icmp ugt i32 %58, 64
+  br i1 %59, label %60, label %_ZN4llvm5APIntD2Ev.exit4
 
-61:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit
-  %62 = load ptr, ptr %3, align 8, !tbaa !3
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %_ZN4llvm5APIntD2Ev.exit4, label %64
+60:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit
+  %61 = load ptr, ptr %3, align 8, !tbaa !3
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %_ZN4llvm5APIntD2Ev.exit4, label %63
 
-64:                                               ; preds = %61
-  call void @_ZdaPv(ptr noundef nonnull %62) #24
+63:                                               ; preds = %60
+  call void @_ZdaPv(ptr noundef nonnull %61) #24
   br label %_ZN4llvm5APIntD2Ev.exit4
 
-_ZN4llvm5APIntD2Ev.exit4:                         ; preds = %_ZN4llvm5APIntD2Ev.exit, %61, %64
+_ZN4llvm5APIntD2Ev.exit4:                         ; preds = %_ZN4llvm5APIntD2Ev.exit, %60, %63
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %65 = load ptr, ptr %0, align 8, !tbaa !1544
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  ret ptr %66
+  %64 = load ptr, ptr %0, align 8, !tbaa !1544
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  ret ptr %65
 }
 
 declare noundef zeroext i1 @_ZNK5clang4Type19isSignedIntegerTypeEv(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #2
@@ -37148,44 +37147,44 @@ _ZN4llvm7APFloatD2Ev.exit34:                      ; preds = %115, %118, %114
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %120 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %46, ptr %120, align 8, !tbaa !1165, !noalias !1647
-  br i1 %50, label %121, label %130
+  br i1 %50, label %121, label %129
 
 121:                                              ; preds = %119
-  br i1 %52, label %122, label %129
+  br i1 %52, label %122, label %128
 
 122:                                              ; preds = %121
-  %123 = add nuw nsw i32 %46, 63
+  %123 = sub nsw i32 0, %46
   %124 = and i32 %123, 63
-  %125 = xor i32 %124, 63
-  %126 = zext nneg i32 %125 to i64
-  %127 = lshr i64 -1, %126
-  %128 = icmp eq i32 %46, 0
-  %spec.select.i.i.i.i = select i1 %128, i64 0, i64 %127, !prof !1407
+  %125 = zext nneg i32 %124 to i64
+  %126 = lshr i64 -1, %125
+  %127 = icmp eq i32 %46, 0
+  %spec.select.i.i.i.i = select i1 %127, i64 0, i64 %126, !prof !1407
   store i64 %spec.select.i.i.i.i, ptr %10, align 8, !tbaa !3, !alias.scope !1650, !noalias !1647
   br label %_ZN4llvm6APSInt11getMaxValueEjb.exit
 
-129:                                              ; preds = %121
+128:                                              ; preds = %121
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %10, i64 noundef -1, i1 noundef zeroext true) #21, !noalias !1647
   %.pre7.i = load i32, ptr %120, align 8, !tbaa !1165, !noalias !1647
   br label %_ZN4llvm6APSInt11getMaxValueEjb.exit
 
-130:                                              ; preds = %119
+129:                                              ; preds = %119
   br i1 %52, label %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i.i, label %_ZN4llvm5APInt10getAllOnesEj.exit.i.i
 
-_ZN4llvm5APInt10getAllOnesEj.exit.thread.i.i:     ; preds = %130
-  %131 = add nuw nsw i32 %46, 63
-  %132 = and i32 %131, 63
-  %133 = xor i32 %132, 63
-  %134 = zext nneg i32 %133 to i64
-  %135 = lshr i64 -1, %134
-  %136 = icmp eq i32 %46, 0
-  %spec.select.i.i.i6.i = select i1 %136, i64 0, i64 %135, !prof !1407
-  %137 = zext nneg i32 %132 to i64
+_ZN4llvm5APInt10getAllOnesEj.exit.thread.i.i:     ; preds = %129
+  %130 = sub nsw i32 0, %46
+  %131 = and i32 %130, 63
+  %132 = zext nneg i32 %131 to i64
+  %133 = lshr i64 -1, %132
+  %134 = icmp eq i32 %46, 0
+  %spec.select.i.i.i6.i = select i1 %134, i64 0, i64 %133, !prof !1407
+  %135 = add nuw nsw i32 %46, 63
+  %136 = and i32 %135, 63
+  %137 = zext nneg i32 %136 to i64
   %138 = shl nuw i64 1, %137
   %139 = xor i64 %138, -1
   br label %146
 
-_ZN4llvm5APInt10getAllOnesEj.exit.i.i:            ; preds = %130
+_ZN4llvm5APInt10getAllOnesEj.exit.i.i:            ; preds = %129
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %10, i64 noundef -1, i1 noundef zeroext true) #21, !noalias !1647
   %.pre.i.i35 = load i32, ptr %120, align 8, !tbaa !1165, !alias.scope !1655, !noalias !1647
   %140 = icmp ult i32 %.pre.i.i35, 65
@@ -37218,8 +37217,8 @@ _ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge.i: ; preds = %_ZN4llvm5APInt10get
   store i64 %157, ptr %155, align 8, !tbaa !1005, !noalias !1647
   br label %_ZN4llvm6APSInt11getMaxValueEjb.exit
 
-_ZN4llvm6APSInt11getMaxValueEjb.exit:             ; preds = %122, %129, %146, %151
-  %158 = phi i32 [ %46, %122 ], [ %.pre7.i, %129 ], [ %147, %146 ], [ %.pre.i.i35, %151 ]
+_ZN4llvm6APSInt11getMaxValueEjb.exit:             ; preds = %122, %128, %146, %151
+  %158 = phi i32 [ %46, %122 ], [ %.pre7.i, %128 ], [ %147, %146 ], [ %.pre.i.i35, %151 ]
   %159 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %158, ptr %159, align 8, !tbaa !1165, !alias.scope !1647
   %160 = load i64, ptr %10, align 8, !noalias !1647
@@ -42752,75 +42751,75 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter21GetMax
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %14, ptr %15, align 8, !tbaa !1165
   %16 = icmp ult i32 %14, 65
-  br i1 %1, label %17, label %48
+  br i1 %1, label %17, label %49
 
 17:                                               ; preds = %11
   br i1 %16, label %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i, label %_ZN4llvm5APInt10getAllOnesEj.exit.i
 
 _ZN4llvm5APInt10getAllOnesEj.exit.thread.i:       ; preds = %17
-  %18 = add nuw nsw i32 %14, 63
+  %18 = sub nsw i32 0, %14
   %19 = and i32 %18, 63
-  %20 = xor i32 %19, 63
-  %21 = zext nneg i32 %20 to i64
-  %22 = lshr i64 -1, %21
-  %23 = icmp eq i32 %14, 0
-  %spec.select.i.i.i = select i1 %23, i64 0, i64 %22, !prof !1407
-  %24 = zext nneg i32 %19 to i64
-  %25 = shl nuw i64 1, %24
-  %26 = xor i64 %25, -1
-  br label %33
+  %20 = zext nneg i32 %19 to i64
+  %21 = lshr i64 -1, %20
+  %22 = icmp eq i32 %14, 0
+  %spec.select.i.i.i = select i1 %22, i64 0, i64 %21, !prof !1407
+  %23 = add nuw nsw i32 %14, 63
+  %24 = and i32 %23, 63
+  %25 = zext nneg i32 %24 to i64
+  %26 = shl nuw i64 1, %25
+  %27 = xor i64 %26, -1
+  br label %34
 
 _ZN4llvm5APInt10getAllOnesEj.exit.i:              ; preds = %17
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %3, i64 noundef -1, i1 noundef zeroext true) #21
   %.pre.i = load i32, ptr %15, align 8, !tbaa !1165, !alias.scope !1681
-  %27 = icmp ult i32 %.pre.i, 65
-  %28 = add i32 %14, -1
-  %29 = and i32 %28, 63
-  %30 = zext nneg i32 %29 to i64
-  %31 = shl nuw i64 1, %30
-  %32 = xor i64 %31, -1
-  br i1 %27, label %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge, label %_ZN4llvm5APInt17getSignedMaxValueEj.exit.thread7
+  %28 = icmp ult i32 %.pre.i, 65
+  %29 = add i32 %14, -1
+  %30 = and i32 %29, 63
+  %31 = zext nneg i32 %30 to i64
+  %32 = shl nuw i64 1, %31
+  %33 = xor i64 %32, -1
+  br i1 %28, label %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge, label %_ZN4llvm5APInt17getSignedMaxValueEj.exit.thread7
 
 _ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge:   ; preds = %_ZN4llvm5APInt10getAllOnesEj.exit.i
   %.pre = load i64, ptr %3, align 8, !tbaa !3, !alias.scope !1681
-  br label %33
+  br label %34
 
-33:                                               ; preds = %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i
-  %34 = phi i64 [ %spec.select.i.i.i, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i ], [ %.pre, %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge ]
-  %35 = phi i64 [ %26, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i ], [ %32, %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge ]
-  %36 = and i64 %34, %35
+34:                                               ; preds = %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i
+  %35 = phi i64 [ %spec.select.i.i.i, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i ], [ %.pre, %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge ]
+  %36 = phi i64 [ %27, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i ], [ %33, %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge ]
+  %37 = and i64 %35, %36
   br label %_ZN4llvm5APInt17getSignedMaxValueEj.exit.thread
 
 _ZN4llvm5APInt17getSignedMaxValueEj.exit.thread7: ; preds = %_ZN4llvm5APInt10getAllOnesEj.exit.i
-  %37 = load ptr, ptr %3, align 8, !tbaa !3, !alias.scope !1681
-  %38 = lshr i32 %28, 6
-  %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw i64, ptr %37, i64 %39
-  %41 = load i64, ptr %40, align 8, !tbaa !1005
-  %42 = and i64 %41, %32
-  store i64 %42, ptr %40, align 8, !tbaa !1005
-  %43 = getelementptr inbounds nuw i8, ptr %.012, i64 8
-  %44 = load i32, ptr %43, align 8
-  %45 = lshr i32 %44, 8
-  %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %38 = load ptr, ptr %3, align 8, !tbaa !3, !alias.scope !1681
+  %39 = lshr i32 %29, 6
+  %40 = zext nneg i32 %39 to i64
+  %41 = getelementptr inbounds nuw i64, ptr %38, i64 %40
+  %42 = load i64, ptr %41, align 8, !tbaa !1005
+  %43 = and i64 %42, %33
+  store i64 %43, ptr %41, align 8, !tbaa !1005
+  %44 = getelementptr inbounds nuw i8, ptr %.012, i64 8
+  %45 = load i32, ptr %44, align 8
+  %46 = lshr i32 %45, 8
+  %47 = zext nneg i32 %46 to i64
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i
 
-48:                                               ; preds = %11
-  br i1 %16, label %49, label %_ZN4llvm5APInt17getSignedMaxValueEj.exit
+49:                                               ; preds = %11
+  br i1 %16, label %50, label %_ZN4llvm5APInt17getSignedMaxValueEj.exit
 
-49:                                               ; preds = %48
-  %50 = add nuw nsw i32 %14, 63
-  %51 = and i32 %50, 63
-  %52 = xor i32 %51, 63
+50:                                               ; preds = %49
+  %51 = sub nsw i32 0, %14
+  %52 = and i32 %51, 63
   %53 = zext nneg i32 %52 to i64
   %54 = lshr i64 -1, %53
   %55 = icmp eq i32 %14, 0
   %spec.select.i.i.i15 = select i1 %55, i64 0, i64 %54, !prof !1407
   br label %_ZN4llvm5APInt17getSignedMaxValueEj.exit.thread
 
-_ZN4llvm5APInt17getSignedMaxValueEj.exit.thread:  ; preds = %49, %33
-  %spec.select.i.i.i15.sink = phi i64 [ %spec.select.i.i.i15, %49 ], [ %36, %33 ]
+_ZN4llvm5APInt17getSignedMaxValueEj.exit.thread:  ; preds = %50, %34
+  %spec.select.i.i.i15.sink = phi i64 [ %spec.select.i.i.i15, %50 ], [ %37, %34 ]
   store i64 %spec.select.i.i.i15.sink, ptr %3, align 8, !tbaa !3
   %56 = getelementptr inbounds nuw i8, ptr %.012, i64 8
   %57 = load i32, ptr %56, align 8
@@ -42829,7 +42828,7 @@ _ZN4llvm5APInt17getSignedMaxValueEj.exit.thread:  ; preds = %49, %33
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %_ZNK4llvm5APInt3ultEm.exit.thread12
 
-_ZN4llvm5APInt17getSignedMaxValueEj.exit:         ; preds = %48
+_ZN4llvm5APInt17getSignedMaxValueEj.exit:         ; preds = %49
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %3, i64 noundef -1, i1 noundef zeroext true) #21
   %.pre2 = load i32, ptr %15, align 8, !tbaa !1165
   %61 = getelementptr inbounds nuw i8, ptr %.012, i64 8
@@ -42841,9 +42840,9 @@ _ZN4llvm5APInt17getSignedMaxValueEj.exit:         ; preds = %48
   br i1 %66, label %_ZNK4llvm5APInt3ultEm.exit.thread12, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i
 
 _ZNK4llvm5APInt13getActiveBitsEv.exit.i:          ; preds = %_ZN4llvm5APInt17getSignedMaxValueEj.exit.thread7, %_ZN4llvm5APInt17getSignedMaxValueEj.exit
-  %67 = phi ptr [ %47, %_ZN4llvm5APInt17getSignedMaxValueEj.exit.thread7 ], [ %65, %_ZN4llvm5APInt17getSignedMaxValueEj.exit ]
-  %68 = phi i64 [ %46, %_ZN4llvm5APInt17getSignedMaxValueEj.exit.thread7 ], [ %64, %_ZN4llvm5APInt17getSignedMaxValueEj.exit ]
-  %69 = phi i32 [ %45, %_ZN4llvm5APInt17getSignedMaxValueEj.exit.thread7 ], [ %63, %_ZN4llvm5APInt17getSignedMaxValueEj.exit ]
+  %67 = phi ptr [ %48, %_ZN4llvm5APInt17getSignedMaxValueEj.exit.thread7 ], [ %65, %_ZN4llvm5APInt17getSignedMaxValueEj.exit ]
+  %68 = phi i64 [ %47, %_ZN4llvm5APInt17getSignedMaxValueEj.exit.thread7 ], [ %64, %_ZN4llvm5APInt17getSignedMaxValueEj.exit ]
+  %69 = phi i32 [ %46, %_ZN4llvm5APInt17getSignedMaxValueEj.exit.thread7 ], [ %63, %_ZN4llvm5APInt17getSignedMaxValueEj.exit ]
   %70 = phi i32 [ %.pre.i, %_ZN4llvm5APInt17getSignedMaxValueEj.exit.thread7 ], [ %.pre2, %_ZN4llvm5APInt17getSignedMaxValueEj.exit ]
   %71 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %3) #22
   %72 = sub i32 %70, %71

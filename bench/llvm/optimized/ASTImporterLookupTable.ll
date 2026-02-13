@@ -40591,63 +40591,62 @@ _ZNK5clang12APIntStorage8getValueEv.exit:         ; preds = %21, %27
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %30, ptr %42, align 8, !tbaa !625
   %43 = icmp ult i32 %30, 65
-  br i1 %43, label %44, label %52
+  br i1 %43, label %44, label %51
 
 44:                                               ; preds = %_ZNK5clang12APIntStorage8getValueEv.exit
   store i64 %36, ptr %2, align 8, !tbaa !139
   br i1 %41, label %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i, label %_ZN4llvm5APIntC2Ejmbb.exit
 
 _ZN4llvm5APInt15clearUnusedBitsEv.exit.i:         ; preds = %44
-  %45 = add nuw nsw i32 %30, 63
+  %45 = sub nsw i32 0, %30
   %46 = and i32 %45, 63
-  %47 = xor i32 %46, 63
-  %48 = zext nneg i32 %47 to i64
-  %49 = lshr i64 -1, %48
-  %50 = icmp eq i32 %30, 0
-  %spec.select.i = select i1 %50, i64 0, i64 %49, !prof !104
-  %51 = and i64 %spec.select.i, %36
-  store i64 %51, ptr %2, align 8, !tbaa !139
+  %47 = zext nneg i32 %46 to i64
+  %48 = lshr i64 -1, %47
+  %49 = icmp eq i32 %30, 0
+  %spec.select.i = select i1 %49, i64 0, i64 %48, !prof !104
+  %50 = and i64 %spec.select.i, %36
+  store i64 %50, ptr %2, align 8, !tbaa !139
   br label %_ZN4llvm5APIntC2Ejmbb.exit
 
-52:                                               ; preds = %_ZNK5clang12APIntStorage8getValueEv.exit
+51:                                               ; preds = %_ZNK5clang12APIntStorage8getValueEv.exit
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %2, i64 noundef %36, i1 noundef zeroext %41) #16
   br label %_ZN4llvm5APIntC2Ejmbb.exit
 
-_ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %44, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i, %52
+_ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %44, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i, %51
   call void @_ZN5clang16APNumericStorage11setIntValueERKNS_10ASTContextERKN4llvm5APIntE(ptr noundef nonnull align 8 dereferenceable(12) %15, ptr noundef nonnull align 8 dereferenceable(23216) %17, ptr noundef nonnull align 8 dereferenceable(12) %2) #16
-  %53 = load i32, ptr %42, align 8, !tbaa !625
-  %54 = icmp ugt i32 %53, 64
-  br i1 %54, label %55, label %_ZN4llvm5APIntD2Ev.exit
+  %52 = load i32, ptr %42, align 8, !tbaa !625
+  %53 = icmp ugt i32 %52, 64
+  br i1 %53, label %54, label %_ZN4llvm5APIntD2Ev.exit
 
-55:                                               ; preds = %_ZN4llvm5APIntC2Ejmbb.exit
-  %56 = load ptr, ptr %2, align 8, !tbaa !139
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %_ZN4llvm5APIntD2Ev.exit, label %58
+54:                                               ; preds = %_ZN4llvm5APIntC2Ejmbb.exit
+  %55 = load ptr, ptr %2, align 8, !tbaa !139
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %_ZN4llvm5APIntD2Ev.exit, label %57
 
-58:                                               ; preds = %55
-  call void @_ZdaPv(ptr noundef nonnull %56) #19
+57:                                               ; preds = %54
+  call void @_ZdaPv(ptr noundef nonnull %55) #19
   br label %_ZN4llvm5APIntD2Ev.exit
 
-_ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APIntC2Ejmbb.exit, %55, %58
-  %59 = load i32, ptr %31, align 8, !tbaa !625
-  %60 = icmp ugt i32 %59, 64
-  br i1 %60, label %61, label %_ZN4llvm5APIntD2Ev.exit4
+_ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APIntC2Ejmbb.exit, %54, %57
+  %58 = load i32, ptr %31, align 8, !tbaa !625
+  %59 = icmp ugt i32 %58, 64
+  br i1 %59, label %60, label %_ZN4llvm5APIntD2Ev.exit4
 
-61:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit
-  %62 = load ptr, ptr %3, align 8, !tbaa !139
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %_ZN4llvm5APIntD2Ev.exit4, label %64
+60:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit
+  %61 = load ptr, ptr %3, align 8, !tbaa !139
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %_ZN4llvm5APIntD2Ev.exit4, label %63
 
-64:                                               ; preds = %61
-  call void @_ZdaPv(ptr noundef nonnull %62) #19
+63:                                               ; preds = %60
+  call void @_ZdaPv(ptr noundef nonnull %61) #19
   br label %_ZN4llvm5APIntD2Ev.exit4
 
-_ZN4llvm5APIntD2Ev.exit4:                         ; preds = %_ZN4llvm5APIntD2Ev.exit, %61, %64
+_ZN4llvm5APIntD2Ev.exit4:                         ; preds = %_ZN4llvm5APIntD2Ev.exit, %60, %63
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %65 = load ptr, ptr %0, align 8, !tbaa !531
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  ret ptr %66
+  %64 = load ptr, ptr %0, align 8, !tbaa !531
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  ret ptr %65
 }
 
 declare noundef zeroext i1 @_ZNK5clang4Type19isSignedIntegerTypeEv(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #1
