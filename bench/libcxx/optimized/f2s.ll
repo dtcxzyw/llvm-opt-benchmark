@@ -506,7 +506,7 @@ _ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196: ; preds = %.lr.ph.i.i192, 
   %189 = lshr i32 %184, %156
   %190 = or i32 %188, %189
   %.not = icmp eq i32 %133, 0
-  br i1 %.not, label %.thread265, label %191
+  br i1 %.not, label %.thread266, label %191
 
 191:                                              ; preds = %131
   %192 = add i32 %175, -1
@@ -549,13 +549,13 @@ _ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196: ; preds = %.lr.ph.i.i192, 
 222:                                              ; preds = %195, %191
   %.2163 = phi i8 [ %221, %195 ], [ 0, %191 ]
   %223 = icmp eq i32 %133, 1
-  br i1 %223, label %.thread265, label %225
+  br i1 %223, label %.thread266, label %225
 
-.thread265:                                       ; preds = %222, %131
+.thread266:                                       ; preds = %222, %131
   %.2163201 = phi i8 [ %.2163, %222 ], [ 0, %131 ]
   %spec.select = and i1 %7, %12
-  %not.242 = xor i1 %7, true
-  %224 = sext i1 %not.242 to i32
+  %not.243 = xor i1 %7, true
+  %224 = sext i1 %not.243 to i32
   %spec.select203 = add i32 %175, %224
   br label %.preheader206
 
@@ -580,11 +580,11 @@ _ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196: ; preds = %.lr.ph.i.i192, 
   %.1141 = phi i32 [ %60, %109 ], [ %60, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit ], [ %130, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196 ], [ %60, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit189 ], [ %175, %225 ], [ %175, %227 ]
   %.0135 = phi i32 [ %45, %109 ], [ %45, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit ], [ %45, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196 ], [ %45, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit189 ], [ %160, %225 ], [ %160, %227 ]
   %233 = or i1 %.1156.shrunk, %.1152.shrunk
-  br i1 %233, label %.preheader206, label %.preheader207
+  br i1 %233, label %.preheader206, label %.preheader
 
-.preheader207:                                    ; preds = %232
-  %234 = udiv i32 %.1141, 10
-  %235 = udiv i32 %.0145, 10
+.preheader:                                       ; preds = %232
+  %237 = udiv i32 %.1141, 10
+  %238 = udiv i32 %.0145, 10
   %236 = icmp samesign ugt i32 %234, %235
   br i1 %236, label %.lr.ph, label %279
 
@@ -599,33 +599,33 @@ _ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196: ; preds = %.lr.ph.i.i192, 
   %237 = udiv i32 %.1141279, 10
   %238 = udiv i32 %.0145278, 10
   %239 = icmp samesign ugt i32 %237, %238
-  br i1 %239, label %.lr.ph222, label %._crit_edge223
+  br i1 %239, label %.lr.ph234, label %._crit_edge
 
-.lr.ph222:                                        ; preds = %.preheader206, %.lr.ph222
+.lr.ph:                                           ; preds = %.preheader206, %.lr.ph
   %240 = phi i32 [ %252, %.lr.ph222 ], [ %238, %.preheader206 ]
   %241 = phi i32 [ %251, %.lr.ph222 ], [ %237, %.preheader206 ]
-  %.0133221 = phi i32 [ %250, %.lr.ph222 ], [ 0, %.preheader206 ]
-  %.1136220 = phi i32 [ %249, %.lr.ph222 ], [ %.0135280, %.preheader206 ]
-  %.1146219 = phi i32 [ %240, %.lr.ph222 ], [ %.0145278, %.preheader206 ]
-  %.3154218 = phi i1 [ %244, %.lr.ph222 ], [ %.1152.shrunk275, %.preheader206 ]
-  %.3158217 = phi i1 [ %246, %.lr.ph222 ], [ %.1156.shrunk274, %.preheader206 ]
-  %.3164216 = phi i8 [ %248, %.lr.ph222 ], [ %.1162273, %.preheader206 ]
+  %.0133215 = phi i32 [ %250, %.lr.ph222 ], [ 0, %.preheader206 ]
+  %.1136214 = phi i32 [ %249, %.lr.ph222 ], [ %.0135280, %.preheader206 ]
+  %.1146213 = phi i32 [ %240, %.lr.ph222 ], [ %.0145278, %.preheader206 ]
+  %.3154212 = phi i1 [ %244, %.lr.ph222 ], [ %.1152.shrunk275, %.preheader206 ]
+  %.3158211 = phi i1 [ %246, %.lr.ph222 ], [ %.1156.shrunk274, %.preheader206 ]
+  %.3164210 = phi i8 [ %248, %.lr.ph222 ], [ %.1162273, %.preheader206 ]
   %.neg180 = mul i32 %240, -10
-  %242 = sub i32 0, %.1146219
+  %242 = sub i32 0, %.1146213
   %243 = icmp eq i32 %.neg180, %242
-  %244 = select i1 %243, i1 %.3154218, i1 false
-  %245 = icmp eq i8 %.3164216, 0
-  %246 = select i1 %245, i1 %.3158217, i1 false
-  %247 = urem i32 %.1136220, 10
+  %244 = select i1 %243, i1 %.3154212, i1 false
+  %245 = icmp eq i8 %.3164210, 0
+  %246 = select i1 %245, i1 %.3158211, i1 false
+  %247 = urem i32 %.1136214, 10
   %248 = trunc nuw nsw i32 %247 to i8
-  %249 = udiv i32 %.1136220, 10
-  %250 = add nuw nsw i32 %.0133221, 1
+  %249 = udiv i32 %.1136214, 10
+  %250 = add nuw nsw i32 %.0133215, 1
   %251 = udiv i32 %241, 10
   %252 = udiv i32 %240, 10
   %253 = icmp samesign ugt i32 %251, %252
-  br i1 %253, label %.lr.ph222, label %._crit_edge223, !llvm.loop !14
+  br i1 %253, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
-._crit_edge223:                                   ; preds = %.lr.ph222, %.preheader206
+._crit_edge:                                      ; preds = %.lr.ph, %.preheader206
   %.3164.lcssa = phi i8 [ %.1162273, %.preheader206 ], [ %248, %.lr.ph222 ]
   %.3158.lcssa = phi i1 [ %.1156.shrunk274, %.preheader206 ], [ %246, %.lr.ph222 ]
   %.3154.lcssa = phi i1 [ %.1152.shrunk275, %.preheader206 ], [ %244, %.lr.ph222 ]
@@ -634,27 +634,27 @@ _ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196: ; preds = %.lr.ph.i.i192, 
   %.0133.lcssa = phi i32 [ 0, %.preheader206 ], [ %250, %.lr.ph222 ]
   %254 = urem i32 %.1146.lcssa, 10
   %255 = icmp eq i32 %254, 0
-  %or.cond241 = and i1 %.3154.lcssa, %255
-  br i1 %or.cond241, label %.lr.ph234, label %.loopexit
+  %or.cond242 = and i1 %.3154.lcssa, %255
+  br i1 %or.cond242, label %.lr.ph226, label %.loopexit
 
-.lr.ph234:                                        ; preds = %._crit_edge223, %.lr.ph234
-  %.2233 = phi i32 [ %262, %.lr.ph234 ], [ %.0133.lcssa, %._crit_edge223 ]
-  %.3138232 = phi i32 [ %260, %.lr.ph234 ], [ %.1136.lcssa, %._crit_edge223 ]
-  %.3148231 = phi i32 [ %261, %.lr.ph234 ], [ %.1146.lcssa, %._crit_edge223 ]
-  %.5160230 = phi i1 [ %257, %.lr.ph234 ], [ %.3158.lcssa, %._crit_edge223 ]
-  %.5166229 = phi i8 [ %259, %.lr.ph234 ], [ %.3164.lcssa, %._crit_edge223 ]
-  %256 = icmp eq i8 %.5166229, 0
-  %257 = select i1 %256, i1 %.5160230, i1 false
-  %258 = urem i32 %.3138232, 10
+.lr.ph226:                                        ; preds = %._crit_edge, %.lr.ph226
+  %.2225 = phi i32 [ %262, %.lr.ph234 ], [ %.0133.lcssa, %._crit_edge223 ]
+  %.3138224 = phi i32 [ %260, %.lr.ph234 ], [ %.1136.lcssa, %._crit_edge223 ]
+  %.3148223 = phi i32 [ %261, %.lr.ph234 ], [ %.1146.lcssa, %._crit_edge223 ]
+  %.5160222 = phi i1 [ %257, %.lr.ph234 ], [ %.3158.lcssa, %._crit_edge223 ]
+  %.5166221 = phi i8 [ %259, %.lr.ph234 ], [ %.3164.lcssa, %._crit_edge223 ]
+  %256 = icmp eq i8 %.5166221, 0
+  %257 = select i1 %256, i1 %.5160222, i1 false
+  %258 = urem i32 %.3138224, 10
   %259 = trunc nuw nsw i32 %258 to i8
-  %260 = udiv i32 %.3138232, 10
-  %261 = udiv i32 %.3148231, 10
-  %262 = add nuw nsw i32 %.2233, 1
+  %260 = udiv i32 %.3138224, 10
+  %261 = udiv i32 %.3148223, 10
+  %262 = add nuw nsw i32 %.2225, 1
   %263 = urem i32 %261, 10
   %264 = icmp eq i32 %263, 0
-  br i1 %264, label %.lr.ph234, label %.loopexit, !llvm.loop !15
+  br i1 %264, label %.lr.ph226, label %.loopexit, !llvm.loop !15
 
-.loopexit:                                        ; preds = %.lr.ph234, %._crit_edge223
+.loopexit:                                        ; preds = %.lr.ph226, %._crit_edge
   %.4165 = phi i8 [ %.3164.lcssa, %._crit_edge223 ], [ %259, %.lr.ph234 ]
   %.4159 = phi i1 [ %.3158.lcssa, %._crit_edge223 ], [ %257, %.lr.ph234 ]
   %.2147 = phi i32 [ %.1146.lcssa, %._crit_edge223 ], [ %261, %.lr.ph234 ]
@@ -674,24 +674,24 @@ _ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196: ; preds = %.lr.ph.i.i192, 
   %narrow = select i1 %not.or.cond182, i1 true, i1 %269
   br label %283
 
-.lr.ph:                                           ; preds = %.preheader207, %.lr.ph
-  %270 = phi i32 [ %276, %.lr.ph ], [ %235, %.preheader207 ]
-  %271 = phi i32 [ %275, %.lr.ph ], [ %234, %.preheader207 ]
-  %.4211 = phi i32 [ %274, %.lr.ph ], [ 0, %.preheader207 ]
-  %.4139210 = phi i32 [ %272, %.lr.ph ], [ %.0135, %.preheader207 ]
-  %272 = udiv i32 %.4139210, 10
-  %273 = urem i32 %.4139210, 10
-  %274 = add nuw nsw i32 %.4211, 1
+.lr.ph234:                                        ; preds = %.preheader, %.lr.ph234
+  %270 = phi i32 [ %276, %.lr.ph ], [ %238, %.preheader207 ]
+  %271 = phi i32 [ %275, %.lr.ph ], [ %237, %.preheader207 ]
+  %.4233 = phi i32 [ %274, %.lr.ph ], [ 0, %.preheader207 ]
+  %.4139232 = phi i32 [ %272, %.lr.ph ], [ %.0135, %.preheader207 ]
+  %272 = udiv i32 %.4139232, 10
+  %273 = urem i32 %.4139232, 10
+  %274 = add nuw nsw i32 %.4233, 1
   %275 = udiv i32 %271, 10
   %276 = udiv i32 %270, 10
   %277 = icmp samesign ugt i32 %275, %276
-  br i1 %277, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %277, label %.lr.ph234, label %._crit_edge235, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %.lr.ph
+._crit_edge235:                                   ; preds = %.lr.ph234
   %278 = trunc nuw nsw i32 %273 to i8
   br label %279
 
-279:                                              ; preds = %._crit_edge, %.preheader207
+279:                                              ; preds = %._crit_edge235, %.preheader
   %.7.lcssa = phi i8 [ %278, %._crit_edge ], [ %.1162, %.preheader207 ]
   %.4149.lcssa = phi i32 [ %270, %._crit_edge ], [ %.0145, %.preheader207 ]
   %.4139.lcssa = phi i32 [ %272, %._crit_edge ], [ %.0135, %.preheader207 ]
@@ -702,13 +702,13 @@ _ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196: ; preds = %.lr.ph.i.i192, 
   br label %283
 
 283:                                              ; preds = %279, %.loopexit
-  %.sink297 = phi i1 [ %282, %279 ], [ %narrow, %.loopexit ]
+  %.sink298 = phi i1 [ %282, %279 ], [ %narrow, %.loopexit ]
   %.4139.lcssa.sink = phi i32 [ %.4139.lcssa, %279 ], [ %.2137, %.loopexit ]
-  %.0150276 = phi i32 [ %.0150, %279 ], [ %.0150277, %.loopexit ]
+  %.0150277 = phi i32 [ %.0150, %279 ], [ %.0150277, %.loopexit ]
   %.3 = phi i32 [ %.4.lcssa, %279 ], [ %.1, %.loopexit ]
-  %284 = zext i1 %.sink297 to i32
+  %284 = zext i1 %.sink298 to i32
   %285 = add i32 %.4139.lcssa.sink, %284
-  %286 = add nsw i32 %.3, %.0150276
+  %286 = add nsw i32 %.3, %.0150277
   %.sroa.2.0.insert.ext = zext i32 %286 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %285 to i64

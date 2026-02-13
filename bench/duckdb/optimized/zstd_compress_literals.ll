@@ -156,7 +156,7 @@ define noundef i64 @_ZN11duckdb_zstd21ZSTD_compressLiteralsEPvmPKvmS0_mPKNS_17ZS
   store i32 %37, ptr %0, align 1, !tbaa !8
   br label %38
 
-default.unreachable131:                           ; preds = %127, %103, %59, %29
+default.unreachable131:                           ; preds = %128, %104, %59, %29
   unreachable
 
 38:                                               ; preds = %35, %32, %30
@@ -242,163 +242,163 @@ default.unreachable131:                           ; preds = %127, %103, %59, %29
   %or.cond.not = or i1 %14, %45
   %spec.select = and i1 %19, %or.cond.not
   %_ZN11duckdb_zstd21HUF_compress1X_repeatEPvmPKvmjjS0_mPmPNS_10HUF_repeatEi._ZN11duckdb_zstd21HUF_compress4X_repeatEPvmPKvmjjS0_mPmPNS_10HUF_repeatEi = select i1 %spec.select, ptr @_ZN11duckdb_zstd21HUF_compress4X_repeatEPvmPKvmjjS0_mPmPNS_10HUF_repeatEi, ptr @_ZN11duckdb_zstd21HUF_compress1X_repeatEPvmPKvmjjS0_mPmPNS_10HUF_repeatEi
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 %18
-  %84 = sub nuw i64 %1, %18
-  %85 = call noundef i64 %_ZN11duckdb_zstd21HUF_compress1X_repeatEPvmPKvmjjS0_mPmPNS_10HUF_repeatEi._ZN11duckdb_zstd21HUF_compress4X_repeatEPvmPKvmjjS0_mPmPNS_10HUF_repeatEi(ptr noundef nonnull %83, i64 noundef %84, ptr noundef %2, i64 noundef %3, i32 noundef 255, i32 noundef 11, ptr noundef %4, i64 noundef %5, ptr noundef nonnull %7, ptr noundef nonnull %13, i32 noundef %82), !callees !14
-  %86 = load i32, ptr %13, align 4, !tbaa !13
-  %.not99 = icmp eq i32 %86, 0
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 %18
+  %85 = sub nuw i64 %1, %18
+  %86 = call noundef i64 %_ZN11duckdb_zstd21HUF_compress1X_repeatEPvmPKvmjjS0_mPmPNS_10HUF_repeatEi._ZN11duckdb_zstd21HUF_compress4X_repeatEPvmPKvmjjS0_mPmPNS_10HUF_repeatEi(ptr noundef nonnull %84, i64 noundef %85, ptr noundef %2, i64 noundef %3, i32 noundef 255, i32 noundef 11, ptr noundef %4, i64 noundef %5, ptr noundef nonnull %7, ptr noundef nonnull %13, i32 noundef %82), !callees !14
+  %87 = load i32, ptr %13, align 4, !tbaa !13
+  %.not99 = icmp eq i32 %87, 0
   %.089 = select i1 %.not99, i32 2, i32 3
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %87 = call i32 @llvm.smax.i32(i32 %8, i32 7)
-  %88 = add nsw i32 %87, -1
-  %89 = zext nneg i32 %88 to i64
-  %90 = lshr i64 %3, %89
+  %88 = call i32 @llvm.smax.i32(i32 %8, i32 7)
+  %89 = add nsw i32 %88, -1
+  %90 = zext nneg i32 %89 to i64
+  %91 = lshr i64 %3, %90
   %.neg122 = add i64 %3, -2
-  %91 = sub i64 %.neg122, %90
-  %.not100 = icmp ult i64 %85, %91
-  %92 = add i64 %85, -1
-  %93 = icmp ult i64 %92, -120
-  %or.cond = and i1 %93, %.not100
-  br i1 %or.cond, label %_ZN11duckdb_zstd23ZSTD_noCompressLiteralsEPvmPKvm.exit115, label %94
+  %92 = sub i64 %.neg122, %91
+  %.not100 = icmp ult i64 %86, %92
+  %93 = add i64 %86, -1
+  %94 = icmp ult i64 %93, -120
+  %or.cond = and i1 %94, %.not100
+  br i1 %or.cond, label %_ZN11duckdb_zstd23ZSTD_noCompressLiteralsEPvmPKvm.exit115, label %95
 
-94:                                               ; preds = %71
+95:                                               ; preds = %71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2064) %7, ptr noundef nonnull align 8 dereferenceable(2064) %6, i64 2064, i1 false)
-  %95 = icmp ugt i64 %3, 31
-  %96 = select i1 %95, i32 2, i32 1
-  %97 = icmp ugt i64 %3, 4095
-  %98 = zext i1 %97 to i32
-  %99 = add nuw nsw i32 %96, %98
-  %100 = zext nneg i32 %99 to i64
-  %101 = add i64 %3, %100
-  %102 = icmp ugt i64 %101, %1
-  br i1 %102, label %_ZN11duckdb_zstd23ZSTD_noCompressLiteralsEPvmPKvm.exit, label %103
+  %96 = icmp ugt i64 %3, 31
+  %97 = select i1 %96, i32 2, i32 1
+  %98 = icmp ugt i64 %3, 4095
+  %99 = zext i1 %98 to i32
+  %100 = add nuw nsw i32 %97, %99
+  %101 = zext nneg i32 %100 to i64
+  %102 = add i64 %3, %101
+  %103 = icmp ugt i64 %102, %1
+  br i1 %103, label %_ZN11duckdb_zstd23ZSTD_noCompressLiteralsEPvmPKvm.exit, label %104
 
-103:                                              ; preds = %94
-  switch i32 %99, label %default.unreachable131 [
-    i32 1, label %104
-    i32 2, label %106
-    i32 3, label %109
+104:                                              ; preds = %95
+  switch i32 %100, label %default.unreachable131 [
+    i32 1, label %105
+    i32 2, label %107
+    i32 3, label %110
   ]
 
-104:                                              ; preds = %103
+105:                                              ; preds = %104
   %.tr21.i113 = trunc i64 %3 to i8
-  %105 = shl i8 %.tr21.i113, 3
-  store i8 %105, ptr %0, align 1, !tbaa !3
-  br label %112
+  %106 = shl i8 %.tr21.i113, 3
+  store i8 %106, ptr %0, align 1, !tbaa !3
+  br label %113
 
-106:                                              ; preds = %103
+107:                                              ; preds = %104
   %.tr20.i112 = trunc i64 %3 to i16
-  %107 = shl i16 %.tr20.i112, 4
-  %108 = or disjoint i16 %107, 4
-  store i16 %108, ptr %0, align 1, !tbaa !6
-  br label %112
+  %108 = shl i16 %.tr20.i112, 4
+  %109 = or disjoint i16 %108, 4
+  store i16 %109, ptr %0, align 1, !tbaa !6
+  br label %113
 
-109:                                              ; preds = %103
+110:                                              ; preds = %104
   %.tr.i110 = trunc i64 %3 to i32
-  %110 = shl i32 %.tr.i110, 4
-  %111 = or disjoint i32 %110, 12
-  store i32 %111, ptr %0, align 1, !tbaa !8
-  br label %112
+  %111 = shl i32 %.tr.i110, 4
+  %112 = or disjoint i32 %111, 12
+  store i32 %112, ptr %0, align 1, !tbaa !8
+  br label %113
 
-112:                                              ; preds = %109, %106, %104
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 %100
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %113, ptr readonly align 1 %2, i64 %3, i1 false)
+113:                                              ; preds = %110, %107, %105
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 %101
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %114, ptr readonly align 1 %2, i64 %3, i1 false)
   br label %_ZN11duckdb_zstd23ZSTD_noCompressLiteralsEPvmPKvm.exit
 
 _ZN11duckdb_zstd23ZSTD_noCompressLiteralsEPvmPKvm.exit115: ; preds = %71
-  %114 = icmp eq i64 %85, 1
-  br i1 %114, label %115, label %_ZN11duckdb_zstdL17allBytesIdenticalEPKvm.exit
+  %115 = icmp eq i64 %86, 1
+  br i1 %115, label %116, label %_ZN11duckdb_zstdL17allBytesIdenticalEPKvm.exit
 
-115:                                              ; preds = %_ZN11duckdb_zstd23ZSTD_noCompressLiteralsEPvmPKvm.exit115
-  %116 = icmp ugt i64 %3, 7
-  br i1 %116, label %_ZN11duckdb_zstdL17allBytesIdenticalEPKvm.exit.thread, label %117
+116:                                              ; preds = %_ZN11duckdb_zstd23ZSTD_noCompressLiteralsEPvmPKvm.exit115
+  %117 = icmp ugt i64 %3, 7
+  br i1 %117, label %_ZN11duckdb_zstdL17allBytesIdenticalEPKvm.exit.thread, label %118
 
-117:                                              ; preds = %115
-  %118 = load i8, ptr %2, align 1, !tbaa !3
-  %119 = icmp samesign ugt i64 %3, 1
-  br i1 %119, label %.lr.ph.i, label %_ZN11duckdb_zstdL17allBytesIdenticalEPKvm.exit.thread
+118:                                              ; preds = %116
+  %119 = load i8, ptr %2, align 1, !tbaa !3
+  %120 = icmp samesign ugt i64 %3, 1
+  br i1 %120, label %.lr.ph.i, label %_ZN11duckdb_zstdL17allBytesIdenticalEPKvm.exit.thread
 
-120:                                              ; preds = %.lr.ph.i
-  %121 = add nuw nsw i64 %.08.i, 1
-  %exitcond.not.i = icmp eq i64 %121, %3
+121:                                              ; preds = %.lr.ph.i
+  %122 = add nuw nsw i64 %.08.i, 1
+  %exitcond.not.i = icmp eq i64 %122, %3
   br i1 %exitcond.not.i, label %_ZN11duckdb_zstdL17allBytesIdenticalEPKvm.exit.thread, label %.lr.ph.i, !llvm.loop !15
 
-.lr.ph.i:                                         ; preds = %117, %120
-  %.08.i = phi i64 [ %121, %120 ], [ 1, %117 ]
-  %122 = getelementptr inbounds nuw i8, ptr %2, i64 %.08.i
-  %123 = load i8, ptr %122, align 1, !tbaa !3
-  %.not.i = icmp eq i8 %123, %118
-  br i1 %.not.i, label %120, label %_ZN11duckdb_zstdL17allBytesIdenticalEPKvm.exit
+.lr.ph.i:                                         ; preds = %118, %121
+  %.08.i = phi i64 [ %122, %120 ], [ 1, %117 ]
+  %123 = getelementptr inbounds nuw i8, ptr %2, i64 %.08.i
+  %124 = load i8, ptr %123, align 1, !tbaa !3
+  %.not.i = icmp eq i8 %124, %119
+  br i1 %.not.i, label %121, label %_ZN11duckdb_zstdL17allBytesIdenticalEPKvm.exit
 
-_ZN11duckdb_zstdL17allBytesIdenticalEPKvm.exit.thread: ; preds = %120, %117, %115
+_ZN11duckdb_zstdL17allBytesIdenticalEPKvm.exit.thread: ; preds = %121, %118, %116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2064) %7, ptr noundef nonnull align 8 dereferenceable(2064) %6, i64 2064, i1 false)
-  %124 = call noundef i64 @_ZN11duckdb_zstd29ZSTD_compressRleLiteralsBlockEPvmPKvm(ptr noundef %0, i64 poison, ptr noundef %2, i64 noundef %3)
+  %125 = call noundef i64 @_ZN11duckdb_zstd29ZSTD_compressRleLiteralsBlockEPvmPKvm(ptr noundef %0, i64 poison, ptr noundef %2, i64 noundef %3)
   br label %_ZN11duckdb_zstd23ZSTD_noCompressLiteralsEPvmPKvm.exit
 
 _ZN11duckdb_zstdL17allBytesIdenticalEPKvm.exit:   ; preds = %.lr.ph.i, %_ZN11duckdb_zstd23ZSTD_noCompressLiteralsEPvmPKvm.exit115
-  br i1 %.not99, label %125, label %127
+  br i1 %.not99, label %126, label %128
 
-125:                                              ; preds = %_ZN11duckdb_zstdL17allBytesIdenticalEPKvm.exit
-  %126 = getelementptr inbounds nuw i8, ptr %7, i64 2056
-  store i32 1, ptr %126, align 8, !tbaa !10
-  br label %127
+126:                                              ; preds = %_ZN11duckdb_zstdL17allBytesIdenticalEPKvm.exit
+  %127 = getelementptr inbounds nuw i8, ptr %7, i64 2056
+  store i32 1, ptr %127, align 8, !tbaa !10
+  br label %128
 
-127:                                              ; preds = %125, %_ZN11duckdb_zstdL17allBytesIdenticalEPKvm.exit
+128:                                              ; preds = %126, %_ZN11duckdb_zstdL17allBytesIdenticalEPKvm.exit
   switch i64 %18, label %default.unreachable131 [
-    i64 3, label %128
-    i64 4, label %141
-    i64 5, label %149
+    i64 3, label %129
+    i64 4, label %142
+    i64 5, label %150
   ]
 
-128:                                              ; preds = %127
-  %129 = select i1 %spec.select, i32 4, i32 0
-  %130 = trunc i64 %3 to i32
-  %131 = shl i32 %130, 4
-  %132 = or disjoint i32 %129, %131
-  %133 = trunc i64 %85 to i32
-  %134 = shl i32 %133, 14
-  %135 = add i32 %132, %134
-  %136 = or disjoint i32 %135, %.089
-  %137 = trunc i32 %136 to i16
-  store i16 %137, ptr %0, align 1, !tbaa !6
-  %138 = lshr i32 %135, 16
-  %139 = trunc i32 %138 to i8
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %139, ptr %140, align 1, !tbaa !3
-  br label %160
+129:                                              ; preds = %128
+  %130 = select i1 %spec.select, i32 4, i32 0
+  %131 = trunc i64 %3 to i32
+  %132 = shl i32 %131, 4
+  %133 = or disjoint i32 %130, %132
+  %134 = trunc i64 %86 to i32
+  %135 = shl i32 %134, 14
+  %136 = add i32 %133, %135
+  %137 = or disjoint i32 %136, %.089
+  %138 = trunc i32 %137 to i16
+  store i16 %138, ptr %0, align 1, !tbaa !6
+  %139 = lshr i32 %136, 16
+  %140 = trunc i32 %139 to i8
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 %140, ptr %141, align 1, !tbaa !3
+  br label %161
 
-141:                                              ; preds = %127
-  %142 = trunc i64 %3 to i32
-  %143 = shl i32 %142, 4
-  %144 = trunc i64 %85 to i32
-  %145 = shl i32 %144, 18
-  %146 = or disjoint i32 %143, 8
-  %147 = add i32 %146, %145
-  %148 = or disjoint i32 %147, %.089
-  store i32 %148, ptr %0, align 1, !tbaa !8
-  br label %160
+142:                                              ; preds = %128
+  %143 = trunc i64 %3 to i32
+  %144 = shl i32 %143, 4
+  %145 = trunc i64 %86 to i32
+  %146 = shl i32 %145, 18
+  %147 = or disjoint i32 %144, 8
+  %148 = add i32 %147, %146
+  %149 = or disjoint i32 %148, %.089
+  store i32 %149, ptr %0, align 1, !tbaa !8
+  br label %161
 
-149:                                              ; preds = %127
-  %150 = trunc i64 %3 to i32
-  %151 = shl i32 %150, 4
-  %152 = trunc i64 %85 to i32
-  %153 = shl i32 %152, 22
-  %154 = or disjoint i32 %151, 12
-  %155 = add i32 %154, %153
-  %156 = or disjoint i32 %155, %.089
-  store i32 %156, ptr %0, align 1, !tbaa !8
-  %157 = lshr i64 %85, 10
-  %158 = trunc i64 %157 to i8
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %158, ptr %159, align 1, !tbaa !3
-  br label %160
+150:                                              ; preds = %128
+  %151 = trunc i64 %3 to i32
+  %152 = shl i32 %151, 4
+  %153 = trunc i64 %86 to i32
+  %154 = shl i32 %153, 22
+  %155 = or disjoint i32 %152, 12
+  %156 = add i32 %155, %154
+  %157 = or disjoint i32 %156, %.089
+  store i32 %157, ptr %0, align 1, !tbaa !8
+  %158 = lshr i64 %86, 10
+  %159 = trunc i64 %158 to i8
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i8 %159, ptr %160, align 1, !tbaa !3
+  br label %161
 
-160:                                              ; preds = %128, %141, %149
-  %161 = add i64 %85, %18
+161:                                              ; preds = %129, %142, %150
+  %162 = add i64 %86, %18
   br label %_ZN11duckdb_zstd23ZSTD_noCompressLiteralsEPvmPKvm.exit
 
-_ZN11duckdb_zstd23ZSTD_noCompressLiteralsEPvmPKvm.exit: ; preds = %112, %94, %68, %50, %38, %20, %70, %160, %_ZN11duckdb_zstdL17allBytesIdenticalEPKvm.exit.thread
-  %.0 = phi i64 [ -70, %70 ], [ -70, %20 ], [ -70, %50 ], [ %124, %_ZN11duckdb_zstdL17allBytesIdenticalEPKvm.exit.thread ], [ %161, %160 ], [ %27, %38 ], [ %57, %68 ], [ -70, %94 ], [ %101, %112 ]
+_ZN11duckdb_zstd23ZSTD_noCompressLiteralsEPvmPKvm.exit: ; preds = %113, %95, %68, %50, %38, %20, %70, %161, %_ZN11duckdb_zstdL17allBytesIdenticalEPKvm.exit.thread
+  %.0 = phi i64 [ -70, %70 ], [ -70, %20 ], [ -70, %50 ], [ %125, %_ZN11duckdb_zstdL17allBytesIdenticalEPKvm.exit.thread ], [ %162, %160 ], [ %27, %38 ], [ %57, %68 ], [ -70, %94 ], [ %102, %112 ]
   ret i64 %.0
 }
 

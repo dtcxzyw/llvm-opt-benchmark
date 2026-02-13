@@ -1976,18 +1976,18 @@ _ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIiTnNSt3__19
   %10 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = select i1 %.016.lcssa.i.i, ptr %11, ptr %2
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %14 = load i32, ptr %13, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %14 = load i32, ptr %12, align 8
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %15 = load i32, ptr %.sroa_idx, align 4
+  %16 = load i32, ptr %.sroa_idx, align 4
   %.sink58 = select i1 %.016.lcssa.i.i, i32 %14, i32 0
-  %.sink = select i1 %.016.lcssa.i.i, i32 %15, i32 0
+  %.sink = select i1 %.016.lcssa.i.i, i32 %16, i32 0
   store i32 %.sink58, ptr %5, align 4
   store i32 %.sink, ptr %.012.i.i.sroa.gep53, align 4
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %19 = load ptr, ptr %18, align 8
+  %20 = load ptr, ptr %17, align 8
   %20 = ptrtoint ptr %18 to i64
   %21 = ptrtoint ptr %19 to i64
   %22 = sub i64 %20, %21
@@ -2001,17 +2001,17 @@ _ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIiTnNSt3__19
   invoke void @_ZN7mitsuba10ImageBlockIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC1ERKNS_6VectorIjLm2EEERKNS_5PointIiLm2EEEjPKNS_20ReconstructionFilterIfS5_EEbbbbbb(ptr noundef nonnull align 8 dereferenceable(149) %10, ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %5, i32 noundef %24, ptr noundef %26, i1 noundef zeroext %4, i1 noundef zeroext %3, i1 noundef zeroext false, i1 noundef zeroext %29, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %30 unwind label %33
 
-30:                                               ; preds = %_ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.preheader.critedge
+31:                                               ; preds = %_ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.preheader.critedge
   store ptr %10, ptr %0, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %32 = atomicrmw add ptr %31, i32 1 seq_cst, align 4
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %33 = atomicrmw add ptr %32, i32 1 seq_cst, align 4
   ret void
 
-33:                                               ; preds = %_ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.preheader.critedge
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %_ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.preheader.critedge
+  %35 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %10) #31
-  resume { ptr, i32 } %34
+  resume { ptr, i32 } %35
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
