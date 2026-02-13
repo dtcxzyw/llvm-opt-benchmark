@@ -2480,7 +2480,7 @@ define dso_local void @Curl_pollset_set(ptr noundef readnone captures(none) %0, 
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !150
 
 ._crit_edge.i:                                    ; preds = %43, %.preheader.i
-  %44 = icmp ne i32 %8, 0
+  %44 = or i1 %3, %4
   %45 = icmp ult i32 %15, 5
   %or.cond.i = and i1 %44, %45
   br i1 %or.cond.i, label %46, label %Curl_pollset_change.exit

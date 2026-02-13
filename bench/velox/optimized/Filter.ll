@@ -5643,9 +5643,8 @@ call.i117.noexc:                                  ; preds = %if.then
   store i8 %frombool9, ptr %upperUnbounded_.i.i.i, align 2, !noalias !64
   %upperExclusive_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i117118, i64 19
   store i8 %frombool13, ptr %upperExclusive_.i.i.i, align 1, !noalias !64
-  %28 = and i8 %frombool9, %frombool
-  %lnot18.i.i.not.i = icmp eq i8 %28, 0
-  br i1 %lnot18.i.i.not.i, label %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i, label %if.then.i.i.i
+  %28 = and i1 %retval.0.i.i, %retval.0.i.i41
+  br i1 %28, label %if.then.i.i.i, label %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %call.i117.noexc
   call void @llvm.trap()
@@ -5701,9 +5700,8 @@ call.i119.noexc:                                  ; preds = %if.else
   store i8 %frombool9, ptr %upperUnbounded_.i.i.i131, align 2, !noalias !67
   %upperExclusive_.i.i.i132 = getelementptr inbounds nuw i8, ptr %call.i119144, i64 19
   store i8 %frombool13, ptr %upperExclusive_.i.i.i132, align 1, !noalias !67
-  %32 = and i8 %frombool9, %frombool
-  %lnot18.i.i.not.i133 = icmp eq i8 %32, 0
-  br i1 %lnot18.i.i.not.i133, label %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i135, label %if.then.i.i.i134
+  %32 = and i1 %retval.0.i.i, %retval.0.i.i41
+  br i1 %32, label %if.then.i.i.i134, label %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i135
 
 if.then.i.i.i134:                                 ; preds = %call.i119.noexc
   call void @llvm.trap()

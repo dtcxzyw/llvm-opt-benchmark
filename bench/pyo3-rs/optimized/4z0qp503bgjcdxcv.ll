@@ -19826,9 +19826,8 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
   %183 = icmp eq i32 %182, 1
   %storemerge61 = zext i1 %183 to i8
   store i8 %storemerge61, ptr %139, align 1
-  %184 = and i8 %storemerge61, %.124
-  %or.cond.not = icmp eq i8 %184, 0
-  br i1 %or.cond.not, label %187, label %191
+  %184 = and i1 %180, %183
+  br i1 %184, label %191, label %187
 
 185:                                              ; preds = %1228, %1224, %1209, %1198, %1193, %1186, %1181, %1150, %1118, %1093, %1075, %1068, %1016, %990, %979, %954, %939, %929, %897, %799, %785, %781, %777, %759, %755, %745, %735, %731, %721, %711, %707, %703, %699, %695, %.body130, %.body, %461, %457, %421, %409, %397, %392, %388, %380, %377, %354, %350, %337, %323, %319, %296, %284, %262, %258, %235, %223, %201, %197, %172, %158, %153
   %186 = landingpad { ptr, i32 }
