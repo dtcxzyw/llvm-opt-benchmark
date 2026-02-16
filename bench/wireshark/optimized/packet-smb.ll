@@ -29158,20 +29158,20 @@ define internal fastcc void @insert_chunk(ptr noundef captures(none) %0, ptr nou
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 %12, ptr %93, align 8
   %.not189 = icmp eq ptr %92, null
-  br i1 %.not189, label %.thread195, label %109
+  br i1 %.not189, label %96, label %109
 
-.thread195:                                       ; preds = %89, %91
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 1, ptr %94, align 8
+96:                                               ; preds = %89, %91
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i8 1, ptr %97, align 8
   br label %109
 
-95:                                               ; preds = %.loopexit
+104:                                              ; preds = %.loopexit
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %97 = load i64, ptr %96, align 8
   %98 = icmp ugt i64 %12, %97
   br i1 %98, label %99, label %109
 
-99:                                               ; preds = %95
+106:                                              ; preds = %104
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %101 = load i8, ptr %100, align 8, !range !8, !noundef !9
   %102 = trunc nuw i8 %101 to i1
@@ -29193,28 +29193,28 @@ define internal fastcc void @insert_chunk(ptr noundef captures(none) %0, ptr nou
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %96, i8 0, i64 16, i1 false)
   br label %109
 
-108:                                              ; preds = %105
+.thread197:                                       ; preds = %105
   store ptr %106, ptr %87, align 8
   store i64 %12, ptr %96, align 8
   br label %109
 
-109:                                              ; preds = %95, %99, %108, %.thread197, %91, %.thread195
+109:                                              ; preds = %95, %99, %108, %.thread197, %91, %96
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %111 = load i8, ptr %110, align 8, !range !8, !noundef !9
   %112 = trunc nuw i8 %111 to i1
   br i1 %112, label %120, label %113
 
-113:                                              ; preds = %109
-  %114 = load ptr, ptr %87, align 8
-  %115 = getelementptr i8, ptr %114, i64 %8
-  %116 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %117 = load ptr, ptr %116, align 8
-  %118 = load i32, ptr %9, align 8
-  %119 = zext i32 %118 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %115, ptr noundef align 1 %117, i64 noundef range(i64 0, 4294967296) %119, i1 noundef false) #22
-  br label %120
+114:                                              ; preds = %109
+  %115 = load ptr, ptr %87, align 8
+  %116 = getelementptr i8, ptr %115, i64 %8
+  %117 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %118 = load ptr, ptr %117, align 8
+  %119 = load i32, ptr %9, align 8
+  %120 = zext i32 %119 to i64
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %116, ptr noundef align 1 %118, i64 noundef range(i64 0, 4294967296) %120, i1 noundef false) #22
+  br label %121
 
-120:                                              ; preds = %113, %109
+121:                                              ; preds = %114, %109
   ret void
 }
 

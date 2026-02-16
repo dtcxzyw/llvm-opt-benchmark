@@ -7431,7 +7431,7 @@ delete.notnull.i:                                 ; preds = %if.then3.i
   br label %if.end21.i
 
 if.else12.i:                                      ; preds = %for.body.preheader
-  br i1 %tobool14.not.i, label %if.end21.i, label %if.then15.i
+  br i1 %tobool14.not.i, label %if.else18.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.else12.i
   %call.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24
@@ -7439,7 +7439,7 @@ if.then15.i:                                      ; preds = %if.else12.i
   store ptr %call.i, ptr %TextureMatrix.i, align 8, !tbaa !76
   br label %if.end21.i
 
-if.end21.i:                                       ; preds = %if.else12.i, %if.then15.i, %delete.notnull.i, %if.then6.i
+if.else18.i:                                      ; preds = %if.else12.i, %if.then15.i, %delete.notnull.i, %if.then6.i
   %TextureWrapU.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %bf.load.i = load i16, ptr %TextureWrapU.i, align 8
   %bf.cast.i = and i16 %bf.load.i, 15
@@ -7495,7 +7495,7 @@ delete.notnull.i.1:                               ; preds = %if.then3.i.1
   br label %if.end21.i.1
 
 if.else12.i.1:                                    ; preds = %if.end21.i
-  br i1 %tobool14.not.i.1, label %if.end21.i.1, label %if.then15.i.1
+  br i1 %tobool14.not.i.1, label %if.else18.i.1, label %if.then15.i.1
 
 if.then15.i.1:                                    ; preds = %if.else12.i.1
   %call.i.1 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24
@@ -7503,7 +7503,7 @@ if.then15.i.1:                                    ; preds = %if.else12.i.1
   store ptr %call.i.1, ptr %TextureMatrix.i.1, align 8, !tbaa !76
   br label %if.end21.i.1
 
-if.end21.i.1:                                     ; preds = %if.else12.i.1, %if.then15.i.1, %delete.notnull.i.1, %if.then6.i.1
+if.else18.i.1:                                    ; preds = %if.else12.i.1, %if.then15.i.1, %delete.notnull.i.1, %if.then6.i.1
   %TextureWrapU.i.1 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %bf.load.i.1 = load i16, ptr %TextureWrapU.i.1, align 8
   %bf.cast.i.1 = and i16 %bf.load.i.1, 15
@@ -7559,7 +7559,7 @@ delete.notnull.i.2:                               ; preds = %if.then3.i.2
   br label %if.end21.i.2
 
 if.else12.i.2:                                    ; preds = %if.end21.i.1
-  br i1 %tobool14.not.i.2, label %if.end21.i.2, label %if.then15.i.2
+  br i1 %tobool14.not.i.2, label %if.else18.i.2, label %if.then15.i.2
 
 if.then15.i.2:                                    ; preds = %if.else12.i.2
   %call.i.2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24
@@ -7567,7 +7567,7 @@ if.then15.i.2:                                    ; preds = %if.else12.i.2
   store ptr %call.i.2, ptr %TextureMatrix.i.2, align 8, !tbaa !76
   br label %if.end21.i.2
 
-if.end21.i.2:                                     ; preds = %if.else12.i.2, %if.then15.i.2, %delete.notnull.i.2, %if.then6.i.2
+if.else18.i.2:                                    ; preds = %if.else12.i.2, %if.then15.i.2, %delete.notnull.i.2, %if.then6.i.2
   %TextureWrapU.i.2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %bf.load.i.2 = load i16, ptr %TextureWrapU.i.2, align 8
   %bf.cast.i.2 = and i16 %bf.load.i.2, 15
@@ -7623,7 +7623,7 @@ delete.notnull.i.3:                               ; preds = %if.then3.i.3
   br label %if.end21.i.3
 
 if.else12.i.3:                                    ; preds = %if.end21.i.2
-  br i1 %tobool14.not.i.3, label %if.end21.i.3, label %if.then15.i.3
+  br i1 %tobool14.not.i.3, label %if.else18.i.3, label %if.then15.i.3
 
 if.then15.i.3:                                    ; preds = %if.else12.i.3
   %call.i.3 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24
@@ -7631,7 +7631,7 @@ if.then15.i.3:                                    ; preds = %if.else12.i.3
   store ptr %call.i.3, ptr %TextureMatrix.i.3, align 8, !tbaa !76
   br label %if.end21.i.3
 
-if.end21.i.3:                                     ; preds = %if.else12.i.3, %if.then15.i.3, %delete.notnull.i.3, %if.then6.i.3
+if.else18.i.3:                                    ; preds = %if.else12.i.3, %if.then15.i.3, %delete.notnull.i.3, %if.then6.i.3
   %TextureWrapU.i.3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %bf.load.i.3 = load i16, ptr %TextureWrapU.i.3, align 8
   %bf.cast.i.3 = and i16 %bf.load.i.3, 15

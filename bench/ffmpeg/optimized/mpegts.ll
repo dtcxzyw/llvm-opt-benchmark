@@ -6576,8 +6576,8 @@ mpegts_find_stream_type.exit112.thread:           ; preds = %121, %mpegts_find_s
   %144 = load i32, ptr %89, align 8, !tbaa !37
   %.not82 = icmp eq i32 %8, %144
   %.not83 = icmp eq i32 %10, %143
-  %or.cond153 = select i1 %.not82, i1 %.not83, i1 false
-  br i1 %or.cond153, label %145, label %148
+  %or.cond154 = select i1 %.not82, i1 %.not83, i1 false
+  br i1 %or.cond154, label %145, label %148
 
 145:                                              ; preds = %142
   %146 = getelementptr inbounds nuw i8, ptr %89, i64 8

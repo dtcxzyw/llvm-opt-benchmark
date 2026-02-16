@@ -1648,7 +1648,7 @@ define dso_local i32 @uart_register_driver(ptr noundef %0) #0 align 16 {
   %14 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %13, i32 noundef 3520) #22
   store ptr %14, ptr %2, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.thread, label %16
+  br i1 %15, label %70, label %16
 
 16:                                               ; preds = %12
   %17 = load i32, ptr %7, align 8
@@ -1716,7 +1716,7 @@ define dso_local i32 @uart_register_driver(ptr noundef %0) #0 align 16 {
 .loopexit4:                                       ; preds = %.preheader3, %23
   %55 = tail call i32 @tty_register_driver(ptr noundef %18) #20
   %56 = icmp sgt i32 %55, -1
-  br i1 %56, label %.thread, label %57
+  br i1 %56, label %70, label %57
 
 57:                                               ; preds = %.loopexit4
   %58 = load i32, ptr %7, align 8
@@ -1742,11 +1742,11 @@ define dso_local i32 @uart_register_driver(ptr noundef %0) #0 align 16 {
   %68 = phi i32 [ %22, %20 ], [ %55, %.loopexit ]
   %69 = load ptr, ptr %2, align 8
   tail call void @kfree(ptr noundef %69) #20
-  br label %.thread
+  br label %70
 
-.thread:                                          ; preds = %6, %67, %.loopexit4, %12
-  %70 = phi i32 [ %55, %.loopexit4 ], [ %68, %67 ], [ -12, %12 ], [ -12, %6 ]
-  ret i32 %70
+70:                                               ; preds = %6, %67, %.loopexit4, %12
+  %71 = phi i32 [ %55, %.loopexit4 ], [ %68, %67 ], [ -12, %12 ], [ -12, %6 ]
+  ret i32 %71
 }
 
 ; Function Attrs: null_pointer_is_valid

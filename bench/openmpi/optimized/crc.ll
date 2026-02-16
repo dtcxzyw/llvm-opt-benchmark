@@ -1349,7 +1349,7 @@ define i64 @prte_csum_partial(ptr noundef %0, i64 noundef %1, ptr noundef captur
   %.0136.lcssa = phi i64 [ %19, %14 ], [ %23, %._crit_edge211.loopexit ]
   %.0134.lcssa = phi i64 [ 0, %14 ], [ %26, %._crit_edge211.loopexit ]
   %27 = sub i64 %20, %.0134.lcssa
-  br label %.sink.split.sink.split
+  br label %.sink.split
 
 28:                                               ; preds = %11
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr align 8 %0, i64 %1, i1 false)
@@ -1449,7 +1449,7 @@ define i64 @prte_csum_partial(ptr noundef %0, i64 noundef %1, ptr noundef captur
   %.3139.lcssa = phi i64 [ %53, %.preheader177 ], [ %60, %._crit_edge189.loopexit ]
   %.2.lcssa = phi i64 [ 0, %.preheader177 ], [ %62, %._crit_edge189.loopexit ]
   %63 = sub i64 %54, %.2.lcssa
-  br label %.sink.split.sink.split
+  br label %.sink.split
 
 .lr.ph:                                           ; preds = %.preheader178, %.lr.ph
   %.3181 = phi i64 [ %67, %.lr.ph ], [ 0, %.preheader178 ]
@@ -1471,7 +1471,7 @@ define i64 @prte_csum_partial(ptr noundef %0, i64 noundef %1, ptr noundef captur
   %.4.lcssa = phi i64 [ %53, %.preheader178 ], [ %65, %._crit_edge.loopexit ]
   %.3.lcssa = phi i64 [ 0, %.preheader178 ], [ %68, %._crit_edge.loopexit ]
   %69 = sub i64 %54, %.3.lcssa
-  br label %.sink.split.sink.split
+  br label %.sink.split
 
 70:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %47, ptr align 8 %0, i64 %1, i1 false)
@@ -1494,10 +1494,10 @@ define i64 @prte_csum_partial(ptr noundef %0, i64 noundef %1, ptr noundef captur
   %79 = icmp ugt i64 %78, 7
   br i1 %79, label %.lr.ph198, label %.sink.split, !llvm.loop !40
 
-.sink.split.sink.split:                           ; preds = %._crit_edge189, %._crit_edge, %._crit_edge211
-  %.1147.ph.ph = phi i64 [ %63, %._crit_edge189 ], [ %69, %._crit_edge ], [ %27, %._crit_edge211 ]
-  %.2142.ph.ph = phi ptr [ %.3143.lcssa, %._crit_edge189 ], [ %.4144.lcssa, %._crit_edge ], [ %.0140.lcssa, %._crit_edge211 ]
-  %.2138.ph.ph = phi i64 [ %.3139.lcssa, %._crit_edge189 ], [ %.4.lcssa, %._crit_edge ], [ %.0136.lcssa, %._crit_edge211 ]
+.sink.split:                                      ; preds = %._crit_edge189, %._crit_edge, %._crit_edge211
+  %.sink272 = phi i64 [ %63, %._crit_edge189 ], [ %69, %._crit_edge ], [ %27, %._crit_edge211 ]
+  %.sink = phi ptr [ %.3143.lcssa, %._crit_edge189 ], [ %.4144.lcssa, %._crit_edge ], [ %.0140.lcssa, %._crit_edge211 ]
+  %.1147.ph = phi i64 [ %.3139.lcssa, %._crit_edge189 ], [ %.4.lcssa, %._crit_edge ], [ %.0136.lcssa, %._crit_edge211 ]
   store i64 0, ptr %2, align 8, !tbaa !3
   br label %.sink.split
 

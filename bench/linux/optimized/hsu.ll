@@ -700,13 +700,13 @@ define internal void @hsu_dma_issue_pending(ptr noundef %0) #0 align 16 {
 14:                                               ; preds = %8, %1
   %15 = load volatile ptr, ptr %5, align 8
   %16 = icmp eq ptr %15, %5
-  br i1 %16, label %32, label %17
+  br i1 %16, label %33, label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %32
+  br i1 %20, label %21, label %33
 
 21:                                               ; preds = %17
   %22 = load volatile ptr, ptr %5, align 8
@@ -727,9 +727,9 @@ define internal void @hsu_dma_issue_pending(ptr noundef %0) #0 align 16 {
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %28, align 8
   store ptr %24, ptr %18, align 8
   tail call fastcc void @hsu_dma_start_channel(ptr noundef %0)
-  br label %32
+  br label %33
 
-32:                                               ; preds = %21, %27, %17, %14
+33:                                               ; preds = %21, %27, %17, %14
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %2, i64 noundef %3) #11
   ret void
 }

@@ -7826,18 +7826,18 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120DeduceVersionProfi
     i32 300, label %20
     i32 310, label %20
     i32 320, label %20
-    i32 100, label %thread-pre-split.sink.split
+    i32 100, label %thread-pre-split
   ]
 
 20:                                               ; preds = %19, %19, %19
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.59) #25
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.27) #25
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.64) #25
-  br label %thread-pre-split.sink.split
+  br label %thread-pre-split
 
 21:                                               ; preds = %19
   %22 = icmp sgt i32 %16, 149
-  br i1 %22, label %thread-pre-split.sink.split, label %thread-pre-split
+  br i1 %22, label %thread-pre-split, label %thread-pre-split
 
 23:                                               ; preds = %15
   %24 = icmp slt i32 %16, 150
@@ -7849,8 +7849,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120DeduceVersionProfi
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.64) #25
   %26 = load i32, ptr %5, align 4
   %27 = icmp eq i32 %26, 100
-  %. = select i1 %27, i32 8, i32 1
-  br label %thread-pre-split.sink.split
+  %.140 = select i1 %27, i32 8, i32 1
+  br label %thread-pre-split
 
 28:                                               ; preds = %23
   %29 = icmp eq i32 %17, 8
@@ -7861,13 +7861,13 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120DeduceVersionProfi
   ]
 
 30:                                               ; preds = %28, %28, %28
-  br i1 %29, label %thread-pre-split.sink.split, label %31
+  br i1 %29, label %thread-pre-split, label %31
 
 31:                                               ; preds = %30
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.59) #25
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.29) #25
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.64) #25
-  br label %thread-pre-split.sink.split
+  br label %thread-pre-split
 
 32:                                               ; preds = %28
   br i1 %29, label %33, label %36
@@ -7876,12 +7876,12 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120DeduceVersionProfi
   tail call void @_ZN7glslang13TInfoSinkBase7messageENS_11TPrefixTypeEPKc(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 2, ptr noundef nonnull @.str.30)
   %34 = load i32, ptr %5, align 4
   %35 = icmp sgt i32 %34, 149
-  %.140 = select i1 %35, i32 2, i32 1
-  br label %thread-pre-split.sink.split
+  %.141 = select i1 %35, i32 2, i32 1
+  br label %thread-pre-split
 
-thread-pre-split.sink.split:                      ; preds = %33, %30, %31, %25, %21, %19, %20
-  %.sink = phi i32 [ 2, %21 ], [ 8, %19 ], [ 8, %20 ], [ %., %25 ], [ %.140, %33 ], [ 8, %30 ], [ 8, %31 ]
-  %.0.ph.ph = phi i1 [ true, %21 ], [ true, %19 ], [ false, %20 ], [ false, %25 ], [ false, %33 ], [ true, %30 ], [ false, %31 ]
+thread-pre-split:                                 ; preds = %33, %30, %31, %25, %21, %19, %20
+  %.sink = phi i32 [ 2, %21 ], [ 8, %19 ], [ 8, %20 ], [ %., %25 ], [ %.141, %33 ], [ 8, %30 ], [ 8, %31 ]
+  %.0.ph = phi i1 [ true, %21 ], [ true, %19 ], [ false, %20 ], [ false, %25 ], [ false, %33 ], [ true, %30 ], [ false, %31 ]
   store i32 %.sink, ptr %6, align 4
   br label %thread-pre-split
 

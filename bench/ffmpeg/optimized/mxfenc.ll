@@ -2878,8 +2878,8 @@ choose_chroma_location.exit.thread277:            ; preds = %108, %129, %129
   br label %choose_chroma_location.exit.thread.sink.split
 
 choose_chroma_location.exit.thread.sink.split:    ; preds = %115, %108, %choose_chroma_location.exit.thread275, %131, %choose_chroma_location.exit.thread277
-  %.sink417 = phi i32 [ 3, %choose_chroma_location.exit.thread277 ], [ 1, %131 ], [ 6, %choose_chroma_location.exit.thread275 ], [ 0, %108 ], [ 0, %115 ]
-  store i32 %.sink417, ptr %83, align 8, !tbaa !187
+  %.sink429 = phi i32 [ 3, %choose_chroma_location.exit.thread277 ], [ 1, %131 ], [ 6, %choose_chroma_location.exit.thread275 ], [ 0, %108 ], [ 0, %115 ]
+  store i32 %.sink429, ptr %83, align 8, !tbaa !187
   br label %choose_chroma_location.exit.thread
 
 choose_chroma_location.exit.thread:               ; preds = %choose_chroma_location.exit.thread.sink.split, %108, %.thread.i, %130, %119, %114
@@ -3366,8 +3366,8 @@ mxf_get_essence_container_ul_index.exit:          ; preds = %300
   br label %387
 
 387:                                              ; preds = %384, %381
-  %.sink418 = phi i32 [ %386, %384 ], [ %383, %381 ]
-  %388 = call i32 @llvm.bswap.i32(i32 %.sink418)
+  %.sink430 = phi i32 [ %386, %384 ], [ %383, %381 ]
+  %388 = call i32 @llvm.bswap.i32(i32 %.sink430)
   %389 = getelementptr inbounds nuw i8, ptr %373, i64 48
   store i32 %388, ptr %389, align 8, !tbaa !212
   %indvars.iv.next379 = add nuw nsw i64 %indvars.iv378, 1
