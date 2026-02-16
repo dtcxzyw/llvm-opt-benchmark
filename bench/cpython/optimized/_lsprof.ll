@@ -1264,7 +1264,7 @@ define internal noundef ptr @_lsprof_Profiler_clear(ptr noundef captures(none) %
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !39
   %.not1213.i.i = icmp eq ptr %17, null
-  br i1 %.not1213.i.i, label %_lsprof_Profiler_clear_impl.exit, label %.lr.ph.i.i
+  br i1 %.not1213.i.i, label %clearEntries.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i
   %18 = phi ptr [ %21, %.lr.ph.i.i ], [ %17, %15 ]
@@ -1274,9 +1274,9 @@ define internal noundef ptr @_lsprof_Profiler_clear(ptr noundef captures(none) %
   tail call void @PyMem_Free(ptr noundef nonnull %18) #5
   %21 = load ptr, ptr %16, align 8, !tbaa !39
   %.not12.i.i = icmp eq ptr %21, null
-  br i1 %.not12.i.i, label %_lsprof_Profiler_clear_impl.exit, label %.lr.ph.i.i, !llvm.loop !40
+  br i1 %.not12.i.i, label %clearEntries.exit.i, label %.lr.ph.i.i, !llvm.loop !40
 
-_lsprof_Profiler_clear_impl.exit:                 ; preds = %.lr.ph.i.i, %6, %15
+clearEntries.exit.i:                              ; preds = %.lr.ph.i.i, %6, %15
   %.0.i = phi ptr [ null, %6 ], [ @_Py_NoneStruct, %15 ], [ @_Py_NoneStruct, %.lr.ph.i.i ]
   ret ptr %.0.i
 }
