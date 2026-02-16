@@ -15067,15 +15067,15 @@ define hidden noundef zeroext i1 @"_ZN8worktree17BackgroundScanner14process_even
 
 .lr.ph.i:                                         ; preds = %38, %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h21de52ec06b44bcbE.exit.i"
   %.sroa.092.0 = phi i8 [ 2, %38 ], [ %.sink.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h21de52ec06b44bcbE.exit.i" ]
-  %.sroa.7.0 = phi i64 [ %43, %38 ], [ %47, %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h21de52ec06b44bcbE.exit.i" ]
+  %.sroa.6.096 = phi i64 [ %43, %38 ], [ %47, %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h21de52ec06b44bcbE.exit.i" ]
   %44 = phi ptr [ %41, %38 ], [ %46, %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h21de52ec06b44bcbE.exit.i" ]
-  %45 = invoke { ptr, i64 } @_ZN3std4path4Path6parent17he2d35dc63f04c1dfE(ptr noalias noundef nonnull readonly align 1 %44, i64 noundef %.sroa.7.0)
+  %45 = invoke { ptr, i64 } @_ZN3std4path4Path6parent17he2d35dc63f04c1dfE(ptr noalias noundef nonnull readonly align 1 %44, i64 noundef %.sroa.6.096)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i
   %46 = extractvalue { ptr, i64 } %45, 0
   %47 = extractvalue { ptr, i64 } %45, 1
-  %48 = invoke { ptr, i64 } @_ZN3std4path4Path9file_name17h36210b8c17d883f5E(ptr noalias noundef nonnull readonly align 1 %44, i64 noundef %.sroa.7.0)
+  %48 = invoke { ptr, i64 } @_ZN3std4path4Path9file_name17h36210b8c17d883f5E(ptr noalias noundef nonnull readonly align 1 %44, i64 noundef %.sroa.6.096)
           to label %.noexc66 unwind label %.loopexit
 
 .noexc66:                                         ; preds = %.noexc
@@ -15215,7 +15215,7 @@ _ZN3std4sync4once4Once9call_once17h1aca9eb28ec66441E.exit14.i.i.i: ; preds = %.n
   %84 = load ptr, ptr %83, align 8, !alias.scope !2484, !noalias !2491, !nonnull !4, !noundef !4
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %86 = load i64, ptr %85, align 8, !alias.scope !2484, !noalias !2491, !noundef !4
-  %87 = invoke { ptr, i64 } @_ZN3std4path4Path13_strip_prefix17h24bd32d0d7141cafE(ptr noalias noundef nonnull readonly align 1 %44, i64 noundef %.sroa.7.0, ptr noalias noundef nonnull readonly align 1 %84, i64 noundef %86)
+  %87 = invoke { ptr, i64 } @_ZN3std4path4Path13_strip_prefix17h24bd32d0d7141cafE(ptr noalias noundef nonnull readonly align 1 %44, i64 noundef %.sroa.6.096, ptr noalias noundef nonnull readonly align 1 %84, i64 noundef %86)
           to label %_ZN3std4path4Path12strip_prefix17h78cbfb5542f02aa4E.exit unwind label %.loopexit.split-lp
 
 .thread.loopexit:                                 ; preds = %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h21de52ec06b44bcbE.exit.i"
@@ -15244,7 +15244,7 @@ _ZN3std4path4Path12strip_prefix17h78cbfb5542f02aa4E.exit: ; preds = %80
   %101 = icmp eq ptr %100, null
   %102 = extractvalue { ptr, i64 } %87, 1
   %spec.select = select i1 %101, ptr %44, ptr %100
-  %spec.select59 = select i1 %101, i64 %.sroa.7.0, i64 %102
+  %spec.select59 = select i1 %101, i64 %.sroa.6.096, i64 %102
   invoke void @_ZN3std4path4Path11to_path_buf17h0a65d96a83a5c0d9E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %31, ptr noalias noundef nonnull readonly align 1 %spec.select, i64 noundef %spec.select59)
           to label %103 unwind label %.loopexit.split-lp
 
@@ -15411,7 +15411,7 @@ _ZN3std4path4Path12strip_prefix17h78cbfb5542f02aa4E.exit73: ; preds = %.thread
 
 .noexc80:                                         ; preds = %.noexc79
   %169 = icmp eq ptr %168, null
-  br i1 %169, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hdde7c41e6f13a699E.exit.thread104", label %.noexc.i.i.i
+  br i1 %169, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hdde7c41e6f13a699E.exit.thread105", label %.noexc.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %.noexc80
   call void @llvm.experimental.noalias.scope.decl(metadata !2539)
@@ -15436,9 +15436,9 @@ _ZN3std4path4Path12strip_prefix17h78cbfb5542f02aa4E.exit73: ; preds = %.thread
 .noexc83:                                         ; preds = %.noexc82
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2544
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !2544
-  br i1 %175, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hdde7c41e6f13a699E.exit", label %"_ZN4core6option15Option$LT$T$GT$6map_or17hdde7c41e6f13a699E.exit.thread104"
+  br i1 %175, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hdde7c41e6f13a699E.exit", label %"_ZN4core6option15Option$LT$T$GT$6map_or17hdde7c41e6f13a699E.exit.thread105"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17hdde7c41e6f13a699E.exit.thread104": ; preds = %.noexc80, %.noexc83
+"_ZN4core6option15Option$LT$T$GT$6map_or17hdde7c41e6f13a699E.exit.thread105": ; preds = %.noexc80, %.noexc83
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !2529
   br label %185
 
@@ -15462,7 +15462,7 @@ _ZN3std4path4Path12strip_prefix17h78cbfb5542f02aa4E.exit73: ; preds = %.thread
   %184 = invoke noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h655c2389013de5b6E.llvm.5596008357701127451(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %179)
           to label %206 unwind label %252
 
-185:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hdde7c41e6f13a699E.exit", %"_ZN4core6option15Option$LT$T$GT$6map_or17hdde7c41e6f13a699E.exit.thread104"
+185:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hdde7c41e6f13a699E.exit", %"_ZN4core6option15Option$LT$T$GT$6map_or17hdde7c41e6f13a699E.exit.thread105"
   %186 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %187 = icmp ult i64 %186, 6
   call void @llvm.assume(i1 %187)

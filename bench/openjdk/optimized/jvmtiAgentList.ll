@@ -267,7 +267,6 @@ define hidden void @_ZN14JvmtiAgentList10initializeEv() local_unnamed_addr #0 al
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %14, %0
-  store i32 0, ptr %2, align 4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 0
@@ -324,7 +323,6 @@ define hidden void @_ZN14JvmtiAgentList19convert_xrun_agentsEv() local_unnamed_a
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %5, %0
-  store i32 0, ptr %2, align 4
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
@@ -381,7 +379,6 @@ define hidden void @_ZN14JvmtiAgentList11load_agentsEv() local_unnamed_addr #0 a
   br i1 %.not.i, label %._crit_edge.i, label %6, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %6, %0
-  store i32 0, ptr %3, align 4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 0
@@ -430,7 +427,6 @@ _ZN14JvmtiAgentList19convert_xrun_agentsEv.exit:  ; preds = %._crit_edge.i, %19
   br i1 %.not.i2, label %_ZL11load_agentsRN14JvmtiAgentList8IteratorE.exit, label %.lr.ph.i1, !llvm.loop !14
 
 _ZL11load_agentsRN14JvmtiAgentList8IteratorE.exit: ; preds = %.lr.ph.i1, %_ZN14JvmtiAgentList19convert_xrun_agentsEv.exit
-  store i32 0, ptr %20, align 4
   %31 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 0
@@ -484,7 +480,6 @@ define hidden void @_ZN14JvmtiAgentList16load_xrun_agentsEv() local_unnamed_addr
   br i1 %.not.i, label %_ZL11load_agentsRN14JvmtiAgentList8IteratorE.exit, label %.lr.ph.i, !llvm.loop !14
 
 _ZL11load_agentsRN14JvmtiAgentList8IteratorE.exit: ; preds = %.lr.ph.i, %0
-  store i32 0, ptr %2, align 4
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
@@ -562,7 +557,6 @@ define hidden void @_ZN14JvmtiAgentList13unload_agentsEv() local_unnamed_addr #0
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %5, %0
-  store i32 0, ptr %2, align 4
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0

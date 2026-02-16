@@ -2873,6 +2873,7 @@ _ZN4llvm5ErrorD2Ev.exit2.thread:                  ; preds = %73
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  store ptr null, ptr %20, align 8, !tbaa !58
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %131

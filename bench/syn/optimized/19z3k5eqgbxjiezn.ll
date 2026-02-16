@@ -4387,7 +4387,11 @@ define hidden noundef ptr @_ZN3syn5parse10cell_clone17h473bafb9fd12db0eE(ptr nou
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$core..cell..Cell$LT$syn..parse..Unexpected$GT$$GT$$GT$$GT$17h83a45c6394d13b6fE.llvm.858133952616893155.exit", label %5
+  br i1 %4, label %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5fffa741a97fbcacE.llvm.858133952616893155.exit.thread", label %5
+
+"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5fffa741a97fbcacE.llvm.858133952616893155.exit.thread": ; preds = %1
+  store ptr null, ptr %0, align 8
+  br label %"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$core..cell..Cell$LT$syn..parse..Unexpected$GT$$GT$$GT$$GT$17h83a45c6394d13b6fE.llvm.858133952616893155.exit"
 
 5:                                                ; preds = %1
   %6 = load i64, ptr %3, align 8, !noalias !618, !noundef !4
@@ -4439,7 +4443,7 @@ define hidden noundef ptr @_ZN3syn5parse10cell_clone17h473bafb9fd12db0eE(ptr nou
   invoke void @"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$core..cell..Cell$LT$syn..parse..Unexpected$GT$$GT$$GT$$GT$17h83a45c6394d13b6fE.llvm.858133952616893155"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2) #25
           to label %27 unwind label %25
 
-"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$core..cell..Cell$LT$syn..parse..Unexpected$GT$$GT$$GT$$GT$17h83a45c6394d13b6fE.llvm.858133952616893155.exit": ; preds = %1, %22, %.noexc, %12, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5fffa741a97fbcacE.llvm.858133952616893155.exit"
+"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$core..cell..Cell$LT$syn..parse..Unexpected$GT$$GT$$GT$$GT$17h83a45c6394d13b6fE.llvm.858133952616893155.exit": ; preds = %22, %.noexc, %12, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5fffa741a97fbcacE.llvm.858133952616893155.exit", %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5fffa741a97fbcacE.llvm.858133952616893155.exit.thread"
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %3
 

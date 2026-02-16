@@ -1641,7 +1641,6 @@ Pdr_QueuePop.exit:                                ; preds = %Pdr_QueuePop.exit.l
   br i1 %.not, label %._crit_edge, label %Pdr_QueuePop.exit, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %Pdr_QueuePop.exit, %1
-  store ptr null, ptr %2, align 8, !tbaa !62
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store i32 0, ptr %11, align 8, !tbaa !76
   ret void

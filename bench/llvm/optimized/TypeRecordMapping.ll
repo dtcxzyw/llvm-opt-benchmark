@@ -9221,27 +9221,19 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !35
   tail call void @_ZN4llvm8codeview23visitMemberRecordStreamENS_8ArrayRefIhEERNS0_20TypeVisitorCallbacksE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %1) #19
-  %15 = load ptr, ptr %0, align 8, !tbaa !11
-  %.not14 = icmp eq ptr %15, null
-  br i1 %.not14, label %_ZN4llvm5ErrorD2Ev.exit10, label %20
+  br label %_ZN4llvm5ErrorD2Ev.exit10
 
 _ZNK4llvm8codeview16CodeViewRecordIO11isStreamingEv.exit.thread: ; preds = %4
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i16 257, ptr %18, align 8
-  call void @_ZN4llvm8codeview16CodeViewRecordIO17mapByteVectorTailERNS_8ArrayRefIhEERKNS_5TwineE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %16, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(34) %5) #19
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i16 257, ptr %17, align 8
+  call void @_ZN4llvm8codeview16CodeViewRecordIO17mapByteVectorTailERNS_8ArrayRefIhEERKNS_5TwineE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %15, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(34) %5) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %19 = load ptr, ptr %0, align 8, !tbaa !11
-  %.not = icmp eq ptr %19, null
-  br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit10, label %20
+  br label %_ZN4llvm5ErrorD2Ev.exit10
 
-_ZN4llvm5ErrorD2Ev.exit10:                        ; preds = %_ZN4llvm5ErrorD2Ev.exit, %_ZNK4llvm8codeview16CodeViewRecordIO11isStreamingEv.exit.thread
-  store ptr null, ptr %0, align 8, !tbaa !11
-  br label %20
-
-20:                                               ; preds = %_ZNK4llvm8codeview16CodeViewRecordIO11isStreamingEv.exit.thread, %_ZN4llvm5ErrorD2Ev.exit, %_ZN4llvm5ErrorD2Ev.exit10
+_ZN4llvm5ErrorD2Ev.exit10:                        ; preds = %_ZNK4llvm8codeview16CodeViewRecordIO11isStreamingEv.exit.thread, %_ZN4llvm5ErrorD2Ev.exit
   ret void
 }
 

@@ -40417,7 +40417,7 @@ _ZN4llvm3AnyC2ERKS0_.exit29.i:                    ; preds = %_ZN4llvm3AnyD2Ev.ex
   call void %84(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %10) #26
   %.pr.i = load ptr, ptr %7, align 8, !tbaa !103
   %.not.i.i.i.i = icmp eq ptr %.pr.i, null
-  br i1 %.not.i.i.i.i, label %.thread9, label %_ZNK4llvm3Any3isaIPKNS_8FunctionEEEbv.exit.i.i.i
+  br i1 %.not.i.i.i.i, label %_ZN4llvm3AnyC2ERKS0_.exit45.i, label %_ZNK4llvm3Any3isaIPKNS_8FunctionEEEbv.exit.i.i.i
 
 _ZNK4llvm3Any3isaIPKNS_8FunctionEEEbv.exit.i.i.i: ; preds = %_ZN4llvm3AnyC2ERKS0_.exit29.i
   %85 = load ptr, ptr %.pr.i, align 8, !tbaa !3
@@ -40435,7 +40435,7 @@ _ZL8unwrapIRIN4llvm8FunctionEEPKT_NS0_3AnyE.exit.thread68.i: ; preds = %_ZNK4llv
 
 _ZL8unwrapIRIN4llvm8FunctionEEPKT_NS0_3AnyE.exit.i: ; preds = %_ZNK4llvm3Any3isaIPKNS_8FunctionEEEbv.exit.i.i.i
   %.not.i.i30.i = icmp eq ptr %90, null
-  br i1 %.not.i.i30.i, label %.thread9, label %_ZN4llvm3AnyD2Ev.exit32.i
+  br i1 %.not.i.i30.i, label %_ZN4llvm3AnyC2ERKS0_.exit45.i, label %_ZN4llvm3AnyD2Ev.exit32.i
 
 _ZN4llvm3AnyD2Ev.exit32.i:                        ; preds = %_ZL8unwrapIRIN4llvm8FunctionEEPKT_NS0_3AnyE.exit.i, %_ZL8unwrapIRIN4llvm8FunctionEEPKT_NS0_3AnyE.exit.thread68.i
   %93 = phi ptr [ %92, %_ZL8unwrapIRIN4llvm8FunctionEEPKT_NS0_3AnyE.exit.thread68.i ], [ null, %_ZL8unwrapIRIN4llvm8FunctionEEPKT_NS0_3AnyE.exit.i ]
@@ -40529,15 +40529,11 @@ _ZN4llvm11raw_ostreamlsEc.exit.i:                 ; preds = %130, %128, %_ZN4llv
   store i8 41, ptr %132, align 1, !tbaa !60
   br label %_ZN4llvm11raw_ostreamlsEc.exit43.i
 
-.thread9:                                         ; preds = %_ZN4llvm3AnyC2ERKS0_.exit29.i, %_ZL8unwrapIRIN4llvm8FunctionEEPKT_NS0_3AnyE.exit.i
-  store ptr null, ptr %7, align 8, !tbaa !103
-  br label %_ZN4llvm3AnyC2ERKS0_.exit45.i
-
 138:                                              ; preds = %_ZN4llvm3AnyD2Ev.exit.i
   store ptr null, ptr %7, align 8, !tbaa !103
   br label %_ZN4llvm3AnyD2Ev.exit49.thread.i
 
-_ZN4llvm3AnyC2ERKS0_.exit45.i:                    ; preds = %_ZN4llvm3AnyD2Ev.exit32.i, %.thread9
+_ZN4llvm3AnyC2ERKS0_.exit45.i:                    ; preds = %_ZL8unwrapIRIN4llvm8FunctionEEPKT_NS0_3AnyE.exit.i, %_ZN4llvm3AnyC2ERKS0_.exit29.i, %_ZN4llvm3AnyD2Ev.exit32.i
   %139 = load ptr, ptr %10, align 8, !tbaa !3
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 16
   %141 = load ptr, ptr %140, align 8
@@ -46154,7 +46150,7 @@ _ZN4llvm3AnyC2ERKS0_.exit.i:                      ; preds = %_ZN4llvmeqENS_9Stri
   call void %42(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %24) #26
   %.pr.i = load ptr, ptr %10, align 8, !tbaa !103
   %.not.i.i.i.i = icmp eq ptr %.pr.i, null
-  br i1 %.not.i.i.i.i, label %.thread12, label %_ZNK4llvm3Any3isaIPKNS_8FunctionEEEbv.exit.i.i.i
+  br i1 %.not.i.i.i.i, label %_ZN4llvm3AnyC2ERKS0_.exit46.i, label %_ZNK4llvm3Any3isaIPKNS_8FunctionEEEbv.exit.i.i.i
 
 _ZNK4llvm3Any3isaIPKNS_8FunctionEEEbv.exit.i.i.i: ; preds = %_ZN4llvm3AnyC2ERKS0_.exit.i
   %43 = load ptr, ptr %.pr.i, align 8, !tbaa !3
@@ -46172,7 +46168,7 @@ _ZL8unwrapIRIN4llvm8FunctionEEPKT_NS0_3AnyE.exit.thread9.i: ; preds = %_ZNK4llvm
 
 _ZL8unwrapIRIN4llvm8FunctionEEPKT_NS0_3AnyE.exit.i: ; preds = %_ZNK4llvm3Any3isaIPKNS_8FunctionEEEbv.exit.i.i.i
   %.not.i.i.i = icmp eq ptr %48, null
-  br i1 %.not.i.i.i, label %.thread12, label %_ZN4llvm3AnyD2Ev.exit.i
+  br i1 %.not.i.i.i, label %_ZN4llvm3AnyC2ERKS0_.exit46.i, label %_ZN4llvm3AnyD2Ev.exit.i
 
 _ZN4llvm3AnyD2Ev.exit.i:                          ; preds = %_ZL8unwrapIRIN4llvm8FunctionEEPKT_NS0_3AnyE.exit.i, %_ZL8unwrapIRIN4llvm8FunctionEEPKT_NS0_3AnyE.exit.thread9.i
   %51 = phi ptr [ %50, %_ZL8unwrapIRIN4llvm8FunctionEEPKT_NS0_3AnyE.exit.thread9.i ], [ null, %_ZL8unwrapIRIN4llvm8FunctionEEPKT_NS0_3AnyE.exit.i ]
@@ -46184,18 +46180,14 @@ _ZN4llvm3AnyD2Ev.exit.i:                          ; preds = %_ZL8unwrapIRIN4llvm
   %.not.i = icmp eq ptr %51, null
   br i1 %.not.i, label %_ZN4llvm3AnyC2ERKS0_.exit46.i, label %.thread21.i
 
-.thread12:                                        ; preds = %_ZN4llvm3AnyC2ERKS0_.exit.i, %_ZL8unwrapIRIN4llvm8FunctionEEPKT_NS0_3AnyE.exit.i
-  store ptr null, ptr %10, align 8, !tbaa !103
-  br label %_ZN4llvm3AnyC2ERKS0_.exit46.i
-
-_ZN4llvm3AnyC2ERKS0_.exit46.i:                    ; preds = %_ZN4llvm3AnyD2Ev.exit.i, %.thread12
+_ZN4llvm3AnyC2ERKS0_.exit46.i:                    ; preds = %_ZL8unwrapIRIN4llvm8FunctionEEPKT_NS0_3AnyE.exit.i, %_ZN4llvm3AnyC2ERKS0_.exit.i, %_ZN4llvm3AnyD2Ev.exit.i
   %55 = load ptr, ptr %24, align 8, !tbaa !3
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
   call void %57(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %24) #26
   %.pr12.i = load ptr, ptr %11, align 8, !tbaa !103
   %.not.i.i.i47.i = icmp eq ptr %.pr12.i, null
-  br i1 %.not.i.i.i47.i, label %.thread.i.thread14, label %_ZNK4llvm3Any3isaIPKNS_4LoopEEEbv.exit.i.i.i
+  br i1 %.not.i.i.i47.i, label %_ZN4llvm3AnyC2ERKS0_.exit57.i, label %_ZNK4llvm3Any3isaIPKNS_4LoopEEEbv.exit.i.i.i
 
 _ZNK4llvm3Any3isaIPKNS_4LoopEEEbv.exit.i.i.i:     ; preds = %_ZN4llvm3AnyC2ERKS0_.exit46.i
   %58 = load ptr, ptr %.pr12.i, align 8, !tbaa !3
@@ -46213,7 +46205,7 @@ _ZL8unwrapIRIN4llvm4LoopEEPKT_NS0_3AnyE.exit.thread16.i: ; preds = %_ZNK4llvm3An
 
 _ZL8unwrapIRIN4llvm4LoopEEPKT_NS0_3AnyE.exit.i:   ; preds = %_ZNK4llvm3Any3isaIPKNS_4LoopEEEbv.exit.i.i.i
   %.not.i.i48.i = icmp eq ptr %63, null
-  br i1 %.not.i.i48.i, label %.thread.i.thread14, label %_ZN4llvm3AnyD2Ev.exit50.i
+  br i1 %.not.i.i48.i, label %_ZN4llvm3AnyC2ERKS0_.exit57.i, label %_ZN4llvm3AnyD2Ev.exit50.i
 
 _ZN4llvm3AnyD2Ev.exit50.i:                        ; preds = %_ZL8unwrapIRIN4llvm4LoopEEPKT_NS0_3AnyE.exit.i, %_ZL8unwrapIRIN4llvm4LoopEEPKT_NS0_3AnyE.exit.thread16.i
   %66 = phi ptr [ %65, %_ZL8unwrapIRIN4llvm4LoopEEPKT_NS0_3AnyE.exit.thread16.i ], [ null, %_ZL8unwrapIRIN4llvm4LoopEEPKT_NS0_3AnyE.exit.i ]
@@ -46346,18 +46338,14 @@ _ZN4llvm11raw_ostreamlsEPKc.exit55.i:             ; preds = %116, %114, %.thread
   call void @_ZN4llvm18report_fatal_errorERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(34) %12, i1 noundef zeroext true) #28
   unreachable
 
-.thread.i.thread14:                               ; preds = %_ZN4llvm3AnyC2ERKS0_.exit46.i, %_ZL8unwrapIRIN4llvm4LoopEEPKT_NS0_3AnyE.exit.i
-  store ptr null, ptr %11, align 8, !tbaa !103
-  br label %_ZN4llvm3AnyC2ERKS0_.exit57.i
-
-_ZN4llvm3AnyC2ERKS0_.exit57.i:                    ; preds = %_ZN4llvm3AnyD2Ev.exit50.i, %70, %.thread.i.thread14
+_ZN4llvm3AnyC2ERKS0_.exit57.i:                    ; preds = %_ZL8unwrapIRIN4llvm4LoopEEPKT_NS0_3AnyE.exit.i, %_ZN4llvm3AnyC2ERKS0_.exit46.i, %_ZN4llvm3AnyD2Ev.exit50.i, %70
   %130 = load ptr, ptr %24, align 8, !tbaa !3
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %132 = load ptr, ptr %131, align 8
   call void %132(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %24) #26
   %.pr25.i = load ptr, ptr %14, align 8, !tbaa !103
   %.not.i.i.i58.i = icmp eq ptr %.pr25.i, null
-  br i1 %.not.i.i.i58.i, label %.thread17, label %_ZNK4llvm3Any3isaIPKNS_6ModuleEEEbv.exit.i.i.i
+  br i1 %.not.i.i.i58.i, label %_ZN4llvm3AnyC2ERKS0_.exit63.i, label %_ZNK4llvm3Any3isaIPKNS_6ModuleEEEbv.exit.i.i.i
 
 _ZNK4llvm3Any3isaIPKNS_6ModuleEEEbv.exit.i.i.i:   ; preds = %_ZN4llvm3AnyC2ERKS0_.exit57.i
   %133 = load ptr, ptr %.pr25.i, align 8, !tbaa !3
@@ -46375,7 +46363,7 @@ _ZL8unwrapIRIN4llvm6ModuleEEPKT_NS0_3AnyE.exit.thread29.i: ; preds = %_ZNK4llvm3
 
 _ZL8unwrapIRIN4llvm6ModuleEEPKT_NS0_3AnyE.exit.i: ; preds = %_ZNK4llvm3Any3isaIPKNS_6ModuleEEEbv.exit.i.i.i
   %.not.i.i59.i = icmp eq ptr %138, null
-  br i1 %.not.i.i59.i, label %.thread17, label %_ZN4llvm3AnyD2Ev.exit61.i
+  br i1 %.not.i.i59.i, label %_ZN4llvm3AnyC2ERKS0_.exit63.i, label %_ZN4llvm3AnyD2Ev.exit61.i
 
 _ZN4llvm3AnyD2Ev.exit61.i:                        ; preds = %_ZL8unwrapIRIN4llvm6ModuleEEPKT_NS0_3AnyE.exit.i, %_ZL8unwrapIRIN4llvm6ModuleEEPKT_NS0_3AnyE.exit.thread29.i
   %141 = phi ptr [ %140, %_ZL8unwrapIRIN4llvm6ModuleEEPKT_NS0_3AnyE.exit.thread29.i ], [ null, %_ZL8unwrapIRIN4llvm6ModuleEEPKT_NS0_3AnyE.exit.i ]
@@ -46387,18 +46375,14 @@ _ZN4llvm3AnyD2Ev.exit61.i:                        ; preds = %_ZL8unwrapIRIN4llvm
   %.not39.i = icmp eq ptr %141, null
   br i1 %.not39.i, label %_ZN4llvm3AnyC2ERKS0_.exit63.i, label %.thread43.i
 
-.thread17:                                        ; preds = %_ZN4llvm3AnyC2ERKS0_.exit57.i, %_ZL8unwrapIRIN4llvm6ModuleEEPKT_NS0_3AnyE.exit.i
-  store ptr null, ptr %14, align 8, !tbaa !103
-  br label %_ZN4llvm3AnyC2ERKS0_.exit63.i
-
-_ZN4llvm3AnyC2ERKS0_.exit63.i:                    ; preds = %_ZN4llvm3AnyD2Ev.exit61.i, %.thread17
+_ZN4llvm3AnyC2ERKS0_.exit63.i:                    ; preds = %_ZL8unwrapIRIN4llvm6ModuleEEPKT_NS0_3AnyE.exit.i, %_ZN4llvm3AnyC2ERKS0_.exit57.i, %_ZN4llvm3AnyD2Ev.exit61.i
   %145 = load ptr, ptr %24, align 8, !tbaa !3
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 16
   %147 = load ptr, ptr %146, align 8
   call void %147(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %24) #26
   %.pr32.i = load ptr, ptr %15, align 8, !tbaa !103
   %.not.i.i.i64.i = icmp eq ptr %.pr32.i, null
-  br i1 %.not.i.i.i64.i, label %.thread40.i.thread19, label %_ZNK4llvm3Any3isaIPKNS_13LazyCallGraph3SCCEEEbv.exit.i.i.i
+  br i1 %.not.i.i.i64.i, label %_ZN4llvm3AnyC2ERKS0_.exit80.i, label %_ZNK4llvm3Any3isaIPKNS_13LazyCallGraph3SCCEEEbv.exit.i.i.i
 
 _ZNK4llvm3Any3isaIPKNS_13LazyCallGraph3SCCEEEbv.exit.i.i.i: ; preds = %_ZN4llvm3AnyC2ERKS0_.exit63.i
   %148 = load ptr, ptr %.pr32.i, align 8, !tbaa !3
@@ -46416,7 +46400,7 @@ _ZL8unwrapIRIN4llvm13LazyCallGraph3SCCEEPKT_NS0_3AnyE.exit.thread36.i: ; preds =
 
 _ZL8unwrapIRIN4llvm13LazyCallGraph3SCCEEPKT_NS0_3AnyE.exit.i: ; preds = %_ZNK4llvm3Any3isaIPKNS_13LazyCallGraph3SCCEEEbv.exit.i.i.i
   %.not.i.i65.i = icmp eq ptr %153, null
-  br i1 %.not.i.i65.i, label %.thread40.i.thread19, label %_ZN4llvm3AnyD2Ev.exit67.i
+  br i1 %.not.i.i65.i, label %_ZN4llvm3AnyC2ERKS0_.exit80.i, label %_ZN4llvm3AnyD2Ev.exit67.i
 
 _ZN4llvm3AnyD2Ev.exit67.i:                        ; preds = %_ZL8unwrapIRIN4llvm13LazyCallGraph3SCCEEPKT_NS0_3AnyE.exit.i, %_ZL8unwrapIRIN4llvm13LazyCallGraph3SCCEEPKT_NS0_3AnyE.exit.thread36.i
   %156 = phi ptr [ %155, %_ZL8unwrapIRIN4llvm13LazyCallGraph3SCCEEPKT_NS0_3AnyE.exit.thread36.i ], [ null, %_ZL8unwrapIRIN4llvm13LazyCallGraph3SCCEEPKT_NS0_3AnyE.exit.i ]
@@ -46554,10 +46538,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit76.i:             ; preds = %209, %207, %.thread
   call void @_ZN4llvm18report_fatal_errorERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(34) %16, i1 noundef zeroext true) #28
   unreachable
 
-.thread40.i.thread19:                             ; preds = %_ZN4llvm3AnyC2ERKS0_.exit63.i, %_ZL8unwrapIRIN4llvm13LazyCallGraph3SCCEEPKT_NS0_3AnyE.exit.i
-  store ptr null, ptr %15, align 8, !tbaa !103
-  br label %_ZN4llvm3AnyC2ERKS0_.exit80.i
-
 "_ZZN4llvm21VerifyInstrumentation17registerCallbacksERNS_28PassInstrumentationCallbacksEPNS_15AnalysisManagerINS_6ModuleEJEEEENK3$_0clENS_9StringRefENS_3AnyERKNS_17PreservedAnalysesE.exit.thread21": ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread4.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -46568,7 +46548,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit76.i:             ; preds = %209, %207, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %_ZN4llvm3AnyD2Ev.exit
 
-_ZN4llvm3AnyC2ERKS0_.exit80.i:                    ; preds = %_ZN4llvm3AnyD2Ev.exit67.i, %160, %_ZN4llvm11raw_ostreamlsEPKc.exit76.i, %.thread40.i.thread19
+_ZN4llvm3AnyC2ERKS0_.exit80.i:                    ; preds = %_ZL8unwrapIRIN4llvm13LazyCallGraph3SCCEEPKT_NS0_3AnyE.exit.i, %_ZN4llvm3AnyC2ERKS0_.exit63.i, %_ZN4llvm3AnyD2Ev.exit67.i, %160, %_ZN4llvm11raw_ostreamlsEPKc.exit76.i
   %223 = load ptr, ptr %24, align 8, !tbaa !3
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 16
   %225 = load ptr, ptr %224, align 8

@@ -741,7 +741,6 @@ cdeque_pop_front.exit.i:                          ; preds = %cdeque_pop_front.ex
   br i1 %.not.i, label %free_filters.exit, label %cdeque_pop_front.exit.i, !llvm.loop !74
 
 free_filters.exit:                                ; preds = %cdeque_pop_front.exit.i, %1
-  store i16 0, ptr %11, align 2, !tbaa !72
   store i16 0, ptr %10, align 8, !tbaa !73
   %24 = getelementptr inbounds nuw i8, ptr %.val.val, i64 19258
   store i16 0, ptr %24, align 2, !tbaa !75
@@ -1622,7 +1621,6 @@ cdeque_pop_front.exit.i.i:                        ; preds = %cdeque_pop_front.ex
   br i1 %.not.i.i, label %reset_file_context.exit, label %cdeque_pop_front.exit.i.i, !llvm.loop !74
 
 reset_file_context.exit:                          ; preds = %cdeque_pop_front.exit.i.i, %36
-  store i16 0, ptr %40, align 2, !tbaa !72
   store i16 0, ptr %39, align 8, !tbaa !73
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 19258
   store i16 0, ptr %53, align 2, !tbaa !75
