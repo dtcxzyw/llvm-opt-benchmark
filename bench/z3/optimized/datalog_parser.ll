@@ -8183,7 +8183,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i:
 
 .thread.i.i.i:                                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %29, ptr %41, align 8, !tbaa !62
-  store i64 %28, ptr %47, align 8, !tbaa !43
   %65 = load i64, ptr %52, align 8, !tbaa !44
   store i64 %65, ptr %49, align 8, !tbaa !44
   br label %69
@@ -8191,7 +8190,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i:
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i
   %66 = load i64, ptr %49, align 8, !tbaa !44
   store ptr %29, ptr %41, align 8, !tbaa !62
-  store i64 %28, ptr %47, align 8, !tbaa !43
   %67 = load i64, ptr %54, align 8, !tbaa !44
   store i64 %67, ptr %49, align 8, !tbaa !44
   %.not.i.i.i = icmp eq ptr %.pr, null
@@ -8408,7 +8406,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i6
 
 .thread.i.i.i68:                                  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i67
   store ptr %32, ptr %119, align 8, !tbaa !62
-  store i64 %31, ptr %125, align 8, !tbaa !43
   %143 = load i64, ptr %130, align 8, !tbaa !44
   store i64 %143, ptr %127, align 8, !tbaa !44
   br label %147
@@ -8416,7 +8413,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i6
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i62: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i61
   %144 = load i64, ptr %127, align 8, !tbaa !44
   store ptr %32, ptr %119, align 8, !tbaa !62
-  store i64 %31, ptr %125, align 8, !tbaa !43
   %145 = load i64, ptr %132, align 8, !tbaa !44
   store i64 %145, ptr %127, align 8, !tbaa !44
   %.not.i.i.i63 = icmp eq ptr %.pr81, null
@@ -12931,7 +12927,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i:
 
 .thread.i.i.i:                                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %29, ptr %41, align 8, !tbaa !62
-  store i64 %28, ptr %47, align 8, !tbaa !43
   %65 = load i64, ptr %52, align 8, !tbaa !44
   store i64 %65, ptr %49, align 8, !tbaa !44
   br label %69
@@ -12939,7 +12934,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i:
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i
   %66 = load i64, ptr %49, align 8, !tbaa !44
   store ptr %29, ptr %41, align 8, !tbaa !62
-  store i64 %28, ptr %47, align 8, !tbaa !43
   %67 = load i64, ptr %54, align 8, !tbaa !44
   store i64 %67, ptr %49, align 8, !tbaa !44
   %.not.i.i.i = icmp eq ptr %.pr, null
@@ -13156,7 +13150,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i6
 
 .thread.i.i.i68:                                  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i67
   store ptr %32, ptr %119, align 8, !tbaa !62
-  store i64 %31, ptr %125, align 8, !tbaa !43
   %143 = load i64, ptr %130, align 8, !tbaa !44
   store i64 %143, ptr %127, align 8, !tbaa !44
   br label %147
@@ -13164,7 +13157,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i6
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i62: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i61
   %144 = load i64, ptr %127, align 8, !tbaa !44
   store ptr %32, ptr %119, align 8, !tbaa !62
-  store i64 %31, ptr %125, align 8, !tbaa !43
   %145 = load i64, ptr %132, align 8, !tbaa !44
   store i64 %145, ptr %127, align 8, !tbaa !44
   %.not.i.i.i63 = icmp eq ptr %.pr81, null

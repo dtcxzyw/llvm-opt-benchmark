@@ -4344,38 +4344,25 @@ define void @_ZNK4base15DictionaryValue28DeepCopyWithoutEmptyChildrenEv(ptr dead
   tail call fastcc void @_ZN4base12_GLOBAL__N_134CopyDictionaryWithoutEmptyChildrenERKNS_15DictionaryValueE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1)
   %3 = load ptr, ptr %0, align 8, !tbaa !63
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %11
+  br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %2
-  %5 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
-          to label %6 unwind label %7
-
-6:                                                ; preds = %4
+  %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
   invoke void @_ZN4base15DictionaryValueC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5)
-          to label %_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EE5resetEPS1_.exit unwind label %9
+          to label %_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EE5resetEPS1_.exit unwind label %_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %6
+_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %4
   store ptr %5, ptr %0, align 8, !tbaa !63
-  br label %11
+  br label %7
 
-7:                                                ; preds = %4
-  %8 = landingpad { ptr, i32 }
-          cleanup
-  br label %_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit
-
-9:                                                ; preds = %6
-  %10 = landingpad { ptr, i32 }
+_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit: ; preds = %4
+  %6 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %5) #28
-  br label %_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit
+  resume { ptr, i32 } %6
 
-11:                                               ; preds = %2, %_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EE5resetEPS1_.exit
+7:                                                ; preds = %2, %_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EE5resetEPS1_.exit
   ret void
-
-_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit: ; preds = %7, %9
-  %.pn = phi { ptr, i32 } [ %10, %9 ], [ %8, %7 ]
-  store ptr null, ptr %0, align 8, !tbaa !63
-  resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress uwtable

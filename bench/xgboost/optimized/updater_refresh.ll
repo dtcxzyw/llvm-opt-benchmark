@@ -2878,7 +2878,7 @@ define linkonce_odr void @_ZN7xgboost4tree13TreeRefresher7RefreshEPKNS0_10TrainP
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit65, %5
-  %.tr68 = phi i32 [ %3, %5 ], [ %253, %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit65 ]
+  %.tr68 = phi i32 [ %3, %5 ], [ %252, %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit65 ]
   %12 = sext i32 %.tr68 to i64
   %13 = getelementptr inbounds %"struct.xgboost::tree::GradStats", ptr %2, i64 %12
   %.sroa.05.0.copyload = load double, ptr %13, align 8, !tbaa !198
@@ -2947,339 +2947,337 @@ _ZN7xgboost4tree10CalcWeightINS0_10TrainParamENS0_9GradStatsEEEfRKT_T0_.exit: ; 
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %52 = load i32, ptr %51, align 4, !tbaa !213
   %53 = icmp eq i32 %52, -1
-  br i1 %53, label %54, label %65
+  br i1 %53, label %54, label %64
 
 54:                                               ; preds = %_ZN7xgboost4tree10CalcWeightINS0_10TrainParamENS0_9GradStatsEEEfRKT_T0_.exit
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 77
   %56 = load i8, ptr %55, align 1, !tbaa !215, !range !216, !noundef !217
   %57 = trunc nuw i8 %56 to i1
-  br i1 %57, label %58, label %254
+  br i1 %57, label %58, label %253
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %61 = load float, ptr %60, align 4, !tbaa !218
-  %62 = fmul float %61, %43
-  %63 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  store float %62, ptr %63, align 4, !tbaa !23
-  store i32 -1, ptr %59, align 4, !tbaa !213
-  %64 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store i32 -1, ptr %64, align 4, !tbaa !219
-  br label %254
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %60 = load float, ptr %59, align 4, !tbaa !218
+  %61 = fmul float %60, %43
+  %62 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  store float %61, ptr %62, align 4, !tbaa !23
+  %63 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  store i32 -1, ptr %63, align 4, !tbaa !219
+  br label %253
 
-65:                                               ; preds = %_ZN7xgboost4tree10CalcWeightINS0_10TrainParamENS0_9GradStatsEEEfRKT_T0_.exit
-  %66 = sext i32 %52 to i64
-  %67 = getelementptr inbounds %"struct.xgboost::tree::GradStats", ptr %2, i64 %66
-  %.sroa.03.0.copyload = load double, ptr %67, align 8, !tbaa !198
-  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 8
+64:                                               ; preds = %_ZN7xgboost4tree10CalcWeightINS0_10TrainParamENS0_9GradStatsEEEfRKT_T0_.exit
+  %65 = sext i32 %52 to i64
+  %66 = getelementptr inbounds %"struct.xgboost::tree::GradStats", ptr %2, i64 %65
+  %.sroa.03.0.copyload = load double, ptr %66, align 8, !tbaa !198
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 8
   %.sroa.24.0.copyload = load double, ptr %.sroa.24.0..sroa_idx, align 8, !tbaa !198
-  %68 = fcmp olt double %.sroa.24.0.copyload, %15
-  %69 = fcmp ole double %.sroa.24.0.copyload, 0.000000e+00
-  %or.cond.i.i47 = or i1 %69, %68
-  br i1 %or.cond.i.i47, label %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit, label %70
+  %67 = fcmp olt double %.sroa.24.0.copyload, %15
+  %68 = fcmp ole double %.sroa.24.0.copyload, 0.000000e+00
+  %or.cond.i.i47 = or i1 %68, %67
+  br i1 %or.cond.i.i47, label %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit, label %69
 
-70:                                               ; preds = %65
-  %71 = load float, ptr %11, align 8, !tbaa !207
-  %72 = fcmp oeq float %71, 0.000000e+00
-  %73 = load float, ptr %9, align 4, !tbaa !205
-  br i1 %72, label %74, label %98
+69:                                               ; preds = %64
+  %70 = load float, ptr %11, align 8, !tbaa !207
+  %71 = fcmp oeq float %70, 0.000000e+00
+  %72 = load float, ptr %9, align 4, !tbaa !205
+  br i1 %71, label %73, label %97
 
-74:                                               ; preds = %70
-  %75 = fcmp oeq float %73, 0.000000e+00
-  br i1 %75, label %76, label %82
+73:                                               ; preds = %69
+  %74 = fcmp oeq float %72, 0.000000e+00
+  br i1 %74, label %75, label %81
 
-76:                                               ; preds = %74
-  %77 = fmul double %.sroa.03.0.copyload, %.sroa.03.0.copyload
-  %78 = load float, ptr %10, align 8, !tbaa !206
-  %79 = fpext float %78 to double
-  %80 = fadd double %.sroa.24.0.copyload, %79
-  %81 = fdiv double %77, %80
+75:                                               ; preds = %73
+  %76 = fmul double %.sroa.03.0.copyload, %.sroa.03.0.copyload
+  %77 = load float, ptr %10, align 8, !tbaa !206
+  %78 = fpext float %77 to double
+  %79 = fadd double %.sroa.24.0.copyload, %78
+  %80 = fdiv double %76, %79
   br label %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit
 
-82:                                               ; preds = %74
-  %83 = fpext float %73 to double
-  %84 = fcmp ogt double %.sroa.03.0.copyload, %83
-  br i1 %84, label %85, label %87
+81:                                               ; preds = %73
+  %82 = fpext float %72 to double
+  %83 = fcmp ogt double %.sroa.03.0.copyload, %82
+  br i1 %83, label %84, label %86
 
-85:                                               ; preds = %82
-  %86 = fsub double %.sroa.03.0.copyload, %83
+84:                                               ; preds = %81
+  %85 = fsub double %.sroa.03.0.copyload, %82
   br label %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i48
 
-87:                                               ; preds = %82
-  %88 = fneg float %73
-  %89 = fpext float %88 to double
-  %90 = fcmp olt double %.sroa.03.0.copyload, %89
-  br i1 %90, label %91, label %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i48
+86:                                               ; preds = %81
+  %87 = fneg float %72
+  %88 = fpext float %87 to double
+  %89 = fcmp olt double %.sroa.03.0.copyload, %88
+  br i1 %89, label %90, label %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i48
 
-91:                                               ; preds = %87
-  %92 = fadd double %.sroa.03.0.copyload, %83
+90:                                               ; preds = %86
+  %91 = fadd double %.sroa.03.0.copyload, %82
   br label %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i48
 
-_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i48: ; preds = %91, %87, %85
-  %.0.i.i.i49 = phi double [ %86, %85 ], [ %92, %91 ], [ 0.000000e+00, %87 ]
-  %93 = fmul double %.0.i.i.i49, %.0.i.i.i49
-  %94 = load float, ptr %10, align 8, !tbaa !206
-  %95 = fpext float %94 to double
-  %96 = fadd double %.sroa.24.0.copyload, %95
-  %97 = fdiv double %93, %96
+_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i48: ; preds = %90, %86, %84
+  %.0.i.i.i49 = phi double [ %85, %84 ], [ %91, %90 ], [ 0.000000e+00, %86 ]
+  %92 = fmul double %.0.i.i.i49, %.0.i.i.i49
+  %93 = load float, ptr %10, align 8, !tbaa !206
+  %94 = fpext float %93 to double
+  %95 = fadd double %.sroa.24.0.copyload, %94
+  %96 = fdiv double %92, %95
   br label %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit
 
-98:                                               ; preds = %70
-  %99 = fpext float %73 to double
-  %100 = fcmp ogt double %.sroa.03.0.copyload, %99
-  br i1 %100, label %101, label %103
+97:                                               ; preds = %69
+  %98 = fpext float %72 to double
+  %99 = fcmp ogt double %.sroa.03.0.copyload, %98
+  br i1 %99, label %100, label %102
 
-101:                                              ; preds = %98
-  %102 = fsub double %.sroa.03.0.copyload, %99
+100:                                              ; preds = %97
+  %101 = fsub double %.sroa.03.0.copyload, %98
   br label %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i
 
-103:                                              ; preds = %98
-  %104 = fneg float %73
-  %105 = fpext float %104 to double
-  %106 = fcmp olt double %.sroa.03.0.copyload, %105
-  br i1 %106, label %107, label %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i
+102:                                              ; preds = %97
+  %103 = fneg float %72
+  %104 = fpext float %103 to double
+  %105 = fcmp olt double %.sroa.03.0.copyload, %104
+  br i1 %105, label %106, label %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i
 
-107:                                              ; preds = %103
-  %108 = fadd double %.sroa.03.0.copyload, %99
+106:                                              ; preds = %102
+  %107 = fadd double %.sroa.03.0.copyload, %98
   br label %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i
 
-_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i: ; preds = %107, %103, %101
-  %.0.i.i.i.i = phi double [ %102, %101 ], [ %108, %107 ], [ 0.000000e+00, %103 ]
-  %109 = fneg double %.0.i.i.i.i
-  %110 = load float, ptr %10, align 8, !tbaa !206
-  %111 = fpext float %110 to double
-  %112 = fadd double %.sroa.24.0.copyload, %111
-  %113 = fdiv double %109, %112
-  %114 = tail call noundef double @llvm.fabs.f64(double %113)
-  %115 = fpext float %71 to double
-  %116 = fcmp ogt double %114, %115
-  %117 = tail call double @llvm.copysign.f64(double %115, double %113)
-  %.015.i.i.i = select i1 %116, double %117, double %113
-  %118 = fmul double %.sroa.03.0.copyload, 2.000000e+00
-  %119 = fmul double %.015.i.i.i, %.015.i.i.i
-  %120 = fmul double %112, %119
-  %121 = tail call double @llvm.fmuladd.f64(double %118, double %.015.i.i.i, double %120)
-  %122 = fneg double %121
-  %123 = fcmp oeq float %73, 0.000000e+00
-  br i1 %123, label %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit, label %124
+_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i: ; preds = %106, %102, %100
+  %.0.i.i.i.i = phi double [ %101, %100 ], [ %107, %106 ], [ 0.000000e+00, %102 ]
+  %108 = fneg double %.0.i.i.i.i
+  %109 = load float, ptr %10, align 8, !tbaa !206
+  %110 = fpext float %109 to double
+  %111 = fadd double %.sroa.24.0.copyload, %110
+  %112 = fdiv double %108, %111
+  %113 = tail call noundef double @llvm.fabs.f64(double %112)
+  %114 = fpext float %70 to double
+  %115 = fcmp ogt double %113, %114
+  %116 = tail call double @llvm.copysign.f64(double %114, double %112)
+  %.015.i.i.i = select i1 %115, double %116, double %112
+  %117 = fmul double %.sroa.03.0.copyload, 2.000000e+00
+  %118 = fmul double %.015.i.i.i, %.015.i.i.i
+  %119 = fmul double %111, %118
+  %120 = tail call double @llvm.fmuladd.f64(double %117, double %.015.i.i.i, double %119)
+  %121 = fneg double %120
+  %122 = fcmp oeq float %72, 0.000000e+00
+  br i1 %122, label %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit, label %123
 
-124:                                              ; preds = %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i
-  %125 = tail call noundef double @llvm.fabs.f64(double %.015.i.i.i)
-  %126 = tail call double @llvm.fmuladd.f64(double %99, double %125, double %122)
+123:                                              ; preds = %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i
+  %124 = tail call noundef double @llvm.fabs.f64(double %.015.i.i.i)
+  %125 = tail call double @llvm.fmuladd.f64(double %98, double %124, double %121)
   br label %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit
 
-_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit: ; preds = %65, %76, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i48, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i, %124
-  %.0.i.i = phi double [ 0.000000e+00, %65 ], [ %81, %76 ], [ %97, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i48 ], [ %126, %124 ], [ %122, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i ]
-  %127 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %128 = load i32, ptr %127, align 4, !tbaa !219
-  %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds %"struct.xgboost::tree::GradStats", ptr %2, i64 %129
-  %.sroa.01.0.copyload = load double, ptr %130, align 8, !tbaa !198
-  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %130, i64 8
+_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit: ; preds = %64, %75, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i48, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i, %123
+  %.0.i.i = phi double [ 0.000000e+00, %64 ], [ %80, %75 ], [ %96, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i48 ], [ %125, %123 ], [ %121, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i ]
+  %126 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %127 = load i32, ptr %126, align 4, !tbaa !219
+  %128 = sext i32 %127 to i64
+  %129 = getelementptr inbounds %"struct.xgboost::tree::GradStats", ptr %2, i64 %128
+  %.sroa.01.0.copyload = load double, ptr %129, align 8, !tbaa !198
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %129, i64 8
   %.sroa.22.0.copyload = load double, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !198
-  %131 = fcmp olt double %.sroa.22.0.copyload, %15
-  %132 = fcmp ole double %.sroa.22.0.copyload, 0.000000e+00
-  %or.cond.i.i50 = or i1 %132, %131
-  br i1 %or.cond.i.i50, label %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit57, label %133
+  %130 = fcmp olt double %.sroa.22.0.copyload, %15
+  %131 = fcmp ole double %.sroa.22.0.copyload, 0.000000e+00
+  %or.cond.i.i50 = or i1 %131, %130
+  br i1 %or.cond.i.i50, label %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit57, label %132
 
-133:                                              ; preds = %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit
-  %134 = load float, ptr %11, align 8, !tbaa !207
-  %135 = fcmp oeq float %134, 0.000000e+00
-  %136 = load float, ptr %9, align 4, !tbaa !205
-  br i1 %135, label %137, label %161
+132:                                              ; preds = %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit
+  %133 = load float, ptr %11, align 8, !tbaa !207
+  %134 = fcmp oeq float %133, 0.000000e+00
+  %135 = load float, ptr %9, align 4, !tbaa !205
+  br i1 %134, label %136, label %160
 
-137:                                              ; preds = %133
-  %138 = fcmp oeq float %136, 0.000000e+00
-  br i1 %138, label %139, label %145
+136:                                              ; preds = %132
+  %137 = fcmp oeq float %135, 0.000000e+00
+  br i1 %137, label %138, label %144
 
-139:                                              ; preds = %137
-  %140 = fmul double %.sroa.01.0.copyload, %.sroa.01.0.copyload
-  %141 = load float, ptr %10, align 8, !tbaa !206
-  %142 = fpext float %141 to double
-  %143 = fadd double %.sroa.22.0.copyload, %142
-  %144 = fdiv double %140, %143
+138:                                              ; preds = %136
+  %139 = fmul double %.sroa.01.0.copyload, %.sroa.01.0.copyload
+  %140 = load float, ptr %10, align 8, !tbaa !206
+  %141 = fpext float %140 to double
+  %142 = fadd double %.sroa.22.0.copyload, %141
+  %143 = fdiv double %139, %142
   br label %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit57
 
-145:                                              ; preds = %137
-  %146 = fpext float %136 to double
-  %147 = fcmp ogt double %.sroa.01.0.copyload, %146
-  br i1 %147, label %148, label %150
+144:                                              ; preds = %136
+  %145 = fpext float %135 to double
+  %146 = fcmp ogt double %.sroa.01.0.copyload, %145
+  br i1 %146, label %147, label %149
 
-148:                                              ; preds = %145
-  %149 = fsub double %.sroa.01.0.copyload, %146
+147:                                              ; preds = %144
+  %148 = fsub double %.sroa.01.0.copyload, %145
   br label %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i55
 
-150:                                              ; preds = %145
-  %151 = fneg float %136
-  %152 = fpext float %151 to double
-  %153 = fcmp olt double %.sroa.01.0.copyload, %152
-  br i1 %153, label %154, label %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i55
+149:                                              ; preds = %144
+  %150 = fneg float %135
+  %151 = fpext float %150 to double
+  %152 = fcmp olt double %.sroa.01.0.copyload, %151
+  br i1 %152, label %153, label %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i55
 
-154:                                              ; preds = %150
-  %155 = fadd double %.sroa.01.0.copyload, %146
+153:                                              ; preds = %149
+  %154 = fadd double %.sroa.01.0.copyload, %145
   br label %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i55
 
-_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i55: ; preds = %154, %150, %148
-  %.0.i.i.i56 = phi double [ %149, %148 ], [ %155, %154 ], [ 0.000000e+00, %150 ]
-  %156 = fmul double %.0.i.i.i56, %.0.i.i.i56
-  %157 = load float, ptr %10, align 8, !tbaa !206
-  %158 = fpext float %157 to double
-  %159 = fadd double %.sroa.22.0.copyload, %158
-  %160 = fdiv double %156, %159
+_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i55: ; preds = %153, %149, %147
+  %.0.i.i.i56 = phi double [ %148, %147 ], [ %154, %153 ], [ 0.000000e+00, %149 ]
+  %155 = fmul double %.0.i.i.i56, %.0.i.i.i56
+  %156 = load float, ptr %10, align 8, !tbaa !206
+  %157 = fpext float %156 to double
+  %158 = fadd double %.sroa.22.0.copyload, %157
+  %159 = fdiv double %155, %158
   br label %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit57
 
-161:                                              ; preds = %133
-  %162 = fpext float %136 to double
-  %163 = fcmp ogt double %.sroa.01.0.copyload, %162
-  br i1 %163, label %164, label %166
+160:                                              ; preds = %132
+  %161 = fpext float %135 to double
+  %162 = fcmp ogt double %.sroa.01.0.copyload, %161
+  br i1 %162, label %163, label %165
 
-164:                                              ; preds = %161
-  %165 = fsub double %.sroa.01.0.copyload, %162
+163:                                              ; preds = %160
+  %164 = fsub double %.sroa.01.0.copyload, %161
   br label %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i51
 
-166:                                              ; preds = %161
-  %167 = fneg float %136
-  %168 = fpext float %167 to double
-  %169 = fcmp olt double %.sroa.01.0.copyload, %168
-  br i1 %169, label %170, label %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i51
+165:                                              ; preds = %160
+  %166 = fneg float %135
+  %167 = fpext float %166 to double
+  %168 = fcmp olt double %.sroa.01.0.copyload, %167
+  br i1 %168, label %169, label %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i51
 
-170:                                              ; preds = %166
-  %171 = fadd double %.sroa.01.0.copyload, %162
+169:                                              ; preds = %165
+  %170 = fadd double %.sroa.01.0.copyload, %161
   br label %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i51
 
-_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i51: ; preds = %170, %166, %164
-  %.0.i.i.i.i52 = phi double [ %165, %164 ], [ %171, %170 ], [ 0.000000e+00, %166 ]
-  %172 = fneg double %.0.i.i.i.i52
-  %173 = load float, ptr %10, align 8, !tbaa !206
-  %174 = fpext float %173 to double
-  %175 = fadd double %.sroa.22.0.copyload, %174
-  %176 = fdiv double %172, %175
-  %177 = tail call noundef double @llvm.fabs.f64(double %176)
-  %178 = fpext float %134 to double
-  %179 = fcmp ogt double %177, %178
-  %180 = tail call double @llvm.copysign.f64(double %178, double %176)
-  %.015.i.i.i53 = select i1 %179, double %180, double %176
-  %181 = fmul double %.sroa.01.0.copyload, 2.000000e+00
-  %182 = fmul double %.015.i.i.i53, %.015.i.i.i53
-  %183 = fmul double %175, %182
-  %184 = tail call double @llvm.fmuladd.f64(double %181, double %.015.i.i.i53, double %183)
-  %185 = fneg double %184
-  %186 = fcmp oeq float %136, 0.000000e+00
-  br i1 %186, label %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit57, label %187
+_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i51: ; preds = %169, %165, %163
+  %.0.i.i.i.i52 = phi double [ %164, %163 ], [ %170, %169 ], [ 0.000000e+00, %165 ]
+  %171 = fneg double %.0.i.i.i.i52
+  %172 = load float, ptr %10, align 8, !tbaa !206
+  %173 = fpext float %172 to double
+  %174 = fadd double %.sroa.22.0.copyload, %173
+  %175 = fdiv double %171, %174
+  %176 = tail call noundef double @llvm.fabs.f64(double %175)
+  %177 = fpext float %133 to double
+  %178 = fcmp ogt double %176, %177
+  %179 = tail call double @llvm.copysign.f64(double %177, double %175)
+  %.015.i.i.i53 = select i1 %178, double %179, double %175
+  %180 = fmul double %.sroa.01.0.copyload, 2.000000e+00
+  %181 = fmul double %.015.i.i.i53, %.015.i.i.i53
+  %182 = fmul double %174, %181
+  %183 = tail call double @llvm.fmuladd.f64(double %180, double %.015.i.i.i53, double %182)
+  %184 = fneg double %183
+  %185 = fcmp oeq float %135, 0.000000e+00
+  br i1 %185, label %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit57, label %186
 
-187:                                              ; preds = %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i51
-  %188 = tail call noundef double @llvm.fabs.f64(double %.015.i.i.i53)
-  %189 = tail call double @llvm.fmuladd.f64(double %162, double %188, double %185)
+186:                                              ; preds = %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i51
+  %187 = tail call noundef double @llvm.fabs.f64(double %.015.i.i.i53)
+  %188 = tail call double @llvm.fmuladd.f64(double %161, double %187, double %184)
   br label %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit57
 
-_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit57: ; preds = %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit, %139, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i55, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i51, %187
-  %.0.i.i54 = phi double [ 0.000000e+00, %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit ], [ %144, %139 ], [ %160, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i55 ], [ %189, %187 ], [ %185, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i51 ]
-  %190 = fadd double %.0.i.i, %.0.i.i54
-  br i1 %or.cond.i.i, label %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit65, label %191
+_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit57: ; preds = %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit, %138, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i55, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i51, %186
+  %.0.i.i54 = phi double [ 0.000000e+00, %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit ], [ %143, %138 ], [ %159, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i55 ], [ %188, %186 ], [ %184, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i51 ]
+  %189 = fadd double %.0.i.i, %.0.i.i54
+  br i1 %or.cond.i.i, label %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit65, label %190
 
-191:                                              ; preds = %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit57
-  %192 = load float, ptr %11, align 8, !tbaa !207
-  %193 = fcmp oeq float %192, 0.000000e+00
-  %194 = load float, ptr %9, align 4, !tbaa !205
-  br i1 %193, label %195, label %219
+190:                                              ; preds = %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit57
+  %191 = load float, ptr %11, align 8, !tbaa !207
+  %192 = fcmp oeq float %191, 0.000000e+00
+  %193 = load float, ptr %9, align 4, !tbaa !205
+  br i1 %192, label %194, label %218
 
-195:                                              ; preds = %191
-  %196 = fcmp oeq float %194, 0.000000e+00
-  br i1 %196, label %197, label %203
+194:                                              ; preds = %190
+  %195 = fcmp oeq float %193, 0.000000e+00
+  br i1 %195, label %196, label %202
 
-197:                                              ; preds = %195
-  %198 = fmul double %.sroa.05.0.copyload, %.sroa.05.0.copyload
-  %199 = load float, ptr %10, align 8, !tbaa !206
-  %200 = fpext float %199 to double
-  %201 = fadd double %.sroa.26.0.copyload, %200
-  %202 = fdiv double %198, %201
+196:                                              ; preds = %194
+  %197 = fmul double %.sroa.05.0.copyload, %.sroa.05.0.copyload
+  %198 = load float, ptr %10, align 8, !tbaa !206
+  %199 = fpext float %198 to double
+  %200 = fadd double %.sroa.26.0.copyload, %199
+  %201 = fdiv double %197, %200
   br label %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit65
 
-203:                                              ; preds = %195
-  %204 = fpext float %194 to double
-  %205 = fcmp ogt double %.sroa.05.0.copyload, %204
-  br i1 %205, label %206, label %208
+202:                                              ; preds = %194
+  %203 = fpext float %193 to double
+  %204 = fcmp ogt double %.sroa.05.0.copyload, %203
+  br i1 %204, label %205, label %207
 
-206:                                              ; preds = %203
-  %207 = fsub double %.sroa.05.0.copyload, %204
+205:                                              ; preds = %202
+  %206 = fsub double %.sroa.05.0.copyload, %203
   br label %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i63
 
-208:                                              ; preds = %203
-  %209 = fneg float %194
-  %210 = fpext float %209 to double
-  %211 = fcmp olt double %.sroa.05.0.copyload, %210
-  br i1 %211, label %212, label %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i63
+207:                                              ; preds = %202
+  %208 = fneg float %193
+  %209 = fpext float %208 to double
+  %210 = fcmp olt double %.sroa.05.0.copyload, %209
+  br i1 %210, label %211, label %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i63
 
-212:                                              ; preds = %208
-  %213 = fadd double %.sroa.05.0.copyload, %204
+211:                                              ; preds = %207
+  %212 = fadd double %.sroa.05.0.copyload, %203
   br label %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i63
 
-_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i63: ; preds = %212, %208, %206
-  %.0.i.i.i64 = phi double [ %207, %206 ], [ %213, %212 ], [ 0.000000e+00, %208 ]
-  %214 = fmul double %.0.i.i.i64, %.0.i.i.i64
-  %215 = load float, ptr %10, align 8, !tbaa !206
-  %216 = fpext float %215 to double
-  %217 = fadd double %.sroa.26.0.copyload, %216
-  %218 = fdiv double %214, %217
+_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i63: ; preds = %211, %207, %205
+  %.0.i.i.i64 = phi double [ %206, %205 ], [ %212, %211 ], [ 0.000000e+00, %207 ]
+  %213 = fmul double %.0.i.i.i64, %.0.i.i.i64
+  %214 = load float, ptr %10, align 8, !tbaa !206
+  %215 = fpext float %214 to double
+  %216 = fadd double %.sroa.26.0.copyload, %215
+  %217 = fdiv double %213, %216
   br label %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit65
 
-219:                                              ; preds = %191
-  %220 = fpext float %194 to double
-  %221 = fcmp ogt double %.sroa.05.0.copyload, %220
-  br i1 %221, label %222, label %224
+218:                                              ; preds = %190
+  %219 = fpext float %193 to double
+  %220 = fcmp ogt double %.sroa.05.0.copyload, %219
+  br i1 %220, label %221, label %223
 
-222:                                              ; preds = %219
-  %223 = fsub double %.sroa.05.0.copyload, %220
+221:                                              ; preds = %218
+  %222 = fsub double %.sroa.05.0.copyload, %219
   br label %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i59
 
-224:                                              ; preds = %219
-  %225 = fneg float %194
-  %226 = fpext float %225 to double
-  %227 = fcmp olt double %.sroa.05.0.copyload, %226
-  br i1 %227, label %228, label %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i59
+223:                                              ; preds = %218
+  %224 = fneg float %193
+  %225 = fpext float %224 to double
+  %226 = fcmp olt double %.sroa.05.0.copyload, %225
+  br i1 %226, label %227, label %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i59
 
-228:                                              ; preds = %224
-  %229 = fadd double %.sroa.05.0.copyload, %220
+227:                                              ; preds = %223
+  %228 = fadd double %.sroa.05.0.copyload, %219
   br label %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i59
 
-_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i59: ; preds = %228, %224, %222
-  %.0.i.i.i.i60 = phi double [ %223, %222 ], [ %229, %228 ], [ 0.000000e+00, %224 ]
-  %230 = fneg double %.0.i.i.i.i60
-  %231 = load float, ptr %10, align 8, !tbaa !206
-  %232 = fpext float %231 to double
-  %233 = fadd double %.sroa.26.0.copyload, %232
-  %234 = fdiv double %230, %233
-  %235 = tail call noundef double @llvm.fabs.f64(double %234)
-  %236 = fpext float %192 to double
-  %237 = fcmp ogt double %235, %236
-  %238 = tail call double @llvm.copysign.f64(double %236, double %234)
-  %.015.i.i.i61 = select i1 %237, double %238, double %234
-  %239 = fmul double %.sroa.05.0.copyload, 2.000000e+00
-  %240 = fmul double %.015.i.i.i61, %.015.i.i.i61
-  %241 = fmul double %233, %240
-  %242 = tail call double @llvm.fmuladd.f64(double %239, double %.015.i.i.i61, double %241)
-  %243 = fneg double %242
-  %244 = fcmp oeq float %194, 0.000000e+00
-  br i1 %244, label %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit65, label %245
+_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i59: ; preds = %227, %223, %221
+  %.0.i.i.i.i60 = phi double [ %222, %221 ], [ %228, %227 ], [ 0.000000e+00, %223 ]
+  %229 = fneg double %.0.i.i.i.i60
+  %230 = load float, ptr %10, align 8, !tbaa !206
+  %231 = fpext float %230 to double
+  %232 = fadd double %.sroa.26.0.copyload, %231
+  %233 = fdiv double %229, %232
+  %234 = tail call noundef double @llvm.fabs.f64(double %233)
+  %235 = fpext float %191 to double
+  %236 = fcmp ogt double %234, %235
+  %237 = tail call double @llvm.copysign.f64(double %235, double %233)
+  %.015.i.i.i61 = select i1 %236, double %237, double %233
+  %238 = fmul double %.sroa.05.0.copyload, 2.000000e+00
+  %239 = fmul double %.015.i.i.i61, %.015.i.i.i61
+  %240 = fmul double %232, %239
+  %241 = tail call double @llvm.fmuladd.f64(double %238, double %.015.i.i.i61, double %240)
+  %242 = fneg double %241
+  %243 = fcmp oeq float %193, 0.000000e+00
+  br i1 %243, label %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit65, label %244
 
-245:                                              ; preds = %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i59
-  %246 = tail call noundef double @llvm.fabs.f64(double %.015.i.i.i61)
-  %247 = tail call double @llvm.fmuladd.f64(double %220, double %246, double %243)
+244:                                              ; preds = %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i59
+  %245 = tail call noundef double @llvm.fabs.f64(double %.015.i.i.i61)
+  %246 = tail call double @llvm.fmuladd.f64(double %219, double %245, double %242)
   br label %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit65
 
-_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit65: ; preds = %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit57, %197, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i63, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i59, %245
-  %.0.i.i62 = phi double [ 0.000000e+00, %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit57 ], [ %202, %197 ], [ %218, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i63 ], [ %247, %245 ], [ %243, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i59 ]
-  %248 = fsub double %190, %.0.i.i62
-  %249 = fptrunc double %248 to float
-  store float %249, ptr %45, align 4, !tbaa !220
+_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit65: ; preds = %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit57, %196, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i63, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i59, %244
+  %.0.i.i62 = phi double [ 0.000000e+00, %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit57 ], [ %201, %196 ], [ %217, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i63 ], [ %246, %244 ], [ %242, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i.i.i59 ]
+  %247 = fsub double %189, %.0.i.i62
+  %248 = fptrunc double %247 to float
+  store float %248, ptr %45, align 4, !tbaa !220
   tail call void @_ZN7xgboost4tree13TreeRefresher7RefreshEPKNS0_10TrainParamEPKNS0_9GradStatsEiPNS_7RegTreeE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %52, ptr noundef nonnull %4)
-  %250 = load ptr, ptr %8, align 8, !tbaa !212
-  %251 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %250, i64 %12
-  %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
-  %253 = load i32, ptr %252, align 4, !tbaa !219
+  %249 = load ptr, ptr %8, align 8, !tbaa !212
+  %250 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %249, i64 %12
+  %251 = getelementptr inbounds nuw i8, ptr %250, i64 8
+  %252 = load i32, ptr %251, align 4, !tbaa !219
   br label %tailrecurse
 
-254:                                              ; preds = %54, %58
+253:                                              ; preds = %54, %58
   ret void
 }
 

@@ -717,7 +717,6 @@ define void @_ZN5arrow13MemoryManager10CopyBufferERKSt10shared_ptrINS_6BufferEER
 
 _ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i30: ; preds = %26
   store ptr null, ptr %0, align 8, !tbaa !50
-  store ptr null, ptr %5, align 8, !tbaa !50
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !32, !noalias !53
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -839,7 +838,6 @@ _ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE7DestroyEv.exit.thread.i: ; preds =
 
 _ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i36: ; preds = %80
   store ptr null, ptr %0, align 8, !tbaa !50
-  store ptr null, ptr %5, align 8, !tbaa !50
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %83 = load ptr, ptr %82, align 8, !tbaa !32, !noalias !70
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2389,7 +2387,6 @@ define void @_ZN5arrow13MemoryManager10ViewBufferERKSt10shared_ptrINS_6BufferEER
 
 _ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i19: ; preds = %38
   store ptr null, ptr %0, align 8, !tbaa !50
-  store ptr null, ptr %5, align 8, !tbaa !50
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !32, !noalias !106
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2511,7 +2508,6 @@ _ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE7DestroyEv.exit.thread.i: ; preds =
 
 _ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i26: ; preds = %92
   store ptr null, ptr %0, align 8, !tbaa !50
-  store ptr null, ptr %5, align 8, !tbaa !50
   %94 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %95 = load ptr, ptr %94, align 8, !tbaa !32, !noalias !109
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8

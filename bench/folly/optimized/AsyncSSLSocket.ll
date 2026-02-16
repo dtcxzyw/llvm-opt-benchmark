@@ -21996,7 +21996,7 @@ define linkonce_odr noundef i64 @_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBuf
 .thread:                                          ; preds = %27, %..thread_crit_edge
   %50 = phi ptr [ %.pre48, %..thread_crit_edge ], [ %.pre49, %27 ]
   store ptr %50, ptr %5, align 8, !tbaa !455
-  br label %100
+  br label %99
 
 ._crit_edge50:                                    ; preds = %30, %47
   %51 = phi ptr [ %48, %47 ], [ %40, %30 ]
@@ -22037,64 +22037,60 @@ define linkonce_odr noundef i64 @_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBuf
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !452
   %71 = icmp eq ptr %68, %70
-  br i1 %71, label %76, label %72, !prof !260
+  br i1 %71, label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit, label %72, !prof !260
 
 72:                                               ; preds = %65
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %74 = load i64, ptr %73, align 8, !tbaa !453
   %75 = icmp eq i64 %74, 0
-  br i1 %75, label %76, label %77
+  br i1 %75, label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit, label %76
 
-76:                                               ; preds = %72, %65
-  store ptr %62, ptr %5, align 8, !tbaa !455
-  br label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit
-
-77:                                               ; preds = %72
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %79 = load ptr, ptr %78, align 8, !tbaa !454
-  %80 = ptrtoint ptr %62 to i64
-  %81 = ptrtoint ptr %79 to i64
-  %82 = sub i64 %80, %81
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %84 = load i64, ptr %83, align 8, !tbaa !715
-  %85 = add i64 %82, %84
-  store i64 %85, ptr %83, align 8, !tbaa !715
+76:                                               ; preds = %72
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %78 = load ptr, ptr %77, align 8, !tbaa !454
+  %79 = ptrtoint ptr %62 to i64
+  %80 = ptrtoint ptr %78 to i64
+  %81 = sub i64 %79, %80
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %83 = load i64, ptr %82, align 8, !tbaa !715
+  %84 = add i64 %81, %83
+  store i64 %84, ptr %82, align 8, !tbaa !715
   store ptr %68, ptr %0, align 8, !tbaa !450
-  %86 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %87 = load ptr, ptr %86, align 8, !tbaa !234
-  store ptr %87, ptr %78, align 8, !tbaa !454
-  store ptr %87, ptr %5, align 8, !tbaa !455
-  %88 = load i64, ptr %68, align 8, !tbaa !238
-  %89 = getelementptr inbounds nuw i8, ptr %87, i64 %88
-  store ptr %89, ptr %4, align 8, !tbaa !456
+  %85 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %86 = load ptr, ptr %85, align 8, !tbaa !234
+  store ptr %86, ptr %77, align 8, !tbaa !454
+  store ptr %86, ptr %5, align 8, !tbaa !455
+  %87 = load i64, ptr %68, align 8, !tbaa !238
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 %87
+  store ptr %88, ptr %4, align 8, !tbaa !456
   %.not.i.i = icmp eq i64 %74, -1
-  br i1 %.not.i.i, label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit, label %90
+  br i1 %.not.i.i, label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit, label %89
 
-90:                                               ; preds = %77
-  %91 = ptrtoint ptr %87 to i64
-  %92 = add i64 %74, %91
-  %93 = ptrtoint ptr %89 to i64
-  %94 = icmp ult i64 %92, %93
-  br i1 %94, label %95, label %97
+89:                                               ; preds = %76
+  %90 = ptrtoint ptr %86 to i64
+  %91 = add i64 %74, %90
+  %92 = ptrtoint ptr %88 to i64
+  %93 = icmp ult i64 %91, %92
+  br i1 %93, label %94, label %96
 
-95:                                               ; preds = %90
-  %96 = getelementptr inbounds nuw i8, ptr %87, i64 %74
-  store ptr %96, ptr %4, align 8, !tbaa !456
-  %.pre.i.i = ptrtoint ptr %96 to i64
-  br label %97
+94:                                               ; preds = %89
+  %95 = getelementptr inbounds nuw i8, ptr %86, i64 %74
+  store ptr %95, ptr %4, align 8, !tbaa !456
+  %.pre.i.i = ptrtoint ptr %95 to i64
+  br label %96
 
-97:                                               ; preds = %95, %90
-  %.pre-phi.i.i = phi i64 [ %.pre.i.i, %95 ], [ %93, %90 ]
-  %98 = sub i64 %92, %.pre-phi.i.i
-  store i64 %98, ptr %73, align 8, !tbaa !453
+96:                                               ; preds = %94, %89
+  %.pre-phi.i.i = phi i64 [ %.pre.i.i, %94 ], [ %92, %89 ]
+  %97 = sub i64 %91, %.pre-phi.i.i
+  store i64 %97, ptr %73, align 8, !tbaa !453
   br label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit
 
-_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit: ; preds = %61, %76, %77, %97
-  %99 = add i64 %.021.lcssa, %.024.lcssa
-  br label %100
+_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit: ; preds = %61, %65, %72, %76, %96
+  %98 = add i64 %.021.lcssa, %.024.lcssa
+  br label %99
 
-100:                                              ; preds = %.thread, %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit
-  %.1 = phi i64 [ %99, %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit ], [ %.2, %.thread ]
+99:                                               ; preds = %.thread, %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit
+  %.1 = phi i64 [ %98, %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit ], [ %.2, %.thread ]
   ret i64 %.1
 }
 
@@ -23347,7 +23343,7 @@ define linkonce_odr noundef i64 @_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBuf
   %.lcssa63 = phi ptr [ %.promoted, %.lr.ph ], [ %46, %.thread.loopexit ]
   %.lcssa = phi i64 [ %7, %.lr.ph ], [ %18, %.thread.loopexit ]
   store ptr %.lcssa63, ptr %4, align 8, !tbaa !455
-  br label %89
+  br label %88
 
 ._crit_edge43:                                    ; preds = %23, %38
   %45 = phi i64 [ %44, %38 ], [ -1, %23 ]
@@ -23382,64 +23378,60 @@ define linkonce_odr noundef i64 @_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBuf
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !452
   %60 = icmp eq ptr %57, %59
-  br i1 %60, label %65, label %61, !prof !260
+  br i1 %60, label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit, label %61, !prof !260
 
 61:                                               ; preds = %54
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %63 = load i64, ptr %62, align 8, !tbaa !453
   %64 = icmp eq i64 %63, 0
-  br i1 %64, label %65, label %66
+  br i1 %64, label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit, label %65
 
-65:                                               ; preds = %61, %54
-  store ptr %50, ptr %4, align 8, !tbaa !455
-  br label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit
-
-66:                                               ; preds = %61
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %68 = load ptr, ptr %67, align 8, !tbaa !454
-  %69 = ptrtoint ptr %50 to i64
-  %70 = ptrtoint ptr %68 to i64
-  %71 = sub i64 %69, %70
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %73 = load i64, ptr %72, align 8, !tbaa !715
-  %74 = add i64 %71, %73
-  store i64 %74, ptr %72, align 8, !tbaa !715
+65:                                               ; preds = %61
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %67 = load ptr, ptr %66, align 8, !tbaa !454
+  %68 = ptrtoint ptr %50 to i64
+  %69 = ptrtoint ptr %67 to i64
+  %70 = sub i64 %68, %69
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %72 = load i64, ptr %71, align 8, !tbaa !715
+  %73 = add i64 %70, %72
+  store i64 %73, ptr %71, align 8, !tbaa !715
   store ptr %57, ptr %0, align 8, !tbaa !450
-  %75 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %76 = load ptr, ptr %75, align 8, !tbaa !234
-  store ptr %76, ptr %67, align 8, !tbaa !454
-  store ptr %76, ptr %4, align 8, !tbaa !455
-  %77 = load i64, ptr %57, align 8, !tbaa !238
-  %78 = getelementptr inbounds nuw i8, ptr %76, i64 %77
-  store ptr %78, ptr %3, align 8, !tbaa !456
+  %74 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %75 = load ptr, ptr %74, align 8, !tbaa !234
+  store ptr %75, ptr %66, align 8, !tbaa !454
+  store ptr %75, ptr %4, align 8, !tbaa !455
+  %76 = load i64, ptr %57, align 8, !tbaa !238
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 %76
+  store ptr %77, ptr %3, align 8, !tbaa !456
   %.not.i.i = icmp eq i64 %63, -1
-  br i1 %.not.i.i, label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit, label %79
+  br i1 %.not.i.i, label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit, label %78
 
-79:                                               ; preds = %66
-  %80 = ptrtoint ptr %76 to i64
-  %81 = add i64 %63, %80
-  %82 = ptrtoint ptr %78 to i64
-  %83 = icmp ult i64 %81, %82
-  br i1 %83, label %84, label %86
+78:                                               ; preds = %65
+  %79 = ptrtoint ptr %75 to i64
+  %80 = add i64 %63, %79
+  %81 = ptrtoint ptr %77 to i64
+  %82 = icmp ult i64 %80, %81
+  br i1 %82, label %83, label %85
 
-84:                                               ; preds = %79
-  %85 = getelementptr inbounds nuw i8, ptr %76, i64 %63
-  store ptr %85, ptr %3, align 8, !tbaa !456
-  %.pre.i.i = ptrtoint ptr %85 to i64
-  br label %86
+83:                                               ; preds = %78
+  %84 = getelementptr inbounds nuw i8, ptr %75, i64 %63
+  store ptr %84, ptr %3, align 8, !tbaa !456
+  %.pre.i.i = ptrtoint ptr %84 to i64
+  br label %85
 
-86:                                               ; preds = %84, %79
-  %.pre-phi.i.i = phi i64 [ %.pre.i.i, %84 ], [ %82, %79 ]
-  %87 = sub i64 %81, %.pre-phi.i.i
-  store i64 %87, ptr %62, align 8, !tbaa !453
+85:                                               ; preds = %83, %78
+  %.pre-phi.i.i = phi i64 [ %.pre.i.i, %83 ], [ %81, %78 ]
+  %86 = sub i64 %80, %.pre-phi.i.i
+  store i64 %86, ptr %62, align 8, !tbaa !453
   br label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit
 
-_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit: ; preds = %._crit_edge, %65, %66, %86
-  %88 = add i64 %.012.lcssa, %.014.lcssa
-  br label %89
+_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit: ; preds = %._crit_edge, %54, %61, %65, %85
+  %87 = add i64 %.012.lcssa, %.014.lcssa
+  br label %88
 
-89:                                               ; preds = %.thread, %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit
-  %.1 = phi i64 [ %88, %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit ], [ %.lcssa, %.thread ]
+88:                                               ; preds = %.thread, %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit
+  %.1 = phi i64 [ %87, %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit ], [ %.lcssa, %.thread ]
   ret i64 %.1
 }
 
@@ -23485,11 +23477,11 @@ define linkonce_odr void @_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE19rea
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %61
+  br label %60
 
 ._crit_edge:                                      ; preds = %._crit_edge28, %3
-  %.0.lcssa = phi i64 [ %2, %3 ], [ %101, %._crit_edge28 ]
-  %.lcssa = phi ptr [ %7, %3 ], [ %86, %._crit_edge28 ]
+  %.0.lcssa = phi i64 [ %2, %3 ], [ %100, %._crit_edge28 ]
+  %.lcssa = phi ptr [ %7, %3 ], [ %85, %._crit_edge28 ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !221
   %19 = sub i64 4611686018427387903, %18
@@ -23516,141 +23508,137 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !452
   %33 = icmp eq ptr %30, %32
-  br i1 %33, label %38, label %34, !prof !260
+  br i1 %33, label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit, label %34, !prof !260
 
 34:                                               ; preds = %27
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %36 = load i64, ptr %35, align 8, !tbaa !453
   %37 = icmp eq i64 %36, 0
-  br i1 %37, label %38, label %39
+  br i1 %37, label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit, label %38
 
-38:                                               ; preds = %34, %27
-  store ptr %25, ptr %5, align 8, !tbaa !455
-  br label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit
-
-39:                                               ; preds = %34
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %41 = load ptr, ptr %40, align 8, !tbaa !454
-  %42 = ptrtoint ptr %24 to i64
-  %43 = ptrtoint ptr %41 to i64
-  %44 = sub i64 %42, %43
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %46 = load i64, ptr %45, align 8, !tbaa !715
-  %47 = add i64 %44, %46
-  store i64 %47, ptr %45, align 8, !tbaa !715
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %40 = load ptr, ptr %39, align 8, !tbaa !454
+  %41 = ptrtoint ptr %24 to i64
+  %42 = ptrtoint ptr %40 to i64
+  %43 = sub i64 %41, %42
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %45 = load i64, ptr %44, align 8, !tbaa !715
+  %46 = add i64 %43, %45
+  store i64 %46, ptr %44, align 8, !tbaa !715
   store ptr %30, ptr %0, align 8, !tbaa !450
-  %48 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !234
-  store ptr %49, ptr %40, align 8, !tbaa !454
-  store ptr %49, ptr %5, align 8, !tbaa !455
-  %50 = load i64, ptr %30, align 8, !tbaa !238
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 %50
-  store ptr %51, ptr %4, align 8, !tbaa !456
+  %47 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %48 = load ptr, ptr %47, align 8, !tbaa !234
+  store ptr %48, ptr %39, align 8, !tbaa !454
+  store ptr %48, ptr %5, align 8, !tbaa !455
+  %49 = load i64, ptr %30, align 8, !tbaa !238
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 %49
+  store ptr %50, ptr %4, align 8, !tbaa !456
   %.not.i.i = icmp eq i64 %36, -1
-  br i1 %.not.i.i, label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit, label %52
+  br i1 %.not.i.i, label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit, label %51
 
-52:                                               ; preds = %39
-  %53 = ptrtoint ptr %49 to i64
-  %54 = add i64 %36, %53
-  %55 = ptrtoint ptr %51 to i64
-  %56 = icmp ult i64 %54, %55
-  br i1 %56, label %57, label %59
+51:                                               ; preds = %38
+  %52 = ptrtoint ptr %48 to i64
+  %53 = add i64 %36, %52
+  %54 = ptrtoint ptr %50 to i64
+  %55 = icmp ult i64 %53, %54
+  br i1 %55, label %56, label %58
 
-57:                                               ; preds = %52
-  %58 = getelementptr inbounds nuw i8, ptr %49, i64 %36
-  store ptr %58, ptr %4, align 8, !tbaa !456
-  %.pre.i.i = ptrtoint ptr %58 to i64
-  br label %59
+56:                                               ; preds = %51
+  %57 = getelementptr inbounds nuw i8, ptr %48, i64 %36
+  store ptr %57, ptr %4, align 8, !tbaa !456
+  %.pre.i.i = ptrtoint ptr %57 to i64
+  br label %58
 
-59:                                               ; preds = %57, %52
-  %.pre-phi.i.i = phi i64 [ %.pre.i.i, %57 ], [ %55, %52 ]
-  %60 = sub i64 %54, %.pre-phi.i.i
-  store i64 %60, ptr %35, align 8, !tbaa !453
+58:                                               ; preds = %56, %51
+  %.pre-phi.i.i = phi i64 [ %.pre.i.i, %56 ], [ %54, %51 ]
+  %59 = sub i64 %53, %.pre-phi.i.i
+  store i64 %59, ptr %35, align 8, !tbaa !453
   br label %_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit
 
-_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit, %38, %39, %59
+_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit, %27, %34, %38, %58
   ret void
 
-61:                                               ; preds = %.lr.ph, %._crit_edge28
-  %62 = phi i64 [ %10, %.lr.ph ], [ %103, %._crit_edge28 ]
-  %63 = phi ptr [ %7, %.lr.ph ], [ %86, %._crit_edge28 ]
-  %.022 = phi i64 [ %2, %.lr.ph ], [ %101, %._crit_edge28 ]
-  %64 = load i64, ptr %12, align 8, !tbaa !221
-  %65 = sub i64 4611686018427387903, %64
-  %66 = icmp ult i64 %65, %62
-  br i1 %66, label %67, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit9
+60:                                               ; preds = %.lr.ph, %._crit_edge28
+  %61 = phi i64 [ %10, %.lr.ph ], [ %102, %._crit_edge28 ]
+  %62 = phi ptr [ %7, %.lr.ph ], [ %85, %._crit_edge28 ]
+  %.022 = phi i64 [ %2, %.lr.ph ], [ %100, %._crit_edge28 ]
+  %63 = load i64, ptr %12, align 8, !tbaa !221
+  %64 = sub i64 4611686018427387903, %63
+  %65 = icmp ult i64 %64, %61
+  br i1 %65, label %66, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit9
 
-67:                                               ; preds = %61
+66:                                               ; preds = %60
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.44) #45
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit9: ; preds = %61
-  %68 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %63, i64 noundef %62)
-  %69 = load ptr, ptr %0, align 8, !tbaa !450
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
-  %71 = load ptr, ptr %70, align 8, !tbaa !231
-  %72 = load ptr, ptr %13, align 8, !tbaa !452
-  %73 = icmp eq ptr %71, %72
-  br i1 %73, label %98, label %74, !prof !260
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit9: ; preds = %60
+  %67 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %62, i64 noundef %61)
+  %68 = load ptr, ptr %0, align 8, !tbaa !450
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
+  %70 = load ptr, ptr %69, align 8, !tbaa !231
+  %71 = load ptr, ptr %13, align 8, !tbaa !452
+  %72 = icmp eq ptr %70, %71
+  br i1 %72, label %97, label %73, !prof !260
 
-74:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit9
-  %75 = load i64, ptr %14, align 8, !tbaa !453
-  %76 = icmp eq i64 %75, 0
-  br i1 %76, label %98, label %77
+73:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit9
+  %74 = load i64, ptr %14, align 8, !tbaa !453
+  %75 = icmp eq i64 %74, 0
+  br i1 %75, label %97, label %76
 
-77:                                               ; preds = %74
-  %78 = load ptr, ptr %4, align 8, !tbaa !456
-  %79 = load ptr, ptr %15, align 8, !tbaa !454
+76:                                               ; preds = %73
+  %77 = load ptr, ptr %4, align 8, !tbaa !456
+  %78 = load ptr, ptr %15, align 8, !tbaa !454
+  %79 = ptrtoint ptr %77 to i64
   %80 = ptrtoint ptr %78 to i64
-  %81 = ptrtoint ptr %79 to i64
-  %82 = sub i64 %80, %81
-  %83 = load i64, ptr %16, align 8, !tbaa !715
-  %84 = add i64 %82, %83
-  store i64 %84, ptr %16, align 8, !tbaa !715
-  store ptr %71, ptr %0, align 8, !tbaa !450
-  %85 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %86 = load ptr, ptr %85, align 8, !tbaa !234
-  store ptr %86, ptr %15, align 8, !tbaa !454
-  store ptr %86, ptr %5, align 8, !tbaa !455
-  %87 = load i64, ptr %71, align 8, !tbaa !238
-  %88 = getelementptr inbounds nuw i8, ptr %86, i64 %87
-  store ptr %88, ptr %4, align 8, !tbaa !456
-  %.not.i = icmp eq i64 %75, -1
-  %.pre = ptrtoint ptr %86 to i64
-  br i1 %.not.i, label %._crit_edge28, label %89
+  %81 = sub i64 %79, %80
+  %82 = load i64, ptr %16, align 8, !tbaa !715
+  %83 = add i64 %81, %82
+  store i64 %83, ptr %16, align 8, !tbaa !715
+  store ptr %70, ptr %0, align 8, !tbaa !450
+  %84 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %85 = load ptr, ptr %84, align 8, !tbaa !234
+  store ptr %85, ptr %15, align 8, !tbaa !454
+  store ptr %85, ptr %5, align 8, !tbaa !455
+  %86 = load i64, ptr %70, align 8, !tbaa !238
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 %86
+  store ptr %87, ptr %4, align 8, !tbaa !456
+  %.not.i = icmp eq i64 %74, -1
+  %.pre = ptrtoint ptr %85 to i64
+  br i1 %.not.i, label %._crit_edge28, label %88
 
-89:                                               ; preds = %77
-  %90 = add i64 %75, %.pre
-  %91 = ptrtoint ptr %88 to i64
-  %92 = icmp ult i64 %90, %91
-  br i1 %92, label %93, label %95
+88:                                               ; preds = %76
+  %89 = add i64 %74, %.pre
+  %90 = ptrtoint ptr %87 to i64
+  %91 = icmp ult i64 %89, %90
+  br i1 %91, label %92, label %94
 
-93:                                               ; preds = %89
-  %94 = getelementptr inbounds nuw i8, ptr %86, i64 %75
-  store ptr %94, ptr %4, align 8, !tbaa !456
-  %.pre.i = ptrtoint ptr %94 to i64
-  br label %95
+92:                                               ; preds = %88
+  %93 = getelementptr inbounds nuw i8, ptr %85, i64 %74
+  store ptr %93, ptr %4, align 8, !tbaa !456
+  %.pre.i = ptrtoint ptr %93 to i64
+  br label %94
 
-95:                                               ; preds = %93, %89
-  %96 = phi ptr [ %94, %93 ], [ %88, %89 ]
-  %.pre-phi.i = phi i64 [ %.pre.i, %93 ], [ %91, %89 ]
-  %97 = sub i64 %90, %.pre-phi.i
-  store i64 %97, ptr %14, align 8, !tbaa !453
+94:                                               ; preds = %92, %88
+  %95 = phi ptr [ %93, %92 ], [ %87, %88 ]
+  %.pre-phi.i = phi i64 [ %.pre.i, %92 ], [ %90, %88 ]
+  %96 = sub i64 %89, %.pre-phi.i
+  store i64 %96, ptr %14, align 8, !tbaa !453
   br label %._crit_edge28
 
-98:                                               ; preds = %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit9
-  %99 = load ptr, ptr %4, align 8, !tbaa !456
-  store ptr %99, ptr %5, align 8, !tbaa !455
+97:                                               ; preds = %73, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit9
+  %98 = load ptr, ptr %4, align 8, !tbaa !456
+  store ptr %98, ptr %5, align 8, !tbaa !455
   tail call void @_ZN5folly6detail16throw_exception_ISt12out_of_rangeJPKcEEEvDpT0_(ptr noundef nonnull @.str.172) #25
   unreachable
 
-._crit_edge28:                                    ; preds = %77, %95
-  %100 = phi ptr [ %96, %95 ], [ %88, %77 ]
-  %101 = sub i64 %.022, %62
-  %102 = ptrtoint ptr %100 to i64
-  %103 = sub i64 %102, %.pre
-  %104 = icmp ult i64 %103, %101
-  br i1 %104, label %61, label %._crit_edge, !llvm.loop !751
+._crit_edge28:                                    ; preds = %76, %94
+  %99 = phi ptr [ %95, %94 ], [ %87, %76 ]
+  %100 = sub i64 %.022, %61
+  %101 = ptrtoint ptr %99 to i64
+  %102 = sub i64 %101, %.pre
+  %103 = icmp ult i64 %102, %100
+  br i1 %103, label %60, label %._crit_edge, !llvm.loop !751
 }
 
 ; Function Attrs: mustprogress uwtable

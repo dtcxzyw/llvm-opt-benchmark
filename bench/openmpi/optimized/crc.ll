@@ -754,7 +754,6 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
   %.0368.lcssa = phi i64 [ 0, %38 ], [ %45, %._crit_edge625.loopexit ]
   %.1357.lcssa = phi ptr [ %0, %38 ], [ %42, %._crit_edge625.loopexit ]
   store i32 0, ptr %4, align 4, !tbaa !21
-  store i64 0, ptr %5, align 8, !tbaa !3
   %46 = and i64 %2, 3
   %47 = icmp ne i64 %46, 0
   %48 = icmp ugt i64 %3, %2
@@ -1004,7 +1003,6 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
   %.9384.lcssa = phi i32 [ 0, %.preheader491 ], [ %128, %.lr.ph559 ]
   %.9365.lcssa = phi ptr [ %0, %.preheader491 ], [ %127, %.lr.ph559 ]
   %.8.lcssa = phi i64 [ %2, %.preheader491 ], [ %130, %.lr.ph559 ]
-  store i64 0, ptr %5, align 8, !tbaa !3
   store i32 0, ptr %4, align 4, !tbaa !21
   br label %175
 
@@ -1351,7 +1349,7 @@ define i64 @prte_csum_partial(ptr noundef %0, i64 noundef %1, ptr noundef captur
   %.0136.lcssa = phi i64 [ %19, %14 ], [ %23, %._crit_edge211.loopexit ]
   %.0134.lcssa = phi i64 [ 0, %14 ], [ %26, %._crit_edge211.loopexit ]
   %27 = sub i64 %20, %.0134.lcssa
-  br label %.sink.split
+  br label %.sink.split.sink.split
 
 28:                                               ; preds = %11
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr align 8 %0, i64 %1, i1 false)
@@ -1451,7 +1449,7 @@ define i64 @prte_csum_partial(ptr noundef %0, i64 noundef %1, ptr noundef captur
   %.3139.lcssa = phi i64 [ %53, %.preheader177 ], [ %60, %._crit_edge189.loopexit ]
   %.2.lcssa = phi i64 [ 0, %.preheader177 ], [ %62, %._crit_edge189.loopexit ]
   %63 = sub i64 %54, %.2.lcssa
-  br label %.sink.split
+  br label %.sink.split.sink.split
 
 .lr.ph:                                           ; preds = %.preheader178, %.lr.ph
   %.3181 = phi i64 [ %67, %.lr.ph ], [ 0, %.preheader178 ]
@@ -1473,7 +1471,7 @@ define i64 @prte_csum_partial(ptr noundef %0, i64 noundef %1, ptr noundef captur
   %.4.lcssa = phi i64 [ %53, %.preheader178 ], [ %65, %._crit_edge.loopexit ]
   %.3.lcssa = phi i64 [ 0, %.preheader178 ], [ %68, %._crit_edge.loopexit ]
   %69 = sub i64 %54, %.3.lcssa
-  br label %.sink.split
+  br label %.sink.split.sink.split
 
 70:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %47, ptr align 8 %0, i64 %1, i1 false)
@@ -1496,13 +1494,18 @@ define i64 @prte_csum_partial(ptr noundef %0, i64 noundef %1, ptr noundef captur
   %79 = icmp ugt i64 %78, 7
   br i1 %79, label %.lr.ph198, label %.sink.split, !llvm.loop !40
 
-.sink.split:                                      ; preds = %.lr.ph198, %.preheader, %._crit_edge211, %._crit_edge, %._crit_edge189
-  %.sink272 = phi ptr [ %2, %._crit_edge211 ], [ %2, %._crit_edge189 ], [ %2, %._crit_edge ], [ %3, %.preheader ], [ %3, %.lr.ph198 ]
-  %.sink = phi ptr [ %3, %._crit_edge211 ], [ %3, %._crit_edge189 ], [ %3, %._crit_edge ], [ %2, %.preheader ], [ %2, %.lr.ph198 ]
-  %.1147.ph = phi i64 [ %27, %._crit_edge211 ], [ %63, %._crit_edge189 ], [ %69, %._crit_edge ], [ %1, %.preheader ], [ %78, %.lr.ph198 ]
-  %.2142.ph = phi ptr [ %.0140.lcssa, %._crit_edge211 ], [ %.3143.lcssa, %._crit_edge189 ], [ %.4144.lcssa, %._crit_edge ], [ %0, %.preheader ], [ %76, %.lr.ph198 ]
-  %.2138.ph = phi i64 [ %.0136.lcssa, %._crit_edge211 ], [ %.3139.lcssa, %._crit_edge189 ], [ %.4.lcssa, %._crit_edge ], [ 0, %.preheader ], [ %77, %.lr.ph198 ]
-  store i64 0, ptr %.sink272, align 8, !tbaa !3
+.sink.split.sink.split:                           ; preds = %._crit_edge189, %._crit_edge, %._crit_edge211
+  %.1147.ph.ph = phi i64 [ %63, %._crit_edge189 ], [ %69, %._crit_edge ], [ %27, %._crit_edge211 ]
+  %.2142.ph.ph = phi ptr [ %.3143.lcssa, %._crit_edge189 ], [ %.4144.lcssa, %._crit_edge ], [ %.0140.lcssa, %._crit_edge211 ]
+  %.2138.ph.ph = phi i64 [ %.3139.lcssa, %._crit_edge189 ], [ %.4.lcssa, %._crit_edge ], [ %.0136.lcssa, %._crit_edge211 ]
+  store i64 0, ptr %2, align 8, !tbaa !3
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %.lr.ph198, %.sink.split.sink.split, %.preheader
+  %.sink = phi ptr [ %2, %.preheader ], [ %3, %.sink.split.sink.split ], [ %2, %.lr.ph198 ]
+  %.1147.ph = phi i64 [ %1, %.preheader ], [ %.1147.ph.ph, %.sink.split.sink.split ], [ %78, %.lr.ph198 ]
+  %.2142.ph = phi ptr [ %0, %.preheader ], [ %.2142.ph.ph, %.sink.split.sink.split ], [ %76, %.lr.ph198 ]
+  %.2138.ph = phi i64 [ 0, %.preheader ], [ %.2138.ph.ph, %.sink.split.sink.split ], [ %77, %.lr.ph198 ]
   store i64 0, ptr %.sink, align 8, !tbaa !3
   br label %80
 
@@ -1671,7 +1674,6 @@ define i32 @prte_uicsum_partial(ptr noundef %0, i64 noundef %1, ptr noundef capt
   %.1137.lcssa = phi i32 [ %36, %._crit_edge221.loopexit ], [ 0, %32 ]
   %.1135.lcssa = phi i64 [ %39, %._crit_edge221.loopexit ], [ 0, %32 ]
   store i32 0, ptr %2, align 4, !tbaa !21
-  store i64 0, ptr %3, align 8, !tbaa !3
   %40 = and i64 %1, 3
   %.not161.not = icmp eq i64 %40, 0
   %41 = sub i64 %1, %.1135.lcssa
@@ -1783,7 +1785,6 @@ define i32 @prte_uicsum_partial(ptr noundef %0, i64 noundef %1, ptr noundef capt
   %.2148.lcssa = phi i64 [ %1, %.preheader ], [ %76, %.lr.ph198 ]
   %.5145.lcssa = phi ptr [ %0, %.preheader ], [ %74, %.lr.ph198 ]
   %.5.lcssa = phi i32 [ 0, %.preheader ], [ %75, %.lr.ph198 ]
-  store i64 0, ptr %3, align 8, !tbaa !3
   store i32 0, ptr %2, align 4, !tbaa !21
   br label %78
 

@@ -4625,14 +4625,13 @@ define internal fastcc void @_ZN3exr4meta9attribute11ChannelList4read17h485e6149
 
 .thread.i.i:                                      ; preds = %46
   store ptr @anon.485243c0b6e0c52e847d698bbee735f0.105, ptr %.sroa.719.0..sroa_idx.i.i.i, align 8, !alias.scope !1055, !noalias !1056
-  store i8 2, ptr %1, align 8, !alias.scope !1078, !noalias !1056
   br label %58
 
 "_ZN3exr2io17PeekRead$LT$T$GT$7peek_u817h8139cb7002e08afeE.exit.thread.i.i": ; preds = %46
   %49 = load ptr, ptr %33, align 8, !alias.scope !1068, !noalias !1069, !nonnull !4, !align !797, !noundef !4
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %51 = add i64 %47, -1
-  %52 = load i8, ptr %49, align 1, !noalias !1079, !noundef !4
+  %52 = load i8, ptr %49, align 1, !noalias !1078, !noundef !4
   store ptr %50, ptr %33, align 8, !alias.scope !1068, !noalias !1069
   store i64 %51, ptr %32, align 8, !alias.scope !1068, !noalias !1069
   store i8 0, ptr %1, align 8, !alias.scope !1055, !noalias !1056
@@ -4651,12 +4650,12 @@ define internal fastcc void @_ZN3exr4meta9attribute11ChannelList4read17h485e6149
   br i1 %54, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$u8$C$std..io..error..Error$GT$$GT$$GT$17hc5010914fc8df08cE.exit.i.i", label %_ZN3exr4meta12sequence_end8has_come17hdd826193719d6314E.exit.thread
 
 "_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$u8$C$std..io..error..Error$GT$$GT$$GT$17hc5010914fc8df08cE.exit.i.i": ; preds = %53
-  store i8 2, ptr %1, align 8, !alias.scope !1078, !noalias !1056
+  store i8 2, ptr %1, align 8, !alias.scope !1079, !noalias !1056
   br label %_ZN3exr4meta12sequence_end8has_come17hdd826193719d6314E.exit.thread
 
 55:                                               ; preds = %"_ZN3exr2io17PeekRead$LT$T$GT$7peek_u817h8139cb7002e08afeE.exit.i.i"
   %.sroa.719.0.copyload.i.i.i = load ptr, ptr %.sroa.719.0..sroa_idx.i.i.i, align 8, !alias.scope !1055, !noalias !1056
-  store i8 2, ptr %1, align 8, !alias.scope !1078, !noalias !1056
+  store i8 2, ptr %1, align 8, !alias.scope !1079, !noalias !1056
   %56 = icmp eq ptr %.sroa.719.0.copyload.i.i.i, null
   br i1 %56, label %57, label %58
 
@@ -40085,8 +40084,8 @@ attributes #46 = { nounwind }
 !1075 = distinct !{!1075, !1076, !"_ZN4core6option15Option$LT$T$GT$7or_else17h00883c851ec81d4bE: argument 0"}
 !1076 = distinct !{!1076, !"_ZN4core6option15Option$LT$T$GT$7or_else17h00883c851ec81d4bE"}
 !1077 = distinct !{!1077, !1076, !"_ZN4core6option15Option$LT$T$GT$7or_else17h00883c851ec81d4bE: argument 1"}
-!1078 = !{!1050, !1047}
-!1079 = !{!1066, !1070, !1063, !1071, !1072, !1060, !1073, !1075, !1077, !1053, !1057, !1050, !1058, !1047}
+!1078 = !{!1066, !1070, !1063, !1071, !1072, !1060, !1073, !1075, !1077, !1053, !1057, !1050, !1058, !1047}
+!1079 = !{!1050, !1047}
 !1080 = !{!1058, !1047}
 !1081 = !{!1082, !1084}
 !1082 = distinct !{!1082, !1083, !"_ZN3exr4meta9attribute18ChannelDescription4read17he004fac5c7329fbbE: argument 0"}

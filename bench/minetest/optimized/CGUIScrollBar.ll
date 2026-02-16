@@ -1826,7 +1826,7 @@ if.then150:                                       ; preds = %if.then148
   %76 = load i32, ptr %SliderRect151, align 8, !tbaa !55
   %77 = load i32, ptr %p, align 8, !tbaa !81
   %cmp.not.i238 = icmp sgt i32 %76, %77
-  br i1 %cmp.not.i238, label %if.end160.thread252, label %land.lhs.true.i239
+  br i1 %cmp.not.i238, label %if.else166, label %land.lhs.true.i239
 
 land.lhs.true.i239:                               ; preds = %if.then150
   %Y.i240 = getelementptr inbounds nuw i8, ptr %this, i64 332
@@ -1837,11 +1837,7 @@ land.lhs.true.i239:                               ; preds = %if.then150
   %80 = load i32, ptr %LowerRightCorner.i243, align 8
   %cmp9.not.i244 = icmp slt i32 %80, %77
   %or.cond.i245 = select i1 %cmp5.not.i242, i1 true, i1 %cmp9.not.i244
-  br i1 %or.cond.i245, label %if.end160.thread252, label %if.end160
-
-if.end160.thread252:                              ; preds = %land.lhs.true.i239, %if.then150
-  store i8 0, ptr %DraggedBySlider146, align 2, !tbaa !83
-  br label %if.else166
+  br i1 %or.cond.i245, label %if.else166, label %if.end160
 
 if.end160:                                        ; preds = %land.lhs.true.i239
   %Y11.i247 = getelementptr inbounds nuw i8, ptr %this, i64 340
@@ -1855,7 +1851,7 @@ if.end160:                                        ; preds = %land.lhs.true.i239
   store i8 %frombool159, ptr %TrayClick158, align 1, !tbaa !84
   br i1 %cmp13.i248, label %if.end174, label %if.else166
 
-if.else166:                                       ; preds = %if.end160, %if.end160.thread252, %if.then148
+if.else166:                                       ; preds = %if.then150, %land.lhs.true.i239, %if.end160, %if.then148
   %TrayClick167 = getelementptr inbounds nuw i8, ptr %this, i64 347
   store i8 0, ptr %TrayClick167, align 1, !tbaa !84
   %82 = load i32, ptr %Event, align 4, !tbaa !75

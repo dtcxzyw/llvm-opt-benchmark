@@ -10667,13 +10667,13 @@ define linkonce_odr hidden void @_ZNK5frame25sender_for_compiled_frameEP11Regist
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 4980
   %17 = load i8, ptr %16, align 4
   %18 = trunc i8 %17 to i1
-  br i1 %18, label %19, label %65
+  br i1 %18, label %19, label %64
 
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 52
   %21 = load i8, ptr %20, align 4
   %22 = icmp eq i8 %21, 1
-  br i1 %22, label %59, label %23
+  br i1 %22, label %_ZNK5frame7oop_mapEv.exit.thread20, label %23
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 53
@@ -10726,58 +10726,54 @@ _ZNK5frame7oop_mapEv.exit.thread23:               ; preds = %42
   store ptr %56, ptr %28, align 8
   br label %_ZNK5frame7oop_mapEv.exit.thread
 
-_ZNK5frame7oop_mapEv.exit.thread20:               ; preds = %34, %31
-  store ptr null, ptr %28, align 8
-  br label %59
-
 _ZNK5frame7oop_mapEv.exit:                        ; preds = %38, %42
   %57 = tail call noundef ptr @_ZN9OopMapSet8find_mapEPK5frame(ptr noundef nonnull align 8 dereferenceable(56) %1) #20
   store ptr %57, ptr %28, align 8
   %.not = icmp eq ptr %57, null
-  br i1 %.not, label %59, label %_ZNK5frame7oop_mapEv.exit.thread
+  br i1 %.not, label %_ZNK5frame7oop_mapEv.exit.thread20, label %_ZNK5frame7oop_mapEv.exit.thread
 
 _ZNK5frame7oop_mapEv.exit.thread:                 ; preds = %23, %_ZNK5frame7oop_mapEv.exit.thread23, %_ZNK5frame7oop_mapEv.exit
   %58 = phi ptr [ %29, %23 ], [ %56, %_ZNK5frame7oop_mapEv.exit.thread23 ], [ %57, %_ZNK5frame7oop_mapEv.exit ]
   tail call void @_ZNK15ImmutableOopMap19update_register_mapEPK5frameP11RegisterMap(ptr noundef nonnull align 4 dereferenceable(9) %58, ptr noundef nonnull %1, ptr noundef nonnull %2) #20
-  br label %59
+  br label %_ZNK5frame7oop_mapEv.exit.thread20
 
-59:                                               ; preds = %_ZNK5frame7oop_mapEv.exit.thread20, %19, %_ZNK5frame7oop_mapEv.exit, %_ZNK5frame7oop_mapEv.exit.thread
-  %60 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store ptr %15, ptr %60, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %2, i64 4872
-  %62 = load i64, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  store ptr %15, ptr %63, align 8
-  %64 = or i64 %62, 3072
-  store i64 %64, ptr %61, align 8
-  br label %65
+_ZNK5frame7oop_mapEv.exit.thread20:               ; preds = %31, %34, %19, %_ZNK5frame7oop_mapEv.exit, %_ZNK5frame7oop_mapEv.exit.thread
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store ptr %15, ptr %59, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 4872
+  %61 = load i64, ptr %60, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  store ptr %15, ptr %62, align 8
+  %63 = or i64 %61, 3072
+  store i64 %63, ptr %60, align 8
+  br label %64
 
-65:                                               ; preds = %59, %3
-  %66 = tail call noundef zeroext i1 @_ZN12Continuation23is_return_barrier_entryEPh(ptr noundef %14) #20
-  br i1 %66, label %67, label %75
+64:                                               ; preds = %_ZNK5frame7oop_mapEv.exit.thread20, %3
+  %65 = tail call noundef zeroext i1 @_ZN12Continuation23is_return_barrier_entryEPh(ptr noundef %14) #20
+  br i1 %65, label %66, label %74
 
-67:                                               ; preds = %65
-  %68 = getelementptr inbounds nuw i8, ptr %2, i64 4982
-  %69 = load i8, ptr %68, align 2
-  %70 = trunc i8 %69 to i1
-  br i1 %70, label %71, label %72
+66:                                               ; preds = %64
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 4982
+  %68 = load i8, ptr %67, align 2
+  %69 = trunc i8 %68 to i1
+  br i1 %69, label %70, label %71
 
-71:                                               ; preds = %67
+70:                                               ; preds = %66
   tail call void @_ZN12Continuation9top_frameERK5frameP11RegisterMap(ptr dead_on_unwind writable sret(%class.frame) align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %2) #20
-  br label %77
+  br label %76
 
-72:                                               ; preds = %67
-  %73 = getelementptr inbounds nuw i8, ptr %2, i64 4960
-  %74 = load ptr, ptr %73, align 8
-  tail call void @_ZN12Continuation26continuation_bottom_senderEP10JavaThreadRK5framePl(ptr dead_on_unwind writable sret(%class.frame) align 8 %0, ptr noundef %74, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %11) #20
-  br label %77
+71:                                               ; preds = %66
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 4960
+  %73 = load ptr, ptr %72, align 8
+  tail call void @_ZN12Continuation26continuation_bottom_senderEP10JavaThreadRK5framePl(ptr dead_on_unwind writable sret(%class.frame) align 8 %0, ptr noundef %73, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %11) #20
+  br label %76
 
-75:                                               ; preds = %65
-  %76 = load ptr, ptr %15, align 8
-  tail call void @_ZN5frameC2EPlS0_S0_Ph(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef %76, ptr noundef %14)
-  br label %77
+74:                                               ; preds = %64
+  %75 = load ptr, ptr %15, align 8
+  tail call void @_ZN5frameC2EPlS0_S0_Ph(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef %75, ptr noundef %14)
+  br label %76
 
-77:                                               ; preds = %75, %72, %71
+76:                                               ; preds = %74, %71, %70
   ret void
 }
 

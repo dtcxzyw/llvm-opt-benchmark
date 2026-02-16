@@ -21756,7 +21756,7 @@ define noundef range(i32 -1, 1) i32 @_Z19crxReadImageHeadersP17crx_data_header_t
   %14 = zext i8 %13 to i32
   %15 = mul nuw nsw i32 %14, %11
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %442, label %16
+  br i1 %.not, label %_ZN13libraw_memmgr6callocEmm.exit.thread, label %16
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -21784,10 +21784,6 @@ define noundef range(i32 -1, 1) i32 @_Z19crxReadImageHeadersP17crx_data_header_t
   %34 = tail call noalias ptr @calloc(i64 noundef %33, i64 noundef 1) #25
   %.not.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i, label %_ZN13libraw_memmgr6callocEmm.exit.thread, label %.preheader.i.i
-
-_ZN13libraw_memmgr6callocEmm.exit.thread:         ; preds = %19
-  store ptr null, ptr %17, align 8, !tbaa !167
-  br label %442
 
 .preheader.i.i:                                   ; preds = %19
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -22686,10 +22682,10 @@ _ZNSt6vectorIiSaIiEED2Ev.exit349:                 ; preds = %.loopexit, %.loopex
   %.8 = phi i32 [ -1, %_ZN6LibRaw5sgetnEiPh.exit335 ], [ 0, %.critedge286 ], [ -1, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ -1, %.critedge288 ], [ 0, %439 ], [ -1, %296 ], [ -1, %302 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit340 ], [ -1, %258 ], [ -1, %135 ], [ -1, %._crit_edge ], [ -1, %159 ], [ -1, %157 ], [ -1, %158 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit315 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit300 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit305 ], [ -1, %173 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %442
+  br label %_ZN13libraw_memmgr6callocEmm.exit.thread
 
-442:                                              ; preds = %_ZN13libraw_memmgr6callocEmm.exit.thread, %4, %.thread
-  %.0226 = phi i32 [ %.8, %.thread ], [ -1, %4 ], [ -1, %_ZN13libraw_memmgr6callocEmm.exit.thread ]
+_ZN13libraw_memmgr6callocEmm.exit.thread:         ; preds = %19, %4, %.thread
+  %.0226 = phi i32 [ %.8, %.thread ], [ -1, %4 ], [ -1, %19 ]
   ret i32 %.0226
 }
 

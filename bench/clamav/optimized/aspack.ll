@@ -931,7 +931,6 @@ getbits.exit78.thread:                            ; preds = %37
 .loopexit.i80:                                    ; preds = %75, %..loopexit.i80_crit_edge
   %84 = phi i32 [ %.pr.i.i87, %..loopexit.i80_crit_edge ], [ %82, %75 ]
   %85 = phi i32 [ %.pre155, %..loopexit.i80_crit_edge ], [ %80, %75 ]
-  store i32 0, ptr %2, align 4, !tbaa !16
   %86 = sub nuw nsw i32 8, %84
   %87 = lshr i32 %85, %86
   %88 = lshr i32 %87, 21
@@ -976,7 +975,6 @@ getbits.exit78.thread:                            ; preds = %37
 .loopexit.i88:                                    ; preds = %97, %..loopexit.i88_crit_edge
   %106 = phi i32 [ %.pr.i.i87, %..loopexit.i88_crit_edge ], [ %104, %97 ]
   %107 = phi i32 [ %.pre159, %..loopexit.i88_crit_edge ], [ %102, %97 ]
-  store i32 0, ptr %2, align 4, !tbaa !16
   %108 = sub nuw nsw i32 8, %106
   %109 = lshr i32 %107, %108
   %110 = lshr i32 %109, 17
@@ -1017,7 +1015,6 @@ getbits.exit78.thread:                            ; preds = %37
 
 .preheader111.thread:                             ; preds = %123
   %.pre156 = load i32, ptr %32, align 4, !tbaa !15
-  store i32 0, ptr %2, align 4, !tbaa !16
   %124 = add nuw nsw i32 %.pr.i.i87, 2
   store i32 %124, ptr %0, align 8, !tbaa !20
   br label %.lr.ph.preheader

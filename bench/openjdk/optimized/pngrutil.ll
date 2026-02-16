@@ -944,49 +944,45 @@ png_crc_read.exit:                                ; preds = %png_crc_read.exit.p
   %.not62 = icmp eq i32 %61, 0
   br i1 %.not62, label %.thread71, label %.thread
 
-.thread:                                          ; preds = %58
-  store i16 0, ptr %55, align 8
-  br label %63
-
 62:                                               ; preds = %._crit_edge
   store i16 0, ptr %55, align 8
   %.not63 = icmp eq ptr %1, null
-  br i1 %.not63, label %.thread73, label %63
+  br i1 %.not63, label %.thread73, label %.thread
 
 .thread73:                                        ; preds = %62
   call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.10) #13
   br label %.critedge
 
-63:                                               ; preds = %62, %.thread
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 34
-  store i16 0, ptr %64, align 2
+.thread:                                          ; preds = %58, %62
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 34
+  store i16 0, ptr %63, align 2
   call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.10) #13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %.thread71
 
-.thread71:                                        ; preds = %58, %63
-  %65 = phi i32 [ %60, %58 ], [ %.pre, %63 ]
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %67 = and i32 %65, 64
-  %.not65 = icmp eq i32 %67, 0
-  br i1 %.not65, label %69, label %68
+.thread71:                                        ; preds = %58, %.thread
+  %64 = phi i32 [ %60, %58 ], [ %.pre, %.thread ]
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %66 = and i32 %64, 64
+  %.not65 = icmp eq i32 %66, 0
+  br i1 %.not65, label %68, label %67
 
-68:                                               ; preds = %.thread71
+67:                                               ; preds = %.thread71
   call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.11) #13
-  br label %69
+  br label %68
 
-69:                                               ; preds = %.thread71, %68
-  %70 = load i32, ptr %66, align 8
-  %71 = and i32 %70, 32
-  %.not66 = icmp eq i32 %71, 0
-  br i1 %.not66, label %.critedge, label %72
+68:                                               ; preds = %.thread71, %67
+  %69 = load i32, ptr %65, align 8
+  %70 = and i32 %69, 32
+  %.not66 = icmp eq i32 %70, 0
+  br i1 %.not66, label %.critedge, label %71
 
-72:                                               ; preds = %69
+71:                                               ; preds = %68
   call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.12) #13
   br label %.critedge
 
-.critedge:                                        ; preds = %57, %.thread73, %72, %69, %32, %24, %16
+.critedge:                                        ; preds = %57, %.thread73, %71, %68, %32, %24, %16
   ret void
 }
 

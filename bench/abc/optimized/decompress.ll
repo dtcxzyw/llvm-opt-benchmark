@@ -44,7 +44,6 @@ define range(i32 -5, 5) i32 @BZ2_decompress(ptr noundef %0) local_unnamed_addr #
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 64128
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 64136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %7, i8 0, i64 108, i1 false)
-  store i32 10, ptr %4, align 8, !tbaa !12
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %.promoted = load i32, ptr %32, align 4, !tbaa !13
   %33 = icmp sgt i32 %.promoted, 7

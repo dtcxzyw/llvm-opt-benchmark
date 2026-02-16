@@ -4915,9 +4915,8 @@ define linkonce_odr dso_local void @_ZN17hb_lockable_set_tIN20hb_user_data_array
   br i1 %.not.i, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit, label %7
 
 7:                                                ; preds = %5
-  store i32 0, ptr %3, align 4, !tbaa !258
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !259
+  %9 = load ptr, ptr %8, align 8, !tbaa !258
   tail call void @free(ptr noundef %9) #19
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit
 
@@ -4938,14 +4937,14 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.lr.ph, %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
   %14 = phi i32 [ %12, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.lr.ph ], [ %22, %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit ]
   %15 = add i32 %14, -1
-  %16 = load ptr, ptr %13, align 8, !tbaa !259
+  %16 = load ptr, ptr %13, align 8, !tbaa !258
   %17 = zext i32 %15 to i64
   %18 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %16, i64 %17
   %.sroa.3.0..0.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..0.i.i.sroa_idx, align 8, !tbaa !260
+  %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..0.i.i.sroa_idx, align 8, !tbaa !259
   %.sroa.4.0..0.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..0.i.i.sroa_idx, align 8, !tbaa !260
-  store i32 %15, ptr %3, align 4, !tbaa !258, !noalias !261
+  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..0.i.i.sroa_idx, align 8, !tbaa !259
+  store i32 %15, ptr %3, align 4, !tbaa !260, !noalias !261
   %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #19
   %.not.i7 = icmp eq ptr %.sroa.4.0.copyload, null
   br i1 %.not.i7, label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit, label %20
@@ -4966,9 +4965,9 @@ _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %_ZN11hb_v
   br i1 %.not.i8, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit9, label %24
 
 24:                                               ; preds = %._crit_edge
-  store i32 0, ptr %3, align 4, !tbaa !258
+  store i32 0, ptr %3, align 4, !tbaa !260
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !259
+  %26 = load ptr, ptr %25, align 8, !tbaa !258
   tail call void @free(ptr noundef %26) #19
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit9
 
@@ -29837,7 +29836,7 @@ _ZN22hb_serialize_context_t10extend_minIN2OT6Layout6Common8CoverageEEEPT_S6_.exi
 "_ZNK9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS8_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EEZNKS8_11clone_rangeESA_jjEUljE0_RK3$_7LSD_0EE9hb_pair_tIjjEEcvbEv.exit.i.i.i.i.i.i.i.i.i.i.i.i": ; preds = %_ZN22hb_serialize_context_t10extend_minIN2OT6Layout6Common8CoverageEEEPT_S6_.exit.i.i.i.i, %280
   %.05.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %282, %280 ], [ 0, %_ZN22hb_serialize_context_t10extend_minIN2OT6Layout6Common8CoverageEEEPT_S6_.exit.i.i.i.i ]
   %273 = load i32, ptr %271, align 8, !tbaa !56
-  %274 = load ptr, ptr %270, align 8, !tbaa !260
+  %274 = load ptr, ptr %270, align 8, !tbaa !259
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 2
   %276 = load i16, ptr %275, align 1, !tbaa !127
   %277 = call noundef i16 @llvm.bswap.i16(i16 %276)
@@ -29961,7 +29960,7 @@ _ZN22hb_serialize_context_t10extend_minIN2OT6Layout6Common8CoverageEEEPT_S6_.exi
 "_ZNK9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS8_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EEZNKS8_11clone_rangeESA_jjEUljE0_RK3$_7LSD_0EE9hb_pair_tIjjEEcvbEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i": ; preds = %311, %322
   %.05.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %324, %322 ], [ 0, %311 ]
   %315 = load i32, ptr %313, align 8, !tbaa !56
-  %316 = load ptr, ptr %312, align 8, !tbaa !260
+  %316 = load ptr, ptr %312, align 8, !tbaa !259
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 2
   %318 = load i16, ptr %317, align 1, !tbaa !127
   %319 = call noundef i16 @llvm.bswap.i16(i16 %318)
@@ -30848,7 +30847,7 @@ _ZN22hb_serialize_context_t10extend_minIN2OT8ClassDefEEEPT_S4_.exit.i.i.i.i: ; p
 
 "_ZNK9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tIS0_IN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS8_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EEZNKS8_11clone_rangeESA_jjEUljE0_RK3$_7LSD_0EEZNKS8_11clone_rangeESA_jjEUl9hb_pair_tIjjEE_LSC_1ELSD_0EESL_EcvbEv.exit.i.i.i.i.preheader.i.i.i": ; preds = %_ZN22hb_serialize_context_t10extend_minIN2OT8ClassDefEEEPT_S4_.exit.i.i.i.i
   %673 = load i32, ptr %671, align 8, !tbaa !56, !alias.scope !1027
-  %674 = load ptr, ptr %670, align 8, !tbaa !260, !alias.scope !1027
+  %674 = load ptr, ptr %670, align 8, !tbaa !259, !alias.scope !1027
   %675 = getelementptr inbounds nuw i8, ptr %674, i64 2
   %676 = load i16, ptr %675, align 1, !tbaa !127
   %677 = call noundef i16 @llvm.bswap.i16(i16 %676)
@@ -30858,7 +30857,7 @@ _ZN22hb_serialize_context_t10extend_minIN2OT8ClassDefEEEPT_S4_.exit.i.i.i.i: ; p
 
 "_ZNK9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tIS0_IN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS8_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EEZNKS8_11clone_rangeESA_jjEUljE0_RK3$_7LSD_0EEZNKS8_11clone_rangeESA_jjEUl9hb_pair_tIjjEE_LSC_1ELSD_0EESL_EcvbEv.exit.i.i.i.i.i.i.i": ; preds = %688
   %680 = load i32, ptr %671, align 8, !tbaa !56, !alias.scope !1027
-  %681 = load ptr, ptr %670, align 8, !tbaa !260, !alias.scope !1027
+  %681 = load ptr, ptr %670, align 8, !tbaa !259, !alias.scope !1027
   %682 = getelementptr inbounds nuw i8, ptr %681, i64 2
   %683 = load i16, ptr %682, align 1, !tbaa !127
   %684 = call noundef i16 @llvm.bswap.i16(i16 %683)
@@ -30890,7 +30889,7 @@ _ZN22hb_serialize_context_t10extend_minIN2OT8ClassDefEEEPT_S4_.exit.i.i.i.i: ; p
 
 "_ZNK9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIS0_IS1_IN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS8_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EEZNKS8_11clone_rangeESA_jjEUljE0_RK3$_7LSD_0EEZNKS8_11clone_rangeESA_jjEUl9hb_pair_tIjjEE_LSC_1ELSD_0EESI_RK4$_19LSD_0EESL_EcvbEv.exit.i.i.i.i": ; preds = %"_ZorI13hb_map_iter_tI16hb_filter_iter_tIS0_IN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS8_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EEZNKS8_11clone_rangeESA_jjEUljE0_RK3$_7LSD_0EEZNKS8_11clone_rangeESA_jjEUl9hb_pair_tIjjEE_LSC_1ELSD_0EE24hb_filter_iter_factory_tISI_RK4$_19ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSU_6item_tEEE5valueEvE4typeELSD_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISU_Efp_EEEOSU_OSZ_.exit.i.i.i.i"
   %.pre.i.i143 = load i32, ptr %671, align 8, !tbaa !56
-  %.pre89.i.i = load ptr, ptr %670, align 8, !tbaa !260
+  %.pre89.i.i = load ptr, ptr %670, align 8, !tbaa !259
   %.phi.trans.insert.i.i144 = getelementptr inbounds nuw i8, ptr %.pre89.i.i, i64 2
   %.pre90.i.i = load i16, ptr %.phi.trans.insert.i.i144, align 1, !tbaa !127
   %.pre97.i.i = call noundef i16 @llvm.bswap.i16(i16 %.pre90.i.i)
@@ -31100,7 +31099,7 @@ _ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14Pai
 _ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i.i.i.i.i: ; preds = %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i._ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i_crit_edge.i.i.i.i, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i.thread.i.i.i.i
   %777 = phi i32 [ 1, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i.thread.i.i.i.i ], [ %776, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i._ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i_crit_edge.i.i.i.i ]
   %778 = phi i32 [ %730, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i.thread.i.i.i.i ], [ %.pre257.i.i.i.i, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i._ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i_crit_edge.i.i.i.i ]
-  %779 = load ptr, ptr %702, align 8, !tbaa !260
+  %779 = load ptr, ptr %702, align 8, !tbaa !259
   %780 = getelementptr inbounds nuw i8, ptr %779, i64 2
   %781 = load i16, ptr %780, align 1, !tbaa !127
   %782 = call noundef i16 @llvm.bswap.i16(i16 %781)
@@ -31251,7 +31250,7 @@ _ZNK13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat2
 
 "_ZNK9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tIS0_IN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS8_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EEZNKS8_11clone_rangeESA_jjEUljE0_RK3$_7LSD_0EEZNKS8_11clone_rangeESA_jjEUl9hb_pair_tIjjEE_LSC_1ELSD_0EESL_EcvbEv.exit.i.i.i.i.i.i": ; preds = %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS8_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EEZNKS8_11clone_rangeESA_jjEUljE0_RK3$_7LSD_0EE9hb_pair_tIjjEEppEv.exit.i.i.i.i"
   %846 = load i32, ptr %697, align 8, !tbaa !56
-  %847 = load ptr, ptr %702, align 8, !tbaa !260
+  %847 = load ptr, ptr %702, align 8, !tbaa !259
   %848 = getelementptr inbounds nuw i8, ptr %847, i64 2
   %849 = load i16, ptr %848, align 1, !tbaa !127
   %850 = call noundef i16 @llvm.bswap.i16(i16 %849)
@@ -31463,7 +31462,7 @@ _ZN22hb_serialize_context_t10extend_minIN2OT17ClassDefFormat1_3INS1_6Layout10Sma
   %938 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %939 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %940 = load i32, ptr %939, align 8, !tbaa !56
-  %941 = load ptr, ptr %938, align 8, !tbaa !260
+  %941 = load ptr, ptr %938, align 8, !tbaa !259
   %942 = getelementptr inbounds nuw i8, ptr %941, i64 2
   %943 = load i16, ptr %942, align 1, !tbaa !127
   %944 = call noundef i16 @llvm.bswap.i16(i16 %943)
@@ -31500,7 +31499,7 @@ _ZN22hb_serialize_context_t10extend_minIN2OT17ClassDefFormat1_3INS1_6Layout10Sma
   %957 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %958 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %959 = load i32, ptr %951, align 8, !tbaa !56
-  %960 = load ptr, ptr %950, align 8, !tbaa !260
+  %960 = load ptr, ptr %950, align 8, !tbaa !259
   %961 = getelementptr inbounds nuw i8, ptr %960, i64 2
   %962 = load i16, ptr %961, align 1, !tbaa !127
   %963 = call noundef i16 @llvm.bswap.i16(i16 %962)
@@ -31620,7 +31619,7 @@ _ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14Pai
 _ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i._ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i_crit_edge.i.i.i.i.i.i.i, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i.thread.i.i.i.i.i.i.i
   %1016 = phi i32 [ 1, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i.thread.i.i.i.i.i.i.i ], [ %1015, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i._ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i_crit_edge.i.i.i.i.i.i.i ]
   %1017 = phi i32 [ %969, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i.thread.i.i.i.i.i.i.i ], [ %.pre.i.i.i85.i.i.i.i, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i._ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i_crit_edge.i.i.i.i.i.i.i ]
-  %1018 = load ptr, ptr %950, align 8, !tbaa !260
+  %1018 = load ptr, ptr %950, align 8, !tbaa !259
   %1019 = getelementptr inbounds nuw i8, ptr %1018, i64 2
   %1020 = load i16, ptr %1019, align 1, !tbaa !127
   %1021 = call noundef i16 @llvm.bswap.i16(i16 %1020)
@@ -31771,7 +31770,7 @@ _ZNK13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat2
 
 "_ZNK9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tIS0_IN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS8_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EEZNKS8_11clone_rangeESA_jjEUljE0_RK3$_7LSD_0EEZNKS8_11clone_rangeESA_jjEUl9hb_pair_tIjjEE_LSC_1ELSD_0EESL_EcvbEv.exit.i.i.i.i.i.i.i.i.i.i.i": ; preds = %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS8_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EEZNKS8_11clone_rangeESA_jjEUljE0_RK3$_7LSD_0EE9hb_pair_tIjjEEppEv.exit.i.i.i.i.i.i.i"
   %1085 = load i32, ptr %951, align 8, !tbaa !56
-  %1086 = load ptr, ptr %950, align 8, !tbaa !260
+  %1086 = load ptr, ptr %950, align 8, !tbaa !259
   %1087 = getelementptr inbounds nuw i8, ptr %1086, i64 2
   %1088 = load i16, ptr %1087, align 1, !tbaa !127
   %1089 = call noundef i16 @llvm.bswap.i16(i16 %1088)
@@ -31915,7 +31914,7 @@ _ZNK13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat2
 
 "_ZNK9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tIS0_IS1_IS0_IN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS8_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EEZNKS8_11clone_rangeESA_jjEUljE0_RK3$_7LSD_0EEZNKS8_11clone_rangeESA_jjEUl9hb_pair_tIjjEE_LSC_1ELSD_0EESI_RK4$_19LSD_0EERK3$_6LSC_0ELSD_0EEjEcvbEv.exit.i.backedge.i.i.i.i.i.i": ; preds = %"_ZNK13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS6_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE8__item__Ev.exit._ZNR9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tIS0_IS1_IS0_IN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS8_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EEZNKS8_11clone_rangeESA_jjEUljE0_RK3$_7LSD_0EEZNKS8_11clone_rangeESA_jjEUl9hb_pair_tIjjEE_LSC_1ELSD_0EESI_RK4$_19LSD_0EERK3$_6LSC_0ELSD_0EEjEppEv.exit_crit_edge.i.i.i.i.i.i.i"
   %.pre.i.i.i.i.i.i = load i32, ptr %951, align 8, !tbaa !56
-  %.pre12.i.i.i.i.i.i = load ptr, ptr %950, align 8, !tbaa !260
+  %.pre12.i.i.i.i.i.i = load ptr, ptr %950, align 8, !tbaa !259
   %.phi.trans.insert.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre12.i.i.i.i.i.i, i64 2
   %.pre13.i.i.i.i.i.i = load i16, ptr %.phi.trans.insert.i.i.i.i.i.i, align 1, !tbaa !127
   %.pre14.i.i.i.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %.pre13.i.i.i.i.i.i)
@@ -32216,7 +32215,7 @@ _ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14Pai
 _ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i.i.i.i.i.i: ; preds = %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i._ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i_crit_edge.i.i.i.i.i, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i.thread.i.i.i.i.i
   %1281 = phi i32 [ 1, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i.thread.i.i.i.i.i ], [ %1280, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i._ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i_crit_edge.i.i.i.i.i ]
   %1282 = phi i32 [ %1234, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i.thread.i.i.i.i.i ], [ %.pre.i.i.i.i.i155, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i._ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i_crit_edge.i.i.i.i.i ]
-  %1283 = load ptr, ptr %1203, align 8, !tbaa !260
+  %1283 = load ptr, ptr %1203, align 8, !tbaa !259
   %1284 = getelementptr inbounds nuw i8, ptr %1283, i64 2
   %1285 = load i16, ptr %1284, align 1, !tbaa !127
   %1286 = call noundef i16 @llvm.bswap.i16(i16 %1285)
@@ -32367,7 +32366,7 @@ _ZNK13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat2
 
 "_ZNK9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tIS0_IN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS8_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EEZNKS8_11clone_rangeESA_jjEUljE0_RK3$_7LSD_0EEZNKS8_11clone_rangeESA_jjEUl9hb_pair_tIjjEE_LSC_1ELSD_0EESL_EcvbEv.exit.i.i.i78.i.i.i.i": ; preds = %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS8_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EEZNKS8_11clone_rangeESA_jjEUljE0_RK3$_7LSD_0EE9hb_pair_tIjjEEppEv.exit.i.i.i.i.i"
   %1350 = load i32, ptr %1197, align 8, !tbaa !56
-  %1351 = load ptr, ptr %1203, align 8, !tbaa !260
+  %1351 = load ptr, ptr %1203, align 8, !tbaa !259
   %1352 = getelementptr inbounds nuw i8, ptr %1351, i64 2
   %1353 = load i16, ptr %1352, align 1, !tbaa !127
   %1354 = call noundef i16 @llvm.bswap.i16(i16 %1353)
@@ -32563,7 +32562,7 @@ _ZN22hb_serialize_context_t10extend_minIN2OT17ClassDefFormat2_4INS1_6Layout10Sma
   %1435 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %1436 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %1437 = load i32, ptr %1436, align 8, !tbaa !56
-  %1438 = load ptr, ptr %1435, align 8, !tbaa !260
+  %1438 = load ptr, ptr %1435, align 8, !tbaa !259
   %1439 = getelementptr inbounds nuw i8, ptr %1438, i64 2
   %1440 = load i16, ptr %1439, align 1, !tbaa !127
   %1441 = call noundef i16 @llvm.bswap.i16(i16 %1440)
@@ -32633,7 +32632,7 @@ _ZN22hb_serialize_context_t13allocate_sizeIN2OT6Layout6Common11RangeRecordINS2_1
 
 "_ZNK9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tIS0_IN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS8_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EEZNKS8_11clone_rangeESA_jjEUljE0_RK3$_7LSD_0EEZNKS8_11clone_rangeESA_jjEUl9hb_pair_tIjjEE_LSC_1ELSD_0EESL_EcvbEv.exit.i.i.i152.i.i.i.i": ; preds = %1464
   %1467 = load i32, ptr %1436, align 8, !tbaa !56
-  %1468 = load ptr, ptr %1435, align 8, !tbaa !260
+  %1468 = load ptr, ptr %1435, align 8, !tbaa !259
   %1469 = getelementptr inbounds nuw i8, ptr %1468, i64 2
   %1470 = load i16, ptr %1469, align 1, !tbaa !127
   %1471 = call noundef i16 @llvm.bswap.i16(i16 %1470)
@@ -32884,7 +32883,7 @@ _ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14Pai
 _ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i.i138.i.i.i.i: ; preds = %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i._ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i_crit_edge.i136.i.i.i.i, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i.thread.i147.i.i.i.i
   %1575 = phi i32 [ 1, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i.thread.i147.i.i.i.i ], [ %1574, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i._ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i_crit_edge.i136.i.i.i.i ]
   %1576 = phi i32 [ %1528, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i.thread.i147.i.i.i.i ], [ %.pre.i137.i.i.i.i, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i._ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i_crit_edge.i136.i.i.i.i ]
-  %1577 = load ptr, ptr %1481, align 8, !tbaa !260
+  %1577 = load ptr, ptr %1481, align 8, !tbaa !259
   %1578 = getelementptr inbounds nuw i8, ptr %1577, i64 2
   %1579 = load i16, ptr %1578, align 1, !tbaa !127
   %1580 = call noundef i16 @llvm.bswap.i16(i16 %1579)
@@ -33035,7 +33034,7 @@ _ZNK13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat2
 
 "_ZNK9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tIS0_IN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS8_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EEZNKS8_11clone_rangeESA_jjEUljE0_RK3$_7LSD_0EEZNKS8_11clone_rangeESA_jjEUl9hb_pair_tIjjEE_LSC_1ELSD_0EESL_EcvbEv.exit.i.i93.i.i.i.i.i": ; preds = %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS8_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EEZNKS8_11clone_rangeESA_jjEUljE0_RK3$_7LSD_0EE9hb_pair_tIjjEEppEv.exit.i112.i.i.i.i"
   %1644 = load i32, ptr %1476, align 8, !tbaa !56
-  %1645 = load ptr, ptr %1481, align 8, !tbaa !260
+  %1645 = load ptr, ptr %1481, align 8, !tbaa !259
   %1646 = getelementptr inbounds nuw i8, ptr %1645, i64 2
   %1647 = load i16, ptr %1646, align 1, !tbaa !127
   %1648 = call noundef i16 @llvm.bswap.i16(i16 %1647)
@@ -34360,7 +34359,7 @@ _ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14Pai
 
 _ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit: ; preds = %_ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.lr.ph, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit
   %13 = load i32, ptr %9, align 8, !tbaa !56
-  %14 = load ptr, ptr %8, align 8, !tbaa !260
+  %14 = load ptr, ptr %8, align 8, !tbaa !259
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 2
   %16 = load i16, ptr %15, align 1, !tbaa !127
   %17 = tail call noundef i16 @llvm.bswap.i16(i16 %16)
@@ -34735,7 +34734,7 @@ _ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14Pai
 
 _ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i: ; preds = %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS7_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i
   %58 = load i32, ptr %3, align 8, !tbaa !56
-  %59 = load ptr, ptr %2, align 8, !tbaa !260
+  %59 = load ptr, ptr %2, align 8, !tbaa !259
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 2
   %61 = load i16, ptr %60, align 1, !tbaa !127
   %62 = tail call noundef i16 @llvm.bswap.i16(i16 %61)
@@ -34810,7 +34809,7 @@ define internal fastcc void @"_ZNK9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tI
 
 "_ZNK9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tIS0_IN2OT6Layout6Common8Coverage6iter_tEZNK5graph14PairPosFormat211clone_rangeERNS8_15split_context_tEjjEUljE_L24hb_function_sortedness_t1ELPv0EEZNKS8_11clone_rangeESA_jjEUljE0_RK3$_7LSD_0EEZNKS8_11clone_rangeESA_jjEUl9hb_pair_tIjjEE_LSC_1ELSD_0EESL_EcvbEv.exit.i.i.i": ; preds = %2, %25
   %16 = load i32, ptr %14, align 8, !tbaa !56, !alias.scope !1070
-  %17 = load ptr, ptr %13, align 8, !tbaa !260, !alias.scope !1070
+  %17 = load ptr, ptr %13, align 8, !tbaa !259, !alias.scope !1070
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %19 = load i16, ptr %18, align 1, !tbaa !127
   %20 = call noundef i16 @llvm.bswap.i16(i16 %19)
@@ -35179,7 +35178,7 @@ _ZNK2OT6Layout6Common8Coverage4iterEv.exit:       ; preds = %159, %164, %_ZNK2OT
 "_ZNK9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS8_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EEZNS8_6shrinkESA_jEUljE0_RK3$_7LSD_0EE9hb_pair_tIjjEEcvbEv.exit.i.i.i.i": ; preds = %_ZNK2OT6Layout6Common8Coverage4iterEv.exit, %200
   %.05.i.i.i.i = phi i32 [ %202, %200 ], [ 0, %_ZNK2OT6Layout6Common8Coverage4iterEv.exit ]
   %193 = load i32, ptr %191, align 8, !tbaa !56
-  %194 = load ptr, ptr %190, align 8, !tbaa !260
+  %194 = load ptr, ptr %190, align 8, !tbaa !259
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 2
   %196 = load i16, ptr %195, align 1, !tbaa !127
   %197 = call noundef i16 @llvm.bswap.i16(i16 %196)
@@ -35270,7 +35269,7 @@ _ZN22hb_serialize_context_t10extend_minIN2OT6Layout6Common8CoverageEEEPT_S6_.exi
 "_ZNK9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS8_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EEZNS8_6shrinkESA_jEUljE0_RK3$_7LSD_0EE9hb_pair_tIjjEEcvbEv.exit.i.i.i.i.i.i.i.i.i": ; preds = %_ZN22hb_serialize_context_t10extend_minIN2OT6Layout6Common8CoverageEEEPT_S6_.exit.i.i.i, %241
   %.05.i.i.i.i.i.i.i.i.i = phi i32 [ %243, %241 ], [ 0, %_ZN22hb_serialize_context_t10extend_minIN2OT6Layout6Common8CoverageEEEPT_S6_.exit.i.i.i ]
   %234 = load i32, ptr %232, align 8, !tbaa !56
-  %235 = load ptr, ptr %231, align 8, !tbaa !260
+  %235 = load ptr, ptr %231, align 8, !tbaa !259
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 2
   %237 = load i16, ptr %236, align 1, !tbaa !127
   %238 = call noundef i16 @llvm.bswap.i16(i16 %237)
@@ -35392,7 +35391,7 @@ _ZN22hb_serialize_context_t10extend_minIN2OT6Layout6Common8CoverageEEEPT_S6_.exi
 "_ZNK9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS8_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EEZNS8_6shrinkESA_jEUljE0_RK3$_7LSD_0EE9hb_pair_tIjjEEcvbEv.exit.i.i.i.i.i.i.i.i.i.i.i.i": ; preds = %272, %283
   %.05.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %285, %283 ], [ 0, %272 ]
   %276 = load i32, ptr %274, align 8, !tbaa !56
-  %277 = load ptr, ptr %273, align 8, !tbaa !260
+  %277 = load ptr, ptr %273, align 8, !tbaa !259
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 2
   %279 = load i16, ptr %278, align 1, !tbaa !127
   %280 = call noundef i16 @llvm.bswap.i16(i16 %279)
@@ -36136,7 +36135,7 @@ _ZN22hb_serialize_context_t10extend_minIN2OT8ClassDefEEEPT_S4_.exit.i.i.i: ; pre
 
 "_ZNK9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS8_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EEZNS8_6shrinkESA_jEUljE0_RK3$_7LSD_0EE9hb_pair_tIjjEEcvbEv.exit.i.i.i.i.preheader.i.i": ; preds = %_ZN22hb_serialize_context_t10extend_minIN2OT8ClassDefEEEPT_S4_.exit.i.i.i
   %574 = load i32, ptr %572, align 8, !tbaa !56, !alias.scope !1192
-  %575 = load ptr, ptr %571, align 8, !tbaa !260, !alias.scope !1192
+  %575 = load ptr, ptr %571, align 8, !tbaa !259, !alias.scope !1192
   %576 = getelementptr inbounds nuw i8, ptr %575, i64 2
   %577 = load i16, ptr %576, align 1, !tbaa !127
   %578 = call noundef i16 @llvm.bswap.i16(i16 %577)
@@ -36146,7 +36145,7 @@ _ZN22hb_serialize_context_t10extend_minIN2OT8ClassDefEEEPT_S4_.exit.i.i.i: ; pre
 
 "_ZNK9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS8_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EEZNS8_6shrinkESA_jEUljE0_RK3$_7LSD_0EE9hb_pair_tIjjEEcvbEv.exit.i.i.i.i.i.i": ; preds = %589
   %581 = load i32, ptr %572, align 8, !tbaa !56, !alias.scope !1192
-  %582 = load ptr, ptr %571, align 8, !tbaa !260, !alias.scope !1192
+  %582 = load ptr, ptr %571, align 8, !tbaa !259, !alias.scope !1192
   %583 = getelementptr inbounds nuw i8, ptr %582, i64 2
   %584 = load i16, ptr %583, align 1, !tbaa !127
   %585 = call noundef i16 @llvm.bswap.i16(i16 %584)
@@ -36174,7 +36173,7 @@ _ZN22hb_serialize_context_t10extend_minIN2OT8ClassDefEEEPT_S4_.exit.i.i.i: ; pre
 
 "_ZNK9hb_iter_tI16hb_filter_iter_tIS0_I13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS8_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EEZNS8_6shrinkESA_jEUljE0_RK3$_7LSD_0EESI_RK4$_19LSD_0EE9hb_pair_tIjjEEcvbEv.exit.i.i.i": ; preds = %"_ZorI16hb_filter_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS8_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EEZNS8_6shrinkESA_jEUljE0_RK3$_7LSD_0EE24hb_filter_iter_factory_tISI_RK4$_19ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSQ_6item_tEEE5valueEvE4typeELSD_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISQ_Efp_EEEOSQ_OSV_.exit.i.i.i"
   %.pre.i76 = load i32, ptr %572, align 8, !tbaa !56
-  %.pre89.i = load ptr, ptr %571, align 8, !tbaa !260
+  %.pre89.i = load ptr, ptr %571, align 8, !tbaa !259
   %.phi.trans.insert.i77 = getelementptr inbounds nuw i8, ptr %.pre89.i, i64 2
   %.pre90.i = load i16, ptr %.phi.trans.insert.i77, align 1, !tbaa !127
   %.pre97.i = call noundef i16 @llvm.bswap.i16(i16 %.pre90.i)
@@ -36376,7 +36375,7 @@ _ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14Pair
 _ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i.i.i.i: ; preds = %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i._ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i_crit_edge.i.i.i, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i.thread.i.i.i
   %675 = phi i32 [ 1, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i.thread.i.i.i ], [ %674, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i._ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i_crit_edge.i.i.i ]
   %676 = phi i32 [ %628, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i.thread.i.i.i ], [ %.pre228.i.i.i, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i._ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i_crit_edge.i.i.i ]
-  %677 = load ptr, ptr %601, align 8, !tbaa !260
+  %677 = load ptr, ptr %601, align 8, !tbaa !259
   %678 = getelementptr inbounds nuw i8, ptr %677, i64 2
   %679 = load i16, ptr %678, align 1, !tbaa !127
   %680 = call noundef i16 @llvm.bswap.i16(i16 %679)
@@ -36525,7 +36524,7 @@ _ZNK13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26
 
 "_ZNK9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS8_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EEZNS8_6shrinkESA_jEUljE0_RK3$_7LSD_0EE9hb_pair_tIjjEEcvbEv.exit.i.i.i.i.i": ; preds = %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS8_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EEZNS8_6shrinkESA_jEUljE0_RK3$_7LSD_0EE9hb_pair_tIjjEEppEv.exit.i.i.i"
   %743 = load i32, ptr %597, align 8, !tbaa !56
-  %744 = load ptr, ptr %601, align 8, !tbaa !260
+  %744 = load ptr, ptr %601, align 8, !tbaa !259
   %745 = getelementptr inbounds nuw i8, ptr %744, i64 2
   %746 = load i16, ptr %745, align 1, !tbaa !127
   %747 = call noundef i16 @llvm.bswap.i16(i16 %746)
@@ -36732,7 +36731,7 @@ _ZN22hb_serialize_context_t10extend_minIN2OT17ClassDefFormat1_3INS1_6Layout10Sma
   %836 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %837 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %838 = load i32, ptr %837, align 8, !tbaa !56
-  %839 = load ptr, ptr %836, align 8, !tbaa !260
+  %839 = load ptr, ptr %836, align 8, !tbaa !259
   %840 = getelementptr inbounds nuw i8, ptr %839, i64 2
   %841 = load i16, ptr %840, align 1, !tbaa !127
   %842 = call noundef i16 @llvm.bswap.i16(i16 %841)
@@ -36767,7 +36766,7 @@ _ZN22hb_serialize_context_t10extend_minIN2OT17ClassDefFormat1_3INS1_6Layout10Sma
   %853 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %854 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %855 = load i32, ptr %849, align 8, !tbaa !56
-  %856 = load ptr, ptr %848, align 8, !tbaa !260
+  %856 = load ptr, ptr %848, align 8, !tbaa !259
   %857 = getelementptr inbounds nuw i8, ptr %856, i64 2
   %858 = load i16, ptr %857, align 1, !tbaa !127
   %859 = call noundef i16 @llvm.bswap.i16(i16 %858)
@@ -36887,7 +36886,7 @@ _ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14Pair
 _ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i._ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i_crit_edge.i.i.i.i.i.i, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i.thread.i.i.i.i.i.i
   %913 = phi i32 [ 1, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i.thread.i.i.i.i.i.i ], [ %912, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i._ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i_crit_edge.i.i.i.i.i.i ]
   %914 = phi i32 [ %866, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i.thread.i.i.i.i.i.i ], [ %.pre.i.i.i61.i.i.i, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i._ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i_crit_edge.i.i.i.i.i.i ]
-  %915 = load ptr, ptr %848, align 8, !tbaa !260
+  %915 = load ptr, ptr %848, align 8, !tbaa !259
   %916 = getelementptr inbounds nuw i8, ptr %915, i64 2
   %917 = load i16, ptr %916, align 1, !tbaa !127
   %918 = call noundef i16 @llvm.bswap.i16(i16 %917)
@@ -37036,7 +37035,7 @@ _ZNK13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26
 
 "_ZNK9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS8_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EEZNS8_6shrinkESA_jEUljE0_RK3$_7LSD_0EE9hb_pair_tIjjEEcvbEv.exit.i.i.i.i.i.i.i.i.i.i": ; preds = %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS8_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EEZNS8_6shrinkESA_jEUljE0_RK3$_7LSD_0EE9hb_pair_tIjjEEppEv.exit.i.i.i.i.i.i"
   %981 = load i32, ptr %849, align 8, !tbaa !56
-  %982 = load ptr, ptr %848, align 8, !tbaa !260
+  %982 = load ptr, ptr %848, align 8, !tbaa !259
   %983 = getelementptr inbounds nuw i8, ptr %982, i64 2
   %984 = load i16, ptr %983, align 1, !tbaa !127
   %985 = call noundef i16 @llvm.bswap.i16(i16 %984)
@@ -37175,7 +37174,7 @@ _ZNK13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26
 
 "_ZNK9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tIS1_IS0_IN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS8_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EEZNS8_6shrinkESA_jEUljE0_RK3$_7LSD_0EESI_RK4$_19LSD_0EERK3$_6LSC_0ELSD_0EEjEcvbEv.exit.i.backedge.i.i.i.i.i": ; preds = %"_ZNK13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS6_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE8__item__Ev.exit._ZNR9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tIS1_IS0_IN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS8_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EEZNS8_6shrinkESA_jEUljE0_RK3$_7LSD_0EESI_RK4$_19LSD_0EERK3$_6LSC_0ELSD_0EEjEppEv.exit_crit_edge.i.i.i.i.i.i"
   %.pre.i.i.i.i.i = load i32, ptr %849, align 8, !tbaa !56
-  %.pre12.i.i.i.i.i = load ptr, ptr %848, align 8, !tbaa !260
+  %.pre12.i.i.i.i.i = load ptr, ptr %848, align 8, !tbaa !259
   %.phi.trans.insert.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre12.i.i.i.i.i, i64 2
   %.pre13.i.i.i.i.i = load i16, ptr %.phi.trans.insert.i.i.i.i.i, align 1, !tbaa !127
   %.pre14.i.i.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %.pre13.i.i.i.i.i)
@@ -37470,7 +37469,7 @@ _ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14Pair
 _ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i.i.i.i.i: ; preds = %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i._ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i_crit_edge.i.i.i.i, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i.thread.i.i.i.i
   %1176 = phi i32 [ 1, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i.thread.i.i.i.i ], [ %1175, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i._ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i_crit_edge.i.i.i.i ]
   %1177 = phi i32 [ %1129, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i.thread.i.i.i.i ], [ %.pre.i.i.i.i90, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i._ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i_crit_edge.i.i.i.i ]
-  %1178 = load ptr, ptr %1099, align 8, !tbaa !260
+  %1178 = load ptr, ptr %1099, align 8, !tbaa !259
   %1179 = getelementptr inbounds nuw i8, ptr %1178, i64 2
   %1180 = load i16, ptr %1179, align 1, !tbaa !127
   %1181 = call noundef i16 @llvm.bswap.i16(i16 %1180)
@@ -37619,7 +37618,7 @@ _ZNK13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26
 
 "_ZNK9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS8_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EEZNS8_6shrinkESA_jEUljE0_RK3$_7LSD_0EE9hb_pair_tIjjEEcvbEv.exit.i.i.i59.i.i.i": ; preds = %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS8_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EEZNS8_6shrinkESA_jEUljE0_RK3$_7LSD_0EE9hb_pair_tIjjEEppEv.exit.i.i.i.i"
   %1244 = load i32, ptr %1094, align 8, !tbaa !56
-  %1245 = load ptr, ptr %1099, align 8, !tbaa !260
+  %1245 = load ptr, ptr %1099, align 8, !tbaa !259
   %1246 = getelementptr inbounds nuw i8, ptr %1245, i64 2
   %1247 = load i16, ptr %1246, align 1, !tbaa !127
   %1248 = call noundef i16 @llvm.bswap.i16(i16 %1247)
@@ -37810,7 +37809,7 @@ _ZN22hb_serialize_context_t10extend_minIN2OT17ClassDefFormat2_4INS1_6Layout10Sma
   %1330 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %1331 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %1332 = load i32, ptr %1331, align 8, !tbaa !56
-  %1333 = load ptr, ptr %1330, align 8, !tbaa !260
+  %1333 = load ptr, ptr %1330, align 8, !tbaa !259
   %1334 = getelementptr inbounds nuw i8, ptr %1333, i64 2
   %1335 = load i16, ptr %1334, align 1, !tbaa !127
   %1336 = call noundef i16 @llvm.bswap.i16(i16 %1335)
@@ -37876,7 +37875,7 @@ _ZN22hb_serialize_context_t13allocate_sizeIN2OT6Layout6Common11RangeRecordINS2_1
 
 "_ZNK9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS8_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EEZNS8_6shrinkESA_jEUljE0_RK3$_7LSD_0EE9hb_pair_tIjjEEcvbEv.exit.i.i.i122.i.i.i": ; preds = %1357
   %1360 = load i32, ptr %1331, align 8, !tbaa !56
-  %1361 = load ptr, ptr %1330, align 8, !tbaa !260
+  %1361 = load ptr, ptr %1330, align 8, !tbaa !259
   %1362 = getelementptr inbounds nuw i8, ptr %1361, i64 2
   %1363 = load i16, ptr %1362, align 1, !tbaa !127
   %1364 = call noundef i16 @llvm.bswap.i16(i16 %1363)
@@ -38118,7 +38117,7 @@ _ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14Pair
 _ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i.i112.i.i.i: ; preds = %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i._ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i_crit_edge.i110.i.i.i, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i.thread.i117.i.i.i
   %1466 = phi i32 [ 1, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i.thread.i117.i.i.i ], [ %1465, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i._ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i_crit_edge.i110.i.i.i ]
   %1467 = phi i32 [ %1419, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i.thread.i117.i.i.i ], [ %.pre.i111.i.i.i, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i.i._ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i_crit_edge.i110.i.i.i ]
-  %1468 = load ptr, ptr %1373, align 8, !tbaa !260
+  %1468 = load ptr, ptr %1373, align 8, !tbaa !259
   %1469 = getelementptr inbounds nuw i8, ptr %1468, i64 2
   %1470 = load i16, ptr %1469, align 1, !tbaa !127
   %1471 = call noundef i16 @llvm.bswap.i16(i16 %1470)
@@ -38267,7 +38266,7 @@ _ZNK13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26
 
 "_ZNK9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS8_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EEZNS8_6shrinkESA_jEUljE0_RK3$_7LSD_0EE9hb_pair_tIjjEEcvbEv.exit.i.i73.i.i.i.i": ; preds = %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS8_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EEZNS8_6shrinkESA_jEUljE0_RK3$_7LSD_0EE9hb_pair_tIjjEEppEv.exit.i87.i.i.i"
   %1534 = load i32, ptr %1369, align 8, !tbaa !56
-  %1535 = load ptr, ptr %1373, align 8, !tbaa !260
+  %1535 = load ptr, ptr %1373, align 8, !tbaa !259
   %1536 = getelementptr inbounds nuw i8, ptr %1535, i64 2
   %1537 = load i16, ptr %1536, align 1, !tbaa !127
   %1538 = call noundef i16 @llvm.bswap.i16(i16 %1537)
@@ -38726,7 +38725,7 @@ _ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14Pair
 
 _ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit: ; preds = %_ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.lr.ph, %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit
   %12 = load i32, ptr %8, align 8, !tbaa !56
-  %13 = load ptr, ptr %7, align 8, !tbaa !260
+  %13 = load ptr, ptr %7, align 8, !tbaa !259
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %15 = load i16, ptr %14, align 1, !tbaa !127
   %16 = tail call noundef i16 @llvm.bswap.i16(i16 %15)
@@ -39095,7 +39094,7 @@ _ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14Pair
 
 _ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEcvbEv.exit.i: ; preds = %_ZNR9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS7_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EE9hb_pair_tIjjEEppEv.exit.i
   %58 = load i32, ptr %3, align 8, !tbaa !56
-  %59 = load ptr, ptr %2, align 8, !tbaa !260
+  %59 = load ptr, ptr %2, align 8, !tbaa !259
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 2
   %61 = load i16, ptr %60, align 1, !tbaa !127
   %62 = tail call noundef i16 @llvm.bswap.i16(i16 %61)
@@ -39155,7 +39154,7 @@ define internal fastcc void @"_ZNK9hb_iter_tI16hb_filter_iter_tIS0_I13hb_map_ite
 
 "_ZNK9hb_iter_tI16hb_filter_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZN5graph14PairPosFormat26shrinkERNS8_15split_context_tEjEUljE_L24hb_function_sortedness_t1ELPv0EEZNS8_6shrinkESA_jEUljE0_RK3$_7LSD_0EE9hb_pair_tIjjEEcvbEv.exit.i.i.i": ; preds = %2, %25
   %16 = load i32, ptr %14, align 8, !tbaa !56, !alias.scope !1221
-  %17 = load ptr, ptr %13, align 8, !tbaa !260, !alias.scope !1221
+  %17 = load ptr, ptr %13, align 8, !tbaa !259, !alias.scope !1221
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %19 = load i16, ptr %18, align 1, !tbaa !127
   %20 = call noundef i16 @llvm.bswap.i16(i16 %19)
@@ -43341,7 +43340,7 @@ define internal fastcc void @"_ZN16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_it
 _ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjEN2OT6Layout6Common8Coverage6iter_tEE9hb_pair_tIjjEEcvbEv.exit: ; preds = %4, %69
   %11 = phi i32 [ %70, %69 ], [ %10, %4 ]
   %12 = load i32, ptr %8, align 8, !tbaa !56
-  %13 = load ptr, ptr %7, align 8, !tbaa !260
+  %13 = load ptr, ptr %7, align 8, !tbaa !259
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %15 = load i16, ptr %14, align 1, !tbaa !127
   %16 = tail call noundef i16 @llvm.bswap.i16(i16 %15)
@@ -43648,7 +43647,7 @@ _ZN22hb_serialize_context_t10extend_minIN2OT6Layout6Common8CoverageEEEPT_S6_.exi
 "_ZNK9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjEN2OT6Layout6Common8Coverage6iter_tEER8hb_set_tRK3$_6LPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i.i.i.i.i.i.i": ; preds = %_ZN22hb_serialize_context_t10extend_minIN2OT6Layout6Common8CoverageEEEPT_S6_.exit.i.i, %56
   %.05.i.i.i.i.i.i.i.i = phi i32 [ %58, %56 ], [ 0, %_ZN22hb_serialize_context_t10extend_minIN2OT6Layout6Common8CoverageEEEPT_S6_.exit.i.i ]
   %49 = load i32, ptr %46, align 8, !tbaa !56
-  %50 = load ptr, ptr %45, align 8, !tbaa !260
+  %50 = load ptr, ptr %45, align 8, !tbaa !259
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 2
   %52 = load i16, ptr %51, align 1, !tbaa !127
   %53 = call noundef i16 @llvm.bswap.i16(i16 %52)
@@ -43811,7 +43810,7 @@ _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.e
 "_ZNK9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjEN2OT6Layout6Common8Coverage6iter_tEER8hb_set_tRK3$_6LPv0EE9hb_pair_tIjjEEcvbEv.exit.i.i.i.i.i.i.i.i.i.i.i": ; preds = %103, %115
   %.05.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %117, %115 ], [ 0, %103 ]
   %108 = load i32, ptr %105, align 8, !tbaa !56
-  %109 = load ptr, ptr %104, align 8, !tbaa !260
+  %109 = load ptr, ptr %104, align 8, !tbaa !259
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 2
   %111 = load i16, ptr %110, align 1, !tbaa !127
   %112 = call noundef i16 @llvm.bswap.i16(i16 %111)
@@ -44621,7 +44620,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(56) ptr @"_ZNR9hb
 
 _ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjEN2OT6Layout6Common8Coverage6iter_tEE9hb_pair_tIjjEEcvbEv.exit.i: ; preds = %6
   %8 = load i32, ptr %3, align 8, !tbaa !56
-  %9 = load ptr, ptr %2, align 8, !tbaa !260
+  %9 = load ptr, ptr %2, align 8, !tbaa !259
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %11 = load i16, ptr %10, align 1, !tbaa !127
   %12 = tail call noundef i16 @llvm.bswap.i16(i16 %11)
@@ -55386,9 +55385,9 @@ attributes #23 = { nounwind allocsize(0,1) }
 !255 = !{!"_ZTS11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE", !11, i64 0, !11, i64 4, !256, i64 8}
 !256 = !{!"p1 _ZTSN20hb_user_data_array_t19hb_user_data_item_tE", !16, i64 0}
 !257 = !{!255, !11, i64 0}
-!258 = !{!255, !11, i64 4}
-!259 = !{!255, !256, i64 8}
-!260 = !{!16, !16, i64 0}
+!258 = !{!255, !256, i64 8}
+!259 = !{!16, !16, i64 0}
+!260 = !{!255, !11, i64 4}
 !261 = !{!262}
 !262 = distinct !{!262, !263, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv: argument 0"}
 !263 = distinct !{!263, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv"}

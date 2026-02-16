@@ -5489,7 +5489,6 @@ _ZN4cvc58internal7Minisat6Solver14setDecisionVarEib.exit: ; preds = %_ZNK4cvc58i
   br i1 %.not.i107, label %263, label %.preheader.i108
 
 .preheader.i108:                                  ; preds = %258
-  store i32 0, ptr %255, align 8, !tbaa !371
   call void @free(ptr noundef nonnull %259) #28
   store ptr null, ptr %254, align 8, !tbaa !374
   %260 = getelementptr inbounds nuw i8, ptr %254, i64 12
@@ -5517,7 +5516,6 @@ _ZN4cvc58internal7Minisat6Solver14setDecisionVarEib.exit: ; preds = %_ZNK4cvc58i
   br i1 %.not.i111, label %_ZN4cvc58internal7Minisat3vecINS1_6Solver7WatcherEE5clearEb.exit113, label %.preheader.i112
 
 .preheader.i112:                                  ; preds = %270
-  store i32 0, ptr %267, align 8, !tbaa !371
   call void @free(ptr noundef nonnull %271) #28
   store ptr null, ptr %266, align 8, !tbaa !374
   %272 = getelementptr i8, ptr %265, i64 28

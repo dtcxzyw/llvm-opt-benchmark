@@ -2231,11 +2231,11 @@ define dso_local void @_ZN27btSimulationIslandManagerMt21addManifoldsToIslandsEP
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
   br label %11
 
-._crit_edge:                                      ; preds = %110, %2
+._crit_edge:                                      ; preds = %_ZN27btSimulationIslandManagerMt9getIslandEi.exit.thread38, %2
   ret void
 
-11:                                               ; preds = %.lr.ph, %110
-  %.047 = phi i32 [ 0, %.lr.ph ], [ %111, %110 ]
+11:                                               ; preds = %.lr.ph, %_ZN27btSimulationIslandManagerMt9getIslandEi.exit.thread38
+  %.047 = phi i32 [ 0, %.lr.ph ], [ %110, %_ZN27btSimulationIslandManagerMt9getIslandEi.exit.thread38 ]
   %12 = load ptr, ptr %1, align 8, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %14 = load ptr, ptr %13, align 8
@@ -2255,13 +2255,13 @@ define dso_local void @_ZN27btSimulationIslandManagerMt21addManifoldsToIslandsEP
 
 23:                                               ; preds = %20, %11
   %.not28 = icmp eq ptr %19, null
-  br i1 %.not28, label %110, label %24
+  br i1 %.not28, label %_ZN27btSimulationIslandManagerMt9getIslandEi.exit.thread38, label %24
 
 24:                                               ; preds = %23
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 240
   %26 = load i32, ptr %25, align 8, !tbaa !107
   %.not29 = icmp eq i32 %26, 2
-  br i1 %.not29, label %110, label %27
+  br i1 %.not29, label %_ZN27btSimulationIslandManagerMt9getIslandEi.exit.thread38, label %27
 
 27:                                               ; preds = %24, %20
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 224
@@ -2308,7 +2308,7 @@ define dso_local void @_ZN27btSimulationIslandManagerMt21addManifoldsToIslandsEP
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 56
   %50 = load ptr, ptr %49, align 8
   %51 = tail call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %17, ptr noundef nonnull %19)
-  br i1 %51, label %52, label %110
+  br i1 %51, label %52, label %_ZN27btSimulationIslandManagerMt9getIslandEi.exit.thread38
 
 52:                                               ; preds = %47
   %53 = load ptr, ptr %16, align 8, !tbaa !117
@@ -2355,10 +2355,6 @@ _Z11getIslandIdPK20btPersistentManifold.exit:     ; preds = %52, %57
   %75 = load i32, ptr %74, align 8, !tbaa !85
   %76 = icmp eq i32 %75, %61
   br i1 %76, label %_ZN27btSimulationIslandManagerMt9getIslandEi.exit, label %70
-
-_ZN27btSimulationIslandManagerMt9getIslandEi.exit.thread38: ; preds = %70, %.preheader.i
-  store ptr null, ptr %64, align 8, !tbaa !45
-  br label %110
 
 _ZN27btSimulationIslandManagerMt9getIslandEi.exit: ; preds = %71
   store ptr %73, ptr %64, align 8, !tbaa !45
@@ -2449,11 +2445,11 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit: ; preds
   store ptr %15, ptr %108, align 8, !tbaa !73
   %109 = add nsw i32 %104, 1
   store i32 %109, ptr %77, align 4, !tbaa !46
-  br label %110
+  br label %_ZN27btSimulationIslandManagerMt9getIslandEi.exit.thread38
 
-110:                                              ; preds = %_ZN27btSimulationIslandManagerMt9getIslandEi.exit.thread38, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit, %47, %24, %23
-  %111 = add nuw nsw i32 %.047, 1
-  %exitcond.not = icmp eq i32 %111, %6
+_ZN27btSimulationIslandManagerMt9getIslandEi.exit.thread38: ; preds = %70, %.preheader.i, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit, %47, %24, %23
+  %110 = add nuw nsw i32 %.047, 1
+  %exitcond.not = icmp eq i32 %110, %6
   br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !122
 }
 
@@ -2473,19 +2469,19 @@ define dso_local void @_ZN27btSimulationIslandManagerMt23addConstraintsToIslands
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
   br label %10
 
-._crit_edge:                                      ; preds = %78, %2
+._crit_edge:                                      ; preds = %_ZN27btSimulationIslandManagerMt9getIslandEi.exit.thread13, %2
   ret void
 
-10:                                               ; preds = %.lr.ph, %78
-  %11 = phi i32 [ %4, %.lr.ph ], [ %79, %78 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
+10:                                               ; preds = %.lr.ph, %_ZN27btSimulationIslandManagerMt9getIslandEi.exit.thread13
+  %11 = phi i32 [ %4, %.lr.ph ], [ %78, %_ZN27btSimulationIslandManagerMt9getIslandEi.exit.thread13 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN27btSimulationIslandManagerMt9getIslandEi.exit.thread13 ]
   %12 = load ptr, ptr %6, align 8, !tbaa !60
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !77
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %16 = load i8, ptr %15, align 4, !tbaa !123, !range !57, !noundef !71
   %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %18, label %78
+  br i1 %17, label %18, label %_ZN27btSimulationIslandManagerMt9getIslandEi.exit.thread13
 
 18:                                               ; preds = %10
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -2534,10 +2530,6 @@ _Z24btGetConstraintIslandId1PK17btTypedConstraint.exit: ; preds = %18, %24
   %43 = load i32, ptr %42, align 8, !tbaa !85
   %44 = icmp eq i32 %43, %29
   br i1 %44, label %_ZN27btSimulationIslandManagerMt9getIslandEi.exit, label %38
-
-_ZN27btSimulationIslandManagerMt9getIslandEi.exit.thread13: ; preds = %38, %.preheader.i
-  store ptr null, ptr %32, align 8, !tbaa !45
-  br label %78
 
 _ZN27btSimulationIslandManagerMt9getIslandEi.exit: ; preds = %39
   store ptr %41, ptr %32, align 8, !tbaa !45
@@ -2629,14 +2621,14 @@ _ZN20btAlignedObjectArrayIP17btTypedConstraintE9push_backERKS1_.exit: ; preds = 
   %77 = add nsw i32 %72, 1
   store i32 %77, ptr %45, align 4, !tbaa !48
   %.pre = load i32, ptr %3, align 4, !tbaa !48
-  br label %78
+  br label %_ZN27btSimulationIslandManagerMt9getIslandEi.exit.thread13
 
-78:                                               ; preds = %_ZN27btSimulationIslandManagerMt9getIslandEi.exit.thread13, %_ZN20btAlignedObjectArrayIP17btTypedConstraintE9push_backERKS1_.exit, %10
-  %79 = phi i32 [ %11, %_ZN27btSimulationIslandManagerMt9getIslandEi.exit.thread13 ], [ %.pre, %_ZN20btAlignedObjectArrayIP17btTypedConstraintE9push_backERKS1_.exit ], [ %11, %10 ]
+_ZN27btSimulationIslandManagerMt9getIslandEi.exit.thread13: ; preds = %38, %.preheader.i, %_ZN20btAlignedObjectArrayIP17btTypedConstraintE9push_backERKS1_.exit, %10
+  %78 = phi i32 [ %11, %10 ], [ %.pre, %_ZN20btAlignedObjectArrayIP17btTypedConstraintE9push_backERKS1_.exit ], [ %11, %.preheader.i ], [ %11, %38 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %80 = sext i32 %79 to i64
-  %81 = icmp slt i64 %indvars.iv.next, %80
-  br i1 %81, label %10, label %._crit_edge, !llvm.loop !129
+  %79 = sext i32 %78 to i64
+  %80 = icmp slt i64 %indvars.iv.next, %79
+  br i1 %80, label %10, label %._crit_edge, !llvm.loop !129
 }
 
 ; Function Attrs: mustprogress uwtable

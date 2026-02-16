@@ -1105,7 +1105,7 @@ define internal fastcc void @"_ZZN3sat10aig_finder8find_ifsER10ptr_vectorINS_6cl
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !81
   %4 = icmp eq i32 %3, 3
-  br i1 %4, label %_ZZN3sat10aig_finder8find_ifsER10ptr_vectorINS_6clauseEEEN7ternaryC2ENS_7literalES6_S6_PS2_.exit, label %155
+  br i1 %4, label %_ZZN3sat10aig_finder8find_ifsER10ptr_vectorINS_6clauseEEEN7ternaryC2ENS_7literalES6_S6_PS2_.exit, label %151
 
 _ZZN3sat10aig_finder8find_ifsER10ptr_vectorINS_6clauseEEEN7ternaryC2ENS_7literalES6_S6_PS2_.exit: ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -1316,12 +1316,12 @@ _ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vect
 
 .lr.ph.i:                                         ; preds = %59, %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit.thread.i
   %.04490.i = phi ptr [ %.1.i, %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit.thread.i ], [ null, %59 ]
-  %.04589.i = phi ptr [ %128, %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit.thread.i ], [ %101, %59 ]
+  %.04589.i = phi ptr [ %126, %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit.thread.i ], [ %101, %59 ]
   %103 = getelementptr i8, ptr %.04589.i, i64 4
   %.045.val.i = load i32, ptr %103, align 4, !tbaa !62
   switch i32 %.045.val.i, label %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit.thread.i [
     i32 2, label %104
-    i32 0, label %121
+    i32 0, label %119
   ]
 
 104:                                              ; preds = %.lr.ph.i
@@ -1349,121 +1349,113 @@ _ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vec
 
 117:                                              ; preds = %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit.i
   %118 = getelementptr i8, ptr %.04589.i, i64 4
-  %119 = getelementptr inbounds nuw i8, ptr %.04589.i, i64 8
-  %120 = getelementptr inbounds nuw i8, ptr %.04589.i, i64 12
-  store i32 %.sroa.0.1, ptr %119, align 8, !tbaa !33
-  store i32 %.sroa.10.2, ptr %120, align 4, !tbaa !33
   %.sroa.1823.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %.04589.i, i64 24
   store ptr %0, ptr %.sroa.1823.0..sroa_idx28, align 8, !tbaa !34
   store i32 2, ptr %118, align 4, !tbaa !62
   br label %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6insertEOS7_.exit
 
-121:                                              ; preds = %.lr.ph.i
+119:                                              ; preds = %.lr.ph.i
   %.not49.i = icmp eq ptr %.04490.i, null
-  br i1 %.not49.i, label %123, label %122
+  br i1 %.not49.i, label %121, label %120
 
-122:                                              ; preds = %121
+120:                                              ; preds = %119
   store i32 %60, ptr %11, align 8, !tbaa !70
-  br label %123
+  br label %121
 
-123:                                              ; preds = %122, %121
-  %.043.i = phi ptr [ %.04490.i, %122 ], [ %.04589.i, %121 ]
-  %124 = getelementptr inbounds nuw i8, ptr %.043.i, i64 8
-  store i32 %.sroa.0.1, ptr %124, align 8, !tbaa !33
+121:                                              ; preds = %120, %119
+  %.043.i = phi ptr [ %.04490.i, %120 ], [ %.04589.i, %119 ]
+  %122 = getelementptr inbounds nuw i8, ptr %.043.i, i64 8
+  store i32 %.sroa.0.1, ptr %122, align 8, !tbaa !33
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.043.i, i64 12
   store i32 %.sroa.10.2, ptr %.sroa.10.0..sroa_idx, align 4, !tbaa !33
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.043.i, i64 16
   store i32 %.sroa.15.0, ptr %.sroa.15.0..sroa_idx, align 8, !tbaa !33
   %.sroa.1823.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.043.i, i64 24
   store ptr %0, ptr %.sroa.1823.0..sroa_idx, align 8, !tbaa !34
-  %125 = getelementptr inbounds nuw i8, ptr %.043.i, i64 4
-  store i32 2, ptr %125, align 4, !tbaa !62
+  %123 = getelementptr inbounds nuw i8, ptr %.043.i, i64 4
+  store i32 2, ptr %123, align 4, !tbaa !62
   store i32 %98, ptr %.043.i, align 8, !tbaa !59
-  %126 = load i32, ptr %9, align 4, !tbaa !69
-  %127 = add i32 %126, 1
-  store i32 %127, ptr %9, align 4, !tbaa !69
+  %124 = load i32, ptr %9, align 4, !tbaa !69
+  %125 = add i32 %124, 1
+  store i32 %125, ptr %9, align 4, !tbaa !69
   br label %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6insertEOS7_.exit
 
 _ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit.thread.i: ; preds = %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit.i, %110, %106, %104, %.lr.ph.i
   %.1.i = phi ptr [ %.04490.i, %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit.i ], [ %.04490.i, %104 ], [ %.04589.i, %.lr.ph.i ], [ %.04490.i, %110 ], [ %.04490.i, %106 ]
-  %128 = getelementptr inbounds nuw i8, ptr %.04589.i, i64 32
-  %.not.i = icmp eq ptr %128, %102
+  %126 = getelementptr inbounds nuw i8, ptr %.04589.i, i64 32
+  %.not.i = icmp eq ptr %126, %102
   br i1 %.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !103
 
 .lr.ph95.i:                                       ; preds = %.preheader.i, %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit54.thread.i
   %.294.i = phi ptr [ %.3.i, %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit54.thread.i ], [ %.044.lcssa.i, %.preheader.i ]
-  %.14693.i = phi ptr [ %154, %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit54.thread.i ], [ %61, %.preheader.i ]
-  %129 = getelementptr i8, ptr %.14693.i, i64 4
-  %.146.val.i = load i32, ptr %129, align 4, !tbaa !62
+  %.14693.i = phi ptr [ %150, %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit54.thread.i ], [ %61, %.preheader.i ]
+  %127 = getelementptr i8, ptr %.14693.i, i64 4
+  %.146.val.i = load i32, ptr %127, align 4, !tbaa !62
   switch i32 %.146.val.i, label %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit54.thread.i [
-    i32 2, label %130
-    i32 0, label %147
+    i32 2, label %128
+    i32 0, label %143
   ]
 
-130:                                              ; preds = %.lr.ph95.i
+128:                                              ; preds = %.lr.ph95.i
   %.146.val51.i = load i32, ptr %.14693.i, align 8, !tbaa !59
-  %131 = icmp eq i32 %.146.val51.i, %98
-  br i1 %131, label %132, label %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit54.thread.i
+  %129 = icmp eq i32 %.146.val51.i, %98
+  br i1 %129, label %130, label %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit54.thread.i
 
-132:                                              ; preds = %130
-  %133 = getelementptr inbounds nuw i8, ptr %.14693.i, i64 8
-  %134 = load i32, ptr %133, align 4, !tbaa !102
-  %135 = icmp eq i32 %134, %.sroa.0.1
-  br i1 %135, label %136, label %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit54.thread.i
+130:                                              ; preds = %128
+  %131 = getelementptr inbounds nuw i8, ptr %.14693.i, i64 8
+  %132 = load i32, ptr %131, align 4, !tbaa !102
+  %133 = icmp eq i32 %132, %.sroa.0.1
+  br i1 %133, label %134, label %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit54.thread.i
 
-136:                                              ; preds = %132
-  %137 = getelementptr inbounds nuw i8, ptr %.14693.i, i64 12
-  %138 = load i32, ptr %137, align 4, !tbaa !102
-  %139 = icmp eq i32 %138, %.sroa.10.2
-  br i1 %139, label %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit54.i, label %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit54.thread.i
+134:                                              ; preds = %130
+  %135 = getelementptr inbounds nuw i8, ptr %.14693.i, i64 12
+  %136 = load i32, ptr %135, align 4, !tbaa !102
+  %137 = icmp eq i32 %136, %.sroa.10.2
+  br i1 %137, label %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit54.i, label %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit54.thread.i
 
-_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit54.i: ; preds = %136
-  %140 = getelementptr inbounds nuw i8, ptr %.14693.i, i64 16
-  %141 = load i32, ptr %140, align 4, !tbaa !102
-  %142 = icmp eq i32 %141, %.sroa.15.0
-  br i1 %142, label %143, label %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit54.thread.i
+_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit54.i: ; preds = %134
+  %138 = getelementptr inbounds nuw i8, ptr %.14693.i, i64 16
+  %139 = load i32, ptr %138, align 4, !tbaa !102
+  %140 = icmp eq i32 %139, %.sroa.15.0
+  br i1 %140, label %141, label %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit54.thread.i
 
-143:                                              ; preds = %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit54.i
-  %144 = getelementptr i8, ptr %.14693.i, i64 4
-  %145 = getelementptr inbounds nuw i8, ptr %.14693.i, i64 8
-  %146 = getelementptr inbounds nuw i8, ptr %.14693.i, i64 12
-  store i32 %.sroa.0.1, ptr %145, align 8, !tbaa !33
-  store i32 %.sroa.10.2, ptr %146, align 4, !tbaa !33
+141:                                              ; preds = %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit54.i
+  %142 = getelementptr i8, ptr %.14693.i, i64 4
   %.sroa.1823.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %.14693.i, i64 24
   store ptr %0, ptr %.sroa.1823.0..sroa_idx26, align 8, !tbaa !34
-  store i32 2, ptr %144, align 4, !tbaa !62
+  store i32 2, ptr %142, align 4, !tbaa !62
   br label %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6insertEOS7_.exit
 
-147:                                              ; preds = %.lr.ph95.i
+143:                                              ; preds = %.lr.ph95.i
   %.not48.i = icmp eq ptr %.294.i, null
-  br i1 %.not48.i, label %149, label %148
+  br i1 %.not48.i, label %145, label %144
 
-148:                                              ; preds = %147
+144:                                              ; preds = %143
   store i32 %60, ptr %11, align 8, !tbaa !70
-  br label %149
+  br label %145
 
-149:                                              ; preds = %148, %147
-  %.0.i = phi ptr [ %.294.i, %148 ], [ %.14693.i, %147 ]
-  %150 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  store i32 %.sroa.0.1, ptr %150, align 8, !tbaa !33
+145:                                              ; preds = %144, %143
+  %.0.i = phi ptr [ %.294.i, %144 ], [ %.14693.i, %143 ]
+  %146 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  store i32 %.sroa.0.1, ptr %146, align 8, !tbaa !33
   %.sroa.10.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   store i32 %.sroa.10.2, ptr %.sroa.10.0..sroa_idx5, align 4, !tbaa !33
   %.sroa.15.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   store i32 %.sroa.15.0, ptr %.sroa.15.0..sroa_idx11, align 8, !tbaa !33
   %.sroa.1823.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   store ptr %0, ptr %.sroa.1823.0..sroa_idx24, align 8, !tbaa !34
-  %151 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
-  store i32 2, ptr %151, align 4, !tbaa !62
+  %147 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
+  store i32 2, ptr %147, align 4, !tbaa !62
   store i32 %98, ptr %.0.i, align 8, !tbaa !59
-  %152 = load i32, ptr %9, align 4, !tbaa !69
-  %153 = add i32 %152, 1
-  store i32 %153, ptr %9, align 4, !tbaa !69
+  %148 = load i32, ptr %9, align 4, !tbaa !69
+  %149 = add i32 %148, 1
+  store i32 %149, ptr %9, align 4, !tbaa !69
   br label %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6insertEOS7_.exit
 
-_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit54.thread.i: ; preds = %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit54.i, %136, %132, %130, %.lr.ph95.i
-  %.3.i = phi ptr [ %.294.i, %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit54.i ], [ %.294.i, %130 ], [ %.14693.i, %.lr.ph95.i ], [ %.294.i, %136 ], [ %.294.i, %132 ]
-  %154 = getelementptr inbounds nuw i8, ptr %.14693.i, i64 32
-  %.not47.i = icmp eq ptr %154, %101
+_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit54.thread.i: ; preds = %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit54.i, %134, %130, %128, %.lr.ph95.i
+  %.3.i = phi ptr [ %.294.i, %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit54.i ], [ %.294.i, %128 ], [ %.14693.i, %.lr.ph95.i ], [ %.294.i, %134 ], [ %.294.i, %130 ]
+  %150 = getelementptr inbounds nuw i8, ptr %.14693.i, i64 32
+  %.not47.i = icmp eq ptr %150, %101
   br i1 %.not47.i, label %._crit_edge.i, label %.lr.ph95.i, !llvm.loop !104
 
 ._crit_edge.i:                                    ; preds = %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit54.thread.i, %.preheader.i
@@ -1471,7 +1463,7 @@ _ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vec
   tail call void @_Z18invoke_exit_actionj(i32 noundef 114)
   br label %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6insertEOS7_.exit
 
-_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6insertEOS7_.exit: ; preds = %117, %123, %143, %149, %._crit_edge.i
+_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6insertEOS7_.exit: ; preds = %117, %121, %141, %145, %._crit_edge.i
   %.sroa.08.0.copyload = load i32, ptr %5, align 4, !tbaa !33
   %.sroa.07.0.copyload = load i32, ptr %6, align 4, !tbaa !33
   %.sroa.06.0.copyload = load i32, ptr %7, align 4, !tbaa !33
@@ -1484,9 +1476,9 @@ _ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vect
   %.sroa.01.0.copyload = load i32, ptr %6, align 4, !tbaa !33
   %.sroa.0.0.copyload = load i32, ptr %5, align 4, !tbaa !33
   tail call fastcc void @"_ZZN3sat10aig_finder8find_ifsER10ptr_vectorINS_6clauseEEENK3$_1clENS_7literalES6_S6_PS2_"(ptr noundef nonnull align 8 dereferenceable(16) %.8.val, i32 %.sroa.02.0.copyload, i32 %.sroa.01.0.copyload, i32 %.sroa.0.0.copyload, ptr noundef %0)
-  br label %155
+  br label %151
 
-155:                                              ; preds = %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6insertEOS7_.exit, %1
+151:                                              ; preds = %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6insertEOS7_.exit, %1
   ret void
 }
 

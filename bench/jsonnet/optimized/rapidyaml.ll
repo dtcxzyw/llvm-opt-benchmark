@@ -43604,156 +43604,128 @@ _ZN2c43yml4Tree11set_key_refEmNS_15basic_substringIKcEE.exit: ; preds = %67, %_Z
   br i1 %.not56, label %_ZNK2c415basic_substringIKcE11begins_withEc.exit.i.i26, label %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread
 
 _ZNK2c415basic_substringIKcE11begins_withEc.exit.i.i26: ; preds = %._crit_edge.i
-  %82 = and i64 %45, 2
-  %.not.i24 = icmp eq i64 %82, 0
-  %83 = load i8, ptr %.sroa.046.0.copyload, align 1, !tbaa !44
-  %84 = icmp eq i8 %83, 42
-  %.sroa.01.0.i.i28.idx = zext i1 %84 to i64
+  %82 = load i8, ptr %.sroa.046.0.copyload, align 1, !tbaa !44
+  %83 = icmp eq i8 %82, 42
+  %.sroa.01.0.i.i28.idx = zext i1 %83 to i64
   %.sroa.01.0.i.i28 = getelementptr inbounds nuw i8, ptr %.sroa.046.0.copyload, i64 %.sroa.01.0.i.i28.idx
-  %.sroa.6.0.i.i29 = select i1 %84, i64 1, i64 2
-  %85 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  store ptr %.sroa.01.0.i.i28, ptr %85, align 8, !tbaa !67
+  %.sroa.6.0.i.i29 = select i1 %83, i64 1, i64 2
+  %84 = getelementptr inbounds nuw i8, ptr %44, i64 40
+  store ptr %.sroa.01.0.i.i28, ptr %84, align 8, !tbaa !67
   %.sroa.6.0..sroa_idx3.i.i30 = getelementptr inbounds nuw i8, ptr %44, i64 48
   store i64 %.sroa.6.0.i.i29, ptr %.sroa.6.0..sroa_idx3.i.i30, align 8, !tbaa !68
-  br i1 %.not.i24, label %_ZNK2c415basic_substringIKcE9ends_withES2_.exit.i.i34, label %.lr.ph.i.i.i31
+  %85 = or i64 %45, 66
+  store i64 %85, ptr %44, align 8, !tbaa !153
+  %86 = and i64 %45, 8
+  %.not57 = icmp eq i64 %86, 0
+  br i1 %.not57, label %123, label %87
 
-.lr.ph.i.i.i31:                                   ; preds = %_ZNK2c415basic_substringIKcE11begins_withEc.exit.i.i26
-  %86 = sub nuw nsw i64 2, %.sroa.6.0.i.i29
-  %87 = getelementptr i8, ptr %.sroa.046.0.copyload, i64 %86
-  br label %90
-
-88:                                               ; preds = %90
-  %89 = add nuw nsw i64 %.0811.i.i.i32, 1
-  %exitcond.not.i.i.i36 = icmp eq i64 %89, %.sroa.6.0.i.i29
-  br i1 %exitcond.not.i.i.i36, label %_ZN2c43yml4Tree11set_key_refEmNS_15basic_substringIKcEE.exit37, label %90, !llvm.loop !371
-
-90:                                               ; preds = %88, %.lr.ph.i.i.i31
-  %.0811.i.i.i32 = phi i64 [ 0, %.lr.ph.i.i.i31 ], [ %89, %88 ]
-  %91 = getelementptr i8, ptr %87, i64 %.0811.i.i.i32
-  %92 = load i8, ptr %91, align 1, !tbaa !44
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i.i28, i64 %.0811.i.i.i32
-  %94 = load i8, ptr %93, align 1, !tbaa !44
-  %.not.i5.i.i33 = icmp eq i8 %92, %94
-  br i1 %.not.i5.i.i33, label %88, label %_ZNK2c415basic_substringIKcE9ends_withES2_.exit.i.i34
-
-_ZNK2c415basic_substringIKcE9ends_withES2_.exit.i.i34: ; preds = %90, %_ZNK2c415basic_substringIKcE11begins_withEc.exit.i.i26
-  store i64 2, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !68
-  br label %_ZN2c43yml4Tree11set_key_refEmNS_15basic_substringIKcEE.exit37
-
-_ZN2c43yml4Tree11set_key_refEmNS_15basic_substringIKcEE.exit37: ; preds = %88, %_ZNK2c415basic_substringIKcE9ends_withES2_.exit.i.i34
-  %95 = or i64 %45, 66
-  store i64 %95, ptr %44, align 8, !tbaa !153
-  %96 = and i64 %45, 8
-  %.not57 = icmp eq i64 %96, 0
-  br i1 %.not57, label %133, label %97
-
-97:                                               ; preds = %_ZN2c43yml4Tree11set_key_refEmNS_15basic_substringIKcEE.exit37
-  %98 = getelementptr inbounds nuw i8, ptr %44, i64 112
-  %.060 = load i64, ptr %98, align 8, !tbaa !68
+87:                                               ; preds = %_ZNK2c415basic_substringIKcE11begins_withEc.exit.i.i26
+  %88 = getelementptr inbounds nuw i8, ptr %44, i64 112
+  %.060 = load i64, ptr %88, align 8, !tbaa !68
   %.not61 = icmp eq i64 %.060, -1
   br i1 %.not61, label %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %97, %129
-  %99 = phi ptr [ %130, %129 ], [ %43, %97 ]
-  %.062 = phi i64 [ %.0, %129 ], [ %.060, %97 ]
-  %100 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %99, i64 %.062
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 80
-  %102 = load i64, ptr %101, align 8, !tbaa !56
-  %.not.i38 = icmp eq i64 %102, 0
+.lr.ph:                                           ; preds = %87, %119
+  %89 = phi ptr [ %120, %119 ], [ %43, %87 ]
+  %.062 = phi i64 [ %.0, %119 ], [ %.060, %87 ]
+  %90 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %89, i64 %.062
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 80
+  %92 = load i64, ptr %91, align 8, !tbaa !56
+  %.not.i38 = icmp eq i64 %92, 0
   br i1 %.not.i38, label %_ZNK2c415basic_substringIKcE11begins_withEc.exit39.thread, label %_ZNK2c415basic_substringIKcE11begins_withEc.exit39
 
 _ZNK2c415basic_substringIKcE11begins_withEc.exit39: ; preds = %.lr.ph
-  %103 = getelementptr inbounds nuw i8, ptr %100, i64 72
-  %104 = load ptr, ptr %103, align 8, !tbaa !166
-  %105 = load i8, ptr %104, align 1, !tbaa !44
-  %106 = icmp eq i8 %105, 42
-  br i1 %106, label %129, label %_ZNK2c415basic_substringIKcE11begins_withEc.exit39.thread
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 72
+  %94 = load ptr, ptr %93, align 8, !tbaa !166
+  %95 = load i8, ptr %94, align 1, !tbaa !44
+  %96 = icmp eq i8 %95, 42
+  br i1 %96, label %119, label %_ZNK2c415basic_substringIKcE11begins_withEc.exit39.thread
 
 _ZNK2c415basic_substringIKcE11begins_withEc.exit39.thread: ; preds = %.lr.ph, %_ZNK2c415basic_substringIKcE11begins_withEc.exit39
   %.b.i = load i1, ptr @_ZZN2c420is_debugger_attachedEvE10first_call, align 1
-  br i1 %.b.i, label %_ZN2c420is_debugger_attachedEv.exit, label %107
+  br i1 %.b.i, label %_ZN2c420is_debugger_attachedEv.exit, label %97
 
-107:                                              ; preds = %_ZNK2c415basic_substringIKcE11begins_withEc.exit39.thread
+97:                                               ; preds = %_ZNK2c415basic_substringIKcE11begins_withEc.exit39.thread
   store i1 true, ptr @_ZZN2c420is_debugger_attachedEvE10first_call, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %3, i8 0, i64 1024, i1 false)
-  %108 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.13, i32 noundef 0)
-  %109 = icmp eq i32 %108, -1
-  br i1 %109, label %_ZN2c420is_debugger_attachedEv.exit.sink.split, label %110
+  %98 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.13, i32 noundef 0)
+  %99 = icmp eq i32 %98, -1
+  br i1 %99, label %_ZN2c420is_debugger_attachedEv.exit.sink.split, label %100
 
-110:                                              ; preds = %107
-  %111 = call i64 @read(i32 noundef %108, ptr noundef nonnull %3, i64 noundef 1024)
-  %112 = icmp sgt i64 %111, 0
-  br i1 %112, label %113, label %_ZN2c420is_debugger_attachedEv.exit.sink.split
+100:                                              ; preds = %97
+  %101 = call i64 @read(i32 noundef %98, ptr noundef nonnull %3, i64 noundef 1024)
+  %102 = icmp sgt i64 %101, 0
+  br i1 %102, label %103, label %_ZN2c420is_debugger_attachedEv.exit.sink.split
 
-113:                                              ; preds = %110
-  %114 = icmp samesign ult i64 %111, 1024
-  br i1 %114, label %115, label %117
+103:                                              ; preds = %100
+  %104 = icmp samesign ult i64 %101, 1024
+  br i1 %104, label %105, label %107
 
-115:                                              ; preds = %113
-  %116 = getelementptr inbounds nuw i8, ptr %3, i64 %111
-  store i8 0, ptr %116, align 1, !tbaa !44
-  br label %117
+105:                                              ; preds = %103
+  %106 = getelementptr inbounds nuw i8, ptr %3, i64 %101
+  store i8 0, ptr %106, align 1, !tbaa !44
+  br label %107
 
-117:                                              ; preds = %115, %113
-  %118 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @_ZZN2c420is_debugger_attachedEvE9TracerPid) #44
-  %.not.i41 = icmp eq ptr %118, null
-  br i1 %.not.i41, label %_ZN2c420is_debugger_attachedEv.exit.sink.split, label %119
+107:                                              ; preds = %105, %103
+  %108 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @_ZZN2c420is_debugger_attachedEvE9TracerPid) #44
+  %.not.i41 = icmp eq ptr %108, null
+  br i1 %.not.i41, label %_ZN2c420is_debugger_attachedEv.exit.sink.split, label %109
 
-119:                                              ; preds = %117
-  %120 = getelementptr inbounds nuw i8, ptr %118, i64 10
-  %121 = call i64 @strtol(ptr noundef nonnull captures(none) %120, ptr noundef null, i32 noundef 10) #41
-  %122 = and i64 %121, 4294967295
-  %123 = icmp ne i64 %122, 0
-  %124 = zext i1 %123 to i8
-  store i8 %124, ptr @_ZZN2c420is_debugger_attachedEvE17first_call_result, align 1, !tbaa !54
+109:                                              ; preds = %107
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 10
+  %111 = call i64 @strtol(ptr noundef nonnull captures(none) %110, ptr noundef null, i32 noundef 10) #41
+  %112 = and i64 %111, 4294967295
+  %113 = icmp ne i64 %112, 0
+  %114 = zext i1 %113 to i8
+  store i8 %114, ptr @_ZZN2c420is_debugger_attachedEvE17first_call_result, align 1, !tbaa !54
   br label %_ZN2c420is_debugger_attachedEv.exit.sink.split
 
-_ZN2c420is_debugger_attachedEv.exit.sink.split:   ; preds = %107, %110, %117, %119
+_ZN2c420is_debugger_attachedEv.exit.sink.split:   ; preds = %97, %100, %107, %109
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN2c420is_debugger_attachedEv.exit
 
 _ZN2c420is_debugger_attachedEv.exit:              ; preds = %_ZN2c420is_debugger_attachedEv.exit.sink.split, %_ZNK2c415basic_substringIKcE11begins_withEc.exit39.thread
-  %125 = load ptr, ptr %6, align 8, !tbaa !253
-  %126 = load ptr, ptr %125, align 8, !tbaa !117
-  %127 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %126, i64 %.062
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 72
-  call void @_ZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr nonnull @.str.332, i64 32, ptr noundef nonnull align 8 dereferenceable(16) %128)
+  %115 = load ptr, ptr %6, align 8, !tbaa !253
+  %116 = load ptr, ptr %115, align 8, !tbaa !117
+  %117 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %116, i64 %.062
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 72
+  call void @_ZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr nonnull @.str.332, i64 32, ptr noundef nonnull align 8 dereferenceable(16) %118)
   %.pre = load ptr, ptr %6, align 8, !tbaa !253
   %.pre65 = load ptr, ptr %.pre, align 8, !tbaa !117
-  br label %129
+  br label %119
 
-129:                                              ; preds = %_ZNK2c415basic_substringIKcE11begins_withEc.exit39, %_ZN2c420is_debugger_attachedEv.exit
-  %130 = phi ptr [ %99, %_ZNK2c415basic_substringIKcE11begins_withEc.exit39 ], [ %.pre65, %_ZN2c420is_debugger_attachedEv.exit ]
-  %131 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %130, i64 %.062
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 128
-  %.0 = load i64, ptr %132, align 8, !tbaa !68
+119:                                              ; preds = %_ZNK2c415basic_substringIKcE11begins_withEc.exit39, %_ZN2c420is_debugger_attachedEv.exit
+  %120 = phi ptr [ %89, %_ZNK2c415basic_substringIKcE11begins_withEc.exit39 ], [ %.pre65, %_ZN2c420is_debugger_attachedEv.exit ]
+  %121 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %120, i64 %.062
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 128
+  %.0 = load i64, ptr %122, align 8, !tbaa !68
   %.not = icmp eq i64 %.0, -1
   br i1 %.not, label %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread, label %.lr.ph, !llvm.loop !375
 
-133:                                              ; preds = %_ZN2c43yml4Tree11set_key_refEmNS_15basic_substringIKcEE.exit37
-  %134 = getelementptr inbounds nuw i8, ptr %44, i64 80
-  %135 = load i64, ptr %134, align 8, !tbaa !56
-  %.not.i42 = icmp eq i64 %135, 0
+123:                                              ; preds = %_ZNK2c415basic_substringIKcE11begins_withEc.exit.i.i26
+  %124 = getelementptr inbounds nuw i8, ptr %44, i64 80
+  %125 = load i64, ptr %124, align 8, !tbaa !56
+  %.not.i42 = icmp eq i64 %125, 0
   br i1 %.not.i42, label %_ZNK2c415basic_substringIKcE11begins_withEc.exit43.thread, label %_ZNK2c415basic_substringIKcE11begins_withEc.exit43
 
-_ZNK2c415basic_substringIKcE11begins_withEc.exit43: ; preds = %133
-  %136 = getelementptr inbounds nuw i8, ptr %44, i64 72
-  %137 = load ptr, ptr %136, align 8, !tbaa !166
-  %138 = load i8, ptr %137, align 1, !tbaa !44
-  %139 = icmp eq i8 %138, 42
-  br i1 %139, label %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread, label %_ZNK2c415basic_substringIKcE11begins_withEc.exit43.thread
+_ZNK2c415basic_substringIKcE11begins_withEc.exit43: ; preds = %123
+  %126 = getelementptr inbounds nuw i8, ptr %44, i64 72
+  %127 = load ptr, ptr %126, align 8, !tbaa !166
+  %128 = load i8, ptr %127, align 1, !tbaa !44
+  %129 = icmp eq i8 %128, 42
+  br i1 %129, label %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread, label %_ZNK2c415basic_substringIKcE11begins_withEc.exit43.thread
 
-_ZNK2c415basic_substringIKcE11begins_withEc.exit43.thread: ; preds = %133, %_ZNK2c415basic_substringIKcE11begins_withEc.exit43
-  %140 = call noundef zeroext i1 @_ZN2c420is_debugger_attachedEv()
-  %141 = load ptr, ptr %6, align 8, !tbaa !253
-  %142 = load ptr, ptr %141, align 8, !tbaa !117
-  %143 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %142, i64 %1
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 72
-  call void @_ZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr nonnull @.str.332, i64 32, ptr noundef nonnull align 8 dereferenceable(16) %144)
+_ZNK2c415basic_substringIKcE11begins_withEc.exit43.thread: ; preds = %123, %_ZNK2c415basic_substringIKcE11begins_withEc.exit43
+  %130 = call noundef zeroext i1 @_ZN2c420is_debugger_attachedEv()
+  %131 = load ptr, ptr %6, align 8, !tbaa !253
+  %132 = load ptr, ptr %131, align 8, !tbaa !117
+  %133 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %132, i64 %1
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 72
+  call void @_ZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr nonnull @.str.332, i64 32, ptr noundef nonnull align 8 dereferenceable(16) %134)
   br label %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread
 
-_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread: ; preds = %.lr.ph.i, %129, %75, %97, %._crit_edge.i, %_ZN2c43yml4Tree11set_key_refEmNS_15basic_substringIKcEE.exit, %_ZNK2c415basic_substringIKcE11begins_withEc.exit43.thread, %_ZNK2c415basic_substringIKcE11begins_withEc.exit43, %42, %_ZN2c43yml4Tree14set_key_anchorEmNS_15basic_substringIKcEE.exit
+_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread: ; preds = %.lr.ph.i, %119, %75, %87, %._crit_edge.i, %_ZN2c43yml4Tree11set_key_refEmNS_15basic_substringIKcEE.exit, %_ZNK2c415basic_substringIKcE11begins_withEc.exit43.thread, %_ZNK2c415basic_substringIKcE11begins_withEc.exit43, %42, %_ZN2c43yml4Tree14set_key_anchorEmNS_15basic_substringIKcEE.exit
   ret void
 }
 

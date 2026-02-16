@@ -6539,9 +6539,7 @@ mpegts_find_stream_type.exit112.thread:           ; preds = %121, %mpegts_find_s
   br i1 %127, label %134, label %.thread
 
 .thread.sink.split:                               ; preds = %119, %103
-  %.sink153 = phi i32 [ %100, %103 ], [ %116, %119 ]
   %.sink = phi i32 [ %102, %103 ], [ %118, %119 ]
-  store i32 %.sink153, ptr %89, align 8, !tbaa !37
   store i32 %.sink, ptr %90, align 4, !tbaa !21
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i32 1, ptr %128, align 8, !tbaa !41
@@ -6578,8 +6576,8 @@ mpegts_find_stream_type.exit112.thread:           ; preds = %121, %mpegts_find_s
   %144 = load i32, ptr %89, align 8, !tbaa !37
   %.not82 = icmp eq i32 %8, %144
   %.not83 = icmp eq i32 %10, %143
-  %or.cond154 = select i1 %.not82, i1 %.not83, i1 false
-  br i1 %or.cond154, label %145, label %148
+  %or.cond153 = select i1 %.not82, i1 %.not83, i1 false
+  br i1 %or.cond153, label %145, label %148
 
 145:                                              ; preds = %142
   %146 = getelementptr inbounds nuw i8, ptr %89, i64 8

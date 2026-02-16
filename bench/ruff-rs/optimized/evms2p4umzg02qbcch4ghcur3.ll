@@ -32450,7 +32450,6 @@ _ZN9hashbrown3raw13RawTableInner13drop_elements17hd2621eaa2d0735cbE.exit.i14: ; 
   store ptr %.sroa.028.0, ptr %0, align 8
   store i64 %.sroa.8.0, ptr %34, align 8
   store i64 %.sroa.11.0, ptr %.sroa.626.0..sroa_idx, align 8
-  store i64 0, ptr %5, align 8
   %72 = mul i64 %35, 40
   %73 = and i64 %72, -16
   %74 = add i64 %35, 65
@@ -32845,7 +32844,6 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hec2d3e3444dfa7daE.exit.i5
   store ptr %.sroa.010.0, ptr %0, align 8
   store i64 %.sroa.8.0, ptr %32, align 8
   store i64 %.sroa.11.0, ptr %.sroa.59.0..sroa_idx, align 8
-  store i64 0, ptr %5, align 8
   %69 = mul i64 %33, 33
   %70 = add nsw i64 %69, 49
   %71 = icmp eq i64 %70, 0
@@ -33232,7 +33230,6 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hec2d3e3444dfa7daE.exit.i5
   store ptr %.sroa.010.0, ptr %0, align 8
   store i64 %.sroa.8.0, ptr %32, align 8
   store i64 %.sroa.11.0, ptr %.sroa.59.0..sroa_idx, align 8
-  store i64 0, ptr %5, align 8
   %69 = mul i64 %33, 17
   %70 = add nsw i64 %69, 33
   %71 = icmp eq i64 %70, 0
@@ -33624,7 +33621,6 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hec2d3e3444dfa7daE.exit.i5
   store ptr %.sroa.010.0, ptr %0, align 8
   store i64 %.sroa.8.0, ptr %34, align 8
   store i64 %.sroa.11.0, ptr %.sroa.59.0..sroa_idx, align 8
-  store i64 0, ptr %5, align 8
   %72 = mul i64 %35, 24
   %73 = and i64 %72, -16
   %74 = add i64 %35, 49
@@ -34019,7 +34015,6 @@ _ZN9hashbrown3raw13RawTableInner13drop_elements17h80197dfaac805f11E.exit.i14: ; 
   store ptr %.sroa.028.0, ptr %0, align 8
   store i64 %.sroa.8.0, ptr %32, align 8
   store i64 %.sroa.11.0, ptr %.sroa.626.0..sroa_idx, align 8
-  store i64 0, ptr %5, align 8
   %69 = mul i64 %33, 33
   %70 = add nsw i64 %69, 49
   %71 = icmp eq i64 %70, 0
@@ -34416,7 +34411,6 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hec2d3e3444dfa7daE.exit.i5
   store ptr %.sroa.010.0, ptr %0, align 8
   store i64 %.sroa.8.0, ptr %34, align 8
   store i64 %.sroa.11.0, ptr %.sroa.59.0..sroa_idx, align 8
-  store i64 0, ptr %5, align 8
   %76 = shl i64 %35, 3
   %77 = and i64 %76, -16
   %78 = add i64 %35, 33
@@ -34822,7 +34816,6 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hec2d3e3444dfa7daE.exit.i5
   store ptr %.sroa.010.0, ptr %0, align 8
   store i64 %.sroa.8.0, ptr %34, align 8
   store i64 %.sroa.11.0, ptr %.sroa.59.0..sroa_idx, align 8
-  store i64 0, ptr %5, align 8
   %72 = mul i64 %35, 24
   %73 = and i64 %72, -16
   %74 = add i64 %35, 49
@@ -35227,7 +35220,6 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hec2d3e3444dfa7daE.exit.i5
   store ptr %.sroa.010.0, ptr %0, align 8
   store i64 %.sroa.8.0, ptr %34, align 8
   store i64 %.sroa.11.0, ptr %.sroa.59.0..sroa_idx, align 8
-  store i64 0, ptr %5, align 8
   %76 = shl i64 %35, 2
   %77 = and i64 %76, -16
   %78 = add i64 %35, 33
@@ -35638,7 +35630,6 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hec2d3e3444dfa7daE.exit.i5
   store ptr %.sroa.010.0, ptr %0, align 8
   store i64 %.sroa.8.0, ptr %34, align 8
   store i64 %.sroa.11.0, ptr %.sroa.59.0..sroa_idx, align 8
-  store i64 0, ptr %5, align 8
   %76 = shl i64 %35, 2
   %77 = and i64 %76, -16
   %78 = add i64 %35, 33
@@ -36043,7 +36034,6 @@ _ZN9hashbrown3raw13RawTableInner13drop_elements17h0f376766251f6263E.exit.i14: ; 
   store ptr %.sroa.028.0, ptr %0, align 8
   store i64 %.sroa.8.0, ptr %31, align 8
   store i64 %.sroa.11.0, ptr %.sroa.626.0..sroa_idx, align 8
-  store i64 0, ptr %5, align 8
   %71 = mul i64 %32, 49
   %72 = add nsw i64 %71, 65
   %73 = icmp eq i64 %72, 0
@@ -36434,7 +36424,6 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hec2d3e3444dfa7daE.exit.i5
   store ptr %.sroa.010.0, ptr %0, align 8
   store i64 %.sroa.8.0, ptr %32, align 8
   store i64 %.sroa.11.0, ptr %.sroa.59.0..sroa_idx, align 8
-  store i64 0, ptr %5, align 8
   %69 = mul i64 %33, 17
   %70 = add nsw i64 %69, 33
   %71 = icmp eq i64 %70, 0
@@ -36826,7 +36815,6 @@ _ZN9hashbrown3raw13RawTableInner13drop_elements17h9d6ee7e670188149E.exit.i14: ; 
   store ptr %.sroa.028.0, ptr %0, align 8
   store i64 %.sroa.8.0, ptr %34, align 8
   store i64 %.sroa.11.0, ptr %.sroa.626.0..sroa_idx, align 8
-  store i64 0, ptr %5, align 8
   %72 = mul i64 %35, 72
   %73 = and i64 %72, -16
   %74 = add i64 %35, 97
@@ -37221,7 +37209,6 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hec2d3e3444dfa7daE.exit.i5
   store ptr %.sroa.010.0, ptr %0, align 8
   store i64 %.sroa.8.0, ptr %32, align 8
   store i64 %.sroa.11.0, ptr %.sroa.59.0..sroa_idx, align 8
-  store i64 0, ptr %5, align 8
   %69 = mul i64 %33, 17
   %70 = add nsw i64 %69, 33
   %71 = icmp eq i64 %70, 0
@@ -37613,7 +37600,6 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hec2d3e3444dfa7daE.exit.i5
   store ptr %.sroa.010.0, ptr %0, align 8
   store i64 %.sroa.8.0, ptr %34, align 8
   store i64 %.sroa.11.0, ptr %.sroa.59.0..sroa_idx, align 8
-  store i64 0, ptr %5, align 8
   %72 = mul i64 %35, 24
   %73 = and i64 %72, -16
   %74 = add i64 %35, 49
@@ -38013,7 +37999,6 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hec2d3e3444dfa7daE.exit.i5
   store ptr %.sroa.010.0, ptr %0, align 8
   store i64 %.sroa.8.0, ptr %34, align 8
   store i64 %.sroa.11.0, ptr %.sroa.59.0..sroa_idx, align 8
-  store i64 0, ptr %5, align 8
   %72 = mul i64 %35, 24
   %73 = and i64 %72, -16
   %74 = add i64 %35, 49
@@ -38408,7 +38393,6 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hec2d3e3444dfa7daE.exit.i5
   store ptr %.sroa.010.0, ptr %0, align 8
   store i64 %.sroa.8.0, ptr %32, align 8
   store i64 %.sroa.11.0, ptr %.sroa.59.0..sroa_idx, align 8
-  store i64 0, ptr %5, align 8
   %69 = mul i64 %33, 17
   %70 = add nsw i64 %69, 33
   %71 = icmp eq i64 %70, 0
@@ -38795,7 +38779,6 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hec2d3e3444dfa7daE.exit.i5
   store ptr %.sroa.010.0, ptr %0, align 8
   store i64 %.sroa.8.0, ptr %32, align 8
   store i64 %.sroa.11.0, ptr %.sroa.59.0..sroa_idx, align 8
-  store i64 0, ptr %5, align 8
   %69 = mul i64 %33, 17
   %70 = add nsw i64 %69, 33
   %71 = icmp eq i64 %70, 0

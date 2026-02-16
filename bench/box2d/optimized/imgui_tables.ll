@@ -2090,14 +2090,10 @@ define dso_local void @_ZN5ImGui23TableBeginApplyRequestsEP10ImGuiTable(ptr noun
 
 36:                                               ; preds = %30
   %.not70 = icmp eq i16 %35, -1
-  br i1 %.not70, label %.thread100, label %37
+  br i1 %.not70, label %.thread, label %37
 
 37:                                               ; preds = %36
   store i16 -1, ptr %34, align 8, !tbaa !293
-  br label %.thread100
-
-.thread100:                                       ; preds = %37, %36
-  store i16 -1, ptr %31, align 2, !tbaa !343
   br label %.thread
 
 38:                                               ; preds = %30
@@ -2183,7 +2179,7 @@ define dso_local void @_ZN5ImGui23TableBeginApplyRequestsEP10ImGuiTable(ptr noun
   %exitcond.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %74, !llvm.loop !346
 
-.thread:                                          ; preds = %.thread100, %1, %38, %39, %._crit_edge, %28
+.thread:                                          ; preds = %36, %37, %1, %38, %39, %._crit_edge, %28
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 577
   %82 = load i8, ptr %81, align 1, !tbaa !262, !range !152, !noundef !153
   %83 = trunc nuw i8 %82 to i1

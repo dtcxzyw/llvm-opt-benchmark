@@ -94684,7 +94684,6 @@ common.resume:                                    ; preds = %304, %175, %.body, 
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   store ptr %354, ptr %298, align 8, !alias.scope !14032, !noalias !14035
   store ptr %355, ptr %300, align 8, !alias.scope !14032, !noalias !14035
-  store i64 17, ptr %0, align 8, !alias.scope !14032, !noalias !14035
   br label %"_ZN11polars_core13chunked_array4cast67_$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$9cast_impl17hf070041c64a7a0ccE.exit"
 
 356:                                              ; preds = %51
@@ -95637,7 +95636,6 @@ common.resume:                                    ; preds = %304, %175, %.body, 
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   store ptr %354, ptr %298, align 8, !alias.scope !14100, !noalias !14103
   store ptr %355, ptr %300, align 8, !alias.scope !14100, !noalias !14103
-  store i64 17, ptr %0, align 8, !alias.scope !14100, !noalias !14103
   br label %"_ZN11polars_core13chunked_array4cast67_$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$9cast_impl17h1e3698acad56ef12E.exit"
 
 356:                                              ; preds = %51
@@ -96590,7 +96588,6 @@ common.resume:                                    ; preds = %304, %175, %.body, 
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   store ptr %354, ptr %298, align 8, !alias.scope !14168, !noalias !14171
   store ptr %355, ptr %300, align 8, !alias.scope !14168, !noalias !14171
-  store i64 17, ptr %0, align 8, !alias.scope !14168, !noalias !14171
   br label %"_ZN11polars_core13chunked_array4cast67_$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$9cast_impl17h116ef5005c9c0aa8E.exit"
 
 356:                                              ; preds = %51
@@ -97539,7 +97536,6 @@ common.resume:                                    ; preds = %305, %176, %.body, 
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %355, ptr %299, align 8
   store ptr %356, ptr %301, align 8
-  store i64 17, ptr %0, align 8
   br label %117
 
 357:                                              ; preds = %51
@@ -98480,7 +98476,6 @@ common.resume:                                    ; preds = %306, %177, %.body, 
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store ptr %356, ptr %300, align 8
   store ptr %357, ptr %302, align 8
-  store i64 17, ptr %0, align 8
   br label %118
 
 358:                                              ; preds = %52
@@ -99421,7 +99416,6 @@ common.resume:                                    ; preds = %305, %176, %.body, 
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %355, ptr %299, align 8
   store ptr %356, ptr %301, align 8
-  store i64 17, ptr %0, align 8
   br label %117
 
 357:                                              ; preds = %51
@@ -100362,7 +100356,6 @@ common.resume:                                    ; preds = %305, %176, %.body, 
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %355, ptr %299, align 8
   store ptr %356, ptr %301, align 8
-  store i64 17, ptr %0, align 8
   br label %117
 
 357:                                              ; preds = %51
@@ -101303,7 +101296,6 @@ common.resume:                                    ; preds = %305, %176, %.body, 
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %355, ptr %299, align 8
   store ptr %356, ptr %301, align 8
-  store i64 17, ptr %0, align 8
   br label %117
 
 357:                                              ; preds = %51
@@ -102244,7 +102236,6 @@ common.resume:                                    ; preds = %306, %177, %.body, 
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store ptr %356, ptr %300, align 8
   store ptr %357, ptr %302, align 8
-  store i64 17, ptr %0, align 8
   br label %118
 
 358:                                              ; preds = %52
@@ -103185,7 +103176,6 @@ common.resume:                                    ; preds = %305, %176, %.body, 
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %355, ptr %299, align 8
   store ptr %356, ptr %301, align 8
-  store i64 17, ptr %0, align 8
   br label %117
 
 357:                                              ; preds = %51

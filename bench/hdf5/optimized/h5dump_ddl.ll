@@ -3422,11 +3422,7 @@ define dso_local void @handle_datasets(i64 noundef %0, ptr noundef %1, ptr nound
 
 67:                                               ; preds = %.loopexit174
   %.not148 = icmp eq i32 %36, 0
-  br i1 %.not148, label %.thread239, label %.lr.ph177.preheader
-
-.thread239:                                       ; preds = %67
-  store ptr null, ptr %62, align 8, !tbaa !138
-  br label %.loopexit173.sink.split
+  br i1 %.not148, label %.loopexit173.sink.split, label %.lr.ph177.preheader
 
 .lr.ph177.preheader:                              ; preds = %67
   %68 = zext nneg i32 %36 to i64
@@ -3445,8 +3441,8 @@ define dso_local void @handle_datasets(i64 noundef %0, ptr noundef %1, ptr nound
   %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count190
   br i1 %exitcond191.not, label %.loopexit173, label %.lr.ph177, !llvm.loop !144
 
-.loopexit173.sink.split:                          ; preds = %.loopexit174.thread, %.thread239
-  %.ph = phi ptr [ %61, %.thread239 ], [ null, %.loopexit174.thread ]
+.loopexit173.sink.split:                          ; preds = %.loopexit174.thread, %67
+  %.ph = phi ptr [ %61, %67 ], [ null, %.loopexit174.thread ]
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %36, ptr %72, align 8, !tbaa !143
   br label %.loopexit173
@@ -3464,7 +3460,6 @@ define dso_local void @handle_datasets(i64 noundef %0, ptr noundef %1, ptr nound
   br i1 %.not151, label %.thread246, label %.lr.ph179.preheader
 
 .thread246:                                       ; preds = %77
-  store ptr null, ptr %75, align 8, !tbaa !139
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i32 %36, ptr %78, align 8, !tbaa !145
   br label %.loopexit172

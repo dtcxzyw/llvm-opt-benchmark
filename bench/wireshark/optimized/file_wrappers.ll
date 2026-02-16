@@ -1604,7 +1604,6 @@ define internal fastcc range(i32 -1, 1) i32 @fill_out_buffer(ptr noundef %0) unn
 
 41:                                               ; preds = %34
   store ptr %22, ptr %13, align 8
-  store i32 0, ptr %24, align 8
   br label %42
 
 42:                                               ; preds = %41, %34
@@ -1877,7 +1876,6 @@ uncompressed_fill_out_buffer.exit:                ; preds = %125
 
 182:                                              ; preds = %174
   store ptr %177, ptr %157, align 8
-  store i32 0, ptr %153, align 8
   br label %183
 
 183:                                              ; preds = %182, %174
@@ -2234,7 +2232,6 @@ zlib_fill_out_buffer.exit:                        ; preds = %.thread.i, %fill_in
 
 369:                                              ; preds = %358
   store ptr %364, ptr %362, align 8
-  store i32 0, ptr %348, align 8
   br label %370
 
 370:                                              ; preds = %369, %358
@@ -2400,7 +2397,6 @@ zstd_fill_out_buffer.exit:                        ; preds = %fill_in_buffer.exit
 
 461:                                              ; preds = %453
   store ptr %456, ptr %435, align 8
-  store i32 0, ptr %431, align 8
   br label %462
 
 462:                                              ; preds = %461, %453
@@ -4796,7 +4792,6 @@ define internal fastcc range(i32 -1, 1) i32 @gz_next1(ptr noundef captures(none)
 
 24:                                               ; preds = %13
   store ptr %19, ptr %17, align 8
-  store i32 0, ptr %3, align 8
   br label %25
 
 25:                                               ; preds = %24, %13
@@ -5020,7 +5015,6 @@ define internal fastcc range(i32 -1, 1) i32 @gz_next2(ptr noundef captures(none)
 
 24:                                               ; preds = %13
   store ptr %19, ptr %17, align 8
-  store i32 0, ptr %3, align 8
   br label %25
 
 25:                                               ; preds = %24, %13
@@ -5344,7 +5338,6 @@ define internal fastcc range(i32 -1, 1) i32 @gz_next4(ptr noundef %0, ptr nounde
 
 24:                                               ; preds = %13
   store ptr %19, ptr %17, align 8
-  store i32 0, ptr %3, align 8
   br label %25
 
 25:                                               ; preds = %24, %13

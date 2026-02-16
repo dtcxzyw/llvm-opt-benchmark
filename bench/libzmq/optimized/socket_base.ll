@@ -2359,7 +2359,7 @@ _ZN3zmq22scoped_optional_lock_tC2EPNS_7mutex_tE.exit: ; preds = %4, %15, %17
 26:                                               ; preds = %_ZN3zmq22scoped_optional_lock_tC2EPNS_7mutex_tE.exit
   %27 = tail call ptr @__errno_location() #39
   store i32 156384765, ptr %27, align 4, !tbaa !17
-  br label %95
+  br label %94
 
 28:                                               ; preds = %_ZN3zmq22scoped_optional_lock_tC2EPNS_7mutex_tE.exit
   %29 = load ptr, ptr %0, align 8, !tbaa !103
@@ -2370,26 +2370,26 @@ _ZN3zmq22scoped_optional_lock_tC2EPNS_7mutex_tE.exit: ; preds = %4, %15, %17
 
 33:                                               ; preds = %28
   %34 = icmp eq i32 %32, 0
-  br i1 %34, label %95, label %35
+  br i1 %34, label %94, label %35
 
 35:                                               ; preds = %33
   %36 = tail call ptr @__errno_location() #39
   %37 = load i32, ptr %36, align 4, !tbaa !17
   %.not = icmp eq i32 %37, 22
-  br i1 %.not, label %40, label %95
+  br i1 %.not, label %40, label %94
 
-38:                                               ; preds = %87, %54, %41, %91, %84, %50, %28
+38:                                               ; preds = %86, %53, %41, %90, %83, %49, %28
   %39 = landingpad { ptr, i32 }
           cleanup
-  br label %94
+  br label %93
 
 40:                                               ; preds = %35
-  switch i32 %1, label %91 [
+  switch i32 %1, label %90 [
     i32 13, label %41
     i32 14, label %46
-    i32 15, label %56
-    i32 32, label %84
-    i32 81, label %87
+    i32 15, label %55
+    i32 32, label %83
+    i32 81, label %86
   ]
 
 41:                                               ; preds = %40
@@ -2403,148 +2403,144 @@ _ZN3zmq22scoped_optional_lock_tC2EPNS_7mutex_tE.exit: ; preds = %4, %15, %17
 
 _ZN3zmq13do_getsockoptIiEEiPvPmT_.exit:           ; preds = %41
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %95
+  br label %94
 
 46:                                               ; preds = %40
   %47 = load i8, ptr %10, align 8, !tbaa !96, !range !97, !noundef !98
   %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %50
+  br i1 %48, label %94, label %49
 
 49:                                               ; preds = %46
-  store i32 22, ptr %36, align 4, !tbaa !17
-  br label %95
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 1632
+  %51 = load ptr, ptr %50, align 8, !tbaa !99
+  %52 = invoke noundef i32 @_ZNK3zmq9mailbox_t6get_fdEv(ptr noundef nonnull align 8 dereferenceable(176) %51)
+          to label %53 unwind label %38
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 1632
-  %52 = load ptr, ptr %51, align 8, !tbaa !99
-  %53 = invoke noundef i32 @_ZNK3zmq9mailbox_t6get_fdEv(ptr noundef nonnull align 8 dereferenceable(176) %52)
-          to label %54 unwind label %38
-
-54:                                               ; preds = %50
+53:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store i32 %53, ptr %7, align 4, !tbaa !17
-  %55 = invoke noundef i32 @_ZN3zmq13do_getsockoptEPvPmPKvm(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %7, i64 noundef 4)
+  store i32 %52, ptr %7, align 4, !tbaa !17
+  %54 = invoke noundef i32 @_ZN3zmq13do_getsockoptEPvPmPKvm(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %7, i64 noundef 4)
           to label %_ZN3zmq13do_getsockoptIiEEiPvPmT_.exit41 unwind label %38
 
-_ZN3zmq13do_getsockoptIiEEiPvPmT_.exit41:         ; preds = %54
+_ZN3zmq13do_getsockoptIiEEiPvPmT_.exit41:         ; preds = %53
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %95
+  br label %94
 
-56:                                               ; preds = %40
-  %57 = invoke noundef i32 @_ZN3zmq13socket_base_t16process_commandsEib(ptr noundef nonnull align 8 dereferenceable(1825) %0, i32 noundef 0, i1 noundef zeroext false)
-          to label %58 unwind label %61
+55:                                               ; preds = %40
+  %56 = invoke noundef i32 @_ZN3zmq13socket_base_t16process_commandsEib(ptr noundef nonnull align 8 dereferenceable(1825) %0, i32 noundef 0, i1 noundef zeroext false)
+          to label %57 unwind label %60
 
-58:                                               ; preds = %56
-  %cond = icmp eq i32 %57, 0
-  br i1 %cond, label %71, label %59, !prof !143
+57:                                               ; preds = %55
+  %cond = icmp eq i32 %56, 0
+  br i1 %cond, label %70, label %58, !prof !143
 
-59:                                               ; preds = %58
-  %60 = load i32, ptr %36, align 4, !tbaa !17
-  switch i32 %60, label %63 [
-    i32 4, label %95
-    i32 156384765, label %95
+58:                                               ; preds = %57
+  %59 = load i32, ptr %36, align 4, !tbaa !17
+  switch i32 %59, label %62 [
+    i32 4, label %94
+    i32 156384765, label %94
   ]
 
-61:                                               ; preds = %_ZN3zmq13socket_base_t6has_inEv.exit, %_ZN3zmq13socket_base_t7has_outEv.exit, %71, %56
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %_ZN3zmq13socket_base_t6has_inEv.exit, %_ZN3zmq13socket_base_t7has_outEv.exit, %70, %55
+  %61 = landingpad { ptr, i32 }
           cleanup
-  br label %94
+  br label %93
 
-63:                                               ; preds = %59
-  %64 = tail call ptr @strerror(i32 noundef %60) #37
-  %65 = load ptr, ptr @stderr, align 8, !tbaa !100
-  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.9, ptr noundef %64, ptr noundef nonnull @.str.1, i32 noundef 464) #42
-  %67 = load ptr, ptr @stderr, align 8, !tbaa !100
-  %68 = tail call i32 @fflush(ptr noundef %67)
-  invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %64)
-          to label %71 unwind label %69
+62:                                               ; preds = %58
+  %63 = tail call ptr @strerror(i32 noundef %59) #37
+  %64 = load ptr, ptr @stderr, align 8, !tbaa !100
+  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef nonnull @.str.9, ptr noundef %63, ptr noundef nonnull @.str.1, i32 noundef 464) #42
+  %66 = load ptr, ptr @stderr, align 8, !tbaa !100
+  %67 = tail call i32 @fflush(ptr noundef %66)
+  invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %63)
+          to label %70 unwind label %68
 
-69:                                               ; preds = %63
-  %70 = landingpad { ptr, i32 }
+68:                                               ; preds = %62
+  %69 = landingpad { ptr, i32 }
           cleanup
-  br label %94
+  br label %93
 
-71:                                               ; preds = %58, %63
-  %72 = load ptr, ptr %0, align 8, !tbaa !103
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 280
-  %74 = load ptr, ptr %73, align 8
-  %75 = invoke noundef zeroext i1 %74(ptr noundef nonnull align 8 dereferenceable(1825) %0)
-          to label %_ZN3zmq13socket_base_t7has_outEv.exit unwind label %61
+70:                                               ; preds = %57, %62
+  %71 = load ptr, ptr %0, align 8, !tbaa !103
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 280
+  %73 = load ptr, ptr %72, align 8
+  %74 = invoke noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(1825) %0)
+          to label %_ZN3zmq13socket_base_t7has_outEv.exit unwind label %60
 
-_ZN3zmq13socket_base_t7has_outEv.exit:            ; preds = %71
-  %76 = load ptr, ptr %0, align 8, !tbaa !103
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 296
-  %78 = load ptr, ptr %77, align 8
-  %79 = invoke noundef zeroext i1 %78(ptr noundef nonnull align 8 dereferenceable(1825) %0)
-          to label %_ZN3zmq13socket_base_t6has_inEv.exit unwind label %61
+_ZN3zmq13socket_base_t7has_outEv.exit:            ; preds = %70
+  %75 = load ptr, ptr %0, align 8, !tbaa !103
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 296
+  %77 = load ptr, ptr %76, align 8
+  %78 = invoke noundef zeroext i1 %77(ptr noundef nonnull align 8 dereferenceable(1825) %0)
+          to label %_ZN3zmq13socket_base_t6has_inEv.exit unwind label %60
 
 _ZN3zmq13socket_base_t6has_inEv.exit:             ; preds = %_ZN3zmq13socket_base_t7has_outEv.exit
-  %80 = select i1 %75, i32 2, i32 0
-  %81 = zext i1 %79 to i32
-  %82 = or disjoint i32 %80, %81
+  %79 = select i1 %74, i32 2, i32 0
+  %80 = zext i1 %78 to i32
+  %81 = or disjoint i32 %79, %80
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i32 %82, ptr %6, align 4, !tbaa !17
-  %83 = invoke noundef i32 @_ZN3zmq13do_getsockoptEPvPmPKvm(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %6, i64 noundef 4)
-          to label %_ZN3zmq13do_getsockoptIiEEiPvPmT_.exit42 unwind label %61
+  store i32 %81, ptr %6, align 4, !tbaa !17
+  %82 = invoke noundef i32 @_ZN3zmq13do_getsockoptEPvPmPKvm(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %6, i64 noundef 4)
+          to label %_ZN3zmq13do_getsockoptIiEEiPvPmT_.exit42 unwind label %60
 
 _ZN3zmq13do_getsockoptIiEEiPvPmT_.exit42:         ; preds = %_ZN3zmq13socket_base_t6has_inEv.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %95
+  br label %94
 
-84:                                               ; preds = %40
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 1728
-  %86 = invoke noundef i32 @_ZN3zmq13do_getsockoptEPvPmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %85)
-          to label %95 unwind label %38
+83:                                               ; preds = %40
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 1728
+  %85 = invoke noundef i32 @_ZN3zmq13do_getsockoptEPvPmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %84)
+          to label %94 unwind label %38
 
-87:                                               ; preds = %40
-  %88 = load i8, ptr %10, align 8, !tbaa !96, !range !97, !noundef !98
-  %89 = zext nneg i8 %88 to i32
+86:                                               ; preds = %40
+  %87 = load i8, ptr %10, align 8, !tbaa !96, !range !97, !noundef !98
+  %88 = zext nneg i8 %87 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i32 %89, ptr %5, align 4, !tbaa !17
-  %90 = invoke noundef i32 @_ZN3zmq13do_getsockoptEPvPmPKvm(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5, i64 noundef 4)
+  store i32 %88, ptr %5, align 4, !tbaa !17
+  %89 = invoke noundef i32 @_ZN3zmq13do_getsockoptEPvPmPKvm(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5, i64 noundef 4)
           to label %_ZN3zmq13do_getsockoptIiEEiPvPmT_.exit43 unwind label %38
 
-_ZN3zmq13do_getsockoptIiEEiPvPmT_.exit43:         ; preds = %87
+_ZN3zmq13do_getsockoptIiEEiPvPmT_.exit43:         ; preds = %86
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %95
+  br label %94
 
-91:                                               ; preds = %40
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %93 = invoke noundef i32 @_ZNK3zmq9options_t10getsockoptEiPvPm(ptr noundef nonnull align 8 dereferenceable(1336) %92, i32 noundef %1, ptr noundef %2, ptr noundef %3)
-          to label %95 unwind label %38
+90:                                               ; preds = %40
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %92 = invoke noundef i32 @_ZNK3zmq9options_t10getsockoptEiPvPm(ptr noundef nonnull align 8 dereferenceable(1336) %91, i32 noundef %1, ptr noundef %2, ptr noundef %3)
+          to label %94 unwind label %38
 
-94:                                               ; preds = %61, %69, %38
-  %.pn39 = phi { ptr, i32 } [ %39, %38 ], [ %62, %61 ], [ %70, %69 ]
+93:                                               ; preds = %60, %68, %38
+  %.pn39 = phi { ptr, i32 } [ %39, %38 ], [ %61, %60 ], [ %69, %68 ]
   call void @_ZN3zmq22scoped_optional_lock_tD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #37
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn39
 
-95:                                               ; preds = %_ZN3zmq13do_getsockoptIiEEiPvPmT_.exit43, %_ZN3zmq13do_getsockoptIiEEiPvPmT_.exit42, %_ZN3zmq13do_getsockoptIiEEiPvPmT_.exit41, %_ZN3zmq13do_getsockoptIiEEiPvPmT_.exit, %49, %35, %33, %59, %59, %84, %91, %26
-  %.0 = phi i32 [ -1, %26 ], [ %90, %_ZN3zmq13do_getsockoptIiEEiPvPmT_.exit43 ], [ 0, %33 ], [ -1, %49 ], [ %45, %_ZN3zmq13do_getsockoptIiEEiPvPmT_.exit ], [ %55, %_ZN3zmq13do_getsockoptIiEEiPvPmT_.exit41 ], [ %83, %_ZN3zmq13do_getsockoptIiEEiPvPmT_.exit42 ], [ %86, %84 ], [ %32, %35 ], [ -1, %59 ], [ -1, %59 ], [ %93, %91 ]
-  br i1 %12, label %96, label %_ZN3zmq22scoped_optional_lock_tD2Ev.exit
+94:                                               ; preds = %46, %_ZN3zmq13do_getsockoptIiEEiPvPmT_.exit43, %_ZN3zmq13do_getsockoptIiEEiPvPmT_.exit42, %_ZN3zmq13do_getsockoptIiEEiPvPmT_.exit41, %_ZN3zmq13do_getsockoptIiEEiPvPmT_.exit, %35, %33, %58, %58, %83, %90, %26
+  %.0 = phi i32 [ -1, %26 ], [ %89, %_ZN3zmq13do_getsockoptIiEEiPvPmT_.exit43 ], [ 0, %33 ], [ %92, %90 ], [ %45, %_ZN3zmq13do_getsockoptIiEEiPvPmT_.exit ], [ %54, %_ZN3zmq13do_getsockoptIiEEiPvPmT_.exit41 ], [ %82, %_ZN3zmq13do_getsockoptIiEEiPvPmT_.exit42 ], [ %85, %83 ], [ %32, %35 ], [ -1, %58 ], [ -1, %58 ], [ -1, %46 ]
+  br i1 %12, label %95, label %_ZN3zmq22scoped_optional_lock_tD2Ev.exit
 
-96:                                               ; preds = %95
-  %97 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %13) #37
-  %.not.i.i45 = icmp eq i32 %97, 0
-  br i1 %.not.i.i45, label %_ZN3zmq22scoped_optional_lock_tD2Ev.exit, label %98, !prof !116
+95:                                               ; preds = %94
+  %96 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %13) #37
+  %.not.i.i45 = icmp eq i32 %96, 0
+  br i1 %.not.i.i45, label %_ZN3zmq22scoped_optional_lock_tD2Ev.exit, label %97, !prof !116
 
-98:                                               ; preds = %96
-  %99 = call ptr @strerror(i32 noundef %97) #37
-  %100 = load ptr, ptr @stderr, align 8, !tbaa !100
-  %101 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.9, ptr noundef %99, ptr noundef nonnull @.str.23, i32 noundef 125) #42
-  %102 = load ptr, ptr @stderr, align 8, !tbaa !100
-  %103 = call i32 @fflush(ptr noundef %102)
-  invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %99)
-          to label %_ZN3zmq22scoped_optional_lock_tD2Ev.exit unwind label %104
+97:                                               ; preds = %95
+  %98 = call ptr @strerror(i32 noundef %96) #37
+  %99 = load ptr, ptr @stderr, align 8, !tbaa !100
+  %100 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %99, ptr noundef nonnull @.str.9, ptr noundef %98, ptr noundef nonnull @.str.23, i32 noundef 125) #42
+  %101 = load ptr, ptr @stderr, align 8, !tbaa !100
+  %102 = call i32 @fflush(ptr noundef %101)
+  invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %98)
+          to label %_ZN3zmq22scoped_optional_lock_tD2Ev.exit unwind label %103
 
-104:                                              ; preds = %98
-  %105 = landingpad { ptr, i32 }
+103:                                              ; preds = %97
+  %104 = landingpad { ptr, i32 }
           catch ptr null
-  %106 = extractvalue { ptr, i32 } %105, 0
-  call void @__clang_call_terminate(ptr %106) #43
+  %105 = extractvalue { ptr, i32 } %104, 0
+  call void @__clang_call_terminate(ptr %105) #43
   unreachable
 
-_ZN3zmq22scoped_optional_lock_tD2Ev.exit:         ; preds = %95, %96, %98
+_ZN3zmq22scoped_optional_lock_tD2Ev.exit:         ; preds = %94, %95, %97
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }

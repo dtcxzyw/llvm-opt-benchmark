@@ -2505,13 +2505,13 @@ define hidden range(i32 0, 65) i32 @FT_GlyphLoader_CreateExtra(ptr noundef captu
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !198
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %62, label %6
+  br i1 %5, label %ft_mem_realloc.exit.thread20, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8, !tbaa !195
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %9, label %62
+  br i1 %.not, label %9, label %ft_mem_realloc.exit.thread20
 
 9:                                                ; preds = %6
   %10 = shl i32 %4, 1
@@ -2521,10 +2521,6 @@ define hidden range(i32 0, 65) i32 @FT_GlyphLoader_CreateExtra(ptr noundef captu
 12:                                               ; preds = %9
   %13 = icmp ugt i32 %10, 134217727
   br i1 %13, label %ft_mem_realloc.exit.thread20, label %14
-
-ft_mem_realloc.exit.thread20:                     ; preds = %12
-  store ptr null, ptr %7, align 8, !tbaa !195
-  br label %62
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2558,7 +2554,7 @@ ft_mem_realloc.exit.thread:                       ; preds = %20, %9
 
 ft_mem_realloc.exit:                              ; preds = %14
   store ptr null, ptr %7, align 8, !tbaa !195
-  br label %62
+  br label %ft_mem_realloc.exit.thread20
 
 29:                                               ; preds = %ft_mem_realloc.exit.thread
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 26
@@ -2611,10 +2607,10 @@ FT_GlyphLoader_Adjust_Points.exit:                ; preds = %49, %44
   %60 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %24, i64 %57
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %60, ptr %61, align 8, !tbaa !204
-  br label %62
+  br label %ft_mem_realloc.exit.thread20
 
-62:                                               ; preds = %ft_mem_realloc.exit, %FT_GlyphLoader_Adjust_Points.exit, %ft_mem_realloc.exit.thread20, %1, %6
-  %.0 = phi i32 [ 0, %1 ], [ 0, %6 ], [ 0, %FT_GlyphLoader_Adjust_Points.exit ], [ 64, %ft_mem_realloc.exit ], [ 10, %ft_mem_realloc.exit.thread20 ]
+ft_mem_realloc.exit.thread20:                     ; preds = %12, %ft_mem_realloc.exit, %FT_GlyphLoader_Adjust_Points.exit, %1, %6
+  %.0 = phi i32 [ 0, %1 ], [ 0, %6 ], [ 0, %FT_GlyphLoader_Adjust_Points.exit ], [ 64, %ft_mem_realloc.exit ], [ 10, %12 ]
   ret i32 %.0
 }
 
@@ -2720,7 +2716,7 @@ define hidden i32 @FT_GlyphLoader_CheckPoints(ptr noundef %0, i32 noundef %1, i3
 
 17:                                               ; preds = %14
   %18 = icmp ugt i32 %15, 134217727
-  br i1 %18, label %FT_GlyphLoader_CreateExtra.exit, label %19
+  br i1 %18, label %FT_GlyphLoader_Adjust_Points.exit.thread, label %19
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2729,7 +2725,7 @@ define hidden i32 @FT_GlyphLoader_CheckPoints(ptr noundef %0, i32 noundef %1, i3
   %23 = zext i32 %22 to i64
   %24 = tail call ptr %21(ptr noundef %5, i64 noundef %23) #35
   %.not24.i = icmp eq ptr %24, null
-  br i1 %.not24.i, label %FT_GlyphLoader_CreateExtra.exit, label %25
+  br i1 %.not24.i, label %ft_mem_realloc.exit.i, label %25
 
 25:                                               ; preds = %19
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %24, i8 0, i64 %23, i1 false)
@@ -2750,6 +2746,10 @@ ft_mem_realloc.exit.thread.i:                     ; preds = %25, %14
   %32 = load ptr, ptr %31, align 8, !tbaa !156
   %.not.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i, label %38, label %33
+
+ft_mem_realloc.exit.i:                            ; preds = %19
+  store ptr null, ptr %12, align 8, !tbaa !195
+  br label %FT_GlyphLoader_Adjust_Points.exit.thread
 
 33:                                               ; preds = %ft_mem_realloc.exit.thread.i
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 26
@@ -2804,11 +2804,6 @@ FT_GlyphLoader_Adjust_Points.exit.i:              ; preds = %53, %48
   store ptr %64, ptr %65, align 8, !tbaa !204
   br label %66
 
-FT_GlyphLoader_CreateExtra.exit:                  ; preds = %19, %17
-  %.0.i = phi i32 [ 10, %17 ], [ 64, %19 ]
-  store ptr null, ptr %12, align 8, !tbaa !195
-  br label %FT_GlyphLoader_Adjust_Points.exit.thread
-
 66:                                               ; preds = %3, %11, %FT_GlyphLoader_Adjust_Points.exit.i
   %67 = phi i32 [ 0, %3 ], [ %9, %11 ], [ %26, %FT_GlyphLoader_Adjust_Points.exit.i ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 26
@@ -2853,9 +2848,9 @@ FT_GlyphLoader_CreateExtra.exit:                  ; preds = %19, %17
 
 93:                                               ; preds = %78
   %94 = icmp ugt i32 %spec.store.select, 134217727
-  br i1 %94, label %ft_mem_realloc.exit.thread121, label %95
+  br i1 %94, label %ft_mem_realloc.exit.thread120, label %95
 
-ft_mem_realloc.exit.thread121:                    ; preds = %93
+ft_mem_realloc.exit.thread120:                    ; preds = %93
   store ptr %87, ptr %86, align 8, !tbaa !156
   br label %FT_GlyphLoader_Adjust_Points.exit.thread
 
@@ -3021,7 +3016,7 @@ ft_mem_realloc.exit99:                            ; preds = %ft_mem_qrealloc.exi
 
 169:                                              ; preds = %166
   %170 = icmp ugt i32 %167, 134217727
-  br i1 %170, label %FT_GlyphLoader_CreateExtra.exit112, label %171
+  br i1 %170, label %FT_GlyphLoader_Adjust_Points.exit.thread, label %171
 
 171:                                              ; preds = %169
   %172 = getelementptr inbounds nuw i8, ptr %161, i64 8
@@ -3030,7 +3025,7 @@ ft_mem_realloc.exit99:                            ; preds = %ft_mem_qrealloc.exi
   %175 = zext i32 %174 to i64
   %176 = tail call ptr %173(ptr noundef %161, i64 noundef %175) #35
   %.not24.i102 = icmp eq ptr %176, null
-  br i1 %.not24.i102, label %FT_GlyphLoader_CreateExtra.exit112, label %177
+  br i1 %.not24.i102, label %ft_mem_realloc.exit.i110, label %177
 
 177:                                              ; preds = %171
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %176, i8 0, i64 %175, i1 false)
@@ -3051,6 +3046,10 @@ ft_mem_realloc.exit.thread.i104:                  ; preds = %177, %166
   %184 = load ptr, ptr %183, align 8, !tbaa !156
   %.not.i.i106 = icmp eq ptr %184, null
   br i1 %.not.i.i106, label %189, label %185
+
+ft_mem_realloc.exit.i110:                         ; preds = %171
+  store ptr null, ptr %164, align 8, !tbaa !195
+  br label %FT_GlyphLoader_Adjust_Points.exit.thread
 
 185:                                              ; preds = %ft_mem_realloc.exit.thread.i104
   %186 = load i16, ptr %68, align 2, !tbaa !129
@@ -3102,11 +3101,6 @@ FT_GlyphLoader_Adjust_Points.exit.i109:           ; preds = %203, %198
   store ptr %213, ptr %214, align 8, !tbaa !204
   br label %215
 
-FT_GlyphLoader_CreateExtra.exit112:               ; preds = %171, %169
-  %.0.i101 = phi i32 [ 10, %169 ], [ 64, %171 ]
-  store ptr null, ptr %164, align 8, !tbaa !195
-  br label %FT_GlyphLoader_Adjust_Points.exit.thread
-
 215:                                              ; preds = %159, %163, %FT_GlyphLoader_Adjust_Points.exit.i109
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %217 = load i32, ptr %216, align 4, !tbaa !199
@@ -3139,20 +3133,20 @@ FT_GlyphLoader_CreateExtra.exit112:               ; preds = %171, %169
   store ptr %237, ptr %235, align 8, !tbaa !131
   %238 = load i32, ptr %4, align 4, !tbaa !168
   %.not82 = icmp eq i32 %238, 0
-  br i1 %.not82, label %.thread132, label %FT_GlyphLoader_Adjust_Points.exit.thread
+  br i1 %.not82, label %.thread131, label %FT_GlyphLoader_Adjust_Points.exit.thread
 
-.thread132:                                       ; preds = %227
+.thread131:                                       ; preds = %227
   store i32 %spec.store.select1, ptr %216, align 4, !tbaa !199
   br label %240
 
 239:                                              ; preds = %215
   br i1 %.not, label %240, label %FT_GlyphLoader_Adjust_Points.exit
 
-240:                                              ; preds = %.thread132, %239
+240:                                              ; preds = %.thread131, %239
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %242 = load ptr, ptr %241, align 8, !tbaa !156
-  %.not.i113 = icmp eq ptr %242, null
-  br i1 %.not.i113, label %247, label %243
+  %.not.i112 = icmp eq ptr %242, null
+  br i1 %.not.i112, label %247, label %243
 
 243:                                              ; preds = %240
   %244 = load i16, ptr %68, align 2, !tbaa !129
@@ -3181,8 +3175,8 @@ FT_GlyphLoader_CreateExtra.exit112:               ; preds = %171, %169
   store ptr %257, ptr %258, align 8, !tbaa !202
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %260 = load ptr, ptr %259, align 8, !tbaa !131
-  %.not24.i114 = icmp eq ptr %260, null
-  br i1 %.not24.i114, label %265, label %261
+  %.not24.i113 = icmp eq ptr %260, null
+  br i1 %.not24.i113, label %265, label %261
 
 261:                                              ; preds = %256
   %262 = load i16, ptr %6, align 8, !tbaa !130
@@ -3214,13 +3208,13 @@ FT_GlyphLoader_CreateExtra.exit112:               ; preds = %171, %169
   store ptr %279, ptr %280, align 8, !tbaa !204
   br label %FT_GlyphLoader_Adjust_Points.exit
 
-FT_GlyphLoader_Adjust_Points.exit.thread:         ; preds = %225, %76, %ft_mem_realloc.exit99, %ft_mem_realloc.exit, %142, %227, %FT_GlyphLoader_CreateExtra.exit, %ft_mem_realloc.exit.thread121, %FT_GlyphLoader_CreateExtra.exit112
-  %281 = phi i32 [ %.0.i101, %FT_GlyphLoader_CreateExtra.exit112 ], [ 10, %ft_mem_realloc.exit.thread121 ], [ 10, %76 ], [ %.033.i.i93, %ft_mem_realloc.exit99 ], [ %.033.i.i, %ft_mem_realloc.exit ], [ %150, %142 ], [ %238, %227 ], [ %.0.i, %FT_GlyphLoader_CreateExtra.exit ], [ 10, %225 ]
+FT_GlyphLoader_Adjust_Points.exit.thread:         ; preds = %225, %ft_mem_realloc.exit.i110, %169, %76, %ft_mem_realloc.exit.i, %17, %ft_mem_realloc.exit99, %ft_mem_realloc.exit, %142, %227, %ft_mem_realloc.exit.thread120
+  %281 = phi i32 [ 10, %76 ], [ 64, %ft_mem_realloc.exit.i ], [ 64, %ft_mem_realloc.exit.i110 ], [ %.033.i.i93, %ft_mem_realloc.exit99 ], [ %.033.i.i, %ft_mem_realloc.exit ], [ %150, %142 ], [ %238, %227 ], [ 10, %ft_mem_realloc.exit.thread120 ], [ 10, %17 ], [ 10, %169 ], [ 10, %225 ]
   %282 = load ptr, ptr %0, align 8, !tbaa !180
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %284 = load ptr, ptr %283, align 8, !tbaa !192
-  %.not.i.i115 = icmp eq ptr %284, null
-  br i1 %.not.i.i115, label %ft_mem_free.exit.i, label %285
+  %.not.i.i114 = icmp eq ptr %284, null
+  br i1 %.not.i.i114, label %ft_mem_free.exit.i, label %285
 
 285:                                              ; preds = %FT_GlyphLoader_Adjust_Points.exit.thread
   %286 = getelementptr inbounds nuw i8, ptr %282, i64 16
@@ -15379,7 +15373,6 @@ ft_mem_qrealloc.exit:                             ; preds = %141
 
 170:                                              ; preds = %168, %166
   store i64 %164, ptr %24, align 8, !tbaa !255
-  store i32 0, ptr %13, align 4, !tbaa !168
   %171 = icmp slt i32 %160, 0
   br i1 %171, label %.thread.sink.split, label %172
 
