@@ -19018,7 +19018,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hb2f549bd78f7cf92E.exit.thread
   call void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17h0c6c899f6525b6f8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12), !noalias !2649
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !2649
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !2632
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false), !noalias !2632
+  store ptr null, ptr %15, align 8, !alias.scope !2664, !noalias !2632
   br label %140
 
 125:                                              ; preds = %127, %120

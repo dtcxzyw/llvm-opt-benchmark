@@ -5951,8 +5951,8 @@ select.unfold.i.i.i:                              ; preds = %32, %28
   br label %53
 
 52:                                               ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hfcc348d35b6bc6eeE.exit.i", %select.unfold.i.i.i, %42, %41
-  %.sroa.116.0.ph = phi ptr [ null, %41 ], [ %46, %42 ], [ null, %select.unfold.i.i.i ], [ %.sroa.51.0.i.i.i.i.i.i, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hfcc348d35b6bc6eeE.exit.i" ]
-  %.sroa.13.0.ph = phi i64 [ 0, %41 ], [ 0, %42 ], [ %40, %select.unfold.i.i.i ], [ %50, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hfcc348d35b6bc6eeE.exit.i" ]
+  %.sroa.12.0.ph = phi i64 [ 0, %41 ], [ 0, %42 ], [ %40, %select.unfold.i.i.i ], [ %50, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hfcc348d35b6bc6eeE.exit.i" ]
+  %.sroa.116.0.ph = phi ptr [ undef, %41 ], [ %46, %42 ], [ undef, %select.unfold.i.i.i ], [ %.sroa.51.0.i.i.i.i.i.i, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hfcc348d35b6bc6eeE.exit.i" ]
   %.sroa.9.0.ph = phi i8 [ 0, %41 ], [ 0, %42 ], [ 0, %select.unfold.i.i.i ], [ %.sroa.4.0.i.i.i.i.i.i, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hfcc348d35b6bc6eeE.exit.i" ]
   %.sroa.0.0.ph = phi i8 [ 1, %41 ], [ 2, %42 ], [ 0, %select.unfold.i.i.i ], [ %12, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hfcc348d35b6bc6eeE.exit.i" ]
   store i8 %.sroa.0.0.ph, ptr %0, align 8
@@ -5961,7 +5961,7 @@ select.unfold.i.i.i:                              ; preds = %32, %28
   %.sroa.620.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.116.0.ph, ptr %.sroa.620.0..sroa_idx, align 8
   %.sroa.721.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.13.0.ph, ptr %.sroa.721.0..sroa_idx, align 8
+  store i64 %.sroa.12.0.ph, ptr %.sroa.721.0..sroa_idx, align 8
   br label %53
 
 53:                                               ; preds = %52, %51
@@ -64731,8 +64731,8 @@ default.unreachable:                              ; preds = %select.unfold.i.i
   store i8 %.sroa.0.0.i.i.i.i.ph, ptr %0, align 8, !alias.scope !18184, !noalias !18191
   %.sroa.4.0..sroa_idx.i.i11 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 0, ptr %.sroa.4.0..sroa_idx.i.i11, align 1, !alias.scope !18184, !noalias !18191
-  %.sroa.53.0..sroa_idx.i.i12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.53.0..sroa_idx.i.i12, i8 0, i64 16, i1 false)
+  %.sroa.6.0..sroa_idx.i.i13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 0, ptr %.sroa.6.0..sroa_idx.i.i13, align 8, !alias.scope !18184, !noalias !18191
   br label %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$chalk_ir..WithKind$LT$hir_ty..interner..Interner$C$chalk_ir..UniverseIndex$GT$$GT$$GT$17h1facb06cfe38d073E.exit3"
 
 40:                                               ; preds = %26
@@ -80924,7 +80924,7 @@ select.unfold.i.i.i.i:                            ; preds = %32, %28
 
 "_ZN117_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$chalk_ir..cast..CastTo$LT$core..result..Result$LT$U$C$E$GT$$GT$$GT$7cast_to17hc86c4cd27a14c005E.exit": ; preds = %41, %42, %select.unfold.i.i.i.i, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hfcc348d35b6bc6eeE.exit.i.i"
   %.sroa.8.0.ph = phi i64 [ %50, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hfcc348d35b6bc6eeE.exit.i.i" ], [ %40, %select.unfold.i.i.i.i ], [ 0, %42 ], [ 0, %41 ]
-  %.sroa.71.0.ph = phi ptr [ %.sroa.51.0.i.i.i.i.i.i.i, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hfcc348d35b6bc6eeE.exit.i.i" ], [ null, %select.unfold.i.i.i.i ], [ %46, %42 ], [ null, %41 ]
+  %.sroa.71.0.ph = phi ptr [ %.sroa.51.0.i.i.i.i.i.i.i, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hfcc348d35b6bc6eeE.exit.i.i" ], [ undef, %select.unfold.i.i.i.i ], [ %46, %42 ], [ undef, %41 ]
   %.sroa.6.0.ph = phi i8 [ %.sroa.4.0.i.i.i.i.i.i.i, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hfcc348d35b6bc6eeE.exit.i.i" ], [ 0, %select.unfold.i.i.i.i ], [ 0, %42 ], [ 0, %41 ]
   %.sroa.0.0.ph = phi i8 [ %12, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hfcc348d35b6bc6eeE.exit.i.i" ], [ 0, %select.unfold.i.i.i.i ], [ 2, %42 ], [ 1, %41 ]
   store i8 %.sroa.0.0.ph, ptr %0, align 8
