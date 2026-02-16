@@ -13972,11 +13972,11 @@ define hidden noalias noundef ptr @_m3d_safestr(ptr noundef readonly captures(ad
 13:                                               ; preds = %3, %2
   %14 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #65
   %.not87 = icmp eq ptr %14, null
-  br i1 %.not87, label %66, label %15
+  br i1 %.not87, label %68, label %15
 
 15:                                               ; preds = %13
   store i8 0, ptr %14, align 1
-  br label %66
+  br label %68
 
 .preheader99.split:                               ; preds = %.preheader99, %16
   %.0101 = phi i32 [ %18, %16 ], [ 0, %.preheader99 ]
@@ -13996,9 +13996,9 @@ define hidden noalias noundef ptr @_m3d_safestr(ptr noundef readonly captures(ad
   %19 = add nuw nsw i32 %.us-phi, 1
   %20 = zext nneg i32 %19 to i64
   %21 = tail call noalias ptr @malloc(i64 noundef %20) #65
-  %22 = ptrtoint ptr %21 to i64
+  %22 = ptrtoaddr ptr %21 to i64
   %.not91 = icmp eq ptr %21, null
-  br i1 %.not91, label %66, label %.preheader
+  br i1 %.not91, label %68, label %.preheader
 
 .preheader:                                       ; preds = %.critedge
   %.not92.not.not = icmp eq i32 %1, 0
@@ -14032,11 +14032,7 @@ define hidden noalias noundef ptr @_m3d_safestr(ptr noundef readonly captures(ad
   %26 = phi i8 [ %23, %.preheader.split.us ], [ %25, %.preheader.split ]
   %.us-phi103 = phi ptr [ %.074.us, %.preheader.split.us ], [ %.074, %.preheader.split ]
   %.not93104 = icmp eq i8 %26, 0
-  br i1 %.not93104, label %.critedge6.thread, label %.lr.ph
-
-.critedge6.thread:                                ; preds = %.critedge4.preheader
-  %.176.lcssa128140 = ptrtoint ptr %21 to i64
-  br label %.critedge10
+  br i1 %.not93104, label %.critedge10, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge4.preheader
   %27 = icmp sgt i32 %1, 2
@@ -14141,11 +14137,11 @@ define hidden noalias noundef ptr @_m3d_safestr(ptr noundef readonly captures(ad
 
 .critedge6:                                       ; preds = %34, %44, %.critedge4.us, %.critedge4, %.lr.ph.split, %.lr.ph.split
   %.176.lcssa = phi ptr [ %.176105, %.lr.ph.split ], [ %.176105, %.lr.ph.split ], [ %.2, %.critedge4 ], [ %.176105.us, %34 ], [ %.2.us, %.critedge4.us ], [ %.176105.us, %44 ]
-  %.176.lcssa128 = ptrtoint ptr %.176.lcssa to i64
   %59 = icmp ugt ptr %.176.lcssa, %21
   br i1 %59, label %.lr.ph119.preheader, label %.critedge10
 
 .lr.ph119.preheader:                              ; preds = %.critedge6
+  %.176.lcssa128 = ptrtoaddr ptr %.176.lcssa to i64
   %60 = sub i64 %22, %.176.lcssa128
   %scevgep = getelementptr i8, ptr %.176.lcssa, i64 %60
   br label %.lr.ph119
@@ -14154,7 +14150,7 @@ define hidden noalias noundef ptr @_m3d_safestr(ptr noundef readonly captures(ad
   %.4118 = phi ptr [ %61, %.critedge12 ], [ %.176.lcssa, %.lr.ph119.preheader ]
   %61 = getelementptr inbounds i8, ptr %.4118, i64 -1
   %62 = load i8, ptr %61, align 1
-  switch i8 %62, label %.critedge10.loopexit [
+  switch i8 %62, label %.critedge10 [
     i8 32, label %.critedge12
     i8 9, label %.critedge12
     i8 13, label %.critedge12
@@ -14163,24 +14159,20 @@ define hidden noalias noundef ptr @_m3d_safestr(ptr noundef readonly captures(ad
 
 .critedge12:                                      ; preds = %.lr.ph119, %.lr.ph119, %.lr.ph119, %.lr.ph119
   %63 = icmp ugt ptr %61, %21
-  br i1 %63, label %.lr.ph119, label %.critedge10.loopexit
+  br i1 %63, label %.lr.ph119, label %.critedge10
 
-.critedge10.loopexit:                             ; preds = %.lr.ph119, %.critedge12
-  %.4.lcssa.ph = phi ptr [ %scevgep, %.critedge12 ], [ %.4118, %.lr.ph119 ]
-  %.pre130 = ptrtoint ptr %.4.lcssa.ph to i64
-  br label %.critedge10
-
-.critedge10:                                      ; preds = %.critedge6.thread, %.critedge10.loopexit, %.critedge6
-  %.pre-phi = phi i64 [ %.pre130, %.critedge10.loopexit ], [ %.176.lcssa128, %.critedge6 ], [ %.176.lcssa128140, %.critedge6.thread ]
-  %.4.lcssa = phi ptr [ %.4.lcssa.ph, %.critedge10.loopexit ], [ %.176.lcssa, %.critedge6 ], [ %21, %.critedge6.thread ]
+.critedge10:                                      ; preds = %.critedge12, %.lr.ph119, %.critedge4.preheader, %.critedge6
+  %.4.lcssa = phi ptr [ %.176.lcssa, %.critedge6 ], [ %21, %.critedge4.preheader ], [ %scevgep, %.critedge12 ], [ %.4118, %.lr.ph119 ]
   store i8 0, ptr %.4.lcssa, align 1
-  %reass.sub = sub i64 %.pre-phi, %22
-  %64 = add i64 %reass.sub, 1
-  %65 = tail call ptr @realloc(ptr noundef nonnull %21, i64 noundef %64) #61
-  br label %66
+  %64 = ptrtoint ptr %.4.lcssa to i64
+  %65 = ptrtoint ptr %21 to i64
+  %reass.sub = sub i64 %64, %65
+  %66 = add i64 %reass.sub, 1
+  %67 = tail call ptr @realloc(ptr noundef nonnull %21, i64 noundef %66) #61
+  br label %68
 
-66:                                               ; preds = %15, %.critedge10, %.critedge, %13
-  %.078 = phi ptr [ null, %.critedge ], [ null, %13 ], [ %65, %.critedge10 ], [ %14, %15 ]
+68:                                               ; preds = %15, %.critedge10, %.critedge, %13
+  %.078 = phi ptr [ null, %.critedge ], [ null, %13 ], [ %67, %.critedge10 ], [ %14, %15 ]
   ret ptr %.078
 }
 

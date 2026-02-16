@@ -3934,7 +3934,7 @@ define linkonce_odr void @_ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal10Refine
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %.not65 = icmp ult i64 %12, %2
-  br i1 %.not65, label %40, label %13
+  br i1 %.not65, label %43, label %13
 
 13:                                               ; preds = %5
   %14 = load i8, ptr %3, align 1
@@ -4012,87 +4012,90 @@ _ZSt22__uninitialized_move_aIPN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8Chil
   %38 = load ptr, ptr %8, align 8
   %39 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %38, i64 %16
   store ptr %39, ptr %8, align 8
-  tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 %14, i64 %16, i1 false)
+  %40 = ptrtoaddr ptr %9 to i64
+  %41 = ptrtoaddr ptr %1 to i64
+  %42 = sub i64 %40, %41
+  tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 %14, i64 %42, i1 false)
   br label %_ZSt4fillIPN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagES5_EvT_S7_RKT0_.exit
 
-40:                                               ; preds = %5
-  %41 = load ptr, ptr %0, align 8
-  %42 = ptrtoint ptr %41 to i64
-  %43 = sub i64 %11, %42
-  %44 = sub i64 9223372036854775807, %43
-  %45 = icmp ult i64 %44, %2
-  br i1 %45, label %46, label %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagESaIS5_EE12_M_check_lenEmPKc.exit
+43:                                               ; preds = %5
+  %44 = load ptr, ptr %0, align 8
+  %45 = ptrtoint ptr %44 to i64
+  %46 = sub i64 %11, %45
+  %47 = sub i64 9223372036854775807, %46
+  %48 = icmp ult i64 %47, %2
+  br i1 %48, label %49, label %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagESaIS5_EE12_M_check_lenEmPKc.exit
 
-46:                                               ; preds = %40
+49:                                               ; preds = %43
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #24
   unreachable
 
-_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %40
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %43, i64 %2)
-  %47 = add i64 %.sroa.speculated.i, %43
-  %48 = icmp ult i64 %47, %43
-  %49 = tail call i64 @llvm.umin.i64(i64 %47, i64 9223372036854775807)
-  %50 = select i1 %48, i64 9223372036854775807, i64 %49
-  %51 = ptrtoint ptr %1 to i64
-  %52 = sub i64 %51, %42
-  %.not.i = icmp eq i64 %50, 0
-  br i1 %.not.i, label %55, label %53
+_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %43
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %46, i64 %2)
+  %50 = add i64 %.sroa.speculated.i, %46
+  %51 = icmp ult i64 %50, %46
+  %52 = tail call i64 @llvm.umin.i64(i64 %50, i64 9223372036854775807)
+  %53 = select i1 %51, i64 9223372036854775807, i64 %52
+  %54 = ptrtoint ptr %1 to i64
+  %55 = sub i64 %54, %45
+  %.not.i = icmp eq i64 %53, 0
+  br i1 %.not.i, label %58, label %56
 
-53:                                               ; preds = %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagESaIS5_EE12_M_check_lenEmPKc.exit
-  %54 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %50) #25
-  br label %55
+56:                                               ; preds = %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagESaIS5_EE12_M_check_lenEmPKc.exit
+  %57 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %53) #25
+  br label %58
 
-55:                                               ; preds = %53, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagESaIS5_EE12_M_check_lenEmPKc.exit
-  %56 = phi ptr [ %54, %53 ], [ null, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagESaIS5_EE12_M_check_lenEmPKc.exit ]
-  %57 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %56, i64 %52
+58:                                               ; preds = %56, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagESaIS5_EE12_M_check_lenEmPKc.exit
+  %59 = phi ptr [ %57, %56 ], [ null, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagESaIS5_EE12_M_check_lenEmPKc.exit ]
+  %60 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %59, i64 %55
   %.pre.i.i.i.i82 = load i8, ptr %3, align 1
-  tail call void @llvm.memset.p0.i64(ptr align 1 %57, i8 %.pre.i.i.i.i82, i64 %2, i1 false)
-  %.not11.i.i.i.i.i86 = icmp eq ptr %41, %1
+  tail call void @llvm.memset.p0.i64(ptr align 1 %60, i8 %.pre.i.i.i.i82, i64 %2, i1 false)
+  %.not11.i.i.i.i.i86 = icmp eq ptr %44, %1
   br i1 %.not11.i.i.i.i.i86, label %_ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagES6_SaIS5_EET0_T_S9_S8_RT1_.exit, label %.lr.ph.i.i.i.i.i87
 
-.lr.ph.i.i.i.i.i87:                               ; preds = %55, %.lr.ph.i.i.i.i.i87
-  %.013.i.i.i.i.i88 = phi ptr [ %60, %.lr.ph.i.i.i.i.i87 ], [ %56, %55 ]
-  %.sroa.08.012.i.i.i.i.i89 = phi ptr [ %59, %.lr.ph.i.i.i.i.i87 ], [ %41, %55 ]
-  %58 = load i8, ptr %.sroa.08.012.i.i.i.i.i89, align 1
-  store i8 %58, ptr %.013.i.i.i.i.i88, align 1
-  %59 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i89, i64 1
-  %60 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i88, i64 1
-  %.not.i.i.i.i.i90 = icmp eq ptr %59, %1
+.lr.ph.i.i.i.i.i87:                               ; preds = %58, %.lr.ph.i.i.i.i.i87
+  %.013.i.i.i.i.i88 = phi ptr [ %63, %.lr.ph.i.i.i.i.i87 ], [ %59, %58 ]
+  %.sroa.08.012.i.i.i.i.i89 = phi ptr [ %62, %.lr.ph.i.i.i.i.i87 ], [ %44, %58 ]
+  %61 = load i8, ptr %.sroa.08.012.i.i.i.i.i89, align 1
+  store i8 %61, ptr %.013.i.i.i.i.i88, align 1
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i89, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i88, i64 1
+  %.not.i.i.i.i.i90 = icmp eq ptr %62, %1
   br i1 %.not.i.i.i.i.i90, label %_ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagES6_SaIS5_EET0_T_S9_S8_RT1_.exit, label %.lr.ph.i.i.i.i.i87, !llvm.loop !53
 
-_ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagES6_SaIS5_EET0_T_S9_S8_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i87, %55
-  %.0.lcssa.i.i.i.i.i91 = phi ptr [ %56, %55 ], [ %60, %.lr.ph.i.i.i.i.i87 ]
-  %61 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %.0.lcssa.i.i.i.i.i91, i64 %2
+_ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagES6_SaIS5_EET0_T_S9_S8_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i87, %58
+  %.0.lcssa.i.i.i.i.i91 = phi ptr [ %59, %58 ], [ %63, %.lr.ph.i.i.i.i.i87 ]
+  %64 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %.0.lcssa.i.i.i.i.i91, i64 %2
   %.not11.i.i.i.i.i92 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i92, label %_ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagES6_SaIS5_EET0_T_S9_S8_RT1_.exit98, label %.lr.ph.i.i.i.i.i93
 
 .lr.ph.i.i.i.i.i93:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagES6_SaIS5_EET0_T_S9_S8_RT1_.exit, %.lr.ph.i.i.i.i.i93
-  %.013.i.i.i.i.i94 = phi ptr [ %64, %.lr.ph.i.i.i.i.i93 ], [ %61, %_ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagES6_SaIS5_EET0_T_S9_S8_RT1_.exit ]
-  %.sroa.08.012.i.i.i.i.i95 = phi ptr [ %63, %.lr.ph.i.i.i.i.i93 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagES6_SaIS5_EET0_T_S9_S8_RT1_.exit ]
-  %62 = load i8, ptr %.sroa.08.012.i.i.i.i.i95, align 1
-  store i8 %62, ptr %.013.i.i.i.i.i94, align 1
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i95, i64 1
-  %64 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i94, i64 1
-  %.not.i.i.i.i.i96 = icmp eq ptr %63, %9
+  %.013.i.i.i.i.i94 = phi ptr [ %67, %.lr.ph.i.i.i.i.i93 ], [ %64, %_ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagES6_SaIS5_EET0_T_S9_S8_RT1_.exit ]
+  %.sroa.08.012.i.i.i.i.i95 = phi ptr [ %66, %.lr.ph.i.i.i.i.i93 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagES6_SaIS5_EET0_T_S9_S8_RT1_.exit ]
+  %65 = load i8, ptr %.sroa.08.012.i.i.i.i.i95, align 1
+  store i8 %65, ptr %.013.i.i.i.i.i94, align 1
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i95, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i94, i64 1
+  %.not.i.i.i.i.i96 = icmp eq ptr %66, %9
   br i1 %.not.i.i.i.i.i96, label %_ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagES6_SaIS5_EET0_T_S9_S8_RT1_.exit98, label %.lr.ph.i.i.i.i.i93, !llvm.loop !53
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagES6_SaIS5_EET0_T_S9_S8_RT1_.exit98: ; preds = %.lr.ph.i.i.i.i.i93, %_ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagES6_SaIS5_EET0_T_S9_S8_RT1_.exit
-  %.0.lcssa.i.i.i.i.i97 = phi ptr [ %61, %_ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagES6_SaIS5_EET0_T_S9_S8_RT1_.exit ], [ %64, %.lr.ph.i.i.i.i.i93 ]
-  %.not.i99 = icmp eq ptr %41, null
-  br i1 %.not.i99, label %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagESaIS5_EE13_M_deallocateEPS5_m.exit, label %65
+  %.0.lcssa.i.i.i.i.i97 = phi ptr [ %64, %_ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagES6_SaIS5_EET0_T_S9_S8_RT1_.exit ], [ %67, %.lr.ph.i.i.i.i.i93 ]
+  %.not.i99 = icmp eq ptr %44, null
+  br i1 %.not.i99, label %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagESaIS5_EE13_M_deallocateEPS5_m.exit, label %68
 
-65:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagES6_SaIS5_EET0_T_S9_S8_RT1_.exit98
-  %66 = load ptr, ptr %6, align 8
-  %67 = ptrtoint ptr %66 to i64
-  %68 = sub i64 %67, %42
-  tail call void @_ZdlPvm(ptr noundef nonnull %41, i64 noundef %68) #23
+68:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagES6_SaIS5_EET0_T_S9_S8_RT1_.exit98
+  %69 = load ptr, ptr %6, align 8
+  %70 = ptrtoint ptr %69 to i64
+  %71 = sub i64 %70, %45
+  tail call void @_ZdlPvm(ptr noundef nonnull %44, i64 noundef %71) #23
   br label %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagESaIS5_EE13_M_deallocateEPS5_m.exit
 
-_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagES6_SaIS5_EET0_T_S9_S8_RT1_.exit98, %65
-  store ptr %56, ptr %0, align 8
+_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagES6_SaIS5_EET0_T_S9_S8_RT1_.exit98, %68
+  store ptr %59, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i97, ptr %8, align 8
-  %69 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %56, i64 %50
-  store ptr %69, ptr %6, align 8
+  %72 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %59, i64 %53
+  store ptr %72, ptr %6, align 8
   br label %_ZSt4fillIPN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagES5_EvT_S7_RKT0_.exit
 
 _ZSt4fillIPN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagES5_EvT_S7_RKT0_.exit: ; preds = %.lr.ph.preheader.i.i.i, %_ZSt22__uninitialized_move_aIPN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagES6_SaIS5_EET0_T_S9_S8_RT1_.exit75.thread, %.lr.ph.preheader.i.i.i77, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagESaIS5_EE13_M_deallocateEPS5_m.exit, %4

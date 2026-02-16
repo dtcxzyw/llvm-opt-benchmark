@@ -2664,7 +2664,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19: ; preds = %44,
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous16formatter_parserIcE10parse_argsEPKcS6_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = ptrtoint ptr %2 to i64
+  %4 = ptrtoaddr ptr %2 to i64
   %5 = icmp eq ptr %1, %2
   br i1 %5, label %6, label %7
 
@@ -2685,9 +2685,8 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous16fo
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %15
 
-15:                                               ; preds = %.preheader66, %57
-  %.051 = phi ptr [ %59, %57 ], [ %1, %.preheader66 ]
-  %.05175 = ptrtoint ptr %.051 to i64
+15:                                               ; preds = %.preheader66, %58
+  %.051 = phi ptr [ %60, %58 ], [ %1, %.preheader66 ]
   %16 = load i8, ptr %.051, align 1, !tbaa !44
   %17 = sext i8 %16 to i32
   %18 = tail call i32 @isalpha(i32 noundef %17) #28
@@ -2695,6 +2694,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous16fo
   br i1 %.not65, label %20, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %15
+  %.05175 = ptrtoaddr ptr %.051 to i64
   %scevgep = getelementptr i8, ptr %.051, i64 %4
   %19 = sub i64 0, %.05175
   %scevgep76 = getelementptr i8, ptr %scevgep, i64 %19
@@ -2734,72 +2734,73 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous16fo
   %.1.lcssa = phi ptr [ %scevgep76, %.preheader ], [ %.1, %21 ]
   %33 = load i64, ptr %11, align 8, !tbaa !42
   %34 = ptrtoint ptr %.1.lcssa to i64
-  %35 = sub i64 %34, %.05175
-  %36 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef 0, i64 noundef %33, ptr noundef nonnull %.051, i64 noundef %35)
-  %37 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE16trim_spaces_leftEPKcS6_(ptr noundef nonnull %.1.lcssa, ptr noundef %2)
-  %38 = icmp eq ptr %37, %2
-  br i1 %38, label %41, label %39
+  %35 = ptrtoint ptr %.051 to i64
+  %36 = sub i64 %34, %35
+  %37 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef 0, i64 noundef %33, ptr noundef nonnull %.051, i64 noundef %36)
+  %38 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE16trim_spaces_leftEPKcS6_(ptr noundef nonnull %.1.lcssa, ptr noundef %2)
+  %39 = icmp eq ptr %38, %2
+  br i1 %39, label %42, label %40
 
-39:                                               ; preds = %32
-  %40 = load i8, ptr %37, align 1, !tbaa !44
-  %.not = icmp eq i8 %40, 61
-  br i1 %.not, label %42, label %41
+40:                                               ; preds = %32
+  %41 = load i8, ptr %38, align 1, !tbaa !44
+  %.not = icmp eq i8 %41, 61
+  br i1 %.not, label %43, label %42
 
-41:                                               ; preds = %39, %32
+42:                                               ; preds = %40, %32
   tail call void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef nonnull @.str.67, i64 noundef 320, ptr noundef nonnull @.str.76) #27
   unreachable
 
-42:                                               ; preds = %39
-  %43 = getelementptr inbounds nuw i8, ptr %37, i64 1
-  %44 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE16trim_spaces_leftEPKcS6_(ptr noundef nonnull %43, ptr noundef %2)
-  %45 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE13parse_operandEPKcS6_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %44, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %12)
-  %46 = icmp eq ptr %45, %44
-  br i1 %46, label %47, label %48
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 1
+  %45 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE16trim_spaces_leftEPKcS6_(ptr noundef nonnull %44, ptr noundef %2)
+  %46 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE13parse_operandEPKcS6_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %45, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %47 = icmp eq ptr %46, %45
+  br i1 %47, label %48, label %49
 
-47:                                               ; preds = %42
+48:                                               ; preds = %43
   tail call void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef nonnull @.str.67, i64 noundef 326, ptr noundef nonnull @.str.77) #27
   unreachable
 
-48:                                               ; preds = %42
-  %49 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(32) %10)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %12)
+49:                                               ; preds = %43
+  %50 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %12)
   store i64 0, ptr %11, align 8, !tbaa !42
-  %50 = load ptr, ptr %10, align 8, !tbaa !56
-  store i8 0, ptr %50, align 1, !tbaa !44
-  store i64 0, ptr %14, align 8, !tbaa !42
-  %51 = load ptr, ptr %12, align 8, !tbaa !56
+  %51 = load ptr, ptr %10, align 8, !tbaa !56
   store i8 0, ptr %51, align 1, !tbaa !44
-  %52 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE16trim_spaces_leftEPKcS6_(ptr noundef %45, ptr noundef %2)
-  %53 = icmp eq ptr %52, %2
-  br i1 %53, label %54, label %55
+  store i64 0, ptr %14, align 8, !tbaa !42
+  %52 = load ptr, ptr %12, align 8, !tbaa !56
+  store i8 0, ptr %52, align 1, !tbaa !44
+  %53 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE16trim_spaces_leftEPKcS6_(ptr noundef %46, ptr noundef %2)
+  %54 = icmp eq ptr %53, %2
+  br i1 %54, label %55, label %56
 
-54:                                               ; preds = %48
+55:                                               ; preds = %49
   tail call void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef nonnull @.str.67, i64 noundef 332, ptr noundef nonnull @.str.73) #27
   unreachable
 
-55:                                               ; preds = %48
-  %56 = load i8, ptr %52, align 1, !tbaa !44
-  switch i8 %56, label %62 [
+56:                                               ; preds = %49
+  %57 = load i8, ptr %53, align 1, !tbaa !44
+  switch i8 %57, label %63 [
     i8 41, label %.thread
-    i8 44, label %57
+    i8 44, label %58
   ]
 
-57:                                               ; preds = %55
-  %58 = getelementptr inbounds nuw i8, ptr %52, i64 1
-  %59 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE16trim_spaces_leftEPKcS6_(ptr noundef nonnull %58, ptr noundef %2)
-  %60 = icmp eq ptr %59, %2
-  br i1 %60, label %61, label %15
+58:                                               ; preds = %56
+  %59 = getelementptr inbounds nuw i8, ptr %53, i64 1
+  %60 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE16trim_spaces_leftEPKcS6_(ptr noundef nonnull %59, ptr noundef %2)
+  %61 = icmp eq ptr %60, %2
+  br i1 %61, label %62, label %15
 
-61:                                               ; preds = %57
+62:                                               ; preds = %58
   tail call void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef nonnull @.str.67, i64 noundef 343, ptr noundef nonnull @.str.74) #27
   unreachable
 
-62:                                               ; preds = %55
+63:                                               ; preds = %56
   tail call void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef nonnull @.str.67, i64 noundef 347, ptr noundef nonnull @.str.73) #27
   unreachable
 
-.thread:                                          ; preds = %55, %7
-  %.pn = phi ptr [ %1, %7 ], [ %52, %55 ]
+.thread:                                          ; preds = %56, %7
+  %.pn = phi ptr [ %1, %7 ], [ %53, %56 ]
   %.052 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   ret ptr %.052
 }

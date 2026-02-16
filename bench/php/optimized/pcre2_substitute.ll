@@ -2075,11 +2075,11 @@ declare i32 @php_pcre2_substring_length_bynumber(ptr noundef, i32 noundef, ptr n
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 2) i32 @read_name_subst(ptr noundef nonnull captures(none) %0, ptr noundef readnone captures(address) %1, i32 noundef range(i32 0, 2) %2, ptr noundef readonly captures(none) %3) unnamed_addr #4 {
-  %5 = ptrtoint ptr %1 to i64
+  %5 = ptrtoaddr ptr %1 to i64
   %6 = load ptr, ptr %0, align 8, !tbaa !34
-  %7 = ptrtoint ptr %6 to i64
+  %7 = ptrtoaddr ptr %6 to i64
   %.not = icmp ult ptr %6, %1
-  br i1 %.not, label %8, label %135
+  br i1 %.not, label %8, label %136
 
 8:                                                ; preds = %4
   %.not67 = icmp eq i32 %2, 0
@@ -2264,14 +2264,15 @@ define internal fastcc range(i32 0, 2) i32 @read_name_subst(ptr noundef nonnull 
 .critedge3:                                       ; preds = %113, %119, %129, %.lr.ph79
   %.3 = phi ptr [ %.478, %.lr.ph79 ], [ %.2, %119 ], [ %scevgep, %129 ], [ %.175, %113 ]
   %131 = ptrtoint ptr %.3 to i64
-  %132 = sub i64 %131, %7
-  %133 = icmp slt i64 %132, 129
-  %134 = icmp ne ptr %.3, %6
-  %or.cond70.not = and i1 %134, %133
+  %132 = ptrtoint ptr %6 to i64
+  %133 = sub i64 %131, %132
+  %134 = icmp slt i64 %133, 129
+  %135 = icmp ne ptr %.3, %6
+  %or.cond70.not = and i1 %135, %134
   %spec.select = zext i1 %or.cond70.not to i32
-  br label %135
+  br label %136
 
-135:                                              ; preds = %.critedge3, %4
+136:                                              ; preds = %.critedge3, %4
   %storemerge = phi ptr [ %.3, %.critedge3 ], [ %6, %4 ]
   %.0 = phi i32 [ %spec.select, %.critedge3 ], [ 0, %4 ]
   store ptr %storemerge, ptr %0, align 8, !tbaa !34

@@ -15159,13 +15159,9 @@ _ZN5clang9ASTVectorIPNS_4StmtEE4growERKNS_10ASTContextEm.exit.i: ; preds = %50, 
   %54 = and i64 %.0.copyload.i.i.i.i.i, 7
   %55 = or i64 %54, %53
   store i64 %55, ptr %19, align 8
-  %.pre = ptrtoint ptr %.0.i.i.i.i.i.i to i64
-  %.pre2 = ptrtoint ptr %51 to i64
   br label %56
 
 56:                                               ; preds = %_ZN5clang9ASTVectorIPNS_4StmtEE4growERKNS_10ASTContextEm.exit.i, %18
-  %.pre-phi3 = phi i64 [ %.pre2, %_ZN5clang9ASTVectorIPNS_4StmtEE4growERKNS_10ASTContextEm.exit.i ], [ %9, %18 ]
-  %.pre-phi = phi i64 [ %.pre, %_ZN5clang9ASTVectorIPNS_4StmtEE4growERKNS_10ASTContextEm.exit.i ], [ %10, %18 ]
   %57 = phi ptr [ %.0.i.i.i.i.i.i, %_ZN5clang9ASTVectorIPNS_4StmtEE4growERKNS_10ASTContextEm.exit.i ], [ %8, %18 ]
   %58 = phi ptr [ %51, %_ZN5clang9ASTVectorIPNS_4StmtEE4growERKNS_10ASTContextEm.exit.i ], [ %7, %18 ]
   %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %5
@@ -15173,13 +15169,15 @@ _ZN5clang9ASTVectorIPNS_4StmtEE4growERKNS_10ASTContextEm.exit.i: ; preds = %50, 
   br i1 %.not5.i.i, label %.sink.split.i, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %56
-  %60 = shl nuw nsw i64 %5, 3
-  %61 = add i64 %.pre-phi, %60
-  %62 = add i64 %61, -8
-  %63 = sub i64 %62, %.pre-phi3
-  %64 = and i64 %63, -8
-  %65 = add i64 %64, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %58, i8 0, i64 %65, i1 false), !tbaa !3
+  %60 = ptrtoaddr ptr %58 to i64
+  %61 = ptrtoaddr ptr %57 to i64
+  %62 = shl nuw nsw i64 %5, 3
+  %63 = add i64 %62, %61
+  %64 = add i64 %63, -8
+  %65 = sub i64 %64, %60
+  %66 = and i64 %65, -8
+  %67 = add i64 %66, 8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %58, i8 0, i64 %67, i1 false), !tbaa !3
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.lr.ph.i.i.preheader, %56, %14

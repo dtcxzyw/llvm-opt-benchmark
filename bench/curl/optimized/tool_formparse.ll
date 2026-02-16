@@ -918,7 +918,7 @@ define internal fastcc range(i32 -1, 256) i32 @get_param_part(ptr noundef readon
 .critedge4:                                       ; preds = %19
   store ptr %17, ptr %10, align 8
   %22 = call fastcc ptr @get_param_word(ptr noundef %0, ptr noundef %10, ptr noundef %11, i8 noundef signext %1)
-  %23 = ptrtoint ptr %22 to i64
+  %23 = ptrtoaddr ptr %22 to i64
   store ptr %22, ptr %3, align 8, !tbaa !33
   %24 = icmp eq ptr %22, %17
   %.pre = load ptr, ptr %11, align 8, !tbaa !33
@@ -929,7 +929,7 @@ define internal fastcc range(i32 -1, 256) i32 @get_param_part(ptr noundef readon
   br i1 %25, label %.lr.ph.preheader, label %.critedge6.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.preheader252
-  %.promoted287363 = ptrtoint ptr %.pre to i64
+  %.promoted287363 = ptrtoaddr ptr %.pre to i64
   %26 = sub i64 %23, %.promoted287363
   %scevgep = getelementptr i8, ptr %.pre, i64 %26
   br label %.lr.ph
@@ -1078,7 +1078,7 @@ define internal fastcc range(i32 -1, 256) i32 @get_param_part(ptr noundef readon
 .critedge20:                                      ; preds = %66
   store ptr %storemerge206, ptr %10, align 8, !tbaa !33
   %69 = call fastcc ptr @get_param_word(ptr noundef %0, ptr noundef %10, ptr noundef %11, i8 noundef signext %1)
-  %70 = ptrtoint ptr %69 to i64
+  %70 = ptrtoaddr ptr %69 to i64
   %71 = icmp eq ptr %69, %storemerge206
   %.pre372 = load ptr, ptr %11, align 8, !tbaa !33
   br i1 %71, label %.preheader250, label %.critedge22
@@ -1088,7 +1088,7 @@ define internal fastcc range(i32 -1, 256) i32 @get_param_part(ptr noundef readon
   br i1 %72, label %.lr.ph307.preheader, label %.critedge22.loopexit
 
 .lr.ph307.preheader:                              ; preds = %.preheader250
-  %.promoted305364 = ptrtoint ptr %.pre372 to i64
+  %.promoted305364 = ptrtoaddr ptr %.pre372 to i64
   %73 = sub i64 %70, %.promoted305364
   %scevgep365 = getelementptr i8, ptr %.pre372, i64 %73
   br label %.lr.ph307
@@ -1169,7 +1169,7 @@ define internal fastcc range(i32 -1, 256) i32 @get_param_part(ptr noundef readon
 .critedge28:                                      ; preds = %93
   store ptr %91, ptr %10, align 8, !tbaa !33
   %95 = call fastcc ptr @get_param_word(ptr noundef %0, ptr noundef %10, ptr noundef %11, i8 noundef signext %1)
-  %96 = ptrtoint ptr %95 to i64
+  %96 = ptrtoaddr ptr %95 to i64
   %97 = icmp eq ptr %95, %91
   %.pre373 = load ptr, ptr %11, align 8, !tbaa !33
   br i1 %97, label %.preheader249, label %.critedge30
@@ -1179,7 +1179,7 @@ define internal fastcc range(i32 -1, 256) i32 @get_param_part(ptr noundef readon
   br i1 %98, label %.lr.ph316.preheader, label %.critedge30.loopexit
 
 .lr.ph316.preheader:                              ; preds = %.preheader249
-  %.promoted314366 = ptrtoint ptr %.pre373 to i64
+  %.promoted314366 = ptrtoaddr ptr %.pre373 to i64
   %99 = sub i64 %96, %.promoted314366
   %scevgep367 = getelementptr i8, ptr %.pre373, i64 %99
   br label %.lr.ph316
@@ -1397,7 +1397,7 @@ read_field_headers.exit:                          ; preds = %131
 .critedge36:                                      ; preds = %159
   store ptr %158, ptr %10, align 8
   %162 = call fastcc ptr @get_param_word(ptr noundef %0, ptr noundef %10, ptr noundef %11, i8 noundef signext %1)
-  %163 = ptrtoint ptr %162 to i64
+  %163 = ptrtoaddr ptr %162 to i64
   %164 = icmp eq ptr %162, %158
   %.pre375 = load ptr, ptr %11, align 8, !tbaa !33
   br i1 %164, label %.preheader247, label %.critedge38
@@ -1407,7 +1407,7 @@ read_field_headers.exit:                          ; preds = %131
   br i1 %165, label %.lr.ph324.preheader, label %.critedge38.loopexit
 
 .lr.ph324.preheader:                              ; preds = %.preheader247
-  %.promoted322368 = ptrtoint ptr %.pre375 to i64
+  %.promoted322368 = ptrtoaddr ptr %.pre375 to i64
   %166 = sub i64 %163, %.promoted322368
   %scevgep369 = getelementptr i8, ptr %.pre375, i64 %166
   br label %.lr.ph324
@@ -1493,7 +1493,7 @@ slist_append.exit:                                ; preds = %.critedge38
 .critedge44:                                      ; preds = %186
   store ptr %storemerge202, ptr %10, align 8, !tbaa !33
   %189 = call fastcc ptr @get_param_word(ptr noundef %0, ptr noundef %10, ptr noundef %11, i8 noundef signext %1)
-  %190 = ptrtoint ptr %189 to i64
+  %190 = ptrtoaddr ptr %189 to i64
   %191 = icmp eq ptr %189, %storemerge202
   %.pre376 = load ptr, ptr %11, align 8, !tbaa !33
   br i1 %191, label %.preheader, label %.critedge46
@@ -1503,7 +1503,7 @@ slist_append.exit:                                ; preds = %.critedge38
   br i1 %192, label %.lr.ph331.preheader, label %.critedge46.loopexit
 
 .lr.ph331.preheader:                              ; preds = %.preheader
-  %.promoted329370 = ptrtoint ptr %.pre376 to i64
+  %.promoted329370 = ptrtoaddr ptr %.pre376 to i64
   %193 = sub i64 %190, %.promoted329370
   %scevgep371 = getelementptr i8, ptr %.pre376, i64 %193
   br label %.lr.ph331

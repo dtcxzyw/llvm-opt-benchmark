@@ -8279,8 +8279,8 @@ define linkonce_odr hidden void @_ZNSt6vectorI7MovableSaIS0_EED2Ev(ptr noundef n
 
 .lr.ph.preheader.i.i.i:                           ; preds = %1
   %_ZL10destructed.promoted.i.i.i = load i32, ptr @_ZL10destructed, align 4
-  %5 = ptrtoint ptr %4 to i64
-  %6 = ptrtoint ptr %2 to i64
+  %5 = ptrtoaddr ptr %4 to i64
+  %6 = ptrtoaddr ptr %2 to i64
   %reass.sub = sub i64 %5, %6
   %7 = add i64 %reass.sub, 17179869180
   %8 = lshr i64 %7, 2
@@ -8719,8 +8719,8 @@ define linkonce_odr hidden void @_ZNSt6vectorI8CopyableSaIS0_EED2Ev(ptr noundef 
 
 .lr.ph.preheader.i.i.i:                           ; preds = %1
   %_ZL10destructed.promoted.i.i.i = load i32, ptr @_ZL10destructed, align 4
-  %5 = ptrtoint ptr %4 to i64
-  %6 = ptrtoint ptr %2 to i64
+  %5 = ptrtoaddr ptr %4 to i64
+  %6 = ptrtoaddr ptr %2 to i64
   %reass.sub = sub i64 %5, %6
   %7 = add i64 %reass.sub, 17179869180
   %8 = lshr i64 %7, 2
@@ -8780,8 +8780,8 @@ define linkonce_odr hidden void @_ZNSt6vectorI8CopyableSaIS0_EE7reserveEm(ptr no
 
 .lr.ph.preheader.i.i.i:                           ; preds = %14
   %_ZL10destructed.promoted.i.i.i = load i32, ptr @_ZL10destructed, align 4
-  %22 = ptrtoint ptr %21 to i64
-  %23 = ptrtoint ptr %20 to i64
+  %22 = ptrtoaddr ptr %21 to i64
+  %23 = ptrtoaddr ptr %20 to i64
   %reass.sub = sub i64 %22, %23
   %24 = add i64 %reass.sub, 17179869180
   %25 = lshr i64 %24, 2
@@ -8956,33 +8956,34 @@ _ZSt34__uninitialized_move_if_noexcept_aIP8CopyableS1_SaIS0_EET0_T_S4_S3_RT1_.ex
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIP8CopyableS1_SaIS0_EET0_T_S4_S3_RT1_.exit34
   %_ZL10destructed.promoted.i.i.i = load i32, ptr @_ZL10destructed, align 4
-  %27 = ptrtoint ptr %7 to i64
-  %reass.sub = sub i64 %27, %9
-  %28 = add i64 %reass.sub, 17179869180
-  %29 = lshr i64 %28, 2
-  %30 = trunc i64 %29 to i32
-  %31 = add i32 %30, 1
-  %32 = add i32 %31, %_ZL10destructed.promoted.i.i.i
-  store i32 %32, ptr @_ZL10destructed, align 4, !tbaa !128
+  %27 = ptrtoaddr ptr %7 to i64
+  %28 = ptrtoaddr ptr %5 to i64
+  %reass.sub = sub i64 %27, %28
+  %29 = add i64 %reass.sub, 17179869180
+  %30 = lshr i64 %29, 2
+  %31 = trunc i64 %30 to i32
+  %32 = add i32 %31, 1
+  %33 = add i32 %32, %_ZL10destructed.promoted.i.i.i
+  store i32 %33, ptr @_ZL10destructed, align 4, !tbaa !128
   br label %_ZSt8_DestroyIP8CopyableS0_EvT_S2_RSaIT0_E.exit
 
 _ZSt8_DestroyIP8CopyableS0_EvT_S2_RSaIT0_E.exit:  ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIP8CopyableS1_SaIS0_EET0_T_S4_S3_RT1_.exit34, %.lr.ph.preheader.i.i.i
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not.i35 = icmp eq ptr %5, null
-  br i1 %.not.i35, label %_ZNSt12_Vector_baseI8CopyableSaIS0_EE13_M_deallocateEPS0_m.exit, label %34
+  br i1 %.not.i35, label %_ZNSt12_Vector_baseI8CopyableSaIS0_EE13_M_deallocateEPS0_m.exit, label %35
 
-34:                                               ; preds = %_ZSt8_DestroyIP8CopyableS0_EvT_S2_RSaIT0_E.exit
-  %35 = load ptr, ptr %33, align 8, !tbaa !305
-  %36 = ptrtoint ptr %35 to i64
-  %37 = sub i64 %36, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %37) #34
+35:                                               ; preds = %_ZSt8_DestroyIP8CopyableS0_EvT_S2_RSaIT0_E.exit
+  %36 = load ptr, ptr %34, align 8, !tbaa !305
+  %37 = ptrtoint ptr %36 to i64
+  %38 = sub i64 %37, %9
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %38) #34
   br label %_ZNSt12_Vector_baseI8CopyableSaIS0_EE13_M_deallocateEPS0_m.exit
 
-_ZNSt12_Vector_baseI8CopyableSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZSt8_DestroyIP8CopyableS0_EvT_S2_RSaIT0_E.exit, %34
+_ZNSt12_Vector_baseI8CopyableSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZSt8_DestroyIP8CopyableS0_EvT_S2_RSaIT0_E.exit, %35
   store ptr %11, ptr %0, align 8, !tbaa !303
   store ptr %.0.lcssa.i.i.i.i.i33, ptr %6, align 8, !tbaa !301
-  %38 = getelementptr inbounds nuw %struct.Copyable, ptr %11, i64 %4
-  store ptr %38, ptr %33, align 8, !tbaa !305
+  %39 = getelementptr inbounds nuw %struct.Copyable, ptr %11, i64 %4
+  store ptr %39, ptr %34, align 8, !tbaa !305
   ret void
 }
 
@@ -9101,8 +9102,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11list_casterI
 
 12:                                               ; preds = %4
   %_ZL10destructed.promoted.i.i.i.i.i = load i32, ptr @_ZL10destructed, align 4
-  %13 = ptrtoint ptr %11 to i64
-  %14 = ptrtoint ptr %9 to i64
+  %13 = ptrtoaddr ptr %11 to i64
+  %14 = ptrtoaddr ptr %9 to i64
   %reass.sub = sub i64 %13, %14
   %15 = add i64 %reass.sub, 17179869180
   %16 = lshr i64 %15, 2
@@ -9413,8 +9414,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11list_casterI
 
 12:                                               ; preds = %4
   %_ZL10destructed.promoted.i.i.i.i.i = load i32, ptr @_ZL10destructed, align 4
-  %13 = ptrtoint ptr %11 to i64
-  %14 = ptrtoint ptr %9 to i64
+  %13 = ptrtoaddr ptr %11 to i64
+  %14 = ptrtoaddr ptr %9 to i64
   %reass.sub = sub i64 %13, %14
   %15 = add i64 %reass.sub, 17179869180
   %16 = lshr i64 %15, 2

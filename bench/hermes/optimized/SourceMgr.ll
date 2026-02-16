@@ -1455,7 +1455,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh9SourceMgr10GetMessageENS_5SMLocENS0_8DiagKindERKNS_5TwineENS_8ArrayRefINS_7SMRangeEEENS6_INS_7SMFixItEEE(ptr noalias sret(%"class.llvh::SMDiagnostic") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr %Loc.coerce, i32 noundef %Kind, ptr noundef nonnull align 8 dereferenceable(18) %Msg, ptr noundef readonly byval(%"class.llvh::ArrayRef") align 8 captures(none) %Ranges, ptr noundef readonly byval(%"class.llvh::ArrayRef.41") align 8 captures(none) %FixIts) local_unnamed_addr #0 align 2 {
 entry:
-  %Loc.coerce55 = ptrtoint ptr %Loc.coerce to i64
+  %Loc.coerce55 = ptrtoaddr ptr %Loc.coerce to i64
   %LineRefAndNo.i = alloca %"struct.std::pair.36", align 8
   %ColRanges = alloca %"class.llvh::SmallVector.49", align 8
   %LineStr = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1558,7 +1558,7 @@ _ZNK4llvh9SourceMgr23FindBufferContainingLocENS_5SMLocE.exit: ; preds = %if.end.
   %14 = extractvalue { ptr, i64 } %call5, 1
   %BufferStart.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load ptr, ptr %BufferStart.i, align 8
-  %16 = ptrtoint ptr %15 to i64
+  %16 = ptrtoaddr ptr %15 to i64
   %17 = sub i64 %16, %Loc.coerce55
   %scevgep = getelementptr i8, ptr %Loc.coerce, i64 %17
   br label %while.cond
@@ -1584,7 +1584,7 @@ while.end:                                        ; preds = %land.lhs.true, %lan
   br i1 %cmp15.not48, label %while.end27, label %land.lhs.true16.preheader
 
 land.lhs.true16.preheader:                        ; preds = %while.end
-  %20 = ptrtoint ptr %19 to i64
+  %20 = ptrtoaddr ptr %19 to i64
   %21 = sub i64 %20, %Loc.coerce55
   %scevgep56 = getelementptr i8, ptr %Loc.coerce, i64 %21
   br label %land.lhs.true16
@@ -1681,8 +1681,9 @@ for.end:                                          ; preds = %for.inc, %while.end
   call void @_ZNK4llvh9SourceMgr8FindLineENS_5SMLocEj(ptr nonnull sret(%"struct.std::pair.36") align 8 %LineRefAndNo.i, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nonnull %Loc.coerce, i32 noundef %retval.0.i)
   %second.i34 = getelementptr inbounds nuw i8, ptr %LineRefAndNo.i, i64 16
   %32 = load ptr, ptr %LineRefAndNo.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %Loc.coerce to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %32 to i64
-  %sub.ptr.sub.i = sub i64 %Loc.coerce55, %sub.ptr.rhs.cast.i
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %33 = load i32, ptr %second.i34, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %LineRefAndNo.i)
   %34 = trunc i64 %sub.ptr.sub.i to i32

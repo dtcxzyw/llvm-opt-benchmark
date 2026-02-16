@@ -3849,11 +3849,11 @@ define internal fastcc void @retrieve_status(ptr noundef nonnull readonly captur
   %29 = zext i32 %22 to i64
   br label %30
 
-30:                                               ; preds = %78, %24
-  %31 = phi i64 [ 0, %24 ], [ %91, %78 ]
-  %32 = phi i32 [ 0, %24 ], [ %74, %78 ]
-  %33 = phi i64 [ 0, %24 ], [ %84, %78 ]
-  %34 = phi ptr [ %25, %24 ], [ %87, %78 ]
+30:                                               ; preds = %80, %24
+  %31 = phi i64 [ 0, %24 ], [ %93, %80 ]
+  %32 = phi i32 [ 0, %24 ], [ %76, %80 ]
+  %33 = phi i64 [ 0, %24 ], [ %86, %80 ]
+  %34 = phi ptr [ %25, %24 ], [ %89, %80 ]
   %35 = load i32, ptr %21, align 8
   %36 = zext i32 %35 to i64
   %37 = icmp samesign ult i64 %31, %36
@@ -3892,70 +3892,74 @@ define internal fastcc void @retrieve_status(ptr noundef nonnull readonly captur
   %59 = ptrtoint ptr %58 to i64
   %60 = sub i64 %27, %59
   %61 = add i64 %60, %13
-  %62 = load ptr, ptr %53, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 136
-  %64 = load ptr, ptr %63, align 8
-  %65 = icmp eq ptr %64, null
-  br i1 %65, label %72, label %66
+  %62 = icmp eq i64 %61, 0
+  br i1 %62, label %.thread.sink.split, label %63
 
-66:                                               ; preds = %45
-  %67 = load i32, ptr %14, align 4
-  %68 = and i32 %67, 2048
-  %69 = icmp eq i32 %68, 0
-  %70 = select i1 %69, i32 %32, i32 1
-  %71 = trunc i64 %61 to i32
-  tail call void %64(ptr noundef %41, i32 noundef %20, i32 noundef %70, ptr noundef %58, i32 noundef %71) #21
-  br label %73
+63:                                               ; preds = %45
+  %64 = load ptr, ptr %53, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 136
+  %66 = load ptr, ptr %65, align 8
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %74, label %68
 
-72:                                               ; preds = %45
+68:                                               ; preds = %63
+  %69 = load i32, ptr %14, align 4
+  %70 = and i32 %69, 2048
+  %71 = icmp eq i32 %70, 0
+  %72 = select i1 %71, i32 %32, i32 1
+  %73 = trunc i64 %61 to i32
+  tail call void %66(ptr noundef %41, i32 noundef %20, i32 noundef %72, ptr noundef %58, i32 noundef %73) #21
+  br label %75
+
+74:                                               ; preds = %63
   store i8 0, ptr %58, align 1
-  br label %73
+  br label %75
 
-73:                                               ; preds = %72, %66
-  %74 = phi i32 [ %70, %66 ], [ %32, %72 ]
-  %75 = tail call i64 @strlen(ptr noundef %58) #21
-  %76 = add i64 %75, 1
-  %77 = icmp eq i64 %76, %61
-  br i1 %77, label %.thread.sink.split, label %78
+75:                                               ; preds = %74, %68
+  %76 = phi i32 [ %72, %68 ], [ %32, %74 ]
+  %77 = tail call i64 @strlen(ptr noundef %58) #21
+  %78 = add i64 %77, 1
+  %79 = icmp eq i64 %78, %61
+  br i1 %79, label %.thread.sink.split, label %80
 
-78:                                               ; preds = %73
-  %79 = getelementptr i8, ptr %58, i64 %76
-  %80 = load i32, ptr %11, align 8
-  %81 = zext i32 %80 to i64
-  %82 = ptrtoint ptr %79 to i64
-  %83 = sub i64 %82, %27
-  %84 = add i64 %83, %81
-  %85 = add i64 %82, 7
-  %86 = and i64 %85, -8
-  %87 = inttoptr i64 %86 to ptr
-  %88 = sub i64 %86, %27
-  %89 = trunc i64 %88 to i32
-  %90 = getelementptr inbounds nuw i8, ptr %34, i64 20
-  store i32 %89, ptr %90, align 4
-  %91 = add nuw nsw i64 %31, 1
-  %92 = icmp eq i64 %91, %29
-  br i1 %92, label %.thread, label %30, !llvm.loop !43
+80:                                               ; preds = %75
+  %81 = getelementptr i8, ptr %58, i64 %78
+  %82 = load i32, ptr %11, align 8
+  %83 = zext i32 %82 to i64
+  %84 = ptrtoint ptr %81 to i64
+  %85 = sub i64 %84, %27
+  %86 = add i64 %85, %83
+  %87 = add i64 %84, 7
+  %88 = and i64 %87, -8
+  %89 = inttoptr i64 %88 to ptr
+  %90 = sub i64 %88, %27
+  %91 = trunc i64 %90 to i32
+  %92 = getelementptr inbounds nuw i8, ptr %34, i64 20
+  store i32 %91, ptr %92, align 4
+  %93 = add nuw nsw i64 %31, 1
+  %94 = icmp eq i64 %93, %29
+  br i1 %94, label %.thread, label %30, !llvm.loop !43
 
-.thread.sink.split:                               ; preds = %73, %39
-  %93 = load i32, ptr %14, align 4
-  %94 = or i32 %93, 256
-  store i32 %94, ptr %14, align 4
+.thread.sink.split:                               ; preds = %75, %45, %39
+  %95 = load i32, ptr %14, align 4
+  %96 = or i32 %95, 256
+  store i32 %96, ptr %14, align 4
   br label %.thread
 
-.thread:                                          ; preds = %78, %.thread.sink.split
-  %95 = phi i64 [ %33, %.thread.sink.split ], [ %84, %78 ]
-  %96 = icmp eq i64 %95, 0
-  br i1 %96, label %.thread8, label %97
+.thread:                                          ; preds = %80, %.thread.sink.split
+  %97 = phi i64 [ %33, %.thread.sink.split ], [ %86, %80 ]
+  %98 = icmp eq i64 %97, 0
+  br i1 %98, label %.thread8, label %99
 
-97:                                               ; preds = %.thread
-  %98 = trunc i64 %95 to i32
-  %99 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %98, ptr %99, align 4
+99:                                               ; preds = %.thread
+  %100 = trunc i64 %97 to i32
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 %100, ptr %101, align 4
   br label %.thread8
 
-.thread8:                                         ; preds = %3, %97, %.thread
-  %100 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i32 %22, ptr %100, align 4
+.thread8:                                         ; preds = %3, %99, %.thread
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  store i32 %22, ptr %102, align 4
   ret void
 }
 

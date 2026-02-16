@@ -1124,6 +1124,10 @@ HashObject.exit:                                  ; preds = %14
   %.not24.i.i = icmp eq i32 %64, 0
   br i1 %.not24.i.i, label %.lr.ph29.i.i.preheader, label %.lr.ph.i.i
 
+.lr.ph29.i.i.preheader:                           ; preds = %.lr.ph.i.i, %56
+  %.01528.i.i.ph = phi ptr [ %60, %56 ], [ %67, %.lr.ph.i.i ]
+  br label %.lr.ph29.i.i
+
 .lr.ph.i.i:                                       ; preds = %56, %.lr.ph.i.i
   %.126.i.i = phi i32 [ %66, %.lr.ph.i.i ], [ %64, %56 ]
   %.01625.i.i = phi ptr [ %67, %.lr.ph.i.i ], [ %60, %56 ]
@@ -1133,9 +1137,9 @@ HashObject.exit:                                  ; preds = %14
   %.not.i.i = icmp eq i32 %66, 0
   br i1 %.not.i.i, label %.lr.ph29.i.i.preheader, label %.lr.ph.i.i, !llvm.loop !44
 
-.lr.ph29.i.i.preheader:                           ; preds = %.lr.ph.i.i, %56
-  %.01528.i.i.ph = phi ptr [ %60, %56 ], [ %67, %.lr.ph.i.i ]
-  br label %.lr.ph29.i.i
+.preheader.i.i:                                   ; preds = %.lr.ph29.i.i
+  %.not2232.i.i = icmp eq i32 %69, 0
+  br i1 %.not2232.i.i, label %EvictSessionFromCache.exit, label %.lr.ph35.i.i
 
 .lr.ph29.i.i:                                     ; preds = %.lr.ph29.i.i.preheader, %.lr.ph29.i.i
   %.01528.i.i = phi ptr [ %68, %.lr.ph29.i.i ], [ %.01528.i.i.ph, %.lr.ph29.i.i.preheader ]
@@ -1143,19 +1147,19 @@ HashObject.exit:                                  ; preds = %14
   %68 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 8
   store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !27
   %69 = add nsw i32 %.01827.i.i, -8
-  %70 = icmp samesign ugt i32 %.01827.i.i, 15
-  br i1 %70, label %.lr.ph29.i.i, label %.lr.ph35.i.i, !llvm.loop !45
+  %70 = icmp ugt i32 %69, 7
+  br i1 %70, label %.lr.ph29.i.i, label %.preheader.i.i, !llvm.loop !45
 
-.lr.ph35.i.i:                                     ; preds = %.lr.ph29.i.i, %.lr.ph35.i.i
-  %.11734.i.i = phi ptr [ %72, %.lr.ph35.i.i ], [ %68, %.lr.ph29.i.i ]
-  %.11933.i.i = phi i32 [ %71, %.lr.ph35.i.i ], [ 5, %.lr.ph29.i.i ]
-  %71 = add nsw i32 %.11933.i.i, -1
+.lr.ph35.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph35.i.i
+  %.11734.i.i = phi ptr [ %72, %.lr.ph35.i.i ], [ %68, %.preheader.i.i ]
+  %.11933.i.i = phi i32 [ %71, %.lr.ph35.i.i ], [ %69, %.preheader.i.i ]
+  %71 = add i32 %.11933.i.i, -1
   %72 = getelementptr inbounds nuw i8, ptr %.11734.i.i, i64 1
   store volatile i8 0, ptr %.11734.i.i, align 1, !tbaa !43
   %.not22.i.i = icmp eq i32 %71, 0
   br i1 %.not22.i.i, label %EvictSessionFromCache.exit, label %.lr.ph35.i.i, !llvm.loop !46
 
-EvictSessionFromCache.exit:                       ; preds = %.lr.ph35.i.i
+EvictSessionFromCache.exit:                       ; preds = %.lr.ph35.i.i, %.preheader.i.i
   %73 = getelementptr inbounds nuw i8, ptr %59, i64 116
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(33) %73, i8 0, i64 33, i1 false)
   br label %74
@@ -1805,6 +1809,10 @@ define void @wolfSSL_CTX_flush_sessions(ptr noundef readnone captures(none) %0, 
   %.not24.i.i = icmp eq i32 %24, 0
   br i1 %.not24.i.i, label %.lr.ph29.i.i.preheader, label %.lr.ph.i.i
 
+.lr.ph29.i.i.preheader:                           ; preds = %.lr.ph.i.i, %19
+  %.01528.i.i.ph = phi ptr [ %20, %19 ], [ %27, %.lr.ph.i.i ]
+  br label %.lr.ph29.i.i
+
 .lr.ph.i.i:                                       ; preds = %19, %.lr.ph.i.i
   %.126.i.i = phi i32 [ %26, %.lr.ph.i.i ], [ %24, %19 ]
   %.01625.i.i = phi ptr [ %27, %.lr.ph.i.i ], [ %20, %19 ]
@@ -1814,9 +1822,9 @@ define void @wolfSSL_CTX_flush_sessions(ptr noundef readnone captures(none) %0, 
   %.not.i.i = icmp eq i32 %26, 0
   br i1 %.not.i.i, label %.lr.ph29.i.i.preheader, label %.lr.ph.i.i, !llvm.loop !44
 
-.lr.ph29.i.i.preheader:                           ; preds = %.lr.ph.i.i, %19
-  %.01528.i.i.ph = phi ptr [ %20, %19 ], [ %27, %.lr.ph.i.i ]
-  br label %.lr.ph29.i.i
+.preheader.i.i:                                   ; preds = %.lr.ph29.i.i
+  %.not2232.i.i = icmp eq i32 %29, 0
+  br i1 %.not2232.i.i, label %EvictSessionFromCache.exit, label %.lr.ph35.i.i
 
 .lr.ph29.i.i:                                     ; preds = %.lr.ph29.i.i.preheader, %.lr.ph29.i.i
   %.01528.i.i = phi ptr [ %28, %.lr.ph29.i.i ], [ %.01528.i.i.ph, %.lr.ph29.i.i.preheader ]
@@ -1824,19 +1832,19 @@ define void @wolfSSL_CTX_flush_sessions(ptr noundef readnone captures(none) %0, 
   %28 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 8
   store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !27
   %29 = add nsw i32 %.01827.i.i, -8
-  %30 = icmp samesign ugt i32 %.01827.i.i, 15
-  br i1 %30, label %.lr.ph29.i.i, label %.lr.ph35.i.i, !llvm.loop !45
+  %30 = icmp ugt i32 %29, 7
+  br i1 %30, label %.lr.ph29.i.i, label %.preheader.i.i, !llvm.loop !45
 
-.lr.ph35.i.i:                                     ; preds = %.lr.ph29.i.i, %.lr.ph35.i.i
-  %.11734.i.i = phi ptr [ %32, %.lr.ph35.i.i ], [ %28, %.lr.ph29.i.i ]
-  %.11933.i.i = phi i32 [ %31, %.lr.ph35.i.i ], [ 5, %.lr.ph29.i.i ]
-  %31 = add nsw i32 %.11933.i.i, -1
+.lr.ph35.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph35.i.i
+  %.11734.i.i = phi ptr [ %32, %.lr.ph35.i.i ], [ %28, %.preheader.i.i ]
+  %.11933.i.i = phi i32 [ %31, %.lr.ph35.i.i ], [ %29, %.preheader.i.i ]
+  %31 = add i32 %.11933.i.i, -1
   %32 = getelementptr inbounds nuw i8, ptr %.11734.i.i, i64 1
   store volatile i8 0, ptr %.11734.i.i, align 1, !tbaa !43
   %.not22.i.i = icmp eq i32 %31, 0
   br i1 %.not22.i.i, label %EvictSessionFromCache.exit, label %.lr.ph35.i.i, !llvm.loop !46
 
-EvictSessionFromCache.exit:                       ; preds = %.lr.ph35.i.i
+EvictSessionFromCache.exit:                       ; preds = %.lr.ph35.i.i, %.preheader.i.i
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 116
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(33) %33, i8 0, i64 33, i1 false)
   br label %34
@@ -6751,6 +6759,10 @@ define range(i32 -241, 2) i32 @wolfSSL_Cleanup() local_unnamed_addr #0 {
   %.not24.i.i = icmp eq i32 %23, 0
   br i1 %.not24.i.i, label %.lr.ph29.i.i.preheader, label %.lr.ph.i.i
 
+.lr.ph29.i.i.preheader:                           ; preds = %.lr.ph.i.i, %17
+  %.01528.i.i.ph = phi ptr [ %19, %17 ], [ %26, %.lr.ph.i.i ]
+  br label %.lr.ph29.i.i
+
 .lr.ph.i.i:                                       ; preds = %17, %.lr.ph.i.i
   %.126.i.i = phi i32 [ %25, %.lr.ph.i.i ], [ %23, %17 ]
   %.01625.i.i = phi ptr [ %26, %.lr.ph.i.i ], [ %19, %17 ]
@@ -6760,9 +6772,9 @@ define range(i32 -241, 2) i32 @wolfSSL_Cleanup() local_unnamed_addr #0 {
   %.not.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i, label %.lr.ph29.i.i.preheader, label %.lr.ph.i.i, !llvm.loop !44
 
-.lr.ph29.i.i.preheader:                           ; preds = %.lr.ph.i.i, %17
-  %.01528.i.i.ph = phi ptr [ %19, %17 ], [ %26, %.lr.ph.i.i ]
-  br label %.lr.ph29.i.i
+.preheader.i.i:                                   ; preds = %.lr.ph29.i.i
+  %.not2232.i.i = icmp eq i32 %28, 0
+  br i1 %.not2232.i.i, label %EvictSessionFromCache.exit, label %.lr.ph35.i.i
 
 .lr.ph29.i.i:                                     ; preds = %.lr.ph29.i.i.preheader, %.lr.ph29.i.i
   %.01528.i.i = phi ptr [ %27, %.lr.ph29.i.i ], [ %.01528.i.i.ph, %.lr.ph29.i.i.preheader ]
@@ -6770,19 +6782,19 @@ define range(i32 -241, 2) i32 @wolfSSL_Cleanup() local_unnamed_addr #0 {
   %27 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 8
   store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !27
   %28 = add nsw i32 %.01827.i.i, -8
-  %29 = icmp samesign ugt i32 %.01827.i.i, 15
-  br i1 %29, label %.lr.ph29.i.i, label %.lr.ph35.i.i, !llvm.loop !45
+  %29 = icmp ugt i32 %28, 7
+  br i1 %29, label %.lr.ph29.i.i, label %.preheader.i.i, !llvm.loop !45
 
-.lr.ph35.i.i:                                     ; preds = %.lr.ph29.i.i, %.lr.ph35.i.i
-  %.11734.i.i = phi ptr [ %31, %.lr.ph35.i.i ], [ %27, %.lr.ph29.i.i ]
-  %.11933.i.i = phi i32 [ %30, %.lr.ph35.i.i ], [ 5, %.lr.ph29.i.i ]
-  %30 = add nsw i32 %.11933.i.i, -1
+.lr.ph35.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph35.i.i
+  %.11734.i.i = phi ptr [ %31, %.lr.ph35.i.i ], [ %27, %.preheader.i.i ]
+  %.11933.i.i = phi i32 [ %30, %.lr.ph35.i.i ], [ %28, %.preheader.i.i ]
+  %30 = add i32 %.11933.i.i, -1
   %31 = getelementptr inbounds nuw i8, ptr %.11734.i.i, i64 1
   store volatile i8 0, ptr %.11734.i.i, align 1, !tbaa !43
   %.not22.i.i = icmp eq i32 %30, 0
   br i1 %.not22.i.i, label %EvictSessionFromCache.exit, label %.lr.ph35.i.i, !llvm.loop !46
 
-EvictSessionFromCache.exit:                       ; preds = %.lr.ph35.i.i
+EvictSessionFromCache.exit:                       ; preds = %.lr.ph35.i.i, %.preheader.i.i
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 116
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(33) %32, i8 0, i64 33, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

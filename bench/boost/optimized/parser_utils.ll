@@ -63,8 +63,8 @@ define hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE16tr
   br i1 %.not6, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %3 = ptrtoint ptr %1 to i64
-  %4 = ptrtoint ptr %0 to i64
+  %3 = ptrtoaddr ptr %1 to i64
+  %4 = ptrtoaddr ptr %0 to i64
   %5 = sub i64 %3, %4
   %scevgep = getelementptr i8, ptr %0, i64 %5
   br label %.lr.ph
@@ -92,8 +92,8 @@ declare i32 @isspace(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE17trim_spaces_rightEPKcS6_(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(address, ret: address, provenance) %1) local_unnamed_addr #3 align 2 {
-  %3 = ptrtoint ptr %1 to i64
-  %4 = ptrtoint ptr %0 to i64
+  %3 = ptrtoaddr ptr %1 to i64
+  %4 = ptrtoaddr ptr %0 to i64
   %5 = sub i64 %4, %3
   %scevgep = getelementptr i8, ptr %1, i64 %5
   br label %6
@@ -118,8 +118,8 @@ define hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE17tr
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE21scan_attr_placeholderEPKcS6_(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #3 align 2 {
-  %3 = ptrtoint ptr %0 to i64
-  %4 = ptrtoint ptr %1 to i64
+  %3 = ptrtoaddr ptr %0 to i64
+  %4 = ptrtoaddr ptr %1 to i64
   %5 = sub i64 %4, %3
   %scevgep = getelementptr i8, ptr %0, i64 %5
   br label %6
@@ -149,8 +149,8 @@ declare i32 @isalnum(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE13parse_operandEPKcS6_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 align 2 {
-  %4 = ptrtoint ptr %0 to i64
-  %5 = ptrtoint ptr %1 to i64
+  %4 = ptrtoaddr ptr %0 to i64
+  %5 = ptrtoaddr ptr %1 to i64
   %6 = icmp eq ptr %0, %1
   br i1 %6, label %7, label %8
 
@@ -212,7 +212,7 @@ define hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE13pa
   %27 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0, i64 noundef %23, ptr noundef nonnull %11, i64 noundef %26)
   tail call void @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE26translate_escape_sequencesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %2)
   %28 = getelementptr inbounds nuw i8, ptr %.059, i64 1
-  br label %39
+  br label %40
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %33
   %.356 = phi ptr [ %.3, %33 ], [ %11, %.lr.ph.preheader ]
@@ -241,11 +241,12 @@ switch.early.test._crit_edge:                     ; preds = %33, %switch.early.t
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8, !tbaa !10
   %36 = ptrtoint ptr %.3.lcssa to i64
-  %37 = sub i64 %36, %4
-  %38 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0, i64 noundef %35, ptr noundef nonnull %0, i64 noundef %37)
-  br label %39
+  %37 = ptrtoint ptr %0 to i64
+  %38 = sub i64 %36, %37
+  %39 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0, i64 noundef %35, ptr noundef nonnull %0, i64 noundef %38)
+  br label %40
 
-39:                                               ; preds = %switch.early.test._crit_edge, %21
+40:                                               ; preds = %switch.early.test._crit_edge, %21
   %.2 = phi ptr [ %28, %21 ], [ %.3.lcssa, %switch.early.test._crit_edge ]
   ret ptr %.2
 }

@@ -19818,7 +19818,6 @@ _ZN4entt17next_power_of_twoImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4ty
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %36)
   %.pre = load ptr, ptr %0, align 8, !tbaa !438
   %.pre28 = load ptr, ptr %26, align 8, !tbaa !438
-  %.pre29 = ptrtoint ptr %.pre to i64
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 37:                                               ; preds = %33
@@ -19835,53 +19834,55 @@ _ZN4entt17next_power_of_twoImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4ty
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %35, %37, %39, %41
-  %.pre-phi = phi i64 [ %.pre29, %35 ], [ %30, %37 ], [ %30, %39 ], [ %30, %41 ]
   %42 = phi ptr [ %.pre28, %35 ], [ %27, %37 ], [ %27, %39 ], [ %40, %41 ]
   %43 = phi ptr [ %.pre, %35 ], [ %28, %37 ], [ %28, %39 ], [ %28, %41 ]
-  %44 = ptrtoint ptr %42 to i64
   %.not2122 = icmp eq ptr %43, %42
   br i1 %.not2122, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit
-  %45 = add i64 %44, -8
-  %46 = sub i64 %45, %.pre-phi
-  %47 = and i64 %46, -8
-  %48 = add i64 %47, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %43, i8 -1, i64 %48, i1 false), !tbaa !215
+  %44 = ptrtoaddr ptr %42 to i64
+  %45 = ptrtoaddr ptr %43 to i64
+  %46 = add i64 %44, -8
+  %47 = sub i64 %46, %45
+  %48 = and i64 %47, -8
+  %49 = add i64 %48, 8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %43, i8 -1, i64 %49, i1 false), !tbaa !215
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %_ZNSt6vectorImSaImEE6resizeEm.exit
-  %49 = load ptr, ptr %4, align 8, !tbaa !292
-  %50 = load ptr, ptr %3, align 8, !tbaa !290
-  %.not27 = icmp eq ptr %49, %50
+  %50 = load ptr, ptr %4, align 8, !tbaa !292
+  %51 = load ptr, ptr %3, align 8, !tbaa !290
+  %.not27 = icmp eq ptr %50, %51
   br i1 %.not27, label %.loopexit, label %.lr.ph26
 
 .lr.ph26:                                         ; preds = %._crit_edge
-  %51 = ptrtoint ptr %49 to i64
   %52 = ptrtoint ptr %50 to i64
-  %53 = sub i64 %51, %52
-  %54 = sdiv exact i64 %53, 152
-  %55 = sub i64 %44, %.pre-phi
-  %56 = lshr exact i64 %55, 3
-  %57 = add nuw nsw i64 %56, 4294967295
-  br label %58
+  %53 = ptrtoint ptr %51 to i64
+  %54 = sub i64 %52, %53
+  %55 = sdiv exact i64 %54, 152
+  %56 = ptrtoint ptr %42 to i64
+  %57 = ptrtoint ptr %43 to i64
+  %58 = sub i64 %56, %57
+  %59 = lshr exact i64 %58, 3
+  %60 = add nuw nsw i64 %59, 4294967295
+  br label %61
 
-58:                                               ; preds = %.lr.ph26, %58
-  %.024 = phi i64 [ 0, %.lr.ph26 ], [ %66, %58 ]
-  %59 = getelementptr inbounds nuw %"struct.entt::internal::dense_map_node", ptr %50, i64 %.024
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %61 = load i32, ptr %60, align 4, !tbaa !72
-  %62 = zext i32 %61 to i64
-  %63 = and i64 %57, %62
-  %64 = getelementptr inbounds nuw i64, ptr %43, i64 %63
-  %65 = load i64, ptr %64, align 8, !tbaa !215
-  store i64 %.024, ptr %64, align 8, !tbaa !215
-  store i64 %65, ptr %59, align 8, !tbaa !406
-  %66 = add nuw i64 %.024, 1
-  %exitcond.not = icmp eq i64 %66, %54
-  br i1 %exitcond.not, label %.loopexit, label %58, !llvm.loop !439
+61:                                               ; preds = %.lr.ph26, %61
+  %.024 = phi i64 [ 0, %.lr.ph26 ], [ %69, %61 ]
+  %62 = getelementptr inbounds nuw %"struct.entt::internal::dense_map_node", ptr %51, i64 %.024
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %64 = load i32, ptr %63, align 4, !tbaa !72
+  %65 = zext i32 %64 to i64
+  %66 = and i64 %60, %65
+  %67 = getelementptr inbounds nuw i64, ptr %43, i64 %66
+  %68 = load i64, ptr %67, align 8, !tbaa !215
+  store i64 %.024, ptr %67, align 8, !tbaa !215
+  store i64 %68, ptr %62, align 8, !tbaa !406
+  %69 = add nuw i64 %.024, 1
+  %exitcond.not = icmp eq i64 %69, %55
+  br i1 %exitcond.not, label %.loopexit, label %61, !llvm.loop !439
 
-.loopexit:                                        ; preds = %58, %._crit_edge, %_ZN4entt17next_power_of_twoImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_.exit
+.loopexit:                                        ; preds = %61, %._crit_edge, %_ZN4entt17next_power_of_twoImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_.exit
   ret void
 }
 

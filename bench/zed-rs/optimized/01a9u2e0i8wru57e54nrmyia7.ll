@@ -16749,13 +16749,13 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   %41 = alloca [8 x i8], align 8
   store ptr %1, ptr %41, align 8
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %.sink.sroa.gep288 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.sink.sroa.gep290 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %.sink.sroa.gep291 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %.sink.sroa.gep293 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %.sink.sroa.gep294 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %.sink.sroa.gep296 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %.sink.sroa.gep297 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %.sink.sroa.gep290 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %.sink.sroa.gep292 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %.sink.sroa.gep293 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %.sink.sroa.gep295 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %.sink.sroa.gep296 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %.sink.sroa.gep298 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %.sink.sroa.gep299 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %42 = invoke fastcc noundef align 8 dereferenceable(808) ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$8make_mut17h7240eec3874891fdE"(ptr noalias noundef align 8 dereferenceable(8) %0)
           to label %46 unwind label %44
 
@@ -16992,8 +16992,8 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
 
 136:                                              ; preds = %139, %137
   %.pn65 = phi { ptr, i32 } [ %138, %137 ], [ %140, %139 ]
-  %.not253 = icmp eq ptr %128, null
-  br i1 %.not253, label %.thread72, label %306
+  %.not255 = icmp eq ptr %128, null
+  br i1 %.not255, label %.thread72, label %306
 
 137:                                              ; preds = %135
   %138 = landingpad { ptr, i32 }
@@ -17244,14 +17244,14 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
           cleanup
   %227 = load i32, ptr %11, align 8, !alias.scope !4070, !noalias !4065, !noundef !4
   %.not.i.i.i = icmp eq i32 %227, 0
-  br i1 %.not.i.i.i, label %.thread183, label %228
+  br i1 %.not.i.i.i, label %.thread183.thread, label %228
 
 228:                                              ; preds = %225
   %229 = zext i32 %227 to i64
   store i32 0, ptr %11, align 8, !alias.scope !4079, !noalias !4065
   %230 = getelementptr inbounds nuw i8, ptr %11, i64 8
   invoke void @"_ZN4core3ptr296drop_in_place$LT$$u5b$sum_tree..SumTree$LT$sum_tree..tree_map..MapEntry$LT$core..any..TypeId$C$$LP$fn$LP$$RF$theme..styles..colors..ThemeColors$RP$$u20$.$GT$$u20$gpui..color..Hsla$C$alloc..sync..Arc$LT$$u5b$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$u5d$$GT$$RP$$GT$$GT$$u5d$$GT$17hd3580b32e380bbe0E.llvm.3163581104415325995"(ptr noalias noundef nonnull align 8 %230, i64 noundef %229)
-          to label %.thread183 unwind label %231, !noalias !4069
+          to label %.thread183.thread unwind label %231, !noalias !4069
 
 231:                                              ; preds = %228
   %232 = landingpad { ptr, i32 }
@@ -17301,9 +17301,9 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
 
 .lr.ph.preheader.i:                               ; preds = %242
   %245 = zext i32 %243 to i64
-  %.idx251 = mul nuw nsw i64 %245, 24
+  %.idx253 = mul nuw nsw i64 %245, 24
   %246 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %247 = add nsw i64 %.idx251, -24
+  %247 = add nsw i64 %.idx253, -24
   %248 = urem i64 %247, 24
   %249 = sub nuw nsw i64 %247, %248
   %scevgep.i = getelementptr i8, ptr %246, i64 %249
@@ -17361,9 +17361,9 @@ _ZN8sum_tree3sum17h8b484ffc55dbc00bE.exit:        ; preds = %.lr.ph.preheader.i,
 
 .lr.ph.preheader.i139:                            ; preds = %"_ZN4core3ptr333drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..SumTree$LT$sum_tree..tree_map..MapEntry$LT$core..any..TypeId$C$$LP$fn$LP$$RF$theme..styles..colors..ThemeColors$RP$$u20$.$GT$$u20$gpui..color..Hsla$C$alloc..sync..Arc$LT$$u5b$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$u5d$$GT$$RP$$GT$$GT$$C$12_usize$GT$$GT$17h84c1a2540178aa79E.exit"
   %265 = zext i32 %263 to i64
-  %.idx252 = mul nuw nsw i64 %265, 24
+  %.idx254 = mul nuw nsw i64 %265, 24
   %266 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %267 = add nsw i64 %.idx252, -24
+  %267 = add nsw i64 %.idx254, -24
   %268 = urem i64 %267, 24
   %269 = sub nuw nsw i64 %267, %268
   %scevgep.i140 = getelementptr i8, ptr %266, i64 %269
@@ -17478,28 +17478,31 @@ _ZN8sum_tree3sum17h8b484ffc55dbc00bE.exit149:     ; preds = %.lr.ph.preheader.i1
 .thread142.thread174:                             ; preds = %234, %237
   %299 = load i32, ptr %34, align 8, !alias.scope !4163, !noundef !4
   %.not.i.i161 = icmp eq i32 %299, 0
-  br i1 %.not.i.i161, label %.thread183, label %300
+  br i1 %.not.i.i161, label %.thread183.thread, label %300
 
 300:                                              ; preds = %.thread142.thread174
   %301 = zext i32 %299 to i64
   store i32 0, ptr %34, align 8, !alias.scope !4172
   %302 = getelementptr inbounds nuw i8, ptr %34, i64 8
   invoke void @"_ZN4core3ptr296drop_in_place$LT$$u5b$sum_tree..SumTree$LT$sum_tree..tree_map..MapEntry$LT$core..any..TypeId$C$$LP$fn$LP$$RF$theme..styles..colors..ThemeColors$RP$$u20$.$GT$$u20$gpui..color..Hsla$C$alloc..sync..Arc$LT$$u5b$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$u5d$$GT$$RP$$GT$$GT$$u5d$$GT$17hd3580b32e380bbe0E.llvm.3163581104415325995"(ptr noalias noundef nonnull align 8 %302, i64 noundef %301)
-          to label %.thread183 unwind label %196
+          to label %.thread183.thread unwind label %196
 
 303:                                              ; preds = %216
   %304 = landingpad { ptr, i32 }
           cleanup
   br label %305
 
-.thread183:                                       ; preds = %.thread147, %296, %.thread142.thread174, %300, %225, %228
-  %.pn63121170190 = phi { ptr, i32 } [ %226, %225 ], [ %226, %228 ], [ %235, %.thread142.thread174 ], [ %235, %300 ], [ %260, %296 ], [ %260, %.thread147 ]
-  %.sroa.033.1115172188 = phi i1 [ true, %225 ], [ true, %228 ], [ true, %.thread142.thread174 ], [ true, %300 ], [ false, %296 ], [ false, %.thread147 ]
+.thread183.thread:                                ; preds = %225, %228, %.thread142.thread174, %300
+  %.pn63121170190.ph = phi { ptr, i32 } [ %235, %300 ], [ %235, %.thread142.thread174 ], [ %226, %228 ], [ %226, %225 ]
   store i32 0, ptr %35, align 8
-  br i1 %.sroa.033.1115172188, label %305, label %.thread72
+  br label %305
 
-305:                                              ; preds = %303, %.thread183
-  %.pn63121170189196 = phi { ptr, i32 } [ %.pn63121170190, %.thread183 ], [ %304, %303 ]
+.thread183:                                       ; preds = %.thread147, %296
+  store i32 0, ptr %35, align 8
+  br label %.thread72
+
+305:                                              ; preds = %.thread183.thread, %303
+  %.pn63121170189196 = phi { ptr, i32 } [ %.pn63121170190.ph, %.thread183.thread ], [ %304, %303 ]
   store i32 0, ptr %30, align 8
   br label %.thread72
 
@@ -17513,8 +17516,8 @@ _ZN8sum_tree3sum17h8b484ffc55dbc00bE.exit149:     ; preds = %.lr.ph.preheader.i1
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7208b244a4c87a4aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %37)
           to label %.thread72 unwind label %196
 
-.thread72:                                        ; preds = %305, %281, %.thread130, %191, %195, %183, %178, %306, %309, %.thread183, %136, %.thread86
-  %.pn6779 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread86 ], [ %192, %191 ], [ %.pn63121170190, %.thread183 ], [ %.pn65, %136 ], [ %215, %.thread130 ], [ %.pn65, %306 ], [ %.pn63121170189196, %305 ], [ %.pn65, %309 ], [ %179, %183 ], [ %179, %178 ], [ %192, %195 ], [ %282, %281 ]
+.thread72:                                        ; preds = %.thread183, %305, %281, %.thread130, %191, %195, %183, %178, %306, %309, %136, %.thread86
+  %.pn6779 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread86 ], [ %192, %191 ], [ %260, %.thread183 ], [ %.pn65, %136 ], [ %215, %.thread130 ], [ %.pn65, %306 ], [ %.pn63121170189196, %305 ], [ %.pn65, %309 ], [ %179, %183 ], [ %179, %178 ], [ %192, %195 ], [ %282, %281 ]
   %.sroa.022.178 = phi i1 [ %.sroa.022.0.ph, %.thread86 ], [ true, %191 ], [ true, %.thread183 ], [ true, %136 ], [ true, %.thread130 ], [ true, %306 ], [ true, %305 ], [ true, %309 ], [ true, %183 ], [ true, %178 ], [ true, %195 ], [ true, %281 ]
   %.sroa.024.577 = phi i8 [ %.sroa.024.4.ph, %.thread86 ], [ 0, %191 ], [ %.sroa.024.7, %.thread183 ], [ 0, %136 ], [ %.sroa.024.7, %.thread130 ], [ 0, %306 ], [ %.sroa.024.7, %305 ], [ 0, %309 ], [ 0, %183 ], [ 0, %178 ], [ 0, %195 ], [ %.sroa.024.7, %281 ]
   %310 = load i32, ptr %38, align 8, !alias.scope !4182, !noundef !4
@@ -17595,16 +17598,16 @@ _ZN8sum_tree3sum17h8b484ffc55dbc00bE.exit149:     ; preds = %.lr.ph.preheader.i1
   br label %.invoke
 
 .invoke:                                          ; preds = %316, %338
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %316 ], [ %.sink.sroa.gep288, %338 ]
-  %.sink.sroa.phi289 = phi ptr [ %.sink.sroa.gep290, %316 ], [ %.sink.sroa.gep291, %338 ]
-  %.sink.sroa.phi292 = phi ptr [ %.sink.sroa.gep293, %316 ], [ %.sink.sroa.gep294, %338 ]
-  %.sink.sroa.phi295 = phi ptr [ %.sink.sroa.gep296, %316 ], [ %.sink.sroa.gep297, %338 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %316 ], [ %.sink.sroa.gep290, %338 ]
+  %.sink.sroa.phi291 = phi ptr [ %.sink.sroa.gep292, %316 ], [ %.sink.sroa.gep293, %338 ]
+  %.sink.sroa.phi294 = phi ptr [ %.sink.sroa.gep295, %316 ], [ %.sink.sroa.gep296, %338 ]
+  %.sink.sroa.phi297 = phi ptr [ %.sink.sroa.gep298, %316 ], [ %.sink.sroa.gep299, %338 ]
   %.sink = phi ptr [ %19, %316 ], [ %17, %338 ]
   store ptr @anon.1c1caa08b2db838aff4de10731ac9f39.153, ptr %.sink, align 8
   store i64 1, ptr %.sink.sroa.phi, align 8
-  store ptr null, ptr %.sink.sroa.phi289, align 8
-  store ptr inttoptr (i64 8 to ptr), ptr %.sink.sroa.phi292, align 8
-  store i64 0, ptr %.sink.sroa.phi295, align 8
+  store ptr null, ptr %.sink.sroa.phi291, align 8
+  store ptr inttoptr (i64 8 to ptr), ptr %.sink.sroa.phi294, align 8
+  store i64 0, ptr %.sink.sroa.phi297, align 8
   invoke void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c1caa08b2db838aff4de10731ac9f39.154) #33
           to label %.cont unwind label %329
 
@@ -17845,9 +17848,9 @@ _ZN8sum_tree3sum17h8b484ffc55dbc00bE.exit241:     ; preds = %.lr.ph.preheader.i2
 
 .lr.ph.preheader.i242:                            ; preds = %_ZN8sum_tree3sum17h8b484ffc55dbc00bE.exit241
   %414 = zext i32 %412 to i64
-  %.idx250 = mul nuw nsw i64 %414, 24
+  %.idx252 = mul nuw nsw i64 %414, 24
   %415 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %416 = add nsw i64 %.idx250, -24
+  %416 = add nsw i64 %.idx252, -24
   %417 = urem i64 %416, 24
   %418 = sub nuw nsw i64 %416, %417
   %scevgep.i243 = getelementptr i8, ptr %415, i64 %418
@@ -17937,7 +17940,7 @@ _ZN8sum_tree3sum17h8b484ffc55dbc00bE.exit252:     ; preds = %.lr.ph.preheader.i2
           cleanup
   br label %.body191
 
-.body191:                                         ; preds = %398, %.body191.thread227, %.body191.thread
+.body191:                                         ; preds = %.body191.thread227, %398, %.body191.thread
   %.pn217224240 = phi { ptr, i32 } [ %440, %.body191.thread ], [ %393, %.body191.thread227 ], [ %399, %398 ]
   %.sroa.029.1211226238 = phi i1 [ true, %.body191.thread ], [ true, %.body191.thread227 ], [ false, %398 ]
   %441 = load i32, ptr %25, align 8, !alias.scope !4322, !noundef !4

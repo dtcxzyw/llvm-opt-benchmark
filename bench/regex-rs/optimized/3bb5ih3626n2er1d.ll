@@ -1753,20 +1753,20 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN91_$LT$core..s
 define hidden { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17ha29f80b3ca56dfceE.llvm.15183607879373971598"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(256) %1) unnamed_addr #29 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !20, !noundef !20
-  %5 = ptrtoint ptr %4 to i64
-  %6 = load ptr, ptr %0, align 8, !nonnull !20, !noundef !20
-  %7 = ptrtoint ptr %6 to i64
-  %8 = sub i64 %5, %7
-  %9 = icmp eq ptr %6, %4
+  %5 = load ptr, ptr %0, align 8, !nonnull !20, !noundef !20
+  %6 = ptrtoint ptr %4 to i64
+  %7 = ptrtoint ptr %5 to i64
+  %8 = sub i64 %6, %7
+  %9 = icmp eq ptr %5, %4
   br i1 %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1cd0e3781ef68c91E.llvm.15183607879373971598.exit.thread", label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %scevgep = getelementptr i8, ptr %6, i64 %8
+  %scevgep = getelementptr i8, ptr %5, i64 %8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %16
   %.011 = phi i64 [ %17, %16 ], [ 0, %.lr.ph.preheader ]
-  %10 = phi ptr [ %11, %16 ], [ %6, %.lr.ph.preheader ]
+  %10 = phi ptr [ %11, %16 ], [ %5, %.lr.ph.preheader ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %.val7 = load i8, ptr %10, align 1, !noundef !20
   %12 = zext i8 %.val7 to i64

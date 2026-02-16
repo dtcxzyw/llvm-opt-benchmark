@@ -124,7 +124,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish19CaseInsensitiveLessclERKNSt
   br i1 %.not19.i.i, label %._crit_edge.i.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %3
-  %spec.select.i22.i.i = ptrtoint ptr %spec.select.i.i.i to i64
+  %spec.select.i22.i.i = ptrtoaddr ptr %spec.select.i.i.i to i64
   %16 = sub i64 %spec.select.i22.i.i, %9
   %scevgep.i.i = getelementptr i8, ptr %6, i64 %16
   br label %.lr.ph.i.i
@@ -333,7 +333,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(144) ptr @
   br i1 %.not19.i.i.i, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %10
-  %spec.select.i22.i.i.i = ptrtoint ptr %spec.select.i.i.i.i to i64
+  %spec.select.i22.i.i.i = ptrtoaddr ptr %spec.select.i.i.i.i to i64
   %24 = sub i64 %spec.select.i22.i.i.i, %17
   %scevgep.i.i.i = getelementptr i8, ptr %14, i64 %24
   br label %.lr.ph.i.i.i
@@ -1072,7 +1072,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %.not19.i.i.i, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  %spec.select.i22.i.i.i = ptrtoint ptr %spec.select.i.i.i.i to i64
+  %spec.select.i22.i.i.i = ptrtoaddr ptr %spec.select.i.i.i.i to i64
   %25 = sub i64 %spec.select.i22.i.i.i, %18
   %scevgep.i.i.i = getelementptr i8, ptr %15, i64 %25
   br label %.lr.ph.i.i.i
@@ -1128,7 +1128,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit7: ; p
   br i1 %.not19.i.i.i9, label %._crit_edge.i.i.i17, label %.lr.ph.preheader.i.i.i10
 
 .lr.ph.preheader.i.i.i10:                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit7
-  %spec.select.i22.i.i.i11 = ptrtoint ptr %spec.select.i.i.i.i8 to i64
+  %spec.select.i22.i.i.i11 = ptrtoaddr ptr %spec.select.i.i.i.i8 to i64
   %53 = sub i64 %spec.select.i22.i.i.i11, %46
   %scevgep.i.i.i12 = getelementptr i8, ptr %43, i64 %53
   br label %.lr.ph.i.i.i13
@@ -1552,7 +1552,7 @@ define linkonce_odr dso_local ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
   br i1 %.not19.i.i.i, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %8
-  %spec.select.i22.i.i.i = ptrtoint ptr %spec.select.i.i.i.i to i64
+  %spec.select.i22.i.i.i = ptrtoaddr ptr %spec.select.i.i.i.i to i64
   %22 = sub i64 %spec.select.i22.i.i.i, %15
   %scevgep.i.i.i = getelementptr i8, ptr %12, i64 %22
   br label %.lr.ph.i.i.i
@@ -1618,7 +1618,7 @@ define linkonce_odr dso_local ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
   br i1 %.not19.i.i.i, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %.lr.ph
-  %spec.select.i22.i.i.i = ptrtoint ptr %spec.select.i.i.i.i to i64
+  %spec.select.i22.i.i.i = ptrtoaddr ptr %spec.select.i.i.i.i to i64
   %18 = sub i64 %spec.select.i22.i.i.i, %11
   %scevgep.i.i.i = getelementptr i8, ptr %8, i64 %18
   br label %.lr.ph.i.i.i
@@ -1751,7 +1751,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt1
   br i1 %.not19.i.i.i, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %.lr.ph
-  %spec.select.i22.i.i.i = ptrtoint ptr %spec.select.i.i.i.i to i64
+  %spec.select.i22.i.i.i = ptrtoaddr ptr %spec.select.i.i.i.i to i64
   %18 = sub i64 %spec.select.i22.i.i.i, %11
   %scevgep.i.i.i = getelementptr i8, ptr %8, i64 %18
   br label %.lr.ph.i.i.i
@@ -1832,7 +1832,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_st
   br i1 %.not19.i.i.i, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %9
-  %spec.select.i22.i.i.i = ptrtoint ptr %spec.select.i.i.i.i to i64
+  %spec.select.i22.i.i.i = ptrtoaddr ptr %spec.select.i.i.i.i to i64
   %25 = sub i64 %spec.select.i22.i.i.i, %18
   %scevgep.i.i.i = getelementptr i8, ptr %15, i64 %25
   br label %.lr.ph.i.i.i
@@ -1893,7 +1893,7 @@ _ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_trai
   br i1 %.not19.i.i.i11, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit22, label %.lr.ph.preheader.i.i.i12
 
 .lr.ph.preheader.i.i.i12:                         ; preds = %42
-  %spec.select.i22.i.i.i13 = ptrtoint ptr %spec.select.i.i.i.i10 to i64
+  %spec.select.i22.i.i.i13 = ptrtoaddr ptr %spec.select.i.i.i.i10 to i64
   %56 = sub i64 %spec.select.i22.i.i.i13, %49
   %scevgep.i.i.i14 = getelementptr i8, ptr %46, i64 %56
   br label %.lr.ph.i.i.i15
@@ -1951,7 +1951,7 @@ _ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_trai
   br i1 %.not19.i.i.i24, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit35, label %.lr.ph.preheader.i.i.i25
 
 .lr.ph.preheader.i.i.i25:                         ; preds = %72
-  %spec.select.i22.i.i.i26 = ptrtoint ptr %spec.select.i.i.i.i23 to i64
+  %spec.select.i22.i.i.i26 = ptrtoaddr ptr %spec.select.i.i.i.i23 to i64
   %87 = sub i64 %spec.select.i22.i.i.i26, %80
   %scevgep.i.i.i27 = getelementptr i8, ptr %77, i64 %87
   br label %.lr.ph.i.i.i28
@@ -2015,7 +2015,7 @@ _ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_trai
   br i1 %.not19.i.i.i37, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit48, label %.lr.ph.preheader.i.i.i38
 
 .lr.ph.preheader.i.i.i38:                         ; preds = %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit22.thread87
-  %spec.select.i22.i.i.i39 = ptrtoint ptr %spec.select.i.i.i.i36 to i64
+  %spec.select.i22.i.i.i39 = ptrtoaddr ptr %spec.select.i.i.i.i36 to i64
   %118 = sub i64 %spec.select.i22.i.i.i39, %111
   %scevgep.i.i.i40 = getelementptr i8, ptr %108, i64 %118
   br label %.lr.ph.i.i.i41
@@ -2073,7 +2073,7 @@ _ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_trai
   br i1 %.not19.i.i.i50, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit61, label %.lr.ph.preheader.i.i.i51
 
 .lr.ph.preheader.i.i.i51:                         ; preds = %134
-  %spec.select.i22.i.i.i52 = ptrtoint ptr %spec.select.i.i.i.i49 to i64
+  %spec.select.i22.i.i.i52 = ptrtoaddr ptr %spec.select.i.i.i.i49 to i64
   %149 = sub i64 %spec.select.i22.i.i.i52, %142
   %scevgep.i.i.i53 = getelementptr i8, ptr %139, i64 %149
   br label %.lr.ph.i.i.i54
@@ -2158,7 +2158,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_st
   br i1 %.not19.i.i.i, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %.lr.ph
-  %spec.select.i22.i.i.i = ptrtoint ptr %spec.select.i.i.i.i to i64
+  %spec.select.i22.i.i.i = ptrtoaddr ptr %spec.select.i.i.i.i to i64
   %18 = sub i64 %spec.select.i22.i.i.i, %11
   %scevgep.i.i.i = getelementptr i8, ptr %8, i64 %18
   br label %.lr.ph.i.i.i
@@ -2236,7 +2236,7 @@ _ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_trai
   br i1 %.not19.i.i.i6, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit17, label %.lr.ph.preheader.i.i.i7
 
 .lr.ph.preheader.i.i.i7:                          ; preds = %37
-  %spec.select.i22.i.i.i8 = ptrtoint ptr %spec.select.i.i.i.i5 to i64
+  %spec.select.i22.i.i.i8 = ptrtoaddr ptr %spec.select.i.i.i.i5 to i64
   %51 = sub i64 %spec.select.i22.i.i.i8, %44
   %scevgep.i.i.i9 = getelementptr i8, ptr %41, i64 %51
   br label %.lr.ph.i.i.i10
@@ -2313,7 +2313,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt1
   br i1 %.not19.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %7
-  %spec.select.i22.i.i.i = ptrtoint ptr %spec.select.i.i.i.i to i64
+  %spec.select.i22.i.i.i = ptrtoaddr ptr %spec.select.i.i.i.i to i64
   %22 = sub i64 %spec.select.i22.i.i.i, %15
   %scevgep.i.i.i = getelementptr i8, ptr %12, i64 %22
   br label %.lr.ph.i.i.i

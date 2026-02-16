@@ -41332,8 +41332,8 @@ _ZN3fmt3v116detail7reserveIcEENS0_14basic_appenderIT_EES5_m.exit: ; preds = %_ZN
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN3fmt3v116detail12parse_arg_idIcRZNS1_23parse_replacement_fieldIcRNS1_14format_handlerIcEEEEPKT_S9_S9_OT0_E10id_adapterEES9_S9_S9_SB_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %2) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
-  %4 = ptrtoint ptr %0 to i64
-  %5 = ptrtoint ptr %1 to i64
+  %4 = ptrtoaddr ptr %0 to i64
+  %5 = ptrtoaddr ptr %1 to i64
   %6 = alloca ptr, align 8
   store ptr %0, ptr %6, align 8, !tbaa !267
   %7 = load i8, ptr %0, align 1, !tbaa !38
@@ -41425,82 +41425,83 @@ _ZZN3fmt3v116detail23parse_replacement_fieldIcRNS1_14format_handlerIcEEEEPKT_S8_
 .critedge:                                        ; preds = %33, %.critedge4
   %.lcssa38 = phi ptr [ %32, %33 ], [ %scevgep, %.critedge4 ]
   %39 = ptrtoint ptr %.lcssa38 to i64
-  %40 = sub i64 %39, %4
-  %41 = icmp sgt i64 %40, -1
-  br i1 %41, label %_ZN3fmt3v116detail11to_unsignedIlEENSt13make_unsignedIT_E4typeES4_.exit, label %42
+  %40 = ptrtoint ptr %0 to i64
+  %41 = sub i64 %39, %40
+  %42 = icmp sgt i64 %41, -1
+  br i1 %42, label %_ZN3fmt3v116detail11to_unsignedIlEENSt13make_unsignedIT_E4typeES4_.exit, label %43
 
-42:                                               ; preds = %.critedge
-  %43 = tail call ptr @__cxa_allocate_exception(i64 16) #34
-  invoke void @_ZN17assertion_failureC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull @.str.187)
-          to label %44 unwind label %45
+43:                                               ; preds = %.critedge
+  %44 = tail call ptr @__cxa_allocate_exception(i64 16) #34
+  invoke void @_ZN17assertion_failureC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull @.str.187)
+          to label %45 unwind label %46
 
-44:                                               ; preds = %42
-  tail call void @__cxa_throw(ptr nonnull %43, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZNSt11logic_errorD2Ev) #36
+45:                                               ; preds = %43
+  tail call void @__cxa_throw(ptr nonnull %44, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZNSt11logic_errorD2Ev) #36
   unreachable
 
-45:                                               ; preds = %42
-  %46 = landingpad { ptr, i32 }
+46:                                               ; preds = %43
+  %47 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %43) #34
-  resume { ptr, i32 } %46
+  tail call void @__cxa_free_exception(ptr nonnull %44) #34
+  resume { ptr, i32 } %47
 
 _ZN3fmt3v116detail11to_unsignedIlEENSt13make_unsignedIT_E4typeES4_.exit: ; preds = %.critedge
-  %47 = load ptr, ptr %2, align 8, !tbaa !600
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  store i32 -1, ptr %48, align 8, !tbaa !325
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  %50 = load i64, ptr %49, align 8, !tbaa !329
-  %51 = and i64 %50, 4611686018427387904
-  %.not13.i.i.i.i = icmp eq i64 %51, 0
-  br i1 %.not13.i.i.i.i, label %_ZNK3fmt3v117context6arg_idENS0_17basic_string_viewIcEE.exit.thread.i.i, label %52
+  %48 = load ptr, ptr %2, align 8, !tbaa !600
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  store i32 -1, ptr %49, align 8, !tbaa !325
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 32
+  %51 = load i64, ptr %50, align 8, !tbaa !329
+  %52 = and i64 %51, 4611686018427387904
+  %.not13.i.i.i.i = icmp eq i64 %52, 0
+  br i1 %.not13.i.i.i.i, label %_ZNK3fmt3v117context6arg_idENS0_17basic_string_viewIcEE.exit.thread.i.i, label %53
 
-52:                                               ; preds = %_ZN3fmt3v116detail11to_unsignedIlEENSt13make_unsignedIT_E4typeES4_.exit
-  %53 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  %54 = load ptr, ptr %53, align 8
-  %55 = icmp slt i64 %50, 0
-  %.v.i.i.i.i = select i1 %55, i64 -32, i64 -16
-  %56 = getelementptr inbounds i8, ptr %54, i64 %.v.i.i.i.i
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %58 = load i64, ptr %57, align 8, !tbaa !602
-  %.not14.not.i.i.i.i = icmp eq i64 %58, 0
+53:                                               ; preds = %_ZN3fmt3v116detail11to_unsignedIlEENSt13make_unsignedIT_E4typeES4_.exit
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 40
+  %55 = load ptr, ptr %54, align 8
+  %56 = icmp slt i64 %51, 0
+  %.v.i.i.i.i = select i1 %56, i64 -32, i64 -16
+  %57 = getelementptr inbounds i8, ptr %55, i64 %.v.i.i.i.i
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %59 = load i64, ptr %58, align 8, !tbaa !602
+  %.not14.not.i.i.i.i = icmp eq i64 %59, 0
   br i1 %.not14.not.i.i.i.i, label %_ZNK3fmt3v117context6arg_idENS0_17basic_string_viewIcEE.exit.thread.i.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %52
-  %59 = load ptr, ptr %56, align 8, !tbaa !605
-  br label %62
+.lr.ph.i.i.i.i:                                   ; preds = %53
+  %60 = load ptr, ptr %57, align 8, !tbaa !605
+  br label %63
 
-60:                                               ; preds = %62
-  %61 = add nuw i64 %.01115.i.i.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i64 %61, %58
-  br i1 %exitcond.not.i.i.i.i, label %_ZNK3fmt3v117context6arg_idENS0_17basic_string_viewIcEE.exit.thread.i.i, label %62, !llvm.loop !606
+61:                                               ; preds = %63
+  %62 = add nuw i64 %.01115.i.i.i.i, 1
+  %exitcond.not.i.i.i.i = icmp eq i64 %62, %59
+  br i1 %exitcond.not.i.i.i.i, label %_ZNK3fmt3v117context6arg_idENS0_17basic_string_viewIcEE.exit.thread.i.i, label %63, !llvm.loop !606
 
-62:                                               ; preds = %60, %.lr.ph.i.i.i.i
-  %.01115.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %61, %60 ]
-  %63 = getelementptr inbounds nuw %"struct.fmt::v11::detail::named_arg_info", ptr %59, i64 %.01115.i.i.i.i
-  %64 = load ptr, ptr %63, align 8, !tbaa !607
-  %65 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %64) #34
-  %66 = tail call noundef i64 @llvm.umin.i64(i64 %65, i64 %40)
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %64, ptr nonnull %0, i64 %66)
+63:                                               ; preds = %61, %.lr.ph.i.i.i.i
+  %.01115.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %62, %61 ]
+  %64 = getelementptr inbounds nuw %"struct.fmt::v11::detail::named_arg_info", ptr %60, i64 %.01115.i.i.i.i
+  %65 = load ptr, ptr %64, align 8, !tbaa !607
+  %66 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #34
+  %67 = tail call noundef i64 @llvm.umin.i64(i64 %66, i64 %41)
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %65, ptr nonnull %0, i64 %67)
   %.not.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  %67 = icmp eq i64 %65, %40
-  %68 = select i1 %.not.i.i.i.i.i.i, i1 %67, i1 false
-  br i1 %68, label %_ZNK3fmt3v117context6arg_idENS0_17basic_string_viewIcEE.exit.i.i, label %60
+  %68 = icmp eq i64 %66, %41
+  %69 = select i1 %.not.i.i.i.i.i.i, i1 %68, i1 false
+  br i1 %69, label %_ZNK3fmt3v117context6arg_idENS0_17basic_string_viewIcEE.exit.i.i, label %61
 
-_ZNK3fmt3v117context6arg_idENS0_17basic_string_viewIcEE.exit.i.i: ; preds = %62
-  %69 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %70 = load i32, ptr %69, align 8, !tbaa !609
-  %71 = icmp slt i32 %70, 0
-  br i1 %71, label %_ZNK3fmt3v117context6arg_idENS0_17basic_string_viewIcEE.exit.thread.i.i, label %_ZZN3fmt3v116detail23parse_replacement_fieldIcRNS1_14format_handlerIcEEEEPKT_S8_S8_OT0_EN10id_adapter7on_nameENS0_17basic_string_viewIcEE.exit
+_ZNK3fmt3v117context6arg_idENS0_17basic_string_viewIcEE.exit.i.i: ; preds = %63
+  %70 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %71 = load i32, ptr %70, align 8, !tbaa !609
+  %72 = icmp slt i32 %71, 0
+  br i1 %72, label %_ZNK3fmt3v117context6arg_idENS0_17basic_string_viewIcEE.exit.thread.i.i, label %_ZZN3fmt3v116detail23parse_replacement_fieldIcRNS1_14format_handlerIcEEEEPKT_S8_S8_OT0_EN10id_adapter7on_nameENS0_17basic_string_viewIcEE.exit
 
-_ZNK3fmt3v117context6arg_idENS0_17basic_string_viewIcEE.exit.thread.i.i: ; preds = %60, %_ZNK3fmt3v117context6arg_idENS0_17basic_string_viewIcEE.exit.i.i, %52, %_ZN3fmt3v116detail11to_unsignedIlEENSt13make_unsignedIT_E4typeES4_.exit
+_ZNK3fmt3v117context6arg_idENS0_17basic_string_viewIcEE.exit.thread.i.i: ; preds = %61, %_ZNK3fmt3v117context6arg_idENS0_17basic_string_viewIcEE.exit.i.i, %53, %_ZN3fmt3v116detail11to_unsignedIlEENSt13make_unsignedIT_E4typeES4_.exit
   tail call void @_ZN3fmt3v1112report_errorEPKc(ptr noundef nonnull @.str.208) #36
   unreachable
 
 _ZZN3fmt3v116detail23parse_replacement_fieldIcRNS1_14format_handlerIcEEEEPKT_S8_S8_OT0_EN10id_adapter7on_nameENS0_17basic_string_viewIcEE.exit: ; preds = %_ZNK3fmt3v117context6arg_idENS0_17basic_string_viewIcEE.exit.i.i, %_ZZN3fmt3v116detail23parse_replacement_fieldIcRNS1_14format_handlerIcEEEEPKT_S8_S8_OT0_EN10id_adapter8on_indexEi.exit
-  %.sink = phi i32 [ %.021, %_ZZN3fmt3v116detail23parse_replacement_fieldIcRNS1_14format_handlerIcEEEEPKT_S8_S8_OT0_EN10id_adapter8on_indexEi.exit ], [ %70, %_ZNK3fmt3v117context6arg_idENS0_17basic_string_viewIcEE.exit.i.i ]
+  %.sink = phi i32 [ %.021, %_ZZN3fmt3v116detail23parse_replacement_fieldIcRNS1_14format_handlerIcEEEEPKT_S8_S8_OT0_EN10id_adapter8on_indexEi.exit ], [ %71, %_ZNK3fmt3v117context6arg_idENS0_17basic_string_viewIcEE.exit.i.i ]
   %.022 = phi ptr [ %15, %_ZZN3fmt3v116detail23parse_replacement_fieldIcRNS1_14format_handlerIcEEEEPKT_S8_S8_OT0_EN10id_adapter8on_indexEi.exit ], [ %.lcssa38, %_ZNK3fmt3v117context6arg_idENS0_17basic_string_viewIcEE.exit.i.i ]
-  %72 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %.sink, ptr %72, align 8, !tbaa !351
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 %.sink, ptr %73, align 8, !tbaa !351
   ret ptr %.022
 }
 
@@ -42205,9 +42206,9 @@ _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail13arg_formatterIc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZN3fmt3v116detail21parse_nonnegative_intIcEEiRPKT_S5_i(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #16 comdat personality ptr @__gxx_personality_v0 {
-  %4 = ptrtoint ptr %1 to i64
+  %4 = ptrtoaddr ptr %1 to i64
   %5 = load ptr, ptr %0, align 8, !tbaa !267
-  %6 = ptrtoint ptr %5 to i64
+  %6 = ptrtoaddr ptr %5 to i64
   %.not = icmp eq ptr %5, %1
   br i1 %.not, label %11, label %7
 
@@ -42230,7 +42231,7 @@ define linkonce_odr hidden noundef i32 @_ZN3fmt3v116detail21parse_nonnegative_in
 13:                                               ; preds = %11
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV17assertion_failure, i64 16), ptr %12, align 8, !tbaa !4
   invoke void @__cxa_throw(ptr nonnull %12, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZNSt11logic_errorD2Ev) #36
-          to label %.noexc unwind label %41
+          to label %.noexc unwind label %42
 
 .noexc:                                           ; preds = %13
   unreachable
@@ -42262,42 +42263,43 @@ define linkonce_odr hidden noundef i32 @_ZN3fmt3v116detail21parse_nonnegative_in
 .critedge:                                        ; preds = %22, %.preheader
   %.lcssa = phi ptr [ %21, %22 ], [ %scevgep, %.preheader ]
   %25 = ptrtoint ptr %.lcssa to i64
-  %26 = sub i64 %25, %6
+  %26 = ptrtoint ptr %5 to i64
+  %27 = sub i64 %25, %26
   store ptr %.lcssa, ptr %0, align 8, !tbaa !267
-  %27 = icmp slt i64 %26, 10
-  br i1 %27, label %40, label %28
+  %28 = icmp slt i64 %27, 10
+  br i1 %28, label %41, label %29
 
-28:                                               ; preds = %.critedge
-  %29 = icmp eq i64 %26, 10
-  br i1 %29, label %30, label %39
+29:                                               ; preds = %.critedge
+  %30 = icmp eq i64 %27, 10
+  br i1 %30, label %31, label %40
 
-30:                                               ; preds = %28
-  %31 = zext i32 %.027 to i64
-  %32 = mul nuw nsw i64 %31, 10
-  %33 = load i8, ptr %.028, align 1, !tbaa !38
-  %34 = sext i8 %33 to i64
-  %35 = add nsw i64 %34, 4294967248
-  %36 = and i64 %35, 4294967294
-  %37 = add nuw nsw i64 %36, %32
-  %38 = icmp samesign ult i64 %37, 2147483648
-  br i1 %38, label %40, label %39
+31:                                               ; preds = %29
+  %32 = zext i32 %.027 to i64
+  %33 = mul nuw nsw i64 %32, 10
+  %34 = load i8, ptr %.028, align 1, !tbaa !38
+  %35 = sext i8 %34 to i64
+  %36 = add nsw i64 %35, 4294967248
+  %37 = and i64 %36, 4294967294
+  %38 = add nuw nsw i64 %37, %33
+  %39 = icmp samesign ult i64 %38, 2147483648
+  br i1 %39, label %41, label %40
 
-39:                                               ; preds = %30, %28
-  br label %40
+40:                                               ; preds = %31, %29
+  br label %41
 
-40:                                               ; preds = %39, %30, %.critedge
-  %.0 = phi i32 [ %20, %.critedge ], [ %2, %39 ], [ %20, %30 ]
+41:                                               ; preds = %40, %31, %.critedge
+  %.0 = phi i32 [ %20, %.critedge ], [ %2, %40 ], [ %20, %31 ]
   ret i32 %.0
 
-41:                                               ; preds = %13
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %13
+  %43 = landingpad { ptr, i32 }
           catch ptr null
   br label %.body
 
-.body:                                            ; preds = %14, %41
-  %eh.lpad-body = phi { ptr, i32 } [ %42, %41 ], [ %15, %14 ]
-  %43 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  tail call void @__clang_call_terminate(ptr %43) #37
+.body:                                            ; preds = %14, %42
+  %eh.lpad-body = phi { ptr, i32 } [ %43, %42 ], [ %15, %14 ]
+  %44 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  tail call void @__clang_call_terminate(ptr %44) #37
   unreachable
 }
 
@@ -43008,8 +43010,8 @@ _ZN3fmt3v1113parse_contextIcE11next_arg_idEv.exit: ; preds = %29
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN3fmt3v116detail12parse_arg_idIcNS1_20dynamic_spec_handlerIcEEEEPKT_S7_S7_OT0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
-  %4 = ptrtoint ptr %0 to i64
-  %5 = ptrtoint ptr %1 to i64
+  %4 = ptrtoaddr ptr %0 to i64
+  %5 = ptrtoaddr ptr %1 to i64
   %6 = alloca ptr, align 8
   store ptr %0, ptr %6, align 8, !tbaa !267
   %7 = load i8, ptr %0, align 1, !tbaa !38
@@ -43068,7 +43070,7 @@ define linkonce_odr hidden noundef ptr @_ZN3fmt3v116detail12parse_arg_idIcNS1_20
 _ZN3fmt3v116detail20dynamic_spec_handlerIcE8on_indexEi.exit: ; preds = %20
   store i32 -1, ptr %26, align 8, !tbaa !325
   %30 = load ptr, ptr %6, align 8, !tbaa !267
-  br label %58
+  br label %59
 
 31:                                               ; preds = %3
   %32 = and i8 %7, -33
@@ -43108,40 +43110,41 @@ _ZN3fmt3v116detail20dynamic_spec_handlerIcE8on_indexEi.exit: ; preds = %20
 .critedge:                                        ; preds = %38, %.critedge4
   %.lcssa = phi ptr [ %37, %38 ], [ %scevgep, %.critedge4 ]
   %44 = ptrtoint ptr %.lcssa to i64
-  %45 = sub i64 %44, %4
-  %46 = icmp sgt i64 %45, -1
-  br i1 %46, label %_ZN3fmt3v116detail11to_unsignedIlEENSt13make_unsignedIT_E4typeES4_.exit, label %47
+  %45 = ptrtoint ptr %0 to i64
+  %46 = sub i64 %44, %45
+  %47 = icmp sgt i64 %46, -1
+  br i1 %47, label %_ZN3fmt3v116detail11to_unsignedIlEENSt13make_unsignedIT_E4typeES4_.exit, label %48
 
-47:                                               ; preds = %.critedge
-  %48 = tail call ptr @__cxa_allocate_exception(i64 16) #34
-  invoke void @_ZN17assertion_failureC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull @.str.187)
-          to label %49 unwind label %50
+48:                                               ; preds = %.critedge
+  %49 = tail call ptr @__cxa_allocate_exception(i64 16) #34
+  invoke void @_ZN17assertion_failureC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull @.str.187)
+          to label %50 unwind label %51
 
-49:                                               ; preds = %47
-  tail call void @__cxa_throw(ptr nonnull %48, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZNSt11logic_errorD2Ev) #36
+50:                                               ; preds = %48
+  tail call void @__cxa_throw(ptr nonnull %49, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZNSt11logic_errorD2Ev) #36
   unreachable
 
-50:                                               ; preds = %47
-  %51 = landingpad { ptr, i32 }
+51:                                               ; preds = %48
+  %52 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %48) #34
-  resume { ptr, i32 } %51
+  tail call void @__cxa_free_exception(ptr nonnull %49) #34
+  resume { ptr, i32 } %52
 
 _ZN3fmt3v116detail11to_unsignedIlEENSt13make_unsignedIT_E4typeES4_.exit: ; preds = %.critedge
-  %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !636
-  store ptr %0, ptr %53, align 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store i64 %45, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !38
-  %54 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %55 = load ptr, ptr %54, align 8, !tbaa !638
-  store i32 2, ptr %55, align 4, !tbaa !630
-  %56 = load ptr, ptr %2, align 8, !tbaa !639
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  store i32 -1, ptr %57, align 8, !tbaa !325
-  br label %58
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %54 = load ptr, ptr %53, align 8, !tbaa !636
+  store ptr %0, ptr %54, align 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %54, i64 8
+  store i64 %46, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !38
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %56 = load ptr, ptr %55, align 8, !tbaa !638
+  store i32 2, ptr %56, align 4, !tbaa !630
+  %57 = load ptr, ptr %2, align 8, !tbaa !639
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  store i32 -1, ptr %58, align 8, !tbaa !325
+  br label %59
 
-58:                                               ; preds = %_ZN3fmt3v116detail11to_unsignedIlEENSt13make_unsignedIT_E4typeES4_.exit, %_ZN3fmt3v116detail20dynamic_spec_handlerIcE8on_indexEi.exit
+59:                                               ; preds = %_ZN3fmt3v116detail11to_unsignedIlEENSt13make_unsignedIT_E4typeES4_.exit, %_ZN3fmt3v116detail20dynamic_spec_handlerIcE8on_indexEi.exit
   %.022 = phi ptr [ %30, %_ZN3fmt3v116detail20dynamic_spec_handlerIcE8on_indexEi.exit ], [ %.lcssa, %_ZN3fmt3v116detail11to_unsignedIlEENSt13make_unsignedIT_E4typeES4_.exit ]
   ret ptr %.022
 }

@@ -2739,7 +2739,7 @@ define internal fastcc ptr @mult(ptr noundef readonly captures(address) %0, ptr 
   br i1 %110, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %104
-  %.024.i82101 = ptrtoint ptr %.024.i82 to i64
+  %.024.i82101 = ptrtoaddr ptr %.024.i82 to i64
   %111 = shl nsw i64 %108, 2
   %112 = add i64 %111, %.024.i82101
   %113 = add i64 %112, 24

@@ -244,7 +244,7 @@ define hidden void @_mi_vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef re
   %or.cond = or i1 %5, %6
   %7 = icmp eq ptr %2, null
   %or.cond3 = or i1 %or.cond, %7
-  br i1 %or.cond3, label %363, label %8
+  br i1 %or.cond3, label %364, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr i8, ptr %0, i64 %1
@@ -256,7 +256,7 @@ define hidden void @_mi_vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef re
 .lr.ph:                                           ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %13 = ptrtoint ptr %10 to i64
+  %13 = ptrtoaddr ptr %10 to i64
   br label %14
 
 14:                                               ; preds = %.lr.ph, %mi_out_alignright.exit
@@ -1010,37 +1010,38 @@ mi_outs.exit:                                     ; preds = %331, %233, %.lr.ph.
   br i1 %349, label %.lr.ph.preheader.i, label %mi_out_fill.exit
 
 .lr.ph.preheader.i:                               ; preds = %347
-  %350 = xor i64 %343, -1
-  %351 = add i64 %350, %13
-  %352 = add i64 %348, -1
-  %umin.i = tail call i64 @llvm.umin.i64(i64 %351, i64 %352)
-  %353 = add nuw i64 %umin.i, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.fr.i, i8 range(i8 32, 49) %.1212, i64 %353, i1 false), !tbaa !3
-  %scevgep.i = getelementptr i8, ptr %.fr.i, i64 %353
+  %350 = ptrtoaddr ptr %.fr.i to i64
+  %351 = xor i64 %350, -1
+  %352 = add i64 %351, %13
+  %353 = add i64 %348, -1
+  %umin.i = tail call i64 @llvm.umin.i64(i64 %352, i64 %353)
+  %354 = add nuw i64 %umin.i, 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.fr.i, i8 range(i8 32, 49) %.1212, i64 %354, i1 false), !tbaa !3
+  %scevgep.i = getelementptr i8, ptr %.fr.i, i64 %354
   br label %mi_out_fill.exit
 
 mi_out_fill.exit:                                 ; preds = %347, %.lr.ph.preheader.i
   %.09.lcssa.i = phi ptr [ %.fr.i, %347 ], [ %scevgep.i, %.lr.ph.preheader.i ]
   %.not246 = icmp ugt ptr %.09.lcssa.i, %10
   %or.cond248 = select i1 %.not245, i1 true, i1 %.not246
-  br i1 %or.cond248, label %mi_out_alignright.exit, label %354
+  br i1 %or.cond248, label %mi_out_alignright.exit, label %355
 
-354:                                              ; preds = %mi_out_fill.exit
-  %355 = icmp ne ptr %.fr.i, %.0199
-  %356 = getelementptr inbounds nuw i8, ptr %.0199, i64 %.3207
-  %.not.i284 = icmp ult ptr %356, %10
-  %or.cond27.i = select i1 %355, i1 %.not.i284, i1 false
+355:                                              ; preds = %mi_out_fill.exit
+  %356 = icmp ne ptr %.fr.i, %.0199
+  %357 = getelementptr inbounds nuw i8, ptr %.0199, i64 %.3207
+  %.not.i284 = icmp ult ptr %357, %10
+  %or.cond27.i = select i1 %356, i1 %.not.i284, i1 false
   br i1 %or.cond27.i, label %.preheader31.i, label %mi_out_alignright.exit
 
-.preheader31.i:                                   ; preds = %354, %.preheader31.i
-  %.02232.i = phi i64 [ %362, %.preheader31.i ], [ 1, %354 ]
-  %357 = sub nuw i64 %345, %.02232.i
-  %358 = getelementptr inbounds nuw i8, ptr %.0199, i64 %357
-  %359 = load i8, ptr %358, align 1, !tbaa !3
-  %360 = sub i64 %.3207, %.02232.i
-  %361 = getelementptr inbounds nuw i8, ptr %.0199, i64 %360
-  store i8 %359, ptr %361, align 1, !tbaa !3
-  %362 = add nuw i64 %.02232.i, 1
+.preheader31.i:                                   ; preds = %355, %.preheader31.i
+  %.02232.i = phi i64 [ %363, %.preheader31.i ], [ 1, %355 ]
+  %358 = sub nuw i64 %345, %.02232.i
+  %359 = getelementptr inbounds nuw i8, ptr %.0199, i64 %358
+  %360 = load i8, ptr %359, align 1, !tbaa !3
+  %361 = sub i64 %.3207, %.02232.i
+  %362 = getelementptr inbounds nuw i8, ptr %.0199, i64 %361
+  store i8 %360, ptr %362, align 1, !tbaa !3
+  %363 = add nuw i64 %.02232.i, 1
   %exitcond.i = icmp eq i64 %.02232.i, %345
   br i1 %exitcond.i, label %.preheader.preheader.i, label %.preheader31.i, !llvm.loop !25
 
@@ -1048,18 +1049,18 @@ mi_out_fill.exit:                                 ; preds = %347, %.lr.ph.prehea
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.0199, i8 range(i8 32, 49) %.1212, i64 %348, i1 false), !tbaa !3
   br label %mi_out_alignright.exit
 
-mi_out_alignright.exit:                           ; preds = %mi_out_fill.exit, %mi_outs.exit, %354, %.preheader.preheader.i, %mi_outc.exit, %switch.early.test
-  %.2 = phi ptr [ %.09.lcssa.i, %.preheader.preheader.i ], [ %.fr.i, %mi_outs.exit ], [ %.0298338, %switch.early.test ], [ %21, %mi_outc.exit ], [ %.09.lcssa.i, %354 ], [ %.09.lcssa.i, %mi_out_fill.exit ]
-  %.1 = phi ptr [ %.9, %.preheader.preheader.i ], [ %.9, %mi_outs.exit ], [ %18, %switch.early.test ], [ %18, %mi_outc.exit ], [ %.9, %354 ], [ %.9, %mi_out_fill.exit ]
+mi_out_alignright.exit:                           ; preds = %mi_out_fill.exit, %mi_outs.exit, %355, %.preheader.preheader.i, %mi_outc.exit, %switch.early.test
+  %.2 = phi ptr [ %.09.lcssa.i, %.preheader.preheader.i ], [ %.fr.i, %mi_outs.exit ], [ %.0298338, %switch.early.test ], [ %21, %mi_outc.exit ], [ %.09.lcssa.i, %355 ], [ %.09.lcssa.i, %mi_out_fill.exit ]
+  %.1 = phi ptr [ %.9, %.preheader.preheader.i ], [ %.9, %mi_outs.exit ], [ %18, %switch.early.test ], [ %18, %mi_outc.exit ], [ %.9, %355 ], [ %.9, %mi_out_fill.exit ]
   %.not = icmp ult ptr %.2, %10
   br i1 %.not, label %14, label %mi_out_alignright.exit.thread321
 
 mi_out_alignright.exit.thread321:                 ; preds = %mi_out_alignright.exit, %22, %14, %68, %27, %33, %40, %47, %74, %63, %56, %8
   %.0298336 = phi ptr [ %.0298338, %56 ], [ %0, %8 ], [ %.2, %mi_out_alignright.exit ], [ %.0298338, %22 ], [ %.0298338, %14 ], [ %.0298338, %68 ], [ %.0298338, %27 ], [ %.0298338, %33 ], [ %.0298338, %40 ], [ %.0298338, %47 ], [ %.0298338, %74 ], [ %.0298338, %63 ]
   store i8 0, ptr %.0298336, align 1, !tbaa !3
-  br label %363
+  br label %364
 
-363:                                              ; preds = %4, %mi_out_alignright.exit.thread321
+364:                                              ; preds = %4, %mi_out_alignright.exit.thread321
   ret void
 }
 

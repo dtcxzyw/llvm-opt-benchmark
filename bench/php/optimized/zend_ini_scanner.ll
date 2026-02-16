@@ -182,7 +182,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 56), align 8, !tbaa !29
-  %3 = ptrtoint ptr %2 to i64
+  %3 = ptrtoaddr ptr %2 to i64
   %.promoted2669 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8
   store ptr %.promoted2669, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 32), align 8, !tbaa !30
   %.not2676 = icmp ult ptr %.promoted2669, %2
@@ -7068,7 +7068,8 @@ zend_string_alloc.exit2258:                       ; preds = %2856, %2858
 
 .lr.ph2703.preheader:                             ; preds = %2974
   %2976 = getelementptr inbounds nuw i8, ptr %.promoted2808, i64 1
-  %2977 = sub i64 %3, %2963
+  %.promoted27013036 = ptrtoaddr ptr %.promoted2701 to i64
+  %2977 = sub i64 %3, %.promoted27013036
   %scevgep = getelementptr i8, ptr %2976, i64 %2977
   br label %.lr.ph2703
 

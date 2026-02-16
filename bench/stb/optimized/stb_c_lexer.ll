@@ -333,15 +333,15 @@ define range(i32 0, 2) i32 @stb_c_lexer_get_token(ptr noundef %0) local_unnamed_
   store ptr %9, ptr %3, align 8, !tbaa !26
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !12
-  %12 = ptrtoint ptr %11 to i64
+  %12 = ptrtoaddr ptr %11 to i64
   %.not243276 = icmp eq ptr %9, %11
   br i1 %.not243276, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.backedge222
   %.lcssa265274277 = phi ptr [ %.lcssa265.sink, %.backedge222 ], [ %9, %1 ]
-  %.lcssa265274277316 = ptrtoint ptr %.lcssa265274277 to i64
   %scevgep = getelementptr i8, ptr %.lcssa265274277, i64 %12
-  %13 = sub i64 0, %.lcssa265274277316
+  %.lcssa265274277313 = ptrtoaddr ptr %.lcssa265274277 to i64
+  %13 = sub i64 0, %.lcssa265274277313
   %scevgep314 = getelementptr i8, ptr %scevgep, i64 %13
   br label %14
 
@@ -531,12 +531,12 @@ switch.early.test:                                ; preds = %46
   br label %stb__clex_parse_string.exit
 
 .lr.ph287:                                        ; preds = %49, %.backedge
-  %indvars.iv320 = phi i64 [ %indvars.iv.next321, %.backedge ], [ 0, %49 ]
+  %indvars.iv319 = phi i64 [ %indvars.iv.next320, %.backedge ], [ 0, %49 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.backedge ], [ 1, %49 ]
-  %61 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv320
+  %61 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv319
   %62 = load i8, ptr %61, align 1, !tbaa !16
   %63 = load ptr, ptr %52, align 8, !tbaa !28
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %indvars.iv320
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %indvars.iv319
   store i8 %62, ptr %64, align 1, !tbaa !16
   %65 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv
   %66 = load i8, ptr %65, align 1, !tbaa !16
@@ -548,8 +548,8 @@ switch.early.test:                                ; preds = %46
   %or.cond203 = icmp ult i8 %69, 10
   %or.cond220 = or i1 %or.cond203, %or.cond219
   %70 = icmp slt i8 %.fr, 0
-  %or.cond390 = or i1 %or.cond220, %70
-  br i1 %or.cond390, label %.backedge, label %switch.early.test291
+  %or.cond389 = or i1 %or.cond220, %70
+  br i1 %or.cond389, label %.backedge, label %switch.early.test291
 
 switch.early.test291:                             ; preds = %.lr.ph287
   switch i8 %.fr, label %73 [
@@ -562,7 +562,7 @@ switch.early.test291:                             ; preds = %.lr.ph287
   %71 = load i32, ptr %53, align 8, !tbaa !15
   %72 = sext i32 %71 to i64
   %.not186 = icmp slt i64 %indvars.iv.next, %72
-  %indvars.iv.next321 = add nuw nsw i64 %indvars.iv320, 1
+  %indvars.iv.next320 = add nuw nsw i64 %indvars.iv319, 1
   br i1 %.not186, label %.lr.ph287, label %._crit_edge288.loopexit, !llvm.loop !34
 
 73:                                               ; preds = %switch.early.test291
@@ -1144,13 +1144,13 @@ switch.early.test291:                             ; preds = %.lr.ph287
   %333 = load ptr, ptr %4, align 8, !tbaa !26
   %334 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %335 = icmp eq ptr %333, %334
-  %.sink325 = select i1 %335, i64 257, i64 258
+  %.sink324 = select i1 %335, i64 257, i64 258
   %.lcssa302.lcssa.sink.idx = select i1 %335, i64 -2, i64 0
   %.lcssa302.lcssa.sink = getelementptr inbounds i8, ptr %15, i64 %.lcssa302.lcssa.sink.idx
   %.pn = select i1 %335, ptr %15, ptr %333
   %.sink = getelementptr inbounds i8, ptr %.pn, i64 -1
   %336 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %.sink325, ptr %336, align 8, !tbaa !22
+  store i64 %.sink324, ptr %336, align 8, !tbaa !22
   %337 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.lcssa302.lcssa.sink, ptr %337, align 8, !tbaa !23
   %338 = getelementptr inbounds nuw i8, ptr %0, i64 48

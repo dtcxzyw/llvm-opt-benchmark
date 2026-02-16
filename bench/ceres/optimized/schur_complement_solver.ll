@@ -6543,25 +6543,25 @@ _ZNSt6vectorIN5ceres8internal27SchurEliminatorForOneFBlockILi2ELi3ELi6EE5ChunkES
   %94 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 8
   %95 = load ptr, ptr %94, align 8, !tbaa !180
   %96 = load i32, ptr %95, align 4, !tbaa !182
-  %.not4596 = icmp eq i32 %96, %60
-  br i1 %.not4596, label %.lr.ph98, label %.thread
+  %.not4595 = icmp eq i32 %96, %60
+  br i1 %.not4595, label %.lr.ph97, label %.thread
 
-97:                                               ; preds = %.lr.ph98
+97:                                               ; preds = %.lr.ph97
   %gep = getelementptr %"struct.ceres::internal::CompressedList", ptr %invariant.gep, i64 %indvars.iv.next
   %98 = getelementptr inbounds nuw i8, ptr %gep, i64 8
   %99 = load ptr, ptr %98, align 8, !tbaa !180
   %100 = load i32, ptr %99, align 4, !tbaa !182
   %.not45 = icmp eq i32 %100, %60
-  br i1 %.not45, label %.lr.ph98, label %.thread.loopexit
+  br i1 %.not45, label %.lr.ph97, label %.thread.loopexit
 
-.lr.ph98:                                         ; preds = %.lr.ph, %97
-  %indvars.iv97 = phi i64 [ %indvars.iv.next, %97 ], [ 0, %.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv97, 1
+.lr.ph97:                                         ; preds = %.lr.ph, %97
+  %indvars.iv96 = phi i64 [ %indvars.iv.next, %97 ], [ 0, %.lr.ph ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv96, 1
   %101 = trunc nsw i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread.loopexit, label %97
 
-.thread.loopexit:                                 ; preds = %.lr.ph98, %97
+.thread.loopexit:                                 ; preds = %.lr.ph97, %97
   store i32 %101, ptr %90, align 4, !tbaa !419
   br label %.thread
 
@@ -6607,7 +6607,6 @@ _ZNSt6vectorIN5ceres8internal27SchurEliminatorForOneFBlockILi2ELi3ELi6EE5ChunkES
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %113, i64 noundef %128)
   %.pre76 = load ptr, ptr %113, align 8, !tbaa !143
   %.pre77 = load ptr, ptr %119, align 8, !tbaa !143
-  %.pre78 = ptrtoint ptr %.pre76 to i64
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 129:                                              ; preds = %.thread67
@@ -6624,19 +6623,19 @@ _ZNSt6vectorIN5ceres8internal27SchurEliminatorForOneFBlockILi2ELi3ELi6EE5ChunkES
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %127, %129, %131, %133
-  %.pre-phi = phi i64 [ %.pre78, %127 ], [ %123, %129 ], [ %123, %131 ], [ %123, %133 ]
   %134 = phi ptr [ %.pre77, %127 ], [ %120, %129 ], [ %120, %131 ], [ %132, %133 ]
   %135 = phi ptr [ %.pre76, %127 ], [ %121, %129 ], [ %121, %131 ], [ %121, %133 ]
   %.not6.i.i.i.i = icmp eq ptr %135, %134
   br i1 %.not6.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit
-  %136 = ptrtoint ptr %134 to i64
-  %137 = add i64 %136, -8
-  %138 = sub i64 %137, %.pre-phi
-  %139 = and i64 %138, -8
-  %140 = add i64 %139, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %135, i8 0, i64 %140, i1 false), !tbaa !100
+  %136 = ptrtoaddr ptr %134 to i64
+  %137 = ptrtoaddr ptr %135 to i64
+  %138 = add i64 %136, -8
+  %139 = sub i64 %138, %137
+  %140 = and i64 %139, -8
+  %141 = add i64 %140, 8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %135, i8 0, i64 %141, i1 false), !tbaa !100
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %_ZNSt6vectorIdSaIdEE6resizeEm.exit
@@ -12857,9 +12856,9 @@ define linkonce_odr hidden noundef double @_ZN5ceres8internal4NormIN5Eigen6Matri
 .lr.ph.preheader.i.i:                             ; preds = %15, %.thread.i
   %18 = phi ptr [ %14, %.thread.i ], [ %17, %15 ]
   %.0.i.i8.i = phi ptr [ %12, %.thread.i ], [ %4, %15 ]
-  %19 = ptrtoint ptr %18 to i64
+  %19 = ptrtoaddr ptr %18 to i64
   %20 = add i64 %19, -8
-  %.0.i.i8.i13 = ptrtoint ptr %.0.i.i8.i to i64
+  %.0.i.i8.i13 = ptrtoaddr ptr %.0.i.i8.i to i64
   %21 = sub i64 %20, %.0.i.i8.i13
   %22 = and i64 %21, -8
   %23 = add i64 %22, 8
@@ -12968,9 +12967,9 @@ define linkonce_odr hidden noundef double @_ZN5ceres8internal3DotIN5Eigen6Matrix
 .lr.ph.preheader.i.i:                             ; preds = %16, %.thread.i
   %19 = phi ptr [ %15, %.thread.i ], [ %18, %16 ]
   %.0.i.i8.i = phi ptr [ %13, %.thread.i ], [ %5, %16 ]
-  %20 = ptrtoint ptr %19 to i64
+  %20 = ptrtoaddr ptr %19 to i64
   %21 = add i64 %20, -8
-  %.0.i.i8.i14 = ptrtoint ptr %.0.i.i8.i to i64
+  %.0.i.i8.i14 = ptrtoaddr ptr %.0.i.i8.i to i64
   %22 = sub i64 %21, %.0.i.i8.i14
   %23 = and i64 %22, -8
   %24 = add i64 %23, 8

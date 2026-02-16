@@ -2030,8 +2030,8 @@ _ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit: ; pr
   br i1 %.not5.i.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.i, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %.loopexit
-  %147 = ptrtoint ptr %146 to i64
-  %148 = ptrtoint ptr %144 to i64
+  %147 = ptrtoaddr ptr %146 to i64
+  %148 = ptrtoaddr ptr %144 to i64
   %reass.sub = sub i64 %147, %148
   %149 = and i64 %reass.sub, -4
   call void @llvm.memset.p0.i64(ptr align 4 %144, i8 -1, i64 %149, i1 false), !tbaa !153
@@ -20993,8 +20993,8 @@ define weak_odr noundef ptr @_ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLea
   br i1 %.not5.i.i.i.i.i, label %46, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %38
-  %43 = ptrtoint ptr %42 to i64
-  %44 = ptrtoint ptr %40 to i64
+  %43 = ptrtoaddr ptr %42 to i64
+  %44 = ptrtoaddr ptr %40 to i64
   %reass.sub29 = sub i64 %43, %44
   %45 = and i64 %reass.sub29, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %40, i8 -1, i64 %45, i1 false), !tbaa !153
@@ -21026,8 +21026,8 @@ define weak_odr noundef ptr @_ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLea
   br i1 %.not5.i.i.i.i.i20, label %_ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEE10GetLeafMapEPNS_4TreeE.exit22, label %.lr.ph.i.i.i.i.preheader.i21
 
 .lr.ph.i.i.i.i.preheader.i21:                     ; preds = %.critedge
-  %56 = ptrtoint ptr %55 to i64
-  %57 = ptrtoint ptr %53 to i64
+  %56 = ptrtoaddr ptr %55 to i64
+  %57 = ptrtoaddr ptr %53 to i64
   %reass.sub = sub i64 %56, %57
   %58 = and i64 %reass.sub, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %53, i8 -1, i64 %58, i1 false), !tbaa !153
@@ -21058,8 +21058,8 @@ _ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEE10GetLeafMapEPNS_4TreeE
   br i1 %.not5.i.i.i.i.i23, label %_ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEE10GetLeafMapEPNS_4TreeE.exit25, label %.lr.ph.i.i.i.i.preheader.i24
 
 .lr.ph.i.i.i.i.preheader.i24:                     ; preds = %.critedge19
-  %68 = ptrtoint ptr %67 to i64
-  %69 = ptrtoint ptr %65 to i64
+  %68 = ptrtoaddr ptr %67 to i64
+  %69 = ptrtoaddr ptr %65 to i64
   %reass.sub30 = sub i64 %68, %69
   %70 = and i64 %reass.sub30, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %65, i8 -1, i64 %70, i1 false), !tbaa !153
@@ -22526,8 +22526,8 @@ _ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit: ; pr
   br i1 %.not5.i.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.i, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %.loopexit
-  %147 = ptrtoint ptr %146 to i64
-  %148 = ptrtoint ptr %144 to i64
+  %147 = ptrtoaddr ptr %146 to i64
+  %148 = ptrtoaddr ptr %144 to i64
   %reass.sub = sub i64 %147, %148
   %149 = and i64 %reass.sub, -4
   call void @llvm.memset.p0.i64(ptr align 4 %144, i8 -1, i64 %149, i1 false), !tbaa !153
@@ -28910,8 +28910,8 @@ define weak_odr noundef ptr @_ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearne
   br i1 %.not5.i.i.i.i.i, label %46, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %38
-  %43 = ptrtoint ptr %42 to i64
-  %44 = ptrtoint ptr %40 to i64
+  %43 = ptrtoaddr ptr %42 to i64
+  %44 = ptrtoaddr ptr %40 to i64
   %reass.sub29 = sub i64 %43, %44
   %45 = and i64 %reass.sub29, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %40, i8 -1, i64 %45, i1 false), !tbaa !153
@@ -28943,8 +28943,8 @@ define weak_odr noundef ptr @_ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearne
   br i1 %.not5.i.i.i.i.i20, label %_ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEE10GetLeafMapEPNS_4TreeE.exit22, label %.lr.ph.i.i.i.i.preheader.i21
 
 .lr.ph.i.i.i.i.preheader.i21:                     ; preds = %.critedge
-  %56 = ptrtoint ptr %55 to i64
-  %57 = ptrtoint ptr %53 to i64
+  %56 = ptrtoaddr ptr %55 to i64
+  %57 = ptrtoaddr ptr %53 to i64
   %reass.sub = sub i64 %56, %57
   %58 = and i64 %reass.sub, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %53, i8 -1, i64 %58, i1 false), !tbaa !153
@@ -28975,8 +28975,8 @@ _ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEE10GetLeafMapEPNS_4TreeE.ex
   br i1 %.not5.i.i.i.i.i23, label %_ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEE10GetLeafMapEPNS_4TreeE.exit25, label %.lr.ph.i.i.i.i.preheader.i24
 
 .lr.ph.i.i.i.i.preheader.i24:                     ; preds = %.critedge19
-  %68 = ptrtoint ptr %67 to i64
-  %69 = ptrtoint ptr %65 to i64
+  %68 = ptrtoaddr ptr %67 to i64
+  %69 = ptrtoaddr ptr %65 to i64
   %reass.sub30 = sub i64 %68, %69
   %70 = and i64 %reass.sub30, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %65, i8 -1, i64 %70, i1 false), !tbaa !153

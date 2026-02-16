@@ -323,7 +323,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
 define void @_ZN3gmx11stripStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = load ptr, ptr %1, align 8, !tbaa !10
-  %5 = ptrtoint ptr %4 to i64
+  %5 = ptrtoaddr ptr %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !16
   %8 = getelementptr i8, ptr %4, i64 %7
@@ -345,7 +345,7 @@ define void @_ZN3gmx11stripStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 .critedge.loopexit:                               ; preds = %12, %.lr.ph
   %.sroa.012.0.lcssa.ph = phi ptr [ %.sroa.012.019, %.lr.ph ], [ %8, %12 ]
-  %.pre = ptrtoint ptr %.sroa.012.0.lcssa.ph to i64
+  %.pre = ptrtoaddr ptr %.sroa.012.0.lcssa.ph to i64
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %2
@@ -376,40 +376,41 @@ define void @_ZN3gmx11stripStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   store i64 0, ptr %22, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = ptrtoint ptr %.sroa.08.0.lcssa to i64
-  %24 = sub i64 %23, %.sroa.012.0.lcssa22.pre-phi
-  store i64 %24, ptr %3, align 8, !tbaa !21
-  %25 = icmp ugt i64 %24, 15
-  br i1 %25, label %.noexc.i, label %._crit_edge.i.i
+  %24 = ptrtoint ptr %.sroa.012.0.lcssa to i64
+  %25 = sub i64 %23, %24
+  store i64 %25, ptr %3, align 8, !tbaa !21
+  %26 = icmp ugt i64 %25, 15
+  br i1 %26, label %.noexc.i, label %._crit_edge.i.i
 
 .noexc.i:                                         ; preds = %.critedge2
-  %26 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
-  store ptr %26, ptr %0, align 8, !tbaa !10
-  %27 = load i64, ptr %3, align 8, !tbaa !21
-  store i64 %27, ptr %21, align 8, !tbaa !4
+  %27 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
+  store ptr %27, ptr %0, align 8, !tbaa !10
+  %28 = load i64, ptr %3, align 8, !tbaa !21
+  store i64 %28, ptr %21, align 8, !tbaa !4
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.noexc.i, %.critedge2
-  %28 = phi ptr [ %26, %.noexc.i ], [ %21, %.critedge2 ]
-  switch i64 %24, label %31 [
-    i64 1, label %29
-    i64 0, label %32
+  %29 = phi ptr [ %27, %.noexc.i ], [ %21, %.critedge2 ]
+  switch i64 %25, label %32 [
+    i64 1, label %30
+    i64 0, label %33
   ]
 
-29:                                               ; preds = %._crit_edge.i.i
-  %30 = load i8, ptr %.sroa.012.0.lcssa, align 1, !tbaa !4
-  store i8 %30, ptr %28, align 1, !tbaa !4
-  br label %32
+30:                                               ; preds = %._crit_edge.i.i
+  %31 = load i8, ptr %.sroa.012.0.lcssa, align 1, !tbaa !4
+  store i8 %31, ptr %29, align 1, !tbaa !4
+  br label %33
 
-31:                                               ; preds = %._crit_edge.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %28, ptr align 1 %.sroa.012.0.lcssa, i64 %24, i1 false)
-  br label %32
+32:                                               ; preds = %._crit_edge.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 %.sroa.012.0.lcssa, i64 %25, i1 false)
+  br label %33
 
-32:                                               ; preds = %31, %29, %._crit_edge.i.i
-  %33 = load i64, ptr %3, align 8, !tbaa !21
-  store i64 %33, ptr %22, align 8, !tbaa !16
-  %34 = load ptr, ptr %0, align 8, !tbaa !10
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %33
-  store i8 0, ptr %35, align 1, !tbaa !4
+33:                                               ; preds = %32, %30, %._crit_edge.i.i
+  %34 = load i64, ptr %3, align 8, !tbaa !21
+  store i64 %34, ptr %22, align 8, !tbaa !16
+  %35 = load ptr, ptr %0, align 8, !tbaa !10
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %34
+  store i8 0, ptr %36, align 1, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

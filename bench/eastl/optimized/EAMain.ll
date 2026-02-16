@@ -583,7 +583,7 @@ for.cond.preheader:                               ; preds = %if.end10, %while.en
   %end.060 = phi ptr [ %end.1, %while.end49 ], [ %add.ptr6, %if.end10 ]
   %ptr.059 = phi ptr [ %ptr.5.lcssa, %while.end49 ], [ %add.ptr, %if.end10 ]
   %argc.158 = phi i32 [ %argc.2, %while.end49 ], [ %argc.0, %if.end10 ]
-  %end.06064 = ptrtoint ptr %end.060 to i64
+  %end.06064 = ptrtoaddr ptr %end.060 to i64
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %if.end30
@@ -594,7 +594,7 @@ for.cond:                                         ; preds = %for.cond.preheader,
   br i1 %cmp1244, label %land.rhs.preheader, label %while.end
 
 land.rhs.preheader:                               ; preds = %for.cond
-  %ptr.165 = ptrtoint ptr %ptr.1 to i64
+  %ptr.165 = ptrtoaddr ptr %ptr.1 to i64
   %scevgep = getelementptr i8, ptr %ptr.1, i64 %end.06064
   %0 = sub i64 0, %ptr.165
   %scevgep66 = getelementptr i8, ptr %scevgep, i64 %0
@@ -635,12 +635,13 @@ if.then22:                                        ; preds = %while.end
 
 if.then26:                                        ; preds = %if.then22
   %add.ptr27 = getelementptr inbounds nuw i8, ptr %quoteStart.1.lcssa, i64 1
+  %sub.ptr.lhs.cast = ptrtoint ptr %end.060 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %quoteStart.1.lcssa to i64
-  %sub.ptr.sub = sub i64 %end.06064, %sub.ptr.rhs.cast
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %quoteStart.1.lcssa, ptr nonnull align 1 %add.ptr27, i64 %sub.ptr.sub, i1 false)
   %incdec.ptr28 = getelementptr inbounds i8, ptr %end.060, i64 -1
   %add.ptr29 = getelementptr inbounds i8, ptr %ptr.2.lcssa, i64 -2
-  %.pre = ptrtoint ptr %incdec.ptr28 to i64
+  %.pre = ptrtoaddr ptr %incdec.ptr28 to i64
   br label %for.end
 
 if.end30:                                         ; preds = %if.then22
@@ -670,7 +671,7 @@ if.end39:                                         ; preds = %if.then34, %for.end
   br i1 %cmp4153, label %land.rhs42.preheader, label %while.end49
 
 land.rhs42.preheader:                             ; preds = %if.end39
-  %ptr.468 = ptrtoint ptr %ptr.4 to i64
+  %ptr.468 = ptrtoaddr ptr %ptr.4 to i64
   %3 = sub i64 %end.167.pre-phi, %ptr.468
   %scevgep69 = getelementptr i8, ptr %ptr.4, i64 %3
   br label %land.rhs42

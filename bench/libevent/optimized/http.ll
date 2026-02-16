@@ -9119,8 +9119,8 @@ regname_ok.exit.thread:                           ; preds = %24, %18, %20, %8, %
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 3) i32 @bracket_addr_ok(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
-  %3 = ptrtoint ptr %1 to i64
-  %4 = ptrtoint ptr %0 to i64
+  %3 = ptrtoaddr ptr %0 to i64
+  %4 = ptrtoaddr ptr %1 to i64
   %5 = alloca [64 x i8], align 16
   %6 = alloca %struct.in6_addr, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 3
@@ -9142,7 +9142,7 @@ define internal fastcc range(i32 0, 3) i32 @bracket_addr_ok(ptr noundef nonnull 
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 118
-  br i1 %17, label %18, label %38
+  br i1 %17, label %18, label %42
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -9156,90 +9156,97 @@ define internal fastcc range(i32 0, 3) i32 @bracket_addr_ok(ptr noundef nonnull 
   br i1 %22, label %.lr.ph.preheader, label %.critedgethread-pre-split
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %scevgep = getelementptr i8, ptr inttoptr (i64 -1 to ptr), i64 %3
+  %23 = xor i64 %3, -1
+  %24 = getelementptr i8, ptr %0, i64 %23
+  %scevgep = getelementptr i8, ptr %24, i64 %4
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %26
-  %.02745 = phi ptr [ %27, %26 ], [ %19, %.lr.ph.preheader ]
-  %23 = load i8, ptr %.02745, align 1
-  %.not33 = icmp eq i8 %23, 46
-  br i1 %.not33, label %.critedge40.preheader, label %24
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %28
+  %.02745 = phi ptr [ %29, %28 ], [ %19, %.lr.ph.preheader ]
+  %25 = load i8, ptr %.02745, align 1
+  %.not33 = icmp eq i8 %25, 46
+  br i1 %.not33, label %.critedge40.preheader, label %26
 
-24:                                               ; preds = %.lr.ph
-  %25 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %23) #19
-  %.not38 = icmp eq i32 %25, 0
-  br i1 %.not38, label %.loopexit, label %26
+26:                                               ; preds = %.lr.ph
+  %27 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %25) #19
+  %.not38 = icmp eq i32 %27, 0
+  br i1 %.not38, label %.loopexit, label %28
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw i8, ptr %.02745, i64 1
-  %exitcond.not = icmp eq ptr %27, %scevgep
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds nuw i8, ptr %.02745, i64 1
+  %exitcond.not = icmp eq ptr %29, %scevgep
   br i1 %exitcond.not, label %.critedgethread-pre-split, label %.lr.ph, !llvm.loop !42
 
-.critedgethread-pre-split:                        ; preds = %26, %.preheader
-  %.027.lcssa = phi ptr [ %19, %.preheader ], [ %scevgep, %26 ]
+.critedgethread-pre-split:                        ; preds = %28, %.preheader
+  %.027.lcssa = phi ptr [ %19, %.preheader ], [ %scevgep, %28 ]
   %.pr = load i8, ptr %.027.lcssa, align 1
-  %28 = icmp eq i8 %.pr, 46
-  br i1 %28, label %.critedge40.preheader, label %.loopexit
+  %30 = icmp eq i8 %.pr, 46
+  br i1 %30, label %.critedge40.preheader, label %.loopexit
 
 .critedge40.preheader:                            ; preds = %.lr.ph, %.critedgethread-pre-split
   %.02744 = phi ptr [ %.027.lcssa, %.critedgethread-pre-split ], [ %.02745, %.lr.ph ]
   %.12846 = getelementptr inbounds nuw i8, ptr %.02744, i64 1
-  %29 = icmp ult ptr %.12846, %12
-  br i1 %29, label %.lr.ph48.preheader, label %.loopexit
+  %31 = icmp ult ptr %.12846, %12
+  br i1 %31, label %.lr.ph48.preheader, label %.loopexit
 
 .lr.ph48.preheader:                               ; preds = %.critedge40.preheader
-  %scevgep55 = getelementptr i8, ptr inttoptr (i64 -1 to ptr), i64 %3
+  %.0274454 = ptrtoaddr ptr %.02744 to i64
+  %32 = xor i64 %.0274454, -1
+  %33 = getelementptr i8, ptr %.02744, i64 %32
+  %scevgep55 = getelementptr i8, ptr %33, i64 %4
   br label %.lr.ph48
 
 .lr.ph48:                                         ; preds = %.lr.ph48.preheader, %.critedge40
   %.12847 = phi ptr [ %.128, %.critedge40 ], [ %.12846, %.lr.ph48.preheader ]
-  %30 = load i8, ptr %.12847, align 1
-  %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw i8, ptr @uri_chars, i64 %31
-  %33 = load i8, ptr %32, align 1
-  %.not35 = icmp eq i8 %33, 0
-  br i1 %.not35, label %34, label %.critedge40
+  %34 = load i8, ptr %.12847, align 1
+  %35 = zext i8 %34 to i64
+  %36 = getelementptr inbounds nuw i8, ptr @uri_chars, i64 %35
+  %37 = load i8, ptr %36, align 1
+  %.not35 = icmp eq i8 %37, 0
+  br i1 %.not35, label %38, label %.critedge40
 
-34:                                               ; preds = %.lr.ph48
-  %memchr.bounds = icmp ult i8 %30, 64
-  %35 = shl nuw i64 1, %31
-  %36 = and i64 %35, 2882338748320710657
-  %memchr.bits = icmp ne i64 %36, 0
+38:                                               ; preds = %.lr.ph48
+  %memchr.bounds = icmp ult i8 %34, 64
+  %39 = shl nuw i64 1, %35
+  %40 = and i64 %39, 2882338748320710657
+  %memchr.bits = icmp ne i64 %40, 0
   %memchr36.not.not39 = select i1 %memchr.bounds, i1 %memchr.bits, i1 false
-  %37 = icmp eq i8 %30, 58
-  %or.cond = or i1 %37, %memchr36.not.not39
+  %41 = icmp eq i8 %34, 58
+  %or.cond = or i1 %41, %memchr36.not.not39
   br i1 %or.cond, label %.critedge40, label %.loopexit
 
-.critedge40:                                      ; preds = %34, %.lr.ph48
+.critedge40:                                      ; preds = %38, %.lr.ph48
   %.128 = getelementptr inbounds nuw i8, ptr %.12847, i64 1
   %exitcond56.not = icmp eq ptr %.128, %scevgep55
   br i1 %exitcond56.not, label %.loopexit, label %.lr.ph48, !llvm.loop !43
 
-38:                                               ; preds = %14
+42:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %39 = sub i64 %3, %4
+  %43 = ptrtoint ptr %1 to i64
+  %44 = ptrtoint ptr %0 to i64
+  %45 = sub i64 %43, %44
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %40 = icmp sgt i64 %39, 65
-  br i1 %40, label %47, label %41
+  %46 = icmp sgt i64 %45, 65
+  br i1 %46, label %53, label %47
 
-41:                                               ; preds = %38
-  %42 = add nsw i64 %39, -2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 1 %15, i64 %42, i1 false)
-  %43 = getelementptr inbounds i8, ptr %5, i64 %42
-  store i8 0, ptr %43, align 1
-  %44 = call i32 @evutil_inet_pton(i32 noundef 10, ptr noundef nonnull %5, ptr noundef nonnull %6) #19
-  %45 = icmp eq i32 %44, 1
-  %46 = zext i1 %45 to i32
-  br label %47
+47:                                               ; preds = %42
+  %48 = add nsw i64 %45, -2
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 1 %15, i64 %48, i1 false)
+  %49 = getelementptr inbounds i8, ptr %5, i64 %48
+  store i8 0, ptr %49, align 1
+  %50 = call i32 @evutil_inet_pton(i32 noundef 10, ptr noundef nonnull %5, ptr noundef nonnull %6) #19
+  %51 = icmp eq i32 %50, 1
+  %52 = zext i1 %51 to i32
+  br label %53
 
-47:                                               ; preds = %38, %41
-  %.1 = phi i32 [ %46, %41 ], [ 0, %38 ]
+53:                                               ; preds = %42, %47
+  %.1 = phi i32 [ %52, %47 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %24, %34, %.critedge40, %.critedge40.preheader, %.critedgethread-pre-split, %18, %2, %9, %11, %47
-  %.0 = phi i32 [ %.1, %47 ], [ 0, %18 ], [ 2, %.critedge40.preheader ], [ 0, %.critedgethread-pre-split ], [ 0, %9 ], [ 0, %2 ], [ 0, %11 ], [ 2, %.critedge40 ], [ 0, %34 ], [ 0, %24 ]
+.loopexit:                                        ; preds = %26, %38, %.critedge40, %.critedge40.preheader, %.critedgethread-pre-split, %18, %2, %9, %11, %53
+  %.0 = phi i32 [ %.1, %53 ], [ 0, %18 ], [ 2, %.critedge40.preheader ], [ 0, %.critedgethread-pre-split ], [ 0, %9 ], [ 0, %2 ], [ 0, %11 ], [ 2, %.critedge40 ], [ 0, %38 ], [ 0, %26 ]
   ret i32 %.0
 }
 

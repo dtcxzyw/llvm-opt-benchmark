@@ -5094,13 +5094,13 @@ define dso_local void @_ZN5clang8comments5Lexer3lexERNS0_5TokenE(ptr noundef non
   %.not = icmp eq ptr %.ph98, %.ph97
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.outer, %142
-  %9 = phi i8 [ 3, %142 ], [ %.ph99, %.backedge.outer ]
+.backedge:                                        ; preds = %.backedge.outer, %144
+  %9 = phi i8 [ 3, %144 ], [ %.ph99, %.backedge.outer ]
   switch i8 %9, label %.loopexit [
     i8 0, label %10
     i8 3, label %106
-    i8 1, label %125
-    i8 2, label %125
+    i8 1, label %127
+    i8 2, label %127
   ]
 
 10:                                               ; preds = %.backedge
@@ -5321,13 +5321,13 @@ _ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit.i: ; preds = %76, %73,
   br label %96, !llvm.loop !113
 
 106:                                              ; preds = %.backedge
-  %107 = ptrtoint ptr %.ph98 to i64
   %.not2551 = icmp eq ptr %.ph98, %7
   br i1 %.not2551, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %106
-  %108 = ptrtoint ptr %7 to i64
-  %109 = sub i64 %108, %107
+  %107 = ptrtoaddr ptr %7 to i64
+  %108 = ptrtoaddr ptr %.ph98 to i64
+  %109 = sub i64 %107, %108
   %scevgep = getelementptr i8, ptr %.ph98, i64 %109
   br label %.lr.ph
 
@@ -5335,76 +5335,72 @@ _ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit.i: ; preds = %76, %73,
   %.052 = phi ptr [ %112, %111 ], [ %.ph98, %.lr.ph.preheader ]
   %110 = load i8, ptr %.052, align 1, !tbaa !23
   %.not26 = icmp eq i8 %110, 47
-  br i1 %.not26, label %.critedge.loopexit, label %111
+  br i1 %.not26, label %.critedge, label %111
 
 111:                                              ; preds = %.lr.ph
   %112 = getelementptr inbounds nuw i8, ptr %.052, i64 1
   %.not25 = icmp eq ptr %112, %7
-  br i1 %.not25, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !114
+  br i1 %.not25, label %.critedge, label %.lr.ph, !llvm.loop !114
 
-.critedge.loopexit:                               ; preds = %111, %.lr.ph
-  %.0.lcssa.ph = phi ptr [ %.052, %.lr.ph ], [ %scevgep, %111 ]
-  %.pre = ptrtoint ptr %.0.lcssa.ph to i64
-  br label %.critedge
-
-.critedge:                                        ; preds = %.critedge.loopexit, %106
-  %.pre-phi = phi i64 [ %.pre, %.critedge.loopexit ], [ %107, %106 ]
-  %.0.lcssa = phi ptr [ %.0.lcssa.ph, %.critedge.loopexit ], [ %.ph98, %106 ]
-  %113 = sub i64 %.pre-phi, %107
-  %114 = trunc i64 %113 to i32
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %116 = load ptr, ptr %115, align 8, !tbaa !63
-  %117 = ptrtoint ptr %116 to i64
-  %118 = sub i64 %107, %117
-  %119 = trunc i64 %118 to i32
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %121 = load i32, ptr %120, align 8, !tbaa !64
-  %122 = add i32 %121, %119
-  store i32 %122, ptr %1, align 8, !tbaa !19
-  %123 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 1, ptr %123, align 4, !tbaa !13
-  %124 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %114, ptr %124, align 4, !tbaa !18
+.critedge:                                        ; preds = %.lr.ph, %111, %106
+  %.0.lcssa = phi ptr [ %.ph98, %106 ], [ %scevgep, %111 ], [ %.052, %.lr.ph ]
+  %113 = ptrtoint ptr %.0.lcssa to i64
+  %114 = ptrtoint ptr %.ph98 to i64
+  %115 = sub i64 %113, %114
+  %116 = trunc i64 %115 to i32
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %118 = load ptr, ptr %117, align 8, !tbaa !63
+  %119 = ptrtoint ptr %118 to i64
+  %120 = sub i64 %114, %119
+  %121 = trunc i64 %120 to i32
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %123 = load i32, ptr %122, align 8, !tbaa !64
+  %124 = add i32 %123, %121
+  store i32 %124, ptr %1, align 8, !tbaa !19
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 1, ptr %125, align 4, !tbaa !13
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 %116, ptr %126, align 4, !tbaa !18
   store ptr %.0.lcssa, ptr %4, align 8, !tbaa !60
   store i8 0, ptr %3, align 1, !tbaa !69
   br label %.loopexit
 
-125:                                              ; preds = %.backedge, %.backedge
-  br i1 %.not, label %127, label %126
+127:                                              ; preds = %.backedge, %.backedge
+  br i1 %.not, label %129, label %128
 
-126:                                              ; preds = %125
+128:                                              ; preds = %127
   tail call void @_ZN5clang8comments5Lexer14lexCommentTextERNS0_5TokenE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
   br label %.loopexit
 
-127:                                              ; preds = %125
-  %128 = icmp eq i8 %9, 2
-  br i1 %128, label %129, label %142
-
 129:                                              ; preds = %127
-  %130 = getelementptr inbounds nuw i8, ptr %.ph98, i64 2
-  %131 = ptrtoint ptr %130 to i64
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %133 = load ptr, ptr %132, align 8, !tbaa !63
-  %134 = ptrtoint ptr %133 to i64
-  %135 = sub i64 %131, %134
-  %136 = trunc i64 %135 to i32
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %138 = load i32, ptr %137, align 8, !tbaa !64
-  %139 = add i32 %138, %136
-  store i32 %139, ptr %1, align 8, !tbaa !19
-  %140 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 1, ptr %140, align 4, !tbaa !13
-  %141 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 0, ptr %141, align 4, !tbaa !18
-  store ptr %130, ptr %4, align 8, !tbaa !60
+  %130 = icmp eq i8 %9, 2
+  br i1 %130, label %131, label %144
+
+131:                                              ; preds = %129
+  %132 = getelementptr inbounds nuw i8, ptr %.ph98, i64 2
+  %133 = ptrtoint ptr %132 to i64
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %135 = load ptr, ptr %134, align 8, !tbaa !63
+  %136 = ptrtoint ptr %135 to i64
+  %137 = sub i64 %133, %136
+  %138 = trunc i64 %137 to i32
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %140 = load i32, ptr %139, align 8, !tbaa !64
+  %141 = add i32 %140, %138
+  store i32 %141, ptr %1, align 8, !tbaa !19
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 1, ptr %142, align 4, !tbaa !13
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 0, ptr %143, align 4, !tbaa !18
+  store ptr %132, ptr %4, align 8, !tbaa !60
   store i8 3, ptr %3, align 1, !tbaa !69
   br label %.loopexit
 
-142:                                              ; preds = %127
+144:                                              ; preds = %129
   store i8 3, ptr %3, align 1, !tbaa !69
   br label %.backedge
 
-.loopexit:                                        ; preds = %.backedge, %129, %126, %.critedge, %12
+.loopexit:                                        ; preds = %.backedge, %131, %128, %.critedge, %12
   ret void
 }
 
