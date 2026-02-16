@@ -137464,7 +137464,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %2
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h3be9bf7d6fc9311aE.exit.thread": ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5cb17a607faf34dE.exit40", %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hda2cc5ddf190a668E.llvm.13457682623898008968.exit"
   %.sroa.011.0.lcssa = phi i64 [ %.sroa.020.076, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hda2cc5ddf190a668E.llvm.13457682623898008968.exit" ], [ %102, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5cb17a607faf34dE.exit40" ]
   store i64 1, ptr %1, align 8, !alias.scope !37550, !noalias !37553
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.418.0..sroa_idx, i8 0, i64 16, i1 false)
+  store ptr null, ptr %.sroa.519.0..sroa_idx, align 8, !alias.scope !37550, !noalias !37553
   br label %.loopexit
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h3be9bf7d6fc9311aE.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h3be9bf7d6fc9311aE.exit.lr.ph", %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5cb17a607faf34dE.exit40"

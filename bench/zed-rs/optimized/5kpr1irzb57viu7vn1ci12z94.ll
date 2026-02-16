@@ -780,8 +780,8 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   ret void
 
 18:                                               ; preds = %15
+  store i64 0, ptr %1, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   store i64 %.sroa.6.123, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.9.124, ptr %20, align 8
