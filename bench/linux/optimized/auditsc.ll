@@ -2518,7 +2518,6 @@ define internal fastcc void @audit_reset_context(ptr noundef %0) unnamed_addr #0
   br i1 %52, label %.loopexit13, label %.preheader12, !llvm.loop !33
 
 .loopexit13:                                      ; preds = %.preheader12, %45
-  store ptr null, ptr %46, align 8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
@@ -2534,7 +2533,6 @@ define internal fastcc void @audit_reset_context(ptr noundef %0) unnamed_addr #0
   br i1 %59, label %.loopexit11, label %.preheader10, !llvm.loop !34
 
 .loopexit11:                                      ; preds = %.preheader10, %.loopexit13
-  store ptr null, ptr %53, align 8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %61 = load ptr, ptr %60, align 8
   tail call void @kfree(ptr noundef %61) #12

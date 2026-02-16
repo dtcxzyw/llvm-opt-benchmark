@@ -7254,7 +7254,11 @@ _ZN8rationalC2ERKS_.exit:                         ; preds = %204, %208
 
 221:                                              ; preds = %211
   %.not.i.i6.i = icmp eq ptr %209, null
-  br i1 %.not.i.i6.i, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.sink.split.i
+  br i1 %.not.i.i6.i, label %_ZN2qe7x_subst7mk_termERK8rationalP4expr.exit.thread, label %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.sink.split.i
+
+_ZN2qe7x_subst7mk_termERK8rationalP4expr.exit.thread: ; preds = %221
+  store ptr null, ptr %8, align 8, !tbaa !142
+  br label %_ZN7obj_refI4expr11ast_managerED2Ev.exit
 
 _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.sink.split.i: ; preds = %221, %.noexc108
   %.sroa.0.0 = phi ptr [ %209, %221 ], [ %220, %.noexc108 ]
@@ -7289,8 +7293,8 @@ _ZN2qe7x_subst7mk_termERK8rationalP4expr.exit:    ; preds = %_ZN7obj_refI4expr11
   call void @__clang_call_terminate(ptr %234) #23
   unreachable
 
-_ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %221, %231, %226, %_ZN2qe7x_subst7mk_termERK8rationalP4expr.exit
-  %235 = phi ptr [ %225, %_ZN2qe7x_subst7mk_termERK8rationalP4expr.exit ], [ %225, %231 ], [ %225, %226 ], [ null, %221 ]
+_ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN2qe7x_subst7mk_termERK8rationalP4expr.exit.thread, %231, %226, %_ZN2qe7x_subst7mk_termERK8rationalP4expr.exit
+  %235 = phi ptr [ null, %_ZN2qe7x_subst7mk_termERK8rationalP4expr.exit.thread ], [ %225, %231 ], [ %225, %226 ], [ %225, %_ZN2qe7x_subst7mk_termERK8rationalP4expr.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %236 = getelementptr inbounds nuw i8, ptr %6, i64 24
   invoke void @_ZmlRK8rationalS1_(ptr dead_on_unwind nonnull writable sret(%class.rational) align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %236)

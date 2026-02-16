@@ -12720,7 +12720,6 @@ rev_compare_tree.exit.thread:                     ; preds = %rev_compare_tree.ex
   br i1 %.not102, label %._crit_edge171, label %.lr.ph170, !llvm.loop !438
 
 ._crit_edge171:                                   ; preds = %.lr.ph170, %122
-  store ptr %29, ptr %10, align 8, !tbaa !363
   %128 = load i64, ptr %3, align 8
   %129 = and i64 %128, 256
   %130 = icmp ne i64 %129, 0

@@ -48257,6 +48257,7 @@ define void @_ZN7testing8internal15CodePointToUtf8B5cxx11Ej(ptr dead_on_unwind n
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %15, ptr %19, align 8, !tbaa !25, !alias.scope !982
+  store ptr %12, ptr %9, align 8, !tbaa !22
   store i64 0, ptr %18, align 8, !tbaa !25
   store i8 0, ptr %12, align 8, !tbaa !27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
