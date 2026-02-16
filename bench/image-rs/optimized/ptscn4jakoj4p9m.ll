@@ -22659,7 +22659,7 @@ _ZN3qoi6decode18decode_impl_stream17h6fab5fc8dab9f358E.exit.i.i.i.i.i: ; preds =
   store i8 14, ptr %.sroa.226.sroa.3.0..sroa.226.0..sroa_idx.sroa_idx, align 1
   %.sroa.226.sroa.4.0..sroa.226.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.226.sroa.4.0..sroa.226.0..sroa_idx.sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.7.sroa.8, i64 6, i1 false)
-  %.sroa.226.sroa.7.0..sroa.226.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.sroa.226.sroa.5.0..sroa.226.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %.sroa.226.sroa.7.0..sroa.226.0..sroa_idx.sroa_idx, align 8
   %.sroa.327.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %446, ptr %.sroa.327.0..sroa_idx, align 8

@@ -116716,7 +116716,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h1b84ab12ab1b5f34E.exit: ; preds = %.no
   %.sroa.874.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 128
   %.sroa.976.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 136
   %.sroa.1077.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 137
-  %.sroa.1178.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 138
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 138
   %.sroa.1279.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 144
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 152
   %.sroa.1480.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 160
@@ -116730,7 +116730,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h1b84ab12ab1b5f34E.exit: ; preds = %.no
 
 81:                                               ; preds = %261, %72
   %82 = phi i1 [ true, %72 ], [ false, %261 ]
-  %.sroa.868.0 = phi i64 [ undef, %72 ], [ %.sroa.868.2, %261 ]
+  %.sroa.12.0 = phi i64 [ undef, %72 ], [ %.sroa.12.1, %261 ]
   %.sroa.11.0 = phi ptr [ undef, %72 ], [ %.sroa.11.1, %261 ]
   %.sroa.14.0 = phi ptr [ %50, %72 ], [ %.sroa.14.3, %261 ]
   %.sroa.22.0 = phi i64 [ 0, %72 ], [ %.sroa.22.3, %261 ]
@@ -116877,7 +116877,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h1b84ab12ab1b5f34E.exit: ; preds = %.no
 
 140:                                              ; preds = %152, %.loopexit.i
   %.sroa.011.0.i125 = phi i64 [ %.sroa.011.0.i.lcssa, %.loopexit.i ], [ %.sroa.011.0.i138, %152 ]
-  %.sroa.868.2 = phi i64 [ %.sroa.868.3, %.loopexit.i ], [ %.sroa.22.2137, %152 ]
+  %.sroa.12.1 = phi i64 [ %.sroa.868.3, %.loopexit.i ], [ %.sroa.22.2137, %152 ]
   %.sroa.11.1 = phi ptr [ null, %.loopexit.i ], [ %.sroa.14.2136, %152 ]
   %.sroa.14.3 = phi ptr [ %73, %.loopexit.i ], [ %134, %152 ]
   %.sroa.22.3 = phi i64 [ %.sroa.22.4, %.loopexit.i ], [ %135, %152 ]
@@ -117048,7 +117048,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h1b84ab12ab1b5f34E.exit: ; preds = %.no
   store i32 %.sroa.013.sroa.4.0.i, ptr %.sroa.874.0..sroa_idx, align 8
   store i8 %.sroa.013.sroa.6.0.i, ptr %.sroa.976.0..sroa_idx, align 8
   store i8 %.sroa.013.sroa.7.0.i, ptr %.sroa.1077.0..sroa_idx, align 1
-  store i8 %169, ptr %.sroa.1178.0..sroa_idx, align 2
+  store i8 %169, ptr %.sroa.11.0..sroa_idx, align 2
   store i64 %132, ptr %.sroa.1279.0..sroa_idx, align 8
   store i64 %143, ptr %.sroa.13.0..sroa_idx, align 8
   store i64 %.sroa.020.077.i, ptr %.sroa.1480.0..sroa_idx, align 8
