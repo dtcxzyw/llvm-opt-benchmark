@@ -14294,7 +14294,7 @@ _ZN4llvm8ExpectedINS_11SmallVectorINS_7memprof4MetaELj28EEEED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20IndexedMemProfReader11deserializeEPKhm(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(292) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm20IndexedMemProfReader11deserializeEPKhm(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(292) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca i64, align 8
   %7 = alloca %"class.llvm::formatv_object", align 8
@@ -14310,7 +14310,7 @@ define dso_local void @_ZN4llvm20IndexedMemProfReader11deserializeEPKhm(ptr dead
 11:                                               ; preds = %4
   store i64 %.0.copyload.i.i.i, ptr %1, align 8, !tbaa !79
   %12 = icmp eq i64 %.0.copyload.i.i.i, 2
-  br i1 %12, label %28, label %29
+  br i1 %12, label %28, label %30
 
 13:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -14363,11 +14363,11 @@ define dso_local void @_ZN4llvm20IndexedMemProfReader11deserializeEPKhm(ptr dead
   tail call void @_ZN4llvm20IndexedMemProfReader13deserializeV2EPKhS2_(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(292) %1, ptr noundef nonnull %2, ptr noundef nonnull %9)
   br label %.critedge
 
-29:                                               ; preds = %11
+30:                                               ; preds = %11
   tail call void @_ZN4llvm20IndexedMemProfReader13deserializeV3EPKhS2_(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(292) %1, ptr noundef nonnull %2, ptr noundef nonnull %9)
   br label %.critedge
 
-.critedge:                                        ; preds = %29, %28, %13
+.critedge:                                        ; preds = %30, %28, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
