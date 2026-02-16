@@ -6769,7 +6769,7 @@ _ZN3gmx20ForceWithShiftForcesC2ERKNS_19ArrayRefWithPaddingINS_11BasicVectorIfEEE
   %24 = load i8, ptr %23, align 1, !tbaa !445, !range !141, !noundef !142
   %25 = trunc nuw i8 %24 to i1
   %26 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
-  br i1 %25, label %27, label %_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit40
+  br i1 %25, label %27, label %_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit38
 
 27:                                               ; preds = %_ZN3gmx20ForceWithShiftForcesC2ERKNS_19ArrayRefWithPaddingINS_11BasicVectorIfEEEEbRKNS_8ArrayRefIS3_EE.exit
   %28 = trunc nuw i8 %.4.val to i1
@@ -6786,7 +6786,7 @@ _ZN3gmx20ForceWithShiftForcesC2ERKNS_19ArrayRefWithPaddingINS_11BasicVectorIfEEE
   %34 = load i8, ptr %33, align 1, !range !141
   %35 = trunc nuw i8 %34 to i1
   %or.cond27 = select i1 %.not24, i1 true, i1 %35
-  br i1 %or.cond27, label %_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit40, label %36
+  br i1 %or.cond27, label %_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit38, label %36
 
 36:                                               ; preds = %32, %27
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -6841,7 +6841,7 @@ _ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.i34: ; preds
 
 _ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.thread.i35: ; preds = %_ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.i34, %_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit
   %.not13.i36 = icmp eq ptr %spec.select20, %spec.select
-  br i1 %.not13.i36, label %_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit40, label %.lr.ph.preheader.i37
+  br i1 %.not13.i36, label %_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit38, label %.lr.ph.preheader.i37
 
 .lr.ph.preheader.i37:                             ; preds = %_ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.thread.i35
   %.sroa.0.0.copyload.i915.i38 = ptrtoaddr ptr %spec.select to i64
@@ -6851,9 +6851,9 @@ _ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.thread.i35: 
   %57 = urem i64 %56, 12
   %58 = sub i64 %reass.sub28, %57
   call void @llvm.memset.p0.i64(ptr align 4 %spec.select20, i8 0, i64 %58, i1 false), !tbaa !145
-  br label %_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit40
+  br label %_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit38
 
-_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit40: ; preds = %.lr.ph.preheader.i37, %_ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.thread.i35, %32, %_ZN3gmx20ForceWithShiftForcesC2ERKNS_19ArrayRefWithPaddingINS_11BasicVectorIfEEEEbRKNS_8ArrayRefIS3_EE.exit
+_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit38: ; preds = %.lr.ph.preheader.i37, %_ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.thread.i35, %32, %_ZN3gmx20ForceWithShiftForcesC2ERKNS_19ArrayRefWithPaddingINS_11BasicVectorIfEEEEbRKNS_8ArrayRefIS3_EE.exit
   %59 = load i8, ptr %23, align 1, !tbaa !445, !range !141, !noundef !142
   %60 = trunc nuw i8 %59 to i1
   %61 = load i8, ptr %7, align 1, !range !141
@@ -6861,11 +6861,11 @@ _ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit40: ; preds = %.lr
   %or.cond29 = select i1 %60, i1 %62, i1 false
   br i1 %or.cond29, label %63, label %.thread
 
-.thread:                                          ; preds = %_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit40
+.thread:                                          ; preds = %_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit38
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
   br label %66
 
-63:                                               ; preds = %_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit40
+63:                                               ; preds = %_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit38
   %64 = load i8, ptr %1, align 8, !tbaa !527, !range !141, !noundef !142
   %65 = trunc nuw i8 %64 to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
@@ -6881,56 +6881,56 @@ _ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit40: ; preds = %.lr
 69:                                               ; preds = %63
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !274
-  %.fr19.i45 = freeze ptr %71
+  %.fr19.i43 = freeze ptr %71
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %73 = load ptr, ptr %72, align 8, !tbaa !275
   %.fr23 = freeze ptr %73
   %74 = ptrtoint ptr %.fr23 to i64
-  %75 = ptrtoint ptr %.fr19.i45 to i64
+  %75 = ptrtoint ptr %.fr19.i43 to i64
   %76 = sub i64 %74, %75
-  %77 = getelementptr i8, ptr %.fr19.i45, i64 %76
-  %.sroa.8.3.scevgep12.i.sroa_idx33 = getelementptr inbounds nuw i8, ptr %.sroa.8, i64 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %.sroa.8.3.scevgep12.i.sroa_idx33, i8 0, i64 36, i1 false), !tbaa !145
+  %77 = getelementptr i8, ptr %.fr19.i43, i64 %76
+  %.sroa.8.3.scevgep12.i.sroa_idx36 = getelementptr inbounds nuw i8, ptr %.sroa.8, i64 3
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %.sroa.8.3.scevgep12.i.sroa_idx36, i8 0, i64 36, i1 false), !tbaa !145
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store ptr %.fr19.i45, ptr %5, align 8
+  store ptr %.fr19.i43, ptr %5, align 8
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %77, ptr %78, align 8
   %79 = sdiv exact i64 %76, 12
   %80 = trunc i64 %79 to i32
   %81 = icmp slt i32 %80, 2000
-  br i1 %81, label %_ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.thread.i48, label %_ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.i47
+  br i1 %81, label %_ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.thread.i46, label %_ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.i45
 
-_ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.i47: ; preds = %69
+_ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.i45: ; preds = %69
   %82 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 0)
   %.not25 = icmp eq i32 %82, 1
-  br i1 %.not25, label %_ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.thread.i48, label %86
+  br i1 %.not25, label %_ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.thread.i46, label %86
 
-_ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.thread.i48: ; preds = %_ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.i47, %69
-  %.not13.i49 = icmp eq ptr %.fr19.i45, %.fr23
-  br i1 %.not13.i49, label %_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit53, label %.lr.ph.preheader.i50
+_ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.thread.i46: ; preds = %_ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.i45, %69
+  %.not13.i47 = icmp eq ptr %.fr19.i43, %.fr23
+  br i1 %.not13.i47, label %_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit49, label %.lr.ph.preheader.i48
 
-.lr.ph.preheader.i50:                             ; preds = %_ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.thread.i48
+.lr.ph.preheader.i48:                             ; preds = %_ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.thread.i46
   %.sroa.0.0.copyload.i915.i51 = ptrtoaddr ptr %.fr23 to i64
   %.sroa.0.0.copyload.i16.i52 = ptrtoaddr ptr %.fr19.i45 to i64
   %reass.sub29 = sub i64 %.sroa.0.0.copyload.i915.i51, %.sroa.0.0.copyload.i16.i52
   %83 = add i64 %reass.sub29, -12
   %84 = urem i64 %83, 12
   %85 = sub i64 %reass.sub29, %84
-  call void @llvm.memset.p0.i64(ptr align 4 %.fr19.i45, i8 0, i64 %85, i1 false), !tbaa !145
-  br label %_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit53
+  call void @llvm.memset.p0.i64(ptr align 4 %.fr19.i43, i8 0, i64 %85, i1 false), !tbaa !145
+  br label %_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit49
 
-86:                                               ; preds = %_ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.i47
+86:                                               ; preds = %_ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.i45
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %26, i32 %82)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 1, ptr nonnull @_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.omp_outlined, ptr nonnull %5)
-  br label %_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit53
+  br label %_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit49
 
-_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit53: ; preds = %_ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.thread.i48, %.lr.ph.preheader.i50, %86
+_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit49: ; preds = %_ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.thread.i46, %.lr.ph.preheader.i48, %86
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %87
 
-87:                                               ; preds = %66, %_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit53
+87:                                               ; preds = %66, %_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit49
   %88 = phi i8 [ 1, %_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit53 ], [ %61, %66 ]
-  %.sroa.0.019 = phi ptr [ %.fr19.i45, %_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit53 ], [ %67, %66 ]
+  %.sroa.0.019 = phi ptr [ %.fr19.i43, %_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit53 ], [ %67, %66 ]
   %.sroa.5.016 = phi ptr [ %77, %_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit53 ], [ %68, %66 ]
   %89 = load i8, ptr %1, align 8, !tbaa !527, !range !141, !noundef !142
   store ptr %.fr19.i, ptr %0, align 8, !tbaa !13

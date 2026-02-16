@@ -2685,8 +2685,8 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous16fo
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %15
 
-15:                                               ; preds = %.preheader66, %58
-  %.051 = phi ptr [ %60, %58 ], [ %1, %.preheader66 ]
+15:                                               ; preds = %.preheader66, %57
+  %.051 = phi ptr [ %59, %58 ], [ %1, %.preheader66 ]
   %16 = load i8, ptr %.051, align 1, !tbaa !44
   %17 = sext i8 %16 to i32
   %18 = tail call i32 @isalpha(i32 noundef %17) #28
@@ -2741,7 +2741,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous16fo
   %39 = icmp eq ptr %38, %2
   br i1 %39, label %42, label %40
 
-40:                                               ; preds = %32
+40:; preds = %32
   %41 = load i8, ptr %38, align 1, !tbaa !44
   %.not = icmp eq i8 %41, 61
   br i1 %.not, label %43, label %42
@@ -2750,22 +2750,22 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous16fo
   tail call void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef nonnull @.str.67, i64 noundef 320, ptr noundef nonnull @.str.76) #27
   unreachable
 
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds nuw i8, ptr %38, i64 1
-  %45 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE16trim_spaces_leftEPKcS6_(ptr noundef nonnull %44, ptr noundef %2)
-  %46 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE13parse_operandEPKcS6_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %45, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %12)
-  %47 = icmp eq ptr %46, %45
-  br i1 %47, label %48, label %49
+42:                                               ; preds = %40
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 1
+  %44 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE16trim_spaces_leftEPKcS6_(ptr noundef nonnull %43, ptr noundef %2)
+  %45 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE13parse_operandEPKcS6_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %44, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %46 = icmp eq ptr %45, %44
+  br i1 %46, label %47, label %48
 
-48:                                               ; preds = %43
+47:                                               ; preds = %42
   tail call void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef nonnull @.str.67, i64 noundef 326, ptr noundef nonnull @.str.77) #27
   unreachable
 
-49:                                               ; preds = %43
-  %50 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(32) %10)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %12)
+48:                                               ; preds = %42
+  %49 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %12)
   store i64 0, ptr %11, align 8, !tbaa !42
-  %51 = load ptr, ptr %10, align 8, !tbaa !56
+  %50 = load ptr, ptr %10, align 8, !tbaa !56
   store i8 0, ptr %51, align 1, !tbaa !44
   store i64 0, ptr %14, align 8, !tbaa !42
   %52 = load ptr, ptr %12, align 8, !tbaa !56
@@ -2774,32 +2774,32 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous16fo
   %54 = icmp eq ptr %53, %2
   br i1 %54, label %55, label %56
 
-55:                                               ; preds = %49
+54:                                               ; preds = %48
   tail call void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef nonnull @.str.67, i64 noundef 332, ptr noundef nonnull @.str.73) #27
   unreachable
 
-56:                                               ; preds = %49
-  %57 = load i8, ptr %53, align 1, !tbaa !44
-  switch i8 %57, label %63 [
+55:                                               ; preds = %48
+  %56 = load i8, ptr %53, align 1, !tbaa !44
+  switch i8 %56, label %63 [
     i8 41, label %.thread
-    i8 44, label %58
+    i8 44, label %57
   ]
 
-58:                                               ; preds = %56
-  %59 = getelementptr inbounds nuw i8, ptr %53, i64 1
-  %60 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE16trim_spaces_leftEPKcS6_(ptr noundef nonnull %59, ptr noundef %2)
-  %61 = icmp eq ptr %60, %2
-  br i1 %61, label %62, label %15
+57:                                               ; preds = %55
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 1
+  %59 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE16trim_spaces_leftEPKcS6_(ptr noundef nonnull %58, ptr noundef %2)
+  %60 = icmp eq ptr %59, %2
+  br i1 %60, label %61, label %15
 
-62:                                               ; preds = %58
+61:                                               ; preds = %57
   tail call void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef nonnull @.str.67, i64 noundef 343, ptr noundef nonnull @.str.74) #27
   unreachable
 
-63:                                               ; preds = %56
+62:                                               ; preds = %55
   tail call void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef nonnull @.str.67, i64 noundef 347, ptr noundef nonnull @.str.73) #27
   unreachable
 
-.thread:                                          ; preds = %56, %7
+.thread:                                          ; preds = %55, %7
   %.pn = phi ptr [ %1, %7 ], [ %53, %56 ]
   %.052 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   ret ptr %.052

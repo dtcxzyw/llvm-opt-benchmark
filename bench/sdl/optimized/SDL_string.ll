@@ -759,21 +759,21 @@ define hidden range(i32 0, 1966080) i32 @SDL_StepBackUTF8_REAL(ptr noundef readn
   %3 = ptrtoaddr ptr %0 to i64
   %4 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %23, label %5
+  br i1 %.not, label %22, label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %1, align 8
   %.not11 = icmp ugt ptr %6, %0
-  br i1 %.not11, label %7, label %23
+  br i1 %.not11, label %8, label %22
 
-7:                                                ; preds = %5
+8:                                                ; preds = %5
   %8 = ptrtoaddr ptr %6 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = sub i64 %3, %8
   %scevgep = getelementptr i8, ptr %6, i64 %9
   br label %10
 
-10:                                               ; preds = %13, %7
+10:                                               ; preds = %13, %8
   %11 = phi ptr [ %14, %13 ], [ %6, %7 ]
   %12 = icmp eq ptr %11, %0
   br i1 %12, label %17, label %13
@@ -791,12 +791,12 @@ define hidden range(i32 0, 1966080) i32 @SDL_StepBackUTF8_REAL(ptr noundef readn
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   store ptr %18, ptr %1, align 8
-  %22 = call fastcc i32 @StepUTF8(ptr noundef nonnull %4, i64 noundef %21)
+  %21 = call fastcc i32 @StepUTF8(ptr noundef nonnull %4, i64 noundef %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %23
+  br label %22
 
-23:                                               ; preds = %2, %5, %17
-  %.0 = phi i32 [ %22, %17 ], [ 0, %5 ], [ 0, %2 ]
+22:                                               ; preds = %2, %5, %17
+  %.0 = phi i32 [ %21, %17 ], [ 0, %5 ], [ 0, %2 ]
   ret i32 %.0
 }
 

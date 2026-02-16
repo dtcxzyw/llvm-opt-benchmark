@@ -2058,7 +2058,7 @@ ruby_nonempty_memcpy.exit386:                     ; preds = %RSTRING_PTR.exit383
   br i1 %exitcond.not.i392, label %skiproot.exit393, label %.lr.ph.i390, !llvm.loop !133
 
 skiproot.exit393:                                 ; preds = %.lr.ph.i390, %302, %291
-  %.0.lcssa.i387 = phi ptr [ %.10, %291 ], [ %.01.i391, %.lr.ph.i390 ], [ %scevgep.i389, %302 ]
+  %.pre-phi443 = phi ptr [ %.10, %291 ], [ %.01.i391, %.lr.ph.i390 ], [ %scevgep.i389, %302 ]
   %304 = getelementptr i8, ptr %.0.lcssa.i387, i64 -1
   %305 = icmp eq ptr %.12, %304
   %spec.select318.idx = zext i1 %305 to i64

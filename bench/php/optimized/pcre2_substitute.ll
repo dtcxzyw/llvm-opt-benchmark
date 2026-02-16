@@ -2079,7 +2079,7 @@ define internal fastcc range(i32 0, 2) i32 @read_name_subst(ptr noundef nonnull 
   %6 = load ptr, ptr %0, align 8, !tbaa !34
   %7 = ptrtoaddr ptr %6 to i64
   %.not = icmp ult ptr %6, %1
-  br i1 %.not, label %8, label %136
+  br i1 %.not, label %8, label %135
 
 8:                                                ; preds = %4
   %.not67 = icmp eq i32 %2, 0
@@ -2270,9 +2270,9 @@ define internal fastcc range(i32 0, 2) i32 @read_name_subst(ptr noundef nonnull 
   %135 = icmp ne ptr %.3, %6
   %or.cond70.not = and i1 %135, %134
   %spec.select = zext i1 %or.cond70.not to i32
-  br label %136
+  br label %135
 
-136:                                              ; preds = %.critedge3, %4
+135:                                              ; preds = %.critedge3, %4
   %storemerge = phi ptr [ %.3, %.critedge3 ], [ %6, %4 ]
   %.0 = phi i32 [ %spec.select, %.critedge3 ], [ 0, %4 ]
   store ptr %storemerge, ptr %0, align 8, !tbaa !34

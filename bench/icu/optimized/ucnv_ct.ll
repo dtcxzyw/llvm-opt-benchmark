@@ -241,7 +241,7 @@ define internal void @_ZL41UConverter_toUnicode_CompoundText_OFFSETSP23UConverte
   %.081131 = phi ptr [ %7, %.lr.ph134 ], [ %.384, %.loopexit ]
   %26 = load ptr, ptr %19, align 8, !tbaa !32
   %27 = icmp ult ptr %.081131, %26
-  br i1 %27, label %28, label %129
+  br i1 %27, label %28, label %128
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr %10, align 8, !tbaa !30
@@ -413,84 +413,84 @@ _ZL19findStateFromEscSeqPKcS0_PKhiP10UErrorCode.exit.thread: ; preds = %.loopexi
   %wide.trip.count.i = and i64 %93, 2147483647
   br label %.lr.ph.i91
 
-.lr.ph.i91:                                       ; preds = %99, %.lr.ph.preheader.i90
+.lr.ph.i91:                                       ; preds = %98, %.lr.ph.preheader.i90
   %indvars.iv.i92 = phi i64 [ 1, %.lr.ph.preheader.i90 ], [ %indvars.iv.next.i93, %99 ]
-  %96 = getelementptr inbounds nuw i8, ptr %.2, i64 %indvars.iv.i92
-  %97 = load i8, ptr %96, align 1, !tbaa !34
-  %98 = icmp eq i8 %97, 27
-  br i1 %98, label %_ZL11findNextEscPKcS0_.exit, label %99
+  %95 = getelementptr inbounds nuw i8, ptr %.2, i64 %indvars.iv.i92
+  %96 = load i8, ptr %95, align 1, !tbaa !34
+  %97 = icmp eq i8 %96, 27
+  br i1 %97, label %_ZL11findNextEscPKcS0_.exit, label %98
 
-99:                                               ; preds = %.lr.ph.i91
+98:                                               ; preds = %.lr.ph.i91
   %indvars.iv.next.i93 = add nuw nsw i64 %indvars.iv.i92, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i93, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZL11findNextEscPKcS0_.exit, label %.lr.ph.i91, !llvm.loop !41
 
-_ZL11findNextEscPKcS0_.exit:                      ; preds = %.lr.ph.i91, %99, %91
+_ZL11findNextEscPKcS0_.exit:                      ; preds = %.lr.ph.i91, %98, %91
   %.09.i = phi i64 [ %93, %91 ], [ %indvars.iv.i92, %.lr.ph.i91 ], [ %93, %99 ]
   %sext98 = shl i64 %.09.i, 32
-  %100 = ashr exact i64 %sext98, 32
-  %101 = getelementptr inbounds i8, ptr %.2, i64 %100
+  %99 = ashr exact i64 %sext98, 32
+  %100 = getelementptr inbounds i8, ptr %.2, i64 %99
   store ptr %.2, ptr %21, align 8, !tbaa !23
-  store ptr %101, ptr %22, align 8, !tbaa !29
+  store ptr %100, ptr %22, align 8, !tbaa !29
   store ptr %.081131, ptr %23, align 8, !tbaa !28
-  %102 = load ptr, ptr %24, align 8, !tbaa !30
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 48
-  %104 = load ptr, ptr %103, align 8, !tbaa !42
-  %105 = sext i32 %.278 to i64
-  %106 = getelementptr inbounds ptr, ptr %13, i64 %105
-  %107 = load ptr, ptr %106, align 8, !tbaa !12
-  store ptr %107, ptr %103, align 8, !tbaa !42
+  %101 = load ptr, ptr %24, align 8, !tbaa !30
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 48
+  %103 = load ptr, ptr %102, align 8, !tbaa !42
+  %104 = sext i32 %.278 to i64
+  %105 = getelementptr inbounds ptr, ptr %13, i64 %104
+  %106 = load ptr, ptr %105, align 8, !tbaa !12
+  store ptr %106, ptr %102, align 8, !tbaa !42
   call void @ucnv_MBCSToUnicodeWithOffsets_77(ptr noundef nonnull %3, ptr noundef %1)
-  %108 = load ptr, ptr %24, align 8, !tbaa !30
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 48
-  store ptr %104, ptr %109, align 8, !tbaa !42
-  %110 = load ptr, ptr %21, align 8, !tbaa !23
-  %111 = load ptr, ptr %23, align 8, !tbaa !28
-  %112 = load i32, ptr %1, align 4, !tbaa !13
-  %113 = icmp slt i32 %112, 1
-  br i1 %113, label %.loopexit, label %114
+  %107 = load ptr, ptr %24, align 8, !tbaa !30
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 48
+  store ptr %103, ptr %108, align 8, !tbaa !42
+  %109 = load ptr, ptr %21, align 8, !tbaa !23
+  %110 = load ptr, ptr %23, align 8, !tbaa !28
+  %111 = load i32, ptr %1, align 4, !tbaa !13
+  %112 = icmp slt i32 %111, 1
+  br i1 %112, label %.loopexit, label %113
 
-114:                                              ; preds = %_ZL11findNextEscPKcS0_.exit
-  %115 = icmp eq i32 %112, 15
-  br i1 %115, label %116, label %.loopexit100
+113:                                              ; preds = %_ZL11findNextEscPKcS0_.exit
+  %114 = icmp eq i32 %111, 15
+  br i1 %114, label %115, label %.loopexit100
 
-116:                                              ; preds = %114
-  %117 = getelementptr inbounds nuw i8, ptr %108, i64 93
-  %118 = load i8, ptr %117, align 1, !tbaa !43
-  %119 = icmp sgt i8 %118, 0
-  br i1 %119, label %120, label %125
+115:                                              ; preds = %113
+  %116 = getelementptr inbounds nuw i8, ptr %107, i64 93
+  %117 = load i8, ptr %116, align 1, !tbaa !43
+  %118 = icmp sgt i8 %117, 0
+  br i1 %118, label %119, label %124
 
-120:                                              ; preds = %116
-  %121 = load ptr, ptr %10, align 8, !tbaa !30
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 144
-  %123 = getelementptr inbounds nuw i8, ptr %108, i64 144
-  %124 = zext nneg i8 %118 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %122, ptr nonnull align 8 %123, i64 %124, i1 false)
-  %.pre = load i8, ptr %117, align 1, !tbaa !43
-  br label %125
+119:                                              ; preds = %115
+  %120 = load ptr, ptr %10, align 8, !tbaa !30
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 144
+  %122 = getelementptr inbounds nuw i8, ptr %107, i64 144
+  %123 = zext nneg i8 %117 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %121, ptr nonnull align 8 %122, i64 %123, i1 false)
+  %.pre = load i8, ptr %116, align 1, !tbaa !43
+  br label %124
 
-125:                                              ; preds = %120, %116
-  %126 = phi i8 [ %.pre, %120 ], [ %118, %116 ]
-  %127 = load ptr, ptr %10, align 8, !tbaa !30
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 93
-  store i8 %126, ptr %128, align 1, !tbaa !43
-  store i8 0, ptr %117, align 1, !tbaa !43
+124:                                              ; preds = %119, %115
+  %125 = phi i8 [ %.pre, %120 ], [ %117, %116 ]
+  %126 = load ptr, ptr %10, align 8, !tbaa !30
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 93
+  store i8 %125, ptr %127, align 1, !tbaa !43
+  store i8 0, ptr %116, align 1, !tbaa !43
   br label %.loopexit100
 
-129:                                              ; preds = %25
+128:                                              ; preds = %25
   store i32 15, ptr %1, align 4, !tbaa !13
   br label %.loopexit100
 
 .loopexit:                                        ; preds = %85, %.lr.ph, %.preheader99, %89, %_ZL11findNextEscPKcS0_.exit, %90
-  %.384 = phi ptr [ %111, %_ZL11findNextEscPKcS0_.exit ], [ %.283125, %89 ], [ %.081131, %90 ], [ %.081131, %.preheader99 ], [ %88, %85 ], [ %.283125, %.lr.ph ]
-  %.6 = phi ptr [ %110, %_ZL11findNextEscPKcS0_.exit ], [ %.5126, %89 ], [ %.2, %90 ], [ %.2, %.preheader99 ], [ %86, %85 ], [ %.5126, %.lr.ph ]
-  %130 = icmp ult ptr %.6, %9
-  br i1 %130, label %25, label %.loopexit100, !llvm.loop !44
+  %.384 = phi ptr [ %110, %_ZL11findNextEscPKcS0_.exit ], [ %.283125, %89 ], [ %.081131, %90 ], [ %.081131, %.preheader99 ], [ %88, %85 ], [ %.283125, %.lr.ph ]
+  %.6 = phi ptr [ %109, %_ZL11findNextEscPKcS0_.exit ], [ %.5126, %89 ], [ %.2, %90 ], [ %.2, %.preheader99 ], [ %86, %85 ], [ %.5126, %.lr.ph ]
+  %129 = icmp ult ptr %.6, %9
+  br i1 %129, label %25, label %.loopexit100, !llvm.loop !44
 
-.loopexit100:                                     ; preds = %.loopexit, %2, %114, %125, %129, %.thread, %._crit_edge
-  %.182 = phi ptr [ %.081131, %._crit_edge ], [ %.081131, %.thread ], [ %111, %125 ], [ %111, %114 ], [ %.081131, %129 ], [ %7, %2 ], [ %.384, %.loopexit ]
+.loopexit100:                                     ; preds = %.loopexit, %2, %113, %124, %128, %.thread, %._crit_edge
+  %.182 = phi ptr [ %.081131, %._crit_edge ], [ %.081131, %.thread ], [ %110, %125 ], [ %110, %114 ], [ %.081131, %129 ], [ %7, %2 ], [ %.384, %.loopexit ]
   %.177 = phi i32 [ %.076132, %._crit_edge ], [ %.076132, %.thread ], [ %.278, %125 ], [ %.278, %114 ], [ %.076132, %129 ], [ %17, %2 ], [ %.278, %.loopexit ]
-  %.1 = phi ptr [ %.3.lcssa, %._crit_edge ], [ %spec.select, %.thread ], [ %110, %125 ], [ %110, %114 ], [ %.075133, %129 ], [ %5, %2 ], [ %.6, %.loopexit ]
+  %.1 = phi ptr [ %.3.lcssa, %._crit_edge ], [ %spec.select, %.thread ], [ %109, %125 ], [ %109, %114 ], [ %.075133, %129 ], [ %5, %2 ], [ %.6, %.loopexit ]
   store i32 %.177, ptr %16, align 8, !tbaa !20
   store ptr %.182, ptr %6, align 8, !tbaa !28
   store ptr %.1, ptr %4, align 8, !tbaa !23

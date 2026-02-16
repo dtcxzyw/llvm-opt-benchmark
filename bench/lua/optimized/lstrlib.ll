@@ -3769,8 +3769,8 @@ matchbracketclass.exit.i.loopexit:                ; preds = %301, %310, %312, %3
   br i1 %.022.in.i.i.ph, label %singlematch.exit.thread185, label %singlematch.exit.thread
 
 317:                                              ; preds = %281
-  %.not487 = icmp eq i8 %284, %282
-  br i1 %.not487, label %singlematch.exit.thread185, label %singlematch.exit.thread
+  %.not491 = icmp eq i8 %284, %282
+  br i1 %.not491, label %singlematch.exit.thread185, label %singlematch.exit.thread
 
 singlematch.exit:                                 ; preds = %290
   br i1 %293, label %singlematch.exit.thread185, label %singlematch.exit.thread
@@ -3860,8 +3860,8 @@ singlematch.exit154.us282:                        ; preds = %singlematch.exit154
 
 singlematch.exit154.thread.us284:                 ; preds = %singlematch.exit154.us282
   %341 = add nuw i64 %.016.i275.us281, 1
-  %exitcond370.not = icmp eq i64 %341, %335
-  br i1 %exitcond370.not, label %.critedge.preheader, label %singlematch.exit154.us282
+  %exitcond372.not = icmp eq i64 %341, %335
+  br i1 %exitcond372.not, label %.critedge.preheader, label %singlematch.exit154.us282
 
 .lr.ph276.split.us290:                            ; preds = %.lr.ph276
   %342 = load i8, ptr %280, align 1, !tbaa !9
@@ -3950,8 +3950,8 @@ singlematch.exit154:                              ; preds = %singlematch.exit154
 
 singlematch.exit154.thread:                       ; preds = %singlematch.exit154
   %375 = add nuw i64 %.016.i275, 1
-  %exitcond371.not = icmp eq i64 %375, %332
-  br i1 %exitcond371.not, label %.critedge.preheader, label %singlematch.exit154
+  %exitcond375.not = icmp eq i64 %375, %332
+  br i1 %exitcond375.not, label %.critedge.preheader, label %singlematch.exit154
 
 .critedge:                                        ; preds = %.critedge.preheader, %377
   %.117.i = phi i64 [ %380, %377 ], [ %.016.i.lcssa, %.critedge.preheader ]
@@ -4045,8 +4045,8 @@ matchbracketclass.exit.i159.loopexit:             ; preds = %401, %410, %412, %4
   br i1 %.022.in.i.i160.ph, label %singlematch.exit168.thread192, label %start_capture.exit
 
 417:                                              ; preds = %382
-  %.not488 = icmp eq i8 %385, %383
-  br i1 %.not488, label %singlematch.exit168.thread192, label %start_capture.exit
+  %.not492 = icmp eq i8 %385, %383
+  br i1 %.not492, label %singlematch.exit168.thread192, label %start_capture.exit
 
 singlematch.exit168:                              ; preds = %391
   br i1 %393, label %singlematch.exit168.thread192, label %start_capture.exit

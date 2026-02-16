@@ -10546,7 +10546,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKSt6vectorISt4pairI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorISt4pairIiiESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 comdat align 2 {
   %.not = icmp eq ptr %1, %0
-  br i1 %.not, label %63, label %3
+  br i1 %.not, label %61, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10563,7 +10563,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %17 = icmp ugt i64 %9, %16
-  br i1 %17, label %18, label %30
+  br i1 %17, label %18, label %28
 
 18:                                               ; preds = %3
   %19 = ptrtoaddr ptr %6 to i64
@@ -10571,113 +10571,113 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
   %21 = icmp ugt i64 %10, 1152921504606846975
   br i1 %21, label %22, label %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE11_M_allocateEm.exit.i, !prof !75
 
-22:                                               ; preds = %18
+20:                                               ; preds = %18
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #27
   unreachable
 
 _ZNSt12_Vector_baseISt4pairIiiESaIS1_EE11_M_allocateEm.exit.i: ; preds = %18
-  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #28
+  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #28
   %.not7.i.i.i.i.i = icmp eq ptr %6, %5
   br i1 %.not7.i.i.i.i.i, label %_ZNSt6vectorISt4pairIiiESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE11_M_allocateEm.exit.i
-  %24 = add i64 %20, -8
-  %25 = sub i64 %24, %19
-  %26 = and i64 %25, -8
-  %27 = add i64 %26, 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %23, ptr align 4 %6, i64 %27, i1 false)
+  %22 = add i64 %20, -8
+  %23 = sub i64 %22, %19
+  %24 = and i64 %23, -8
+  %25 = add i64 %24, 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %21, ptr align 4 %6, i64 %25, i1 false)
   br label %_ZNSt6vectorISt4pairIiiESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit
 
 _ZNSt6vectorISt4pairIiiESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit: ; preds = %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i.preheader.i
   %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE13_M_deallocateEPS1_m.exit, label %28
+  br i1 %.not.i, label %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE13_M_deallocateEPS1_m.exit, label %26
 
-28:                                               ; preds = %_ZNSt6vectorISt4pairIiiESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit
+26:                                               ; preds = %_ZNSt6vectorISt4pairIiiESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit
   tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %16) #29
   br label %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE13_M_deallocateEPS1_m.exit
 
-_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorISt4pairIiiESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit, %28
-  store ptr %23, ptr %0, align 8, !tbaa !125
-  %29 = getelementptr inbounds nuw i8, ptr %23, i64 %9
-  store ptr %29, ptr %11, align 8, !tbaa !128
+_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorISt4pairIiiESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit, %26
+  store ptr %21, ptr %0, align 8, !tbaa !125
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 %9
+  store ptr %27, ptr %11, align 8, !tbaa !128
   br label %_ZSt22__uninitialized_copy_aIPSt4pairIiiES2_S1_ET0_T_S4_S3_RSaIT1_E.exit
 
-30:                                               ; preds = %3
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !207
-  %33 = ptrtoint ptr %32 to i64
-  %34 = sub i64 %33, %15
-  %.not24 = icmp ult i64 %34, %9
-  br i1 %.not24, label %45, label %35
+28:                                               ; preds = %3
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !207
+  %31 = ptrtoint ptr %30 to i64
+  %32 = sub i64 %31, %15
+  %.not24 = icmp ult i64 %32, %9
+  br i1 %.not24, label %43, label %33
 
-35:                                               ; preds = %30
-  %36 = icmp sgt i64 %10, 0
-  br i1 %36, label %.lr.ph.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPSt4pairIiiES2_S1_ET0_T_S4_S3_RSaIT1_E.exit
+33:                                               ; preds = %28
+  %34 = icmp sgt i64 %10, 0
+  br i1 %34, label %.lr.ph.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPSt4pairIiiES2_S1_ET0_T_S4_S3_RSaIT1_E.exit
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %35, %.lr.ph.i.i.i.i.i
-  %.012.i.i.i.i.i = phi i64 [ %43, %.lr.ph.i.i.i.i.i ], [ %10, %35 ]
-  %.0811.i.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i.i ], [ %13, %35 ]
-  %.0910.i.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i.i ], [ %6, %35 ]
-  %37 = load i32, ptr %.0910.i.i.i.i.i, align 4, !tbaa !220
-  store i32 %37, ptr %.0811.i.i.i.i.i, align 4, !tbaa !220
-  %38 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 4
-  %39 = load i32, ptr %38, align 4, !tbaa !222
-  %40 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 4
-  store i32 %39, ptr %40, align 4, !tbaa !222
-  %41 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 8
-  %42 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
-  %43 = add nsw i64 %.012.i.i.i.i.i, -1
-  %44 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
-  br i1 %44, label %.lr.ph.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPSt4pairIiiES2_S1_ET0_T_S4_S3_RSaIT1_E.exit, !llvm.loop !252
+.lr.ph.i.i.i.i.i:                                 ; preds = %33, %.lr.ph.i.i.i.i.i
+  %.012.i.i.i.i.i = phi i64 [ %41, %.lr.ph.i.i.i.i.i ], [ %10, %35 ]
+  %.0811.i.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i.i ], [ %13, %35 ]
+  %.0910.i.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i.i ], [ %6, %35 ]
+  %35 = load i32, ptr %.0910.i.i.i.i.i, align 4, !tbaa !220
+  store i32 %35, ptr %.0811.i.i.i.i.i, align 4, !tbaa !220
+  %36 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 4
+  %37 = load i32, ptr %36, align 4, !tbaa !222
+  %38 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 4
+  store i32 %37, ptr %38, align 4, !tbaa !222
+  %39 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
+  %41 = add nsw i64 %.012.i.i.i.i.i, -1
+  %42 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
+  br i1 %42, label %.lr.ph.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPSt4pairIiiES2_S1_ET0_T_S4_S3_RSaIT1_E.exit, !llvm.loop !252
 
-45:                                               ; preds = %30
-  %46 = getelementptr inbounds nuw i8, ptr %6, i64 %34
-  %47 = ashr exact i64 %34, 3
-  %48 = icmp sgt i64 %47, 0
-  br i1 %48, label %.lr.ph.i.i.i.i.i26, label %_ZSt4copyIPSt4pairIiiES2_ET0_T_S4_S3_.exit
+43:                                               ; preds = %28
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 %32
+  %45 = ashr exact i64 %32, 3
+  %46 = icmp sgt i64 %45, 0
+  br i1 %46, label %.lr.ph.i.i.i.i.i26, label %_ZSt4copyIPSt4pairIiiES2_ET0_T_S4_S3_.exit
 
-.lr.ph.i.i.i.i.i26:                               ; preds = %45, %.lr.ph.i.i.i.i.i26
-  %.012.i.i.i.i.i27 = phi i64 [ %55, %.lr.ph.i.i.i.i.i26 ], [ %47, %45 ]
-  %.0811.i.i.i.i.i28 = phi ptr [ %54, %.lr.ph.i.i.i.i.i26 ], [ %13, %45 ]
-  %.0910.i.i.i.i.i29 = phi ptr [ %53, %.lr.ph.i.i.i.i.i26 ], [ %6, %45 ]
-  %49 = load i32, ptr %.0910.i.i.i.i.i29, align 4, !tbaa !220
-  store i32 %49, ptr %.0811.i.i.i.i.i28, align 4, !tbaa !220
-  %50 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i29, i64 4
-  %51 = load i32, ptr %50, align 4, !tbaa !222
-  %52 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i28, i64 4
-  store i32 %51, ptr %52, align 4, !tbaa !222
-  %53 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i29, i64 8
-  %54 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i28, i64 8
-  %55 = add nsw i64 %.012.i.i.i.i.i27, -1
-  %56 = icmp samesign ugt i64 %.012.i.i.i.i.i27, 1
-  br i1 %56, label %.lr.ph.i.i.i.i.i26, label %_ZSt4copyIPSt4pairIiiES2_ET0_T_S4_S3_.exit, !llvm.loop !253
+.lr.ph.i.i.i.i.i26:                               ; preds = %43, %.lr.ph.i.i.i.i.i26
+  %.012.i.i.i.i.i27 = phi i64 [ %53, %.lr.ph.i.i.i.i.i26 ], [ %45, %45 ]
+  %.0811.i.i.i.i.i28 = phi ptr [ %52, %.lr.ph.i.i.i.i.i26 ], [ %13, %45 ]
+  %.0910.i.i.i.i.i29 = phi ptr [ %51, %.lr.ph.i.i.i.i.i26 ], [ %6, %45 ]
+  %47 = load i32, ptr %.0910.i.i.i.i.i29, align 4, !tbaa !220
+  store i32 %47, ptr %.0811.i.i.i.i.i28, align 4, !tbaa !220
+  %48 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i29, i64 4
+  %49 = load i32, ptr %48, align 4, !tbaa !222
+  %50 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i28, i64 4
+  store i32 %49, ptr %50, align 4, !tbaa !222
+  %51 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i29, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i28, i64 8
+  %53 = add nsw i64 %.012.i.i.i.i.i27, -1
+  %54 = icmp samesign ugt i64 %.012.i.i.i.i.i27, 1
+  br i1 %54, label %.lr.ph.i.i.i.i.i26, label %_ZSt4copyIPSt4pairIiiES2_ET0_T_S4_S3_.exit, !llvm.loop !253
 
-_ZSt4copyIPSt4pairIiiES2_ET0_T_S4_S3_.exit:       ; preds = %.lr.ph.i.i.i.i.i26, %45
-  %.not9.i.i.i.i = icmp eq ptr %46, %5
+_ZSt4copyIPSt4pairIiiES2_ET0_T_S4_S3_.exit:       ; preds = %.lr.ph.i.i.i.i.i26, %43
+  %.not9.i.i.i.i = icmp eq ptr %44, %5
   br i1 %.not9.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPSt4pairIiiES2_S1_ET0_T_S4_S3_RSaIT1_E.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt4copyIPSt4pairIiiES2_ET0_T_S4_S3_.exit, %.lr.ph.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %59, %.lr.ph.i.i.i.i ], [ %32, %_ZSt4copyIPSt4pairIiiES2_ET0_T_S4_S3_.exit ]
-  %.0810.i.i.i.i = phi ptr [ %58, %.lr.ph.i.i.i.i ], [ %46, %_ZSt4copyIPSt4pairIiiES2_ET0_T_S4_S3_.exit ]
-  %57 = load i64, ptr %.0810.i.i.i.i, align 4
-  store i64 %57, ptr %.011.i.i.i.i, align 4
-  %58 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
-  %59 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
-  %.not.i.i.i.i = icmp eq ptr %58, %5
+  %.011.i.i.i.i = phi ptr [ %57, %.lr.ph.i.i.i.i ], [ %30, %_ZSt4copyIPSt4pairIiiES2_ET0_T_S4_S3_.exit ]
+  %.0810.i.i.i.i = phi ptr [ %56, %.lr.ph.i.i.i.i ], [ %44, %_ZSt4copyIPSt4pairIiiES2_ET0_T_S4_S3_.exit ]
+  %55 = load i64, ptr %.0810.i.i.i.i, align 4
+  store i64 %55, ptr %.011.i.i.i.i, align 4
+  %56 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
+  %.not.i.i.i.i = icmp eq ptr %56, %5
   br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPSt4pairIiiES2_S1_ET0_T_S4_S3_RSaIT1_E.exit.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !254
 
 _ZSt22__uninitialized_copy_aIPSt4pairIiiES2_S1_ET0_T_S4_S3_RSaIT1_E.exit.loopexit: ; preds = %.lr.ph.i.i.i.i
   %.pre = load ptr, ptr %0, align 8, !tbaa !125
   br label %_ZSt22__uninitialized_copy_aIPSt4pairIiiES2_S1_ET0_T_S4_S3_RSaIT1_E.exit
 
-_ZSt22__uninitialized_copy_aIPSt4pairIiiES2_S1_ET0_T_S4_S3_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZSt22__uninitialized_copy_aIPSt4pairIiiES2_S1_ET0_T_S4_S3_RSaIT1_E.exit.loopexit, %35, %_ZSt4copyIPSt4pairIiiES2_ET0_T_S4_S3_.exit, %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE13_M_deallocateEPS1_m.exit
-  %60 = phi ptr [ %23, %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE13_M_deallocateEPS1_m.exit ], [ %.pre, %_ZSt22__uninitialized_copy_aIPSt4pairIiiES2_S1_ET0_T_S4_S3_RSaIT1_E.exit.loopexit ], [ %13, %35 ], [ %13, %_ZSt4copyIPSt4pairIiiES2_ET0_T_S4_S3_.exit ], [ %13, %.lr.ph.i.i.i.i.i ]
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 %9
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %61, ptr %62, align 8, !tbaa !207
-  br label %63
+_ZSt22__uninitialized_copy_aIPSt4pairIiiES2_S1_ET0_T_S4_S3_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZSt22__uninitialized_copy_aIPSt4pairIiiES2_S1_ET0_T_S4_S3_RSaIT1_E.exit.loopexit, %33, %_ZSt4copyIPSt4pairIiiES2_ET0_T_S4_S3_.exit, %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE13_M_deallocateEPS1_m.exit
+  %58 = phi ptr [ %21, %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE13_M_deallocateEPS1_m.exit ], [ %.pre, %_ZSt22__uninitialized_copy_aIPSt4pairIiiES2_S1_ET0_T_S4_S3_RSaIT1_E.exit.loopexit ], [ %13, %35 ], [ %13, %_ZSt4copyIPSt4pairIiiES2_ET0_T_S4_S3_.exit ], [ %13, %.lr.ph.i.i.i.i.i ]
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 %9
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %59, ptr %60, align 8, !tbaa !207
+  br label %61
 
-63:                                               ; preds = %_ZSt22__uninitialized_copy_aIPSt4pairIiiES2_S1_ET0_T_S4_S3_RSaIT1_E.exit, %2
+61:                                               ; preds = %_ZSt22__uninitialized_copy_aIPSt4pairIiiES2_S1_ET0_T_S4_S3_RSaIT1_E.exit, %2
   ret ptr %0
 }
 

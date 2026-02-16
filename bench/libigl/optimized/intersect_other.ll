@@ -70703,7 +70703,7 @@ _ZNSt7variantIJN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEE
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEESaIS6_EEaSERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, %0
-  br i1 %.not, label %61, label %3
+  br i1 %.not, label %59, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -70721,7 +70721,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = icmp ugt i64 %9, %15
-  br i1 %16, label %17, label %31
+  br i1 %16, label %17, label %29
 
 17:                                               ; preds = %3
   %18 = sdiv exact i64 %9, 48
@@ -70730,107 +70730,107 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
   %21 = icmp ugt i64 %18, 192153584101141162
   br i1 %21, label %22, label %_ZNSt12_Vector_baseIN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEESaIS6_EE11_M_allocateEm.exit.i, !prof !146
 
-22:                                               ; preds = %17
+20:                                               ; preds = %17
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #46
   unreachable
 
 _ZNSt12_Vector_baseIN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEESaIS6_EE11_M_allocateEm.exit.i: ; preds = %17
-  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #48
+  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #48
   %.not7.i.i.i.i.i = icmp eq ptr %.fr14.i, %.fr13.i
   br i1 %.not7.i.i.i.i.i, label %_ZNSt6vectorIN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEESaIS6_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS6_S8_EEEEPS6_mT_SG_.exit, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZNSt12_Vector_baseIN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEESaIS6_EE11_M_allocateEm.exit.i
-  %24 = add i64 %20, -48
-  %25 = sub i64 %24, %19
-  %26 = urem i64 %25, 48
-  %27 = add i64 %25, 48
-  %28 = sub i64 %27, %26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %23, ptr align 16 %.fr14.i, i64 %28, i1 false)
+  %22 = add i64 %20, -48
+  %23 = sub i64 %22, %19
+  %24 = urem i64 %23, 48
+  %25 = add i64 %23, 48
+  %26 = sub i64 %25, %24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %21, ptr align 16 %.fr14.i, i64 %26, i1 false)
   br label %_ZNSt6vectorIN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEESaIS6_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS6_S8_EEEEPS6_mT_SG_.exit
 
 _ZNSt6vectorIN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEESaIS6_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS6_S8_EEEEPS6_mT_SG_.exit: ; preds = %_ZNSt12_Vector_baseIN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEESaIS6_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i.preheader.i
   %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %_ZNSt12_Vector_baseIN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEESaIS6_EE13_M_deallocateEPS6_m.exit, label %29
+  br i1 %.not.i, label %_ZNSt12_Vector_baseIN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEESaIS6_EE13_M_deallocateEPS6_m.exit, label %27
 
-29:                                               ; preds = %_ZNSt6vectorIN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEESaIS6_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS6_S8_EEEEPS6_mT_SG_.exit
+27:                                               ; preds = %_ZNSt6vectorIN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEESaIS6_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS6_S8_EEEEPS6_mT_SG_.exit
   tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %15) #43
   br label %_ZNSt12_Vector_baseIN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEESaIS6_EE13_M_deallocateEPS6_m.exit
 
-_ZNSt12_Vector_baseIN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorIN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEESaIS6_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS6_S8_EEEEPS6_mT_SG_.exit, %29
-  store ptr %23, ptr %0, align 8, !tbaa !2061
-  %30 = getelementptr inbounds nuw i8, ptr %23, i64 %9
-  store ptr %30, ptr %10, align 8, !tbaa !2064
+_ZNSt12_Vector_baseIN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorIN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEESaIS6_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS6_S8_EEEEPS6_mT_SG_.exit, %27
+  store ptr %21, ptr %0, align 8, !tbaa !2061
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 %9
+  store ptr %28, ptr %10, align 8, !tbaa !2064
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb0EEEEEEESt6vectorIS8_SaIS8_EEEENS1_IPS8_SD_EEET0_T_SI_SH_.exit
 
-31:                                               ; preds = %3
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !2082
-  %34 = ptrtoint ptr %33 to i64
-  %35 = sub i64 %34, %14
-  %.not24 = icmp ult i64 %35, %9
-  br i1 %.not24, label %42, label %36
+29:                                               ; preds = %3
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !2082
+  %32 = ptrtoint ptr %31 to i64
+  %33 = sub i64 %32, %14
+  %.not24 = icmp ult i64 %33, %9
+  br i1 %.not24, label %40, label %34
 
-36:                                               ; preds = %31
-  %37 = icmp sgt i64 %9, 48
-  br i1 %37, label %38, label %39, !prof !503
+34:                                               ; preds = %29
+  %35 = icmp sgt i64 %9, 48
+  br i1 %35, label %36, label %37, !prof !503
 
-38:                                               ; preds = %36
+36:                                               ; preds = %34
   tail call void @llvm.memmove.p0.p0.i64(ptr align 16 %12, ptr align 16 %.fr14.i, i64 %9, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb0EEEEEEESt6vectorIS8_SaIS8_EEEENS1_IPS8_SD_EEET0_T_SI_SH_.exit
 
-39:                                               ; preds = %36
-  %40 = icmp eq i64 %9, 48
-  br i1 %40, label %41, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb0EEEEEEESt6vectorIS8_SaIS8_EEEENS1_IPS8_SD_EEET0_T_SI_SH_.exit
+37:                                               ; preds = %34
+  %38 = icmp eq i64 %9, 48
+  br i1 %38, label %39, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb0EEEEEEESt6vectorIS8_SaIS8_EEEENS1_IPS8_SD_EEET0_T_SI_SH_.exit
 
-41:                                               ; preds = %39
+39:                                               ; preds = %37
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %12, ptr noundef nonnull align 16 dereferenceable(48) %.fr14.i, i64 48, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb0EEEEEEESt6vectorIS8_SaIS8_EEEENS1_IPS8_SD_EEET0_T_SI_SH_.exit
 
-42:                                               ; preds = %31
-  %43 = icmp sgt i64 %35, 48
-  br i1 %43, label %44, label %45, !prof !503
+40:                                               ; preds = %29
+  %41 = icmp sgt i64 %33, 48
+  br i1 %41, label %42, label %43, !prof !503
 
-44:                                               ; preds = %42
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 16 %12, ptr align 16 %.fr14.i, i64 %35, i1 false)
+42:                                               ; preds = %40
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 16 %12, ptr align 16 %.fr14.i, i64 %33, i1 false)
   br label %_ZSt4copyIPN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEES7_ET0_T_S9_S8_.exit
 
-45:                                               ; preds = %42
-  %46 = icmp eq i64 %35, 48
-  br i1 %46, label %47, label %_ZSt4copyIPN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEES7_ET0_T_S9_S8_.exit
+43:                                               ; preds = %40
+  %44 = icmp eq i64 %33, 48
+  br i1 %44, label %45, label %_ZSt4copyIPN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEES7_ET0_T_S9_S8_.exit
 
-47:                                               ; preds = %45
+45:                                               ; preds = %43
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %12, ptr noundef nonnull align 16 dereferenceable(48) %.fr14.i, i64 48, i1 false)
   br label %_ZSt4copyIPN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEES7_ET0_T_S9_S8_.exit
 
-_ZSt4copyIPN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEES7_ET0_T_S9_S8_.exit: ; preds = %44, %45, %47
-  %48 = load ptr, ptr %1, align 8, !tbaa !2061
-  %49 = load ptr, ptr %32, align 8, !tbaa !2082
-  %50 = load ptr, ptr %0, align 8, !tbaa !2061
-  %51 = ptrtoint ptr %49 to i64
-  %52 = ptrtoint ptr %50 to i64
-  %53 = sub i64 %51, %52
-  %54 = getelementptr inbounds nuw i8, ptr %48, i64 %53
-  %55 = load ptr, ptr %4, align 8, !tbaa !2082
-  %.not9.i.i.i.i = icmp eq ptr %54, %55
+_ZSt4copyIPN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEES7_ET0_T_S9_S8_.exit: ; preds = %42, %43, %45
+  %46 = load ptr, ptr %1, align 8, !tbaa !2061
+  %47 = load ptr, ptr %30, align 8, !tbaa !2082
+  %48 = load ptr, ptr %0, align 8, !tbaa !2061
+  %49 = ptrtoint ptr %47 to i64
+  %50 = ptrtoint ptr %48 to i64
+  %51 = sub i64 %49, %50
+  %52 = getelementptr inbounds nuw i8, ptr %46, i64 %51
+  %53 = load ptr, ptr %4, align 8, !tbaa !2082
+  %.not9.i.i.i.i = icmp eq ptr %52, %53
   br i1 %.not9.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb0EEEEEEESt6vectorIS8_SaIS8_EEEENS1_IPS8_SD_EEET0_T_SI_SH_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt4copyIPN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEES7_ET0_T_S9_S8_.exit, %.lr.ph.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %57, %.lr.ph.i.i.i.i ], [ %49, %_ZSt4copyIPN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEES7_ET0_T_S9_S8_.exit ]
-  %.0810.i.i.i.i = phi ptr [ %56, %.lr.ph.i.i.i.i ], [ %54, %_ZSt4copyIPN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEES7_ET0_T_S9_S8_.exit ]
+  %.011.i.i.i.i = phi ptr [ %55, %.lr.ph.i.i.i.i ], [ %47, %_ZSt4copyIPN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEES7_ET0_T_S9_S8_.exit ]
+  %.0810.i.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i.i ], [ %52, %_ZSt4copyIPN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEES7_ET0_T_S9_S8_.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %.011.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(48) %.0810.i.i.i.i, i64 48, i1 false)
-  %56 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 48
-  %57 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 48
-  %.not.i.i.i.i = icmp eq ptr %56, %55
+  %54 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 48
+  %.not.i.i.i.i = icmp eq ptr %54, %53
   br i1 %.not.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb0EEEEEEESt6vectorIS8_SaIS8_EEEENS1_IPS8_SD_EEET0_T_SI_SH_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !2541
 
-_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb0EEEEEEESt6vectorIS8_SaIS8_EEEENS1_IPS8_SD_EEET0_T_SI_SH_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZSt4copyIPN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEES7_ET0_T_S9_S8_.exit, %41, %39, %38, %_ZNSt12_Vector_baseIN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEESaIS6_EE13_M_deallocateEPS6_m.exit
-  %58 = load ptr, ptr %0, align 8, !tbaa !2061
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 %9
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %59, ptr %60, align 8, !tbaa !2082
-  br label %61
+_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb0EEEEEEESt6vectorIS8_SaIS8_EEEENS1_IPS8_SD_EEET0_T_SI_SH_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZSt4copyIPN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEES7_ET0_T_S9_S8_.exit, %39, %37, %36, %_ZNSt12_Vector_baseIN4CGAL7Point_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEESaIS6_EE13_M_deallocateEPS6_m.exit
+  %56 = load ptr, ptr %0, align 8, !tbaa !2061
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 %9
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %57, ptr %58, align 8, !tbaa !2082
+  br label %59
 
-61:                                               ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb0EEEEEEESt6vectorIS8_SaIS8_EEEENS1_IPS8_SD_EEET0_T_SI_SH_.exit, %2
+59:                                               ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb0EEEEEEESt6vectorIS8_SaIS8_EEEENS1_IPS8_SD_EEET0_T_SI_SH_.exit, %2
   ret ptr %0
 }
 

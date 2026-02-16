@@ -2000,13 +2000,13 @@ define void @_ZN3gmx29PositionCalculationCollection9initFrameEPK10t_trxframe(ptr
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %14 = load i8, ptr %13, align 8, !tbaa !112, !range !100, !noundef !101
   %15 = trunc nuw i8 %14 to i1
-  br i1 %15, label %16, label %71
+  br i1 %15, label %16, label %70
 
 16:                                               ; preds = %._crit_edge
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !117
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %20, label %71
+  br i1 %19, label %20, label %70
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 168
@@ -2090,41 +2090,41 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %59 = load i32, ptr %17, align 8, !tbaa !117
-  %60 = icmp sgt i32 %59, 0
-  br i1 %60, label %.lr.ph24, label %_ZNSt6vectorIiSaIiEE5clearEv.exit
+  %58 = load i32, ptr %17, align 8, !tbaa !117
+  %59 = icmp sgt i32 %58, 0
+  br i1 %59, label %.lr.ph24, label %_ZNSt6vectorIiSaIiEE5clearEv.exit
 
 .lr.ph24:                                         ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit
-  %61 = load ptr, ptr %21, align 8, !tbaa !118
-  br label %62
+  %60 = load ptr, ptr %21, align 8, !tbaa !118
+  br label %61
 
-62:                                               ; preds = %.lr.ph24, %62
+61:                                               ; preds = %.lr.ph24, %61
   %indvars.iv = phi i64 [ 0, %.lr.ph24 ], [ %indvars.iv.next, %62 ]
-  %63 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv
-  %64 = load i32, ptr %63, align 4, !tbaa !9
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds nuw i32, ptr %52, i64 %65
-  %67 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %67, ptr %66, align 4, !tbaa !9
+  %62 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv
+  %63 = load i32, ptr %62, align 4, !tbaa !9
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds nuw i32, ptr %52, i64 %64
+  %66 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %66, ptr %65, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %68 = load i32, ptr %17, align 8, !tbaa !117
-  %69 = sext i32 %68 to i64
-  %70 = icmp slt i64 %indvars.iv.next, %69
-  br i1 %70, label %62, label %_ZNSt6vectorIiSaIiEE5clearEv.exit, !llvm.loop !121
+  %67 = load i32, ptr %17, align 8, !tbaa !117
+  %68 = sext i32 %67 to i64
+  %69 = icmp slt i64 %indvars.iv.next, %68
+  br i1 %69, label %61, label %_ZNSt6vectorIiSaIiEE5clearEv.exit, !llvm.loop !121
 
-71:                                               ; preds = %16, %._crit_edge
-  %72 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %73 = load ptr, ptr %72, align 8, !tbaa !68
-  %74 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %75 = load ptr, ptr %74, align 8, !tbaa !120
-  %.not.i.i19 = icmp eq ptr %75, %73
-  br i1 %.not.i.i19, label %_ZNSt6vectorIiSaIiEE5clearEv.exit, label %76
+70:                                               ; preds = %16, %._crit_edge
+  %71 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %72 = load ptr, ptr %71, align 8, !tbaa !68
+  %73 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %74 = load ptr, ptr %73, align 8, !tbaa !120
+  %.not.i.i19 = icmp eq ptr %74, %72
+  br i1 %.not.i.i19, label %_ZNSt6vectorIiSaIiEE5clearEv.exit, label %75
 
-76:                                               ; preds = %71
-  store ptr %73, ptr %74, align 8, !tbaa !120
+75:                                               ; preds = %70
+  store ptr %72, ptr %73, align 8, !tbaa !120
   br label %_ZNSt6vectorIiSaIiEE5clearEv.exit
 
-_ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %62, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit, %76, %71
+_ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %61, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit, %75, %70
   ret void
 }
 

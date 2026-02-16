@@ -13972,11 +13972,11 @@ define hidden noalias noundef ptr @_m3d_safestr(ptr noundef readonly captures(ad
 13:                                               ; preds = %3, %2
   %14 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #65
   %.not87 = icmp eq ptr %14, null
-  br i1 %.not87, label %68, label %15
+  br i1 %.not87, label %66, label %15
 
 15:                                               ; preds = %13
   store i8 0, ptr %14, align 1
-  br label %68
+  br label %66
 
 .preheader99.split:                               ; preds = %.preheader99, %16
   %.0101 = phi i32 [ %18, %16 ], [ 0, %.preheader99 ]
@@ -13998,7 +13998,7 @@ define hidden noalias noundef ptr @_m3d_safestr(ptr noundef readonly captures(ad
   %21 = tail call noalias ptr @malloc(i64 noundef %20) #65
   %22 = ptrtoaddr ptr %21 to i64
   %.not91 = icmp eq ptr %21, null
-  br i1 %.not91, label %68, label %.preheader
+  br i1 %.not91, label %66, label %.preheader
 
 .preheader:                                       ; preds = %.critedge
   %.not92.not.not = icmp eq i32 %1, 0
@@ -14159,10 +14159,10 @@ define hidden noalias noundef ptr @_m3d_safestr(ptr noundef readonly captures(ad
 
 .critedge12:                                      ; preds = %.lr.ph119, %.lr.ph119, %.lr.ph119, %.lr.ph119
   %63 = icmp ugt ptr %61, %21
-  br i1 %63, label %.lr.ph119, label %.critedge10
+  br i1 %63, label %.lr.ph119, label %.critedge10.loopexit
 
-.critedge10:                                      ; preds = %.critedge12, %.lr.ph119, %.critedge4.preheader, %.critedge6
-  %.4.lcssa = phi ptr [ %.176.lcssa, %.critedge6 ], [ %21, %.critedge4.preheader ], [ %scevgep, %.critedge12 ], [ %.4118, %.lr.ph119 ]
+.critedge10.loopexit:                             ; preds = %.critedge12, %.lr.ph119, %.critedge4.preheader, %.critedge6
+  %.4.lcssa.ph = phi ptr [ %.176.lcssa, %.critedge6 ], [ %21, %.critedge4.preheader ], [ %scevgep, %.critedge12 ], [ %.4118, %.lr.ph119 ]
   store i8 0, ptr %.4.lcssa, align 1
   %64 = ptrtoint ptr %.4.lcssa to i64
   %65 = ptrtoint ptr %21 to i64
@@ -14171,7 +14171,7 @@ define hidden noalias noundef ptr @_m3d_safestr(ptr noundef readonly captures(ad
   %67 = tail call ptr @realloc(ptr noundef nonnull %21, i64 noundef %66) #61
   br label %68
 
-68:                                               ; preds = %15, %.critedge10, %.critedge, %13
+66:                                               ; preds = %15, %.critedge10, %.critedge, %13
   %.078 = phi ptr [ null, %.critedge ], [ null, %13 ], [ %67, %.critedge10 ], [ %14, %15 ]
   ret ptr %.078
 }

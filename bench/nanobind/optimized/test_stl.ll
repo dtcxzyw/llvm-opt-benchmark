@@ -8968,22 +8968,22 @@ _ZSt34__uninitialized_move_if_noexcept_aIP8CopyableS1_SaIS0_EET0_T_S4_S3_RT1_.ex
   br label %_ZSt8_DestroyIP8CopyableS0_EvT_S2_RSaIT0_E.exit
 
 _ZSt8_DestroyIP8CopyableS0_EvT_S2_RSaIT0_E.exit:  ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIP8CopyableS1_SaIS0_EET0_T_S4_S3_RT1_.exit34, %.lr.ph.preheader.i.i.i
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not.i35 = icmp eq ptr %5, null
-  br i1 %.not.i35, label %_ZNSt12_Vector_baseI8CopyableSaIS0_EE13_M_deallocateEPS0_m.exit, label %35
+  br i1 %.not.i35, label %_ZNSt12_Vector_baseI8CopyableSaIS0_EE13_M_deallocateEPS0_m.exit, label %34
 
-35:                                               ; preds = %_ZSt8_DestroyIP8CopyableS0_EvT_S2_RSaIT0_E.exit
-  %36 = load ptr, ptr %34, align 8, !tbaa !305
-  %37 = ptrtoint ptr %36 to i64
-  %38 = sub i64 %37, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %38) #34
+34:                                               ; preds = %_ZSt8_DestroyIP8CopyableS0_EvT_S2_RSaIT0_E.exit
+  %35 = load ptr, ptr %33, align 8, !tbaa !305
+  %36 = ptrtoint ptr %35 to i64
+  %37 = sub i64 %36, %9
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %37) #34
   br label %_ZNSt12_Vector_baseI8CopyableSaIS0_EE13_M_deallocateEPS0_m.exit
 
-_ZNSt12_Vector_baseI8CopyableSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZSt8_DestroyIP8CopyableS0_EvT_S2_RSaIT0_E.exit, %35
+_ZNSt12_Vector_baseI8CopyableSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZSt8_DestroyIP8CopyableS0_EvT_S2_RSaIT0_E.exit, %34
   store ptr %11, ptr %0, align 8, !tbaa !303
   store ptr %.0.lcssa.i.i.i.i.i33, ptr %6, align 8, !tbaa !301
-  %39 = getelementptr inbounds nuw %struct.Copyable, ptr %11, i64 %4
-  store ptr %39, ptr %34, align 8, !tbaa !305
+  %38 = getelementptr inbounds nuw %struct.Copyable, ptr %11, i64 %4
+  store ptr %38, ptr %33, align 8, !tbaa !305
   ret void
 }
 

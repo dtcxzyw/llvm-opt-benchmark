@@ -16648,7 +16648,7 @@ define hidden noundef i32 @_Z13_mi_vsnprintfPcmPKcP13__va_list_tag(ptr noundef %
   %or.cond = or i1 %5, %6
   %7 = icmp eq ptr %2, null
   %or.cond3 = or i1 %or.cond, %7
-  br i1 %or.cond3, label %368, label %8
+  br i1 %or.cond3, label %367, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr i8, ptr %0, i64 %1
@@ -17428,24 +17428,24 @@ _ZL11mi_out_fillcmPPcS_.exit:                     ; preds = %347, %.lr.ph.prehea
   %.09.lcssa.i = phi ptr [ %.fr.i, %347 ], [ %scevgep.i, %.lr.ph.preheader.i ]
   %.not249 = icmp ugt ptr %.09.lcssa.i, %10
   %or.cond251 = select i1 %.not248, i1 true, i1 %.not249
-  br i1 %or.cond251, label %_ZL17mi_out_alignrightcPcmmS_.exit, label %355
+  br i1 %or.cond251, label %_ZL17mi_out_alignrightcPcmmS_.exit, label %354
 
-355:                                              ; preds = %_ZL11mi_out_fillcmPPcS_.exit
-  %356 = icmp ne ptr %.fr.i, %.0195
-  %357 = getelementptr inbounds nuw i8, ptr %.0195, i64 %.3203
-  %.not.i287 = icmp ult ptr %357, %10
-  %or.cond27.i = select i1 %356, i1 %.not.i287, i1 false
+354:                                              ; preds = %_ZL11mi_out_fillcmPPcS_.exit
+  %355 = icmp ne ptr %.fr.i, %.0195
+  %356 = getelementptr inbounds nuw i8, ptr %.0195, i64 %.3203
+  %.not.i287 = icmp ult ptr %356, %10
+  %or.cond27.i = select i1 %355, i1 %.not.i287, i1 false
   br i1 %or.cond27.i, label %.preheader31.i, label %_ZL17mi_out_alignrightcPcmmS_.exit
 
-.preheader31.i:                                   ; preds = %355, %.preheader31.i
-  %.02232.i = phi i64 [ %363, %.preheader31.i ], [ 1, %355 ]
-  %358 = sub nuw i64 %345, %.02232.i
-  %359 = getelementptr inbounds nuw i8, ptr %.0195, i64 %358
-  %360 = load i8, ptr %359, align 1, !tbaa !25
-  %361 = sub i64 %.3203, %.02232.i
-  %362 = getelementptr inbounds nuw i8, ptr %.0195, i64 %361
-  store i8 %360, ptr %362, align 1, !tbaa !25
-  %363 = add nuw i64 %.02232.i, 1
+.preheader31.i:                                   ; preds = %354, %.preheader31.i
+  %.02232.i = phi i64 [ %362, %.preheader31.i ], [ 1, %355 ]
+  %357 = sub nuw i64 %345, %.02232.i
+  %358 = getelementptr inbounds nuw i8, ptr %.0195, i64 %357
+  %359 = load i8, ptr %358, align 1, !tbaa !25
+  %360 = sub i64 %.3203, %.02232.i
+  %361 = getelementptr inbounds nuw i8, ptr %.0195, i64 %360
+  store i8 %359, ptr %361, align 1, !tbaa !25
+  %362 = add nuw i64 %.02232.i, 1
   %exitcond.i = icmp eq i64 %.02232.i, %345
   br i1 %exitcond.i, label %.preheader.preheader.i, label %.preheader31.i, !llvm.loop !254
 
@@ -17453,7 +17453,7 @@ _ZL11mi_out_fillcmPPcS_.exit:                     ; preds = %347, %.lr.ph.prehea
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.0195, i8 range(i8 32, 49) %.1208, i64 %348, i1 false), !tbaa !25
   br label %_ZL17mi_out_alignrightcPcmmS_.exit
 
-_ZL17mi_out_alignrightcPcmmS_.exit:               ; preds = %_ZL11mi_out_fillcmPPcS_.exit, %_ZL7mi_outsPKcPPcS1_.exit, %355, %.preheader.preheader.i, %_ZL7mi_outccPPcS_.exit, %switch.early.test
+_ZL17mi_out_alignrightcPcmmS_.exit:               ; preds = %_ZL11mi_out_fillcmPPcS_.exit, %_ZL7mi_outsPKcPPcS1_.exit, %354, %.preheader.preheader.i, %_ZL7mi_outccPPcS_.exit, %switch.early.test
   %.2 = phi ptr [ %.09.lcssa.i, %.preheader.preheader.i ], [ %.fr.i, %_ZL7mi_outsPKcPPcS1_.exit ], [ %.0302342, %switch.early.test ], [ %21, %_ZL7mi_outccPPcS_.exit ], [ %.09.lcssa.i, %355 ], [ %.09.lcssa.i, %_ZL11mi_out_fillcmPPcS_.exit ]
   %.1194 = phi ptr [ %.9, %.preheader.preheader.i ], [ %.9, %_ZL7mi_outsPKcPPcS1_.exit ], [ %18, %switch.early.test ], [ %18, %_ZL7mi_outccPPcS_.exit ], [ %.9, %355 ], [ %.9, %_ZL11mi_out_fillcmPPcS_.exit ]
   %.not = icmp ult ptr %.2, %10
@@ -17462,14 +17462,14 @@ _ZL17mi_out_alignrightcPcmmS_.exit:               ; preds = %_ZL11mi_out_fillcmP
 _ZL17mi_out_alignrightcPcmmS_.exit.thread325:     ; preds = %_ZL17mi_out_alignrightcPcmmS_.exit, %22, %14, %68, %27, %33, %40, %47, %74, %63, %56, %8
   %.0302340 = phi ptr [ %.0302342, %56 ], [ %0, %8 ], [ %.2, %_ZL17mi_out_alignrightcPcmmS_.exit ], [ %.0302342, %22 ], [ %.0302342, %14 ], [ %.0302342, %68 ], [ %.0302342, %27 ], [ %.0302342, %33 ], [ %.0302342, %40 ], [ %.0302342, %47 ], [ %.0302342, %74 ], [ %.0302342, %63 ]
   store i8 0, ptr %.0302340, align 1, !tbaa !25
-  %364 = ptrtoint ptr %.0302340 to i64
-  %365 = ptrtoint ptr %0 to i64
-  %366 = sub i64 %364, %365
-  %367 = trunc i64 %366 to i32
-  br label %368
+  %363 = ptrtoint ptr %.0302340 to i64
+  %364 = ptrtoint ptr %0 to i64
+  %365 = sub i64 %363, %364
+  %366 = trunc i64 %365 to i32
+  br label %367
 
-368:                                              ; preds = %4, %_ZL17mi_out_alignrightcPcmmS_.exit.thread325
-  %.0 = phi i32 [ %367, %_ZL17mi_out_alignrightcPcmmS_.exit.thread325 ], [ 0, %4 ]
+367:                                              ; preds = %4, %_ZL17mi_out_alignrightcPcmmS_.exit.thread325
+  %.0 = phi i32 [ %366, %_ZL17mi_out_alignrightcPcmmS_.exit.thread325 ], [ 0, %4 ]
   ret i32 %.0
 }
 
