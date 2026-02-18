@@ -88,15 +88,14 @@ define hidden void @_ZN3nla6solver20add_bounded_divisionEjjj(ptr noundef nonnull
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3nla6solver12set_relevantERSt8functionIFbjEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i.i.i = alloca { i64, i64 }, align 8
-  %3 = alloca %"class.std::function", align 8
+  %3 = alloca %"class.std::function", align 16
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %9 = load ptr, ptr %8, align 8, !tbaa !9
   %.not.i.i.not.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.not.i.i.i, label %_ZNSt8functionIFbjEEC2ERKS1_.exit.i.i, label %10
@@ -109,12 +108,13 @@ define hidden void @_ZN3nla6solver12set_relevantERSt8functionIFbjEE(ptr noundef 
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !11
   %15 = load ptr, ptr %8, align 8, !tbaa !9
+  %.sroa.0.0.copyload.i.i.pre.i.i = load <2 x i64>, ptr %3, align 16, !tbaa !13
   br label %_ZNSt8functionIFbjEEC2ERKS1_.exit.i.i
 
 16:                                               ; preds = %10
   %17 = landingpad { ptr, i32 }
           cleanup
-  %18 = load ptr, ptr %6, align 8, !tbaa !9
+  %18 = load ptr, ptr %6, align 16, !tbaa !9
   %.not.i.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i.i.i, label %19
 
@@ -135,14 +135,12 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %19, %16
 _ZNSt8functionIFbjEEC2ERKS1_.exit.i.i:            ; preds = %12, %2
   %24 = phi ptr [ null, %2 ], [ %14, %12 ]
   %25 = phi ptr [ null, %2 ], [ %15, %12 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false), !tbaa.struct !13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, i64 16, i1 false), !tbaa.struct !13
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i)
+  %.sroa.0.0.copyload.i.i.i.i = phi <2 x i64> [ zeroinitializer, %2 ], [ %.sroa.0.0.copyload.i.i.pre.i.i, %12 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !14
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i.i, ptr %5, align 8, !tbaa !13
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 240
   %27 = load ptr, ptr %26, align 8, !tbaa !15
-  store ptr %27, ptr %6, align 8, !tbaa !15
+  store ptr %27, ptr %6, align 16, !tbaa !15
   store ptr %25, ptr %26, align 8, !tbaa !15
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %29 = load ptr, ptr %28, align 8, !tbaa !15
@@ -2153,8 +2151,8 @@ attributes #17 = { builtin nounwind }
 !10 = !{!"_ZTSSt14_Function_base", !7, i64 0, !6, i64 16}
 !11 = !{!12, !6, i64 24}
 !12 = !{!"_ZTSSt8functionIFbjEE", !10, i64 0, !6, i64 24}
-!13 = !{i64 0, i64 16, !14}
-!14 = !{!7, !7, i64 0}
+!13 = !{!7, !7, i64 0}
+!14 = !{i64 0, i64 16, !13}
 !15 = !{!6, !6, i64 0}
 !16 = !{!17, !18, i64 0}
 !17 = !{!"_ZTS6vectorIjLb0EjE", !18, i64 0}

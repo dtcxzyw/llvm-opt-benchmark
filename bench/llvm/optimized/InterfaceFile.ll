@@ -1113,7 +1113,6 @@ _ZNSt14_Function_baseD2Ev.exit2:                  ; preds = %_ZNSt8functionIFbRK
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4llvm17make_filter_rangeIRKNS_11SmallVectorINS_5MachO6TargetELj5EEESt8functionIFbRKS3_EEEENS_14iterator_rangeINS_20filter_iterator_implIDTcl9adl_beginclsr3stdE7declvalIRT_EEEET0_NS_6detail15fwd_or_bidi_tagISG_E4typeEEEEEOSE_SH_(ptr dead_on_unwind noalias writable sret(%"class.llvm::iterator_range") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef %2) local_unnamed_addr #0 comdat {
   %.sroa.0 = alloca %"class.llvm::filter_iterator_base", align 8
-  %.sroa.2.i = alloca { i64, i64 }, align 8
   %4 = alloca %"class.std::function", align 8
   %5 = alloca %"class.std::function", align 8
   %6 = alloca %"class.llvm::filter_iterator_impl", align 8
@@ -1356,7 +1355,6 @@ _ZN4llvm20filter_iterator_implIPKNS_5MachO6TargetESt8functionIFbRS3_EESt26bidire
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !45)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i)
   %103 = load i64, ptr %6, align 8, !noalias !45
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %105 = load ptr, ptr %104, align 8, !tbaa !42, !noalias !45
@@ -1381,7 +1379,6 @@ _ZN4llvm20filter_iterator_implIPKNS_5MachO6TargetESt8functionIFbRS3_EESt26bidire
   %113 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %114 = load ptr, ptr %113, align 8, !tbaa !42, !noalias !45
   %115 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.i, i8 0, i64 16, i1 false), !noalias !45
   %116 = load ptr, ptr %115, align 8, !tbaa !35, !noalias !45
   %117 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %118 = load ptr, ptr %117, align 8, !tbaa !38, !noalias !45
@@ -1390,11 +1387,12 @@ _ZN4llvm20filter_iterator_implIPKNS_5MachO6TargetESt8functionIFbRS3_EESt26bidire
 
 119:                                              ; preds = %_ZN4llvm20filter_iterator_implIPKNS_5MachO6TargetESt8functionIFbRS3_EESt26bidirectional_iterator_tagEC2EOSA_.exit.i
   %120 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.i, ptr noundef nonnull align 8 dereferenceable(16) %120, i64 16, i1 false), !tbaa.struct !48, !noalias !45
+  %.sroa.2.16.copyload.i = load <2 x i64>, ptr %120, align 8, !tbaa !30, !noalias !45
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, i8 0, i64 16, i1 false), !noalias !45
   br label %_ZN4llvm20filter_iterator_implIPKNS_5MachO6TargetESt8functionIFbRS3_EESt26bidirectional_iterator_tagEC2EOSA_.exit2.i
 
 _ZN4llvm20filter_iterator_implIPKNS_5MachO6TargetESt8functionIFbRS3_EESt26bidirectional_iterator_tagEC2EOSA_.exit2.i: ; preds = %119, %_ZN4llvm20filter_iterator_implIPKNS_5MachO6TargetESt8functionIFbRS3_EESt26bidirectional_iterator_tagEC2EOSA_.exit.i
+  %.sroa.2.0.i = phi <2 x i64> [ zeroinitializer, %_ZN4llvm20filter_iterator_implIPKNS_5MachO6TargetESt8functionIFbRS3_EESt26bidirectional_iterator_tagEC2EOSA_.exit.i ], [ %.sroa.2.16.copyload.i, %119 ]
   store i64 %103, ptr %0, align 8, !alias.scope !45
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %105, ptr %121, align 8, !tbaa !42, !alias.scope !45
@@ -1423,13 +1421,12 @@ _ZN4llvm20filter_iterator_implIPKNS_5MachO6TargetESt8functionIFbRS3_EESt26bidire
 
 _ZN4llvm14iterator_rangeINS_20filter_iterator_implIPKNS_5MachO6TargetESt8functionIFbRS4_EESt26bidirectional_iterator_tagEEEC2ESB_SB_.exit.i: ; preds = %_ZN4llvm20filter_iterator_implIPKNS_5MachO6TargetESt8functionIFbRS3_EESt26bidirectional_iterator_tagEC2EOSA_.exit.i.i
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %128, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.i, i64 16, i1 false), !tbaa.struct !48
+  store <2 x i64> %.sroa.2.0.i, ptr %128, align 8, !tbaa !30, !alias.scope !45
   store ptr %118, ptr %130, align 8, !tbaa !38, !alias.scope !45
   br label %_ZN4llvm20filter_iterator_baseIPKNS_5MachO6TargetESt8functionIFbRS3_EESt26bidirectional_iterator_tagED2Ev.exit
 
 _ZN4llvm20filter_iterator_baseIPKNS_5MachO6TargetESt8functionIFbRS3_EESt26bidirectional_iterator_tagED2Ev.exit: ; preds = %_ZN4llvm20filter_iterator_implIPKNS_5MachO6TargetESt8functionIFbRS3_EESt26bidirectional_iterator_tagEC2EOSA_.exit.i.i, %_ZN4llvm14iterator_rangeINS_20filter_iterator_implIPKNS_5MachO6TargetESt8functionIFbRS4_EESt26bidirectional_iterator_tagEEEC2ESB_SB_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i)
   %.pre = load ptr, ptr %102, align 8, !tbaa !38
   %.not.i = icmp eq ptr %.pre, null
   br i1 %.not.i, label %_ZN4llvm20filter_iterator_baseIPKNS_5MachO6TargetESt8functionIFbRS3_EESt26bidirectional_iterator_tagED2Ev.exit25, label %_ZNSt14_Function_baseD2Ev.exit

@@ -2230,7 +2230,6 @@ define linkonce_odr hidden noundef i32 @_ZN9libunwind17DwarfInstructionsINS_17Lo
   %7 = alloca %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::FDE_Info", align 8
   %8 = alloca %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::CIE_Info", align 8
   %9 = alloca %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::PrologInfo", align 8
-  %.sroa.24 = alloca { i64, i64, i64, i64 }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = call noundef ptr @_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE9decodeFDEERS1_mPNS2_8FDE_InfoEPNS2_8CIE_InfoEb(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %8, i1 noundef zeroext false)
@@ -2245,46 +2244,45 @@ define linkonce_odr hidden noundef i32 @_ZN9libunwind17DwarfInstructionsINS_17Lo
 
 14:                                               ; preds = %12
   %15 = call noundef i64 @_ZN9libunwind17DwarfInstructionsINS_17LocalAddressSpaceENS_16Registers_x86_64EE6getCFAERS1_RKNS_10CFI_ParserIS1_E10PrologInfoERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(552) %9, ptr noundef nonnull align 8 dereferenceable(168) %3)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.24)
-  %.sroa.0.0.copyload = load i64, ptr %3, align 8, !tbaa !18
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !18
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !18
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %.sroa.7.0.copyload = load i64, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !18
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %.sroa.8.0.copyload = load i64, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !18
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %.sroa.9.0.copyload = load i64, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !18
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %.sroa.10.0.copyload = load i64, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !18
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 56
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %.sroa.14.0.copyload = load i64, ptr %.sroa.14.0..sroa_idx, align 8, !tbaa !18
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %.sroa.15.0.copyload = load i64, ptr %.sroa.15.0..sroa_idx, align 8, !tbaa !18
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %.sroa.16.0.copyload = load i64, ptr %.sroa.16.0..sroa_idx, align 8, !tbaa !18
   %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %.sroa.17.0.copyload = load i64, ptr %.sroa.17.0..sroa_idx, align 8, !tbaa !18
   %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %.sroa.18.0.copyload = load i64, ptr %.sroa.18.0..sroa_idx, align 8, !tbaa !18
   %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 104
-  %.sroa.19.0.copyload = load i64, ptr %.sroa.19.0..sroa_idx, align 8, !tbaa !18
   %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %.sroa.20.0.copyload = load i64, ptr %.sroa.20.0..sroa_idx, align 8, !tbaa !18
   %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 120
-  %.sroa.21.0.copyload = load i64, ptr %.sroa.21.0..sroa_idx, align 8, !tbaa !18
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 128
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 136
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.24, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.24.0..sroa_idx, i64 32, i1 false), !tbaa.struct !50
+  %.sroa.24.0.copyload = load <4 x i64>, ptr %.sroa.24.0..sroa_idx, align 8
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 50
   %17 = load i8, ptr %16, align 2, !tbaa !60
   %18 = icmp ult i8 %17, 33
   br i1 %18, label %.preheader, label %20
 
 .preheader:                                       ; preds = %14
+  %.sroa.21.0.copyload = load i64, ptr %.sroa.21.0..sroa_idx, align 8, !tbaa !18
+  %.sroa.20.0.copyload = load i64, ptr %.sroa.20.0..sroa_idx, align 8, !tbaa !18
+  %.sroa.19.0.copyload = load i64, ptr %.sroa.19.0..sroa_idx, align 8, !tbaa !18
+  %.sroa.18.0.copyload = load i64, ptr %.sroa.18.0..sroa_idx, align 8, !tbaa !18
+  %.sroa.17.0.copyload = load i64, ptr %.sroa.17.0..sroa_idx, align 8, !tbaa !18
+  %.sroa.16.0.copyload = load i64, ptr %.sroa.16.0..sroa_idx, align 8, !tbaa !18
+  %.sroa.15.0.copyload = load i64, ptr %.sroa.15.0..sroa_idx, align 8, !tbaa !18
+  %.sroa.14.0.copyload = load i64, ptr %.sroa.14.0..sroa_idx, align 8, !tbaa !18
+  %.sroa.10.0.copyload = load i64, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !18
+  %.sroa.9.0.copyload = load i64, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !18
+  %.sroa.8.0.copyload = load i64, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !18
+  %.sroa.7.0.copyload = load i64, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !18
+  %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !18
+  %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !18
+  %.sroa.0.0.copyload = load i64, ptr %3, align 8, !tbaa !18
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 24
   br label %21
 
@@ -2294,23 +2292,23 @@ define linkonce_odr hidden noundef i32 @_ZN9libunwind17DwarfInstructionsINS_17Lo
 
 21:                                               ; preds = %.preheader, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
-  %.045154 = phi i64 [ 0, %.preheader ], [ %.146, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
-  %.sroa.0.0152 = phi i64 [ %.sroa.0.0.copyload, %.preheader ], [ %.sroa.0.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
-  %.sroa.5.0151 = phi i64 [ %.sroa.5.0.copyload, %.preheader ], [ %.sroa.5.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
-  %.sroa.6.0150 = phi i64 [ %.sroa.6.0.copyload, %.preheader ], [ %.sroa.6.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
-  %.sroa.7.0149 = phi i64 [ %.sroa.7.0.copyload, %.preheader ], [ %.sroa.7.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
-  %.sroa.8.0148 = phi i64 [ %.sroa.8.0.copyload, %.preheader ], [ %.sroa.8.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
-  %.sroa.9.0147 = phi i64 [ %.sroa.9.0.copyload, %.preheader ], [ %.sroa.9.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
-  %.sroa.10.0146 = phi i64 [ %.sroa.10.0.copyload, %.preheader ], [ %.sroa.10.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
-  %.sroa.11.0145 = phi i64 [ %15, %.preheader ], [ %.sroa.11.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
-  %.sroa.14.0144 = phi i64 [ %.sroa.14.0.copyload, %.preheader ], [ %.sroa.14.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
-  %.sroa.15.0143 = phi i64 [ %.sroa.15.0.copyload, %.preheader ], [ %.sroa.15.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
-  %.sroa.16.0142 = phi i64 [ %.sroa.16.0.copyload, %.preheader ], [ %.sroa.16.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
-  %.sroa.17.0141 = phi i64 [ %.sroa.17.0.copyload, %.preheader ], [ %.sroa.17.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
-  %.sroa.18.0140 = phi i64 [ %.sroa.18.0.copyload, %.preheader ], [ %.sroa.18.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
-  %.sroa.19.0139 = phi i64 [ %.sroa.19.0.copyload, %.preheader ], [ %.sroa.19.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
-  %.sroa.20.0138 = phi i64 [ %.sroa.20.0.copyload, %.preheader ], [ %.sroa.20.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
-  %.sroa.21.0137 = phi i64 [ %.sroa.21.0.copyload, %.preheader ], [ %.sroa.21.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
+  %.045155 = phi i64 [ 0, %.preheader ], [ %.146, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
+  %.sroa.0.0153 = phi i64 [ %.sroa.0.0.copyload, %.preheader ], [ %.sroa.0.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
+  %.sroa.5.0152 = phi i64 [ %.sroa.5.0.copyload, %.preheader ], [ %.sroa.5.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
+  %.sroa.6.0151 = phi i64 [ %.sroa.6.0.copyload, %.preheader ], [ %.sroa.6.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
+  %.sroa.7.0150 = phi i64 [ %.sroa.7.0.copyload, %.preheader ], [ %.sroa.7.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
+  %.sroa.8.0149 = phi i64 [ %.sroa.8.0.copyload, %.preheader ], [ %.sroa.8.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
+  %.sroa.9.0148 = phi i64 [ %.sroa.9.0.copyload, %.preheader ], [ %.sroa.9.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
+  %.sroa.10.0147 = phi i64 [ %.sroa.10.0.copyload, %.preheader ], [ %.sroa.10.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
+  %.sroa.11.0146 = phi i64 [ %15, %.preheader ], [ %.sroa.11.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
+  %.sroa.14.0145 = phi i64 [ %.sroa.14.0.copyload, %.preheader ], [ %.sroa.14.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
+  %.sroa.15.0144 = phi i64 [ %.sroa.15.0.copyload, %.preheader ], [ %.sroa.15.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
+  %.sroa.16.0143 = phi i64 [ %.sroa.16.0.copyload, %.preheader ], [ %.sroa.16.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
+  %.sroa.17.0142 = phi i64 [ %.sroa.17.0.copyload, %.preheader ], [ %.sroa.17.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
+  %.sroa.18.0141 = phi i64 [ %.sroa.18.0.copyload, %.preheader ], [ %.sroa.18.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
+  %.sroa.19.0140 = phi i64 [ %.sroa.19.0.copyload, %.preheader ], [ %.sroa.19.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
+  %.sroa.20.0139 = phi i64 [ %.sroa.20.0.copyload, %.preheader ], [ %.sroa.20.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
+  %.sroa.21.0138 = phi i64 [ %.sroa.21.0.copyload, %.preheader ], [ %.sroa.21.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
   %22 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %19, i64 %indvars.iv
   %23 = load i32, ptr %22, align 8, !tbaa !110
   %.not = icmp eq i32 %23, 0
@@ -2328,12 +2326,12 @@ define linkonce_odr hidden noundef i32 @_ZN9libunwind17DwarfInstructionsINS_17Lo
 
 30:                                               ; preds = %27
   %spec.select.i = icmp samesign ult i64 %indvars.iv, 17
-  br i1 %spec.select.i, label %31, label %.loopexit
+  br i1 %spec.select.i, label %31, label %.sink.split
 
 31:                                               ; preds = %30
   %32 = call noundef i64 @_ZN9libunwind17DwarfInstructionsINS_17LocalAddressSpaceENS_16Registers_x86_64EE16getSavedRegisterERS1_RKS2_mRKNS_10CFI_ParserIS1_E16RegisterLocationE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(168) %3, i64 noundef %15, ptr noundef nonnull align 8 dereferenceable(16) %22)
   %33 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %33, label %default.unreachable156 [
+  switch i32 %33, label %default.unreachable157 [
     i32 15, label %49
     i32 16, label %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit
     i32 14, label %48
@@ -2401,7 +2399,7 @@ define linkonce_odr hidden noundef i32 @_ZN9libunwind17DwarfInstructionsINS_17Lo
 49:                                               ; preds = %31
   br label %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit
 
-default.unreachable156:                           ; preds = %31
+default.unreachable157:                           ; preds = %31
   unreachable
 
 50:                                               ; preds = %21
@@ -2490,23 +2488,23 @@ _ZNK9libunwind16Registers_x86_6411getRegisterEi.exit: ; preds = %51, %52, %53, %
   br label %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit
 
 _ZN9libunwind16Registers_x86_6411setRegisterEim.exit: ; preds = %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %31, %28, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit, %50
-  %.sroa.21.1 = phi i64 [ %.sroa.21.0137, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.21.0137, %50 ], [ %.sroa.21.0137, %28 ], [ %.sroa.21.0137, %48 ], [ %.sroa.21.0137, %31 ], [ %32, %49 ], [ %.sroa.21.0137, %47 ], [ %.sroa.21.0137, %34 ], [ %.sroa.21.0137, %35 ], [ %.sroa.21.0137, %36 ], [ %.sroa.21.0137, %37 ], [ %.sroa.21.0137, %38 ], [ %.sroa.21.0137, %39 ], [ %.sroa.21.0137, %40 ], [ %.sroa.21.0137, %41 ], [ %.sroa.21.0137, %42 ], [ %.sroa.21.0137, %43 ], [ %.sroa.21.0137, %44 ], [ %.sroa.21.0137, %45 ], [ %.sroa.21.0137, %46 ]
-  %.sroa.20.1 = phi i64 [ %.sroa.20.0138, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.20.0138, %50 ], [ %.sroa.20.0138, %28 ], [ %32, %48 ], [ %.sroa.20.0138, %31 ], [ %.sroa.20.0138, %49 ], [ %.sroa.20.0138, %47 ], [ %.sroa.20.0138, %34 ], [ %.sroa.20.0138, %35 ], [ %.sroa.20.0138, %36 ], [ %.sroa.20.0138, %37 ], [ %.sroa.20.0138, %38 ], [ %.sroa.20.0138, %39 ], [ %.sroa.20.0138, %40 ], [ %.sroa.20.0138, %41 ], [ %.sroa.20.0138, %42 ], [ %.sroa.20.0138, %43 ], [ %.sroa.20.0138, %44 ], [ %.sroa.20.0138, %45 ], [ %.sroa.20.0138, %46 ]
-  %.sroa.19.1 = phi i64 [ %.sroa.19.0139, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.19.0139, %50 ], [ %.sroa.19.0139, %28 ], [ %.sroa.19.0139, %48 ], [ %.sroa.19.0139, %31 ], [ %.sroa.19.0139, %49 ], [ %32, %47 ], [ %.sroa.19.0139, %34 ], [ %.sroa.19.0139, %35 ], [ %.sroa.19.0139, %36 ], [ %.sroa.19.0139, %37 ], [ %.sroa.19.0139, %38 ], [ %.sroa.19.0139, %39 ], [ %.sroa.19.0139, %40 ], [ %.sroa.19.0139, %41 ], [ %.sroa.19.0139, %42 ], [ %.sroa.19.0139, %43 ], [ %.sroa.19.0139, %44 ], [ %.sroa.19.0139, %45 ], [ %.sroa.19.0139, %46 ]
-  %.sroa.18.1 = phi i64 [ %.sroa.18.0140, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.18.0140, %50 ], [ %.sroa.18.0140, %28 ], [ %.sroa.18.0140, %48 ], [ %.sroa.18.0140, %31 ], [ %.sroa.18.0140, %49 ], [ %.sroa.18.0140, %47 ], [ %.sroa.18.0140, %34 ], [ %.sroa.18.0140, %35 ], [ %.sroa.18.0140, %36 ], [ %.sroa.18.0140, %37 ], [ %.sroa.18.0140, %38 ], [ %.sroa.18.0140, %39 ], [ %.sroa.18.0140, %40 ], [ %.sroa.18.0140, %41 ], [ %.sroa.18.0140, %42 ], [ %.sroa.18.0140, %43 ], [ %.sroa.18.0140, %44 ], [ %.sroa.18.0140, %45 ], [ %32, %46 ]
-  %.sroa.17.1 = phi i64 [ %.sroa.17.0141, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.17.0141, %50 ], [ %.sroa.17.0141, %28 ], [ %.sroa.17.0141, %48 ], [ %.sroa.17.0141, %31 ], [ %.sroa.17.0141, %49 ], [ %.sroa.17.0141, %47 ], [ %.sroa.17.0141, %34 ], [ %.sroa.17.0141, %35 ], [ %.sroa.17.0141, %36 ], [ %.sroa.17.0141, %37 ], [ %.sroa.17.0141, %38 ], [ %.sroa.17.0141, %39 ], [ %.sroa.17.0141, %40 ], [ %.sroa.17.0141, %41 ], [ %.sroa.17.0141, %42 ], [ %.sroa.17.0141, %43 ], [ %.sroa.17.0141, %44 ], [ %32, %45 ], [ %.sroa.17.0141, %46 ]
-  %.sroa.16.1 = phi i64 [ %.sroa.16.0142, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.16.0142, %50 ], [ %.sroa.16.0142, %28 ], [ %.sroa.16.0142, %48 ], [ %.sroa.16.0142, %31 ], [ %.sroa.16.0142, %49 ], [ %.sroa.16.0142, %47 ], [ %.sroa.16.0142, %34 ], [ %.sroa.16.0142, %35 ], [ %.sroa.16.0142, %36 ], [ %.sroa.16.0142, %37 ], [ %.sroa.16.0142, %38 ], [ %.sroa.16.0142, %39 ], [ %.sroa.16.0142, %40 ], [ %.sroa.16.0142, %41 ], [ %.sroa.16.0142, %42 ], [ %.sroa.16.0142, %43 ], [ %32, %44 ], [ %.sroa.16.0142, %45 ], [ %.sroa.16.0142, %46 ]
-  %.sroa.15.1 = phi i64 [ %.sroa.15.0143, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.15.0143, %50 ], [ %.sroa.15.0143, %28 ], [ %.sroa.15.0143, %48 ], [ %.sroa.15.0143, %31 ], [ %.sroa.15.0143, %49 ], [ %.sroa.15.0143, %47 ], [ %.sroa.15.0143, %34 ], [ %.sroa.15.0143, %35 ], [ %.sroa.15.0143, %36 ], [ %.sroa.15.0143, %37 ], [ %.sroa.15.0143, %38 ], [ %.sroa.15.0143, %39 ], [ %.sroa.15.0143, %40 ], [ %.sroa.15.0143, %41 ], [ %.sroa.15.0143, %42 ], [ %32, %43 ], [ %.sroa.15.0143, %44 ], [ %.sroa.15.0143, %45 ], [ %.sroa.15.0143, %46 ]
-  %.sroa.14.1 = phi i64 [ %.sroa.14.0144, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.14.0144, %50 ], [ %.sroa.14.0144, %28 ], [ %.sroa.14.0144, %48 ], [ %.sroa.14.0144, %31 ], [ %.sroa.14.0144, %49 ], [ %.sroa.14.0144, %47 ], [ %.sroa.14.0144, %34 ], [ %.sroa.14.0144, %35 ], [ %.sroa.14.0144, %36 ], [ %.sroa.14.0144, %37 ], [ %.sroa.14.0144, %38 ], [ %.sroa.14.0144, %39 ], [ %.sroa.14.0144, %40 ], [ %.sroa.14.0144, %41 ], [ %32, %42 ], [ %.sroa.14.0144, %43 ], [ %.sroa.14.0144, %44 ], [ %.sroa.14.0144, %45 ], [ %.sroa.14.0144, %46 ]
-  %.sroa.11.1 = phi i64 [ %.sroa.11.0145, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.11.0145, %50 ], [ %.sroa.11.0145, %28 ], [ %.sroa.11.0145, %48 ], [ %.sroa.11.0145, %31 ], [ %.sroa.11.0145, %49 ], [ %.sroa.11.0145, %47 ], [ %.sroa.11.0145, %34 ], [ %.sroa.11.0145, %35 ], [ %.sroa.11.0145, %36 ], [ %.sroa.11.0145, %37 ], [ %.sroa.11.0145, %38 ], [ %.sroa.11.0145, %39 ], [ %.sroa.11.0145, %40 ], [ %32, %41 ], [ %.sroa.11.0145, %42 ], [ %.sroa.11.0145, %43 ], [ %.sroa.11.0145, %44 ], [ %.sroa.11.0145, %45 ], [ %.sroa.11.0145, %46 ]
-  %.sroa.10.1 = phi i64 [ %.sroa.10.0146, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.10.0146, %50 ], [ %.sroa.10.0146, %28 ], [ %.sroa.10.0146, %48 ], [ %.sroa.10.0146, %31 ], [ %.sroa.10.0146, %49 ], [ %.sroa.10.0146, %47 ], [ %.sroa.10.0146, %34 ], [ %.sroa.10.0146, %35 ], [ %.sroa.10.0146, %36 ], [ %.sroa.10.0146, %37 ], [ %.sroa.10.0146, %38 ], [ %.sroa.10.0146, %39 ], [ %32, %40 ], [ %.sroa.10.0146, %41 ], [ %.sroa.10.0146, %42 ], [ %.sroa.10.0146, %43 ], [ %.sroa.10.0146, %44 ], [ %.sroa.10.0146, %45 ], [ %.sroa.10.0146, %46 ]
-  %.sroa.9.1 = phi i64 [ %.sroa.9.0147, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.9.0147, %50 ], [ %.sroa.9.0147, %28 ], [ %.sroa.9.0147, %48 ], [ %.sroa.9.0147, %31 ], [ %.sroa.9.0147, %49 ], [ %.sroa.9.0147, %47 ], [ %.sroa.9.0147, %34 ], [ %.sroa.9.0147, %35 ], [ %.sroa.9.0147, %36 ], [ %.sroa.9.0147, %37 ], [ %32, %38 ], [ %.sroa.9.0147, %39 ], [ %.sroa.9.0147, %40 ], [ %.sroa.9.0147, %41 ], [ %.sroa.9.0147, %42 ], [ %.sroa.9.0147, %43 ], [ %.sroa.9.0147, %44 ], [ %.sroa.9.0147, %45 ], [ %.sroa.9.0147, %46 ]
-  %.sroa.8.1 = phi i64 [ %.sroa.8.0148, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.8.0148, %50 ], [ %.sroa.8.0148, %28 ], [ %.sroa.8.0148, %48 ], [ %.sroa.8.0148, %31 ], [ %.sroa.8.0148, %49 ], [ %.sroa.8.0148, %47 ], [ %.sroa.8.0148, %34 ], [ %.sroa.8.0148, %35 ], [ %.sroa.8.0148, %36 ], [ %.sroa.8.0148, %37 ], [ %.sroa.8.0148, %38 ], [ %32, %39 ], [ %.sroa.8.0148, %40 ], [ %.sroa.8.0148, %41 ], [ %.sroa.8.0148, %42 ], [ %.sroa.8.0148, %43 ], [ %.sroa.8.0148, %44 ], [ %.sroa.8.0148, %45 ], [ %.sroa.8.0148, %46 ]
-  %.sroa.7.1 = phi i64 [ %.sroa.7.0149, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.7.0149, %50 ], [ %.sroa.7.0149, %28 ], [ %.sroa.7.0149, %48 ], [ %.sroa.7.0149, %31 ], [ %.sroa.7.0149, %49 ], [ %.sroa.7.0149, %47 ], [ %.sroa.7.0149, %34 ], [ %32, %35 ], [ %.sroa.7.0149, %36 ], [ %.sroa.7.0149, %37 ], [ %.sroa.7.0149, %38 ], [ %.sroa.7.0149, %39 ], [ %.sroa.7.0149, %40 ], [ %.sroa.7.0149, %41 ], [ %.sroa.7.0149, %42 ], [ %.sroa.7.0149, %43 ], [ %.sroa.7.0149, %44 ], [ %.sroa.7.0149, %45 ], [ %.sroa.7.0149, %46 ]
-  %.sroa.6.1 = phi i64 [ %.sroa.6.0150, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.6.0150, %50 ], [ %.sroa.6.0150, %28 ], [ %.sroa.6.0150, %48 ], [ %.sroa.6.0150, %31 ], [ %.sroa.6.0150, %49 ], [ %.sroa.6.0150, %47 ], [ %.sroa.6.0150, %34 ], [ %.sroa.6.0150, %35 ], [ %32, %36 ], [ %.sroa.6.0150, %37 ], [ %.sroa.6.0150, %38 ], [ %.sroa.6.0150, %39 ], [ %.sroa.6.0150, %40 ], [ %.sroa.6.0150, %41 ], [ %.sroa.6.0150, %42 ], [ %.sroa.6.0150, %43 ], [ %.sroa.6.0150, %44 ], [ %.sroa.6.0150, %45 ], [ %.sroa.6.0150, %46 ]
-  %.sroa.5.1 = phi i64 [ %.sroa.5.0151, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.5.0151, %50 ], [ %.sroa.5.0151, %28 ], [ %.sroa.5.0151, %48 ], [ %.sroa.5.0151, %31 ], [ %.sroa.5.0151, %49 ], [ %.sroa.5.0151, %47 ], [ %.sroa.5.0151, %34 ], [ %.sroa.5.0151, %35 ], [ %.sroa.5.0151, %36 ], [ %32, %37 ], [ %.sroa.5.0151, %38 ], [ %.sroa.5.0151, %39 ], [ %.sroa.5.0151, %40 ], [ %.sroa.5.0151, %41 ], [ %.sroa.5.0151, %42 ], [ %.sroa.5.0151, %43 ], [ %.sroa.5.0151, %44 ], [ %.sroa.5.0151, %45 ], [ %.sroa.5.0151, %46 ]
-  %.sroa.0.1 = phi i64 [ %.sroa.0.0152, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.0.0152, %50 ], [ %.sroa.0.0152, %28 ], [ %.sroa.0.0152, %48 ], [ %.sroa.0.0152, %31 ], [ %.sroa.0.0152, %49 ], [ %.sroa.0.0152, %47 ], [ %32, %34 ], [ %.sroa.0.0152, %35 ], [ %.sroa.0.0152, %36 ], [ %.sroa.0.0152, %37 ], [ %.sroa.0.0152, %38 ], [ %.sroa.0.0152, %39 ], [ %.sroa.0.0152, %40 ], [ %.sroa.0.0152, %41 ], [ %.sroa.0.0152, %42 ], [ %.sroa.0.0152, %43 ], [ %.sroa.0.0152, %44 ], [ %.sroa.0.0152, %45 ], [ %.sroa.0.0152, %46 ]
-  %.146 = phi i64 [ %.0.i, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.045154, %50 ], [ %29, %28 ], [ %.045154, %48 ], [ %.045154, %31 ], [ %.045154, %49 ], [ %.045154, %47 ], [ %.045154, %34 ], [ %.045154, %35 ], [ %.045154, %36 ], [ %.045154, %37 ], [ %.045154, %38 ], [ %.045154, %39 ], [ %.045154, %40 ], [ %.045154, %41 ], [ %.045154, %42 ], [ %.045154, %43 ], [ %.045154, %44 ], [ %.045154, %45 ], [ %.045154, %46 ]
+  %.sroa.21.1 = phi i64 [ %.sroa.21.0138, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.21.0138, %50 ], [ %.sroa.21.0138, %28 ], [ %.sroa.21.0138, %48 ], [ %.sroa.21.0138, %31 ], [ %32, %49 ], [ %.sroa.21.0138, %47 ], [ %.sroa.21.0138, %34 ], [ %.sroa.21.0138, %35 ], [ %.sroa.21.0138, %36 ], [ %.sroa.21.0138, %37 ], [ %.sroa.21.0138, %38 ], [ %.sroa.21.0138, %39 ], [ %.sroa.21.0138, %40 ], [ %.sroa.21.0138, %41 ], [ %.sroa.21.0138, %42 ], [ %.sroa.21.0138, %43 ], [ %.sroa.21.0138, %44 ], [ %.sroa.21.0138, %45 ], [ %.sroa.21.0138, %46 ]
+  %.sroa.20.1 = phi i64 [ %.sroa.20.0139, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.20.0139, %50 ], [ %.sroa.20.0139, %28 ], [ %32, %48 ], [ %.sroa.20.0139, %31 ], [ %.sroa.20.0139, %49 ], [ %.sroa.20.0139, %47 ], [ %.sroa.20.0139, %34 ], [ %.sroa.20.0139, %35 ], [ %.sroa.20.0139, %36 ], [ %.sroa.20.0139, %37 ], [ %.sroa.20.0139, %38 ], [ %.sroa.20.0139, %39 ], [ %.sroa.20.0139, %40 ], [ %.sroa.20.0139, %41 ], [ %.sroa.20.0139, %42 ], [ %.sroa.20.0139, %43 ], [ %.sroa.20.0139, %44 ], [ %.sroa.20.0139, %45 ], [ %.sroa.20.0139, %46 ]
+  %.sroa.19.1 = phi i64 [ %.sroa.19.0140, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.19.0140, %50 ], [ %.sroa.19.0140, %28 ], [ %.sroa.19.0140, %48 ], [ %.sroa.19.0140, %31 ], [ %.sroa.19.0140, %49 ], [ %32, %47 ], [ %.sroa.19.0140, %34 ], [ %.sroa.19.0140, %35 ], [ %.sroa.19.0140, %36 ], [ %.sroa.19.0140, %37 ], [ %.sroa.19.0140, %38 ], [ %.sroa.19.0140, %39 ], [ %.sroa.19.0140, %40 ], [ %.sroa.19.0140, %41 ], [ %.sroa.19.0140, %42 ], [ %.sroa.19.0140, %43 ], [ %.sroa.19.0140, %44 ], [ %.sroa.19.0140, %45 ], [ %.sroa.19.0140, %46 ]
+  %.sroa.18.1 = phi i64 [ %.sroa.18.0141, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.18.0141, %50 ], [ %.sroa.18.0141, %28 ], [ %.sroa.18.0141, %48 ], [ %.sroa.18.0141, %31 ], [ %.sroa.18.0141, %49 ], [ %.sroa.18.0141, %47 ], [ %.sroa.18.0141, %34 ], [ %.sroa.18.0141, %35 ], [ %.sroa.18.0141, %36 ], [ %.sroa.18.0141, %37 ], [ %.sroa.18.0141, %38 ], [ %.sroa.18.0141, %39 ], [ %.sroa.18.0141, %40 ], [ %.sroa.18.0141, %41 ], [ %.sroa.18.0141, %42 ], [ %.sroa.18.0141, %43 ], [ %.sroa.18.0141, %44 ], [ %.sroa.18.0141, %45 ], [ %32, %46 ]
+  %.sroa.17.1 = phi i64 [ %.sroa.17.0142, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.17.0142, %50 ], [ %.sroa.17.0142, %28 ], [ %.sroa.17.0142, %48 ], [ %.sroa.17.0142, %31 ], [ %.sroa.17.0142, %49 ], [ %.sroa.17.0142, %47 ], [ %.sroa.17.0142, %34 ], [ %.sroa.17.0142, %35 ], [ %.sroa.17.0142, %36 ], [ %.sroa.17.0142, %37 ], [ %.sroa.17.0142, %38 ], [ %.sroa.17.0142, %39 ], [ %.sroa.17.0142, %40 ], [ %.sroa.17.0142, %41 ], [ %.sroa.17.0142, %42 ], [ %.sroa.17.0142, %43 ], [ %.sroa.17.0142, %44 ], [ %32, %45 ], [ %.sroa.17.0142, %46 ]
+  %.sroa.16.1 = phi i64 [ %.sroa.16.0143, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.16.0143, %50 ], [ %.sroa.16.0143, %28 ], [ %.sroa.16.0143, %48 ], [ %.sroa.16.0143, %31 ], [ %.sroa.16.0143, %49 ], [ %.sroa.16.0143, %47 ], [ %.sroa.16.0143, %34 ], [ %.sroa.16.0143, %35 ], [ %.sroa.16.0143, %36 ], [ %.sroa.16.0143, %37 ], [ %.sroa.16.0143, %38 ], [ %.sroa.16.0143, %39 ], [ %.sroa.16.0143, %40 ], [ %.sroa.16.0143, %41 ], [ %.sroa.16.0143, %42 ], [ %.sroa.16.0143, %43 ], [ %32, %44 ], [ %.sroa.16.0143, %45 ], [ %.sroa.16.0143, %46 ]
+  %.sroa.15.1 = phi i64 [ %.sroa.15.0144, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.15.0144, %50 ], [ %.sroa.15.0144, %28 ], [ %.sroa.15.0144, %48 ], [ %.sroa.15.0144, %31 ], [ %.sroa.15.0144, %49 ], [ %.sroa.15.0144, %47 ], [ %.sroa.15.0144, %34 ], [ %.sroa.15.0144, %35 ], [ %.sroa.15.0144, %36 ], [ %.sroa.15.0144, %37 ], [ %.sroa.15.0144, %38 ], [ %.sroa.15.0144, %39 ], [ %.sroa.15.0144, %40 ], [ %.sroa.15.0144, %41 ], [ %.sroa.15.0144, %42 ], [ %32, %43 ], [ %.sroa.15.0144, %44 ], [ %.sroa.15.0144, %45 ], [ %.sroa.15.0144, %46 ]
+  %.sroa.14.1 = phi i64 [ %.sroa.14.0145, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.14.0145, %50 ], [ %.sroa.14.0145, %28 ], [ %.sroa.14.0145, %48 ], [ %.sroa.14.0145, %31 ], [ %.sroa.14.0145, %49 ], [ %.sroa.14.0145, %47 ], [ %.sroa.14.0145, %34 ], [ %.sroa.14.0145, %35 ], [ %.sroa.14.0145, %36 ], [ %.sroa.14.0145, %37 ], [ %.sroa.14.0145, %38 ], [ %.sroa.14.0145, %39 ], [ %.sroa.14.0145, %40 ], [ %.sroa.14.0145, %41 ], [ %32, %42 ], [ %.sroa.14.0145, %43 ], [ %.sroa.14.0145, %44 ], [ %.sroa.14.0145, %45 ], [ %.sroa.14.0145, %46 ]
+  %.sroa.11.1 = phi i64 [ %.sroa.11.0146, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.11.0146, %50 ], [ %.sroa.11.0146, %28 ], [ %.sroa.11.0146, %48 ], [ %.sroa.11.0146, %31 ], [ %.sroa.11.0146, %49 ], [ %.sroa.11.0146, %47 ], [ %.sroa.11.0146, %34 ], [ %.sroa.11.0146, %35 ], [ %.sroa.11.0146, %36 ], [ %.sroa.11.0146, %37 ], [ %.sroa.11.0146, %38 ], [ %.sroa.11.0146, %39 ], [ %.sroa.11.0146, %40 ], [ %32, %41 ], [ %.sroa.11.0146, %42 ], [ %.sroa.11.0146, %43 ], [ %.sroa.11.0146, %44 ], [ %.sroa.11.0146, %45 ], [ %.sroa.11.0146, %46 ]
+  %.sroa.10.1 = phi i64 [ %.sroa.10.0147, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.10.0147, %50 ], [ %.sroa.10.0147, %28 ], [ %.sroa.10.0147, %48 ], [ %.sroa.10.0147, %31 ], [ %.sroa.10.0147, %49 ], [ %.sroa.10.0147, %47 ], [ %.sroa.10.0147, %34 ], [ %.sroa.10.0147, %35 ], [ %.sroa.10.0147, %36 ], [ %.sroa.10.0147, %37 ], [ %.sroa.10.0147, %38 ], [ %.sroa.10.0147, %39 ], [ %32, %40 ], [ %.sroa.10.0147, %41 ], [ %.sroa.10.0147, %42 ], [ %.sroa.10.0147, %43 ], [ %.sroa.10.0147, %44 ], [ %.sroa.10.0147, %45 ], [ %.sroa.10.0147, %46 ]
+  %.sroa.9.1 = phi i64 [ %.sroa.9.0148, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.9.0148, %50 ], [ %.sroa.9.0148, %28 ], [ %.sroa.9.0148, %48 ], [ %.sroa.9.0148, %31 ], [ %.sroa.9.0148, %49 ], [ %.sroa.9.0148, %47 ], [ %.sroa.9.0148, %34 ], [ %.sroa.9.0148, %35 ], [ %.sroa.9.0148, %36 ], [ %.sroa.9.0148, %37 ], [ %32, %38 ], [ %.sroa.9.0148, %39 ], [ %.sroa.9.0148, %40 ], [ %.sroa.9.0148, %41 ], [ %.sroa.9.0148, %42 ], [ %.sroa.9.0148, %43 ], [ %.sroa.9.0148, %44 ], [ %.sroa.9.0148, %45 ], [ %.sroa.9.0148, %46 ]
+  %.sroa.8.1 = phi i64 [ %.sroa.8.0149, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.8.0149, %50 ], [ %.sroa.8.0149, %28 ], [ %.sroa.8.0149, %48 ], [ %.sroa.8.0149, %31 ], [ %.sroa.8.0149, %49 ], [ %.sroa.8.0149, %47 ], [ %.sroa.8.0149, %34 ], [ %.sroa.8.0149, %35 ], [ %.sroa.8.0149, %36 ], [ %.sroa.8.0149, %37 ], [ %.sroa.8.0149, %38 ], [ %32, %39 ], [ %.sroa.8.0149, %40 ], [ %.sroa.8.0149, %41 ], [ %.sroa.8.0149, %42 ], [ %.sroa.8.0149, %43 ], [ %.sroa.8.0149, %44 ], [ %.sroa.8.0149, %45 ], [ %.sroa.8.0149, %46 ]
+  %.sroa.7.1 = phi i64 [ %.sroa.7.0150, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.7.0150, %50 ], [ %.sroa.7.0150, %28 ], [ %.sroa.7.0150, %48 ], [ %.sroa.7.0150, %31 ], [ %.sroa.7.0150, %49 ], [ %.sroa.7.0150, %47 ], [ %.sroa.7.0150, %34 ], [ %32, %35 ], [ %.sroa.7.0150, %36 ], [ %.sroa.7.0150, %37 ], [ %.sroa.7.0150, %38 ], [ %.sroa.7.0150, %39 ], [ %.sroa.7.0150, %40 ], [ %.sroa.7.0150, %41 ], [ %.sroa.7.0150, %42 ], [ %.sroa.7.0150, %43 ], [ %.sroa.7.0150, %44 ], [ %.sroa.7.0150, %45 ], [ %.sroa.7.0150, %46 ]
+  %.sroa.6.1 = phi i64 [ %.sroa.6.0151, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.6.0151, %50 ], [ %.sroa.6.0151, %28 ], [ %.sroa.6.0151, %48 ], [ %.sroa.6.0151, %31 ], [ %.sroa.6.0151, %49 ], [ %.sroa.6.0151, %47 ], [ %.sroa.6.0151, %34 ], [ %.sroa.6.0151, %35 ], [ %32, %36 ], [ %.sroa.6.0151, %37 ], [ %.sroa.6.0151, %38 ], [ %.sroa.6.0151, %39 ], [ %.sroa.6.0151, %40 ], [ %.sroa.6.0151, %41 ], [ %.sroa.6.0151, %42 ], [ %.sroa.6.0151, %43 ], [ %.sroa.6.0151, %44 ], [ %.sroa.6.0151, %45 ], [ %.sroa.6.0151, %46 ]
+  %.sroa.5.1 = phi i64 [ %.sroa.5.0152, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.5.0152, %50 ], [ %.sroa.5.0152, %28 ], [ %.sroa.5.0152, %48 ], [ %.sroa.5.0152, %31 ], [ %.sroa.5.0152, %49 ], [ %.sroa.5.0152, %47 ], [ %.sroa.5.0152, %34 ], [ %.sroa.5.0152, %35 ], [ %.sroa.5.0152, %36 ], [ %32, %37 ], [ %.sroa.5.0152, %38 ], [ %.sroa.5.0152, %39 ], [ %.sroa.5.0152, %40 ], [ %.sroa.5.0152, %41 ], [ %.sroa.5.0152, %42 ], [ %.sroa.5.0152, %43 ], [ %.sroa.5.0152, %44 ], [ %.sroa.5.0152, %45 ], [ %.sroa.5.0152, %46 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.0153, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.sroa.0.0153, %50 ], [ %.sroa.0.0153, %28 ], [ %.sroa.0.0153, %48 ], [ %.sroa.0.0153, %31 ], [ %.sroa.0.0153, %49 ], [ %.sroa.0.0153, %47 ], [ %32, %34 ], [ %.sroa.0.0153, %35 ], [ %.sroa.0.0153, %36 ], [ %.sroa.0.0153, %37 ], [ %.sroa.0.0153, %38 ], [ %.sroa.0.0153, %39 ], [ %.sroa.0.0153, %40 ], [ %.sroa.0.0153, %41 ], [ %.sroa.0.0153, %42 ], [ %.sroa.0.0153, %43 ], [ %.sroa.0.0153, %44 ], [ %.sroa.0.0153, %45 ], [ %.sroa.0.0153, %46 ]
+  %.146 = phi i64 [ %.0.i, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.045155, %50 ], [ %29, %28 ], [ %.045155, %48 ], [ %.045155, %31 ], [ %.045155, %49 ], [ %.045155, %47 ], [ %.045155, %34 ], [ %.045155, %35 ], [ %.045155, %36 ], [ %.045155, %37 ], [ %.045155, %38 ], [ %.045155, %39 ], [ %.045155, %40 ], [ %.045155, %41 ], [ %.045155, %42 ], [ %.045155, %43 ], [ %.045155, %44 ], [ %.045155, %45 ], [ %.045155, %46 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 33
   br i1 %exitcond, label %.critedge, label %21, !llvm.loop !113
@@ -2532,16 +2530,11 @@ _ZN9libunwind16Registers_x86_6411setRegisterEim.exit: ; preds = %49, %48, %47, %
   store i64 %.sroa.20.1, ptr %.sroa.20.0..sroa_idx, align 8, !tbaa !18
   store i64 %.sroa.21.1, ptr %.sroa.21.0..sroa_idx, align 8, !tbaa !18
   store i64 %.146, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.24.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.24, i64 32, i1 false), !tbaa.struct !50
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %30, %.critedge
-  %.1 = phi i32 [ 1, %.critedge ], [ -6542, %30 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.24)
+  store <4 x i64> %.sroa.24.0.copyload, ptr %.sroa.24.0..sroa_idx, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %12, %.loopexit
-  %.3.ph = phi i32 [ %.1, %.loopexit ], [ -6546, %12 ]
+.sink.split:                                      ; preds = %30, %.critedge, %12
+  %.3.ph = phi i32 [ -6546, %12 ], [ 1, %.critedge ], [ -6542, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %75
 

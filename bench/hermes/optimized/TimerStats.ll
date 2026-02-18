@@ -2637,12 +2637,12 @@ entry:
   %agg.tmp.i = alloca %"class.std::function", align 8
   %agg.tmp = alloca %"class.std::function", align 8
   %ref.tmp = alloca %"class.facebook::hermes::(anonymous namespace)::TimedHostFunction", align 8
-  %agg.tmp2 = alloca %"class.std::function", align 8
+  %agg.tmp2 = alloca %"class.std::function", align 16
   %plain_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %agg.tmp2, i64 24
   %_M_invoker2.i = getelementptr inbounds nuw i8, ptr %func, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp2, i8 0, i64 24, i1 false)
   %1 = load ptr, ptr %_M_invoker2.i, align 8
   store ptr %1, ptr %_M_invoker.i, align 8
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %func, i64 16
@@ -2652,18 +2652,19 @@ entry:
 
 _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.thread.i: ; preds = %entry
   %_M_manager.i.i.i.i50 = getelementptr inbounds nuw i8, ptr %agg.tmp2, i64 16
-  %plainHF_.i6.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i6.i, i8 0, i64 24, i1 false)
+  %plainHF_.i8.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i8.i, i8 0, i64 24, i1 false)
   br label %_ZN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionC2ERNS_3jsi7RuntimeESt8functionIFNS3_5ValueES5_RKS7_PS8_mEERNS1_12RuntimeStatsE.exit
 
 _ZN8facebook3jsi21DecoratedHostFunctionC2ERNS0_7RuntimeESt8functionIFNS0_5ValueES3_RKS5_PS6_mEE.exit.i: ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %func, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %func, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp2, i64 16
+  %agg.tmp.sroa.0.0.copyload.i = load <2 x i64>, ptr %agg.tmp2, align 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %_M_manager.i.i.i.i, i8 0, i64 16, i1 false)
   %plainHF_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %plainHF_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %func, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i, i8 0, i64 16, i1 false)
   %_M_manager.i.i.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
+  store <2 x i64> %agg.tmp.sroa.0.0.copyload.i, ptr %plainHF_.i.i, align 8
   store ptr %2, ptr %_M_manager.i.i.i1.i, align 8
   br label %_ZN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionC2ERNS_3jsi7RuntimeESt8functionIFNS3_5ValueES5_RKS7_PS8_mEERNS1_12RuntimeStatsE.exit
 

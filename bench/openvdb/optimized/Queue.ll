@@ -518,8 +518,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d11
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN7openvdb5v11_02io5Queue11addNotifierESt8functionIFvjNS2_6StatusEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef %notify) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
-  %ref.tmp.i = alloca %"class.std::function", align 8
+  %ref.tmp.i = alloca %"class.std::function", align 16
   %ref.tmp9.i = alloca %"class.std::tuple.70", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.73", align 1
   %id = alloca i32, align 4
@@ -588,7 +587,7 @@ invoke.cont:                                      ; preds = %lor.rhs.i, %if.then
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %notify, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
   %7 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEC2ERKS6_.exit.i, label %if.then.i.i2
@@ -601,12 +600,13 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i2
   %_M_invoker4.i.i = getelementptr inbounds nuw i8, ptr %notify, i64 24
   %8 = load ptr, ptr %_M_invoker4.i.i, align 8
   %9 = load ptr, ptr %_M_manager.i.i.i.i, align 8
+  %__tmp.sroa.0.0.copyload.i.i.pre.i = load <2 x i64>, ptr %ref.tmp.i, align 16
   br label %_ZNSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEC2ERKS6_.exit.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i2
   %10 = landingpad { ptr, i32 }
           cleanup
-  %11 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %11 = load ptr, ptr %_M_manager.i.i.i, align 16
   %tobool.not.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i, label %lpad.body, label %if.then.i.i.i
 
@@ -624,14 +624,12 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
 _ZNSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEC2ERKS6_.exit.i: ; preds = %invoke.cont.i.i, %invoke.cont
   %14 = phi ptr [ null, %invoke.cont ], [ %8, %invoke.cont.i.i ]
   %15 = phi ptr [ null, %invoke.cont ], [ %9, %invoke.cont.i.i ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %second.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
+  %__tmp.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %invoke.cont ], [ %__tmp.sroa.0.0.copyload.i.i.pre.i, %invoke.cont.i.i ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i, i64 16, i1 false)
+  store <2 x i64> %__tmp.sroa.0.0.copyload.i.i.i, ptr %second.i, align 8
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   %16 = load ptr, ptr %_M_manager3.i.i, align 8
-  store ptr %16, ptr %_M_manager.i.i.i, align 8
+  store ptr %16, ptr %_M_manager.i.i.i, align 16
   store ptr %15, ptr %_M_manager3.i.i, align 8
   %_M_invoker4.i2.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 64
   %17 = load ptr, ptr %_M_invoker4.i2.i, align 8
@@ -947,8 +945,7 @@ entry:
   %alloc.i.i.i = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %id.addr.i.i = alloca i32, align 4
   %acc.i.i = alloca %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::accessor", align 8
-  %__tmp.sroa.0.i.i.i.i.i = alloca { i64, i64 }, align 8
-  %ref.tmp.i.i.i = alloca %"class.std::function", align 8
+  %ref.tmp.i.i.i = alloca %"class.std::function", align 16
   %__ts.i.i = alloca %struct.timespec, align 8
   %_openvdb_throw_msg.i = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os.i = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -1222,7 +1219,7 @@ call.i.i2.i.i.noexc:                              ; preds = %if.then.i.i.i.i
   store ptr @_ZNSt17_Function_handlerIFvjN7openvdb5v11_02io5Queue6StatusEESt5_BindIFMNS3_4ImplEFvjS4_EPS7_St12_PlaceholderILi1EESB_ILi2EEEEE9_M_invokeERKSt9_Any_dataOjOS4_, ptr %_M_invoker.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvjN7openvdb5v11_02io5Queue6StatusEESt5_BindIFMNS3_4ImplEFvjS4_EPS7_St12_PlaceholderILi1EESB_ILi2EEEEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i.i.i, i8 0, i64 32, i1 false)
   %call.i.i.i.i3637.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
           to label %_ZNSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEC2ERKS6_.exit.i.i.i unwind label %ehcleanup43.thread.i
 
@@ -1234,16 +1231,14 @@ ehcleanup43.thread.i:                             ; preds = %call.i.i2.i.i.noexc
 _ZNSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEC2ERKS6_.exit.i.i.i: ; preds = %call.i.i2.i.i.noexc
   %_M_manager.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i.i3637.i, ptr noundef nonnull align 8 dereferenceable(24) %call.i.i2.i.i9, i64 24, i1 false)
-  store ptr %call.i.i.i.i3637.i, ptr %ref.tmp.i.i.i, align 8
+  store ptr %call.i.i.i.i3637.i, ptr %ref.tmp.i.i.i, align 16
   %_M_invoker.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i, i64 24
-  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %mNotify.i.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mNotify.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i.i.i)
+  %__tmp.sroa.0.0.copyload.i.i.pre.i.i.i = load <2 x i64>, ptr %ref.tmp.i.i.i, align 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %mNotify.i.i, i64 16, i1 false)
+  store <2 x i64> %__tmp.sroa.0.0.copyload.i.i.pre.i.i.i, ptr %mNotify.i.i, align 8
   %_M_manager3.i.i.i.i = getelementptr inbounds nuw i8, ptr %task, i64 32
   %26 = load ptr, ptr %_M_manager3.i.i.i.i, align 8
-  store ptr %26, ptr %_M_manager.i.i.i.i.i, align 8
+  store ptr %26, ptr %_M_manager.i.i.i.i.i, align 16
   store ptr @_ZNSt17_Function_handlerIFvjN7openvdb5v11_02io5Queue6StatusEESt5_BindIFMNS3_4ImplEFvjS4_EPS7_St12_PlaceholderILi1EESB_ILi2EEEEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager3.i.i.i.i, align 8
   %_M_invoker4.i2.i.i.i = getelementptr inbounds nuw i8, ptr %task, i64 40
   %27 = load ptr, ptr %_M_invoker4.i2.i.i.i, align 8

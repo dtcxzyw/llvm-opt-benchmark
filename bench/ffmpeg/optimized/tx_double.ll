@@ -3091,55 +3091,49 @@ declare i32 @ff_tx_gen_inplace_map(ptr noundef, i32 noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define internal void @ff_tx_fft_inplace_double_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #2 {
-  %5 = alloca %struct.AVComplexDouble, align 8
-  %6 = alloca %struct.AVComplexDouble, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !58
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %6 = load ptr, ptr %5, align 8, !tbaa !58
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !59
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !59
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !59
-  %13 = load i32, ptr %12, align 4, !tbaa !11
-  br label %14
+  %11 = load i32, ptr %10, align 4, !tbaa !11
+  br label %12
 
-14:                                               ; preds = %24, %4
-  %.pn = phi ptr [ %12, %4 ], [ %.025, %24 ]
-  %.024 = phi i32 [ %13, %4 ], [ %25, %24 ]
-  %15 = sext i32 %.024 to i64
-  %16 = getelementptr inbounds %struct.AVComplexDouble, ptr %2, i64 %15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !30
-  %17 = getelementptr inbounds i32, ptr %10, i64 %15
-  %18 = load i32, ptr %17, align 4, !tbaa !11
-  br label %19
+12:                                               ; preds = %22, %4
+  %.pn = phi ptr [ %10, %4 ], [ %.029, %22 ]
+  %.028 = phi i32 [ %11, %4 ], [ %23, %22 ]
+  %13 = sext i32 %.028 to i64
+  %14 = getelementptr inbounds %struct.AVComplexDouble, ptr %2, i64 %13
+  %.sroa.012.0.copyload = load <2 x double>, ptr %14, align 8
+  %15 = getelementptr inbounds i32, ptr %8, i64 %13
+  %16 = load i32, ptr %15, align 4, !tbaa !11
+  br label %17
 
-19:                                               ; preds = %19, %14
-  %.0 = phi i32 [ %18, %14 ], [ %23, %19 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %20 = sext i32 %.0 to i64
-  %21 = getelementptr inbounds %struct.AVComplexDouble, ptr %2, i64 %20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false), !tbaa.struct !30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !30
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %22 = getelementptr inbounds i32, ptr %10, i64 %20
-  %23 = load i32, ptr %22, align 4, !tbaa !11
-  %.not = icmp eq i32 %23, %.024
-  br i1 %.not, label %24, label %19, !llvm.loop !63
+17:                                               ; preds = %17, %12
+  %.0 = phi i32 [ %16, %12 ], [ %21, %17 ]
+  %.sroa.012.0 = phi nsz <2 x double> [ %.sroa.012.0.copyload, %12 ], [ %.sroa.0.0.copyload, %17 ]
+  %18 = sext i32 %.0 to i64
+  %19 = getelementptr inbounds %struct.AVComplexDouble, ptr %2, i64 %18
+  %.sroa.0.0.copyload = load <2 x double>, ptr %19, align 8
+  store <2 x double> %.sroa.012.0, ptr %19, align 8
+  %20 = getelementptr inbounds i32, ptr %8, i64 %18
+  %21 = load i32, ptr %20, align 4, !tbaa !11
+  %.not = icmp eq i32 %21, %.028
+  br i1 %.not, label %22, label %17, !llvm.loop !63
 
-24:                                               ; preds = %19
-  %.025 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !30
-  %25 = load i32, ptr %.025, align 4, !tbaa !11
-  %.not28 = icmp eq i32 %25, 0
-  br i1 %.not28, label %26, label %14, !llvm.loop !64
+22:                                               ; preds = %17
+  %.029 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
+  store <2 x double> %.sroa.0.0.copyload, ptr %14, align 8
+  %23 = load i32, ptr %.029, align 4, !tbaa !11
+  %.not32 = icmp eq i32 %23, 0
+  br i1 %.not32, label %24, label %12, !llvm.loop !64
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %28 = load ptr, ptr %27, align 8, !tbaa !5
-  %29 = load ptr, ptr %7, align 8, !tbaa !58
-  tail call void %28(ptr noundef %29, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %3) #17
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %26 = load ptr, ptr %25, align 8, !tbaa !5
+  %27 = load ptr, ptr %5, align 8, !tbaa !58
+  tail call void %26(ptr noundef %27, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %3) #17
   ret void
 }
 

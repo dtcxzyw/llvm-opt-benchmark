@@ -7758,7 +7758,6 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @WasmEdge_ExecutorAsyncInvoke(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i.i.i.i.i = alloca { i64, i64 }, align 8
   %5 = alloca %"struct.std::pair.263", align 8
   %6 = alloca %"class.WasmEdge::Async", align 8
   %7 = alloca %"struct.cxx20::span.279", align 8
@@ -7805,11 +7804,9 @@ define noundef ptr @WasmEdge_ExecutorAsyncInvoke(ptr noundef %0, ptr noundef %1,
   store i64 %.sroa.0.0.copyload.i.i.i.i.i.i, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %33, i64 16, i1 false)
+  %.sroa.0.0.copyload.i.i.i6.i.i.i = load <2 x i64>, ptr %33, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %34, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i)
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i6.i.i.i, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %37 = load ptr, ptr %35, align 8
@@ -14665,7 +14662,6 @@ _ZNSt4pairISt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sD
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @WasmEdge_VMAsyncRunWasmFromFile(ptr noundef %0, ptr noundef %1, i32 %2, ptr %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i.i.i.i.i = alloca { i64, i64 }, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %"struct.std::pair.263", align 8
   %9 = alloca %"class.WasmEdge::Async", align 8
@@ -14727,11 +14723,9 @@ define noundef ptr @WasmEdge_VMAsyncRunWasmFromFile(ptr noundef %0, ptr noundef 
   store i64 %.sroa.0.0.copyload.i.i.i.i.i.i, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %41, i64 16, i1 false)
+  %.sroa.0.0.copyload.i.i.i6.i.i.i = load <2 x i64>, ptr %41, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %42, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i)
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i6.i.i.i, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %45 = load ptr, ptr %43, align 8
@@ -14938,7 +14932,6 @@ define noundef ptr @WasmEdge_VMAsyncRunWasmFromBuffer(ptr noundef %0, ptr nounde
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @WasmEdge_VMAsyncRunWasmFromBytes(ptr noundef %0, i32 %1, ptr %2, i32 %3, ptr %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i.i.i.i.i = alloca { i64, i64 }, align 8
   %8 = alloca %"struct.std::pair.263", align 8
   %9 = alloca %"class.WasmEdge::Async", align 8
   %10 = alloca %"struct.cxx20::span.277", align 8
@@ -14993,11 +14986,9 @@ define noundef ptr @WasmEdge_VMAsyncRunWasmFromBytes(ptr noundef %0, i32 %1, ptr
   store i64 %.sroa.0.0.copyload.i.i.i.i.i.i, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  %.sroa.0.0.copyload.i.i.i6.i.i.i = load <2 x i64>, ptr %38, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %39, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i)
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i6.i.i.i, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %42 = load ptr, ptr %40, align 8
@@ -15067,7 +15058,6 @@ declare void @_ZN8WasmEdge2VM2VM16asyncRunWasmFileEN5cxx204spanIKhLm184467440737
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @WasmEdge_VMAsyncRunWasmFromASTModule(ptr noundef %0, ptr noundef %1, i32 %2, ptr %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i.i.i.i.i = alloca { i64, i64 }, align 8
   %7 = alloca %"struct.std::pair.263", align 8
   %8 = alloca %"class.WasmEdge::Async", align 8
   %9 = alloca %"struct.cxx20::span.277", align 8
@@ -15119,11 +15109,9 @@ define noundef ptr @WasmEdge_VMAsyncRunWasmFromASTModule(ptr noundef %0, ptr nou
   store i64 %.sroa.0.0.copyload.i.i.i.i.i.i, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  %.sroa.0.0.copyload.i.i.i6.i.i.i = load <2 x i64>, ptr %38, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %39, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i)
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i6.i.i.i, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %42 = load ptr, ptr %40, align 8
@@ -15889,7 +15877,6 @@ _ZNSt4pairISt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sD
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @WasmEdge_VMAsyncExecute(ptr noundef %0, i32 %1, ptr %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i.i.i.i.i = alloca { i64, i64 }, align 8
   %6 = alloca %"struct.std::pair.263", align 8
   %7 = alloca %"class.WasmEdge::Async", align 8
   %8 = alloca %"struct.cxx20::span.279", align 8
@@ -15935,11 +15922,9 @@ define noundef ptr @WasmEdge_VMAsyncExecute(ptr noundef %0, i32 %1, ptr %2, ptr 
   store i64 %.sroa.0.0.copyload.i.i.i.i.i.i, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %33, i64 16, i1 false)
+  %.sroa.0.0.copyload.i.i.i6.i.i.i = load <2 x i64>, ptr %33, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %34, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i)
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i6.i.i.i, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %37 = load ptr, ptr %35, align 8
@@ -16009,7 +15994,6 @@ declare void @_ZN8WasmEdge2VM2VM12asyncExecuteESt17basic_string_viewIcSt11char_t
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @WasmEdge_VMAsyncExecuteRegistered(ptr noundef %0, i32 %1, ptr %2, i32 %3, ptr %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i.i.i.i.i = alloca { i64, i64 }, align 8
   %8 = alloca %"struct.std::pair.263", align 8
   %9 = alloca %"class.WasmEdge::Async", align 8
   %10 = alloca %"struct.cxx20::span.277", align 8
@@ -16060,11 +16044,9 @@ define noundef ptr @WasmEdge_VMAsyncExecuteRegistered(ptr noundef %0, i32 %1, pt
   store i64 %.sroa.0.0.copyload.i.i.i.i.i.i, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 16, i1 false)
+  %.sroa.0.0.copyload.i.i.i6.i.i.i = load <2 x i64>, ptr %38, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %39, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i)
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i6.i.i.i, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %42 = load ptr, ptr %40, align 8

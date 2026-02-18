@@ -20561,9 +20561,7 @@ _ZNKSt4lessIN5boost9unit_test13basic_cstringIKcEEEclERKS4_S7_.exit.i.i.i.i237: ;
 
 186:                                              ; preds = %.loopexit
   %187 = ptrtoint ptr %183 to i64
-  store i64 ptrtoint (ptr @_ZN5boost9unit_test15unit_test_log_t10set_streamERSo to i64), ptr %185, align 8
-  %.sroa.0.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %185, i64 8
-  store i64 0, ptr %.sroa.0.i.sroa.4.0..sroa_idx, align 8
+  store <2 x i64> <i64 ptrtoint (ptr @_ZN5boost9unit_test15unit_test_log_t10set_streamERSo to i64), i64 0>, ptr %185, align 8, !tbaa !24
   %188 = getelementptr inbounds nuw i8, ptr %185, i64 16
   store i64 ptrtoint (ptr @_ZSt4cout to i64), ptr %188, align 8, !tbaa !174
   %189 = getelementptr inbounds nuw i8, ptr %185, i64 24
@@ -22154,9 +22152,7 @@ _ZNSt8_Rb_treeIN5boost9unit_test13output_formatESt4pairIKS2_NS1_14runtime_config
 
 729:                                              ; preds = %725
   %730 = ptrtoint ptr %727 to i64
-  store i64 ptrtoint (ptr @_ZN5boost9unit_test15unit_test_log_t10set_streamENS0_13output_formatERSo to i64), ptr %728, align 8
-  %.sroa.0.i382.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %728, i64 8
-  store i64 0, ptr %.sroa.0.i382.sroa.4.0..sroa_idx, align 8
+  store <2 x i64> <i64 ptrtoint (ptr @_ZN5boost9unit_test15unit_test_log_t10set_streamENS0_13output_formatERSo to i64), i64 0>, ptr %728, align 8, !tbaa !24
   %731 = getelementptr inbounds nuw i8, ptr %728, i64 16
   store i64 ptrtoint (ptr @_ZSt4cout to i64), ptr %731, align 8, !tbaa !174
   %732 = getelementptr inbounds nuw i8, ptr %728, i64 24
@@ -30254,9 +30250,7 @@ _ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit194: ; preds
           to label %217 unwind label %237
 
 217:                                              ; preds = %213
-  store i64 1, ptr %216, align 8
-  %.sroa.0.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %216, i64 8
-  store i64 0, ptr %.sroa.0.i.sroa.4.0..sroa_idx, align 8
+  store <2 x i64> <i64 1, i64 0>, ptr %216, align 8, !tbaa !24
   %218 = getelementptr inbounds nuw i8, ptr %216, i64 16
   store i64 %.0, ptr %218, align 8, !tbaa !93
   %219 = getelementptr inbounds nuw i8, ptr %216, i64 24
@@ -82082,7 +82076,7 @@ _ZNSt12_Vector_baseISt6vectorIN5boost9unit_test9framework4impl11name_filter9comp
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost9unit_test9framework4impl11name_filter5visitERKNS0_9test_caseE(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(312) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred", align 8
+  %3 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred", align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !1629
   %6 = zext i32 %5 to i64
@@ -82110,11 +82104,9 @@ _ZN5boost9unit_test9framework4impl11name_filter11filter_unitERKNS0_9test_unitE.e
   %23 = load ptr, ptr %22, align 8, !tbaa !174
   %24 = ptrtoint ptr %1 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 ptrtoint (ptr @_ZNK5boost9unit_test9framework4impl11name_filter9component4passERKNS0_9test_unitE to i64), ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %.sroa.2.0..sroa_idx.i, align 8
+  store <2 x i64> <i64 ptrtoint (ptr @_ZNK5boost9unit_test9framework4impl11name_filter9component4passERKNS0_9test_unitE to i64), i64 0>, ptr %3, align 16
   %.sroa.26.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %24, ptr %.sroa.26.0..sroa_idx.i.i, align 8
+  store i64 %24, ptr %.sroa.26.0..sroa_idx.i.i, align 16
   %25 = call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN5boost9unit_test9framework4impl11name_filter9componentESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predINS2_3_bi6bind_tINSG_11unspecifiedENS2_4_mfi2mfIMS7_KFbRKNS3_9test_unitEEbS7_JSN_EEENSG_4listIJNS2_3argILi1EEENS2_17reference_wrapperISM_EEEEEEEEEET_SZ_SZ_T0_St26random_access_iterator_tag(ptr %21, ptr %23, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %26 = load ptr, ptr %22, align 8, !tbaa !174
@@ -82194,7 +82186,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN5boost9unit_test9framework4impl11name_filter16test_suite_startERKNS0_10test_suiteE(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(384) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred", align 8
+  %3 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred", align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !1629
   %6 = icmp eq i32 %5, 0
@@ -82212,11 +82204,9 @@ _ZN5boost9unit_test9framework4impl11name_filter11filter_unitERKNS0_9test_unitE.e
   %15 = load ptr, ptr %14, align 8, !tbaa !174
   %16 = ptrtoint ptr %7 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 ptrtoint (ptr @_ZNK5boost9unit_test9framework4impl11name_filter9component4passERKNS0_9test_unitE to i64), ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %.sroa.2.0..sroa_idx.i, align 8
+  store <2 x i64> <i64 ptrtoint (ptr @_ZNK5boost9unit_test9framework4impl11name_filter9component4passERKNS0_9test_unitE to i64), i64 0>, ptr %3, align 16
   %.sroa.26.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %16, ptr %.sroa.26.0..sroa_idx.i.i, align 8
+  store i64 %16, ptr %.sroa.26.0..sroa_idx.i.i, align 16
   %17 = call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN5boost9unit_test9framework4impl11name_filter9componentESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predINS2_3_bi6bind_tINSG_11unspecifiedENS2_4_mfi2mfIMS7_KFbRKNS3_9test_unitEEbS7_JSN_EEENSG_4listIJNS2_3argILi1EEENS2_17reference_wrapperISM_EEEEEEEEEET_SZ_SZ_T0_St26random_access_iterator_tag(ptr %13, ptr %15, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = load ptr, ptr %14, align 8, !tbaa !174

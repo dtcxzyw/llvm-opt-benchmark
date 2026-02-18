@@ -1415,7 +1415,6 @@ _ZN20b3AlignedObjectArrayI6b3Int4ED2Ev.exit:      ; preds = %._crit_edge37, %97
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noalias noundef ptr @_ZN28b3SortedOverlappingPairCache21removeOverlappingPairEiiP12b3Dispatcher(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
-  %.sroa.0.i = alloca %struct.anon, align 16
   %5 = load ptr, ptr %0, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %7 = load ptr, ptr %6, align 8
@@ -1471,17 +1470,15 @@ _ZNK20b3AlignedObjectArrayI6b3Int4E16findLinearSearchERKS0_.exit: ; preds = %15
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load i32, ptr %34, align 8, !tbaa !17
   %36 = add nsw i32 %35, -1
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   %37 = load ptr, ptr %13, align 8, !tbaa !15
   %38 = getelementptr inbounds %struct.b3Int4, ptr %37, i64 %29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.i, ptr noundef nonnull align 16 dereferenceable(16) %38, i64 16, i1 false), !tbaa.struct !29
+  %.sroa.0.0.copyload.i = load <4 x i32>, ptr %38, align 16, !tbaa !30
   %39 = sext i32 %36 to i64
   %40 = getelementptr inbounds %struct.b3Int4, ptr %37, i64 %39
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %38, ptr noundef nonnull align 16 dereferenceable(16) %40, i64 16, i1 false), !tbaa.struct !29
   %41 = load ptr, ptr %13, align 8, !tbaa !15
   %42 = getelementptr inbounds %struct.b3Int4, ptr %41, i64 %39
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %42, ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.i, i64 16, i1 false), !tbaa.struct !29
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
+  store <4 x i32> %.sroa.0.0.copyload.i, ptr %42, align 16, !tbaa !30
   %43 = load i32, ptr %10, align 4, !tbaa !16
   %44 = add nsw i32 %43, -1
   store i32 %44, ptr %10, align 4, !tbaa !16
@@ -1672,7 +1669,6 @@ _ZNK20b3AlignedObjectArrayI6b3Int4E16findLinearSearchERKS0_.exit.thread: ; preds
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN28b3SortedOverlappingPairCache26processAllOverlappingPairsEP17b3OverlapCallbackP12b3Dispatcher(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
-  %.sroa.0.i = alloca %struct.anon, align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4, !tbaa !16
   %6 = icmp sgt i32 %5, 0
@@ -1703,17 +1699,15 @@ define dso_local void @_ZN28b3SortedOverlappingPairCache26processAllOverlappingP
   store i32 -1, ptr %20, align 4, !tbaa !30
   %21 = load i32, ptr %4, align 4, !tbaa !16
   %22 = add nsw i32 %21, -1
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   %23 = load ptr, ptr %7, align 8, !tbaa !15
   %24 = getelementptr inbounds %struct.b3Int4, ptr %23, i64 %10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.i, ptr noundef nonnull align 16 dereferenceable(16) %24, i64 16, i1 false), !tbaa.struct !29
+  %.sroa.0.0.copyload.i = load <4 x i32>, ptr %24, align 16, !tbaa !30
   %25 = sext i32 %22 to i64
   %26 = getelementptr inbounds %struct.b3Int4, ptr %23, i64 %25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %24, ptr noundef nonnull align 16 dereferenceable(16) %26, i64 16, i1 false), !tbaa.struct !29
   %27 = load ptr, ptr %7, align 8, !tbaa !15
   %28 = getelementptr inbounds %struct.b3Int4, ptr %27, i64 %25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %28, ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.i, i64 16, i1 false), !tbaa.struct !29
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
+  store <4 x i32> %.sroa.0.0.copyload.i, ptr %28, align 16, !tbaa !30
   %29 = load i32, ptr %4, align 4, !tbaa !16
   %30 = add nsw i32 %29, -1
   store i32 %30, ptr %4, align 4, !tbaa !16
@@ -2160,7 +2154,6 @@ declare noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef, i32 noundef) loca
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayI6b3Int4E17quickSortInternalI29b3BroadphasePairSortPredicateEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 comdat align 2 {
-  %.sroa.0.i = alloca %struct.anon, align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %tailrecurse
 
@@ -2232,13 +2225,11 @@ _ZNK29b3BroadphasePairSortPredicateclERK6b3Int4S2_.exit34.thread: ; preds = %24,
   br i1 %.not, label %41, label %36
 
 36:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.i, ptr noundef nonnull align 16 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !29
+  %.sroa.0.0.copyload.i = load <4 x i32>, ptr %15, align 16, !tbaa !30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, ptr noundef nonnull align 16 dereferenceable(16) %25, i64 16, i1 false), !tbaa.struct !29
   %37 = load ptr, ptr %5, align 8, !tbaa !15
   %38 = getelementptr inbounds %struct.b3Int4, ptr %37, i64 %indvars.iv46
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %38, ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.i, i64 16, i1 false), !tbaa.struct !29
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
+  store <4 x i32> %.sroa.0.0.copyload.i, ptr %38, align 16, !tbaa !30
   %39 = add nsw i32 %34, 1
   %40 = add nsw i32 %35, -1
   br label %41

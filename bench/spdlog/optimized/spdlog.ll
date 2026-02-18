@@ -5403,8 +5403,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4: ; preds = %53, 
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6spdlog7details8registry17initialize_loggerESt10shared_ptrINS_6loggerEE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef captures(none) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i.i.i = alloca { i64, i64 }, align 8
-  %3 = alloca %"class.std::function.25", align 8
+  %3 = alloca %"class.std::function.25", align 16
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = alloca %"class.std::unique_ptr", align 8
   %6 = alloca %"class.std::unique_ptr", align 8
@@ -5581,25 +5580,24 @@ _ZNSt10unique_ptrIN6spdlog9formatterESt14default_deleteIS1_EED2Ev.exit: ; preds 
   %83 = getelementptr inbounds nuw i8, ptr %67, i64 72
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   %.not.i.i.not.i.i.i = icmp eq ptr %82, null
   br i1 %.not.i.i.not.i.i.i, label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2EOS9_.exit.i.i, label %85
 
 85:                                               ; preds = %78
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false), !tbaa.struct !170
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false), !tbaa.struct !170
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, i8 0, i64 16, i1 false)
+  %.sroa.0.0.copyload.i.i.pre.i.i = load <2 x i64>, ptr %3, align 16, !tbaa !17
   br label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2EOS9_.exit.i.i
 
 _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2EOS9_.exit.i.i: ; preds = %85, %78
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false), !tbaa.struct !170
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %83, i64 16, i1 false), !tbaa.struct !170
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, i64 16, i1 false), !tbaa.struct !170
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i)
+  %.sroa.0.0.copyload.i.i.i.i = phi <2 x i64> [ zeroinitializer, %78 ], [ %.sroa.0.0.copyload.i.i.pre.i.i, %85 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %83, i64 16, i1 false), !tbaa.struct !170
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i.i, ptr %83, align 8, !tbaa !17
   %86 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %87 = getelementptr inbounds nuw i8, ptr %67, i64 88
   %88 = load ptr, ptr %87, align 8, !tbaa !171
-  store ptr %88, ptr %86, align 8, !tbaa !171
+  store ptr %88, ptr %86, align 16, !tbaa !171
   store ptr %82, ptr %87, align 8, !tbaa !171
   %89 = getelementptr inbounds nuw i8, ptr %67, i64 96
   %90 = load ptr, ptr %89, align 8, !tbaa !171
@@ -5896,13 +5894,12 @@ _ZNSt10unique_ptrIN6spdlog9formatterESt14default_deleteIS1_EED2Ev.exit6: ; preds
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6spdlog6logger17set_error_handlerESt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(208) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
-  %3 = alloca %"class.std::function.25", align 8
+  %3 = alloca %"class.std::function.25", align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   %7 = load ptr, ptr %6, align 8, !tbaa !169
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !57
@@ -5910,20 +5907,19 @@ define dso_local void @_ZN6spdlog6logger17set_error_handlerESt8functionIFvRKNSt7
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2EOS9_.exit.i, label %10
 
 10:                                               ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false), !tbaa.struct !170
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false), !tbaa.struct !170
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
+  %.sroa.0.0.copyload.i.i.pre.i = load <2 x i64>, ptr %3, align 16, !tbaa !17
   br label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2EOS9_.exit.i
 
 _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2EOS9_.exit.i: ; preds = %10, %2
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false), !tbaa.struct !170
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false), !tbaa.struct !170
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !170
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
+  %.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %2 ], [ %.sroa.0.0.copyload.i.i.pre.i, %10 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false), !tbaa.struct !170
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %4, align 8, !tbaa !17
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load ptr, ptr %12, align 8, !tbaa !171
-  store ptr %13, ptr %11, align 8, !tbaa !171
+  store ptr %13, ptr %11, align 16, !tbaa !171
   store ptr %9, ptr %12, align 8, !tbaa !171
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = load ptr, ptr %14, align 8, !tbaa !171
@@ -6753,10 +6749,8 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6spdlog7details8registry17set_error_handlerESt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i.i.i = alloca { i64, i64 }, align 8
-  %3 = alloca %"class.std::function.25", align 8
-  %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
-  %4 = alloca %"class.std::function.25", align 8
+  %3 = alloca %"class.std::function.25", align 16
+  %4 = alloca %"class.std::function.25", align 16
   %5 = alloca %"class.std::function.25", align 8
   %6 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #37
   %.not.i.i = icmp eq i32 %6, 0
@@ -6786,7 +6780,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   %18 = load ptr, ptr %17, align 8, !tbaa !169
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !57
@@ -6794,20 +6788,19 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2EOS9_.exit.i, label %21
 
 21:                                               ; preds = %._crit_edge
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false), !tbaa.struct !170
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false), !tbaa.struct !170
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
+  %.sroa.0.0.copyload.i.i.pre.i = load <2 x i64>, ptr %4, align 16, !tbaa !17
   br label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2EOS9_.exit.i
 
 _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2EOS9_.exit.i: ; preds = %21, %._crit_edge
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false), !tbaa.struct !170
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 16, i1 false), !tbaa.struct !170
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !170
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
+  %.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.pre.i, %21 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 16, i1 false), !tbaa.struct !170
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %15, align 8, !tbaa !17
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %24 = load ptr, ptr %23, align 8, !tbaa !171
-  store ptr %24, ptr %22, align 8, !tbaa !171
+  store ptr %24, ptr %22, align 16, !tbaa !171
   store ptr %20, ptr %23, align 8, !tbaa !171
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %26 = load ptr, ptr %25, align 8, !tbaa !171
@@ -6843,7 +6836,6 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSEOS9_
 
 _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9_.exit.thread: ; preds = %33
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   br label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2EOS9_.exit.i.i
 
 37:                                               ; preds = %33
@@ -6874,27 +6866,26 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9
   %48 = load ptr, ptr %11, align 8, !tbaa !57
   store ptr %48, ptr %9, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   %.not.i.i.not.i.i.i = icmp eq ptr %48, null
   br i1 %.not.i.i.not.i.i.i, label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2EOS9_.exit.i.i, label %49
 
 49:                                               ; preds = %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !170
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !170
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
+  %.sroa.0.0.copyload.i.i.pre.i.i = load <2 x i64>, ptr %3, align 16, !tbaa !17
   br label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2EOS9_.exit.i.i
 
 _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2EOS9_.exit.i.i: ; preds = %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9_.exit.thread, %49, %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9_.exit
-  %50 = phi ptr [ null, %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9_.exit.thread ], [ %48, %49 ], [ null, %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9_.exit ]
-  %51 = phi ptr [ null, %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9_.exit.thread ], [ %47, %49 ], [ %47, %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9_.exit ]
+  %50 = phi ptr [ null, %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9_.exit ], [ %48, %49 ], [ null, %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9_.exit.thread ]
+  %51 = phi ptr [ %47, %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9_.exit ], [ %47, %49 ], [ null, %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9_.exit.thread ]
+  %.sroa.0.0.copyload.i.i.i.i = phi <2 x i64> [ zeroinitializer, %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9_.exit ], [ %.sroa.0.0.copyload.i.i.pre.i.i, %49 ], [ zeroinitializer, %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9_.exit.thread ]
   %52 = getelementptr inbounds nuw i8, ptr %35, i64 72
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false), !tbaa.struct !170
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %52, i64 16, i1 false), !tbaa.struct !170
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, i64 16, i1 false), !tbaa.struct !170
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %52, i64 16, i1 false), !tbaa.struct !170
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i.i, ptr %52, align 8, !tbaa !17
   %53 = getelementptr inbounds nuw i8, ptr %35, i64 88
   %54 = load ptr, ptr %53, align 8, !tbaa !171
-  store ptr %54, ptr %14, align 8, !tbaa !171
+  store ptr %54, ptr %14, align 16, !tbaa !171
   store ptr %50, ptr %53, align 8, !tbaa !171
   %55 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %56 = load ptr, ptr %55, align 8, !tbaa !171
@@ -8196,7 +8187,6 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2EOS9_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef nonnull align 8 dereferenceable(208) ptr @_ZN6spdlog6loggeraSES0_(ptr noundef nonnull returned align 8 dereferenceable(208) %0, ptr noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) #37
@@ -8230,11 +8220,9 @@ define dso_local noundef nonnull align 8 dereferenceable(208) ptr @_ZN6spdlog6lo
   store atomic i32 %24, ptr %21 seq_cst, align 4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 16, i1 false), !tbaa.struct !170
+  %.sroa.0.0.copyload.i.i.i = load <2 x i64>, ptr %25, align 8, !tbaa !17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 16, i1 false), !tbaa.struct !170
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !170
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %26, align 8, !tbaa !17
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %29 = load ptr, ptr %27, align 8, !tbaa !171
@@ -8265,7 +8253,6 @@ _ZN6spdlog6logger4swapERS0_.exit:                 ; preds = %2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6spdlog6logger4swapERS0_(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(208) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i = alloca { i64, i64 }, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) #37
@@ -8299,11 +8286,9 @@ define dso_local void @_ZN6spdlog6logger4swapERS0_(ptr noundef nonnull align 8 d
   store atomic i32 %24, ptr %21 seq_cst, align 4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 16, i1 false), !tbaa.struct !170
+  %.sroa.0.0.copyload.i.i = load <2 x i64>, ptr %25, align 8, !tbaa !17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 16, i1 false), !tbaa.struct !170
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false), !tbaa.struct !170
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
+  store <2 x i64> %.sroa.0.0.copyload.i.i, ptr %26, align 8, !tbaa !17
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %29 = load ptr, ptr %27, align 8, !tbaa !171
@@ -8480,7 +8465,6 @@ _ZN6spdlog7details10backtracerD2Ev.exit28:        ; preds = %_ZSt8_DestroyIPN6sp
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6spdlog4swapERNS_6loggerES1_(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(208) %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) #37
@@ -8514,11 +8498,9 @@ define dso_local void @_ZN6spdlog4swapERNS_6loggerES1_(ptr noundef nonnull align
   store atomic i32 %24, ptr %21 seq_cst, align 4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 16, i1 false), !tbaa.struct !170
+  %.sroa.0.0.copyload.i.i.i = load <2 x i64>, ptr %25, align 8, !tbaa !17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 16, i1 false), !tbaa.struct !170
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !170
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %26, align 8, !tbaa !17
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %29 = load ptr, ptr %27, align 8, !tbaa !171

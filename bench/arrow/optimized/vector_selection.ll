@@ -1223,9 +1223,7 @@ _ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14defa
   %48 = getelementptr inbounds nuw i8, ptr %19, i64 130
   store i8 1, ptr %48, align 2, !tbaa !70
   %49 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store ptr @_ZN5arrow7compute8internal14OptionsWrapperINS0_13FilterOptionsEE4InitEPNS0_13KernelContextERKNS0_14KernelInitArgsE, ptr %49, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
+  store <2 x i64> <i64 ptrtoint (ptr @_ZN5arrow7compute8internal14OptionsWrapperINS0_13FilterOptionsEE4InitEPNS0_13KernelContextERKNS0_14KernelInitArgsE to i64), i64 0>, ptr %49, align 8, !tbaa !39
   %50 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr @_ZNSt17_Function_handlerIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEPSE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %50, align 8, !tbaa !71
   %51 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -1558,9 +1556,7 @@ _ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14defa
   %173 = getelementptr inbounds nuw i8, ptr %27, i64 130
   store i8 1, ptr %173, align 2, !tbaa !70
   %174 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store ptr @_ZN5arrow7compute8internal14OptionsWrapperINS0_11TakeOptionsEE4InitEPNS0_13KernelContextERKNS0_14KernelInitArgsE, ptr %174, align 8
-  %.sroa.4309.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store i64 0, ptr %.sroa.4309.0..sroa_idx, align 8
+  store <2 x i64> <i64 ptrtoint (ptr @_ZN5arrow7compute8internal14OptionsWrapperINS0_11TakeOptionsEE4InitEPNS0_13KernelContextERKNS0_14KernelInitArgsE to i64), i64 0>, ptr %174, align 8, !tbaa !39
   %175 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr @_ZNSt17_Function_handlerIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEPSE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %175, align 8, !tbaa !71
   %176 = getelementptr inbounds nuw i8, ptr %27, i64 40

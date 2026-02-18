@@ -560,7 +560,7 @@ define internal fastcc void @_ZN9hashbrown3raw5inner13RawTableInner14prepare_res
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp eq i64 %2, 0
-  br i1 %7, label %_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17ha240dbb958a2b116E.exit, label %8
+  br i1 %7, label %60, label %8
 
 8:                                                ; preds = %4
   %9 = icmp ult i64 %2, 8
@@ -589,7 +589,7 @@ define internal fastcc void @_ZN9hashbrown3raw5inner13RawTableInner14prepare_res
   br label %29
 
 23:                                               ; preds = %10
-  br i1 %3, label %24, label %59
+  br i1 %3, label %24, label %61
 
 24:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !98
@@ -665,39 +665,49 @@ _ZN9hashbrown3raw5inner5alloc5inner8do_alloc17he8ab2ed05dda40b9E.exit.i.i: ; pre
   %57 = lshr i64 %.sroa.6.09.ph.i, 3
   %58 = mul nuw nsw i64 %57, 7
   %.0.i.i = select i1 %56, i64 %55, i64 %58
+  %.sroa.630.24.vec.insert.i = insertelement <2 x i64> <i64 poison, i64 0>, i64 %.0.i.i, i64 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %54, i8 -1, i64 %36, i1 false), !noalias !98
-  br label %_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17ha240dbb958a2b116E.exit
+  br label %60
 
-_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17ha240dbb958a2b116E.exit: ; preds = %53, %4
-  %.sroa.11.0210 = phi i64 [ %.0.i.i, %53 ], [ 0, %4 ]
-  %.sroa.7.038 = phi i64 [ %55, %53 ], [ 0, %4 ]
-  %.sroa.0.0 = phi ptr [ %54, %53 ], [ @anon.e83fbe0a292bcbfc6cbd27945e294f8a.13, %4 ]
+59:                                               ; preds = %51, %41
+  %.sroa.6.0320.ph.i = phi i64 [ 0, %41 ], [ 16, %51 ]
+  %.sroa.10.018.ph.i = phi i64 [ undef, %41 ], [ %39, %51 ]
+  %.sroa.11.16.vec.insert = insertelement <2 x i64> <i64 poison, i64 undef>, i64 %.sroa.10.018.ph.i, i64 0
+  br label %61
+
+60:                                               ; preds = %53, %4
+  %.sroa.0.07 = phi ptr [ @anon.e83fbe0a292bcbfc6cbd27945e294f8a.13, %4 ], [ %54, %53 ]
+  %.sroa.7.06 = phi i64 [ 0, %4 ], [ %55, %53 ]
+  %.sroa.11.05 = phi <2 x i64> [ zeroinitializer, %4 ], [ %.sroa.630.24.vec.insert.i, %53 ]
+  %.sroa.11.16.vec.extract = extractelement <2 x i64> %.sroa.11.05, i64 0
+  %.sroa.11.24.vec.extract = extractelement <2 x i64> %.sroa.11.05, i64 1
   store ptr %1, ptr %0, align 8
   %.sroa.011.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 104, ptr %.sroa.011.sroa.4.0..sroa_idx, align 8
   %.sroa.011.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 16, ptr %.sroa.011.sroa.5.0..sroa_idx, align 8
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sroa.0.0, ptr %.sroa.412.0..sroa_idx, align 8
+  store ptr %.sroa.0.07, ptr %.sroa.412.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sroa.7.038, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.sroa.7.06, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %.sroa.11.0210, ptr %.sroa.6.0..sroa_idx, align 8
+  store i64 %.sroa.11.16.vec.extract, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.713.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 0, ptr %.sroa.713.0..sroa_idx, align 8
-  br label %62
+  store i64 %.sroa.11.24.vec.extract, ptr %.sroa.713.0..sroa_idx, align 8
+  br label %64
 
-59:                                               ; preds = %23, %51, %41
-  %.sroa.11.0210.ph = phi i64 [ undef, %23 ], [ undef, %41 ], [ %39, %51 ]
-  %.sroa.7.038.ph = phi i64 [ 0, %23 ], [ 0, %41 ], [ 16, %51 ]
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.7.038.ph, ptr %60, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.11.0210.ph, ptr %61, align 8
+61:                                               ; preds = %23, %59
+  %.sroa.7.06.ph = phi i64 [ 0, %23 ], [ %.sroa.6.0320.ph.i, %59 ]
+  %.sroa.11.05.ph = phi <2 x i64> [ undef, %23 ], [ %.sroa.11.16.vec.insert, %59 ]
+  %.sroa.11.16.vec.extract2 = extractelement <2 x i64> %.sroa.11.05.ph, i64 0
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.7.06.ph, ptr %62, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.11.16.vec.extract2, ptr %63, align 8
   store ptr null, ptr %0, align 8
-  br label %62
+  br label %64
 
-62:                                               ; preds = %59, %_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17ha240dbb958a2b116E.exit
+64:                                               ; preds = %61, %60
   ret void
 }
 

@@ -483,7 +483,7 @@ $_ZTVN4llvh2cl11OptionValueIbEE = comdat any
 @_ZL15PrintAllOptions = internal global %"class.llvh::cl::opt.33" zeroinitializer, align 8
 @.str.58 = private unnamed_addr constant [18 x i8] c"print-all-options\00", align 1
 @.str.59 = private unnamed_addr constant [51 x i8] c"Print all option values after command line parsing\00", align 1
-@_ZL22OverrideVersionPrinter = internal global %"class.std::function" zeroinitializer, align 8
+@_ZL22OverrideVersionPrinter = internal global %"class.std::function" zeroinitializer, align 16
 @_ZL6VersOp = internal global %"class.llvh::cl::opt.116" zeroinitializer, align 8
 @.str.62 = private unnamed_addr constant [8 x i8] c"version\00", align 1
 @.str.63 = private unnamed_addr constant [36 x i8] c"Display the version of this program\00", align 1
@@ -12002,11 +12002,10 @@ _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh2cl17SetVersionPrinterESt8functionIFvRNS_11raw_ostreamEEE(ptr noundef %func) local_unnamed_addr #0 {
 entry:
-  %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
-  %ref.tmp.i = alloca %"class.std::function", align 8
+  %ref.tmp.i = alloca %"class.std::function", align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %func, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvRN4llvh11raw_ostreamEEEC2ERKS4_.exit.i, label %if.then.i.i
@@ -12016,20 +12015,19 @@ if.then.i.i:                                      ; preds = %entry
   %_M_invoker4.i.i = getelementptr inbounds nuw i8, ptr %func, i64 24
   %1 = load ptr, ptr %_M_invoker4.i.i, align 8
   %2 = load ptr, ptr %_M_manager.i.i.i.i, align 8
+  %__tmp.sroa.0.0.copyload.i.i.pre.i = load <2 x i64>, ptr %ref.tmp.i, align 16
   br label %_ZNSt8functionIFvRN4llvh11raw_ostreamEEEC2ERKS4_.exit.i
 
 _ZNSt8functionIFvRN4llvh11raw_ostreamEEEC2ERKS4_.exit.i: ; preds = %if.then.i.i, %entry
   %3 = phi ptr [ null, %entry ], [ %1, %if.then.i.i ]
   %4 = phi ptr [ null, %entry ], [ %2, %if.then.i.i ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) @_ZL22OverrideVersionPrinter, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZL22OverrideVersionPrinter, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
+  %__tmp.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %entry ], [ %__tmp.sroa.0.0.copyload.i.i.pre.i, %if.then.i.i ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 16 dereferenceable(32) @_ZL22OverrideVersionPrinter, i64 16, i1 false)
+  store <2 x i64> %__tmp.sroa.0.0.copyload.i.i.i, ptr @_ZL22OverrideVersionPrinter, align 16
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22OverrideVersionPrinter, i64 16), align 8
-  store ptr %5, ptr %_M_manager.i.i, align 8
-  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @_ZL22OverrideVersionPrinter, i64 16), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22OverrideVersionPrinter, i64 16), align 16
+  store ptr %5, ptr %_M_manager.i.i, align 16
+  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @_ZL22OverrideVersionPrinter, i64 16), align 16
   %_M_invoker.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22OverrideVersionPrinter, i64 24), align 8
   store ptr %6, ptr %_M_invoker.i1.i, align 8
@@ -16827,7 +16825,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.i, label %if.end.i.i, label %_ZN4llvh2cl11opt_storageIN12_GLOBAL__N_114VersionPrinterELb1ELb1EE8setValueIbEEvRKT_b.exit
 
 if.end.i.i:                                       ; preds = %if.end
-  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22OverrideVersionPrinter, i64 16), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22OverrideVersionPrinter, i64 16), align 16
   %tobool.not.i.i.i.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.not.i.i, label %if.end4.i.i, label %if.then2.i.i
 
@@ -17810,7 +17808,7 @@ __cxx_global_var_init.57.exit:                    ; preds = %__cxx_global_var_in
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i80)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp4.i81)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp5.i82)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZL22OverrideVersionPrinter, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) @_ZL22OverrideVersionPrinter, i8 0, i64 32, i1 false)
   %48 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt8functionIFvRN4llvh11raw_ostreamEEED2Ev, ptr nonnull @_ZL22OverrideVersionPrinter, ptr nonnull @__dso_handle) #29
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL6VersOp, i64 8), align 8
   %bf.load.i.i.i91 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL6VersOp, i64 12), align 4

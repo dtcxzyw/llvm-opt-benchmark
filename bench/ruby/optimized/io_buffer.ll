@@ -5612,54 +5612,50 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %3
 12:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit
   %13 = and i64 %9, 8192
   %.not.i = icmp eq i64 %13, 0
-  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  br i1 %.not.i, label %rbimpl_rstring_getmem.exit, label %15
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %15 = load i64, ptr %14, align 8, !tbaa !22
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  br i1 %.not.i, label %rbimpl_rstring_getmem.exit, label %17
 
-15:                                               ; preds = %12
-  %.sroa.5.0.copyload = load ptr, ptr %14, align 8
+17:                                               ; preds = %12
+  %.sroa.5.0.copyload = load ptr, ptr %16, align 8
   br label %rbimpl_rstring_getmem.exit
 
-rbimpl_rstring_getmem.exit:                       ; preds = %12, %15
-  %.sroa.5.0 = phi ptr [ %.sroa.5.0.copyload, %15 ], [ %14, %12 ]
-  %.sroa.3.0.in = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sroa.3.0 = load i64, ptr %.sroa.3.0.in, align 8, !tbaa !22
-  br label %rb_io_buffer_get_bytes.exit
-
 rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %3, %rbimpl_RB_TYPE_P_fastpath.exit
-  %16 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #25
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %18 = load i64, ptr %17, align 8, !tbaa !7
-  %.not.i.i = icmp eq i64 %18, 4
+  %18 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #25
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %20 = load i64, ptr %19, align 8, !tbaa !7
+  %.not.i.i = icmp eq i64 %20, 4
   br i1 %.not.i.i, label %io_buffer_validate.exit.i.thread, label %io_buffer_validate.exit.i
 
 io_buffer_validate.exit.i:                        ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread
-  %19 = load ptr, ptr %16, align 8, !tbaa !14
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %21 = load i64, ptr %20, align 8, !tbaa !16
-  %22 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %18, ptr noundef %19, i64 noundef %21)
-  %.not.i10 = icmp eq i32 %22, 0
-  br i1 %.not.i10, label %rb_io_buffer_get_bytes.exit, label %io_buffer_validate.exit.i.thread
+  %21 = load ptr, ptr %18, align 8, !tbaa !14
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %23 = load i64, ptr %22, align 8, !tbaa !16
+  %24 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %20, ptr noundef %21, i64 noundef %23)
+  %.not.i10 = icmp eq i32 %24, 0
+  br i1 %.not.i10, label %rbimpl_rstring_getmem.exit, label %io_buffer_validate.exit.i.thread
 
 io_buffer_validate.exit.i.thread:                 ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread, %io_buffer_validate.exit.i
-  %23 = load ptr, ptr %16, align 8, !tbaa !14
-  %.not11.i = icmp eq ptr %23, null
-  br i1 %.not11.i, label %rb_io_buffer_get_bytes.exit, label %24
+  %25 = load ptr, ptr %18, align 8, !tbaa !14
+  %.not11.i = icmp eq ptr %25, null
+  br i1 %.not11.i, label %rbimpl_rstring_getmem.exit, label %26
 
-24:                                               ; preds = %io_buffer_validate.exit.i.thread
-  %25 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %26 = load i64, ptr %25, align 8, !tbaa !16
-  br label %rb_io_buffer_get_bytes.exit
+26:                                               ; preds = %io_buffer_validate.exit.i.thread
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %28 = load i64, ptr %27, align 8, !tbaa !16
+  br label %rbimpl_rstring_getmem.exit
 
-rb_io_buffer_get_bytes.exit:                      ; preds = %24, %io_buffer_validate.exit.i.thread, %io_buffer_validate.exit.i, %rbimpl_rstring_getmem.exit
-  %.013 = phi i64 [ %.sroa.3.0, %rbimpl_rstring_getmem.exit ], [ %26, %24 ], [ 0, %io_buffer_validate.exit.i.thread ], [ 0, %io_buffer_validate.exit.i ]
-  %.012 = phi ptr [ %.sroa.5.0, %rbimpl_rstring_getmem.exit ], [ %23, %24 ], [ null, %io_buffer_validate.exit.i.thread ], [ null, %io_buffer_validate.exit.i ]
-  %27 = icmp ne ptr %.012, null
-  %28 = icmp uge ptr %1, %.012
-  %or.cond.not = and i1 %27, %28
-  %29 = getelementptr i8, ptr %.012, i64 %.013
-  %30 = getelementptr i8, ptr %1, i64 %2
-  %31 = icmp ule ptr %30, %29
-  %narrow = select i1 %or.cond.not, i1 %31, i1 false
+rbimpl_rstring_getmem.exit:                       ; preds = %12, %26, %io_buffer_validate.exit.i.thread, %io_buffer_validate.exit.i, %17
+  %.013 = phi i64 [ %15, %17 ], [ 0, %io_buffer_validate.exit.i ], [ %28, %26 ], [ 0, %io_buffer_validate.exit.i.thread ], [ %15, %12 ]
+  %.012 = phi ptr [ %.sroa.5.0.copyload, %17 ], [ null, %io_buffer_validate.exit.i ], [ %25, %26 ], [ null, %io_buffer_validate.exit.i.thread ], [ %16, %12 ]
+  %29 = icmp ne ptr %.012, null
+  %30 = icmp uge ptr %1, %.012
+  %or.cond.not = and i1 %29, %30
+  %31 = getelementptr i8, ptr %.012, i64 %.013
+  %32 = getelementptr i8, ptr %1, i64 %2
+  %33 = icmp ule ptr %32, %31
+  %narrow = select i1 %or.cond.not, i1 %33, i1 false
   %.0 = zext i1 %narrow to i32
   ret i32 %.0
 }

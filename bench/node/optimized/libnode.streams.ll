@@ -9285,9 +9285,10 @@ _ZNSt8functionIFvmEEC2EOS1_.exit.thread.i.i.i.i.i.i.i: ; preds = %if.end
   br label %_ZSt11make_sharedIN4node4quic6Stream8Outbound10OnCompleteEJSt8functionIFvmEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.exit
 
 _ZN4node4quic6Stream8Outbound10OnCompleteC2ESt8functionIFvmEE.exit.i.i.i.i.i.i.i: ; preds = %if.end
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i = load <2 x i64>, ptr %done, align 8, !noalias !66
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !66
   %_M_manager.i.i.i1.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %done, i64 16, i1 false), !noalias !66
+  store <2 x i64> %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i, ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !66
   store ptr %1, ptr %_M_manager.i.i.i1.i.i.i.i.i.i.i, align 8, !noalias !66
   br label %_ZSt11make_sharedIN4node4quic6Stream8Outbound10OnCompleteEJSt8functionIFvmEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.exit
 

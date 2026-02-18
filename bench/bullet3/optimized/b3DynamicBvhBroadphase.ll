@@ -2447,15 +2447,15 @@ _ZN20b3AlignedObjectArrayI6b3Int4E9quickSortI29b3BroadphasePairSortPredicateEEvR
   %27 = phi i32 [ %22, %.lr.ph ], [ %84, %83 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %83 ]
   %.036 = phi i32 [ 0, %.lr.ph ], [ %.1, %83 ]
-  %.sroa.028.sroa.0.034 = phi i32 [ -1, %.lr.ph ], [ %.sroa.028.sroa.0.0.extract.trunc29, %83 ]
-  %.sroa.028.sroa.5.033 = phi i32 [ -1, %.lr.ph ], [ %.sroa.028.sroa.5.0.extract.trunc31, %83 ]
+  %.sroa.028.sroa.5.034 = phi i32 [ -1, %.lr.ph ], [ %.sroa.028.sroa.5.0.extract.trunc31, %83 ]
+  %.sroa.028.sroa.0.033 = phi i32 [ -1, %.lr.ph ], [ %.sroa.028.sroa.0.0.extract.trunc29, %83 ]
   %28 = load ptr, ptr %24, align 8, !tbaa !98
   %29 = getelementptr inbounds nuw %struct.b3Int4, ptr %28, i64 %indvars.iv
   %30 = load i32, ptr %29, align 16, !tbaa !49
-  %31 = icmp eq i32 %30, %.sroa.028.sroa.0.034
+  %31 = icmp eq i32 %30, %.sroa.028.sroa.0.033
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %33 = load i32, ptr %32, align 4
-  %34 = icmp eq i32 %33, %.sroa.028.sroa.5.033
+  %34 = icmp eq i32 %33, %.sroa.028.sroa.5.034
   %35 = select i1 %31, i1 %34, i1 false
   %.sroa.028.0.copyload = load i64, ptr %29, align 16
   %.sroa.028.sroa.0.0.extract.trunc29 = trunc i64 %.sroa.028.0.copyload to i32
@@ -2632,7 +2632,7 @@ _ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i: ; preds = %114, %_ZNK
   %indvars.iv.i = phi i64 [ %116, %.lr.ph.i ], [ %indvars.iv.next.i, %117 ]
   %118 = load ptr, ptr %115, align 8, !tbaa !98
   %119 = getelementptr inbounds %struct.b3Int4, ptr %118, i64 %indvars.iv.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %119, i8 0, i64 16, i1 false)
+  store <4 x i32> zeroinitializer, ptr %119, align 16, !tbaa !49
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN20b3AlignedObjectArrayI6b3Int4E6resizeEiRKS0_.exit, label %117, !llvm.loop !104
@@ -2940,7 +2940,6 @@ define linkonce_odr dso_local void @_ZN20BroadphaseAabbTester7ProcessEPK10b3Dbvt
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayI6b3Int4E17quickSortInternalI29b3BroadphasePairSortPredicateEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 comdat align 2 {
-  %.sroa.0.i = alloca %struct.anon.10, align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %tailrecurse
 
@@ -3012,13 +3011,11 @@ _ZNK29b3BroadphasePairSortPredicateclERK6b3Int4S2_.exit34.thread: ; preds = %24,
   br i1 %.not, label %41, label %36
 
 36:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.i, ptr noundef nonnull align 16 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !48
+  %.sroa.0.0.copyload.i = load <4 x i32>, ptr %15, align 16, !tbaa !49
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, ptr noundef nonnull align 16 dereferenceable(16) %25, i64 16, i1 false), !tbaa.struct !48
   %37 = load ptr, ptr %5, align 8, !tbaa !98
   %38 = getelementptr inbounds %struct.b3Int4, ptr %37, i64 %indvars.iv46
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %38, ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.i, i64 16, i1 false), !tbaa.struct !48
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
+  store <4 x i32> %.sroa.0.0.copyload.i, ptr %38, align 16, !tbaa !49
   %39 = add nsw i32 %34, 1
   %40 = add nsw i32 %35, -1
   br label %41

@@ -8934,9 +8934,10 @@ _ZN8facebook6hermes17HermesRuntimeImpl9HFContextC2ESt8functionIFNS_3jsi5ValueERN
   br label %_ZSt11make_uniqueIN8facebook6hermes17HermesRuntimeImpl9HFContextEJSt8functionIFNS0_3jsi5ValueERNS5_7RuntimeERKS6_PS9_mEERS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
 _ZN8facebook6hermes17HermesRuntimeImpl9HFContextC2ESt8functionIFNS_3jsi5ValueERNS4_7RuntimeERKS5_PS8_mEERS1_.exit.i: ; preds = %entry
+  %agg.tmp.sroa.0.0.copyload.i = load <2 x i64>, ptr %func, align 8, !noalias !157
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i, i8 0, i64 16, i1 false), !noalias !157
   %_M_manager.i.i.i1.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i, ptr noundef nonnull align 8 dereferenceable(32) %func, i64 16, i1 false), !noalias !157
+  store <2 x i64> %agg.tmp.sroa.0.0.copyload.i, ptr %call.i, align 8, !noalias !157
   store ptr %1, ptr %_M_manager.i.i.i1.i, align 8, !noalias !157
   br label %_ZSt11make_uniqueIN8facebook6hermes17HermesRuntimeImpl9HFContextEJSt8functionIFNS0_3jsi5ValueERNS5_7RuntimeERKS6_PS9_mEERS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
@@ -23611,7 +23612,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr hidden void @_ZN8facebook3jsi16RuntimeDecoratorINS_6hermes17HermesRuntimeImplENS0_17ThreadSafeRuntimeEE30createFunctionFromHostFunctionERKNS0_10PropNameIDEjSt8functionIFNS0_5ValueERNS0_7RuntimeERKSA_PSD_mEE(ptr noalias sret(%"class.facebook::jsi::Function") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %name, i32 noundef %paramCount, ptr noundef %func) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %context.i = alloca %"class.std::unique_ptr.395", align 8
-  %agg.tmp = alloca %"class.std::function.393", align 8
+  %agg.tmp = alloca %"class.std::function.393", align 16
   %ref.tmp = alloca %"class.facebook::jsi::DecoratedHostFunction", align 8
   %agg.tmp2 = alloca %"class.std::function.393", align 8
   %plain_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -23652,7 +23653,7 @@ if.then.i.i:                                      ; preds = %entry
 _ZN8facebook3jsi21DecoratedHostFunctionC2ERNS0_7RuntimeESt8functionIFNS0_5ValueES3_RKS5_PS6_mEE.exit: ; preds = %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.thread, %if.then.i.i
   %_M_manager.i.i.i.i51 = phi ptr [ %_M_manager.i.i.i.i47, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.thread ], [ %_M_manager.i.i.i.i, %if.then.i.i ]
   %plainHF_.i49 = phi ptr [ %plainHF_.i45, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.thread ], [ %plainHF_.i, %if.then.i.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %call.i.i2.i6 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #42
           to label %call.i.i2.i.noexc unwind label %lpad3
 
@@ -23676,18 +23677,19 @@ if.then.i.i.i.i.i:                                ; preds = %call.i.i2.i.noexc
 invoke.cont4:                                     ; preds = %if.then.i.i.i.i.i, %call.i.i2.i.noexc
   %_M_invoker.i4 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 24
   %_M_manager.i.i5 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
-  store ptr %call.i.i2.i6, ptr %agg.tmp, align 8
+  store ptr %call.i.i2.i6, ptr %agg.tmp, align 16
   store ptr @_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mENS1_21DecoratedHostFunctionEE9_M_invokeERKSt9_Any_dataS4_S6_OS7_Om, ptr %_M_invoker.i4, align 8
-  store ptr @_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mENS1_21DecoratedHostFunctionEE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %_M_manager.i.i5, align 8
+  store ptr @_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mENS1_21DecoratedHostFunctionEE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %_M_manager.i.i5, align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %context.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !409)
   %call.i.i7 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #42
           to label %_ZSt11make_uniqueIN8facebook6hermes17HermesRuntimeImpl9HFContextEJSt8functionIFNS0_3jsi5ValueERNS5_7RuntimeERKS6_PS9_mEERS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i unwind label %lpad5.body.thread
 
 _ZSt11make_uniqueIN8facebook6hermes17HermesRuntimeImpl9HFContextEJSt8functionIFNS0_3jsi5ValueERNS5_7RuntimeERKS6_PS9_mEERS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i: ; preds = %invoke.cont4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i5, i8 0, i64 16, i1 false), !noalias !412
+  %agg.tmp.sroa.0.0.copyload.i.i = load <2 x i64>, ptr %agg.tmp, align 16, !noalias !412
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %_M_manager.i.i5, i8 0, i64 16, i1 false), !noalias !412
   %_M_manager.i.i.i1.i.i = getelementptr inbounds nuw i8, ptr %call.i.i7, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i64 16, i1 false), !noalias !412
+  store <2 x i64> %agg.tmp.sroa.0.0.copyload.i.i, ptr %call.i.i7, align 8, !noalias !412
   store ptr @_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mENS1_21DecoratedHostFunctionEE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %_M_manager.i.i.i1.i.i, align 8, !noalias !412
   %3 = getelementptr inbounds nuw i8, ptr %call.i.i7, i64 24
   store ptr @_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mENS1_21DecoratedHostFunctionEE9_M_invokeERKSt9_Any_dataS4_S6_OS7_Om, ptr %3, align 8, !noalias !412
@@ -23699,7 +23701,7 @@ _ZSt11make_uniqueIN8facebook6hermes17HermesRuntimeImpl9HFContextEJSt8functionIFN
 
 invoke.cont6:                                     ; preds = %_ZSt11make_uniqueIN8facebook6hermes17HermesRuntimeImpl9HFContextEJSt8functionIFNS0_3jsi5ValueERNS5_7RuntimeERKS6_PS9_mEERS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %context.i)
-  %5 = load ptr, ptr %_M_manager.i.i5, align 8
+  %5 = load ptr, ptr %_M_manager.i.i5, align 16
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit, label %if.then.i.i9
 
@@ -23763,7 +23765,7 @@ lpad5.body:                                       ; preds = %_ZSt11make_uniqueIN
   %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrIN8facebook6hermes17HermesRuntimeImpl9HFContextESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %context.i) #39
-  %.pre = load ptr, ptr %_M_manager.i.i5, align 8
+  %.pre = load ptr, ptr %_M_manager.i.i5, align 16
   %tobool.not.i.i19 = icmp eq ptr %.pre, null
   br i1 %tobool.not.i.i19, label %ehcleanup, label %if.then.i.i20
 

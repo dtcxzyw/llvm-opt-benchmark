@@ -8178,16 +8178,17 @@ _ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEEC2ERKS5_.exit.i: ; preds = %13
 
 138:                                              ; preds = %_ZN5arrow6FutureISt10shared_ptrINS_3ipc7MessageEEEC2ERKS5_.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, i8 0, i64 16, i1 false), !noalias !470
-  %139 = getelementptr inbounds nuw i8, ptr %137, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %139, ptr noundef nonnull align 8 dereferenceable(16) %121, i64 16, i1 false), !noalias !470
+  %.sroa.10.24.copyload.i.i.i = load <2 x i64>, ptr %134, align 8, !noalias !470
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %135, i8 0, i64 16, i1 false), !noalias !470
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureISt10shared_ptrINS_6BufferEEE20WrapResultOnComplete8CallbackINSC_14ThenOnCompleteIZNS_3ipc16ReadMessageAsyncElilPNS_2io16RandomAccessFileERKNSH_9IOContextEE3$_0NSC_17PassthruOnFailureISN_EEEEEEEE", i64 16), ptr %137, align 8, !tbaa !20, !noalias !470
-  %140 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  store i32 %2, ptr %140, align 8, !tbaa !479, !noalias !470
-  %141 = getelementptr inbounds nuw i8, ptr %137, i64 16
-  store ptr %19, ptr %141, align 8, !tbaa !484, !noalias !470
-  %142 = getelementptr inbounds nuw i8, ptr %137, i64 24
-  store ptr %16, ptr %142, align 8, !tbaa !14, !noalias !470
+  %139 = getelementptr inbounds nuw i8, ptr %137, i64 8
+  store i32 %2, ptr %139, align 8, !tbaa !479, !noalias !470
+  %140 = getelementptr inbounds nuw i8, ptr %137, i64 16
+  store ptr %19, ptr %140, align 8, !tbaa !484, !noalias !470
+  %141 = getelementptr inbounds nuw i8, ptr %137, i64 24
+  store ptr %16, ptr %141, align 8, !tbaa !14, !noalias !470
+  %142 = getelementptr inbounds nuw i8, ptr %137, i64 32
+  store <2 x i64> %.sroa.10.24.copyload.i.i.i, ptr %142, align 8, !noalias !470
   %143 = getelementptr inbounds nuw i8, ptr %137, i64 56
   store ptr %104, ptr %143, align 8, !tbaa !485, !noalias !470
   %144 = getelementptr inbounds nuw i8, ptr %137, i64 64

@@ -3201,7 +3201,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN21cmCTestHandlerCommand15MakeBasicParserIN19cmCTestBuildCommand14BuildArgumentsEEE16cmArgumentParserIT_Ev(ptr dead_on_unwind noalias writable sret(%class.cmArgumentParser) align 8 %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = alloca %"class.std::function", align 8
+  %2 = alloca %"class.std::function", align 16
   %3 = alloca %"class.std::function.508", align 8
   %4 = alloca %class.cmArgumentParser, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3256,14 +3256,16 @@ define linkonce_odr dso_local void @_ZN21cmCTestHandlerCommand15MakeBasicParserI
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 56
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 16, i1 false), !tbaa.struct !198
-  store i64 80, ptr %24, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 80, ptr %2, align 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 0, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !24
+  %.sroa.0.0.copyload.i.i.pre.i.i.i = load <2 x i64>, ptr %2, align 16, !tbaa !24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 16, i1 false), !tbaa.struct !198
+  store <2 x i64> %.sroa.0.0.copyload.i.i.pre.i.i.i, ptr %24, align 8, !tbaa !24
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %28 = load ptr, ptr %27, align 8, !tbaa !5
-  store ptr %28, ptr %26, align 8, !tbaa !5
+  store ptr %28, ptr %26, align 16, !tbaa !5
   store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_traitsIcEEEZN16cmArgumentParserIN19cmCTestBuildCommand14BuildArgumentsEE18BindParsedKeywordsEMSA_St6vectorIS6_SaIS6_EEEUlS2_S6_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %27, align 8, !tbaa !5
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %30 = load ptr, ptr %29, align 8, !tbaa !5

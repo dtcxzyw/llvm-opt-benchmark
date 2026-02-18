@@ -1688,7 +1688,6 @@ declare noundef ptr @_ZN19Abstract_VM_Version9vm_vendorEv() local_unnamed_addr #
 define hidden noundef zeroext i1 @_ZN9Arguments16is_obsolete_flagEPKcP11JDK_Version(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.JDK_Version, align 8
   %4 = alloca %class.JDK_Version, align 8
-  %.sroa.5 = alloca [36 x i8], align 8
   %5 = alloca [256 x i8], align 16
   %6 = load ptr, ptr @_ZL17special_jvm_flags, align 16
   %.not11.not.i = icmp eq ptr %6, null
@@ -1713,7 +1712,7 @@ define hidden noundef zeroext i1 @_ZN9Arguments16is_obsolete_flagEPKcP11JDK_Vers
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 28
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(36) %.sroa.5.0..sroa_idx, i64 36, i1 false)
+  %.sroa.5.sroa.0.0.copyload = load <4 x i32>, ptr %.sroa.5.0..sroa_idx, align 8
   %16 = icmp eq i32 %.sroa.2.0.copyload, 0
   br i1 %16, label %_ZL19lookup_special_flagPKcR11SpecialFlag.exit.thread, label %17
 
@@ -1723,7 +1722,7 @@ define hidden noundef zeroext i1 @_ZN9Arguments16is_obsolete_flagEPKcP11JDK_Vers
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.sroa.2.0.copyload, ptr %3, align 8
   %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.212.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i64 16, i1 false)
+  store <4 x i32> %.sroa.5.sroa.0.0.copyload, ptr %.sroa.212.0..sroa_idx, align 4
   %18 = call noundef i32 @_ZNK11JDK_Version7compareERKS_(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(20) %3) #32
   %19 = icmp sgt i32 %18, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1733,7 +1732,7 @@ define hidden noundef zeroext i1 @_ZN9Arguments16is_obsolete_flagEPKcP11JDK_Vers
 20:                                               ; preds = %17
   store i32 %.sroa.2.0.copyload, ptr %1, align 4
   %.sroa.5.28..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5.28..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false)
+  store <4 x i32> %.sroa.5.sroa.0.0.copyload, ptr %.sroa.5.28..sroa_idx, align 4
   %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #31
   %22 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %0, i64 noundef %21, i1 noundef zeroext true, i1 noundef zeroext true) #32
   %.not = icmp eq ptr %22, null

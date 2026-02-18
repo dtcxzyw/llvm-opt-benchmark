@@ -13029,9 +13029,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_st
   call void @llvm.lifetime.start.p0(ptr nonnull %0)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %0, i8 0, i64 128, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store ptr @_ZN12_GLOBAL__N_119CommandLineFlagTest17NormalizeFileNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr %2, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
+  store <2 x i64> <i64 ptrtoint (ptr @_ZN12_GLOBAL__N_119CommandLineFlagTest17NormalizeFileNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE to i64), i64 0>, ptr %2, align 8, !tbaa !21
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EEPS8_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %3, align 8, !tbaa !80
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152

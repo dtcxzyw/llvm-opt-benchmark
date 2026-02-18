@@ -261,7 +261,6 @@ declare void @_cmsFree(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable
 define hidden void @cmsCIECAM02Forward(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 {
-  %.sroa.14.sroa.15.sroa.21.sroa.15 = alloca { double, double }, align 8
   %.sroa.17.sroa.11 = alloca { [2 x double], [2 x double], [2 x double] }, align 8
   %4 = alloca %struct.CAM02COLOR, align 8
   %5 = alloca %struct.CAM02COLOR, align 8
@@ -335,7 +334,7 @@ ChromaticAdaptation.exit:                         ; preds = %26
   %.sroa.4176.sroa.4.sroa.7.sroa.0.0.copyload = load double, ptr %.sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx64.sroa_idx.sroa_idx, align 8
   %.sroa.4176.sroa.4.sroa.7.sroa.2.0.copyload = load double, ptr %.sroa.14.sroa.15.sroa.21.sroa.11.0..sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx64.sroa_idx.sroa_idx.sroa_idx, align 8
   %.sroa.4176.sroa.4.sroa.7.sroa.3.0.copyload = load double, ptr %.sroa.14.sroa.15.sroa.21.sroa.13.0..sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx64.sroa_idx.sroa_idx.sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14.sroa.15.sroa.21.sroa.15, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14.sroa.15.sroa.21.sroa.15.0..sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx64.sroa_idx.sroa_idx.sroa_idx, i64 16, i1 false)
+  %.sroa.4176.sroa.4.sroa.7.sroa.4.0.copyload = load <2 x double>, ptr %.sroa.14.sroa.15.sroa.21.sroa.15.0..sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx64.sroa_idx.sroa_idx.sroa_idx, align 8
   %.sroa.5177.0.copyload = load double, ptr %.sroa.1468.0..sroa_idx79, align 8
   %.sroa.6178.sroa.0.0.copyload = load double, ptr %.sroa.15.0..sroa_idx92, align 8
   %.sroa.6178.sroa.2.0.copyload = load double, ptr %.sroa.15.sroa.11.0..sroa.15.0..sroa_idx92.sroa_idx, align 8
@@ -371,7 +370,7 @@ ChromaticAdaptation.exit:                         ; preds = %26
   %.sroa.14.sroa.15.sroa.21.sroa.13.0..sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx66.sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 112
   store double %.sroa.4176.sroa.4.sroa.7.sroa.3.0.copyload, ptr %.sroa.14.sroa.15.sroa.21.sroa.13.0..sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx66.sroa_idx.sroa_idx.sroa_idx, align 8
   %.sroa.14.sroa.15.sroa.21.sroa.15.0..sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx66.sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14.sroa.15.sroa.21.sroa.15.0..sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx66.sroa_idx.sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14.sroa.15.sroa.21.sroa.15, i64 16, i1 false)
+  store <2 x double> %.sroa.4176.sroa.4.sroa.7.sroa.4.0.copyload, ptr %.sroa.14.sroa.15.sroa.21.sroa.15.0..sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx66.sroa_idx.sroa_idx.sroa_idx, align 8
   %.sroa.1468.0..sroa_idx83 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store double %.sroa.5177.0.copyload, ptr %.sroa.1468.0..sroa_idx83, align 8
   %.sroa.15.0..sroa_idx94 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -492,7 +491,7 @@ NonlinearCompression.exit:                        ; preds = %67
   br label %ComputeCorrelates.exit
 
 ComputeCorrelates.exit:                           ; preds = %96, %85, %83, %101, %98, %93, %87
-  %.sroa.31301.0 = phi double [ %103, %101 ], [ 0.000000e+00, %83 ], [ 2.700000e+02, %87 ], [ %95, %93 ], [ 9.000000e+01, %85 ], [ %100, %98 ], [ 0.000000e+00, %96 ]
+  %.sroa.31302.0 = phi double [ %103, %101 ], [ 0.000000e+00, %83 ], [ 2.700000e+02, %87 ], [ %95, %93 ], [ 9.000000e+01, %85 ], [ %100, %98 ], [ 0.000000e+00, %96 ]
   %104 = tail call double @llvm.fmuladd.f64(double %69, double 2.000000e+00, double %70)
   %105 = fdiv double %71, 2.000000e+01
   %106 = fadd double %104, %105
@@ -502,7 +501,7 @@ ComputeCorrelates.exit:                           ; preds = %96, %85, %83, %101,
   %110 = load double, ptr %109, align 8, !noalias !21
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %112 = load double, ptr %111, align 8, !noalias !21
-  %113 = tail call double @llvm.fmuladd.f64(double %.sroa.31301.0, double 0x3F91DF46A25CA311, double 2.000000e+00)
+  %113 = tail call double @llvm.fmuladd.f64(double %.sroa.31302.0, double 0x3F91DF46A25CA311, double 2.000000e+00)
   %114 = tail call double @cos(double noundef %113) #8, !noalias !21
   %115 = fmul double %110, 0x408E0C4EC4EC4EC5
   %116 = fmul double %115, %112
@@ -549,7 +548,7 @@ ComputeCorrelates.exit:                           ; preds = %96, %85, %83, %101,
   %156 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %151, ptr %156, align 8
   %157 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store double %.sroa.31301.0, ptr %157, align 8
+  store double %.sroa.31302.0, ptr %157, align 8
   ret void
 }
 
@@ -560,12 +559,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define hidden void @cmsCIECAM02Reverse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 {
   %4 = alloca %struct.CAM02COLOR, align 8
   %5 = alloca %struct.CAM02COLOR, align 8
-  %.sroa.15.sroa.0 = alloca { double, double }, align 8
   %.sroa.16 = alloca { double, double, double }, align 8
   %.sroa.17 = alloca { double, [2 x double], [2 x double], [2 x double] }, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.15.sroa.0, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.16, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.17, i8 0, i64 56, i1 false)
   %6 = load double, ptr %1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load double, ptr %7, align 8
@@ -660,7 +656,6 @@ InverseCorrelates.exit:                           ; preds = %52, %68
   %88 = fmul double %.sink38.i, 0xBFC4123F221F04ED
   %89 = tail call double @llvm.fmuladd.f64(double %45, double 0x3FD4FBCDA3AC10C9, double %88)
   %90 = tail call double @llvm.fmuladd.f64(double %.sink.i, double 0xC011F6259688D980, double %89)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.15.sroa.0, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.16, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.17, i8 0, i64 56, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -681,7 +676,7 @@ InverseCorrelates.exit:                           ; preds = %52, %68
   %.sroa.1467.0..sroa_idx78 = getelementptr inbounds nuw i8, ptr %5, i64 136
   store double %10, ptr %.sroa.1467.0..sroa_idx78, align 8
   %.sroa.15.0..sroa_idx91 = getelementptr inbounds nuw i8, ptr %5, i64 144
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.15.0..sroa_idx91, i8 0, i64 16, i1 false)
+  store <2 x double> zeroinitializer, ptr %.sroa.15.0..sroa_idx91, align 8
   %.sroa.15.sroa.11.0..sroa.15.0..sroa_idx91.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 160
   store double %40, ptr %.sroa.15.sroa.11.0..sroa.15.0..sroa_idx91.sroa_idx, align 8
   %.sroa.1595.0..sroa_idx106 = getelementptr inbounds nuw i8, ptr %5, i64 168
@@ -727,7 +722,7 @@ InverseNonlinearity.exit:                         ; preds = %95
   %.sroa.4175.sroa.5.0.copyload = load double, ptr %.sroa.14.sroa.17.0..sroa.14.0..sroa_idx63.sroa_idx, align 8
   %.sroa.4175.sroa.6.0.copyload = load double, ptr %.sroa.14.sroa.19.0..sroa.14.0..sroa_idx63.sroa_idx, align 8
   %.sroa.5176.0.copyload = load double, ptr %.sroa.1467.0..sroa_idx78, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.15.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.15.0..sroa_idx91, i64 16, i1 false)
+  %.sroa.6177.sroa.0.0.copyload = load <2 x double>, ptr %.sroa.15.0..sroa_idx91, align 8
   %.sroa.6177.sroa.2.0.copyload = load double, ptr %.sroa.15.sroa.11.0..sroa.15.0..sroa_idx91.sroa_idx, align 8
   %.sroa.7178.0.copyload = load double, ptr %.sroa.1595.0..sroa_idx106, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.16, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.16.0..sroa_idx119, i64 24, i1 false)
@@ -771,7 +766,7 @@ InverseNonlinearity.exit:                         ; preds = %95
   %.sroa.1467.0..sroa_idx82 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store double %.sroa.5176.0.copyload, ptr %.sroa.1467.0..sroa_idx82, align 8
   %.sroa.15.0..sroa_idx93 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.15.0..sroa_idx93, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.15.sroa.0, i64 16, i1 false)
+  store <2 x double> %.sroa.6177.sroa.0.0.copyload, ptr %.sroa.15.0..sroa_idx93, align 8
   %.sroa.15.sroa.11.0..sroa.15.0..sroa_idx93.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 160
   store double %.sroa.6177.sroa.2.0.copyload, ptr %.sroa.15.sroa.11.0..sroa.15.0..sroa_idx93.sroa_idx, align 8
   %.sroa.1595.0..sroa_idx110 = getelementptr inbounds nuw i8, ptr %4, i64 168

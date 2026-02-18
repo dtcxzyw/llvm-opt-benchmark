@@ -3351,10 +3351,8 @@ define noundef range(i32 -1, 1) i32 @_ZN11OpenImageIO6v3_1_08ArgParse4Impl10pars
   %10 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %11 = alloca %"class.OpenImageIO::v3_1_0::span", align 8
   %12 = alloca i64, align 8
-  %.sroa.0.i.i.i139 = alloca { i64, i64 }, align 8
-  %13 = alloca %"class.std::function", align 8
-  %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
-  %14 = alloca %"class.std::function", align 8
+  %13 = alloca %"class.std::function", align 16
+  %14 = alloca %"class.std::function", align 16
   %15 = alloca ptr, align 8
   %16 = alloca ptr, align 8
   %17 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3437,15 +3435,13 @@ define noundef range(i32 -1, 1) i32 @_ZN11OpenImageIO6v3_1_08ArgParse4Impl10pars
   %60 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %61 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 0, ptr %61, align 8
-  store i64 %58, ptr %14, align 8, !tbaa !144
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 16, i1 false), !tbaa.struct !145
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %57, i64 16, i1 false), !tbaa.struct !145
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !145
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
+  store i64 %58, ptr %14, align 16, !tbaa !144
+  %.sroa.0.0.copyload.i.i.i = load <2 x i64>, ptr %14, align 16, !tbaa !14
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %57, i64 16, i1 false), !tbaa.struct !145
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %57, align 8, !tbaa !14
   %62 = getelementptr inbounds nuw i8, ptr %56, i64 328
   %63 = load ptr, ptr %62, align 8, !tbaa !93
-  store ptr %63, ptr %59, align 8, !tbaa !93
+  store ptr %63, ptr %59, align 16, !tbaa !93
   store ptr @"_ZNSt17_Function_handlerIFvRN11OpenImageIO6v3_1_08ArgParse3ArgENS1_4spanIKPKcLm18446744073709551615EEEEZNS2_4Impl10parse_argsEiPS7_E3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %62, align 8, !tbaa !93
   %64 = getelementptr inbounds nuw i8, ptr %56, i64 336
   %65 = load ptr, ptr %64, align 8, !tbaa !93
@@ -3549,15 +3545,13 @@ _ZN11OpenImageIO6v3_1_08ArgParse4Impl11find_optionEPKc.exit: ; preds = %42, %.lr
   %112 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %113 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %113, align 8
-  store i64 %110, ptr %13, align 8, !tbaa !144
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i139)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i139, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 16, i1 false), !tbaa.struct !145
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %109, i64 16, i1 false), !tbaa.struct !145
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i139, i64 16, i1 false), !tbaa.struct !145
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i139)
+  store i64 %110, ptr %13, align 16, !tbaa !144
+  %.sroa.0.0.copyload.i.i.i139 = load <2 x i64>, ptr %13, align 16, !tbaa !14
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %109, i64 16, i1 false), !tbaa.struct !145
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i139, ptr %109, align 8, !tbaa !14
   %114 = getelementptr inbounds nuw i8, ptr %108, i64 328
   %115 = load ptr, ptr %114, align 8, !tbaa !93
-  store ptr %115, ptr %111, align 8, !tbaa !93
+  store ptr %115, ptr %111, align 16, !tbaa !93
   store ptr @"_ZNSt17_Function_handlerIFvRN11OpenImageIO6v3_1_08ArgParse3ArgENS1_4spanIKPKcLm18446744073709551615EEEEZNS2_4Impl10parse_argsEiPS7_E3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %114, align 8, !tbaa !93
   %116 = getelementptr inbounds nuw i8, ptr %108, i64 336
   %117 = load ptr, ptr %116, align 8, !tbaa !93
@@ -7104,13 +7098,12 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN11OpenImageIO6v3_1_08ArgParse3Arg6actionEOSt8functionIFvRS2_NS0_4spanIKPKcLm18446744073709551615EEEEE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
-  %3 = alloca %"class.std::function", align 8
+  %3 = alloca %"class.std::function", align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 312
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   %7 = load ptr, ptr %6, align 8, !tbaa !150
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !41
@@ -7118,20 +7111,19 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN11OpenImageIO6v3_1_08A
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFvRN11OpenImageIO6v3_1_08ArgParse3ArgENS1_4spanIKPKcLm18446744073709551615EEEEEC2EOSB_.exit.i, label %10
 
 10:                                               ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false), !tbaa.struct !145
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false), !tbaa.struct !145
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
+  %.sroa.0.0.copyload.i.i.pre.i = load <2 x i64>, ptr %3, align 16, !tbaa !14
   br label %_ZNSt8functionIFvRN11OpenImageIO6v3_1_08ArgParse3ArgENS1_4spanIKPKcLm18446744073709551615EEEEEC2EOSB_.exit.i
 
 _ZNSt8functionIFvRN11OpenImageIO6v3_1_08ArgParse3ArgENS1_4spanIKPKcLm18446744073709551615EEEEEC2EOSB_.exit.i: ; preds = %10, %2
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false), !tbaa.struct !145
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false), !tbaa.struct !145
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !145
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
+  %.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %2 ], [ %.sroa.0.0.copyload.i.i.pre.i, %10 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false), !tbaa.struct !145
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %4, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %13 = load ptr, ptr %12, align 8, !tbaa !93
-  store ptr %13, ptr %11, align 8, !tbaa !93
+  store ptr %13, ptr %11, align 16, !tbaa !93
   store ptr %9, ptr %12, align 8, !tbaa !93
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %15 = load ptr, ptr %14, align 8, !tbaa !93
@@ -8274,15 +8266,14 @@ declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN11OpenImageIO6v3_1_08ArgParse18set_preoption_helpESt8functionIFvRKS1_RSoEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
-  %3 = alloca %"class.std::function.25", align 8
+  %3 = alloca %"class.std::function.25", align 16
   %4 = load ptr, ptr %0, align 8, !tbaa !106
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 272
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %9 = load ptr, ptr %8, align 8, !tbaa !41
   %.not.i.i.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFvRKN11OpenImageIO6v3_1_08ArgParseERSoEEC2ERKS7_.exit.i, label %10
@@ -8295,12 +8286,13 @@ define void @_ZN11OpenImageIO6v3_1_08ArgParse18set_preoption_helpESt8functionIFv
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !134
   %15 = load ptr, ptr %8, align 8, !tbaa !41
+  %.sroa.0.0.copyload.i.i.pre.i = load <2 x i64>, ptr %3, align 16, !tbaa !14
   br label %_ZNSt8functionIFvRKN11OpenImageIO6v3_1_08ArgParseERSoEEC2ERKS7_.exit.i
 
 16:                                               ; preds = %10
   %17 = landingpad { ptr, i32 }
           cleanup
-  %18 = load ptr, ptr %6, align 8, !tbaa !41
+  %18 = load ptr, ptr %6, align 16, !tbaa !41
   %.not.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i.i, label %19
 
@@ -8321,14 +8313,12 @@ _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %19, %16
 _ZNSt8functionIFvRKN11OpenImageIO6v3_1_08ArgParseERSoEEC2ERKS7_.exit.i: ; preds = %12, %2
   %24 = phi ptr [ null, %2 ], [ %14, %12 ]
   %25 = phi ptr [ null, %2 ], [ %15, %12 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false), !tbaa.struct !145
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !145
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !145
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
+  %.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %2 ], [ %.sroa.0.0.copyload.i.i.pre.i, %12 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !145
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %5, align 8, !tbaa !14
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 288
   %27 = load ptr, ptr %26, align 8, !tbaa !93
-  store ptr %27, ptr %6, align 8, !tbaa !93
+  store ptr %27, ptr %6, align 16, !tbaa !93
   store ptr %25, ptr %26, align 8, !tbaa !93
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 296
   %29 = load ptr, ptr %28, align 8, !tbaa !93
@@ -8355,15 +8345,14 @@ _ZNSt8functionIFvRKN11OpenImageIO6v3_1_08ArgParseERSoEEaSERKS7_.exit: ; preds = 
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN11OpenImageIO6v3_1_08ArgParse19set_postoption_helpESt8functionIFvRKS1_RSoEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
-  %3 = alloca %"class.std::function.25", align 8
+  %3 = alloca %"class.std::function.25", align 16
   %4 = load ptr, ptr %0, align 8, !tbaa !106
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 304
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %9 = load ptr, ptr %8, align 8, !tbaa !41
   %.not.i.i.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFvRKN11OpenImageIO6v3_1_08ArgParseERSoEEC2ERKS7_.exit.i, label %10
@@ -8376,12 +8365,13 @@ define void @_ZN11OpenImageIO6v3_1_08ArgParse19set_postoption_helpESt8functionIF
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !134
   %15 = load ptr, ptr %8, align 8, !tbaa !41
+  %.sroa.0.0.copyload.i.i.pre.i = load <2 x i64>, ptr %3, align 16, !tbaa !14
   br label %_ZNSt8functionIFvRKN11OpenImageIO6v3_1_08ArgParseERSoEEC2ERKS7_.exit.i
 
 16:                                               ; preds = %10
   %17 = landingpad { ptr, i32 }
           cleanup
-  %18 = load ptr, ptr %6, align 8, !tbaa !41
+  %18 = load ptr, ptr %6, align 16, !tbaa !41
   %.not.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i.i, label %19
 
@@ -8402,14 +8392,12 @@ _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %19, %16
 _ZNSt8functionIFvRKN11OpenImageIO6v3_1_08ArgParseERSoEEC2ERKS7_.exit.i: ; preds = %12, %2
   %24 = phi ptr [ null, %2 ], [ %14, %12 ]
   %25 = phi ptr [ null, %2 ], [ %15, %12 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false), !tbaa.struct !145
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !145
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !145
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
+  %.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %2 ], [ %.sroa.0.0.copyload.i.i.pre.i, %12 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !145
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %5, align 8, !tbaa !14
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 320
   %27 = load ptr, ptr %26, align 8, !tbaa !93
-  store ptr %27, ptr %6, align 8, !tbaa !93
+  store ptr %27, ptr %6, align 16, !tbaa !93
   store ptr %25, ptr %26, align 8, !tbaa !93
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 328
   %29 = load ptr, ptr %28, align 8, !tbaa !93

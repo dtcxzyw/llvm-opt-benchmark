@@ -2633,41 +2633,38 @@ for.end81:                                        ; preds = %for.inc79, %for.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN7msdfgen13LinearSegment7reverseEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #10 align 2 {
 entry:
-  %tmp = alloca %"struct.msdfgen::Vector2", align 8
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tmp, ptr noundef nonnull align 8 dereferenceable(16) %p, i64 16, i1 false)
+  %tmp.sroa.0.0.copyload = load <2 x double>, ptr %p, align 8
   %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3, ptr noundef nonnull align 8 dereferenceable(16) %tmp, i64 16, i1 false)
+  store <2 x double> %tmp.sroa.0.0.copyload, ptr %arrayidx3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN7msdfgen16QuadraticSegment7reverseEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #10 align 2 {
 entry:
-  %tmp = alloca %"struct.msdfgen::Vector2", align 8
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tmp, ptr noundef nonnull align 8 dereferenceable(16) %p, i64 16, i1 false)
+  %tmp.sroa.0.0.copyload = load <2 x double>, ptr %p, align 8
   %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3, ptr noundef nonnull align 8 dereferenceable(16) %tmp, i64 16, i1 false)
+  store <2 x double> %tmp.sroa.0.0.copyload, ptr %arrayidx3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN7msdfgen12CubicSegment7reverseEv(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this) unnamed_addr #10 align 2 {
 entry:
-  %tmp = alloca %"struct.msdfgen::Vector2", align 8
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tmp, ptr noundef nonnull align 8 dereferenceable(16) %p, i64 16, i1 false)
+  %tmp.sroa.0.0.copyload = load <2 x double>, ptr %p, align 8
   %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3, ptr noundef nonnull align 8 dereferenceable(16) %tmp, i64 16, i1 false)
+  store <2 x double> %tmp.sroa.0.0.copyload, ptr %arrayidx3, align 8
   %arrayidx9 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tmp, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx9, i64 16, i1 false)
+  %tmp.sroa.0.0.copyload2 = load <2 x double>, ptr %arrayidx9, align 8
   %arrayidx11 = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx9, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx11, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx11, ptr noundef nonnull align 8 dereferenceable(16) %tmp, i64 16, i1 false)
+  store <2 x double> %tmp.sroa.0.0.copyload2, ptr %arrayidx11, align 8
   ret void
 }
 
@@ -2684,7 +2681,6 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN7msdfgen16QuadraticSegment14moveStartPointENS_7Vector2E(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #10 align 2 {
 entry:
-  %origP1 = alloca %"struct.msdfgen::Vector2", align 8
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2695,39 +2691,40 @@ entry:
   %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
   %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %origP1, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx4, i64 16, i1 false)
-  %sub.i5 = fsub double %to.coerce0, %agg.tmp.sroa.0.0.copyload
-  %sub3.i6 = fsub double %to.coerce1, %agg.tmp.sroa.2.0.copyload
-  %0 = fneg double %sub.i5
+  %origP1.sroa.0.0.copyload = load <2 x double>, ptr %arrayidx4, align 8
+  %sub.i6 = fsub double %to.coerce0, %agg.tmp.sroa.0.0.copyload
+  %sub3.i7 = fsub double %to.coerce1, %agg.tmp.sroa.2.0.copyload
+  %0 = fneg double %sub.i6
   %neg.i = fmul double %sub3.i, %0
-  %1 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i6, double %neg.i)
+  %1 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i7, double %neg.i)
   %arrayidx34 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp32.sroa.0.0.copyload = load double, ptr %arrayidx34, align 8
   %agg.tmp32.sroa.2.0.arrayidx34.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 56
   %agg.tmp32.sroa.2.0.copyload = load double, ptr %agg.tmp32.sroa.2.0.arrayidx34.sroa_idx, align 8
-  %sub.i13 = fsub double %agg.tmp32.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
-  %sub3.i14 = fsub double %agg.tmp32.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
-  %2 = fneg double %sub.i13
-  %neg.i17 = fmul double %sub3.i, %2
-  %3 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i14, double %neg.i17)
+  %sub.i14 = fsub double %agg.tmp32.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
+  %sub3.i15 = fsub double %agg.tmp32.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
+  %2 = fneg double %sub.i14
+  %neg.i18 = fmul double %sub3.i, %2
+  %3 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i15, double %neg.i18)
   %div = fdiv double %1, %3
-  %mul.i = fmul double %sub.i13, %div
-  %mul1.i = fmul double %sub3.i14, %div
+  %mul.i = fmul double %sub.i14, %div
+  %mul1.i = fmul double %sub3.i15, %div
   %add.i = fadd double %agg.tmp2.sroa.0.0.copyload, %mul.i
   store double %add.i, ptr %arrayidx4, align 8
-  %add4.i = fadd double %agg.tmp2.sroa.2.0.copyload, %mul1.i
+  %4 = extractelement <2 x double> %origP1.sroa.0.0.copyload, i64 1
+  %add4.i = fadd double %4, %mul1.i
   store double %add4.i, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   store double %to.coerce0, ptr %p, align 8
   store double %to.coerce1, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
-  %sub.i24 = fsub double %to.coerce0, %add.i
-  %sub3.i25 = fsub double %to.coerce1, %add4.i
-  %mul3.i = fmul double %sub3.i, %sub3.i25
-  %4 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub.i24, double %mul3.i)
-  %cmp = fcmp olt double %4, 0.000000e+00
+  %sub.i25 = fsub double %to.coerce0, %add.i
+  %sub3.i26 = fsub double %to.coerce1, %add4.i
+  %mul3.i = fmul double %sub3.i, %sub3.i26
+  %5 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub.i25, double %mul3.i)
+  %cmp = fcmp olt double %5, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx4, ptr noundef nonnull align 8 dereferenceable(16) %origP1, i64 16, i1 false)
+  store <2 x double> %origP1.sroa.0.0.copyload, ptr %arrayidx4, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -2769,7 +2766,6 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN7msdfgen16QuadraticSegment12moveEndPointENS_7Vector2E(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #10 align 2 {
 entry:
-  %origP1 = alloca %"struct.msdfgen::Vector2", align 8
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp.sroa.0.0.copyload = load double, ptr %arrayidx, align 8
@@ -2781,38 +2777,39 @@ entry:
   %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
   %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %origP1, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx4, i64 16, i1 false)
-  %sub.i5 = fsub double %to.coerce0, %agg.tmp.sroa.0.0.copyload
-  %sub3.i6 = fsub double %to.coerce1, %agg.tmp.sroa.2.0.copyload
-  %0 = fneg double %sub.i5
+  %origP1.sroa.0.0.copyload = load <2 x double>, ptr %arrayidx4, align 8
+  %sub.i6 = fsub double %to.coerce0, %agg.tmp.sroa.0.0.copyload
+  %sub3.i7 = fsub double %to.coerce1, %agg.tmp.sroa.2.0.copyload
+  %0 = fneg double %sub.i6
   %neg.i = fmul double %sub3.i, %0
-  %1 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i6, double %neg.i)
+  %1 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i7, double %neg.i)
   %agg.tmp32.sroa.0.0.copyload = load double, ptr %p, align 8
   %agg.tmp32.sroa.2.0.arrayidx34.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp32.sroa.2.0.copyload = load double, ptr %agg.tmp32.sroa.2.0.arrayidx34.sroa_idx, align 8
-  %sub.i13 = fsub double %agg.tmp32.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
-  %sub3.i14 = fsub double %agg.tmp32.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
-  %2 = fneg double %sub.i13
-  %neg.i17 = fmul double %sub3.i, %2
-  %3 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i14, double %neg.i17)
+  %sub.i14 = fsub double %agg.tmp32.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
+  %sub3.i15 = fsub double %agg.tmp32.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
+  %2 = fneg double %sub.i14
+  %neg.i18 = fmul double %sub3.i, %2
+  %3 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i15, double %neg.i18)
   %div = fdiv double %1, %3
-  %mul.i = fmul double %sub.i13, %div
-  %mul1.i = fmul double %sub3.i14, %div
+  %mul.i = fmul double %sub.i14, %div
+  %mul1.i = fmul double %sub3.i15, %div
   %add.i = fadd double %agg.tmp2.sroa.0.0.copyload, %mul.i
   store double %add.i, ptr %arrayidx4, align 8
-  %add4.i = fadd double %agg.tmp2.sroa.2.0.copyload, %mul1.i
+  %4 = extractelement <2 x double> %origP1.sroa.0.0.copyload, i64 1
+  %add4.i = fadd double %4, %mul1.i
   store double %add4.i, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   store double %to.coerce0, ptr %arrayidx, align 8
   store double %to.coerce1, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
-  %sub.i24 = fsub double %to.coerce0, %add.i
-  %sub3.i25 = fsub double %to.coerce1, %add4.i
-  %mul3.i = fmul double %sub3.i, %sub3.i25
-  %4 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub.i24, double %mul3.i)
-  %cmp = fcmp olt double %4, 0.000000e+00
+  %sub.i25 = fsub double %to.coerce0, %add.i
+  %sub3.i26 = fsub double %to.coerce1, %add4.i
+  %mul3.i = fmul double %sub3.i, %sub3.i26
+  %5 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub.i25, double %mul3.i)
+  %cmp = fcmp olt double %5, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx4, ptr noundef nonnull align 8 dereferenceable(16) %origP1, i64 16, i1 false)
+  store <2 x double> %origP1.sroa.0.0.copyload, ptr %arrayidx4, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry

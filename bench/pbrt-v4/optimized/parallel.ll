@@ -2324,7 +2324,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %17, %
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4pbrt11ParallelForEllSt8functionIFvllEE(i64 noundef %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pbrt::ParallelForLoop1D", align 8
-  %.sroa.0 = alloca { i64, i64 }, align 8
   %5 = alloca %"class.std::unique_lock", align 8
   %6 = load ptr, ptr @_ZN4pbrt11ParallelJob10threadPoolE, align 8, !tbaa !122
   %.not = icmp eq ptr %6, null
@@ -2355,7 +2354,6 @@ _ZN4pbrt14RunningThreadsEv.exit:                  ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = trunc i64 %.sroa.speculated to i32
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, i8 0, i64 16, i1 false)
   %23 = load ptr, ptr %22, align 8, !tbaa !99
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !96
@@ -2363,11 +2361,12 @@ _ZN4pbrt14RunningThreadsEv.exit:                  ; preds = %8
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFvllEEC2EOS1_.exit, label %26
 
 26:                                               ; preds = %_ZN4pbrt14RunningThreadsEv.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !141
+  %.sroa.0.0.copyload = load <2 x i64>, ptr %2, align 8, !tbaa !18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFvllEEC2EOS1_.exit
 
 _ZNSt8functionIFvllEEC2EOS1_.exit:                ; preds = %_ZN4pbrt14RunningThreadsEv.exit, %26
+  %.sroa.0.0 = phi <2 x i64> [ zeroinitializer, %_ZN4pbrt14RunningThreadsEv.exit ], [ %.sroa.0.0.copyload, %26 ]
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %27, align 8, !tbaa !83
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2382,7 +2381,7 @@ _ZNSt8functionIFvllEEC2EOS1_.exit:                ; preds = %_ZN4pbrt14RunningTh
 
 _ZN4pbrt17ParallelForLoop1DC2ElliSt8functionIFvllEE.exit: ; preds = %_ZNSt8functionIFvllEEC2EOS1_.exit
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, i64 16, i1 false), !tbaa.struct !141
+  store <2 x i64> %.sroa.0.0, ptr %29, align 8, !tbaa !18
   store ptr %25, ptr %31, align 8, !tbaa !96
   br label %_ZNSt14_Function_baseD2Ev.exit
 
@@ -2390,14 +2389,14 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNSt8functionIFvll
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store i64 %0, ptr %32, align 8, !tbaa !126
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i64 %1, ptr %33, align 8, !tbaa !142
+  store i64 %1, ptr %33, align 8, !tbaa !141
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store i32 %21, ptr %34, align 8, !tbaa !128
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !143)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !142)
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %35, ptr %5, align 8, !tbaa !25, !alias.scope !143
-  %36 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %35) #26, !noalias !143
+  store ptr %35, ptr %5, align 8, !tbaa !25, !alias.scope !142
+  %36 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %35) #26, !noalias !142
   %.not.i.i.i.i = icmp eq i32 %36, 0
   br i1 %.not.i.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i, label %37
 
@@ -2410,23 +2409,23 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNSt8functionIFvll
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i:       ; preds = %_ZNSt14_Function_baseD2Ev.exit
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i8 1, ptr %38, align 8, !tbaa !29, !alias.scope !143
+  store i8 1, ptr %38, align 8, !tbaa !29, !alias.scope !142
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %40 = load ptr, ptr %39, align 8, !tbaa !45, !noalias !143
+  %40 = load ptr, ptr %39, align 8, !tbaa !45, !noalias !142
   %.not.i13 = icmp eq ptr %40, null
   br i1 %.not.i13, label %_ZN4pbrt10ThreadPool12AddToJobListEPNS_11ParallelJobE.exit, label %41
 
 41:                                               ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  store ptr %4, ptr %42, align 8, !tbaa !85, !noalias !143
+  store ptr %4, ptr %42, align 8, !tbaa !85, !noalias !142
   br label %_ZN4pbrt10ThreadPool12AddToJobListEPNS_11ParallelJobE.exit
 
 _ZN4pbrt10ThreadPool12AddToJobListEPNS_11ParallelJobE.exit: ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i, %41
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %40, ptr %43, align 8, !tbaa !86, !noalias !143
-  store ptr %4, ptr %39, align 8, !tbaa !45, !noalias !143
+  store ptr %40, ptr %43, align 8, !tbaa !86, !noalias !142
+  store ptr %4, ptr %39, align 8, !tbaa !45, !noalias !142
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %44) #26, !noalias !143
+  call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %44) #26, !noalias !142
   br label %45
 
 45:                                               ; preds = %_ZN4pbrt10ThreadPool12AddToJobListEPNS_11ParallelJobE.exit, %53
@@ -2445,7 +2444,7 @@ _ZN4pbrt10ThreadPool12AddToJobListEPNS_11ParallelJobE.exit: ; preds = %_ZNSt11un
 53:                                               ; preds = %50
   %54 = load ptr, ptr @_ZN4pbrt11ParallelJob10threadPoolE, align 8, !tbaa !122
   invoke void @_ZN4pbrt10ThreadPool10WorkOrWaitEPSt11unique_lockISt5mutexEb(ptr noundef nonnull align 8 dereferenceable(128) %54, ptr noundef nonnull %5, i1 noundef zeroext true)
-          to label %45 unwind label %57, !llvm.loop !146
+          to label %45 unwind label %57, !llvm.loop !145
 
 55:                                               ; preds = %37
   %56 = landingpad { ptr, i32 }
@@ -2650,7 +2649,7 @@ _ZN4pbrt14RunningThreadsEv.exit:                  ; preds = %18
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFvN4pbrt7Bounds2IiEEEEC2EOS4_.exit, label %49
 
 49:                                               ; preds = %_ZN4pbrt14RunningThreadsEv.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !141
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !146
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFvN4pbrt7Bounds2IiEEEEC2EOS4_.exit
 
@@ -2669,7 +2668,7 @@ _ZNSt8functionIFvN4pbrt7Bounds2IiEEEEC2EOS4_.exit: ; preds = %_ZN4pbrt14RunningT
 
 54:                                               ; preds = %_ZNSt8functionIFvN4pbrt7Bounds2IiEEEEC2EOS4_.exit
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, i64 16, i1 false), !tbaa.struct !141
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, i64 16, i1 false), !tbaa.struct !146
   store ptr %48, ptr %55, align 8, !tbaa !96
   br label %_ZNSt14_Function_baseD2Ev.exit
 
@@ -2966,7 +2965,7 @@ define dso_local void @_ZN4pbrt13ForEachThreadESt8functionIFvvEE(ptr noundef cap
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 16, i1 false), !tbaa.struct !141
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 16, i1 false), !tbaa.struct !146
   store ptr %9, ptr %11, align 8, !tbaa !96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFvvEEC2EOS1_.exit
@@ -3108,7 +3107,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4pbrt17ParallelForLoop1D8H
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i64, ptr %2, align 8, !tbaa !126
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %5 = load i64, ptr %4, align 8, !tbaa !142
+  %5 = load i64, ptr %4, align 8, !tbaa !141
   %6 = icmp slt i64 %3, %5
   ret i1 %6
 }
@@ -14689,12 +14688,12 @@ attributes #29 = { noreturn nounwind }
 !138 = !{!139}
 !139 = distinct !{!139, !140, !"_ZN4pbrt12StringPrintfIJRA13_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_DpOT_: argument 0"}
 !140 = distinct !{!140, !"_ZN4pbrt12StringPrintfIJRA13_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_DpOT_"}
-!141 = !{i64 0, i64 16, !18}
-!142 = !{!127, !17, i64 80}
-!143 = !{!144}
-!144 = distinct !{!144, !145, !"_ZN4pbrt10ThreadPool12AddToJobListEPNS_11ParallelJobE: argument 0"}
-!145 = distinct !{!145, !"_ZN4pbrt10ThreadPool12AddToJobListEPNS_11ParallelJobE"}
-!146 = distinct !{!146, !39}
+!141 = !{!127, !17, i64 80}
+!142 = !{!143}
+!143 = distinct !{!143, !144, !"_ZN4pbrt10ThreadPool12AddToJobListEPNS_11ParallelJobE: argument 0"}
+!144 = distinct !{!144, !"_ZN4pbrt10ThreadPool12AddToJobListEPNS_11ParallelJobE"}
+!145 = distinct !{!145, !39}
+!146 = !{i64 0, i64 16, !18}
 !147 = !{!148}
 !148 = distinct !{!148, !149, !"_ZN4pbrt10ThreadPool12AddToJobListEPNS_11ParallelJobE: argument 0"}
 !149 = distinct !{!149, !"_ZN4pbrt10ThreadPool12AddToJobListEPNS_11ParallelJobE"}

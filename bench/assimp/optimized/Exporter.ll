@@ -5808,8 +5808,7 @@ define noundef zeroext i1 @_ZN6Assimp16ExportProperties19SetPropertyCallbackEPKc
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_Z18SetGenericPropertyISt8functionIFPvS1_EEEbRSt3mapIjT_St4lessIjESaISt4pairIKjS5_EEEPKcRKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #17 comdat personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
-  %4 = alloca %"class.std::function", align 8
+  %4 = alloca %"class.std::function", align 16
   %5 = alloca %"struct.std::pair.90", align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %_Z13SuperFastHashPKcjj.exit, label %7
@@ -6076,7 +6075,7 @@ _ZNSt4pairIjSt8functionIFPvS1_EEED2Ev.exit10:     ; preds = %118, %121
   %128 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %129 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %130 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %131 = load ptr, ptr %130, align 8
   %.not.i.i.not.i.i11 = icmp eq ptr %131, null
   br i1 %.not.i.i.not.i.i11, label %_ZNSt8functionIFPvS0_EEC2ERKS2_.exit.i, label %132
@@ -6089,12 +6088,13 @@ _ZNSt4pairIjSt8functionIFPvS1_EEED2Ev.exit10:     ; preds = %118, %121
   %135 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %136 = load ptr, ptr %135, align 8
   %137 = load ptr, ptr %130, align 8
+  %.sroa.0.0.copyload.i.i.pre.i = load <2 x i64>, ptr %4, align 16
   br label %_ZNSt8functionIFPvS0_EEC2ERKS2_.exit.i
 
 138:                                              ; preds = %132
   %139 = landingpad { ptr, i32 }
           cleanup
-  %140 = load ptr, ptr %128, align 8
+  %140 = load ptr, ptr %128, align 16
   %.not.i.i.i12 = icmp eq ptr %140, null
   br i1 %.not.i.i.i12, label %common.resume, label %141
 
@@ -6112,14 +6112,12 @@ _ZNSt4pairIjSt8functionIFPvS1_EEED2Ev.exit10:     ; preds = %118, %121
 _ZNSt8functionIFPvS0_EEC2ERKS2_.exit.i:           ; preds = %134, %126
   %146 = phi ptr [ null, %126 ], [ %136, %134 ]
   %147 = phi ptr [ null, %126 ], [ %137, %134 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %127, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %127, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
+  %.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %126 ], [ %.sroa.0.0.copyload.i.i.pre.i, %134 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %127, i64 16, i1 false)
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %127, align 8
   %148 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 56
   %149 = load ptr, ptr %148, align 8
-  store ptr %149, ptr %128, align 8
+  store ptr %149, ptr %128, align 16
   store ptr %147, ptr %148, align 8
   %150 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 64
   %151 = load ptr, ptr %150, align 8

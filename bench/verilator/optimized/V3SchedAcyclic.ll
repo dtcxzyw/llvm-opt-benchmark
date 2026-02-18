@@ -7435,8 +7435,8 @@ define internal fastcc void @"_ZZN7V3Sched12_GLOBAL__N_114reportLoopVarsEPNS0_5G
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
   %5 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %6 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %7 = alloca %"class.std::function", align 8
+  %6 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 16
+  %7 = alloca %"class.std::function", align 16
   %8 = alloca %"class.std::function", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7455,7 +7455,7 @@ _ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   br label %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2EOS9_.exit.thread.i.i
 
 16:                                               ; preds = %1
@@ -7494,7 +7494,7 @@ _ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %.not.i.i.not.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2EOS9_.exit.thread.i.i, label %31
 
@@ -7505,7 +7505,7 @@ _ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_
 33:                                               ; preds = %31
   %34 = landingpad { ptr, i32 }
           cleanup
-  %35 = load ptr, ptr %29, align 8, !tbaa !145
+  %35 = load ptr, ptr %29, align 16, !tbaa !145
   %.not.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i.i, label %.body, label %36
 
@@ -7524,7 +7524,7 @@ _ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_
   %41 = load ptr, ptr %13, align 8, !tbaa !142
   store ptr %41, ptr %30, align 8, !tbaa !142
   %42 = load ptr, ptr %12, align 8, !tbaa !145
-  store ptr %42, ptr %29, align 8, !tbaa !145
+  store ptr %42, ptr %29, align 16, !tbaa !145
   call void @llvm.experimental.noalias.scope.decl(metadata !351)
   %.not.i.i.not.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i.not.i.i.i, label %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2EOS9_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ESC_.exit.i.i
@@ -7532,14 +7532,15 @@ _ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_
 _ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2EOS9_.exit.thread.i.i: ; preds = %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit.thread, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit.i
   %43 = phi ptr [ %29, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit.i ], [ %29, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit ], [ %15, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit.thread ]
   %44 = phi ptr [ %41, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit.i ], [ null, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit ], [ null, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit.thread ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false), !alias.scope !351
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 24, i1 false), !alias.scope !351
   br label %_ZN9__gnu_cxx5__ops16__iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_15_Iter_comp_iterIT_EESE_.exit.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ESC_.exit.i.i: ; preds = %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false), !noalias !351
+  %.sroa.0.0.copyload.i.i = load <2 x i64>, ptr %7, align 16, !tbaa !69, !noalias !351
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %29, i8 0, i64 16, i1 false), !noalias !351
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  store ptr %42, ptr %45, align 8, !tbaa !145, !alias.scope !351
+  store <2 x i64> %.sroa.0.0.copyload.i.i, ptr %6, align 16, !tbaa !69, !alias.scope !351
+  store ptr %42, ptr %45, align 16, !tbaa !145, !alias.scope !351
   br label %_ZN9__gnu_cxx5__ops16__iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_15_Iter_comp_iterIT_EESE_.exit.i
 
 _ZN9__gnu_cxx5__ops16__iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_15_Iter_comp_iterIT_EESE_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ESC_.exit.i.i, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2EOS9_.exit.thread.i.i
@@ -7595,7 +7596,7 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
 
 .loopexit48.i.loopexit.i:                         ; preds = %select.unfold.i.i.i.i
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val.i.i.i.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !145
+  %.val.i.i.i.pre.i = load ptr, ptr %.phi.trans.insert.i, align 16, !tbaa !145
   br label %.loopexit48.i.i
 
 .loopexit48.i.i:                                  ; preds = %.loopexit48.i.loopexit.i, %50
@@ -7614,7 +7615,7 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
 67:                                               ; preds = %65
   %68 = load ptr, ptr %48, align 8, !tbaa !142
   store ptr %68, ptr %63, align 8, !tbaa !142
-  %69 = load ptr, ptr %64, align 8, !tbaa !145
+  %69 = load ptr, ptr %64, align 16, !tbaa !145
   store ptr %69, ptr %62, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit.i.i
 
@@ -7686,7 +7687,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %97 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  %.val.i.i21.i.i = load ptr, ptr %97, align 8, !tbaa !145
+  %.val.i.i21.i.i = load ptr, ptr %97, align 16, !tbaa !145
   %.not.i.i.not.i.i22.i.i = icmp eq ptr %.val.i.i21.i.i, null
   br i1 %.not.i.i.not.i.i22.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit27.i.i, label %98
 
@@ -7697,7 +7698,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
 100:                                              ; preds = %98
   %101 = load ptr, ptr %48, align 8, !tbaa !142
   store ptr %101, ptr %96, align 8, !tbaa !142
-  %102 = load ptr, ptr %97, align 8, !tbaa !145
+  %102 = load ptr, ptr %97, align 16, !tbaa !145
   store ptr %102, ptr %95, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit27.i.i
 
@@ -7763,7 +7764,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
   %126 = shl nuw nsw i64 %.sroa.4.043.i.i, 4
   call void @_ZdlPvm(ptr noundef %.sroa.9.038.i.i, i64 noundef %126) #33
   %.phi.trans.insert28.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.pre.i = load ptr, ptr %.phi.trans.insert28.i, align 8, !tbaa !145
+  %.pre.i = load ptr, ptr %.phi.trans.insert28.i, align 16, !tbaa !145
   br label %130
 
 .body.i.i:                                        ; preds = %121, %118, %106, %103, %88, %85, %73, %70
@@ -7773,7 +7774,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
   %127 = shl nuw nsw i64 %.sroa.4.045.i.i, 4
   call void @_ZdlPvm(ptr noundef %.sroa.9.040.i.i, i64 noundef %127) #33
   %128 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %129 = load ptr, ptr %128, align 8, !tbaa !145
+  %129 = load ptr, ptr %128, align 16, !tbaa !145
   %.not.i.i9.i = icmp eq ptr %129, null
   br i1 %.not.i.i9.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit11.i, label %143
 

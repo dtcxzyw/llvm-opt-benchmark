@@ -9319,7 +9319,7 @@ define internal fastcc void @_ZN6brotli3enc6encode11HasherSetup17h9260669bae2811
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 44
   store i32 %.sroa.2.0.copyload.i.i, ptr %.sroa.6.0..sroa_idx.i, align 4, !alias.scope !799, !noalias !814
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !799, !noalias !814
+  store <2 x i64> zeroinitializer, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !799, !noalias !814
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 64
   store i32 1, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !799, !noalias !814
   %.sroa.933.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 72
@@ -9350,7 +9350,7 @@ define internal fastcc void @_ZN6brotli3enc6encode11HasherSetup17h9260669bae2811
   %.sroa.637.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 44
   store i32 %.sroa.2.0.copyload.i2.i, ptr %.sroa.637.0..sroa_idx.i, align 4, !alias.scope !799, !noalias !814
   %.sroa.738.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.738.0..sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !799, !noalias !814
+  store <2 x i64> zeroinitializer, ptr %.sroa.738.0..sroa_idx.i, align 8, !alias.scope !799, !noalias !814
   %.sroa.839.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 64
   store i32 1, ptr %.sroa.839.0..sroa_idx.i, align 8, !alias.scope !799, !noalias !814
   %.sroa.941.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 72
@@ -9381,7 +9381,7 @@ define internal fastcc void @_ZN6brotli3enc6encode11HasherSetup17h9260669bae2811
   %.sroa.646.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 44
   store i32 %.sroa.2.0.copyload.i8.i, ptr %.sroa.646.0..sroa_idx.i, align 4, !alias.scope !799, !noalias !814
   %.sroa.747.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.747.0..sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !799, !noalias !814
+  store <2 x i64> zeroinitializer, ptr %.sroa.747.0..sroa_idx.i, align 8, !alias.scope !799, !noalias !814
   %.sroa.848.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 64
   store i32 1, ptr %.sroa.848.0..sroa_idx.i, align 8, !alias.scope !799, !noalias !814
   %.sroa.950.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 72
@@ -9478,12 +9478,16 @@ define internal fastcc void @_ZN6brotli3enc6encode11HasherSetup17h9260669bae2811
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %82 = load i32, ptr %81, align 4, !alias.scope !838, !noalias !839, !noundef !12
   %83 = icmp eq i32 %82, 0
-  %.58.i.i = select i1 %83, i32 540, i32 %82
+  %.56.i.i = select i1 %83, i32 540, i32 %82
   %84 = sub i32 32, %51
   %85 = trunc i64 %54 to i32
   %notmask.i.i = shl nsw i64 -1, %49
   %86 = trunc i64 %notmask.i.i to i32
   %87 = xor i32 %86, -1
+  %.sroa.042.0.vec.insert.i.i = insertelement <4 x i32> poison, i32 %84, i64 0
+  %.sroa.042.4.vec.insert.i.i = insertelement <4 x i32> %.sroa.042.0.vec.insert.i.i, i32 %85, i64 1
+  %.sroa.042.8.vec.insert.i.i = insertelement <4 x i32> %.sroa.042.4.vec.insert.i.i, i32 %87, i64 2
+  %.sroa.042.12.vec.insert.i.i = insertelement <4 x i32> %.sroa.042.8.vec.insert.i.i, i32 %47, i64 3
   %88 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %66, ptr %88, align 8, !alias.scope !849, !noalias !850
   %.sroa.425.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -9499,15 +9503,9 @@ define internal fastcc void @_ZN6brotli3enc6encode11HasherSetup17h9260669bae2811
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.sroa.438.0..sroa.7.0..sroa_idx28.sroa_idx.i.i, i8 0, i64 16, i1 false), !alias.scope !849, !noalias !850
   store i32 1, ptr %.sroa.7.sroa.640.0..sroa.7.0..sroa_idx28.sroa_idx.i.i, align 8, !alias.scope !849, !noalias !850
   %.sroa.829.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 88
-  store i32 %84, ptr %.sroa.829.0..sroa_idx.i.i, align 8, !alias.scope !849, !noalias !850
-  %.sroa.829.sroa.4.0..sroa.829.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 92
-  store i32 %85, ptr %.sroa.829.sroa.4.0..sroa.829.0..sroa_idx.sroa_idx.i.i, align 4, !alias.scope !849, !noalias !850
-  %.sroa.829.sroa.5.0..sroa.829.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 96
-  store i32 %87, ptr %.sroa.829.sroa.5.0..sroa.829.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !849, !noalias !850
-  %.sroa.829.sroa.6.0..sroa.829.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 100
-  store i32 %47, ptr %.sroa.829.sroa.6.0..sroa.829.0..sroa_idx.sroa_idx.i.i, align 4, !alias.scope !849, !noalias !850
+  store <4 x i32> %.sroa.042.12.vec.insert.i.i, ptr %.sroa.829.0..sroa_idx.i.i, align 8, !alias.scope !849, !noalias !850
   %.sroa.930.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 104
-  store i32 %.58.i.i, ptr %.sroa.930.0..sroa_idx.i.i, align 8, !alias.scope !849, !noalias !850
+  store i32 %.56.i.i, ptr %.sroa.930.0..sroa_idx.i.i, align 8, !alias.scope !849, !noalias !850
   store i64 5, ptr %18, align 8, !alias.scope !849, !noalias !850
   br label %_ZN6brotli3enc6encode16BrotliMakeHasher17h00ac0e3493ddb79eE.exit
 
@@ -9515,7 +9513,7 @@ define internal fastcc void @_ZN6brotli3enc6encode11HasherSetup17h9260669bae2811
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %91 = load i32, ptr %90, align 4, !alias.scope !838, !noalias !839, !noundef !12
   %92 = icmp eq i32 %91, 0
-  %.59.i.i = select i1 %92, i32 540, i32 %91
+  %.57.i.i = select i1 %92, i32 540, i32 %91
   %93 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %66, ptr %93, align 8, !alias.scope !849, !noalias !850
   %.sroa.47.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -9531,7 +9529,7 @@ define internal fastcc void @_ZN6brotli3enc6encode11HasherSetup17h9260669bae2811
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.sroa.420.0..sroa.7.0..sroa_idx10.sroa_idx.i.i, i8 0, i64 16, i1 false), !alias.scope !849, !noalias !850
   store i32 1, ptr %.sroa.7.sroa.622.0..sroa.7.0..sroa_idx10.sroa_idx.i.i, align 8, !alias.scope !849, !noalias !850
   %.sroa.811.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 88
-  store i32 %.59.i.i, ptr %.sroa.811.0..sroa_idx.i.i, align 8, !alias.scope !849, !noalias !850
+  store i32 %.57.i.i, ptr %.sroa.811.0..sroa_idx.i.i, align 8, !alias.scope !849, !noalias !850
   store i64 6, ptr %18, align 8, !alias.scope !849, !noalias !850
   br label %_ZN6brotli3enc6encode16BrotliMakeHasher17h00ac0e3493ddb79eE.exit
 
@@ -9595,7 +9593,7 @@ _ZN6brotli3enc6encode12InitializeH917hfe24858758ae55ebE.exit.i: ; preds = %.noex
   %.sroa.857.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 60
   store i32 %.sroa.2.0.copyload.i16.i, ptr %.sroa.857.0..sroa_idx.i, align 4, !alias.scope !799, !noalias !814
   %.sroa.958.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.958.0..sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !799, !noalias !814
+  store <2 x i64> zeroinitializer, ptr %.sroa.958.0..sroa_idx.i, align 8, !alias.scope !799, !noalias !814
   %.sroa.1059.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 80
   store i32 1, ptr %.sroa.1059.0..sroa_idx.i, align 8, !alias.scope !799, !noalias !814
   %.sroa.1160.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 88
@@ -9626,7 +9624,7 @@ _ZN6brotli3enc6encode12InitializeH917hfe24858758ae55ebE.exit.i: ; preds = %.noex
   %.sroa.664.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 44
   store i32 %.sroa.2.0.copyload.i24.i, ptr %.sroa.664.0..sroa_idx.i, align 4, !alias.scope !799, !noalias !814
   %.sroa.765.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.765.0..sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !799, !noalias !814
+  store <2 x i64> zeroinitializer, ptr %.sroa.765.0..sroa_idx.i, align 8, !alias.scope !799, !noalias !814
   %.sroa.866.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 64
   store i32 1, ptr %.sroa.866.0..sroa_idx.i, align 8, !alias.scope !799, !noalias !814
   %.sroa.968.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 72
@@ -9691,7 +9689,7 @@ _ZN6brotli3enc19backward_references19hash_to_binary_tree14initialize_h1017he8c4c
   %.sroa.875.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.875.0..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %22, i64 24, i1 false), !alias.scope !815, !noalias !816
   %.sroa.976.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.976.0..sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !799, !noalias !814
+  store <2 x i64> zeroinitializer, ptr %.sroa.976.0..sroa_idx.i, align 8, !alias.scope !799, !noalias !814
   %.sroa.1077.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 88
   store i32 1, ptr %.sroa.1077.0..sroa_idx.i, align 8, !alias.scope !799, !noalias !814
   %.sroa.1179.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 96
@@ -9885,19 +9883,19 @@ define internal fastcc void @_ZN6brotli3enc6encode12InitializeH617hed4ae670554c6
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 60
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %32 = load i64, ptr %.sroa.3.0..sroa_idx, align 8
-  %33 = and i32 %10, 31
-  %34 = shl nuw i32 1, %33
+  %.sroa.3.0.copyload = load <2 x i32>, ptr %.sroa.3.0..sroa_idx, align 8
+  %32 = and i32 %10, 31
+  %33 = shl nuw i32 1, %32
   %notmask = shl nsw i64 -1, %8
-  %35 = trunc i64 %notmask to i32
-  %36 = xor i32 %35, -1
+  %34 = trunc i64 %notmask to i32
+  %35 = xor i32 %34, -1
   %.neg = mul i32 %.sroa.2.0.copyload, 56
-  %37 = and i32 %.neg, 56
-  %38 = zext nneg i32 %37 to i64
-  %39 = lshr i64 -1, %38
-  %40 = sub i32 64, %10
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %25, ptr %41, align 8
+  %36 = and i32 %.neg, 56
+  %37 = zext nneg i32 %36 to i64
+  %38 = lshr i64 -1, %37
+  %39 = sub i32 64, %10
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %25, ptr %40, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %31, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9909,19 +9907,19 @@ define internal fastcc void @_ZN6brotli3enc6encode12InitializeH617hed4ae670554c6
   %.sroa.7.sroa.0.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %.sroa.2.0.copyload, ptr %.sroa.7.sroa.0.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx, align 4
   %.sroa.7.sroa.0.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %32, ptr %.sroa.7.sroa.0.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx, align 8
+  store <2 x i32> %.sroa.3.0.copyload, ptr %.sroa.7.sroa.0.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx, align 8
   %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx, i8 0, i64 16, i1 false)
   store i32 1, ptr %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx.sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %39, ptr %.sroa.8.0..sroa_idx, align 8
+  store i64 %38, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.8.sroa.4.0..sroa.8.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 %40, ptr %.sroa.8.sroa.4.0..sroa.8.0..sroa_idx.sroa_idx, align 8
+  store i32 %39, ptr %.sroa.8.sroa.4.0..sroa.8.0..sroa_idx.sroa_idx, align 8
   %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 100
-  store i32 %34, ptr %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx.sroa_idx, align 4
+  store i32 %33, ptr %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx.sroa_idx, align 4
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 %36, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx, align 8
+  store i32 %35, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx, align 8
   %.sroa.8.sroa.7.0..sroa.8.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 %6, ptr %.sroa.8.sroa.7.0..sroa.8.0..sroa_idx.sroa_idx, align 4
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 112

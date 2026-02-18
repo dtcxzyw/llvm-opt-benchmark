@@ -61575,7 +61575,6 @@ _ZN4asio15any_io_executorD2Ev.exit4:              ; preds = %lpad
 define linkonce_odr dso_local void @_ZNK4asio9execution6detail17any_executor_base7executeINS_6detail7binder2INS4_8write_opINS_19basic_stream_socketINS_2ip3tcpENS_15any_io_executorEEESt6vectorINS_12const_bufferESaISD_EEN9__gnu_cxx17__normal_iteratorIPKSD_SF_EENS4_14transfer_all_tEZZN7coro_io11async_writeISB_RSF_EEN12async_simple4coro4LazyISt4pairISt10error_codemEEERT_OT0_ENKUlSW_E_clINSM_21callback_awaitor_baseISU_NSM_16callback_awaitorISU_EEE15awaitor_handlerEEEDaSW_EUlRKSW_SY_E_EEST_mEEEEvOSW_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(104) %f) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.asio::detail::executor_function", align 8
-  %agg.tmp5.sroa.11 = alloca { i64, i64, i64, i64 }, align 8
   %agg.tmp5.sroa.17 = alloca %"class.std::error_code", align 8
   %target_fns_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_fns_, align 8
@@ -61600,7 +61599,7 @@ if.else:                                          ; preds = %entry
   %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %buffers_3.i.i, i8 0, i64 24, i1 false)
   %total_size_3.i.i.i = getelementptr inbounds nuw i8, ptr %f, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp5.sroa.11, ptr noundef nonnull align 8 dereferenceable(32) %total_size_3.i.i.i, i64 32, i1 false)
+  %agg.tmp5.sroa.11.32.copyload = load <4 x i64>, ptr %total_size_3.i.i.i, align 8
   %start_4.i.i = getelementptr inbounds nuw i8, ptr %f, i64 64
   %7 = load i32, ptr %start_4.i.i, align 8
   %handler_5.i.i = getelementptr inbounds nuw i8, ptr %f, i64 72
@@ -61634,7 +61633,7 @@ invoke.cont:                                      ; preds = %_ZN4asio6detail17ex
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i.i3, i64 32
   store ptr %6, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i, align 8
   %total_size_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i.i3, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %total_size_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp5.sroa.11, i64 32, i1 false)
+  store <4 x i64> %agg.tmp5.sroa.11.32.copyload, ptr %total_size_.i.i.i.i.i, align 8
   %start_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i.i3, i64 72
   store i32 %7, ptr %start_.i.i.i.i, align 8
   %handler_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i.i3, i64 80
@@ -61695,8 +61694,8 @@ if.then.i.i.i.i.i.i11:                            ; preds = %ehcleanup
   br label %_ZN4asio6detail7binder2INS0_8write_opINS_19basic_stream_socketINS_2ip3tcpENS_15any_io_executorEEESt6vectorINS_12const_bufferESaIS9_EEN9__gnu_cxx17__normal_iteratorIPKS9_SB_EENS0_14transfer_all_tEZZN7coro_io11async_writeIS7_RSB_EEN12async_simple4coro4LazyISt4pairISt10error_codemEEERT_OT0_ENKUlSS_E_clINSI_21callback_awaitor_baseISQ_NSI_16callback_awaitorISQ_EEE15awaitor_handlerEEEDaSS_EUlRKSS_SU_E_EESP_mED2Ev.exit12
 
 _ZN4asio6detail7binder2INS0_8write_opINS_19basic_stream_socketINS_2ip3tcpENS_15any_io_executorEEESt6vectorINS_12const_bufferESaIS9_EEN9__gnu_cxx17__normal_iteratorIPKS9_SB_EENS0_14transfer_all_tEZZN7coro_io11async_writeIS7_RSB_EEN12async_simple4coro4LazyISt4pairISt10error_codemEEERT_OT0_ENKUlSS_E_clINSI_21callback_awaitor_baseISQ_NSI_16callback_awaitorISQ_EEE15awaitor_handlerEEEDaSS_EUlRKSS_SU_E_EESP_mED2Ev.exit12: ; preds = %if.then.i6, %lpad7, %ehcleanup, %if.then.i.i.i.i.i.i11
-  %.pn18 = phi { ptr, i32 } [ %22, %if.then.i.i.i.i.i.i11 ], [ %22, %ehcleanup ], [ %17, %lpad7 ], [ %17, %if.then.i6 ]
-  resume { ptr, i32 } %.pn18
+  %.pn19 = phi { ptr, i32 } [ %22, %if.then.i.i.i.i.i.i11 ], [ %22, %ehcleanup ], [ %17, %lpad7 ], [ %17, %if.then.i6 ]
+  resume { ptr, i32 } %.pn19
 
 if.end:                                           ; preds = %invoke.cont8, %if.then.i, %if.then
   ret void

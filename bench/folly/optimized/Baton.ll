@@ -415,8 +415,7 @@ define void @_ZN5folly6fibers5Baton4waitERNS1_14TimeoutHandlerE(ptr noundef nonn
   %3 = alloca %"class.folly::fibers::Baton::FiberWaiter", align 8
   %4 = alloca %class.anon.29, align 8
   %5 = alloca %class.anon, align 1
-  %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
-  %6 = alloca %"class.std::function", align 8
+  %6 = alloca %"class.std::function", align 16
   %7 = alloca %class.anon.34, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %0, ptr %7, align 8, !tbaa !105
@@ -427,15 +426,13 @@ define void @_ZN5folly6fibers5Baton4waitERNS1_14TimeoutHandlerE(ptr noundef nonn
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %12, align 8
-  store i64 %9, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false), !tbaa.struct !107
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false), !tbaa.struct !107
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !107
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
+  store i64 %9, ptr %6, align 16
+  %.sroa.0.0.copyload.i.i.i = load <2 x i64>, ptr %6, align 16, !tbaa !107
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false), !tbaa.struct !108
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %8, align 8, !tbaa !107
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %14 = load ptr, ptr %13, align 8, !tbaa !94
-  store ptr %14, ptr %10, align 8, !tbaa !94
+  store ptr %14, ptr %10, align 16, !tbaa !94
   store ptr @"_ZNSt17_Function_handlerIFvvESt17reference_wrapperIZN5folly6fibers5Baton4waitERNS4_14TimeoutHandlerEE3$_0EE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %13, align 8, !tbaa !94
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %16 = load ptr, ptr %15, align 8, !tbaa !94
@@ -992,8 +989,8 @@ attributes #17 = { builtin nounwind }
 !104 = !{!91, !93, i64 16}
 !105 = !{!106, !92, i64 0}
 !106 = !{!"_ZTSZN5folly6fibers5Baton4waitERNS1_14TimeoutHandlerEE3$_0", !92, i64 0}
-!107 = !{i64 0, i64 16, !108}
-!108 = !{!17, !17, i64 0}
+!107 = !{!17, !17, i64 0}
+!108 = !{i64 0, i64 16, !107}
 !109 = !{!110, !15, i64 96}
 !110 = !{!"_ZTSN5folly6fibers5Baton14TimeoutHandlerE", !73, i64 0, !111, i64 64, !15, i64 96}
 !111 = !{!"_ZTSSt8functionIFvvEE", !112, i64 0, !16, i64 24}

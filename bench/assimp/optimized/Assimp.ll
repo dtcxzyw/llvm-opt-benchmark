@@ -3451,15 +3451,15 @@ define void @aiIdentityMatrix3(ptr noundef writeonly captures(none) initializes(
 define void @aiIdentityMatrix4(ptr noundef writeonly captures(none) initializes((0, 64)) %0) local_unnamed_addr #16 {
   store float 1.000000e+00, ptr %0, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.0..sroa_idx, i8 0, i64 16, i1 false)
+  store <4 x float> zeroinitializer, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float 1.000000e+00, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6.0..sroa_idx, i8 0, i64 16, i1 false)
+  store <4 x float> zeroinitializer, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store float 1.000000e+00, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.8.0..sroa_idx, i8 0, i64 16, i1 false)
+  store <4 x float> zeroinitializer, ptr %.sroa.8.0..sroa_idx, align 4
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 60
   store float 1.000000e+00, ptr %.sroa.9.0..sroa_idx, align 4
   ret void
@@ -5014,7 +5014,7 @@ define void @aiMatrix4FromMatrix3(ptr noundef writeonly captures(none) initializ
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store float %19, ptr %.sroa.13.0..sroa_idx, align 4
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.14.0..sroa_idx, i8 0, i64 16, i1 false)
+  store <4 x float> zeroinitializer, ptr %.sroa.14.0..sroa_idx, align 4
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 60
   store float 1.000000e+00, ptr %.sroa.15.0..sroa_idx, align 4
   ret void
@@ -6467,38 +6467,37 @@ define void @aiMatrix4FromEulerAngles(ptr noundef writeonly captures(none) initi
 define void @aiMatrix4RotationX(ptr noundef writeonly captures(none) initializes((0, 64)) %0, float noundef %1) local_unnamed_addr #19 {
   store float 1.000000e+00, ptr %0, align 4
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.0..sroa_idx.i, i8 0, i64 16, i1 false)
+  store <4 x float> zeroinitializer, ptr %.sroa.4.0..sroa_idx.i, align 4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i64 0, ptr %3, align 4
+  store <4 x float> zeroinitializer, ptr %.sroa.6.0..sroa_idx.i, align 4
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.8.0..sroa_idx.i, i8 0, i64 16, i1 false)
+  store <4 x float> zeroinitializer, ptr %.sroa.8.0..sroa_idx.i, align 4
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 60
   store float 1.000000e+00, ptr %.sroa.9.0..sroa_idx.i, align 4
-  %4 = tail call noundef float @cosf(float noundef %1) #51
-  store float %4, ptr %.sroa.7.0..sroa_idx.i, align 4
-  store float %4, ptr %.sroa.5.0..sroa_idx.i, align 4
-  %5 = tail call noundef float @sinf(float noundef %1) #51
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store float %5, ptr %6, align 4
-  %7 = fneg float %5
-  store float %7, ptr %.sroa.6.0..sroa_idx.i, align 4
+  %3 = tail call noundef float @cosf(float noundef %1) #51
+  store float %3, ptr %.sroa.7.0..sroa_idx.i, align 4
+  store float %3, ptr %.sroa.5.0..sroa_idx.i, align 4
+  %4 = tail call noundef float @sinf(float noundef %1) #51
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store float %4, ptr %5, align 4
+  %6 = fneg float %4
+  store float %6, ptr %.sroa.6.0..sroa_idx.i, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: write, errnomem: write) uwtable
 define void @aiMatrix4RotationY(ptr noundef writeonly captures(none) initializes((0, 64)) %0, float noundef %1) local_unnamed_addr #19 {
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.0..sroa_idx.i, i8 0, i64 16, i1 false)
+  store <4 x float> zeroinitializer, ptr %.sroa.4.0..sroa_idx.i, align 4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float 1.000000e+00, ptr %.sroa.5.0..sroa_idx.i, align 4
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6.0..sroa_idx.i, i8 0, i64 16, i1 false)
+  store <4 x float> zeroinitializer, ptr %.sroa.6.0..sroa_idx.i, align 4
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.8.0..sroa_idx.i, i8 0, i64 16, i1 false)
+  store <4 x float> zeroinitializer, ptr %.sroa.8.0..sroa_idx.i, align 4
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 60
   store float 1.000000e+00, ptr %.sroa.9.0..sroa_idx.i, align 4
   %3 = tail call noundef float @cosf(float noundef %1) #51
@@ -6516,25 +6515,24 @@ define void @aiMatrix4RotationY(ptr noundef writeonly captures(none) initializes
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: write, errnomem: write) uwtable
 define void @aiMatrix4RotationZ(ptr noundef writeonly captures(none) initializes((0, 64)) %0, float noundef %1) local_unnamed_addr #19 {
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %3, align 4
+  store <4 x float> zeroinitializer, ptr %.sroa.4.0..sroa_idx.i, align 4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6.0..sroa_idx.i, i8 0, i64 16, i1 false)
+  store <4 x float> zeroinitializer, ptr %.sroa.6.0..sroa_idx.i, align 4
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   store float 1.000000e+00, ptr %.sroa.7.0..sroa_idx.i, align 4
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.8.0..sroa_idx.i, i8 0, i64 16, i1 false)
+  store <4 x float> zeroinitializer, ptr %.sroa.8.0..sroa_idx.i, align 4
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 60
   store float 1.000000e+00, ptr %.sroa.9.0..sroa_idx.i, align 4
-  %4 = tail call noundef float @cosf(float noundef %1) #51
-  store float %4, ptr %.sroa.5.0..sroa_idx.i, align 4
-  store float %4, ptr %0, align 4
-  %5 = tail call noundef float @sinf(float noundef %1) #51
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %5, ptr %6, align 4
-  %7 = fneg float %5
-  store float %7, ptr %.sroa.4.0..sroa_idx.i, align 4
+  %3 = tail call noundef float @cosf(float noundef %1) #51
+  store float %3, ptr %.sroa.5.0..sroa_idx.i, align 4
+  store float %3, ptr %0, align 4
+  %4 = tail call noundef float @sinf(float noundef %1) #51
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %4, ptr %5, align 4
+  %6 = fneg float %4
+  store float %6, ptr %.sroa.4.0..sroa_idx.i, align 4
   ret void
 }
 
@@ -6598,15 +6596,15 @@ define void @aiMatrix4FromRotationAroundAxis(ptr noundef writeonly captures(none
 define void @aiMatrix4Translation(ptr noundef writeonly captures(none) initializes((0, 64)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #14 {
   store float 1.000000e+00, ptr %0, align 4
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.0..sroa_idx.i, i8 0, i64 16, i1 false)
+  store <4 x float> zeroinitializer, ptr %.sroa.4.0..sroa_idx.i, align 4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float 1.000000e+00, ptr %.sroa.5.0..sroa_idx.i, align 4
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6.0..sroa_idx.i, i8 0, i64 16, i1 false)
+  store <4 x float> zeroinitializer, ptr %.sroa.6.0..sroa_idx.i, align 4
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   store float 1.000000e+00, ptr %.sroa.7.0..sroa_idx.i, align 4
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.8.0..sroa_idx.i, i8 0, i64 16, i1 false)
+  store <4 x float> zeroinitializer, ptr %.sroa.8.0..sroa_idx.i, align 4
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 60
   store float 1.000000e+00, ptr %.sroa.9.0..sroa_idx.i, align 4
   %3 = load float, ptr %1, align 4
@@ -6626,15 +6624,15 @@ define void @aiMatrix4Translation(ptr noundef writeonly captures(none) initializ
 define void @aiMatrix4Scaling(ptr noundef writeonly captures(none) initializes((0, 64)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #14 {
   store float 1.000000e+00, ptr %0, align 4
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.0..sroa_idx.i, i8 0, i64 16, i1 false)
+  store <4 x float> zeroinitializer, ptr %.sroa.4.0..sroa_idx.i, align 4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float 1.000000e+00, ptr %.sroa.5.0..sroa_idx.i, align 4
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6.0..sroa_idx.i, i8 0, i64 16, i1 false)
+  store <4 x float> zeroinitializer, ptr %.sroa.6.0..sroa_idx.i, align 4
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   store float 1.000000e+00, ptr %.sroa.7.0..sroa_idx.i, align 4
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.8.0..sroa_idx.i, i8 0, i64 16, i1 false)
+  store <4 x float> zeroinitializer, ptr %.sroa.8.0..sroa_idx.i, align 4
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 60
   store float 1.000000e+00, ptr %.sroa.9.0..sroa_idx.i, align 4
   %3 = load float, ptr %1, align 4
@@ -6701,7 +6699,7 @@ define void @aiMatrix4FromTo(ptr noundef writeonly captures(none) initializes((0
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   store float %22, ptr %.sroa.13.0..sroa_idx.i, align 4
   %.sroa.14.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 44
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.14.0..sroa_idx.i, i8 0, i64 16, i1 false)
+  store <4 x float> zeroinitializer, ptr %.sroa.14.0..sroa_idx.i, align 4
   %.sroa.15.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 60
   store float 1.000000e+00, ptr %.sroa.15.0..sroa_idx.i, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

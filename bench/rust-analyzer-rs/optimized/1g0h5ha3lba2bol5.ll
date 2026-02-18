@@ -19742,7 +19742,7 @@ define internal fastcc { i32, i32 } @_ZN3hir15source_analyzer16scope_for_offset1
   %12 = alloca { { { { { ptr, ptr, {} }, i64 }, {} }, { ptr, ptr, { ptr, ptr } } }, { ptr, ptr } }, align 8
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
-  %15 = alloca { i32, i32 }, align 8
+  %15 = alloca { i32, i32 }, align 4
   %16 = alloca { { { { ptr, ptr, { ptr, ptr } }, ptr }, {} }, i64 }, align 8
   %17 = alloca { [6 x i16], i16, [1 x i16] }, align 4
   %18 = alloca { i32, [1 x i32], { { i32, i32 }, ptr } }, align 8
@@ -20141,8 +20141,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h0e7e6fe149b54bcbE.exit.i: ; pred
   store i64 %167, ptr %169, align 8, !noalias !4105
   call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h341ae55bd41d9991E.llvm.836043833466553463"(ptr noalias noundef nonnull sret({ i32, [1 x i32], { { i32, i32 }, ptr } }) align 8 captures(none) dereferenceable(24) %18, ptr noundef nonnull %32, ptr noundef nonnull %25, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %19, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %16), !noalias !4131
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !4105
-  %.sroa.012.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %.sroa.012.sroa.4.0.copyload.i = load i64, ptr %.sroa.012.sroa.4.0..sroa_idx.i, align 8, !noalias !4132
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %.sroa.3.0.copyload.i = load <2 x i32>, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !4132
   %.sroa.4.0..sroa_idx.i7 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i7, align 8, !noalias !4132
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !4104
@@ -20151,14 +20151,17 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h0e7e6fe149b54bcbE.exit.i: ; pred
   br i1 %170, label %"_ZN3hir15source_analyzer16scope_for_offset28_$u7b$$u7b$closure$u7d$$u7d$17h0101786fd6048b91E.exit", label %_ZN4core4iter6traits8iterator8Iterator10min_by_key17h79bccab18907a4a8E.exit
 
 _ZN4core4iter6traits8iterator8Iterator10min_by_key17h79bccab18907a4a8E.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17h0e7e6fe149b54bcbE.exit.i
+  %.sroa.024.0.vec.extract = extractelement <2 x i32> %.sroa.3.0.copyload.i, i64 0
+  %.sroa.024.4.vec.extract = extractelement <2 x i32> %.sroa.3.0.copyload.i, i64 1
   %171 = load i32, ptr %21, align 4, !noalias !4133, !noundef !4
   %172 = load i32, ptr %20, align 4, !noalias !4133, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !4133
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !4133
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !4133
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !4133
-  store i64 %.sroa.012.sroa.4.0.copyload.i, ptr %15, align 8, !noalias !4137
+  store i32 %.sroa.024.0.vec.extract, ptr %15, align 4, !noalias !4137
   %173 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  store i32 %.sroa.024.4.vec.extract, ptr %173, align 4, !noalias !4137
   store i32 %171, ptr %14, align 4, !noalias !4137
   store i32 %172, ptr %13, align 4, !noalias !4137
   %174 = call noundef align 8 dereferenceable(24) ptr @_ZN7hir_def4body5scope10ExprScopes13scope_by_expr17h70e48e0ff16fad13E(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %2), !noalias !4142
@@ -20225,7 +20228,7 @@ _ZN4core4iter6traits8iterator8Iterator10min_by_key17h79bccab18907a4a8E.exit: ; p
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i9, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hd37ecf4aed9d5834E.exit.i.i.i.i.i.i.i.thread40.i.i", label %.critedge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %193
-  %198 = load i32, ptr %15, align 8, !noalias !4186, !noundef !4
+  %198 = load i32, ptr %15, align 4, !noalias !4186, !noundef !4
   %199 = load i32, ptr %173, align 4, !noalias !4186, !noundef !4
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ule i32 %198, %194
   %switch18.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp uge i32 %199, %196
@@ -20387,9 +20390,9 @@ _ZN3hir15source_analyzer6adjust17h815145f6e380a7a4E.exit.i: ; preds = %_ZN4core4
   %236 = load i32, ptr %.sroa.4.0.copyload.i, align 4, !noalias !4133, !noundef !4
   br label %"_ZN3hir15source_analyzer16scope_for_offset28_$u7b$$u7b$closure$u7d$$u7d$17h0101786fd6048b91E.exit"
 
-"_ZN3hir15source_analyzer16scope_for_offset28_$u7b$$u7b$closure$u7d$$u7d$17h0101786fd6048b91E.exit": ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17h0e7e6fe149b54bcbE.exit.thread.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h0e7e6fe149b54bcbE.exit.i, %.loopexit.i, %_ZN3hir15source_analyzer6adjust17h815145f6e380a7a4E.exit.i
-  %.sroa.3.0 = phi i32 [ %235, %_ZN3hir15source_analyzer6adjust17h815145f6e380a7a4E.exit.i ], [ %236, %.loopexit.i ], [ undef, %_ZN4core4iter6traits8iterator8Iterator6reduce17h0e7e6fe149b54bcbE.exit.i ], [ undef, %_ZN4core4iter6traits8iterator8Iterator6reduce17h0e7e6fe149b54bcbE.exit.thread.i ]
-  %.sroa.0.0 = phi i32 [ 1, %_ZN3hir15source_analyzer6adjust17h815145f6e380a7a4E.exit.i ], [ 1, %.loopexit.i ], [ 0, %_ZN4core4iter6traits8iterator8Iterator6reduce17h0e7e6fe149b54bcbE.exit.i ], [ 0, %_ZN4core4iter6traits8iterator8Iterator6reduce17h0e7e6fe149b54bcbE.exit.thread.i ]
+"_ZN3hir15source_analyzer16scope_for_offset28_$u7b$$u7b$closure$u7d$$u7d$17h0101786fd6048b91E.exit": ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17h0e7e6fe149b54bcbE.exit.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h0e7e6fe149b54bcbE.exit.thread.i, %.loopexit.i, %_ZN3hir15source_analyzer6adjust17h815145f6e380a7a4E.exit.i
+  %.sroa.3.0 = phi i32 [ %235, %_ZN3hir15source_analyzer6adjust17h815145f6e380a7a4E.exit.i ], [ %236, %.loopexit.i ], [ undef, %_ZN4core4iter6traits8iterator8Iterator6reduce17h0e7e6fe149b54bcbE.exit.thread.i ], [ undef, %_ZN4core4iter6traits8iterator8Iterator6reduce17h0e7e6fe149b54bcbE.exit.i ]
+  %.sroa.0.0 = phi i32 [ 1, %_ZN3hir15source_analyzer6adjust17h815145f6e380a7a4E.exit.i ], [ 1, %.loopexit.i ], [ 0, %_ZN4core4iter6traits8iterator8Iterator6reduce17h0e7e6fe149b54bcbE.exit.thread.i ], [ 0, %_ZN4core4iter6traits8iterator8Iterator6reduce17h0e7e6fe149b54bcbE.exit.i ]
   %237 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %238 = insertvalue { i32, i32 } %237, i32 %.sroa.3.0, 1
   ret { i32, i32 } %238

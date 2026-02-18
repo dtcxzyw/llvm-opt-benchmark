@@ -1957,81 +1957,82 @@ declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 nounde
 define i64 @av_guess_sample_aspect_ratio(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.AVRational, align 8
   %5 = alloca %struct.AVRational, align 8
-  %6 = alloca %struct.AVRational, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %.critedge, label %7
+  br i1 %.not, label %.critedge, label %6
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %9 = load i64, ptr %8, align 8
-  store i64 %9, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !87
-  %.not15 = icmp eq ptr %11, null
-  %12 = lshr i64 %9, 32
-  br i1 %.not15, label %16, label %13
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %8 = load i64, ptr %7, align 8
+  store i64 %8, ptr %4, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %10 = load ptr, ptr %9, align 8, !tbaa !87
+  %.not22 = icmp eq ptr %10, null
+  %11 = lshr i64 %8, 32
+  br i1 %.not22, label %14, label %12
 
-13:                                               ; preds = %7
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %15 = load i64, ptr %14, align 8
-  br label %16
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  %.sroa.0.0.copyload25 = load i64, ptr %13, align 8
+  br label %14
 
 .critedge:                                        ; preds = %3
   store i64 4294967296, ptr %4, align 8
+  br label %14
+
+14:                                               ; preds = %6, %.critedge, %12
+  %15 = phi i64 [ %11, %12 ], [ 1, %.critedge ], [ %11, %6 ]
+  %16 = phi i64 [ %8, %12 ], [ 0, %.critedge ], [ %8, %6 ]
+  %17 = phi i64 [ %.sroa.0.0.copyload25, %12 ], [ 4294967296, %.critedge ], [ 4294967296, %6 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br label %16
+  %.not23 = icmp eq ptr %2, null
+  br i1 %.not23, label %21, label %18
 
-16:                                               ; preds = %7, %.critedge, %13
-  %17 = phi i64 [ %12, %13 ], [ 1, %.critedge ], [ %12, %7 ]
-  %18 = phi i64 [ %9, %13 ], [ 0, %.critedge ], [ %9, %7 ]
-  %storemerge16 = phi i64 [ %15, %13 ], [ 4294967296, %.critedge ], [ 4294967296, %7 ]
-  store i64 %storemerge16, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %.not17 = icmp eq ptr %2, null
+18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 124
-  %storemerge18.in = select i1 %.not17, ptr %5, ptr %19
-  %storemerge18 = load i64, ptr %storemerge18.in, align 4
-  store i64 %storemerge18, ptr %6, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %sext = shl i64 %18, 32
-  %21 = ashr exact i64 %sext, 32
-  %sext23 = shl nuw i64 %17, 32
-  %22 = ashr exact i64 %sext23, 32
-  %23 = call i32 @av_reduce(ptr noundef nonnull %4, ptr noundef nonnull %20, i64 noundef %21, i64 noundef %22, i64 noundef 2147483647) #13
-  %24 = load i32, ptr %4, align 8, !tbaa !135
-  %25 = icmp slt i32 %24, 1
-  %26 = load i32, ptr %20, align 4
+  %20 = load i64, ptr %19, align 4
+  br label %21
+
+21:                                               ; preds = %14, %18
+  %storemerge24 = phi i64 [ %20, %18 ], [ %17, %14 ]
+  store i64 %storemerge24, ptr %5, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %sext = shl i64 %16, 32
+  %23 = ashr exact i64 %sext, 32
+  %sext31 = shl nuw i64 %15, 32
+  %24 = ashr exact i64 %sext31, 32
+  %25 = call i32 @av_reduce(ptr noundef nonnull %4, ptr noundef nonnull %22, i64 noundef %23, i64 noundef %24, i64 noundef 2147483647) #13
+  %26 = load i32, ptr %4, align 8, !tbaa !135
   %27 = icmp slt i32 %26, 1
-  %or.cond = select i1 %25, i1 true, i1 %27
-  br i1 %or.cond, label %28, label %29
+  %28 = load i32, ptr %22, align 4
+  %29 = icmp slt i32 %28, 1
+  %or.cond = select i1 %27, i1 true, i1 %29
+  br i1 %or.cond, label %30, label %31
 
-28:                                               ; preds = %16
-  store i64 4294967296, ptr %4, align 8
-  br label %29
+30:                                               ; preds = %21
+  store <2 x i32> <i32 0, i32 1>, ptr %4, align 8
+  br label %31
 
-29:                                               ; preds = %16, %28
-  %30 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %sext24 = shl i64 %storemerge18, 32
-  %31 = ashr exact i64 %sext24, 32
-  %32 = ashr i64 %storemerge18, 32
-  %33 = call i32 @av_reduce(ptr noundef nonnull %6, ptr noundef nonnull %30, i64 noundef %31, i64 noundef %32, i64 noundef 2147483647) #13
-  %34 = load i32, ptr %6, align 8, !tbaa !135
-  %35 = icmp slt i32 %34, 1
-  %36 = load i32, ptr %30, align 4
+31:                                               ; preds = %21, %30
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %sext32 = shl i64 %storemerge24, 32
+  %33 = ashr exact i64 %sext32, 32
+  %34 = ashr i64 %storemerge24, 32
+  %35 = call i32 @av_reduce(ptr noundef nonnull %5, ptr noundef nonnull %32, i64 noundef %33, i64 noundef %34, i64 noundef 2147483647) #13
+  %36 = load i32, ptr %5, align 8, !tbaa !135
   %37 = icmp slt i32 %36, 1
-  %or.cond5 = select i1 %35, i1 true, i1 %37
-  %.val.pre = load i64, ptr %6, align 8
+  %38 = load i32, ptr %32, align 4
+  %39 = icmp slt i32 %38, 1
+  %or.cond5 = select i1 %37, i1 true, i1 %39
+  %.val.pre = load i64, ptr %5, align 8
   %.val = select i1 %or.cond5, i64 4294967296, i64 %.val.pre
-  %38 = load i32, ptr %4, align 8, !tbaa !135
-  %.not19 = icmp eq i32 %38, 0
-  %.val20 = load i64, ptr %4, align 8
-  %.sroa.0.0 = select i1 %.not19, i64 %.val, i64 %.val20
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  %40 = load i32, ptr %4, align 8, !tbaa !135
+  %.not26 = icmp eq i32 %40, 0
+  %.val27 = load i64, ptr %4, align 8
+  %.sroa.018.0 = select i1 %.not26, i64 %.val, i64 %.val27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i64 %.sroa.0.0
+  ret i64 %.sroa.018.0
 }
 
 declare i32 @av_reduce(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1

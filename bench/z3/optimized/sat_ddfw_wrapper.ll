@@ -91,9 +91,8 @@ _ZNSt8functionIFbvEEaSEDn.exit:                   ; preds = %4, %13
 
 "_ZNSt8functionIFbvEEaSIZN3sat12ddfw_wrapper5checkEjPKNS3_7literalEPNS3_8parallelEE3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSC_.exit": ; preds = %_ZNSt8functionIFbvEEaSEDn.exit
   %18 = ptrtoint ptr %0 to i64
-  store i64 %18, ptr %8, align 8
-  %.sroa.0.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 384
-  store i64 0, ptr %.sroa.0.i.i.i.sroa.4.0..sroa_idx, align 8, !tbaa !65
+  %.sroa.0.0.vec.insert = insertelement <2 x i64> <i64 poison, i64 0>, i64 %18, i64 0
+  store <2 x i64> %.sroa.0.0.vec.insert, ptr %8, align 8, !tbaa !65
   store ptr @"_ZNSt17_Function_handlerIFbvEZN3sat12ddfw_wrapper5checkEjPKNS1_7literalEPNS1_8parallelEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %9, align 8, !tbaa !66
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store ptr @"_ZNSt17_Function_handlerIFbvEZN3sat12ddfw_wrapper5checkEjPKNS1_7literalEPNS1_8parallelEE3$_0E9_M_invokeERKSt9_Any_data", ptr %19, align 8, !tbaa !66

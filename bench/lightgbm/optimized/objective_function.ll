@@ -1932,8 +1932,7 @@ _ZN8LightGBM16RegressionL2lossD2Ev.exit:          ; preds = %16, %19
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8LightGBM13BinaryLoglossC2ERKNS_6ConfigESt8functionIFbfEE(ptr noundef nonnull align 8 dereferenceable(114) %0, ptr noundef nonnull align 8 dereferenceable(1624) %1, ptr noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
-  %4 = alloca %"class.std::function", align 8
+  %4 = alloca %"class.std::function", align 16
   store ptr getelementptr inbounds nuw inrange(-16, 160) (i8, ptr @_ZTVN8LightGBM13BinaryLoglossE, i64 16), ptr %0, align 8, !tbaa !15
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
@@ -2005,7 +2004,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %.body, %18
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %40 = load ptr, ptr %39, align 8, !tbaa !73
   %.not.i.i.not.i.i = icmp eq ptr %40, null
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFbfEEC2ERKS1_.exit.i, label %41
@@ -2018,12 +2017,13 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %.body, %18
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %45 = load ptr, ptr %44, align 8, !tbaa !105
   %46 = load ptr, ptr %39, align 8, !tbaa !73
+  %.sroa.0.0.copyload.i.i.pre.i = load <2 x i64>, ptr %4, align 16, !tbaa !13
   br label %_ZNSt8functionIFbfEEC2ERKS1_.exit.i
 
 47:                                               ; preds = %41
   %48 = landingpad { ptr, i32 }
           cleanup
-  %49 = load ptr, ptr %37, align 8, !tbaa !73
+  %49 = load ptr, ptr %37, align 16, !tbaa !73
   %.not.i.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i.i, label %.body, label %50
 
@@ -2041,14 +2041,12 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %.body, %18
 _ZNSt8functionIFbfEEC2ERKS1_.exit.i:              ; preds = %43, %36
   %55 = phi ptr [ null, %36 ], [ %45, %43 ]
   %56 = phi ptr [ null, %36 ], [ %46, %43 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false), !tbaa.struct !106
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !106
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !106
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
+  %.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %36 ], [ %.sroa.0.0.copyload.i.i.pre.i, %43 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !106
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %5, align 8, !tbaa !13
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %58 = load ptr, ptr %57, align 8, !tbaa !107
-  store ptr %58, ptr %37, align 8, !tbaa !107
+  store ptr %58, ptr %37, align 16, !tbaa !107
   store ptr %56, ptr %57, align 8, !tbaa !107
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %60 = load ptr, ptr %59, align 8, !tbaa !107
@@ -2079,7 +2077,7 @@ _ZNSt8functionIFbfEEC2ERKS1_.exit.i:              ; preds = %43, %36
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFbfEEaSIZN8LightGBM13BinaryLoglossC1ERKNS3_6ConfigES1_EUlfE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSA_.exit, label %68
 
 _ZNSt8functionIFbfEEaSIZN8LightGBM13BinaryLoglossC1ERKNS3_6ConfigES1_EUlfE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSA_.exit: ; preds = %66
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
+  store <2 x i64> zeroinitializer, ptr %5, align 8, !tbaa !13
   store ptr @_ZNSt17_Function_handlerIFbfEZN8LightGBM13BinaryLoglossC1ERKNS1_6ConfigESt8functionIS0_EEUlfE_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %57, align 8, !tbaa !107
   store ptr @_ZNSt17_Function_handlerIFbfEZN8LightGBM13BinaryLoglossC1ERKNS1_6ConfigESt8functionIS0_EEUlfE_E9_M_invokeERKSt9_Any_dataOf, ptr %59, align 8, !tbaa !107
   br label %68

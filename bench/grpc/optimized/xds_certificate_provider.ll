@@ -205,7 +205,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core22XdsCertificateProviderC2ENS_13RefCountedPtrI29grpc_tls_certificate_providerEESt17basic_string_viewIcSt11char_traitsIcEEbS3_S7_St6vectorINS_13StringMatcherESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 32)) %0, ptr noundef captures(none) %1, i64 %2, ptr readonly captures(address_is_null) %3, i1 noundef zeroext %4, ptr noundef captures(none) %5, ptr noundef readonly byval(%"class.std::basic_string_view") align 8 captures(none) %6, ptr noundef captures(none) %7) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %9 = alloca %"class.std::function", align 8
+  %9 = alloca %"class.std::function", align 16
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
   %12 = zext i1 %4 to i8
@@ -398,14 +398,16 @@ _ZNSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbEEC2EOS7_
   %83 = getelementptr inbounds nuw i8, ptr %79, i64 80
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %84 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %83, i64 16, i1 false), !tbaa.struct !55
-  store ptr %80, ptr %83, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 88
-  store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
+  store ptr %80, ptr %9, align 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 0, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !34
+  %.sroa.0.0.copyload.i.i.pre.i.i = load <2 x i64>, ptr %9, align 16, !tbaa !34
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %83, i64 16, i1 false), !tbaa.struct !55
+  store <2 x i64> %.sroa.0.0.copyload.i.i.pre.i.i, ptr %83, align 8, !tbaa !34
   %85 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %86 = getelementptr inbounds nuw i8, ptr %79, i64 96
   %87 = load ptr, ptr %86, align 8, !tbaa !56
-  store ptr %87, ptr %85, align 8, !tbaa !56
+  store ptr %87, ptr %85, align 16, !tbaa !56
   store ptr @_ZNSt17_Function_handlerIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbEN4absl12lts_2024072219functional_internal11FrontBinderIMN9grpc_core22XdsCertificateProviderEFvS5_bbEJPSC_EEEE10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %86, align 8, !tbaa !56
   %88 = getelementptr inbounds nuw i8, ptr %79, i64 104
   %89 = load ptr, ptr %88, align 8, !tbaa !56
@@ -2005,7 +2007,7 @@ _ZNSt12_Vector_baseIN9grpc_core13StringMatcherESaIS1_EED2Ev.exit: ; preds = %_ZS
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core22XdsCertificateProviderC2ENS_13RefCountedPtrI29grpc_tls_certificate_providerEESt17basic_string_viewIcSt11char_traitsIcEES3_S7_b(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 32)) %0, ptr noundef captures(none) %1, i64 %2, ptr readonly captures(address_is_null) %3, ptr noundef captures(none) %4, ptr noundef readonly byval(%"class.std::basic_string_view") align 8 captures(none) %5, i1 noundef zeroext %6) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %8 = alloca %"class.std::function", align 8
+  %8 = alloca %"class.std::function", align 16
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = zext i1 %6 to i8
@@ -2188,14 +2190,16 @@ _ZNSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbEEC2EOS7_
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 80
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %76 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %75, i64 16, i1 false), !tbaa.struct !55
-  store ptr %72, ptr %75, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %71, i64 88
-  store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
+  store ptr %72, ptr %8, align 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 0, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !34
+  %.sroa.0.0.copyload.i.i.pre.i.i = load <2 x i64>, ptr %8, align 16, !tbaa !34
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %75, i64 16, i1 false), !tbaa.struct !55
+  store <2 x i64> %.sroa.0.0.copyload.i.i.pre.i.i, ptr %75, align 8, !tbaa !34
   %77 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %78 = getelementptr inbounds nuw i8, ptr %71, i64 96
   %79 = load ptr, ptr %78, align 8, !tbaa !56
-  store ptr %79, ptr %77, align 8, !tbaa !56
+  store ptr %79, ptr %77, align 16, !tbaa !56
   store ptr @_ZNSt17_Function_handlerIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbEN4absl12lts_2024072219functional_internal11FrontBinderIMN9grpc_core22XdsCertificateProviderEFvS5_bbEJPSC_EEEE10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %78, align 8, !tbaa !56
   %80 = getelementptr inbounds nuw i8, ptr %71, i64 104
   %81 = load ptr, ptr %80, align 8, !tbaa !56
@@ -2349,7 +2353,7 @@ _ZNSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbEEC2EOS7_
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false), !tbaa.struct !55
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  store <2 x i64> zeroinitializer, ptr %7, align 8, !tbaa !34
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %10 = load ptr, ptr %9, align 8, !tbaa !56

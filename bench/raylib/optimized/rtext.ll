@@ -1002,7 +1002,6 @@ define void @LoadFont(ptr dead_on_unwind noalias writable sret(%struct.Font) ali
   %25 = alloca %struct.Image, align 8
   %26 = alloca i32, align 4
   %27 = alloca %struct.Font, align 8
-  %.sroa.10 = alloca { i32, i32, i32, i32 }, align 8
   %28 = alloca %struct.Image, align 8
   %29 = alloca %struct.Texture, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
@@ -1041,9 +1040,6 @@ LoadFontEx.exit:                                  ; preds = %33, %35
   br i1 %39, label %40, label %234
 
 40:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i8 0, i64 16, i1 false), !alias.scope !8
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, i8 0, i64 256, i1 false), !noalias !8
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !8
@@ -1365,12 +1361,13 @@ GetLine.exit143.i:                                ; preds = %92, %.split.loop.ex
   call void @LoadTextureFromImage(ptr dead_on_unwind nonnull writable sret(%struct.Texture) align 4 %14, ptr noundef nonnull byval(%struct.Image) align 8 %13) #46, !noalias !8
   %.sroa.8.12.copyload = load i32, ptr %14, align 4
   %.sroa.10.12..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.10.12..sroa_idx, i64 16, i1 false)
+  %.sroa.10.12.copyload = load <4 x i32>, ptr %.sroa.10.12..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !8
   br label %162
 
 162:                                              ; preds = %161, %.loopexit.i
   %.sroa.8.0 = phi i32 [ %.sroa.8.12.copyload, %161 ], [ 0, %.loopexit.i ]
+  %.sroa.10.0 = phi <4 x i32> [ %.sroa.10.12.copyload, %161 ], [ zeroinitializer, %.loopexit.i ]
   %163 = load i32, ptr %5, align 4, !noalias !8
   %164 = load i32, ptr %6, align 4, !noalias !8
   %165 = sext i32 %164 to i64
@@ -1539,7 +1536,7 @@ UnloadFontData.exit.i.thread.i:                   ; preds = %UnloadFontData.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !8
   store i32 0, ptr %3, align 8, !noalias !8
   %.sroa.6.12..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6.12..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
+  store <4 x i32> %.sroa.10.0, ptr %.sroa.6.12..sroa_idx.i, align 4, !noalias !8
   call void @UnloadTexture(ptr noundef nonnull byval(%struct.Texture) align 8 %3) #46, !noalias !8
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !8
   br label %231
@@ -1554,9 +1551,9 @@ UnloadFont.exit.i:                                ; preds = %231, %226
   %.sroa.0.0.copyload8 = load i32, ptr @defaultFont, align 8
   %.sroa.6.0.copyload9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 4), align 4
   %.sroa.7.0.copyload10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 8), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @defaultFont, i64 16), i64 16, i1 false)
-  %.sroa.11.0.copyload12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 32), align 8
-  %.sroa.12.0.copyload13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 40), align 8
+  %.sroa.10.0.copyload12 = load <4 x i32>, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 16), align 8
+  %.sroa.11.0.copyload13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 32), align 8
+  %.sroa.12.0.copyload14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 40), align 8
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.82, ptr noundef %1) #46, !noalias !8
   br label %233
 
@@ -1569,8 +1566,9 @@ UnloadFont.exit.i:                                ; preds = %231, %226
   %.sroa.6.0 = phi i32 [ %.sroa.6.0.copyload9, %UnloadFont.exit.i ], [ %164, %232 ]
   %.sroa.7.0 = phi i32 [ %.sroa.7.0.copyload10, %UnloadFont.exit.i ], [ 0, %232 ]
   %.sroa.8.1 = phi i32 [ %.sroa.8.0.copyload11, %UnloadFont.exit.i ], [ %.sroa.8.0, %232 ]
-  %.sroa.11.0 = phi ptr [ %.sroa.11.0.copyload12, %UnloadFont.exit.i ], [ %169, %232 ]
-  %.sroa.12.0 = phi ptr [ %.sroa.12.0.copyload13, %UnloadFont.exit.i ], [ %167, %232 ]
+  %.sroa.11.0 = phi ptr [ %.sroa.11.0.copyload13, %UnloadFont.exit.i ], [ %169, %232 ]
+  %.sroa.12.0 = phi ptr [ %.sroa.12.0.copyload14, %UnloadFont.exit.i ], [ %167, %232 ]
+  %.sroa.10.1 = phi <4 x i32> [ %.sroa.10.0.copyload12, %UnloadFont.exit.i ], [ %.sroa.10.0, %232 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !8
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !8
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !8
@@ -1590,6 +1588,7 @@ LoadBMFont.exit:                                  ; preds = %40, %66, %88, %101,
   %.sroa.8.2 = phi i32 [ 0, %40 ], [ 0, %66 ], [ 0, %88 ], [ 0, %101 ], [ %.sroa.8.1, %233 ]
   %.sroa.11.1 = phi ptr [ null, %40 ], [ null, %66 ], [ null, %88 ], [ null, %101 ], [ %.sroa.11.0, %233 ]
   %.sroa.12.1 = phi ptr [ null, %40 ], [ null, %66 ], [ null, %88 ], [ null, %101 ], [ %.sroa.12.0, %233 ]
+  %.sroa.10.2 = phi <4 x i32> [ zeroinitializer, %40 ], [ zeroinitializer, %66 ], [ zeroinitializer, %88 ], [ zeroinitializer, %101 ], [ %.sroa.10.1, %233 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !8
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !8
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !8
@@ -1606,12 +1605,11 @@ LoadBMFont.exit:                                  ; preds = %40, %66, %88, %101,
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.sroa.8.2, ptr %.sroa.8.0..sroa_idx, align 4
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
+  store <4 x i32> %.sroa.10.2, ptr %.sroa.10.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %.sroa.11.1, ptr %.sroa.11.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.sroa.12.1, ptr %.sroa.12.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10)
   br label %238
 
 234:                                              ; preds = %38

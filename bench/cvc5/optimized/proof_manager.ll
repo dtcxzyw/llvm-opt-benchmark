@@ -9609,12 +9609,12 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden ptr @_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEESt8functionIFbS5_EEET_SE_SE_T0_(ptr %0, ptr %1, ptr noundef %2) local_unnamed_addr #6 comdat personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred", align 8
-  %5 = alloca %"class.std::function", align 8
+  %4 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred", align 16
+  %5 = alloca %"class.std::function", align 16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %9 = load ptr, ptr %8, align 8, !tbaa !373
   %.not.i.i.not.i = icmp eq ptr %9, null
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEC2EOS5_.exit.thread.i, label %10
@@ -9626,7 +9626,7 @@ define linkonce_odr hidden ptr @_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN
 12:                                               ; preds = %10
   %13 = landingpad { ptr, i32 }
           cleanup
-  %14 = load ptr, ptr %6, align 8, !tbaa !373
+  %14 = load ptr, ptr %6, align 16, !tbaa !373
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %common.resume, label %15
 
@@ -9650,21 +9650,22 @@ _ZNSt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEC2ERKS5_.exit: ; preds = 
   %21 = load ptr, ptr %20, align 8, !tbaa !370
   store ptr %21, ptr %7, align 8, !tbaa !370
   %22 = load ptr, ptr %8, align 8, !tbaa !373
-  store ptr %22, ptr %6, align 8, !tbaa !373
+  store ptr %22, ptr %6, align 16, !tbaa !373
   call void @llvm.experimental.noalias.scope.decl(metadata !500)
   %.not.i.i.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEC2EOS5_.exit.thread.i, label %_ZN9__gnu_cxx5__ops10_Iter_predISt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEEC2ES8_.exit.i
 
 _ZNSt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEC2EOS5_.exit.thread.i: ; preds = %3, %_ZNSt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEC2ERKS5_.exit
   %23 = phi ptr [ %21, %_ZNSt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEC2ERKS5_.exit ], [ null, %3 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false), !alias.scope !500
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 24, i1 false), !alias.scope !500
   br label %_ZN9__gnu_cxx5__ops11__pred_iterISt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEEENS0_10_Iter_predIT_EESA_.exit
 
 _ZN9__gnu_cxx5__ops10_Iter_predISt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEEC2ES8_.exit.i: ; preds = %_ZNSt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEC2ERKS5_.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !noalias !500
+  %.sroa.0.0.copyload.i = load <2 x i64>, ptr %5, align 16, !tbaa !252, !noalias !500
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false), !noalias !500
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  store ptr %22, ptr %24, align 8, !tbaa !373, !alias.scope !500
+  store <2 x i64> %.sroa.0.0.copyload.i, ptr %4, align 16, !tbaa !252, !alias.scope !500
+  store ptr %22, ptr %24, align 16, !tbaa !373, !alias.scope !500
   br label %_ZN9__gnu_cxx5__ops11__pred_iterISt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEEENS0_10_Iter_predIT_EESA_.exit
 
 _ZN9__gnu_cxx5__ops11__pred_iterISt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEEENS0_10_Iter_predIT_EESA_.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predISt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEEC2ES8_.exit.i, %_ZNSt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEC2EOS5_.exit.thread.i
@@ -9676,7 +9677,7 @@ _ZN9__gnu_cxx5__ops11__pred_iterISt8functionIFbN4cvc58internal12NodeTemplateILb1
 
 28:                                               ; preds = %_ZN9__gnu_cxx5__ops11__pred_iterISt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEEENS0_10_Iter_predIT_EESA_.exit
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !373
+  %30 = load ptr, ptr %29, align 16, !tbaa !373
   %.not.i.i8 = icmp eq ptr %30, null
   br i1 %.not.i.i8, label %_ZN9__gnu_cxx5__ops10_Iter_predISt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEED2Ev.exit, label %31
 
@@ -9692,7 +9693,7 @@ _ZN9__gnu_cxx5__ops11__pred_iterISt8functionIFbN4cvc58internal12NodeTemplateILb1
   unreachable
 
 _ZN9__gnu_cxx5__ops10_Iter_predISt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEED2Ev.exit: ; preds = %28, %31
-  %36 = load ptr, ptr %6, align 8, !tbaa !373
+  %36 = load ptr, ptr %6, align 16, !tbaa !373
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %37
 
@@ -9714,7 +9715,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN9__gnu_cxx5__ops
   %43 = landingpad { ptr, i32 }
           cleanup
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !373
+  %45 = load ptr, ptr %44, align 16, !tbaa !373
   %.not.i.i10 = icmp eq ptr %45, null
   br i1 %.not.i.i10, label %_ZN9__gnu_cxx5__ops10_Iter_predISt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEED2Ev.exit12, label %46
 
@@ -9730,7 +9731,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN9__gnu_cxx5__ops
   unreachable
 
 _ZN9__gnu_cxx5__ops10_Iter_predISt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEED2Ev.exit12: ; preds = %46, %42
-  %51 = load ptr, ptr %6, align 8, !tbaa !373
+  %51 = load ptr, ptr %6, align 16, !tbaa !373
   %.not.i13 = icmp eq ptr %51, null
   br i1 %.not.i13, label %common.resume, label %52
 

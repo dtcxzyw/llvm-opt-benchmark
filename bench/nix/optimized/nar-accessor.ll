@@ -18926,7 +18926,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmmEED2Ev.exi
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3nix11NarAccessorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFS6_mmEE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  %5 = alloca %"class.std::function.223", align 8
+  %5 = alloca %"class.std::function.223", align 16
   %6 = alloca %"class.nlohmann::basic_json", align 8
   %7 = alloca %"class.std::function.227", align 8
   tail call void @_ZN3nix14SourceAccessorC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0)
@@ -19004,11 +19004,10 @@ _ZNSt8functionIFvRN3nix9NarMemberERN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__c
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i64 0, ptr %40, align 8
   %41 = ptrtoint ptr %5 to i64
-  store i64 %41, ptr %5, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.0.0.vec.insert = insertelement <2 x i64> <i64 poison, i64 0>, i64 %41, i64 0
+  store <2 x i64> %.sroa.0.0.vec.insert, ptr %5, align 16
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr @_ZNSt17_Function_handlerIFvRN3nix9NarMemberERN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEEEEZNS0_11NarAccessorC1ERKSC_St8functionIFSC_mmEEEUlS2_SH_E_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation, ptr %42, align 8
+  store ptr @_ZNSt17_Function_handlerIFvRN3nix9NarMemberERN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEEEEZNS0_11NarAccessorC1ERKSC_St8functionIFSC_mmEEEUlS2_SH_E_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation, ptr %42, align 16
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr @_ZNSt17_Function_handlerIFvRN3nix9NarMemberERN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEEEEZNS0_11NarAccessorC1ERKSC_St8functionIFSC_mmEEEUlS2_SH_E_E9_M_invokeERKSt9_Any_dataS2_SH_, ptr %43, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
@@ -19033,7 +19032,7 @@ _ZNSt8functionIFvRN3nix9NarMemberERN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__c
   unreachable
 
 _ZNSt8functionIFbiN8nlohmann6detail13parse_event_tERNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEEEEED2Ev.exit: ; preds = %44, %47
-  %52 = load ptr, ptr %42, align 8
+  %52 = load ptr, ptr %42, align 16
   %.not.i.i9 = icmp eq ptr %52, null
   br i1 %.not.i.i9, label %53, label %54
 
@@ -19063,7 +19062,7 @@ _ZNKSt8functionIFvRN3nix9NarMemberERN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__
   unreachable
 
 _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEED2Ev.exit: ; preds = %_ZNKSt8functionIFvRN3nix9NarMemberERN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEEEEEclES2_SH_.exit
-  %61 = load ptr, ptr %42, align 8
+  %61 = load ptr, ptr %42, align 16
   %.not.i.i11 = icmp eq ptr %61, null
   br i1 %.not.i.i11, label %_ZNSt8functionIFvRN3nix9NarMemberERN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEEEEED2Ev.exit, label %62
 
@@ -19108,7 +19107,7 @@ _ZNSt8functionIFvRN3nix9NarMemberERN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__c
 
 _ZNSt8functionIFbiN8nlohmann6detail13parse_event_tERNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEEEEED2Ev.exit15: ; preds = %71, %67, %76
   %.pn = phi { ptr, i32 } [ %77, %76 ], [ %68, %67 ], [ %68, %71 ]
-  %78 = load ptr, ptr %42, align 8
+  %78 = load ptr, ptr %42, align 16
   %.not.i.i16 = icmp eq ptr %78, null
   br i1 %.not.i.i16, label %_ZNSt8functionIFvRN3nix9NarMemberERN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEEEEED2Ev.exit18, label %79
 

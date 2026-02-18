@@ -7870,13 +7870,14 @@ _ZNKSt6vectorIN2cv5Rect_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  %.sroa.0.0.copyload21 = load <4 x i32>, ptr %1, align 4
   %24 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
           to label %_ZNKSt6vectorIN2cv5Rect_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i unwind label %.thread
 
 _ZNKSt6vectorIN2cv5Rect_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %_ZNKSt6vectorIN2cv5Rect_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %24, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
+  store <4 x i32> %.sroa.0.0.copyload21, ptr %24, align 4
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %24, ptr %7, align 8, !tbaa !158
   store ptr %27, ptr %26, align 8, !tbaa !161
@@ -7928,7 +7929,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit16:   ; preds = %_ZNSt6vectorIN2cv5R
   br label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit18
 
 _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit18:   ; preds = %.thread, %35
-  %.pn28 = phi { ptr, i32 } [ %34, %.thread ], [ %36, %35 ]
+  %.pn31 = phi { ptr, i32 } [ %34, %.thread ], [ %36, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %37 = load ptr, ptr %6, align 8, !tbaa !158
   %.not.i.i.i19 = icmp eq ptr %37, null
@@ -7943,7 +7944,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit20:   ; preds = %_ZNSt6vectorIN2cv5R
   br label %39
 
 39:                                               ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn9.pn = phi { ptr, i32 } [ %.pn9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn28, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit20 ]
+  %.pn9.pn = phi { ptr, i32 } [ %.pn9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn31, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit20 ]
   resume { ptr, i32 } %.pn9.pn
 }
 

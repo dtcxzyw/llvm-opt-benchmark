@@ -4832,6 +4832,7 @@ _ZNSt8functionIFvvEEC2EOS1_.exit.thread:          ; preds = %13
   br label %_ZNSt14_Function_baseD2Ev.exit
 
 _ZN14V3OptionParser4Impl12ActionCbCallC2ESt8functionIFvvEE.exit: ; preds = %13
+  %.sroa.0.0.copyload = load <2 x i64>, ptr %2, align 8, !tbaa !16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i8 0, ptr %22, align 8, !tbaa !86
@@ -4840,7 +4841,7 @@ _ZN14V3OptionParser4Impl12ActionCbCallC2ESt8functionIFvvEE.exit: ; preds = %13
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store ptr %16, ptr %24, align 8, !tbaa !129
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  store <2 x i64> %.sroa.0.0.copyload, ptr %23, align 8, !tbaa !16
   store ptr %18, ptr %25, align 8, !tbaa !127
   br label %_ZNSt14_Function_baseD2Ev.exit
 
@@ -5212,6 +5213,7 @@ _ZNSt8functionIFvbEEC2EOS1_.exit.thread:          ; preds = %13
   br label %_ZNSt14_Function_baseD2Ev.exit
 
 _ZN14V3OptionParser4Impl14ActionCbFOnOffC2ESt8functionIFvbEE.exit: ; preds = %13
+  %.sroa.0.0.copyload = load <2 x i64>, ptr %2, align 8, !tbaa !16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i8 0, ptr %22, align 8, !tbaa !111
@@ -5220,7 +5222,7 @@ _ZN14V3OptionParser4Impl14ActionCbFOnOffC2ESt8functionIFvbEE.exit: ; preds = %13
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store ptr %16, ptr %24, align 8, !tbaa !133
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  store <2 x i64> %.sroa.0.0.copyload, ptr %23, align 8, !tbaa !16
   store ptr %18, ptr %25, align 8, !tbaa !127
   br label %_ZNSt14_Function_baseD2Ev.exit
 
@@ -5592,6 +5594,7 @@ _ZNSt8functionIFvbEEC2EOS1_.exit.thread:          ; preds = %13
   br label %_ZNSt14_Function_baseD2Ev.exit
 
 _ZN14V3OptionParser4Impl13ActionCbOnOffC2ESt8functionIFvbEE.exit: ; preds = %13
+  %.sroa.0.0.copyload = load <2 x i64>, ptr %2, align 8, !tbaa !16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i8 0, ptr %22, align 8, !tbaa !117
@@ -5600,7 +5603,7 @@ _ZN14V3OptionParser4Impl13ActionCbOnOffC2ESt8functionIFvbEE.exit: ; preds = %13
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store ptr %16, ptr %24, align 8, !tbaa !133
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  store <2 x i64> %.sroa.0.0.copyload, ptr %23, align 8, !tbaa !16
   store ptr %18, ptr %25, align 8, !tbaa !127
   br label %_ZNSt14_Function_baseD2Ev.exit
 
@@ -5972,6 +5975,7 @@ _ZNSt8functionIFviEEC2EOS1_.exit.thread:          ; preds = %13
   br label %_ZNSt14_Function_baseD2Ev.exit
 
 _ZN14V3OptionParser4Impl11ActionCbValIiEC2ESt8functionIFviEE.exit: ; preds = %13
+  %.sroa.0.0.copyload = load <2 x i64>, ptr %2, align 8, !tbaa !16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i8 0, ptr %22, align 8, !tbaa !100
@@ -5980,7 +5984,7 @@ _ZN14V3OptionParser4Impl11ActionCbValIiEC2ESt8functionIFviEE.exit: ; preds = %13
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store ptr %16, ptr %24, align 8, !tbaa !139
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  store <2 x i64> %.sroa.0.0.copyload, ptr %23, align 8, !tbaa !16
   store ptr %18, ptr %25, align 8, !tbaa !127
   br label %_ZNSt14_Function_baseD2Ev.exit
 
@@ -6352,6 +6356,7 @@ _ZNSt8functionIFvPKcEEC2EOS3_.exit.thread:        ; preds = %13
   br label %_ZNSt14_Function_baseD2Ev.exit
 
 _ZN14V3OptionParser4Impl11ActionCbValIPKcEC2ESt8functionIFvS3_EE.exit: ; preds = %13
+  %.sroa.0.0.copyload = load <2 x i64>, ptr %2, align 8, !tbaa !16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i8 0, ptr %22, align 8, !tbaa !100
@@ -6360,7 +6365,7 @@ _ZN14V3OptionParser4Impl11ActionCbValIPKcEC2ESt8functionIFvS3_EE.exit: ; preds =
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store ptr %16, ptr %24, align 8, !tbaa !143
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  store <2 x i64> %.sroa.0.0.copyload, ptr %23, align 8, !tbaa !16
   store ptr %18, ptr %25, align 8, !tbaa !127
   br label %_ZNSt14_Function_baseD2Ev.exit
 

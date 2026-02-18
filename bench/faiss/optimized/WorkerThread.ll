@@ -3246,9 +3246,8 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss12WorkerThread10threadLoopEv(ptr noundef nonnull align 8 dereferenceable(184) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::promise", align 8
-  %.sroa.0.i.i.i.i = alloca { i64, i64 }, align 8
-  %3 = alloca %"class.std::function", align 8
-  %4 = alloca %"struct.std::pair", align 8
+  %3 = alloca %"class.std::function", align 16
+  %4 = alloca %"struct.std::pair", align 16
   %5 = alloca %"class.std::unique_lock", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3330,7 +3329,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %24
 .critedge:                                        ; preds = %30
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %45 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   %46 = load ptr, ptr %45, align 8, !tbaa !32
   %47 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !35
@@ -3338,19 +3337,18 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %24
   br i1 %.not.i.i.not.i.i.i, label %_ZNSt8functionIFvvEEC2EOS1_.exit.i.i, label %49
 
 49:                                               ; preds = %.critedge
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(56) %32, i64 16, i1 false), !tbaa.struct !92
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(56) %32, i64 16, i1 false), !tbaa.struct !92
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
+  %.sroa.0.0.copyload.i.i.pre.i.i = load <2 x i64>, ptr %3, align 16, !tbaa !47
   br label %_ZNSt8functionIFvvEEC2EOS1_.exit.i.i
 
 _ZNSt8functionIFvvEEC2EOS1_.exit.i.i:             ; preds = %49, %.critedge
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false), !tbaa.struct !92
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 16, i1 false), !tbaa.struct !92
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, i64 16, i1 false), !tbaa.struct !92
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i)
-  %50 = load ptr, ptr %14, align 8, !tbaa !114
-  store ptr %50, ptr %13, align 8, !tbaa !114
-  store ptr %48, ptr %14, align 8, !tbaa !114
+  %.sroa.0.0.copyload.i.i.i.i = phi <2 x i64> [ zeroinitializer, %.critedge ], [ %.sroa.0.0.copyload.i.i.pre.i.i, %49 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 16 dereferenceable(56) %4, i64 16, i1 false), !tbaa.struct !92
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i.i, ptr %4, align 16, !tbaa !47
+  %50 = load ptr, ptr %14, align 16, !tbaa !114
+  store ptr %50, ptr %13, align 16, !tbaa !114
+  store ptr %48, ptr %14, align 16, !tbaa !114
   %51 = load ptr, ptr %15, align 8, !tbaa !114
   store ptr %51, ptr %12, align 8, !tbaa !114
   store ptr %46, ptr %15, align 8, !tbaa !114
@@ -3379,16 +3377,16 @@ _ZNSt4pairISt8functionIFvvEESt7promiseIbEEaSEOS5_.exit: ; preds = %_ZNSt8functio
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false)
   %62 = load i64, ptr %61, align 8, !tbaa !69
   store ptr null, ptr %61, align 8, !tbaa !69
-  %63 = load ptr, ptr %16, align 8, !tbaa !38
+  %63 = load ptr, ptr %16, align 16, !tbaa !38
   store ptr %63, ptr %2, align 8, !tbaa !38
-  store ptr %58, ptr %16, align 8, !tbaa !38
+  store ptr %58, ptr %16, align 16, !tbaa !38
   %64 = load ptr, ptr %19, align 8, !tbaa !40
   store ptr %60, ptr %19, align 8, !tbaa !40
   store ptr %64, ptr %17, align 8, !tbaa !40
   %65 = inttoptr i64 %62 to ptr
-  %66 = load ptr, ptr %20, align 8, !tbaa !69
+  %66 = load ptr, ptr %20, align 16, !tbaa !69
   store ptr %66, ptr %18, align 8, !tbaa !69
-  store ptr %65, ptr %20, align 8, !tbaa !69
+  store ptr %65, ptr %20, align 16, !tbaa !69
   call void @_ZNSt7promiseIbED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %67 = load ptr, ptr %10, align 8, !tbaa !113
@@ -3488,7 +3486,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit17:          ; preds = %.critedge12, %100, 
 
 104:                                              ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit15, %_ZNSt11unique_lockISt5mutexED2Ev.exit17
   call void @_ZNSt7promiseIbED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #25
-  %105 = load ptr, ptr %14, align 8, !tbaa !35
+  %105 = load ptr, ptr %14, align 16, !tbaa !35
   %.not.i.i18 = icmp eq ptr %105, null
   br i1 %.not.i.i18, label %_ZNSt4pairISt8functionIFvvEESt7promiseIbEED2Ev.exit, label %106
 

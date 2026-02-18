@@ -39487,24 +39487,21 @@ define linkonce_odr hidden noundef ptr @_ZNK4entt13basic_storageI8positionNS_6en
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN4entt13basic_storageI8positionNS_6entityESaIS1_EvE12swap_or_moveEmm(ptr noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = alloca %struct.position, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %6 = lshr i64 %1, 10
-  %7 = load ptr, ptr %5, align 8, !tbaa !139
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %6
-  %9 = load ptr, ptr %8, align 8, !tbaa !140
-  %10 = and i64 %1, 1023
-  %11 = getelementptr inbounds nuw %struct.position, ptr %9, i64 %10
-  %12 = lshr i64 %2, 10
-  %13 = getelementptr inbounds nuw ptr, ptr %7, i64 %12
-  %14 = load ptr, ptr %13, align 8, !tbaa !140
-  %15 = and i64 %2, 1023
-  %16 = getelementptr inbounds nuw %struct.position, ptr %14, i64 %15
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !1707
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !1707
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !1707
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %5 = lshr i64 %1, 10
+  %6 = load ptr, ptr %4, align 8, !tbaa !139
+  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %5
+  %8 = load ptr, ptr %7, align 8, !tbaa !140
+  %9 = and i64 %1, 1023
+  %10 = getelementptr inbounds nuw %struct.position, ptr %8, i64 %9
+  %11 = lshr i64 %2, 10
+  %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %11
+  %13 = load ptr, ptr %12, align 8, !tbaa !140
+  %14 = and i64 %2, 1023
+  %15 = getelementptr inbounds nuw %struct.position, ptr %13, i64 %14
+  %.sroa.0.0.copyload.i.i = load <2 x i64>, ptr %10, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !1707
+  store <2 x i64> %.sroa.0.0.copyload.i.i, ptr %15, align 8
   ret void
 }
 
@@ -43765,7 +43762,6 @@ define linkonce_odr hidden noundef ptr @_ZNK4entt13basic_storageI15stable_positi
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN4entt13basic_storageI15stable_positionNS_6entityESaIS1_EvE12swap_or_moveEmm(ptr noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i = alloca %struct.position, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !104
   %6 = getelementptr inbounds nuw i32, ptr %5, i64 %2
@@ -43791,11 +43787,9 @@ define linkonce_odr hidden void @_ZN4entt13basic_storageI15stable_positionNS_6en
   %21 = load ptr, ptr %20, align 8, !tbaa !172
   %22 = and i64 %2, 1023
   %23 = getelementptr inbounds nuw %struct.stable_position, ptr %21, i64 %22
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false)
+  %.sroa.0.0.copyload.i.i = load <2 x i64>, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
+  store <2 x i64> %.sroa.0.0.copyload.i.i, ptr %23, align 8
   br label %24
 
 24:                                               ; preds = %18, %16
@@ -45750,7 +45744,6 @@ define linkonce_odr hidden noundef ptr @_ZNK4entt13basic_storageI8velocityNS_6en
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN4entt13basic_storageI8velocityNS_6entityESaIS1_EvE12swap_or_moveEmm(ptr noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 comdat align 2 {
-  %.sroa.0.i.i = alloca %struct.position, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = lshr i64 %1, 10
   %6 = load ptr, ptr %4, align 8, !tbaa !144
@@ -45763,11 +45756,9 @@ define linkonce_odr hidden void @_ZN4entt13basic_storageI8velocityNS_6entityESaI
   %13 = load ptr, ptr %12, align 8, !tbaa !145
   %14 = and i64 %2, 1023
   %15 = getelementptr inbounds nuw %struct.velocity, ptr %13, i64 %14
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
+  %.sroa.0.0.copyload.i.i = load <2 x i64>, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
+  store <2 x i64> %.sroa.0.0.copyload.i.i, ptr %15, align 8
   ret void
 }
 

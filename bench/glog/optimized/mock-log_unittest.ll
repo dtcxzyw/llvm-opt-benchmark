@@ -9422,12 +9422,12 @@ define internal void @_ZN12_GLOBAL__N_141ScopedMockLogTest_LogDuringIntercept_Te
   %6 = alloca %"class.testing::Matcher.19", align 8
   %7 = alloca %"class.testing::Matcher", align 8
   %8 = alloca %"class.testing::Matcher", align 8
-  %9 = alloca %"class.testing::Action", align 8
+  %9 = alloca %"class.testing::Action", align 16
   %10 = alloca %"class.testing::internal::MockSpec", align 8
   %11 = alloca %"class.testing::Matcher.19", align 8
   %12 = alloca %"class.testing::Matcher", align 8
   %13 = alloca %"class.testing::Matcher", align 8
-  %14 = alloca %"class.testing::Action", align 8
+  %14 = alloca %"class.testing::Action", align 16
   %15 = alloca %"class.testing::internal::MockSpec", align 8
   %16 = alloca %"class.testing::Matcher.19", align 8
   %17 = alloca %"class.testing::Matcher", align 8
@@ -9521,18 +9521,16 @@ _ZN6google12glog_testing13ScopedMockLogC2Ev.exit: ; preds = %28
 
 49:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_17LogTreeEv to i64), ptr %9, align 8
-  %.sroa.0.i.i.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 0, ptr %.sroa.0.i.i.i.i.i.sroa.4.0..sroa_idx, align 8, !tbaa !47
+  store <2 x i64> <i64 ptrtoint (ptr @_ZN12_GLOBAL__N_17LogTreeEv to i64), i64 0>, ptr %9, align 16, !tbaa !47
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr @_ZNSt17_Function_handlerIFvN6google11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EN7testing8internal23InvokeWithoutArgsActionIPFvvEEEE10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %50, align 8, !tbaa !125
+  store ptr @_ZNSt17_Function_handlerIFvN6google11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EN7testing8internal23InvokeWithoutArgsActionIPFvvEEEE10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %50, align 16, !tbaa !125
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr @_ZNSt17_Function_handlerIFvN6google11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EN7testing8internal23InvokeWithoutArgsActionIPFvvEEEE9_M_invokeERKSt9_Any_dataOS1_S9_S9_, ptr %51, align 8, !tbaa !125
   %52 = invoke noundef nonnull align 8 dereferenceable(368) ptr @_ZN7testing8internal16TypedExpectationIFvN6google11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EE8WillOnceERKNS_6ActionISC_EE(ptr noundef nonnull align 8 dereferenceable(368) %48, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %53 unwind label %653
 
 53:                                               ; preds = %49
-  %54 = load ptr, ptr %50, align 8, !tbaa !126
+  %54 = load ptr, ptr %50, align 16, !tbaa !126
   %.not.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i, label %_ZN7testing6ActionIFvN6google11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_EED2Ev.exit, label %55
 
@@ -9794,18 +9792,16 @@ _ZNK7testing8internal11MatcherBaseIN6google11LogSeverityEE8IsSharedEv.exit.i.i: 
 
 171:                                              ; preds = %169
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_19LogForestEv to i64), ptr %14, align 8
-  %.sroa.0.i.i.i.i.i73.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 0, ptr %.sroa.0.i.i.i.i.i73.sroa.4.0..sroa_idx, align 8, !tbaa !47
+  store <2 x i64> <i64 ptrtoint (ptr @_ZN12_GLOBAL__N_19LogForestEv to i64), i64 0>, ptr %14, align 16, !tbaa !47
   %172 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr @_ZNSt17_Function_handlerIFvN6google11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EN7testing8internal23InvokeWithoutArgsActionIPFvvEEEE10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %172, align 8, !tbaa !125
+  store ptr @_ZNSt17_Function_handlerIFvN6google11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EN7testing8internal23InvokeWithoutArgsActionIPFvvEEEE10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %172, align 16, !tbaa !125
   %173 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr @_ZNSt17_Function_handlerIFvN6google11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EN7testing8internal23InvokeWithoutArgsActionIPFvvEEEE9_M_invokeERKSt9_Any_dataOS1_S9_S9_, ptr %173, align 8, !tbaa !125
   %174 = invoke noundef nonnull align 8 dereferenceable(368) ptr @_ZN7testing8internal16TypedExpectationIFvN6google11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EE8WillOnceERKNS_6ActionISC_EE(ptr noundef nonnull align 8 dereferenceable(368) %170, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %175 unwind label %674
 
 175:                                              ; preds = %171
-  %176 = load ptr, ptr %172, align 8, !tbaa !126
+  %176 = load ptr, ptr %172, align 16, !tbaa !126
   %.not.i.i74 = icmp eq ptr %176, null
   br i1 %.not.i.i74, label %_ZN7testing6ActionIFvN6google11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_EED2Ev.exit75, label %177
 
@@ -10873,7 +10869,7 @@ _ZN6google12glog_testing13ScopedMockLogD2Ev.exit: ; preds = %_ZNSt7__cxx1112basi
 653:                                              ; preds = %49
   %654 = landingpad { ptr, i32 }
           cleanup
-  %655 = load ptr, ptr %50, align 8, !tbaa !126
+  %655 = load ptr, ptr %50, align 16, !tbaa !126
   %.not.i.i125 = icmp eq ptr %655, null
   br i1 %.not.i.i125, label %_ZN7testing6ActionIFvN6google11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_EED2Ev.exit126, label %656
 
@@ -10940,7 +10936,7 @@ _ZN7testing6ActionIFvN6google11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char
 674:                                              ; preds = %171
   %675 = landingpad { ptr, i32 }
           cleanup
-  %676 = load ptr, ptr %172, align 8, !tbaa !126
+  %676 = load ptr, ptr %172, align 16, !tbaa !126
   %.not.i.i127 = icmp eq ptr %676, null
   br i1 %.not.i.i127, label %_ZN7testing6ActionIFvN6google11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_EED2Ev.exit128, label %677
 

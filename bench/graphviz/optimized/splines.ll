@@ -3750,31 +3750,27 @@ define { double, double } @edgeMidpoint(ptr noundef readonly captures(none) %0, 
 
 12:                                               ; preds = %2
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %.sroa.618.0..sroa.9.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 32
   br label %14
 
 13:                                               ; preds = %2
   %.sroa.0.0.copyload.i = load ptr, ptr %11, align 8, !tbaa !170
-  %.sroa.618.0..sroa.0.0.copyload.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 8
   br label %14
 
 14:                                               ; preds = %13, %12
-  %.sroa.618.0.in = phi ptr [ %.sroa.618.0..sroa.0.0.copyload.i.sroa_idx, %13 ], [ %.sroa.618.0..sroa.9.0..sroa_idx.i.sroa_idx, %12 ]
   %.sroa.016.0.in = phi ptr [ %.sroa.0.0.copyload.i, %13 ], [ %.sroa.9.0..sroa_idx.i, %12 ]
-  %.sroa.016.0 = load double, ptr %.sroa.016.0.in, align 8
-  %.sroa.618.0 = load double, ptr %.sroa.618.0.in, align 8
+  %.sroa.016.0 = load <2 x double>, ptr %.sroa.016.0.in, align 8
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !61
   %17 = getelementptr %struct.bezier, ptr %11, i64 %16
   %.sroa.8.0..sroa_idx7.i = getelementptr i8, ptr %17, i64 -36
   %.sroa.8.0.copyload8.i = load i32, ptr %.sroa.8.0..sroa_idx7.i, align 4, !tbaa !86
-  %.not17.i = icmp eq i32 %.sroa.8.0.copyload8.i, 0
-  br i1 %.not17.i, label %18, label %endPoints.exit
+  %.not19.i = icmp eq i32 %.sroa.8.0.copyload8.i, 0
+  br i1 %.not19.i, label %18, label %endPoints.exit
 
 18:                                               ; preds = %14
+  %19 = getelementptr i8, ptr %17, i64 -56
   %.sroa.6.0..sroa_idx3.i = getelementptr i8, ptr %17, i64 -48
   %.sroa.6.0.copyload4.i = load i64, ptr %.sroa.6.0..sroa_idx3.i, align 8, !tbaa !171
-  %19 = getelementptr i8, ptr %17, i64 -56
   %.sroa.0.0.copyload2.i = load ptr, ptr %19, align 8, !tbaa !170
   %20 = getelementptr %struct.pointf_s, ptr %.sroa.0.0.copyload2.i, i64 %.sroa.6.0.copyload4.i
   br label %endPoints.exit
@@ -3782,19 +3778,21 @@ define { double, double } @edgeMidpoint(ptr noundef readonly captures(none) %0, 
 endPoints.exit:                                   ; preds = %14, %18
   %.pn = phi ptr [ %20, %18 ], [ %17, %14 ]
   %.sroa.0.0.in = getelementptr i8, ptr %.pn, i64 -16
-  %.sroa.0.0 = load double, ptr %.sroa.0.0.in, align 8
-  %.sroa.6.0.in = getelementptr i8, ptr %.pn, i64 -8
-  %.sroa.6.0 = load double, ptr %.sroa.6.0.in, align 8
-  %21 = fsub double %.sroa.016.0, %.sroa.0.0
-  %22 = fsub double %.sroa.618.0, %.sroa.6.0
+  %.sroa.0.0 = load <2 x double>, ptr %.sroa.0.0.in, align 8
+  %foldExtExtBinop = fsub <2 x double> %.sroa.016.0, %.sroa.0.0
+  %21 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %.sroa.016.8.vec.extract = extractelement <2 x double> %.sroa.016.0, i64 1
+  %.sroa.0.8.vec.extract = extractelement <2 x double> %.sroa.0.0, i64 1
+  %22 = fsub double %.sroa.016.8.vec.extract, %.sroa.0.8.vec.extract
   %23 = fmul double %22, %22
   %24 = tail call double @llvm.fmuladd.f64(double %21, double %21, double %23)
   %25 = fcmp olt double %24, 0x3EB0C6F7A0B5ED8D
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %endPoints.exit
-  %27 = insertvalue { double, double } poison, double %.sroa.016.0, 0
-  %28 = insertvalue { double, double } %27, double %.sroa.618.0, 1
+  %.sroa.016.0.vec.extract = extractelement <2 x double> %.sroa.016.0, i64 0
+  %27 = insertvalue { double, double } poison, double %.sroa.016.0.vec.extract, 0
+  %28 = insertvalue { double, double } %27, double %.sroa.016.8.vec.extract, 1
   br label %75
 
 29:                                               ; preds = %endPoints.exit
@@ -3805,9 +3803,10 @@ endPoints.exit:                                   ; preds = %14, %18
   ]
 
 31:                                               ; preds = %29, %29
-  %32 = fadd double %.sroa.016.0, %.sroa.0.0
+  %foldExtExtBinop51 = fadd <2 x double> %.sroa.016.0, %.sroa.0.0
+  %32 = extractelement <2 x double> %foldExtExtBinop51, i64 0
   %33 = fmul double %32, 5.000000e-01
-  %34 = fadd double %.sroa.618.0, %.sroa.6.0
+  %34 = fadd double %.sroa.016.8.vec.extract, %.sroa.0.8.vec.extract
   %35 = fmul double %34, 5.000000e-01
   %36 = tail call { double, double } @dotneato_closest(ptr noundef nonnull %10, double %33, double %35) #17
   br label %75

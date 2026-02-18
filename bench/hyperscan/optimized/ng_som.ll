@@ -23220,7 +23220,6 @@ declare void @_ZN3ue211all_reportsERKNS_8NGHolderE(ptr dead_on_unwind writable s
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZN3ue2L13makeSomRevNfaERSt6vectorINS_12_GLOBAL__N_19SomRevNfaESaIS2_EERKNS_8NGHolderEjNS_12graph_detail17vertex_descriptorINS_9ue2_graphIS6_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKNS_14CompileContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i32 noundef %2, ptr %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(320) %5) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %.sroa.5.i.i.i = alloca { i64, i64 }, align 8
   %7 = alloca %"class.ue2::NGHolder", align 8
   %8 = alloca %"class.ue2::bytecode_ptr", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -23460,10 +23459,9 @@ _ZN3ue217renumber_verticesINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5v
   br i1 %.not.i24, label %92, label %85
 
 85:                                               ; preds = %80
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i.i.i)
   store ptr null, ptr %8, align 8
   %86 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
+  %.sroa.5.8.copyload.i.i.i = load <2 x i64>, ptr %86, align 8
   store ptr %3, ptr %82, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %82, i64 8
   store i64 %4, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
@@ -23472,8 +23470,7 @@ _ZN3ue217renumber_verticesINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5v
   %88 = getelementptr inbounds nuw i8, ptr %82, i64 24
   store i64 %75, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %82, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i.i.i)
+  store <2 x i64> %.sroa.5.8.copyload.i.i.i, ptr %89, align 8
   %90 = load ptr, ptr %81, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 48
   store ptr %91, ptr %81, align 8
@@ -23512,6 +23509,7 @@ _ZNKSt6vectorIN3ue212_GLOBAL__N_19SomRevNfaESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 %95
   store ptr null, ptr %8, align 8
   %107 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sroa.5.8.copyload.i.i.i.i = load <2 x i64>, ptr %107, align 8
   store ptr %3, ptr %106, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %106, i64 8
   store i64 %4, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
@@ -23520,7 +23518,7 @@ _ZNKSt6vectorIN3ue212_GLOBAL__N_19SomRevNfaESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 24
   store i64 %75, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %106, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull align 8 dereferenceable(16) %107, i64 16, i1 false)
+  store <2 x i64> %.sroa.5.8.copyload.i.i.i.i, ptr %110, align 8
   br i1 %99, label %_ZNSt6vectorIN3ue212_GLOBAL__N_19SomRevNfaESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit41.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.noexc25, %.lr.ph.i.i.i.i.i.i

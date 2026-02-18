@@ -3426,7 +3426,7 @@ ehcleanup:                                        ; preds = %lpad17, %lpad15
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEE23set_response_attachmentENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %attachment) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i.i = alloca %"class.std::function", align 8
+  %ref.tmp.i.i = alloca %"class.std::function", align 16
   %ref.tmp = alloca %class.anon.465, align 8
   %0 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %attachment) #33
@@ -3498,14 +3498,16 @@ _ZNSt8functionIFSt17basic_string_viewIcSt11char_traitsIcEEvEEC2EOS5_.exit.i.i: ;
   %resp_attachment_.i = getelementptr inbounds nuw i8, ptr %11, i64 104
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %resp_attachment_.i, i64 16, i1 false)
-  store ptr %call.i.i2.i2, ptr %resp_attachment_.i, align 8
-  %agg.tmp.sroa.2.0.resp_attachment_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 112
-  store i64 0, ptr %agg.tmp.sroa.2.0.resp_attachment_.i.sroa_idx, align 8
+  store ptr %call.i.i2.i2, ptr %ref.tmp.i.i, align 16
+  %agg.tmp.sroa.2.0.ref.tmp.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
+  store i64 0, ptr %agg.tmp.sroa.2.0.ref.tmp.i.i.sroa_idx, align 8
+  %__tmp.sroa.0.0.copyload.i.i.pre.i.i = load <2 x i64>, ptr %ref.tmp.i.i, align 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %resp_attachment_.i, i64 16, i1 false)
+  store <2 x i64> %__tmp.sroa.0.0.copyload.i.i.pre.i.i, ptr %resp_attachment_.i, align 8
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
   %_M_manager3.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 120
   %12 = load ptr, ptr %_M_manager3.i.i.i, align 8
-  store ptr %12, ptr %_M_manager.i.i.i, align 8
+  store ptr %12, ptr %_M_manager.i.i.i, align 16
   store ptr @_ZNSt17_Function_handlerIFSt17basic_string_viewIcSt11char_traitsIcEEvEZN8coro_rpc12context_baseIvNS5_8protocol17coro_rpc_protocolEE23set_response_attachmentENSt7__cxx1112basic_stringIcS2_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation, ptr %_M_manager3.i.i.i, align 8
   %_M_invoker4.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 128
   %13 = load ptr, ptr %_M_invoker4.i.i.i, align 8
@@ -3820,7 +3822,7 @@ if.end43:                                         ; preds = %if.end18
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %resp_attachment_, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %resp_attachment_, i8 0, i64 16, i1 false)
+  store <2 x i64> zeroinitializer, ptr %resp_attachment_, align 8
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %35, i64 120
   %36 = load ptr, ptr %_M_manager3.i.i, align 8
   store ptr %36, ptr %_M_manager.i.i.i, align 8
@@ -3854,7 +3856,7 @@ return:                                           ; preds = %_ZN7easylog8record_
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z21echo_with_attachment2N8coro_rpc12context_baseIvNS_8protocol17coro_rpc_protocolEEE(ptr noundef %conn) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i.i = alloca %"class.std::function", align 8
+  %ref.tmp.i.i = alloca %"class.std::function", align 16
   %ref.tmp = alloca %"class.easylog::record_t", align 8
   %ref.tmp5 = alloca %"struct.refvalue::meta_string", align 1
   %0 = load atomic i8, ptr @_ZGVZN7easylog6loggerILm0EE8instanceEvE8instance acquire, align 8
@@ -4010,14 +4012,16 @@ _ZNSt8functionIFSt17basic_string_viewIcSt11char_traitsIcEEvEEC2EOS5_.exit.i.i: ;
   %resp_attachment_.i = getelementptr inbounds nuw i8, ptr %22, i64 104
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %resp_attachment_.i, i64 16, i1 false)
-  store ptr %call.i.i2.i10, ptr %resp_attachment_.i, align 8
-  %agg.tmp15.sroa.2.0.resp_attachment_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 112
-  store i64 0, ptr %agg.tmp15.sroa.2.0.resp_attachment_.i.sroa_idx, align 8
+  store ptr %call.i.i2.i10, ptr %ref.tmp.i.i, align 16
+  %agg.tmp15.sroa.2.0.ref.tmp.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
+  store i64 0, ptr %agg.tmp15.sroa.2.0.ref.tmp.i.i.sroa_idx, align 8
+  %__tmp.sroa.0.0.copyload.i.i.pre.i.i = load <2 x i64>, ptr %ref.tmp.i.i, align 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %resp_attachment_.i, i64 16, i1 false)
+  store <2 x i64> %__tmp.sroa.0.0.copyload.i.i.pre.i.i, ptr %resp_attachment_.i, align 8
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
   %_M_manager3.i.i.i = getelementptr inbounds nuw i8, ptr %22, i64 120
   %23 = load ptr, ptr %_M_manager3.i.i.i, align 8
-  store ptr %23, ptr %_M_manager.i.i.i, align 8
+  store ptr %23, ptr %_M_manager.i.i.i, align 16
   store ptr @"_ZNSt17_Function_handlerIFSt17basic_string_viewIcSt11char_traitsIcEEvEZ21echo_with_attachment2N8coro_rpc12context_baseIvNS5_8protocol17coro_rpc_protocolEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager3.i.i.i, align 8
   %_M_invoker4.i.i.i = getelementptr inbounds nuw i8, ptr %22, i64 128
   %24 = load ptr, ptr %_M_invoker4.i.i.i, align 8
@@ -53705,7 +53709,7 @@ cleanup.cont:                                     ; preds = %_ZNSt7__cxx1112basi
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %resp_attachment_, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %resp_attachment_, i8 0, i64 16, i1 false)
+  store <2 x i64> zeroinitializer, ptr %resp_attachment_, align 8
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %44, i64 120
   %45 = load ptr, ptr %_M_manager3.i.i, align 8
   store ptr %45, ptr %_M_manager.i.i.i, align 8
@@ -59434,7 +59438,7 @@ cleanup.cont:                                     ; preds = %_ZNSt7__cxx1112basi
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %resp_attachment_, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %resp_attachment_, i8 0, i64 16, i1 false)
+  store <2 x i64> zeroinitializer, ptr %resp_attachment_, align 8
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %45, i64 120
   %46 = load ptr, ptr %_M_manager3.i.i, align 8
   store ptr %46, ptr %_M_manager.i.i.i, align 8

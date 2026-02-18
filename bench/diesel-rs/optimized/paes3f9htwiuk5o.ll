@@ -1785,51 +1785,50 @@ define hidden void @"_ZN74_$LT$T$u20$as$u20$diesel..deserialize..FromStaticSqlRo
   %6 = tail call { i64, i64 } @"_ZN89_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hf04f0fa525faa18aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, i64 noundef 0), !noalias !342
   %.fca.0.extract.i = extractvalue { i64, i64 } %6, 0
   %7 = icmp eq i64 %.fca.0.extract.i, 0
-  br i1 %7, label %18, label %8
+  br i1 %7, label %17, label %8
 
 8:                                                ; preds = %2
   %.fca.1.extract.i = extractvalue { i64, i64 } %6, 1
   %9 = load ptr, ptr %1, align 8, !alias.scope !345, !noalias !342, !nonnull !10, !noundef !10
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i64, ptr %11, align 8, !alias.scope !345, !noalias !342, !noundef !10
+  %11 = load <2 x i64>, ptr %1, align 8
+  %.sroa.4.8.vec.insert = shufflevector <2 x i64> %11, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
+  %.sroa.4.16.vec.insert = insertelement <2 x i64> %.sroa.4.8.vec.insert, i64 %.fca.1.extract.i, i64 1
   store ptr %10, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %12, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %.fca.1.extract.i, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
+  store <2 x i64> %.sroa.4.16.vec.insert, ptr %.sroa.4.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN106_$LT$diesel..pg..connection..row..PgField$u20$as$u20$diesel..row..Field$LT$diesel..pg..backend..Pg$GT$$GT$5value17h61cdfab4118fd312E"(ptr noalias noundef nonnull sret({ ptr, [3 x i64] }) align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !347)
   call void @llvm.experimental.noalias.scope.decl(metadata !350)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %13 = load ptr, ptr %4, align 8, !alias.scope !350, !noalias !347, !noundef !10
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %17
+  %12 = load ptr, ptr %4, align 8, !alias.scope !350, !noalias !347, !noundef !10
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %16
 
-15:                                               ; preds = %8
+14:                                               ; preds = %8
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8, !alias.scope !347, !noalias !350
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @anon.71936b12be1f66b3fdf7a7d8abd32636.26.llvm.1037472463927168953, ptr %16, align 8, !alias.scope !347, !noalias !350
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr @anon.71936b12be1f66b3fdf7a7d8abd32636.26.llvm.1037472463927168953, ptr %15, align 8, !alias.scope !347, !noalias !350
   br label %_ZN6diesel11deserialize7FromSql17from_nullable_sql17h23e1ed5e3bd84f4eE.llvm.1037472463927168953.exit
 
-17:                                               ; preds = %8
+16:                                               ; preds = %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !347
   call void @"_ZN6diesel2pg5types8integers122_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..sql_types..Integer$C$diesel..pg..backend..Pg$GT$$u20$for$u20$i32$GT$8from_sql17h2425c31264dfb099E"(ptr noalias noundef nonnull sret({ ptr, [1 x i64] }) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3), !noalias !350
   br label %_ZN6diesel11deserialize7FromSql17from_nullable_sql17h23e1ed5e3bd84f4eE.llvm.1037472463927168953.exit
 
-_ZN6diesel11deserialize7FromSql17from_nullable_sql17h23e1ed5e3bd84f4eE.llvm.1037472463927168953.exit: ; preds = %15, %17
+_ZN6diesel11deserialize7FromSql17from_nullable_sql17h23e1ed5e3bd84f4eE.llvm.1037472463927168953.exit: ; preds = %14, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %20
+  br label %19
 
-18:                                               ; preds = %2
+17:                                               ; preds = %2
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @anon.71936b12be1f66b3fdf7a7d8abd32636.39.llvm.1037472463927168953, ptr %19, align 8
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr @anon.71936b12be1f66b3fdf7a7d8abd32636.39.llvm.1037472463927168953, ptr %18, align 8
+  br label %19
 
-20:                                               ; preds = %_ZN6diesel11deserialize7FromSql17from_nullable_sql17h23e1ed5e3bd84f4eE.llvm.1037472463927168953.exit, %18
+19:                                               ; preds = %_ZN6diesel11deserialize7FromSql17from_nullable_sql17h23e1ed5e3bd84f4eE.llvm.1037472463927168953.exit, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -1875,11 +1874,11 @@ define hidden void @"_ZN74_$LT$T$u20$as$u20$diesel..deserialize..FromStaticSqlRo
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %20 = load i64, ptr %19, align 8, !alias.scope !365, !noalias !362, !noundef !10
+  %.sroa.4.8.vec.insert = insertelement <2 x i64> poison, i64 %20, i64 0
+  %.sroa.4.16.vec.insert = insertelement <2 x i64> %.sroa.4.8.vec.insert, i64 %.fca.1.extract.i3.i, i64 1
   store ptr %18, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %20, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %.fca.1.extract.i3.i, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
+  store <2 x i64> %.sroa.4.16.vec.insert, ptr %.sroa.4.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @"_ZN106_$LT$diesel..pg..connection..row..PgField$u20$as$u20$diesel..row..Field$LT$diesel..pg..backend..Pg$GT$$GT$5value17h61cdfab4118fd312E"(ptr noalias noundef nonnull sret({ ptr, [3 x i64] }) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !367)

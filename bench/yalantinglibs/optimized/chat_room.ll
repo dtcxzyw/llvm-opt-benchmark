@@ -44646,7 +44646,6 @@ _ZN4asio15any_io_executorD2Ev.exit4:              ; preds = %lpad
 define linkonce_odr dso_local void @_ZNK4asio9execution6detail17any_executor_base7executeINS_6detail7binder2INS4_8write_opINS_19basic_stream_socketINS_2ip3tcpENS_15any_io_executorEEESt6vectorINS_12const_bufferESaISD_EEN9__gnu_cxx17__normal_iteratorIPKSD_SF_EENS4_14transfer_all_tEZZN7coro_io11async_writeISB_RSF_EEN12async_simple4coro4LazyISt4pairISt10error_codemEEERT_OT0_ENKUlSW_E_clINSM_21callback_awaitor_baseISU_NSM_16callback_awaitorISU_EEE15awaitor_handlerEEEDaSW_EUlRKSW_SY_E_EEST_mEEEEvOSW_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(104) %f) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.asio::detail::executor_function", align 8
-  %agg.tmp5.sroa.11 = alloca { i64, i64, i64, i64 }, align 8
   %agg.tmp5.sroa.17 = alloca %"class.std::error_code", align 8
   %target_fns_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_fns_, align 8
@@ -44671,7 +44670,7 @@ if.else:                                          ; preds = %entry
   %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %buffers_3.i.i, i8 0, i64 24, i1 false)
   %total_size_3.i.i.i = getelementptr inbounds nuw i8, ptr %f, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp5.sroa.11, ptr noundef nonnull align 8 dereferenceable(32) %total_size_3.i.i.i, i64 32, i1 false)
+  %agg.tmp5.sroa.11.32.copyload = load <4 x i64>, ptr %total_size_3.i.i.i, align 8
   %start_4.i.i = getelementptr inbounds nuw i8, ptr %f, i64 64
   %7 = load i32, ptr %start_4.i.i, align 8
   %handler_5.i.i = getelementptr inbounds nuw i8, ptr %f, i64 72
@@ -44705,7 +44704,7 @@ invoke.cont:                                      ; preds = %_ZN4asio6detail17ex
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i.i3, i64 32
   store ptr %6, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i, align 8
   %total_size_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i.i3, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %total_size_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp5.sroa.11, i64 32, i1 false)
+  store <4 x i64> %agg.tmp5.sroa.11.32.copyload, ptr %total_size_.i.i.i.i.i, align 8
   %start_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i.i3, i64 72
   store i32 %7, ptr %start_.i.i.i.i, align 8
   %handler_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i.i3, i64 80
@@ -44766,8 +44765,8 @@ if.then.i.i.i.i.i.i11:                            ; preds = %ehcleanup
   br label %_ZN4asio6detail7binder2INS0_8write_opINS_19basic_stream_socketINS_2ip3tcpENS_15any_io_executorEEESt6vectorINS_12const_bufferESaIS9_EEN9__gnu_cxx17__normal_iteratorIPKS9_SB_EENS0_14transfer_all_tEZZN7coro_io11async_writeIS7_RSB_EEN12async_simple4coro4LazyISt4pairISt10error_codemEEERT_OT0_ENKUlSS_E_clINSI_21callback_awaitor_baseISQ_NSI_16callback_awaitorISQ_EEE15awaitor_handlerEEEDaSS_EUlRKSS_SU_E_EESP_mED2Ev.exit12
 
 _ZN4asio6detail7binder2INS0_8write_opINS_19basic_stream_socketINS_2ip3tcpENS_15any_io_executorEEESt6vectorINS_12const_bufferESaIS9_EEN9__gnu_cxx17__normal_iteratorIPKS9_SB_EENS0_14transfer_all_tEZZN7coro_io11async_writeIS7_RSB_EEN12async_simple4coro4LazyISt4pairISt10error_codemEEERT_OT0_ENKUlSS_E_clINSI_21callback_awaitor_baseISQ_NSI_16callback_awaitorISQ_EEE15awaitor_handlerEEEDaSS_EUlRKSS_SU_E_EESP_mED2Ev.exit12: ; preds = %if.then.i6, %lpad7, %ehcleanup, %if.then.i.i.i.i.i.i11
-  %.pn18 = phi { ptr, i32 } [ %22, %if.then.i.i.i.i.i.i11 ], [ %22, %ehcleanup ], [ %17, %lpad7 ], [ %17, %if.then.i6 ]
-  resume { ptr, i32 } %.pn18
+  %.pn19 = phi { ptr, i32 } [ %22, %if.then.i.i.i.i.i.i11 ], [ %22, %ehcleanup ], [ %17, %lpad7 ], [ %17, %if.then.i6 ]
+  resume { ptr, i32 } %.pn19
 
 if.end:                                           ; preds = %invoke.cont8, %if.then.i, %if.then
   ret void
@@ -90790,7 +90789,7 @@ define internal fastcc void @_ZN7cinatra16coro_http_server6acceptEv.resume(ptr n
 entry.resume:
   %launchCoro.i.i = alloca %class.anon.932, align 1
   %agg.tmp.i.i = alloca %"class.async_simple::coro::detail::LazyBase.795", align 8
-  %ref.tmp.i.i = alloca %"class.std::function.444", align 8
+  %ref.tmp.i.i = alloca %"class.std::function.444", align 16
   %__a.i = alloca %"class.std::allocator.135", align 1
   %agg.tmp.i89 = alloca %"class.std::function.536", align 8
   %key.i.i.i.i.i = alloca %"struct.asio::execution_context::service::key", align 8
@@ -91763,13 +91762,15 @@ _ZNSt8functionIFvRKmEEC2EOS3_.exit.i.i:           ; preds = %if.then151, %if.end
   %quit_cb_.i = getelementptr inbounds nuw i8, ptr %146, i64 3920
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp156.reload.addr, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i, i8 0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %quit_cb_.i, i64 16, i1 false)
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %quit_cb_.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp156.reload.addr, i64 16, i1 false)
+  %__tmp.sroa.0.0.copyload.i.i.pre.i.i = load <2 x i64>, ptr %ref.tmp.i.i, align 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %quit_cb_.i, i64 16, i1 false)
+  store <2 x i64> %__tmp.sroa.0.0.copyload.i.i.pre.i.i, ptr %quit_cb_.i, align 8
   %_M_manager.i.i.i166 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
   %_M_manager3.i.i.i = getelementptr inbounds nuw i8, ptr %146, i64 3936
   %149 = load ptr, ptr %_M_manager3.i.i.i, align 8
-  store ptr %149, ptr %_M_manager.i.i.i166, align 8
+  store ptr %149, ptr %_M_manager.i.i.i166, align 16
   store ptr @_ZNSt17_Function_handlerIFvRKmEZN7cinatra16coro_http_server6acceptEvEUlS1_E_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %_M_manager3.i.i.i, align 8
   %_M_invoker4.i.i.i = getelementptr inbounds nuw i8, ptr %146, i64 3944
   %150 = load ptr, ptr %_M_invoker4.i.i.i, align 8

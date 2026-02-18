@@ -1824,10 +1824,6 @@ _ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit.i: ; preds = %if
   %this.val.i.i = load ptr, ptr %state_.i, align 8
   %this.val4.i.i = load i32, ptr %object_id_.i4.i.i, align 8
   %call2.i.i.i = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19
-  %46 = getelementptr inbounds nuw i8, ptr %call2.i.i.i, i64 32
-  store i64 ptrtoint (ptr @_ZN4node9inspector12_GLOBAL__N_122MainThreadSessionState7ConnectESt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS4_EE to i64), ptr %46, align 8
-  %agg.tmp.sroa.9.16..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i.i, i64 40
-  store i64 0, ptr %agg.tmp.sroa.9.16..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_111CallRequestINS1_22MainThreadSessionStateESt5_BindIFPFvPS3_MS3_FvSt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS7_EEERSA_ESt12_PlaceholderILi1EESC_SA_EEEE, i64 16), ptr %call2.i.i.i, align 8
   %id_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i.i, i64 8
   store i32 %this.val4.i.i, ptr %id_.i.i.i.i, align 8
@@ -1835,6 +1831,8 @@ _ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit.i: ; preds = %if
   store ptr @_ZN4node9inspector12_GLOBAL__N_128AnotherThreadObjectReferenceINS1_22MainThreadSessionStateEE5ApplyISt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS7_EEEEvPS3_MS3_FvT_ERSC_, ptr %fn_.i.i.i.i, align 8
   %_M_bound_args.i.i.i.i17.i = getelementptr inbounds nuw i8, ptr %call2.i.i.i, i64 24
   store i64 %7, ptr %_M_bound_args.i.i.i.i17.i, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %call2.i.i.i, i64 32
+  store <2 x i64> <i64 ptrtoint (ptr @_ZN4node9inspector12_GLOBAL__N_122MainThreadSessionState7ConnectESt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS4_EE to i64), i64 0>, ptr %46, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i.i)
   %block_lock_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this.val.i.i, i64 24
   call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %block_lock_.i.i.i.i) #20
@@ -2488,10 +2486,6 @@ entry:
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %this.val4.i = load i32, ptr %1, align 8
   %call2.i.i = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19
-  %2 = getelementptr inbounds nuw i8, ptr %call2.i.i, i64 32
-  store i64 ptrtoint (ptr @_ZN4node9inspector12_GLOBAL__N_122MainThreadSessionState8DispatchESt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS5_EE to i64), ptr %2, align 8
-  %agg.tmp.sroa.9.16..sroa_idx.i = getelementptr inbounds nuw i8, ptr %call2.i.i, i64 40
-  store i64 0, ptr %agg.tmp.sroa.9.16..sroa_idx.i, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_111CallRequestINS1_22MainThreadSessionStateESt5_BindIFPFvPS3_MS3_FvSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS8_EEERSB_ESt12_PlaceholderILi1EESD_SB_EEEE, i64 16), ptr %call2.i.i, align 8
   %id_.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i, i64 8
   store i32 %this.val4.i, ptr %id_.i.i.i, align 8
@@ -2499,6 +2493,8 @@ entry:
   store ptr @_ZN4node9inspector12_GLOBAL__N_128AnotherThreadObjectReferenceINS1_22MainThreadSessionStateEE5ApplyISt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS8_EEEEvPS3_MS3_FvT_ERSD_, ptr %fn_.i.i.i, align 8
   %_M_bound_args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i, i64 24
   store i64 %0, ptr %_M_bound_args.i.i.i.i, align 8
+  %2 = getelementptr inbounds nuw i8, ptr %call2.i.i, i64 32
+  store <2 x i64> <i64 ptrtoint (ptr @_ZN4node9inspector12_GLOBAL__N_122MainThreadSessionState8DispatchESt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS5_EE to i64), i64 0>, ptr %2, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i)
   %block_lock_.i.i.i = getelementptr inbounds nuw i8, ptr %this.val.i, i64 24
   call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %block_lock_.i.i.i) #20

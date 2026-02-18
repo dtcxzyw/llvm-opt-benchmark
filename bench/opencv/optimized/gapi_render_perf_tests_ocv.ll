@@ -20799,6 +20799,7 @@ define linkonce_odr hidden void @_ZNK7testing8internal23CartesianProductHolder7I
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !599)
+  %.sroa.0.0.copyload.i = load <4 x i32>, ptr %25, align 8, !noalias !599
   call void @llvm.experimental.noalias.scope.decl(metadata !602)
   call void @llvm.experimental.noalias.scope.decl(metadata !605)
   %26 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
@@ -20822,7 +20823,7 @@ define linkonce_odr hidden void @_ZNK7testing8internal23CartesianProductHolder7I
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store ptr %31, ptr %32, align 8, !tbaa !612, !noalias !608
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false), !noalias !599
+  store <4 x i32> %.sroa.0.0.copyload.i, ptr %28, align 4, !noalias !608
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %31, ptr %33, align 8, !tbaa !613, !noalias !608
   store ptr %26, ptr %4, align 8, !tbaa !614, !alias.scope !608
@@ -37703,6 +37704,7 @@ define linkonce_odr hidden void @_ZNK7testing8internal23CartesianProductHolder5I
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !1127)
+  %.sroa.0.0.copyload.i = load <4 x i32>, ptr %23, align 8, !noalias !1127
   call void @llvm.experimental.noalias.scope.decl(metadata !1130)
   call void @llvm.experimental.noalias.scope.decl(metadata !1133)
   %24 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
@@ -37726,7 +37728,7 @@ define linkonce_odr hidden void @_ZNK7testing8internal23CartesianProductHolder5I
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store ptr %29, ptr %30, align 8, !tbaa !612, !noalias !1136
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false), !noalias !1127
+  store <4 x i32> %.sroa.0.0.copyload.i, ptr %26, align 4, !noalias !1136
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %29, ptr %31, align 8, !tbaa !613, !noalias !1136
   store ptr %24, ptr %4, align 8, !tbaa !614, !alias.scope !1136
@@ -41559,6 +41561,7 @@ define linkonce_odr hidden void @_ZNK7testing8internal23CartesianProductHolder5I
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !1236)
+  %.sroa.0.0.copyload.i = load <4 x i32>, ptr %23, align 8, !noalias !1236
   call void @llvm.experimental.noalias.scope.decl(metadata !1239)
   call void @llvm.experimental.noalias.scope.decl(metadata !1242)
   %24 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
@@ -41582,7 +41585,7 @@ define linkonce_odr hidden void @_ZNK7testing8internal23CartesianProductHolder5I
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store ptr %29, ptr %30, align 8, !tbaa !612, !noalias !1245
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false), !noalias !1236
+  store <4 x i32> %.sroa.0.0.copyload.i, ptr %26, align 4, !noalias !1245
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %29, ptr %31, align 8, !tbaa !613, !noalias !1245
   store ptr %24, ptr %4, align 8, !tbaa !614, !alias.scope !1245

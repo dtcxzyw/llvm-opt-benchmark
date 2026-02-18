@@ -6820,7 +6820,8 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h94687fb61ef2ecebE"(ptr alig
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
   %12 = getelementptr inbounds { i64, i64, i64, i64 }, ptr %11, i64 %9
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  %.sroa.0.0.copyload = load <4 x i64>, ptr %1, align 8
+  store <4 x i64> %.sroa.0.0.copyload, ptr %12, align 8
   %13 = load i64, ptr %3, align 8, !noundef !3
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8
@@ -7191,7 +7192,8 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he6c49c9bc8083ab6E"(ptr alig
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
   %12 = getelementptr inbounds { i64, i64, i64, i64 }, ptr %11, i64 %9
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  %.sroa.0.0.copyload = load <4 x i64>, ptr %1, align 8
+  store <4 x i64> %.sroa.0.0.copyload, ptr %12, align 8
   %13 = load i64, ptr %3, align 8, !noundef !3
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8

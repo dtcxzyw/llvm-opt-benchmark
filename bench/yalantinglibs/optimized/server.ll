@@ -30728,7 +30728,7 @@ if.end43:                                         ; preds = %if.end18
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %resp_attachment_, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %resp_attachment_, i8 0, i64 16, i1 false)
+  store <2 x i64> zeroinitializer, ptr %resp_attachment_, align 8
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %37, i64 120
   %38 = load ptr, ptr %_M_manager3.i.i, align 8
   store ptr %38, ptr %_M_manager.i.i.i, align 8
@@ -83511,7 +83511,7 @@ define internal fastcc void @_ZN8coro_rpc20coro_rpc_server_baseINS_6config23coro
 entry.resume:
   %launchCoro.i.i = alloca %class.anon.543, align 1
   %agg.tmp.i.i = alloca %"class.async_simple::coro::detail::LazyBase.413", align 8
-  %ref.tmp.i.i = alloca %"class.std::function.407", align 8
+  %ref.tmp.i.i = alloca %"class.std::function.407", align 16
   %__a.i = alloca %"class.std::allocator.96", align 1
   %agg.tmp.i = alloca %"class.std::function.816", align 8
   %key.i.i.i.i.i = alloca %"struct.asio::execution_context::service::key", align 8
@@ -84230,13 +84230,15 @@ _ZNSt8functionIFvRKmEEC2EOS3_.exit.i.i:           ; preds = %if.end120
   %quit_callback_.i = getelementptr inbounds nuw i8, ptr %117, i64 352
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp124.reload.addr, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i, i8 0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %quit_callback_.i, i64 16, i1 false)
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %quit_callback_.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp124.reload.addr, i64 16, i1 false)
+  %__tmp.sroa.0.0.copyload.i.i.pre.i.i = load <2 x i64>, ptr %ref.tmp.i.i, align 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %quit_callback_.i, i64 16, i1 false)
+  store <2 x i64> %__tmp.sroa.0.0.copyload.i.i.pre.i.i, ptr %quit_callback_.i, align 8
   %_M_manager.i.i.i105 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
   %_M_manager3.i.i.i = getelementptr inbounds nuw i8, ptr %117, i64 368
   %120 = load ptr, ptr %_M_manager3.i.i.i, align 8
-  store ptr %120, ptr %_M_manager.i.i.i105, align 8
+  store ptr %120, ptr %_M_manager.i.i.i105, align 16
   store ptr @_ZNSt17_Function_handlerIFvRKmEZN8coro_rpc20coro_rpc_server_baseINS3_6config23coro_rpc_default_configEE6acceptEvEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i.i, align 8
   %_M_invoker4.i.i.i = getelementptr inbounds nuw i8, ptr %117, i64 376
   %121 = load ptr, ptr %_M_invoker4.i.i.i, align 8

@@ -10428,8 +10428,8 @@ define hidden void @_ZN14regex_automata4meta8wrappers13OnePassEngine3new17h0c198
   %9 = load ptr, ptr %1, align 8, !alias.scope !2241, !nonnull !5, !noundef !5
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 127
   %11 = load i8, ptr %10, align 1, !range !97, !alias.scope !2244, !noundef !5
-  %.not25 = icmp eq i8 %11, 0
-  br i1 %.not25, label %12, label %13
+  %.not27 = icmp eq i8 %11, 0
+  br i1 %.not27, label %12, label %13
 
 12:                                               ; preds = %3
   store i64 3, ptr %0, align 8
@@ -10462,6 +10462,7 @@ define hidden void @_ZN14regex_automata4meta8wrappers13OnePassEngine3new17h0c198
   %27 = load i8, ptr %26, align 2, !range !97, !alias.scope !2247, !noundef !5
   %28 = icmp eq i8 %27, 2
   %29 = select i1 %28, i8 1, i8 %27
+  %.sroa.519.17.vec.insert = insertelement <2 x i8> <i8 poison, i8 1>, i8 %29, i64 0
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 129
   %31 = load i8, ptr %30, align 1, !range !97, !alias.scope !2250, !noundef !5
   %32 = icmp eq i8 %31, 2
@@ -10477,9 +10478,7 @@ define hidden void @_ZN14regex_automata4meta8wrappers13OnePassEngine3new17h0c198
   %.sroa.5.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %.sroa.3.0.i, ptr %.sroa.5.0..sroa_idx11, align 8, !alias.scope !2256
   %.sroa.6.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i8 %29, ptr %.sroa.6.0..sroa_idx13, align 8, !alias.scope !2256
-  %.sroa.6.sroa.0.sroa.4.0..sroa.6.0..sroa_idx13.sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 17
-  store i8 1, ptr %.sroa.6.sroa.0.sroa.4.0..sroa.6.0..sroa_idx13.sroa_idx, align 1, !alias.scope !2256
+  store <2 x i8> %.sroa.519.17.vec.insert, ptr %.sroa.6.0..sroa_idx13, align 8, !alias.scope !2256
   %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx13.sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 18
   store i8 %33, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx13.sroa_idx, align 2, !alias.scope !2256
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -12443,8 +12442,8 @@ define hidden void @_ZN14regex_automata4meta8wrappers19ReverseHybridEngine3new17
   %11 = load ptr, ptr %1, align 8, !alias.scope !2851, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 125
   %13 = load i8, ptr %12, align 1, !range !97, !alias.scope !2854, !noundef !5
-  %.not110 = icmp eq i8 %13, 0
-  br i1 %.not110, label %14, label %16
+  %.not114 = icmp eq i8 %13, 0
+  br i1 %.not114, label %14, label %16
 
 14:                                               ; preds = %3
   store i64 2, ptr %0, align 8

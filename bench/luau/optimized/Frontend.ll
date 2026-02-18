@@ -6700,7 +6700,7 @@ _ZNSt6vectorIN4Luau10HotCommentESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4L
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau8Frontend5checkERKNS_12SourceModuleENS_4ModeESt6vectorINS_12RequireCycleESaIS6_EESt8optionalISt10shared_ptrINS_5ScopeEEEbbNS_15TypeCheckLimitsE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.31") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1784) %1, ptr noundef nonnull align 8 dereferenceable(240) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %10 = alloca %"class.std::function.581", align 8
+  %10 = alloca %"class.std::function.581", align 16
   %11 = alloca %"class.std::function.581", align 8
   %12 = alloca %"struct.Luau::FrontendOptions", align 8
   %13 = alloca %"struct.Luau::TypeCheckLimits", align 8
@@ -7157,13 +7157,15 @@ _ZNSt14_Function_baseD2Ev.exit56:                 ; preds = %.body, %178
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %214 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %215 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %213, i64 16, i1 false), !tbaa.struct !315
-  store ptr %1, ptr %213, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 40
-  store i8 %18, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %1, ptr %10, align 16, !tbaa !305
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i8 %18, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !306
+  %.sroa.0.0.copyload.i.i.i = load <2 x i64>, ptr %10, align 16, !tbaa !121
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %213, i64 16, i1 false), !tbaa.struct !315
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %213, align 8, !tbaa !121
   %216 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %217 = load ptr, ptr %216, align 8, !tbaa !15
-  store ptr %217, ptr %214, align 8, !tbaa !15
+  store ptr %217, ptr %214, align 16, !tbaa !15
   store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIN4Luau5ScopeEEEZNS9_8Frontend5checkERKNS9_12SourceModuleENS9_4ModeESt6vectorINS9_12RequireCycleESaISL_EESt8optionalISB_EbbNS9_15TypeCheckLimitsEE3$_1E10_M_managerERSt9_Any_dataRKST_St18_Manager_operation", ptr %216, align 8, !tbaa !15
   %218 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %219 = load ptr, ptr %218, align 8, !tbaa !15
@@ -14501,7 +14503,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4has
   br label %692
 
 "_ZNSt8functionIFvS_IFvvEEEEaSIZN4Luau8Frontend18checkQueuedModulesB5cxx11ESt8optionalINS5_15FrontendOptionsEES3_S_IFbmmEEE3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueERS3_E4typeEOSE_.exit": ; preds = %._crit_edge521
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
+  store <2 x i64> zeroinitializer, ptr %3, align 8, !tbaa !121
   store ptr @"_ZNSt17_Function_handlerIFvSt8functionIFvvEEEZN4Luau8Frontend18checkQueuedModulesB5cxx11ESt8optionalINS4_15FrontendOptionsEES0_IS3_ES0_IFbmmEEE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %118, align 8, !tbaa !15
   %133 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @"_ZNSt17_Function_handlerIFvSt8functionIFvvEEEZN4Luau8Frontend18checkQueuedModulesB5cxx11ESt8optionalINS4_15FrontendOptionsEES0_IS3_ES0_IFbmmEEE3$_1E9_M_invokeERKSt9_Any_dataOS2_", ptr %133, align 8, !tbaa !15
@@ -20316,8 +20318,7 @@ _ZNSt13unordered_mapIN4Luau6SymbolENS0_7BindingESt4hashIS1_ESt8equal_toIS1_ESaIS
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(104) ptr @_ZN4Luau15FrontendOptionsaSERKS0_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
-  %3 = alloca %"class.std::function", align 8
+  %3 = alloca %"class.std::function", align 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -20413,7 +20414,7 @@ _ZNSt10shared_ptrIN4Luau25FrontendCancellationTokenEEaSERKS2_.exit: ; preds = %2
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %48 = load ptr, ptr %47, align 8, !tbaa !309
   %.not.i.i.not.i.i = icmp eq ptr %48, null
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFvRKN4Luau12SourceModuleERKNS0_6ModuleEEEC2ERKS8_.exit.i, label %49
@@ -20427,12 +20428,13 @@ _ZNSt10shared_ptrIN4Luau25FrontendCancellationTokenEEaSERKS2_.exit: ; preds = %2
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %54 = load ptr, ptr %53, align 8, !tbaa !311
   %55 = load ptr, ptr %47, align 8, !tbaa !309
+  %.sroa.0.0.copyload.i.i.pre.i = load <2 x i64>, ptr %3, align 16, !tbaa !121
   br label %_ZNSt8functionIFvRKN4Luau12SourceModuleERKNS0_6ModuleEEEC2ERKS8_.exit.i
 
 56:                                               ; preds = %49
   %57 = landingpad { ptr, i32 }
           cleanup
-  %58 = load ptr, ptr %45, align 8, !tbaa !309
+  %58 = load ptr, ptr %45, align 16, !tbaa !309
   %.not.i.i.i5 = icmp eq ptr %58, null
   br i1 %.not.i.i.i5, label %_ZNSt14_Function_baseD2Ev.exit.i.i, label %59
 
@@ -20453,14 +20455,12 @@ _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %59, %56
 _ZNSt8functionIFvRKN4Luau12SourceModuleERKNS0_6ModuleEEEC2ERKS8_.exit.i: ; preds = %52, %_ZNSt10shared_ptrIN4Luau25FrontendCancellationTokenEEaSERKS2_.exit
   %64 = phi ptr [ null, %_ZNSt10shared_ptrIN4Luau25FrontendCancellationTokenEEaSERKS2_.exit ], [ %54, %52 ]
   %65 = phi ptr [ null, %_ZNSt10shared_ptrIN4Luau25FrontendCancellationTokenEEaSERKS2_.exit ], [ %55, %52 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false), !tbaa.struct !315
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %44, i64 16, i1 false), !tbaa.struct !315
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !315
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
+  %.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %_ZNSt10shared_ptrIN4Luau25FrontendCancellationTokenEEaSERKS2_.exit ], [ %.sroa.0.0.copyload.i.i.pre.i, %52 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %44, i64 16, i1 false), !tbaa.struct !315
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %44, align 8, !tbaa !121
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %67 = load ptr, ptr %66, align 8, !tbaa !15
-  store ptr %67, ptr %45, align 8, !tbaa !15
+  store ptr %67, ptr %45, align 16, !tbaa !15
   store ptr %65, ptr %66, align 8, !tbaa !15
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %69 = load ptr, ptr %68, align 8, !tbaa !15
@@ -34183,8 +34183,7 @@ _ZNSt10shared_ptrIN4Luau5ScopeEEaSERKS2_.exit:    ; preds = %59, %56, %47, %_ZNS
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau8Frontend25registerBuiltinDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvRS0_RNS_11GlobalTypesESt10shared_ptrINS_5ScopeEEEE(ptr noundef nonnull align 8 dereferenceable(1784) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
-  %4 = alloca %"class.std::function.1025", align 8
+  %4 = alloca %"class.std::function.1025", align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = tail call ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFvRN4Luau8FrontendERNS9_11GlobalTypesESt10shared_ptrINS9_5ScopeEEEEESaISJ_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSL_18_Mod_range_hashingENSL_20_Default_ranged_hashENSL_20_Prime_rehash_policyENSL_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %.not.i.i.not = icmp eq ptr %6, null
@@ -34196,7 +34195,7 @@ define dso_local void @_ZN4Luau8Frontend25registerBuiltinDefinitionERKNSt7__cxx1
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %12 = load ptr, ptr %11, align 8, !tbaa !309
   %.not.i.i.not.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFvRN4Luau8FrontendERNS0_11GlobalTypesESt10shared_ptrINS0_5ScopeEEEEC2ERKS9_.exit.i, label %13
@@ -34209,12 +34208,13 @@ define dso_local void @_ZN4Luau8Frontend25registerBuiltinDefinitionERKNSt7__cxx1
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !1112
   %18 = load ptr, ptr %11, align 8, !tbaa !309
+  %.sroa.0.0.copyload.i.i.pre.i = load <2 x i64>, ptr %4, align 16, !tbaa !121
   br label %_ZNSt8functionIFvRN4Luau8FrontendERNS0_11GlobalTypesESt10shared_ptrINS0_5ScopeEEEEC2ERKS9_.exit.i
 
 19:                                               ; preds = %13
   %20 = landingpad { ptr, i32 }
           cleanup
-  %21 = load ptr, ptr %9, align 8, !tbaa !309
+  %21 = load ptr, ptr %9, align 16, !tbaa !309
   %.not.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i.i, label %22
 
@@ -34235,14 +34235,12 @@ _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %22, %19
 _ZNSt8functionIFvRN4Luau8FrontendERNS0_11GlobalTypesESt10shared_ptrINS0_5ScopeEEEEC2ERKS9_.exit.i: ; preds = %15, %7
   %27 = phi ptr [ null, %7 ], [ %17, %15 ]
   %28 = phi ptr [ null, %7 ], [ %18, %15 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false), !tbaa.struct !315
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false), !tbaa.struct !315
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !315
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
+  %.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %7 ], [ %.sroa.0.0.copyload.i.i.pre.i, %15 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false), !tbaa.struct !315
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %8, align 8, !tbaa !121
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !15
-  store ptr %30, ptr %9, align 8, !tbaa !15
+  store ptr %30, ptr %9, align 16, !tbaa !15
   store ptr %28, ptr %29, align 8, !tbaa !15
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %32 = load ptr, ptr %31, align 8, !tbaa !15

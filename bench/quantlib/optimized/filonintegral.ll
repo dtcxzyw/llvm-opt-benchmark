@@ -353,7 +353,7 @@ entry:
   %__args.addr.i = alloca double, align 8
   %__args.addr.i.i = alloca double, align 8
   %agg.tmp = alloca %"class.std::function", align 8
-  %f1 = alloca %"class.std::function", align 8
+  %f1 = alloca %"class.std::function", align 16
   %f2 = alloca %"class.std::function", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp62 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -488,7 +488,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i50
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont47, %if.then.i50
   call void @llvm.lifetime.start.p0(ptr nonnull %f1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %f1, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %f1, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %f2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %f2, i8 0, i64 32, i1 false)
   %type_ = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -681,12 +681,11 @@ if.end.i:                                         ; preds = %_ZNSt14_Function_ba
   %"_ZNSt17_Function_handlerIFddEZNK8QuantLib13FilonIntegral9integrateERKSt8functionIS0_EddE3$_0E9_M_invokeERKSt9_Any_dataOd.sink" = phi ptr [ @"_ZNSt17_Function_handlerIFddEZNK8QuantLib13FilonIntegral9integrateERKSt8functionIS0_EddE3$_2E9_M_invokeERKSt9_Any_dataOd", %"_ZNSt8functionIFddEEaSIZNK8QuantLib13FilonIntegral9integrateERKS1_ddE3$_3EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOS9_.exit" ], [ @"_ZNSt17_Function_handlerIFddEZNK8QuantLib13FilonIntegral9integrateERKSt8functionIS0_EddE3$_0E9_M_invokeERKSt9_Any_dataOd", %_ZNSt14_Function_baseD2Ev.exit ]
   %"_ZNSt17_Function_handlerIFddEZNK8QuantLib13FilonIntegral9integrateERKSt8functionIS0_EddE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.sink" = phi ptr [ @"_ZNSt17_Function_handlerIFddEZNK8QuantLib13FilonIntegral9integrateERKSt8functionIS0_EddE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", %"_ZNSt8functionIFddEEaSIZNK8QuantLib13FilonIntegral9integrateERKS1_ddE3$_3EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOS9_.exit" ], [ @"_ZNSt17_Function_handlerIFddEZNK8QuantLib13FilonIntegral9integrateERKSt8functionIS0_EddE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", %_ZNSt14_Function_baseD2Ev.exit ]
   %"_ZNSt17_Function_handlerIFddEZNK8QuantLib13FilonIntegral9integrateERKSt8functionIS0_EddE3$_1E9_M_invokeERKSt9_Any_dataOd.sink" = phi ptr [ @"_ZNSt17_Function_handlerIFddEZNK8QuantLib13FilonIntegral9integrateERKSt8functionIS0_EddE3$_3E9_M_invokeERKSt9_Any_dataOd", %"_ZNSt8functionIFddEEaSIZNK8QuantLib13FilonIntegral9integrateERKS1_ddE3$_3EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOS9_.exit" ], [ @"_ZNSt17_Function_handlerIFddEZNK8QuantLib13FilonIntegral9integrateERKSt8functionIS0_EddE3$_1E9_M_invokeERKSt9_Any_dataOd", %_ZNSt14_Function_baseD2Ev.exit ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %f1, i8 0, i64 16, i1 false)
+  store <2 x i64> zeroinitializer, ptr %f1, align 16, !tbaa !20
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %f1, i64 16
-  store ptr %"_ZNSt17_Function_handlerIFddEZNK8QuantLib13FilonIntegral9integrateERKSt8functionIS0_EddE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.sink", ptr %_M_manager3.i.i, align 8, !tbaa !36
+  store ptr %"_ZNSt17_Function_handlerIFddEZNK8QuantLib13FilonIntegral9integrateERKSt8functionIS0_EddE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.sink", ptr %_M_manager3.i.i, align 16, !tbaa !36
   %_M_invoker4.i.i = getelementptr inbounds nuw i8, ptr %f1, i64 24
   store ptr %"_ZNSt17_Function_handlerIFddEZNK8QuantLib13FilonIntegral9integrateERKSt8functionIS0_EddE3$_0E9_M_invokeERKSt9_Any_dataOd.sink", ptr %_M_invoker4.i.i, align 8, !tbaa !36
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %f2, i8 0, i64 16, i1 false)
   %_M_manager3.i.i68 = getelementptr inbounds nuw i8, ptr %f2, i64 16
   store ptr %"_ZNSt17_Function_handlerIFddEZNK8QuantLib13FilonIntegral9integrateERKSt8functionIS0_EddE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.sink", ptr %_M_manager3.i.i68, align 8, !tbaa !36
   %_M_invoker4.i.i69 = getelementptr inbounds nuw i8, ptr %f2, i64 24
@@ -763,7 +762,7 @@ for.cond.cleanup:                                 ; preds = %for.cond.cleanup.lo
   call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i142)
   store double %mul147, ptr %__args.addr.i142, align 8, !tbaa !26
   %_M_manager.i.i143 = getelementptr inbounds nuw i8, ptr %f1, i64 16
-  %59 = load ptr, ptr %_M_manager.i.i143, align 8, !tbaa !31
+  %59 = load ptr, ptr %_M_manager.i.i143, align 16, !tbaa !31
   %tobool.not.i.i144 = icmp eq ptr %59, null
   br i1 %tobool.not.i.i144, label %if.then.i180.invoke, label %if.end.i145
 
@@ -854,7 +853,7 @@ invoke.cont148:                                   ; preds = %if.end.i145
   %mul156 = fmul double %76, %77
   call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i175)
   store double %mul156, ptr %__args.addr.i175, align 8, !tbaa !26
-  %78 = load ptr, ptr %_M_manager.i.i143, align 8, !tbaa !31
+  %78 = load ptr, ptr %_M_manager.i.i143, align 16, !tbaa !31
   %tobool.not.i.i177 = icmp eq ptr %78, null
   br i1 %tobool.not.i.i177, label %if.then.i180.invoke, label %if.end.i178
 
@@ -890,7 +889,7 @@ terminate.lpad.i188:                              ; preds = %if.then.i186
 
 _ZNSt14_Function_baseD2Ev.exit190:                ; preds = %invoke.cont157, %if.then.i186
   call void @llvm.lifetime.end.p0(ptr nonnull %f2)
-  %84 = load ptr, ptr %_M_manager.i.i143, align 8, !tbaa !31
+  %84 = load ptr, ptr %_M_manager.i.i143, align 16, !tbaa !31
   %tobool.not.i192 = icmp eq ptr %84, null
   br i1 %tobool.not.i192, label %_ZN8QuantLib5ArrayD2Ev.exit200, label %if.then.i193
 
@@ -962,7 +961,7 @@ terminate.lpad.i205:                              ; preds = %if.then.i203
 _ZNSt14_Function_baseD2Ev.exit207:                ; preds = %ehcleanup170, %if.then.i203
   call void @llvm.lifetime.end.p0(ptr nonnull %f2)
   %_M_manager.i208 = getelementptr inbounds nuw i8, ptr %f1, i64 16
-  %94 = load ptr, ptr %_M_manager.i208, align 8, !tbaa !31
+  %94 = load ptr, ptr %_M_manager.i208, align 16, !tbaa !31
   %tobool.not.i209 = icmp eq ptr %94, null
   br i1 %tobool.not.i209, label %_ZNSt14_Function_baseD2Ev.exit214, label %if.then.i210
 

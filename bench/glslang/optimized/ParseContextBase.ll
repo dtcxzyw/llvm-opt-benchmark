@@ -12376,12 +12376,11 @@ declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7glslang17TParseContextBase15setLineCallbackERKSt8functionIFviibiPKcEE(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 comdat align 2 {
-  %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
-  %3 = alloca %"class.std::function", align 8
+  %3 = alloca %"class.std::function", align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 976
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.not.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFviibiPKcEEC2ERKS3_.exit.i, label %7
@@ -12391,20 +12390,19 @@ define linkonce_odr void @_ZN7glslang17TParseContextBase15setLineCallbackERKSt8f
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %5, align 8
+  %.sroa.0.0.copyload.i.i.pre.i = load <2 x i64>, ptr %3, align 16
   br label %_ZNSt8functionIFviibiPKcEEC2ERKS3_.exit.i
 
 _ZNSt8functionIFviibiPKcEEC2ERKS3_.exit.i:        ; preds = %7, %2
   %12 = phi ptr [ null, %2 ], [ %10, %7 ]
   %13 = phi ptr [ null, %2 ], [ %11, %7 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
+  %.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %2 ], [ %.sroa.0.0.copyload.i.i.pre.i, %7 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %4, align 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 992
   %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %14, align 8
+  store ptr %16, ptr %14, align 16
   store ptr %13, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1000
@@ -12425,12 +12423,11 @@ _ZNSt8functionIFviibiPKcEEaSERKS3_.exit:          ; preds = %_ZNSt8functionIFvii
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7glslang17TParseContextBase20setExtensionCallbackERKSt8functionIFviPKcS3_EE(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 comdat align 2 {
-  %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
-  %3 = alloca %"class.std::function.24", align 8
+  %3 = alloca %"class.std::function.24", align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.not.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFviPKcS1_EEC2ERKS3_.exit.i, label %7
@@ -12440,20 +12437,19 @@ define linkonce_odr void @_ZN7glslang17TParseContextBase20setExtensionCallbackER
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %5, align 8
+  %.sroa.0.0.copyload.i.i.pre.i = load <2 x i64>, ptr %3, align 16
   br label %_ZNSt8functionIFviPKcS1_EEC2ERKS3_.exit.i
 
 _ZNSt8functionIFviPKcS1_EEC2ERKS3_.exit.i:        ; preds = %7, %2
   %12 = phi ptr [ null, %2 ], [ %10, %7 ]
   %13 = phi ptr [ null, %2 ], [ %11, %7 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
+  %.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %2 ], [ %.sroa.0.0.copyload.i.i.pre.i, %7 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %4, align 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %14, align 8
+  store ptr %16, ptr %14, align 16
   store ptr %13, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1096
@@ -12474,12 +12470,11 @@ _ZNSt8functionIFviPKcS1_EEaSERKS3_.exit:          ; preds = %_ZNSt8functionIFviP
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7glslang17TParseContextBase18setVersionCallbackERKSt8functionIFviiPKcEE(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 comdat align 2 {
-  %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
-  %3 = alloca %"class.std::function.22", align 8
+  %3 = alloca %"class.std::function.22", align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.not.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFviiPKcEEC2ERKS3_.exit.i, label %7
@@ -12489,20 +12484,19 @@ define linkonce_odr void @_ZN7glslang17TParseContextBase18setVersionCallbackERKS
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %5, align 8
+  %.sroa.0.0.copyload.i.i.pre.i = load <2 x i64>, ptr %3, align 16
   br label %_ZNSt8functionIFviiPKcEEC2ERKS3_.exit.i
 
 _ZNSt8functionIFviiPKcEEC2ERKS3_.exit.i:          ; preds = %7, %2
   %12 = phi ptr [ null, %2 ], [ %10, %7 ]
   %13 = phi ptr [ null, %2 ], [ %11, %7 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
+  %.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %2 ], [ %.sroa.0.0.copyload.i.i.pre.i, %7 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %4, align 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %14, align 8
+  store ptr %16, ptr %14, align 16
   store ptr %13, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1064
@@ -12523,12 +12517,11 @@ _ZNSt8functionIFviiPKcEEaSERKS3_.exit:            ; preds = %_ZNSt8functionIFvii
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7glslang17TParseContextBase17setPragmaCallbackERKSt8functionIFviRKNS_7TVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEEEEE(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 comdat align 2 {
-  %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
-  %3 = alloca %"class.std::function.19", align 8
+  %3 = alloca %"class.std::function.19", align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.not.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFviRKN7glslang7TVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcENS0_14pool_allocatorIcEEEEEEEEC2ERKSD_.exit.i, label %7
@@ -12538,20 +12531,19 @@ define linkonce_odr void @_ZN7glslang17TParseContextBase17setPragmaCallbackERKSt
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %5, align 8
+  %.sroa.0.0.copyload.i.i.pre.i = load <2 x i64>, ptr %3, align 16
   br label %_ZNSt8functionIFviRKN7glslang7TVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcENS0_14pool_allocatorIcEEEEEEEEC2ERKSD_.exit.i
 
 _ZNSt8functionIFviRKN7glslang7TVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcENS0_14pool_allocatorIcEEEEEEEEC2ERKSD_.exit.i: ; preds = %7, %2
   %12 = phi ptr [ null, %2 ], [ %10, %7 ]
   %13 = phi ptr [ null, %2 ], [ %11, %7 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
+  %.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %2 ], [ %.sroa.0.0.copyload.i.i.pre.i, %7 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %4, align 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %14, align 8
+  store ptr %16, ptr %14, align 16
   store ptr %13, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1032
@@ -12572,12 +12564,11 @@ _ZNSt8functionIFviRKN7glslang7TVectorINSt7__cxx1112basic_stringIcSt11char_traits
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7glslang17TParseContextBase16setErrorCallbackERKSt8functionIFviPKcEE(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 comdat align 2 {
-  %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
-  %3 = alloca %"class.std::function.26", align 8
+  %3 = alloca %"class.std::function.26", align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.not.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFviPKcEEC2ERKS3_.exit.i, label %7
@@ -12587,20 +12578,19 @@ define linkonce_odr void @_ZN7glslang17TParseContextBase16setErrorCallbackERKSt8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %5, align 8
+  %.sroa.0.0.copyload.i.i.pre.i = load <2 x i64>, ptr %3, align 16
   br label %_ZNSt8functionIFviPKcEEC2ERKS3_.exit.i
 
 _ZNSt8functionIFviPKcEEC2ERKS3_.exit.i:           ; preds = %7, %2
   %12 = phi ptr [ null, %2 ], [ %10, %7 ]
   %13 = phi ptr [ null, %2 ], [ %11, %7 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
+  %.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %2 ], [ %.sroa.0.0.copyload.i.i.pre.i, %7 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %4, align 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %14, align 8
+  store ptr %16, ptr %14, align 16
   store ptr %13, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1128

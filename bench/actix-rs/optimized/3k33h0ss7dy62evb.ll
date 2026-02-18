@@ -2200,7 +2200,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17h592d4
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17hcf80d4325a34a5cfE.llvm.906605461179275197"(ptr noalias noundef writeonly sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias readnone align 8 captures(none) %2, ptr noundef captures(none) %3) unnamed_addr #6 personality ptr @rust_eh_personality {
   %5 = alloca [0 x { ptr, ptr }], align 8
-  %6 = alloca { i64, i64, i32, [1 x i32] }, align 8
+  %6 = alloca { i64, i64, i32, [1 x i32] }, align 16
   %7 = alloca { i32, [9 x i32] }, align 8
   %8 = alloca { { i64, [1 x i64] } }, align 8
   %9 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -2220,6 +2220,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll28_$u7b$
   store i64 %17, ptr %18, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !398)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !401)
+  %.sroa.0.sroa.0.0.copyload.i = load <2 x i64>, ptr %13, align 8, !alias.scope !401, !noalias !398
   %.sroa.4.0..0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..0..sroa_idx.i, align 8, !alias.scope !401, !noalias !398
   %.sroa.5.0..0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -2242,9 +2243,9 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll28_$u7b$
 23:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !403
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !403
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 16, i1 false), !noalias !398
-  %.sroa.4.0..sroa_idx7.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 %.sroa.4.0.copyload.i, ptr %.sroa.4.0..sroa_idx7.i, align 8, !noalias !403
+  store <2 x i64> %.sroa.0.sroa.0.0.copyload.i, ptr %6, align 16, !noalias !403
+  %.sroa.4.0..sroa_idx8.i = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i32 %.sroa.4.0.copyload.i, ptr %.sroa.4.0..sroa_idx8.i, align 16, !noalias !403
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %.sroa.5.0.copyload.i, ptr %.sroa.6.0..sroa_idx.i, align 4, !noalias !403
   invoke void @"_ZN11actix_files7chunked26chunked_read_file_callback28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1e1e44be9a4bf18cE.llvm.10116804099265645101"(ptr noalias noundef nonnull sret({ i32, [9 x i32] }) align 8 captures(none) dereferenceable(40) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)

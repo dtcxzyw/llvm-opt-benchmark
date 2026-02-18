@@ -44,10 +44,8 @@ $_ZN3igl4AABBIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi3EE5clearEv = comdat a
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3igl45intersection_blocking_collapse_edge_callbacksERKSt8functionIFbRKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS2_IiLin1ELin1ELi0ELin1ELin1EEES8_RKNS2_IiLin1ELi1ELi0ELin1ELi1EEES8_S8_RKSt14priority_queueISt5tupleIJdiiEESt6vectorISE_SaISE_EESt7greaterISE_EESB_S5_iEERKS0_IFvS5_S8_S8_SB_S8_S8_SM_SB_S5_iiiiibEERKSF_IPNS_4AABBIS3_Li3EEESaISX_EERSX_RSO_RSS_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %4, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i.i24 = alloca { i64, i64 }, align 8
-  %7 = alloca %"class.std::function.2", align 8
-  %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
-  %8 = alloca %"class.std::function", align 8
+  %7 = alloca %"class.std::function.2", align 16
+  %8 = alloca %"class.std::function", align 16
   %9 = alloca %class.anon, align 8
   %10 = alloca %class.anon.1, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -109,7 +107,7 @@ _ZNSt8functionIFbRKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS1_IiLin1ELin1EL
   store ptr %3, ptr %39, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   %41 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19
           to label %.noexc unwind label %206
 
@@ -151,7 +149,7 @@ _ZNSt8functionIFbRKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS1_IiLin1ELin1EL
 
 .body.i.i:                                        ; preds = %52, %49
   call void @_ZdlPvm(ptr noundef nonnull %41, i64 noundef 48) #20
-  %.pr.i.i = load ptr, ptr %40, align 8, !tbaa !12
+  %.pr.i.i = load ptr, ptr %40, align 16, !tbaa !12
   %.not.i.i.i = icmp eq ptr %.pr.i.i, null
   br i1 %.not.i.i.i, label %.body, label %57
 
@@ -171,15 +169,13 @@ _ZNSt8functionIFbRKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS1_IiLin1ELin1EL
   %63 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %64 = getelementptr inbounds nuw i8, ptr %41, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  store ptr %41, ptr %8, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false), !tbaa.struct !21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false), !tbaa.struct !21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !21
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
+  store ptr %41, ptr %8, align 16, !tbaa !20
+  %.sroa.0.0.copyload.i.i.i = load <2 x i64>, ptr %8, align 16, !tbaa !21
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false), !tbaa.struct !22
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %4, align 8, !tbaa !21
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %66 = load ptr, ptr %65, align 8, !tbaa !20
-  store ptr %66, ptr %40, align 8, !tbaa !20
+  store ptr %66, ptr %40, align 16, !tbaa !20
   store ptr @"_ZNSt17_Function_handlerIFbRKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS1_IiLin1ELin1ELi0ELin1ELin1EEES7_RKNS1_IiLin1ELi1ELi0ELin1ELi1EEES7_S7_RKSt14priority_queueISt5tupleIJdiiEESt6vectorISD_SaISD_EESt7greaterISD_EESA_S4_iEZN3igl45intersection_blocking_collapse_edge_callbacksERKSt8functionISM_ERKSO_IFvS4_S7_S7_SA_S7_S7_SL_SA_S4_iiiiibEERKSE_IPNSN_4AABBIS2_Li3EEESaISY_EERSY_RSP_RST_E3$_0E10_M_managerERSt9_Any_dataRKS18_St18_Manager_operation", ptr %65, align 8, !tbaa !20
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %68 = load ptr, ptr %67, align 8, !tbaa !20
@@ -332,7 +328,7 @@ _ZNSt15__new_allocatorIPN3igl4AABBIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi3
   store ptr %3, ptr %127, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %128 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %129 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #19
           to label %.noexc33 unwind label %222
 
@@ -340,8 +336,8 @@ _ZNSt15__new_allocatorIPN3igl4AABBIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi3
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %131 = getelementptr inbounds nuw i8, ptr %129, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %129, i8 0, i64 32, i1 false)
-  %.not.i.i.not.i.i.i.i.i.i25 = icmp eq ptr %99, null
-  br i1 %.not.i.i.not.i.i.i.i.i.i25, label %_ZNSt8functionIFvRKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS1_IiLin1ELin1ELi0ELin1ELin1EEES7_RKNS1_IiLin1ELi1ELi0ELin1ELi1EEES7_S7_RKSt14priority_queueISt5tupleIJdiiEESt6vectorISD_SaISD_EESt7greaterISD_EESA_S4_iiiiibEEC2ERKSN_.exit.i.i.i.i.i, label %132
+  %.not.i.i.not.i.i.i.i.i.i24 = icmp eq ptr %99, null
+  br i1 %.not.i.i.not.i.i.i.i.i.i24, label %_ZNSt8functionIFvRKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS1_IiLin1ELin1ELi0ELin1ELin1EEES7_RKNS1_IiLin1ELi1ELi0ELin1ELi1EEES7_S7_RKSt14priority_queueISt5tupleIJdiiEESt6vectorISD_SaISD_EESt7greaterISD_EESA_S4_iiiiibEEC2ERKSN_.exit.i.i.i.i.i, label %132
 
 132:                                              ; preds = %.noexc33
   %133 = invoke noundef zeroext i1 %99(ptr noundef nonnull align 8 dereferenceable(80) %129, ptr noundef nonnull align 8 dereferenceable(80) %10, i32 noundef 2)
@@ -361,12 +357,12 @@ _ZNSt15__new_allocatorIPN3igl4AABBIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi3
   %138 = landingpad { ptr, i32 }
           cleanup
   %139 = load ptr, ptr %130, align 8, !tbaa !12
-  %.not.i.i.i.i.i.i.i26 = icmp eq ptr %139, null
-  br i1 %.not.i.i.i.i.i.i.i26, label %.body.i.i27, label %140
+  %.not.i.i.i.i.i.i.i25 = icmp eq ptr %139, null
+  br i1 %.not.i.i.i.i.i.i.i25, label %.body.i.i26, label %140
 
 140:                                              ; preds = %137
   %141 = invoke noundef zeroext i1 %139(ptr noundef nonnull align 8 dereferenceable(80) %129, ptr noundef nonnull align 8 dereferenceable(80) %129, i32 noundef 3)
-          to label %.body.i.i27 unwind label %142
+          to label %.body.i.i26 unwind label %142
 
 142:                                              ; preds = %140
   %143 = landingpad { ptr, i32 }
@@ -437,11 +433,11 @@ _ZNSt15__new_allocatorIPN3igl4AABBIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi3
           cleanup
   %168 = load ptr, ptr %130, align 8, !tbaa !12
   %.not.i.i.i.i.i.i = icmp eq ptr %168, null
-  br i1 %.not.i.i.i.i.i.i, label %.body.i.i27, label %169
+  br i1 %.not.i.i.i.i.i.i, label %.body.i.i26, label %169
 
 169:                                              ; preds = %166
   %170 = invoke noundef zeroext i1 %168(ptr noundef nonnull align 8 dereferenceable(80) %129, ptr noundef nonnull align 8 dereferenceable(80) %129, i32 noundef 3)
-          to label %.body.i.i27 unwind label %171
+          to label %.body.i.i26 unwind label %171
 
 171:                                              ; preds = %169
   %172 = landingpad { ptr, i32 }
@@ -450,15 +446,15 @@ _ZNSt15__new_allocatorIPN3igl4AABBIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi3
   call void @__clang_call_terminate(ptr %173) #18
   unreachable
 
-.body.i.i27:                                      ; preds = %169, %166, %140, %137
+.body.i.i26:                                      ; preds = %169, %166, %140, %137
   %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %167, %169 ], [ %138, %137 ], [ %138, %140 ], [ %167, %166 ]
   call void @_ZdlPvm(ptr noundef nonnull %129, i64 noundef 80) #20
-  %.pr.i.i28 = load ptr, ptr %128, align 8, !tbaa !12
-  %.not.i.i.i29 = icmp eq ptr %.pr.i.i28, null
-  br i1 %.not.i.i.i29, label %.body34, label %174
+  %.pr.i.i27 = load ptr, ptr %128, align 16, !tbaa !12
+  %.not.i.i.i28 = icmp eq ptr %.pr.i.i27, null
+  br i1 %.not.i.i.i28, label %.body34, label %174
 
-174:                                              ; preds = %.body.i.i27
-  %175 = invoke noundef zeroext i1 %.pr.i.i28(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
+174:                                              ; preds = %.body.i.i26
+  %175 = invoke noundef zeroext i1 %.pr.i.i27(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %.body34 unwind label %176
 
 176:                                              ; preds = %174
@@ -475,15 +471,13 @@ _ZNSt15__new_allocatorIPN3igl4AABBIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi3
   store ptr %179, ptr %180, align 8, !tbaa !4
   %182 = getelementptr inbounds nuw i8, ptr %129, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %182, ptr noundef nonnull align 8 dereferenceable(24) %125, i64 24, i1 false)
-  store ptr %129, ptr %7, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i24)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i24, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false), !tbaa.struct !21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i24, i64 16, i1 false), !tbaa.struct !21
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i24)
+  store ptr %129, ptr %7, align 16, !tbaa !20
+  %.sroa.0.0.copyload.i.i.i30 = load <2 x i64>, ptr %7, align 16, !tbaa !21
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !22
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i30, ptr %5, align 8, !tbaa !21
   %183 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %184 = load ptr, ptr %183, align 8, !tbaa !20
-  store ptr %184, ptr %128, align 8, !tbaa !20
+  store ptr %184, ptr %128, align 16, !tbaa !20
   store ptr @"_ZNSt17_Function_handlerIFvRKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS1_IiLin1ELin1ELi0ELin1ELin1EEES7_RKNS1_IiLin1ELi1ELi0ELin1ELi1EEES7_S7_RKSt14priority_queueISt5tupleIJdiiEESt6vectorISD_SaISD_EESt7greaterISD_EESA_S4_iiiiibEZN3igl45intersection_blocking_collapse_edge_callbacksERKSt8functionIFbS4_S7_S7_SA_S7_S7_SL_SA_S4_iEERKSO_ISM_ERKSE_IPNSN_4AABBIS2_Li3EEESaISY_EERSY_RSQ_RST_E3$_1E10_M_managerERSt9_Any_dataRKS18_St18_Manager_operation", ptr %183, align 8, !tbaa !20
   %185 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %186 = load ptr, ptr %185, align 8, !tbaa !20
@@ -591,8 +585,8 @@ _ZNSt6vectorIPN3igl4AABBIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi3EEESaIS6_E
           cleanup
   br label %.body34
 
-.body34:                                          ; preds = %.body.i.i27, %174, %222
-  %eh.lpad-body35 = phi { ptr, i32 } [ %223, %222 ], [ %eh.lpad-body.i.i.i.i, %174 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i27 ]
+.body34:                                          ; preds = %.body.i.i26, %174, %222
+  %eh.lpad-body35 = phi { ptr, i32 } [ %223, %222 ], [ %eh.lpad-body.i.i.i.i, %174 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i26 ]
   call fastcc void @"_ZZN3igl45intersection_blocking_collapse_edge_callbacksERKSt8functionIFbRKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS2_IiLin1ELin1ELi0ELin1ELin1EEES8_RKNS2_IiLin1ELi1ELi0ELin1ELi1EEES8_S8_RKSt14priority_queueISt5tupleIJdiiEESt6vectorISE_SaISE_EESt7greaterISE_EESB_S5_iEERKS0_IFvS5_S8_S8_SB_S8_S8_SM_SB_S5_iiiiibEERKSF_IPNS_4AABBIS3_Li3EEESaISX_EERSX_RSO_RSS_EN3$_1D2Ev"(ptr noundef nonnull align 8 dereferenceable(80) %10) #22
   br label %_ZNSt14_Function_baseD2Ev.exit
 
@@ -1823,15 +1817,15 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKd.exit.i.
 
 5:                                                ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i1.i.i
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load <2 x double>, ptr %2, align 16, !tbaa !22
-  store <2 x double> %7, ptr %6, align 8, !tbaa !22
+  %7 = load <2 x double>, ptr %2, align 16, !tbaa !21
+  store <2 x double> %7, ptr %6, align 8, !tbaa !21
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load double, ptr %9, align 16, !tbaa !53
   store double %10, ptr %8, align 8, !tbaa !53
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load <2 x double>, ptr %4, align 8, !tbaa !22
-  store <2 x double> %12, ptr %11, align 8, !tbaa !22
+  %12 = load <2 x double>, ptr %4, align 8, !tbaa !21
+  store <2 x double> %12, ptr %11, align 8, !tbaa !21
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %15 = load double, ptr %14, align 8, !tbaa !53
@@ -1966,8 +1960,8 @@ attributes #23 = { nounwind allocsize(0) }
 !18 = !{!"int", !9, i64 0}
 !19 = !{!6, !6, i64 0}
 !20 = !{!8, !8, i64 0}
-!21 = !{i64 0, i64 16, !22}
-!22 = !{!9, !9, i64 0}
+!21 = !{!9, !9, i64 0}
+!22 = !{i64 0, i64 16, !21}
 !23 = !{!24, !8, i64 24}
 !24 = !{!"_ZTSSt8functionIFvRKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS1_IiLin1ELin1ELi0ELin1ELin1EEES7_RKNS1_IiLin1ELi1ELi0ELin1ELi1EEES7_S7_RKSt14priority_queueISt5tupleIJdiiEESt6vectorISD_SaISD_EESt7greaterISD_EESA_S4_iiiiibEE", !13, i64 0, !8, i64 24}
 !25 = !{!5, !6, i64 16}

@@ -4630,35 +4630,35 @@ define dso_local noundef zeroext i1 @_ZN5draco9PlyReader21ParseElementDataAsciiE
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load i64, ptr %13, align 8, !tbaa !36
   %15 = trunc i64 %14 to i32
-  %.not53164 = icmp slt i32 %15, 1
-  br i1 %.not53164, label %.critedge64, label %.preheader.lr.ph
+  %.not53165 = icmp slt i32 %15, 1
+  br i1 %.not53165, label %.critedge64, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %19 = ptrtoint ptr %6 to i64
-  %.sroa.0.i.i.i15.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sroa.0112.0.vec.insert = insertelement <2 x i64> <i64 poison, i64 0>, i64 %19, i64 0
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.pre = load ptr, ptr %17, align 8, !tbaa !118
-  %.pre168 = load ptr, ptr %16, align 8, !tbaa !117
+  %.pre169 = load ptr, ptr %16, align 8, !tbaa !117
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge62
   %22 = phi i64 [ %14, %.preheader.lr.ph ], [ %174, %.critedge62 ]
-  %23 = phi ptr [ %.pre168, %.preheader.lr.ph ], [ %175, %.critedge62 ]
+  %23 = phi ptr [ %.pre169, %.preheader.lr.ph ], [ %175, %.critedge62 ]
   %24 = phi ptr [ %.pre, %.preheader.lr.ph ], [ %176, %.critedge62 ]
-  %.050165 = phi i32 [ 0, %.preheader.lr.ph ], [ %177, %.critedge62 ]
+  %.050166 = phi i32 [ 0, %.preheader.lr.ph ], [ %177, %.critedge62 ]
   %25 = ptrtoint ptr %24 to i64
   %26 = ptrtoint ptr %23 to i64
   %27 = sub i64 %25, %26
   %28 = sdiv exact i64 %27, 96
   %29 = trunc i64 %28 to i32
-  %.not54161 = icmp sgt i32 %29, 0
-  br i1 %.not54161, label %.lr.ph163, label %.critedge62
+  %.not54162 = icmp sgt i32 %29, 0
+  br i1 %.not54162, label %.lr.ph164, label %.critedge62
 
-.lr.ph163:                                        ; preds = %.preheader, %153
+.lr.ph164:                                        ; preds = %.preheader, %153
   %indvars.iv = phi i64 [ %indvars.iv.next, %153 ], [ 0, %.preheader ]
   %30 = phi ptr [ %155, %153 ], [ %23, %.preheader ]
   %31 = getelementptr inbounds nuw %"class.draco::PlyProperty", ptr %30, i64 %indvars.iv
@@ -4675,26 +4675,25 @@ define dso_local noundef zeroext i1 @_ZN5draco9PlyReader21ParseElementDataAsciiE
   %or.cond = select i1 %34, i1 %switch.lobit, i1 false
   br i1 %or.cond, label %switch.lookup, label %_ZN5draco17PlyPropertyWriterIdEC2EPNS_11PlyPropertyE.exit
 
-switch.lookup:                                    ; preds = %.lr.ph163
+switch.lookup:                                    ; preds = %.lr.ph164
   %35 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5draco9PlyReader21ParseElementDataAsciiEPNS_13DecoderBufferEi, i64 %35
   %switch.load = load ptr, ptr %switch.gep, align 8
   %36 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep188 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5draco9PlyReader21ParseElementDataAsciiEPNS_13DecoderBufferEi.1, i64 %36
-  %switch.load189 = load ptr, ptr %switch.gep188, align 8
-  store i64 %19, ptr %18, align 8
-  store i64 0, ptr %.sroa.0.i.i.i15.i.sroa.4.0..sroa_idx, align 8, !tbaa !15
+  %switch.gep189 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5draco9PlyReader21ParseElementDataAsciiEPNS_13DecoderBufferEi.1, i64 %36
+  %switch.load190 = load ptr, ptr %switch.gep189, align 8
+  store <2 x i64> %.sroa.0112.0.vec.insert, ptr %18, align 8, !tbaa !15
   store ptr %switch.load, ptr %20, align 8, !tbaa !146
-  store ptr %switch.load189, ptr %21, align 8, !tbaa !146
+  store ptr %switch.load190, ptr %21, align 8, !tbaa !146
   br label %_ZN5draco17PlyPropertyWriterIdEC2EPNS_11PlyPropertyE.exit
 
-_ZN5draco17PlyPropertyWriterIdEC2EPNS_11PlyPropertyE.exit: ; preds = %.lr.ph163, %switch.lookup
+_ZN5draco17PlyPropertyWriterIdEC2EPNS_11PlyPropertyE.exit: ; preds = %.lr.ph164, %switch.lookup
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 1, ptr %7, align 4, !tbaa !116
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 88
   %38 = load i32, ptr %37, align 8, !tbaa !29
-  %.not114 = icmp eq i32 %38, 0
-  br i1 %.not114, label %.lr.ph.preheader, label %39
+  %.not115 = icmp eq i32 %38, 0
+  br i1 %.not115, label %.lr.ph.preheader, label %39
 
 39:                                               ; preds = %_ZN5draco17PlyPropertyWriterIdEC2EPNS_11PlyPropertyE.exit
   invoke void @_ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE(ptr noundef %1)
@@ -4748,7 +4747,7 @@ _ZN5draco17PlyPropertyWriterIdEC2EPNS_11PlyPropertyE.exit: ; preds = %.lr.ph163,
 
 70:                                               ; preds = %64
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.34) #26
-          to label %.noexc unwind label %.loopexit.split-lp121
+          to label %.noexc unwind label %.loopexit.split-lp122
 
 .noexc:                                           ; preds = %70
   unreachable
@@ -4764,7 +4763,7 @@ _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %64
   call void @llvm.assume(i1 %.not.i.i.i.i)
   %76 = shl nuw nsw i64 %75, 3
   %77 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %76) #28
-          to label %.noexc65 unwind label %.loopexit120
+          to label %.noexc65 unwind label %.loopexit121
 
 .noexc65:                                         ; preds = %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i
   %78 = getelementptr inbounds i8, ptr %77, i64 %68
@@ -4816,7 +4815,7 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit:           ; preds = %_ZNSt6vectorIlSaIlE
 
 96:                                               ; preds = %90
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.34) #26
-          to label %.noexc73 unwind label %.loopexit.split-lp126
+          to label %.noexc73 unwind label %.loopexit.split-lp127
 
 .noexc73:                                         ; preds = %96
   unreachable
@@ -4832,7 +4831,7 @@ _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i67: ; preds = %90
   call void @llvm.assume(i1 %.not.i.i.i.i69)
   %102 = shl nuw nsw i64 %101, 3
   %103 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %102) #28
-          to label %.noexc74 unwind label %.loopexit125
+          to label %.noexc74 unwind label %.loopexit126
 
 .noexc74:                                         ; preds = %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i67
   %104 = getelementptr inbounds i8, ptr %103, i64 %94
@@ -4851,47 +4850,47 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i70: ; preds = %106, %
 
 108:                                              ; preds = %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i70
   call void @_ZdlPvm(ptr noundef nonnull %91, i64 noundef %94) #24
-  %.pre169.pre = load i32, ptr %7, align 4, !tbaa !116
+  %.pre170.pre = load i32, ptr %7, align 4, !tbaa !116
   br label %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i72
 
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i72: ; preds = %108, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i70
-  %.pre169 = phi i32 [ %.pre169.pre, %108 ], [ %86, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i70 ]
+  %.pre170 = phi i32 [ %.pre170.pre, %108 ], [ %86, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i70 ]
   store ptr %103, ptr %46, align 8, !tbaa !32
   store ptr %107, ptr %58, align 8, !tbaa !139
   %109 = getelementptr inbounds nuw i64, ptr %103, i64 %101
   store ptr %109, ptr %60, align 8, !tbaa !33
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit75
 
-.loopexit120:                                     ; preds = %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i
-  %lpad.loopexit122 = landingpad { ptr, i32 }
+.loopexit121:                                     ; preds = %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i
+  %lpad.loopexit123 = landingpad { ptr, i32 }
           cleanup
   br label %161
 
-.loopexit.split-lp121:                            ; preds = %70
-  %lpad.loopexit.split-lp123 = landingpad { ptr, i32 }
+.loopexit.split-lp122:                            ; preds = %70
+  %lpad.loopexit.split-lp124 = landingpad { ptr, i32 }
           cleanup
   br label %161
 
-.loopexit125:                                     ; preds = %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i67
-  %lpad.loopexit127 = landingpad { ptr, i32 }
+.loopexit126:                                     ; preds = %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i67
+  %lpad.loopexit128 = landingpad { ptr, i32 }
           cleanup
   br label %161
 
-.loopexit.split-lp126:                            ; preds = %96
-  %lpad.loopexit.split-lp128 = landingpad { ptr, i32 }
+.loopexit.split-lp127:                            ; preds = %96
+  %lpad.loopexit.split-lp129 = landingpad { ptr, i32 }
           cleanup
   br label %161
 
 _ZNSt6vectorIlSaIlEE9push_backEOl.exit75:         ; preds = %88, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i72
-  %110 = phi i32 [ %86, %88 ], [ %.pre169, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i72 ]
-  %.not.not159 = icmp sgt i32 %110, 0
-  br i1 %.not.not159, label %.lr.ph.preheader, label %.critedge60
+  %110 = phi i32 [ %86, %88 ], [ %.pre170, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i72 ]
+  %.not.not160 = icmp sgt i32 %110, 0
+  br i1 %.not.not160, label %.lr.ph.preheader, label %.critedge60
 
 .lr.ph.preheader:                                 ; preds = %_ZN5draco17PlyPropertyWriterIdEC2EPNS_11PlyPropertyE.exit, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit75
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %137
-  %.0160 = phi i32 [ %138, %137 ], [ 0, %.lr.ph.preheader ]
+  %.0161 = phi i32 [ %138, %137 ], [ 0, %.lr.ph.preheader ]
   invoke void @_ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE(ptr noundef %1)
           to label %111 unwind label %116
 
@@ -4904,7 +4903,7 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit75:         ; preds = %88, %_ZNSt6vectorIl
 113:                                              ; preds = %111
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %114 = invoke noundef zeroext i1 @_ZN5draco6parser10ParseFloatEPNS_13DecoderBufferEPf(ptr noundef %1, ptr noundef nonnull %8)
-          to label %115 unwind label %.loopexit115
+          to label %115 unwind label %.loopexit116
 
 115:                                              ; preds = %113
   br i1 %114, label %119, label %.critedge
@@ -4914,18 +4913,18 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit75:         ; preds = %88, %_ZNSt6vectorIl
           cleanup
   br label %161
 
-.loopexit115:                                     ; preds = %113, %_ZNKSt8functionIFvdEEclEd.exit.i
-  %lpad.loopexit117 = landingpad { ptr, i32 }
+.loopexit116:                                     ; preds = %113, %_ZNKSt8functionIFvdEEclEd.exit.i
+  %lpad.loopexit118 = landingpad { ptr, i32 }
           cleanup
   br label %118
 
-.loopexit.split-lp116:                            ; preds = %123
-  %lpad.loopexit.split-lp118 = landingpad { ptr, i32 }
+.loopexit.split-lp117:                            ; preds = %123
+  %lpad.loopexit.split-lp119 = landingpad { ptr, i32 }
           cleanup
   br label %118
 
-118:                                              ; preds = %.loopexit.split-lp116, %.loopexit115
-  %lpad.phi119 = phi { ptr, i32 } [ %lpad.loopexit117, %.loopexit115 ], [ %lpad.loopexit.split-lp118, %.loopexit.split-lp116 ]
+118:                                              ; preds = %.loopexit.split-lp117, %.loopexit116
+  %lpad.phi120 = phi { ptr, i32 } [ %lpad.loopexit118, %.loopexit116 ], [ %lpad.loopexit.split-lp119, %.loopexit.split-lp117 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %161
 
@@ -4940,7 +4939,7 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit75:         ; preds = %88, %_ZNSt6vectorIl
 
 123:                                              ; preds = %119
   invoke void @_ZSt25__throw_bad_function_callv() #26
-          to label %.noexc76 unwind label %.loopexit.split-lp116
+          to label %.noexc76 unwind label %.loopexit.split-lp117
 
 .noexc76:                                         ; preds = %123
   unreachable
@@ -4948,7 +4947,7 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit75:         ; preds = %88, %_ZNSt6vectorIl
 _ZNKSt8functionIFvdEEclEd.exit.i:                 ; preds = %119
   %124 = load ptr, ptr %21, align 8, !tbaa !152
   invoke void %124(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %125 unwind label %.loopexit115
+          to label %125 unwind label %.loopexit116
 
 125:                                              ; preds = %_ZNKSt8functionIFvdEEclEd.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -5005,7 +5004,7 @@ _ZNKSt8functionIFvdEEclEd.exit.i79:               ; preds = %130
   br label %137
 
 137:                                              ; preds = %136, %125
-  %138 = add nuw nsw i32 %.0160, 1
+  %138 = add nuw nsw i32 %.0161, 1
   %139 = load i32, ptr %7, align 4, !tbaa !116
   %.not.not = icmp slt i32 %138, %139
   br i1 %.not.not, label %.lr.ph, label %.critedge60, !llvm.loop !153
@@ -5064,10 +5063,10 @@ _ZNKSt8functionIFvdEEclEd.exit.i79:               ; preds = %130
   %sext = shl i64 %159, 32
   %160 = ashr exact i64 %sext, 32
   %.not54 = icmp slt i64 %indvars.iv.next, %160
-  br i1 %.not54, label %.lr.ph163, label %.critedge62.loopexit, !llvm.loop !154
+  br i1 %.not54, label %.lr.ph164, label %.critedge62.loopexit, !llvm.loop !154
 
-161:                                              ; preds = %.loopexit125, %.loopexit.split-lp126, %.loopexit120, %.loopexit.split-lp121, %116, %118, %129, %43
-  %.pn.pn = phi { ptr, i32 } [ %44, %43 ], [ %lpad.loopexit.split-lp123, %.loopexit.split-lp121 ], [ %117, %116 ], [ %lpad.phi119, %118 ], [ %lpad.phi, %129 ], [ %lpad.loopexit122, %.loopexit120 ], [ %lpad.loopexit127, %.loopexit125 ], [ %lpad.loopexit.split-lp128, %.loopexit.split-lp126 ]
+161:                                              ; preds = %.loopexit126, %.loopexit.split-lp127, %.loopexit121, %.loopexit.split-lp122, %116, %118, %129, %43
+  %.pn.pn = phi { ptr, i32 } [ %44, %43 ], [ %lpad.loopexit.split-lp124, %.loopexit.split-lp122 ], [ %117, %116 ], [ %lpad.phi120, %118 ], [ %lpad.phi, %129 ], [ %lpad.loopexit123, %.loopexit121 ], [ %lpad.loopexit128, %.loopexit126 ], [ %lpad.loopexit.split-lp129, %.loopexit.split-lp127 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %162 = load ptr, ptr %20, align 8, !tbaa !151
   %.not.i.i86 = icmp eq ptr %162, null
@@ -5106,14 +5105,14 @@ _ZN5draco17PlyPropertyWriterIdED2Ev.exit87:       ; preds = %161, %163
   unreachable
 
 .critedge62.loopexit:                             ; preds = %153
-  %.pre170 = load i64, ptr %13, align 8, !tbaa !36
+  %.pre171 = load i64, ptr %13, align 8, !tbaa !36
   br label %.critedge62
 
 .critedge62:                                      ; preds = %.critedge62.loopexit, %.preheader
-  %174 = phi i64 [ %.pre170, %.critedge62.loopexit ], [ %22, %.preheader ]
+  %174 = phi i64 [ %.pre171, %.critedge62.loopexit ], [ %22, %.preheader ]
   %175 = phi ptr [ %155, %.critedge62.loopexit ], [ %23, %.preheader ]
   %176 = phi ptr [ %154, %.critedge62.loopexit ], [ %24, %.preheader ]
-  %177 = add nuw nsw i32 %.050165, 1
+  %177 = add nuw nsw i32 %.050166, 1
   %178 = trunc i64 %174 to i32
   %.not53.not = icmp slt i32 %177, %178
   br i1 %.not53.not, label %.preheader, label %.critedge64, !llvm.loop !155
@@ -5123,8 +5122,8 @@ _ZN5draco17PlyPropertyWriterIdED2Ev.exit87:       ; preds = %161, %163
   br label %.critedge64
 
 .critedge64:                                      ; preds = %.critedge62, %.critedge64.sink.split, %3
-  %.not53157 = phi i1 [ true, %3 ], [ false, %.critedge64.sink.split ], [ true, %.critedge62 ]
-  ret i1 %.not53157
+  %.not53158 = phi i1 [ true, %3 ], [ false, %.critedge64.sink.split ], [ true, %.critedge62 ]
+  ret i1 %.not53158
 }
 
 declare noundef zeroext i1 @_ZN5draco6parser14ParseSignedIntEPNS_13DecoderBufferEPi(ptr noundef, ptr noundef) local_unnamed_addr #0

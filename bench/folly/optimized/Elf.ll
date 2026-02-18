@@ -319,7 +319,7 @@ define { i32, ptr } @_ZN5folly10symbolizer7ElfFile11openNoThrowEPKcRKNS1_7Option
   unreachable
 
 _ZN5folly10symbolizer7ElfFile5resetEv.exit:       ; preds = %50, %54
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 0, i64 32, i1 false)
+  store <4 x i64> zeroinitializer, ptr %33, align 8
   %58 = tail call ptr @__errno_location() #31
   store i32 22, ptr %58, align 4, !tbaa !40
   br label %.thread27
@@ -372,7 +372,7 @@ _ZN5folly10symbolizer7ElfFile5resetEv.exit:       ; preds = %50, %54
 
 "_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer7ElfFile11openNoThrowEPKcRKNS3_7OptionsEE3$_0Lb1EE7executeEv.exit.i": ; preds = %70, %66
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %74, i8 0, i64 32, i1 false)
+  store <4 x i64> zeroinitializer, ptr %74, align 8
   br label %"_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer7ElfFile11openNoThrowEPKcRKNS3_7OptionsEE3$_0Lb1EED2Ev.exit"
 
 "_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer7ElfFile11openNoThrowEPKcRKNS3_7OptionsEE3$_0Lb1EED2Ev.exit": ; preds = %59, %"_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer7ElfFile11openNoThrowEPKcRKNS3_7OptionsEE3$_0Lb1EE7executeEv.exit.i"
@@ -921,7 +921,7 @@ define void @_ZN5folly10symbolizer7ElfFile5resetEv(ptr noundef nonnull align 8 c
 
 14:                                               ; preds = %13, %8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 32, i1 false)
+  store <4 x i64> zeroinitializer, ptr %15, align 8
   ret void
 
 16:                                               ; preds = %11
@@ -1009,7 +1009,7 @@ define { i32, ptr } @_ZN5folly10symbolizer7ElfFile13openAndFollowEPKcRKNS1_7Opti
 
 _ZN5folly10symbolizer7ElfFile5resetEv.exit:       ; preds = %33, %38
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, i8 0, i64 32, i1 false)
+  store <4 x i64> zeroinitializer, ptr %42, align 8
   %43 = call { i32, ptr } @_ZN5folly10symbolizer7ElfFile11openNoThrowEPKcRKNS1_7OptionsE(ptr noundef nonnull align 8 dereferenceable(576) %0, ptr noundef nonnull %4, ptr noundef nonnull align 1 dereferenceable(1) %2) #27
   %44 = extractvalue { i32, ptr } %43, 0
   %45 = icmp eq i32 %44, 0
@@ -1171,7 +1171,7 @@ define void @_ZN5folly10symbolizer7ElfFileD2Ev(ptr noundef nonnull align 8 captu
 
 _ZN5folly10symbolizer7ElfFile5resetEv.exit:       ; preds = %8, %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 32, i1 false)
+  store <4 x i64> zeroinitializer, ptr %17, align 8
   ret void
 }
 
@@ -1204,9 +1204,7 @@ define void @_ZN5folly10symbolizer7ElfFileC2EOS1_(ptr noundef nonnull align 8 de
   store i8 0, ptr %1, align 8, !tbaa !7
   store i32 -1, ptr %4, align 8, !tbaa !10
   store ptr inttoptr (i64 -1 to ptr), ptr %7, align 8, !tbaa !17
-  store i64 0, ptr %10, align 8, !tbaa !39
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
-  store i64 0, ptr %15, align 8, !tbaa !74
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 48, i1 false)
   ret void
 
 19:                                               ; preds = %2
@@ -1255,7 +1253,7 @@ define noundef nonnull align 8 dereferenceable(576) ptr @_ZN5folly10symbolizer7E
 
 _ZN5folly10symbolizer7ElfFile5resetEv.exit:       ; preds = %9, %14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 32, i1 false)
+  store <4 x i64> zeroinitializer, ptr %18, align 8
   %19 = invoke noundef i64 @_ZN5folly7strlcpyEPcPKcm(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef 511)
           to label %20 unwind label %32
 
@@ -1279,9 +1277,7 @@ _ZN5folly10symbolizer7ElfFile5resetEv.exit:       ; preds = %9, %14
   store i8 0, ptr %1, align 8, !tbaa !7
   store i32 -1, ptr %21, align 8, !tbaa !10
   store ptr inttoptr (i64 -1 to ptr), ptr %23, align 8, !tbaa !17
-  store i64 0, ptr %25, align 8, !tbaa !39
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 0, i64 32, i1 false)
-  store i64 0, ptr %29, align 8, !tbaa !74
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %25, i8 0, i64 48, i1 false)
   ret ptr %0
 
 32:                                               ; preds = %_ZN5folly10symbolizer7ElfFile5resetEv.exit

@@ -819,7 +819,7 @@ define dso_local void @_ZN4absl13ScopedMockLogC2ENS_14MockLogDefaultE(ptr nounde
   %9 = alloca %"class.testing::internal::WithoutMatchers", align 1
   %10 = alloca %"class.testing::internal::MockSpec.21", align 8
   %11 = alloca %"class.testing::Cardinality", align 8
-  %12 = alloca %"class.testing::Action.30", align 8
+  %12 = alloca %"class.testing::Action.30", align 16
   %13 = alloca %"class.testing::internal::MockSpec.33", align 8
   %14 = alloca %"class.testing::Cardinality", align 8
   tail call void @_ZN7testing8internal25UntypedFunctionMockerBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0)
@@ -1345,18 +1345,17 @@ _ZNSt11_Tuple_implILm0EJN7testing7MatcherIN4absl11LogSeverityEEENS1_IRKNSt7__cxx
 227:                                              ; preds = %226
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %228 = ptrtoint ptr %0 to i64
-  store i64 %228, ptr %12, align 8
-  %.sroa.0.i.i.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 0, ptr %.sroa.0.i.i.i.i.i.sroa.4.0..sroa_idx, align 8, !tbaa !40
+  %.sroa.070.0.vec.insert = insertelement <2 x i64> <i64 poison, i64 0>, i64 %228, i64 0
+  store <2 x i64> %.sroa.070.0.vec.insert, ptr %12, align 16, !tbaa !40
   %229 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr @"_ZNSt17_Function_handlerIFvRKN4absl8LogEntryEEZNS0_13ScopedMockLogC1ENS0_14MockLogDefaultEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %229, align 8, !tbaa !77
+  store ptr @"_ZNSt17_Function_handlerIFvRKN4absl8LogEntryEEZNS0_13ScopedMockLogC1ENS0_14MockLogDefaultEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %229, align 16, !tbaa !77
   %230 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr @"_ZNSt17_Function_handlerIFvRKN4absl8LogEntryEEZNS0_13ScopedMockLogC1ENS0_14MockLogDefaultEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %230, align 8, !tbaa !77
   %231 = invoke noundef nonnull align 8 dereferenceable(352) ptr @_ZN7testing8internal16TypedExpectationIFvRKN4absl8LogEntryEEE14WillRepeatedlyERKNS_6ActionIS6_EE(ptr noundef nonnull align 8 dereferenceable(352) %224, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %232 unwind label %312
 
 232:                                              ; preds = %227
-  %233 = load ptr, ptr %229, align 8, !tbaa !78
+  %233 = load ptr, ptr %229, align 16, !tbaa !78
   %.not.i.i = icmp eq ptr %233, null
   br i1 %.not.i.i, label %_ZN7testing6ActionIFvRKN4absl8LogEntryEEED2Ev.exit, label %234
 
@@ -1558,7 +1557,7 @@ _ZN7testing11CardinalityD2Ev.exit51:              ; preds = %_ZN7testing8interna
 312:                                              ; preds = %227
   %313 = landingpad { ptr, i32 }
           cleanup
-  %314 = load ptr, ptr %229, align 8, !tbaa !78
+  %314 = load ptr, ptr %229, align 16, !tbaa !78
   %.not.i.i52 = icmp eq ptr %314, null
   br i1 %.not.i.i52, label %_ZN7testing6ActionIFvRKN4absl8LogEntryEEED2Ev.exit53, label %315
 
@@ -2839,8 +2838,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83: ; preds = %178
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(352) ptr @_ZN7testing8internal16TypedExpectationIFvRKN4absl8LogEntryEEE14WillRepeatedlyERKNS_6ActionIS6_EE(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i.i.i = alloca { i64, i64 }, align 8
-  %3 = alloca %"class.std::function.31", align 8
+  %3 = alloca %"class.std::function.31", align 16
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3006,7 +3004,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %58,
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %70 = load ptr, ptr %69, align 8, !tbaa !78
   %.not.i.i.not.i.i.i = icmp eq ptr %70, null
   br i1 %.not.i.i.not.i.i.i, label %_ZNSt8functionIFvRKN4absl8LogEntryEEEC2ERKS5_.exit.i.i, label %71
@@ -3019,12 +3017,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %58,
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %75 = load ptr, ptr %74, align 8, !tbaa !162
   %76 = load ptr, ptr %69, align 8, !tbaa !78
+  %.sroa.0.0.copyload.i.i.pre.i.i = load <2 x i64>, ptr %3, align 16, !tbaa !40
   br label %_ZNSt8functionIFvRKN4absl8LogEntryEEEC2ERKS5_.exit.i.i
 
 77:                                               ; preds = %71
   %78 = landingpad { ptr, i32 }
           cleanup
-  %79 = load ptr, ptr %67, align 8, !tbaa !78
+  %79 = load ptr, ptr %67, align 16, !tbaa !78
   %.not.i.i.i.i = icmp eq ptr %79, null
   br i1 %.not.i.i.i.i, label %common.resume, label %80
 
@@ -3046,14 +3045,12 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
 _ZNSt8functionIFvRKN4absl8LogEntryEEEC2ERKS5_.exit.i.i: ; preds = %73, %64
   %85 = phi ptr [ null, %64 ], [ %75, %73 ]
   %86 = phi ptr [ null, %64 ], [ %76, %73 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false), !tbaa.struct !164
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %66, i64 16, i1 false), !tbaa.struct !164
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, i64 16, i1 false), !tbaa.struct !164
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i)
+  %.sroa.0.0.copyload.i.i.i.i = phi <2 x i64> [ zeroinitializer, %64 ], [ %.sroa.0.0.copyload.i.i.pre.i.i, %73 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %66, i64 16, i1 false), !tbaa.struct !164
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i.i, ptr %66, align 8, !tbaa !40
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %88 = load ptr, ptr %87, align 8, !tbaa !77
-  store ptr %88, ptr %67, align 8, !tbaa !77
+  store ptr %88, ptr %67, align 16, !tbaa !77
   store ptr %86, ptr %87, align 8, !tbaa !77
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %90 = load ptr, ptr %89, align 8, !tbaa !77

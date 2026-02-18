@@ -3132,18 +3132,16 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17h4fdbe8a1227842c0E.exit.i.i
   %754 = extractvalue { i64, i64 } %750, 0
   %755 = extractvalue { i64, i64 } %751, 0
   %756 = extractvalue { i64, i64 } %751, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8103.0..sroa_idx, i8 0, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11.0..sroa_idx, i8 0, i64 16, i1 false)
   store i64 -9223372036854775808, ptr %53, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %139, i8 -1, i64 16, i1 false)
   store i64 %.fca.0.extract47, ptr %.sroa.6101.0..sroa_idx, align 8
   store i64 %.fca.1.extract49, ptr %.sroa.7102.0..sroa_idx, align 8
+  store <2 x i64> zeroinitializer, ptr %.sroa.8103.0..sroa_idx, align 8
   store i64 %754, ptr %.sroa.10104.0..sroa_idx, align 8
   store i64 %753, ptr %.sroa.10104.sroa.4.0..sroa.10104.0..sroa_idx.sroa_idx, align 8
   store i64 %755, ptr %.sroa.10104.sroa.5.0..sroa.10104.0..sroa_idx.sroa_idx, align 8
   store i64 %756, ptr %.sroa.10104.sroa.6.0..sroa.10104.0..sroa_idx.sroa_idx, align 8
-  store i32 0, ptr %.sroa.13.0..sroa_idx, align 8
-  store i8 0, ptr %.sroa.14.0..sroa_idx, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %.sroa.11.0..sroa_idx, i8 0, i64 21, i1 false)
   br label %343
 
 .loopexit450:                                     ; preds = %354, %343

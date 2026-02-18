@@ -722,15 +722,16 @@ define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtab
 define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h0a4ed5f99a43ee44E"(ptr readonly captures(none) %0, ptr readonly align 8 captures(none) %1, ptr align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { i64, i64, i64, i64 }, ptr }, align 8
   %5 = alloca { ptr, ptr }, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  %.sroa.0.0.copyload = load <4 x i64>, ptr %1, align 8
   %6 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !3, !align !5, !noundef !3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8
+  store <4 x i64> %.sroa.0.0.copyload, ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %2, ptr %10, align 8
   call void @"_ZN14cranelift_isle4sema7TermEnv41check_for_expr_terms_without_constructors28_$u7b$$u7b$closure$u7d$$u7d$17hea136b740f997738E"(ptr nonnull align 8 %5, ptr nonnull align 8 %4, ptr align 8 %2)
@@ -1181,8 +1182,9 @@ define hidden i64 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hd7a7166b0720f298E"(ptr %0, ptr readonly align 8 captures(none) %1, ptr align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { i64, i64, i64, i64 }, ptr }, align 8
+  %.sroa.0.0.copyload = load <4 x i64>, ptr %1, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  store <4 x i64> %.sroa.0.0.copyload, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %2, ptr %5, align 8
   call void @"_ZN14cranelift_isle4sema7TermEnv27collect_extractor_templates28_$u7b$$u7b$closure$u7d$$u7d$17h39c3cf7def54e2b6E"(ptr align 8 %0, ptr nonnull align 8 %4, ptr align 8 %2)

@@ -3617,6 +3617,8 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation9GetFacetsEPi(ptr n
   %12 = sext i16 %11 to i32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
+  %.sroa.12.8.vec.insert = insertelement <2 x i32> poison, i32 %12, i64 0
+  %.sroa.12.12.vec.insert = insertelement <2 x i32> %.sroa.12.8.vec.insert, i32 %14, i64 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %16 = load i16, ptr %15, align 2
   %17 = zext i16 %16 to i32
@@ -3753,9 +3755,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation9GetFacetsEPi(ptr n
   %82 = icmp ne i8 %81, 0
   store ptr %1, ptr %3, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %12, ptr %.sroa.12.0..sroa_idx, align 8
-  %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 %14, ptr %.sroa.17.0..sroa_idx, align 4
+  store <2 x i32> %.sroa.12.12.vec.insert, ptr %.sroa.12.0..sroa_idx, align 8
   %83 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad16GetUniformFacetsEibNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %80, i1 noundef zeroext %82, ptr noundef %3)
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit
 
@@ -3770,9 +3770,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation9GetFacetsEPi(ptr n
   %89 = icmp ne i8 %88, 0
   store ptr %1, ptr %4, align 8
   %.sroa.12.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %12, ptr %.sroa.12.0..sroa_idx40, align 8
-  %.sroa.17.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 %14, ptr %.sroa.17.0..sroa_idx52, align 4
+  store <2 x i32> %.sroa.12.12.vec.insert, ptr %.sroa.12.0..sroa_idx40, align 8
   %.val = load i32, ptr %87, align 8
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %.val18 = load i32, ptr %90, align 4
@@ -3789,9 +3787,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation9GetFacetsEPi(ptr n
   %99 = icmp ne i8 %98, 0
   store ptr %1, ptr %5, align 8
   %.sroa.12.0..sroa_idx42 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %12, ptr %.sroa.12.0..sroa_idx42, align 8
-  %.sroa.17.0..sroa_idx54 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 %14, ptr %.sroa.17.0..sroa_idx54, align 4
+  store <2 x i32> %.sroa.12.12.vec.insert, ptr %.sroa.12.0..sroa_idx42, align 8
   %.val19 = load i32, ptr %95, align 8
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %.val20 = load i32, ptr %100, align 4
@@ -3808,9 +3804,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation9GetFacetsEPi(ptr n
   %106 = load i32, ptr %105, align 8
   store ptr %1, ptr %6, align 8
   %.sroa.12.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %12, ptr %.sroa.12.0..sroa_idx44, align 8
-  %.sroa.17.0..sroa_idx56 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 %14, ptr %.sroa.17.0..sroa_idx56, align 4
+  store <2 x i32> %.sroa.12.12.vec.insert, ptr %.sroa.12.0..sroa_idx44, align 8
   %107 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr3tri16GetUniformFacetsEiNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %106, ptr noundef %6)
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit
 
@@ -3823,9 +3817,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation9GetFacetsEPi(ptr n
   %114 = load i32, ptr %113, align 4
   store ptr %1, ptr %7, align 8
   %.sroa.12.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %12, ptr %.sroa.12.0..sroa_idx46, align 8
-  %.sroa.17.0..sroa_idx58 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 %14, ptr %.sroa.17.0..sroa_idx58, align 4
+  store <2 x i32> %.sroa.12.12.vec.insert, ptr %.sroa.12.0..sroa_idx46, align 8
   %115 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr3tri19GetNonUniformFacetsEPKiiiNS1_12_GLOBAL__N_110FacetArrayE(ptr noundef %110, i32 noundef %112, i32 noundef %114, ptr noundef %7)
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit
 
@@ -3841,9 +3833,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation9GetFacetsEPi(ptr n
   %122 = icmp ne i8 %121, 0
   store ptr %1, ptr %8, align 8
   %.sroa.12.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 %12, ptr %.sroa.12.0..sroa_idx48, align 8
-  %.sroa.17.0..sroa_idx60 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 %14, ptr %.sroa.17.0..sroa_idx60, align 4
+  store <2 x i32> %.sroa.12.12.vec.insert, ptr %.sroa.12.0..sroa_idx48, align 8
   %123 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub16GetUniformFacetsEiibNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %17, i32 noundef %120, i1 noundef zeroext %122, ptr noundef %8)
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit
 
@@ -3858,9 +3848,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation9GetFacetsEPi(ptr n
   %132 = icmp ne i8 %131, 0
   store ptr %1, ptr %9, align 8
   %.sroa.12.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %12, ptr %.sroa.12.0..sroa_idx50, align 8
-  %.sroa.17.0..sroa_idx62 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 %14, ptr %.sroa.17.0..sroa_idx62, align 4
+  store <2 x i32> %.sroa.12.12.vec.insert, ptr %.sroa.12.0..sroa_idx50, align 8
   %133 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub19GetNonUniformFacetsEiPKiiibNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %17, ptr noundef %126, i32 noundef %128, i32 noundef %130, i1 noundef zeroext %132, ptr noundef %9)
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit
 

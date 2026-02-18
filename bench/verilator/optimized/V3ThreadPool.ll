@@ -985,9 +985,8 @@ declare void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12V3ThreadPool13workerJobLoopEv(ptr noundef nonnull align 8 dereferenceable(224) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
-  %2 = alloca %"class.std::function", align 8
-  %3 = alloca %"class.std::function", align 8
+  %2 = alloca %"class.std::function", align 16
+  %3 = alloca %"class.std::function", align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1001,7 +1000,7 @@ define dso_local void @_ZN12V3ThreadPool13workerJobLoopEv(ptr noundef nonnull al
 
 13:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit, %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %14 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1, !tbaa !48, !range !50, !noundef !51
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
@@ -1132,7 +1131,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %58
   %71 = load ptr, ptr %70, align 8, !tbaa !76, !noalias !79
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 24, i1 false)
   %73 = load ptr, ptr %72, align 8, !tbaa !66
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %75 = load ptr, ptr %74, align 8, !tbaa !64
@@ -1140,19 +1139,18 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %58
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFvvEEC2EOS1_.exit.i, label %76
 
 76:                                               ; preds = %68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %71, i64 16, i1 false), !tbaa.struct !75
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %71, i64 16, i1 false), !tbaa.struct !75
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, i8 0, i64 16, i1 false)
+  %.sroa.0.0.copyload.i.i.pre.i = load <2 x i64>, ptr %2, align 16, !tbaa !42
   br label %_ZNSt8functionIFvvEEC2EOS1_.exit.i
 
 _ZNSt8functionIFvvEEC2EOS1_.exit.i:               ; preds = %76, %68
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false), !tbaa.struct !75
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false), !tbaa.struct !75
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !75
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
-  %77 = load ptr, ptr %10, align 8, !tbaa !24
-  store ptr %77, ptr %9, align 8, !tbaa !24
-  store ptr %75, ptr %10, align 8, !tbaa !24
+  %.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %68 ], [ %.sroa.0.0.copyload.i.i.pre.i, %76 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull align 16 dereferenceable(32) %3, i64 16, i1 false), !tbaa.struct !75
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %3, align 16, !tbaa !42
+  %77 = load ptr, ptr %10, align 16, !tbaa !24
+  store ptr %77, ptr %9, align 16, !tbaa !24
+  store ptr %75, ptr %10, align 16, !tbaa !24
   %78 = load ptr, ptr %11, align 8, !tbaa !24
   store ptr %78, ptr %8, align 8, !tbaa !24
   store ptr %73, ptr %11, align 8, !tbaa !24
@@ -1255,7 +1253,7 @@ _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit14: ; preds = %113, %116
   br i1 %cond, label %118, label %124
 
 118:                                              ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit14
-  %119 = load ptr, ptr %10, align 8, !tbaa !64
+  %119 = load ptr, ptr %10, align 16, !tbaa !64
   %.not.i.i15 = icmp eq ptr %119, null
   br i1 %.not.i.i15, label %120, label %121
 
@@ -1277,7 +1275,7 @@ _ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %121
 
 124:                                              ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit14, %_ZNKSt8functionIFvvEEclEv.exit
   %.1 = phi i32 [ 0, %_ZNKSt8functionIFvvEEclEv.exit ], [ %.0, %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit14 ]
-  %125 = load ptr, ptr %10, align 8, !tbaa !64
+  %125 = load ptr, ptr %10, align 16, !tbaa !64
   %.not.i = icmp eq ptr %125, null
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %126
 
@@ -1309,7 +1307,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %124, %126
 
 _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit: ; preds = %.loopexit22, %.loopexit.split-lp23, %40, %42, %45
   %.pn9 = phi { ptr, i32 } [ %lpad.phi, %45 ], [ %41, %40 ], [ %lpad.phi, %42 ], [ %lpad.loopexit24, %.loopexit22 ], [ %lpad.loopexit.split-lp25, %.loopexit.split-lp23 ]
-  %132 = load ptr, ptr %10, align 8, !tbaa !64
+  %132 = load ptr, ptr %10, align 16, !tbaa !64
   %.not.i18 = icmp eq ptr %132, null
   br i1 %.not.i18, label %_ZNSt14_Function_baseD2Ev.exit19, label %133
 

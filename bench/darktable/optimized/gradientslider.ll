@@ -1060,6 +1060,7 @@ define ptr @dtgtk_gradient_slider_new_with_color_and_name(ptr noundef readonly b
 ; Function Attrs: nounwind uwtable
 define void @dtgtk_gradient_slider_set_stop(ptr noundef %0, float noundef %1, ptr noundef readonly byval(%struct._GdkRGBA) align 8 captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca float, align 4
+  %.sroa.0.0.copyload3 = load <4 x double>, ptr %2, align 8
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %5, label %6, !prof !45
 
@@ -1082,7 +1083,7 @@ define void @dtgtk_gradient_slider_set_stop(ptr noundef %0, float noundef %1, pt
 13:                                               ; preds = %6
   %14 = load ptr, ptr %12, align 8, !tbaa !46
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
+  store <4 x double> %.sroa.0.0.copyload3, ptr %15, align 8
   br label %23
 
 16:                                               ; preds = %6
@@ -1091,7 +1092,7 @@ define void @dtgtk_gradient_slider_set_stop(ptr noundef %0, float noundef %1, pt
   %19 = fpext reassoc nsz arcp contract afn float %18 to double
   store double %19, ptr %17, align 8, !tbaa !12
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
+  store <4 x double> %.sroa.0.0.copyload3, ptr %20, align 8
   %21 = load ptr, ptr %10, align 8, !tbaa !42
   %22 = call ptr @g_list_append(ptr noundef %21, ptr noundef nonnull %17) #14
   store ptr %22, ptr %10, align 8, !tbaa !42

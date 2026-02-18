@@ -20763,7 +20763,6 @@ define internal noundef ptr @"_ZZN4pkpy15__init_builtinsEPNS_2VMEEN4$_548__invok
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_9RangeIterEJRNS_5RangeEEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %0, i16 %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.5.i = alloca { i64, i64 }, align 8
   %4 = tail call noundef ptr @_ZN4pkpy12pool64_allocEm(i64 noundef 56) #38
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 1, ptr %5, align 8
@@ -20775,16 +20774,14 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_9RangeIterEJRNS_
   store ptr null, ptr %8, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4pkpy3Py_INS_9RangeIterEEE, i64 16), ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sroa.05.0.copyload.i = load i64, ptr %2, align 8
+  %.sroa.06.0.copyload.i = load i64, ptr %2, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx.i, i64 16, i1 false)
-  store i64 %.sroa.05.0.copyload.i, ptr %9, align 8
+  %.sroa.2.0.copyload.i = load <2 x i64>, ptr %.sroa.2.0..sroa_idx.i, align 8
+  store i64 %.sroa.06.0.copyload.i, ptr %9, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i, i64 16, i1 false)
+  store <2 x i64> %.sroa.2.0.copyload.i, ptr %.sroa.5.0..sroa_idx.i, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store i64 %.sroa.05.0.copyload.i, ptr %10, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i)
+  store i64 %.sroa.06.0.copyload.i, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8

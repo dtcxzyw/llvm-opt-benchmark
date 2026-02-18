@@ -12245,8 +12245,8 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capaci
   unreachable
 
 33:                                               ; preds = %16, %20, %18
-  %.sroa.6.054.ph = phi i64 [ 1, %18 ], [ %25, %20 ], [ %..i, %16 ]
-  %34 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %2, i64 %.sroa.6.054.ph)
+  %.sroa.6.055.ph = phi i64 [ 1, %18 ], [ %25, %20 ], [ %..i, %16 ]
+  %34 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %2, i64 %.sroa.6.055.ph)
   %35 = extractvalue { i64, i1 } %34, 1
   br i1 %35, label %51, label %36
 
@@ -12261,7 +12261,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capaci
   %42 = extractvalue { i64, i1 } %39, 0
   %43 = sub i64 0, %3
   %44 = and i64 %42, %43
-  %45 = add nuw nsw i64 %.sroa.6.054.ph, 16
+  %45 = add nuw nsw i64 %.sroa.6.055.ph, 16
   %46 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %44, i64 %45)
   %47 = extractvalue { i64, i1 } %46, 1
   %48 = extractvalue { i64, i1 } %46, 0
@@ -12321,29 +12321,28 @@ _ZN9hashbrown3raw5inner5alloc5inner8do_alloc17h24e18c975929ea06E.exit.i: ; preds
   br label %26
 
 _ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17hf250137d26cdf01fE.exit: ; preds = %_ZN9hashbrown3raw5inner5alloc5inner8do_alloc17h24e18c975929ea06E.exit.i
-  %70 = icmp samesign ult i64 %.sroa.6.054.ph, 9
-  %71 = add nsw i64 %.sroa.6.054.ph, -1
-  %72 = lshr i64 %.sroa.6.054.ph, 3
+  %70 = icmp samesign ult i64 %.sroa.6.055.ph, 9
+  %71 = add nsw i64 %.sroa.6.055.ph, -1
+  %72 = lshr i64 %.sroa.6.055.ph, 3
   %73 = mul nuw nsw i64 %72, 7
   %.0.i = select i1 %70, i64 %71, i64 %73
   %74 = getelementptr inbounds i8, ptr %.sroa.05.0.i.i.i, i64 %44
+  %.sroa.630.24.vec.insert = insertelement <2 x i64> <i64 poison, i64 0>, i64 %.0.i, i64 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %74, i8 -1, i64 %45, i1 false)
   store ptr %74, ptr %0, align 8
-  %.sroa.431.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %71, ptr %.sroa.431.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %71, ptr %.sroa.433.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.0.i, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.632.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 0, ptr %.sroa.632.0..sroa_idx, align 8
+  store <2 x i64> %.sroa.630.24.vec.insert, ptr %.sroa.5.0..sroa_idx, align 8
   br label %26
 
 _ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17hf250137d26cdf01fE.exit.thread: ; preds = %67, %51
-  %.sroa.6.04865.ph = phi i64 [ 0, %51 ], [ %3, %67 ]
-  %.sroa.10.063.ph = phi i64 [ undef, %51 ], [ %48, %67 ]
+  %.sroa.6.04966.ph = phi i64 [ 0, %51 ], [ %3, %67 ]
+  %.sroa.10.064.ph = phi i64 [ undef, %51 ], [ %48, %67 ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.6.04865.ph, ptr %75, align 8
+  store i64 %.sroa.6.04966.ph, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.10.063.ph, ptr %76, align 8
+  store i64 %.sroa.10.064.ph, ptr %76, align 8
   store ptr null, ptr %0, align 8
   br label %26
 }

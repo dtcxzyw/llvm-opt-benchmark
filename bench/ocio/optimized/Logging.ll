@@ -58,7 +58,7 @@ $_ZTSFvPKcE = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE = internal global %"class.std::function" zeroinitializer, align 8
+@_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE = internal global %"class.std::function" zeroinitializer, align 16
 @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_114g_logginglevelE = internal unnamed_addr global i32 255, align 4
 @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingOverrideE = internal unnamed_addr global i1 false, align 1
 @.str = private unnamed_addr constant [27 x i8] c"Unsupported logging level.\00", align 1
@@ -370,13 +370,12 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN19OpenColorIO_v2_5dev18SetLoggingFunctionESt8functionIFvPKcEE(ptr noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
-  %2 = alloca %"class.std::function", align 8
+  %2 = alloca %"class.std::function", align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %.not.i.i.not.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFvPKcEEC2ERKS3_.exit.i, label %7
@@ -389,12 +388,13 @@ define void @_ZN19OpenColorIO_v2_5dev18SetLoggingFunctionESt8functionIFvPKcEE(pt
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !44
   %12 = load ptr, ptr %5, align 8, !tbaa !19
+  %.sroa.0.0.copyload.i.i.pre.i = load <2 x i64>, ptr %2, align 16, !tbaa !28
   br label %_ZNSt8functionIFvPKcEEC2ERKS3_.exit.i
 
 13:                                               ; preds = %7
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = load ptr, ptr %3, align 8, !tbaa !19
+  %15 = load ptr, ptr %3, align 16, !tbaa !19
   %.not.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i.i, label %16
 
@@ -415,14 +415,12 @@ _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %16, %13
 _ZNSt8functionIFvPKcEEC2ERKS3_.exit.i:            ; preds = %9, %1
   %21 = phi ptr [ null, %1 ], [ %11, %9 ]
   %22 = phi ptr [ null, %1 ], [ %12, %9 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false), !tbaa.struct !46
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, i64 16, i1 false), !tbaa.struct !46
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !46
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, i64 16), align 8, !tbaa !47
-  store ptr %23, ptr %3, align 8, !tbaa !47
-  store ptr %22, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, i64 16), align 8, !tbaa !47
+  %.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %1 ], [ %.sroa.0.0.copyload.i.i.pre.i, %9 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull align 16 dereferenceable(32) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, i64 16, i1 false), !tbaa.struct !46
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, align 16, !tbaa !28
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, i64 16), align 16, !tbaa !47
+  store ptr %23, ptr %3, align 16, !tbaa !47
+  store ptr %22, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, i64 16), align 16, !tbaa !47
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, i64 24), align 8, !tbaa !47
   store ptr %24, ptr %4, align 8, !tbaa !47
   store ptr %21, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, i64 24), align 8, !tbaa !47
@@ -447,22 +445,19 @@ _ZNSt8functionIFvPKcEEaSERKS3_.exit:              ; preds = %_ZNSt8functionIFvPK
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN19OpenColorIO_v2_5dev29ResetToDefaultLoggingFunctionEv() local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
-  %1 = alloca %"class.std::function", align 8
+  %1 = alloca %"class.std::function", align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %4, align 8
-  store ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_122DefaultLoggingFunctionEPKc, ptr %1, align 8, !tbaa !47
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false), !tbaa.struct !46
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, i64 16, i1 false), !tbaa.struct !46
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !46
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, i64 16), align 8, !tbaa !47
-  store ptr %5, ptr %2, align 8, !tbaa !47
-  store ptr @_ZNSt17_Function_handlerIFvPKcEPS2_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, i64 16), align 8, !tbaa !47
+  store ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_122DefaultLoggingFunctionEPKc, ptr %1, align 16, !tbaa !47
+  %.sroa.0.0.copyload.i.i.i = load <2 x i64>, ptr %1, align 16, !tbaa !28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, i64 16, i1 false), !tbaa.struct !46
+  store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, align 16, !tbaa !28
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, i64 16), align 16, !tbaa !47
+  store ptr %5, ptr %2, align 16, !tbaa !47
+  store ptr @_ZNSt17_Function_handlerIFvPKcEPS2_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, i64 16), align 16, !tbaa !47
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, i64 24), align 8, !tbaa !47
   store ptr %6, ptr %3, align 8, !tbaa !47
   store ptr @_ZNSt17_Function_handlerIFvPKcEPS2_E9_M_invokeERKSt9_Any_dataOS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, i64 24), align 8, !tbaa !47
@@ -1464,7 +1459,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
   %159 = load ptr, ptr %8, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %159, ptr %2, align 8, !tbaa !71
-  %160 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, i64 16), align 8, !tbaa !19
+  %160 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, i64 16), align 16, !tbaa !19
   %.not.i.i = icmp eq ptr %160, null
   br i1 %.not.i.i, label %161, label %162
 
@@ -2350,9 +2345,9 @@ define internal void @_GLOBAL__sub_I_Logging.cpp() #15 section ".text.startup" p
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #20
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, i64 8), align 8
-  store ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_122DefaultLoggingFunctionEPKc, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, align 8, !tbaa !47
+  store ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_122DefaultLoggingFunctionEPKc, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, align 16, !tbaa !47
   store ptr @_ZNSt17_Function_handlerIFvPKcEPS2_E9_M_invokeERKSt9_Any_dataOS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, i64 24), align 8, !tbaa !44
-  store ptr @_ZNSt17_Function_handlerIFvPKcEPS2_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, i64 16), align 8, !tbaa !19
+  store ptr @_ZNSt17_Function_handlerIFvPKcEPS2_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, i64 16), align 16, !tbaa !19
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt14_Function_baseD2Ev, ptr nonnull @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, ptr nonnull @__dso_handle) #20
   ret void
 }
