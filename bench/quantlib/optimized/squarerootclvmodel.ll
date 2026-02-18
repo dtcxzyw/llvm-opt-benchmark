@@ -2737,8 +2737,8 @@ _ZNSt8functionIFdddEEC2ERKS1_.exit:               ; preds = %entry, %invoke.cont
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK8QuantLib18SquareRootCLVModel19performCalculationsEv(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i = alloca %"class.std::function", align 16
-  %ref.tmp.sroa.6 = alloca [24 x i8], align 8
+  %ref.tmp.sroa.3 = alloca %"class.std::function", align 16
+  %ref.tmp.i = alloca [24 x i8], align 8
   %ref.tmp2 = alloca %"class.QuantLib::SquareRootCLVModel::MappingFunction", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2)
@@ -2825,13 +2825,13 @@ _ZNSt8functionIFdddEEC2EOS1_.exit.i:              ; preds = %if.else.i.i.i.i.i.i
   %g_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
-  store ptr %call.i.i2.i1, ptr %ref.tmp.i, align 16
-  %ref.tmp.sroa.6.0.ref.tmp.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  %15 = load i64, ptr %ref.tmp.sroa.6, align 8, !tbaa !33
+  store ptr %call.i.i2.i1, ptr %ref.tmp.sroa.3, align 16
+  %ref.tmp.sroa.6.0.ref.tmp.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.3, i64 8
+  %15 = load i64, ptr %ref.tmp.i, align 8, !tbaa !33
   store i64 %15, ptr %ref.tmp.sroa.6.0.ref.tmp.i.sroa_idx, align 8, !tbaa !33
-  %ref.tmp.sroa.6.8._M_manager.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.6.8._M_manager.i.i.sroa_idx, i8 0, i64 16, i1 false)
-  %__tmp.sroa.0.0.copyload.i.i.pre.i = load <2 x i64>, ptr %ref.tmp.i, align 16, !tbaa !33
+  %ref.tmp.sroa.3.0.g_.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.3.0.g_.sroa_idx, i8 0, i64 16, i1 false)
+  %__tmp.sroa.0.0.copyload.i.i.pre.i = load <2 x i64>, ptr %ref.tmp.sroa.3, align 16, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %g_, i64 16, i1 false), !tbaa.struct !121
   store <2 x i64> %__tmp.sroa.0.0.copyload.i.i.pre.i, ptr %g_, align 8, !tbaa !33
   %_M_manager.i.i2 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16

@@ -2692,23 +2692,23 @@ entry:
   %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
   %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
   %origP1.sroa.0.0.copyload = load <2 x double>, ptr %arrayidx4, align 8
-  %sub.i6 = fsub double %to.coerce0, %agg.tmp.sroa.0.0.copyload
-  %sub3.i7 = fsub double %to.coerce1, %agg.tmp.sroa.2.0.copyload
-  %0 = fneg double %sub.i6
+  %sub.i5 = fsub double %to.coerce0, %agg.tmp.sroa.0.0.copyload
+  %sub3.i6 = fsub double %to.coerce1, %agg.tmp.sroa.2.0.copyload
+  %0 = fneg double %sub.i5
   %neg.i = fmul double %sub3.i, %0
-  %1 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i7, double %neg.i)
+  %1 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i6, double %neg.i)
   %arrayidx34 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp32.sroa.0.0.copyload = load double, ptr %arrayidx34, align 8
   %agg.tmp32.sroa.2.0.arrayidx34.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 56
   %agg.tmp32.sroa.2.0.copyload = load double, ptr %agg.tmp32.sroa.2.0.arrayidx34.sroa_idx, align 8
-  %sub.i14 = fsub double %agg.tmp32.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
-  %sub3.i15 = fsub double %agg.tmp32.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
-  %2 = fneg double %sub.i14
-  %neg.i18 = fmul double %sub3.i, %2
-  %3 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i15, double %neg.i18)
+  %sub.i13 = fsub double %agg.tmp32.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
+  %sub3.i14 = fsub double %agg.tmp32.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
+  %2 = fneg double %sub.i13
+  %neg.i17 = fmul double %sub3.i, %2
+  %3 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i14, double %neg.i17)
   %div = fdiv double %1, %3
-  %mul.i = fmul double %sub.i14, %div
-  %mul1.i = fmul double %sub3.i15, %div
+  %mul.i = fmul double %sub.i13, %div
+  %mul1.i = fmul double %sub3.i14, %div
   %add.i = fadd double %agg.tmp2.sroa.0.0.copyload, %mul.i
   store double %add.i, ptr %arrayidx4, align 8
   %4 = extractelement <2 x double> %origP1.sroa.0.0.copyload, i64 1
@@ -2716,11 +2716,11 @@ entry:
   store double %add4.i, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   store double %to.coerce0, ptr %p, align 8
   store double %to.coerce1, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
-  %sub.i25 = fsub double %to.coerce0, %add.i
-  %sub3.i26 = fsub double %to.coerce1, %add4.i
-  %mul3.i = fmul double %sub3.i, %sub3.i26
-  %5 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub.i25, double %mul3.i)
-  %cmp = fcmp olt double %5, 0.000000e+00
+  %sub.i24 = fsub double %to.coerce0, %add.i
+  %sub3.i25 = fsub double %to.coerce1, %add4.i
+  %mul3.i = fmul double %sub3.i, %sub3.i25
+  %4 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub.i24, double %mul3.i)
+  %cmp = fcmp olt double %4, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -2778,22 +2778,22 @@ entry:
   %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
   %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
   %origP1.sroa.0.0.copyload = load <2 x double>, ptr %arrayidx4, align 8
-  %sub.i6 = fsub double %to.coerce0, %agg.tmp.sroa.0.0.copyload
-  %sub3.i7 = fsub double %to.coerce1, %agg.tmp.sroa.2.0.copyload
-  %0 = fneg double %sub.i6
+  %sub.i5 = fsub double %to.coerce0, %agg.tmp.sroa.0.0.copyload
+  %sub3.i6 = fsub double %to.coerce1, %agg.tmp.sroa.2.0.copyload
+  %0 = fneg double %sub.i5
   %neg.i = fmul double %sub3.i, %0
-  %1 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i7, double %neg.i)
+  %1 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i6, double %neg.i)
   %agg.tmp32.sroa.0.0.copyload = load double, ptr %p, align 8
   %agg.tmp32.sroa.2.0.arrayidx34.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp32.sroa.2.0.copyload = load double, ptr %agg.tmp32.sroa.2.0.arrayidx34.sroa_idx, align 8
-  %sub.i14 = fsub double %agg.tmp32.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
-  %sub3.i15 = fsub double %agg.tmp32.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
-  %2 = fneg double %sub.i14
-  %neg.i18 = fmul double %sub3.i, %2
-  %3 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i15, double %neg.i18)
+  %sub.i13 = fsub double %agg.tmp32.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
+  %sub3.i14 = fsub double %agg.tmp32.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
+  %2 = fneg double %sub.i13
+  %neg.i17 = fmul double %sub3.i, %2
+  %3 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i14, double %neg.i17)
   %div = fdiv double %1, %3
-  %mul.i = fmul double %sub.i14, %div
-  %mul1.i = fmul double %sub3.i15, %div
+  %mul.i = fmul double %sub.i13, %div
+  %mul1.i = fmul double %sub3.i14, %div
   %add.i = fadd double %agg.tmp2.sroa.0.0.copyload, %mul.i
   store double %add.i, ptr %arrayidx4, align 8
   %4 = extractelement <2 x double> %origP1.sroa.0.0.copyload, i64 1
@@ -2801,11 +2801,11 @@ entry:
   store double %add4.i, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   store double %to.coerce0, ptr %arrayidx, align 8
   store double %to.coerce1, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
-  %sub.i25 = fsub double %to.coerce0, %add.i
-  %sub3.i26 = fsub double %to.coerce1, %add4.i
-  %mul3.i = fmul double %sub3.i, %sub3.i26
-  %5 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub.i25, double %mul3.i)
-  %cmp = fcmp olt double %5, 0.000000e+00
+  %sub.i24 = fsub double %to.coerce0, %add.i
+  %sub3.i25 = fsub double %to.coerce1, %add4.i
+  %mul3.i = fmul double %sub3.i, %sub3.i25
+  %4 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub.i24, double %mul3.i)
+  %cmp = fcmp olt double %4, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

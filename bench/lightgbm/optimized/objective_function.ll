@@ -1932,7 +1932,7 @@ _ZN8LightGBM16RegressionL2lossD2Ev.exit:          ; preds = %16, %19
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8LightGBM13BinaryLoglossC2ERKNS_6ConfigESt8functionIFbfEE(ptr noundef nonnull align 8 dereferenceable(114) %0, ptr noundef nonnull align 8 dereferenceable(1624) %1, ptr noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"class.std::function", align 16
+  %.sroa.0.i.i.i = alloca %"class.std::function", align 16
   store ptr getelementptr inbounds nuw inrange(-16, 160) (i8, ptr @_ZTVN8LightGBM13BinaryLoglossE, i64 16), ptr %0, align 8, !tbaa !15
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
@@ -2042,7 +2042,7 @@ _ZNSt8functionIFbfEEC2ERKS1_.exit.i:              ; preds = %43, %36
   %55 = phi ptr [ null, %36 ], [ %45, %43 ]
   %56 = phi ptr [ null, %36 ], [ %46, %43 ]
   %.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %36 ], [ %.sroa.0.0.copyload.i.i.pre.i, %43 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !106
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !106
   store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %5, align 8, !tbaa !13
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %58 = load ptr, ptr %57, align 8, !tbaa !107

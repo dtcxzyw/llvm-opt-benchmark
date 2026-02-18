@@ -378,7 +378,7 @@ _ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_trai
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef nonnull align 8 dereferenceable(144) ptr @_ZN9Stockfish6OptionaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
-  %3 = alloca %"class.std::function", align 16
+  %.sroa.0.i.i.i.i.i = alloca %"class.std::function", align 16
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.Stockfish::OptionsMap", align 8
@@ -562,7 +562,7 @@ _ZNSt8functionIFvRKN9Stockfish6OptionEEEC2ERKS5_.exit.i.i.i: ; preds = %90, %80
   %94 = phi ptr [ null, %80 ], [ %92, %90 ]
   %95 = phi ptr [ null, %80 ], [ %93, %90 ]
   %.sroa.0.0.copyload.i.i.i.i.i = phi <2 x i64> [ zeroinitializer, %80 ], [ %.sroa.0.0.copyload.i.i.pre.i.i.i, %90 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %88, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %88, i64 16, i1 false)
   store <2 x i64> %.sroa.0.0.copyload.i.i.i.i.i, ptr %88, align 8
   %96 = getelementptr inbounds nuw i8, ptr %81, i64 128
   %97 = load ptr, ptr %96, align 8
@@ -1173,7 +1173,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit7: ; p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN9Stockfish6OptionlsERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(144) %1) local_unnamed_addr #3 align 2 {
-  %3 = alloca %"class.std::function", align 16
+  %.sroa.0.i.i.i.i = alloca %"class.std::function", align 16
   %4 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(144) %1) #17
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1205,7 +1205,7 @@ _ZNSt8functionIFvRKN9Stockfish6OptionEEEC2ERKS5_.exit.i.i: ; preds = %16, %2
   %22 = phi ptr [ null, %2 ], [ %20, %16 ]
   %23 = phi ptr [ null, %2 ], [ %21, %16 ]
   %.sroa.0.0.copyload.i.i.i.i = phi <2 x i64> [ zeroinitializer, %2 ], [ %.sroa.0.0.copyload.i.i.pre.i.i, %16 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 16, i1 false)
   store <2 x i64> %.sroa.0.0.copyload.i.i.i.i, ptr %13, align 8
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 128

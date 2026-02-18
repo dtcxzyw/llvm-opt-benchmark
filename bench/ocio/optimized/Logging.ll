@@ -370,7 +370,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN19OpenColorIO_v2_5dev18SetLoggingFunctionESt8functionIFvPKcEE(ptr noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %2 = alloca %"class.std::function", align 16
+  %.sroa.0.i.i.i = alloca %"class.std::function", align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -415,8 +415,8 @@ _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %16, %13
 _ZNSt8functionIFvPKcEEC2ERKS3_.exit.i:            ; preds = %9, %1
   %21 = phi ptr [ null, %1 ], [ %11, %9 ]
   %22 = phi ptr [ null, %1 ], [ %12, %9 ]
-  %.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %1 ], [ %.sroa.0.0.copyload.i.i.pre.i, %9 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull align 16 dereferenceable(32) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, i64 16, i1 false), !tbaa.struct !46
+  %.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %.sroa.0.i.i.i ], [ %.sroa.0.0.copyload.i.i.pre.i, %9 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i, ptr noundef nonnull align 16 dereferenceable(32) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, i64 16, i1 false), !tbaa.struct !46
   store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, align 16, !tbaa !28
   %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, i64 16), align 16, !tbaa !47
   store ptr %23, ptr %3, align 16, !tbaa !47
@@ -445,18 +445,18 @@ _ZNSt8functionIFvPKcEEaSERKS3_.exit:              ; preds = %_ZNSt8functionIFvPK
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN19OpenColorIO_v2_5dev29ResetToDefaultLoggingFunctionEv() local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
-  %1 = alloca %"class.std::function", align 16
+  %.sroa.0.i.i.i = alloca %"class.std::function", align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %4, align 8
   store ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_122DefaultLoggingFunctionEPKc, ptr %1, align 16, !tbaa !47
-  %.sroa.0.0.copyload.i.i.i = load <2 x i64>, ptr %1, align 16, !tbaa !28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, i64 16, i1 false), !tbaa.struct !46
+  %.sroa.0.0.copyload.i.i.i = load <2 x i64>, ptr %.sroa.0.i.i.i, align 16, !tbaa !28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i, ptr noundef nonnull align 16 dereferenceable(32) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, i64 16, i1 false), !tbaa.struct !46
   store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, align 16, !tbaa !28
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, i64 16), align 16, !tbaa !47
-  store ptr %5, ptr %2, align 16, !tbaa !47
+  store ptr %5, ptr %.sroa.0.i.i.i, align 16, !tbaa !47
   store ptr @_ZNSt17_Function_handlerIFvPKcEPS2_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, i64 16), align 16, !tbaa !47
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117g_loggingFunctionE, i64 24), align 8, !tbaa !47
   store ptr %6, ptr %3, align 8, !tbaa !47

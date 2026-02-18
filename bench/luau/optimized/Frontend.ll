@@ -20318,7 +20318,7 @@ _ZNSt13unordered_mapIN4Luau6SymbolENS0_7BindingESt4hashIS1_ESt8equal_toIS1_ESaIS
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(104) ptr @_ZN4Luau15FrontendOptionsaSERKS0_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.std::function", align 16
+  %.sroa.0.i.i.i = alloca %"class.std::function", align 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -20456,7 +20456,7 @@ _ZNSt8functionIFvRKN4Luau12SourceModuleERKNS0_6ModuleEEEC2ERKS8_.exit.i: ; preds
   %64 = phi ptr [ null, %_ZNSt10shared_ptrIN4Luau25FrontendCancellationTokenEEaSERKS2_.exit ], [ %54, %52 ]
   %65 = phi ptr [ null, %_ZNSt10shared_ptrIN4Luau25FrontendCancellationTokenEEaSERKS2_.exit ], [ %55, %52 ]
   %.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %_ZNSt10shared_ptrIN4Luau25FrontendCancellationTokenEEaSERKS2_.exit ], [ %.sroa.0.0.copyload.i.i.pre.i, %52 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %44, i64 16, i1 false), !tbaa.struct !315
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %44, i64 16, i1 false), !tbaa.struct !315
   store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %44, align 8, !tbaa !121
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %67 = load ptr, ptr %66, align 8, !tbaa !15
@@ -34183,7 +34183,7 @@ _ZNSt10shared_ptrIN4Luau5ScopeEEaSERKS2_.exit:    ; preds = %59, %56, %47, %_ZNS
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau8Frontend25registerBuiltinDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvRS0_RNS_11GlobalTypesESt10shared_ptrINS_5ScopeEEEE(ptr noundef nonnull align 8 dereferenceable(1784) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"class.std::function.1025", align 16
+  %.sroa.0.i.i.i = alloca %"class.std::function.1025", align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = tail call ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFvRN4Luau8FrontendERNS9_11GlobalTypesESt10shared_ptrINS9_5ScopeEEEEESaISJ_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSL_18_Mod_range_hashingENSL_20_Default_ranged_hashENSL_20_Prime_rehash_policyENSL_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %.not.i.i.not = icmp eq ptr %6, null
@@ -34236,7 +34236,7 @@ _ZNSt8functionIFvRN4Luau8FrontendERNS0_11GlobalTypesESt10shared_ptrINS0_5ScopeEE
   %27 = phi ptr [ null, %7 ], [ %17, %15 ]
   %28 = phi ptr [ null, %7 ], [ %18, %15 ]
   %.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %7 ], [ %.sroa.0.0.copyload.i.i.pre.i, %15 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false), !tbaa.struct !315
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false), !tbaa.struct !315
   store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %8, align 8, !tbaa !121
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !15

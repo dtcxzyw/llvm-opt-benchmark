@@ -3098,19 +3098,19 @@ define internal void @ff_tx_fft_inplace_double_c(ptr noundef readonly captures(n
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !59
   %11 = load i32, ptr %10, align 4, !tbaa !11
-  br label %12
+  br label %19
 
-12:                                               ; preds = %22, %4
-  %.pn = phi ptr [ %10, %4 ], [ %.029, %22 ]
+19:                                               ; preds = %22, %4
+  %.0 = phi ptr [ %10, %4 ], [ %.029, %22 ]
   %.028 = phi i32 [ %11, %4 ], [ %23, %22 ]
-  %13 = sext i32 %.028 to i64
-  %14 = getelementptr inbounds %struct.AVComplexDouble, ptr %2, i64 %13
+  %20 = sext i32 %.028 to i64
+  %21 = getelementptr inbounds %struct.AVComplexDouble, ptr %2, i64 %20
   %.sroa.012.0.copyload = load <2 x double>, ptr %14, align 8
   %15 = getelementptr inbounds i32, ptr %8, i64 %13
   %16 = load i32, ptr %15, align 4, !tbaa !11
   br label %17
 
-17:                                               ; preds = %17, %12
+17:; preds = %17, %12
   %.0 = phi i32 [ %16, %12 ], [ %21, %17 ]
   %.sroa.012.0 = phi nsz <2 x double> [ %.sroa.012.0.copyload, %12 ], [ %.sroa.0.0.copyload, %17 ]
   %18 = sext i32 %.0 to i64
@@ -3122,8 +3122,8 @@ define internal void @ff_tx_fft_inplace_double_c(ptr noundef readonly captures(n
   %.not = icmp eq i32 %21, %.028
   br i1 %.not, label %22, label %17, !llvm.loop !63
 
-22:                                               ; preds = %17
-  %.029 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
+22: ; preds = %17
+  %.029 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   store <2 x double> %.sroa.0.0.copyload, ptr %14, align 8
   %23 = load i32, ptr %.029, align 4, !tbaa !11
   %.not32 = icmp eq i32 %23, 0

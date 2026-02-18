@@ -88,7 +88,7 @@ define hidden void @_ZN3nla6solver20add_bounded_divisionEjjj(ptr noundef nonnull
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3nla6solver12set_relevantERSt8functionIFbjEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.std::function", align 16
+  %.sroa.0.i.i.i.i = alloca %"class.std::function", align 16
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -136,7 +136,7 @@ _ZNSt8functionIFbjEEC2ERKS1_.exit.i.i:            ; preds = %12, %2
   %24 = phi ptr [ null, %2 ], [ %14, %12 ]
   %25 = phi ptr [ null, %2 ], [ %15, %12 ]
   %.sroa.0.0.copyload.i.i.i.i = phi <2 x i64> [ zeroinitializer, %2 ], [ %.sroa.0.0.copyload.i.i.pre.i.i, %12 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !14
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !14
   store <2 x i64> %.sroa.0.0.copyload.i.i.i.i, ptr %5, align 8, !tbaa !13
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 240
   %27 = load ptr, ptr %26, align 8, !tbaa !15

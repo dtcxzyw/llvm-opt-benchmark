@@ -2838,7 +2838,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83: ; preds = %178
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(352) ptr @_ZN7testing8internal16TypedExpectationIFvRKN4absl8LogEntryEEE14WillRepeatedlyERKNS_6ActionIS6_EE(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.std::function.31", align 16
+  %.sroa.0.i.i.i.i = alloca %"class.std::function.31", align 16
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3046,7 +3046,7 @@ _ZNSt8functionIFvRKN4absl8LogEntryEEEC2ERKS5_.exit.i.i: ; preds = %73, %64
   %85 = phi ptr [ null, %64 ], [ %75, %73 ]
   %86 = phi ptr [ null, %64 ], [ %76, %73 ]
   %.sroa.0.0.copyload.i.i.i.i = phi <2 x i64> [ zeroinitializer, %64 ], [ %.sroa.0.0.copyload.i.i.pre.i.i, %73 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %66, i64 16, i1 false), !tbaa.struct !164
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %66, i64 16, i1 false), !tbaa.struct !164
   store <2 x i64> %.sroa.0.0.copyload.i.i.i.i, ptr %66, align 8, !tbaa !40
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %88 = load ptr, ptr %87, align 8, !tbaa !77

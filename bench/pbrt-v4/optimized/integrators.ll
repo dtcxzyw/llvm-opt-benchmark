@@ -50921,11 +50921,11 @@ _ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit12:    ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4pbrt18FunctionIntegrator6CreateERKNS_19ParameterDictionaryENS_6CameraENS_7SamplerEPKNS_7FileLocE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.327") align 8 %0, ptr noundef nonnull align 8 dereferenceable(108) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 ._crit_edge.i.i:
+  %.sroa.0.i.i.i71 = alloca %"class.std::function.335", align 16
   %5 = alloca %"class.std::function.335", align 16
+  %.sroa.0.i.i.i68 = alloca %"class.std::function.335", align 16
   %6 = alloca %"class.std::function.335", align 16
-  %7 = alloca %"class.std::function.335", align 16
-  %8 = alloca %"class.std::function.335", align 16
-  %9 = alloca %"class.std::function.335", align 16
+  %.sroa.0.i.i.i65 = alloca %"class.std::function.335", align 16
   %10 = alloca i64, align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -51096,8 +51096,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %69,
   %79 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %79, align 8
   store ptr @_ZN4pbrt5funcsL4stepENS_6Point2IfEE, ptr %9, align 16, !tbaa !177
-  %.sroa.0.0.copyload.i.i.i = load <2 x i64>, ptr %9, align 16, !tbaa !13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %17, i64 16, i1 false), !tbaa.struct !364
+  %.sroa.0.0.copyload.i.i.i = load <2 x i64>, ptr %.sroa.0.i.i.i65, align 16, !tbaa !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i65, ptr noundef nonnull align 16 dereferenceable(32) %17, i64 16, i1 false), !tbaa.struct !364
   store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %17, align 16, !tbaa !13
   %80 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %81 = load ptr, ptr %80, align 16, !tbaa !177
@@ -51194,7 +51194,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %101
   store i64 0, ptr %115, align 8
   store ptr @_ZN4pbrt5funcsL8diagonalENS_6Point2IfEE, ptr %8, align 16, !tbaa !177
   %.sroa.0.0.copyload.i.i.i62 = load <2 x i64>, ptr %8, align 16, !tbaa !13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) %17, i64 16, i1 false), !tbaa.struct !364
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull align 16 dereferenceable(32) %17, i64 16, i1 false), !tbaa.struct !364
   store <2 x i64> %.sroa.0.0.copyload.i.i.i62, ptr %17, align 16, !tbaa !13
   %116 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %117 = load ptr, ptr %116, align 16, !tbaa !177
@@ -51234,8 +51234,8 @@ _ZNSt8functionIFfN4pbrt6Point2IfEEEEaSIRFdS2_EEENSt9enable_ifIXsr9_CallableIT_EE
   %131 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %131, align 8
   store ptr @_ZN4pbrt5funcsL4diskENS_6Point2IfEE, ptr %7, align 16, !tbaa !177
-  %.sroa.0.0.copyload.i.i.i65 = load <2 x i64>, ptr %7, align 16, !tbaa !13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 16 dereferenceable(32) %17, i64 16, i1 false), !tbaa.struct !364
+  %.sroa.0.0.copyload.i.i.i65 = load <2 x i64>, ptr %.sroa.0.i.i.i68, align 16, !tbaa !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i68, ptr noundef nonnull align 16 dereferenceable(32) %17, i64 16, i1 false), !tbaa.struct !364
   store <2 x i64> %.sroa.0.0.copyload.i.i.i65, ptr %17, align 16, !tbaa !13
   %132 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %133 = load ptr, ptr %132, align 16, !tbaa !177
@@ -51316,8 +51316,8 @@ _ZNSt8functionIFfN4pbrt6Point2IfEEEEaSIRFdS2_EEENSt9enable_ifIXsr9_CallableIT_EE
   %163 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %163, align 8
   store ptr @_ZN4pbrt5funcsL19rotatedCheckerboardENS_6Point2IfEE, ptr %5, align 16, !tbaa !177
-  %.sroa.0.0.copyload.i.i.i71 = load <2 x i64>, ptr %5, align 16, !tbaa !13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, ptr noundef nonnull align 16 dereferenceable(32) %17, i64 16, i1 false), !tbaa.struct !364
+  %.sroa.0.0.copyload.i.i.i71 = load <2 x i64>, ptr %.sroa.0.i.i.i71, align 16, !tbaa !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i71, ptr noundef nonnull align 16 dereferenceable(32) %17, i64 16, i1 false), !tbaa.struct !364
   store <2 x i64> %.sroa.0.0.copyload.i.i.i71, ptr %17, align 16, !tbaa !13
   %164 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %165 = load ptr, ptr %164, align 16, !tbaa !177
@@ -51671,15 +51671,15 @@ define internal noundef double @_ZN4pbrt5funcsL4stepENS_6Point2IfEE(<2 x float> 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8functionIFfN4pbrt6Point2IfEEEEaSIRFdS2_EEENSt9enable_ifIXsr9_CallableIT_EE5valueERS4_E4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.std::function.335", align 16
+  %.sroa.0.i.i = alloca %"class.std::function.335", align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %6, align 8
   store ptr %1, ptr %3, align 16, !tbaa !177
-  %.sroa.0.0.copyload.i.i = load <2 x i64>, ptr %3, align 16, !tbaa !13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 16, i1 false), !tbaa.struct !364
+  %.sroa.0.0.copyload.i.i = load <2 x i64>, ptr %.sroa.0.i.i, align 16, !tbaa !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 16, i1 false), !tbaa.struct !364
   store <2 x i64> %.sroa.0.0.copyload.i.i, ptr %0, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !177

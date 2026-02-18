@@ -1095,15 +1095,15 @@ streamIteratorStart.exit:
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 %2, ptr %14, align 8, !tbaa !91
   %15 = call i32 @streamIteratorGetID(ptr noundef nonnull %4, ptr noundef %3, ptr noundef nonnull %5)
-  %.not8 = icmp eq i32 %15, 0
-  br i1 %.not8, label %16, label %17
+  %.not6 = icmp eq i32 %15, 0
+  br i1 %.not6, label %16, label %19
 
 16:                                               ; preds = %streamIteratorStart.exit
   %. = select i1 %.not, <2 x i64> zeroinitializer, <2 x i64> splat (i64 -1)
   store <2 x i64> %., ptr %3, align 8
   br label %17
 
-17:                                               ; preds = %16, %streamIteratorStart.exit
+19:                                               ; preds = %16, %streamIteratorStart.exit
   call void @raxStop(ptr noundef nonnull %9) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3184,8 +3184,8 @@ lpGetIntegerIfValid.exit145:                      ; preds = %195, %201
   %237 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i32 1, ptr %237, align 8, !tbaa !91
   %238 = call i32 @streamIteratorGetID(ptr noundef nonnull %3, ptr noundef nonnull %229, ptr noundef nonnull %4)
-  %.not8.i = icmp eq i32 %238, 0
-  br i1 %.not8.i, label %239, label %streamGetEdgeID.exit
+  %.not6.i = icmp eq i32 %238, 0
+  br i1 %.not6.i, label %239, label %streamGetEdgeID.exit
 
 239:                                              ; preds = %228
   store <2 x i64> splat (i64 -1), ptr %229, align 8
@@ -5455,8 +5455,8 @@ define dso_local void @streamRewriteTrimArgument(ptr noundef %0, ptr noundef %1,
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i32 0, ptr %21, align 8, !tbaa !91
   %22 = call i32 @streamIteratorGetID(ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %6)
-  %.not8.i = icmp eq i32 %22, 0
-  br i1 %.not8.i, label %23, label %streamGetEdgeID.exit
+  %.not6.i = icmp eq i32 %22, 0
+  br i1 %.not6.i, label %23, label %streamGetEdgeID.exit
 
 23:                                               ; preds = %13
   store <2 x i64> splat (i64 -1), ptr %7, align 16
@@ -11108,8 +11108,8 @@ streamCompareID.exit64:                           ; preds = %65, %63, %70
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i32 1, ptr %92, align 8, !tbaa !91
   %93 = call i32 @streamIteratorGetID(ptr noundef nonnull %2, ptr noundef nonnull %84, ptr noundef nonnull %3)
-  %.not8.i = icmp eq i32 %93, 0
-  br i1 %.not8.i, label %94, label %streamGetEdgeID.exit
+  %.not6.i = icmp eq i32 %93, 0
+  br i1 %.not6.i, label %94, label %streamGetEdgeID.exit
 
 94:                                               ; preds = %83
   store <2 x i64> splat (i64 -1), ptr %84, align 8

@@ -985,8 +985,8 @@ declare void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12V3ThreadPool13workerJobLoopEv(ptr noundef nonnull align 8 dereferenceable(224) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+  %.sroa.0.i.i.i = alloca %"class.std::function", align 16
   %2 = alloca %"class.std::function", align 16
-  %3 = alloca %"class.std::function", align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1146,7 +1146,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %58
 
 _ZNSt8functionIFvvEEC2EOS1_.exit.i:               ; preds = %76, %68
   %.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %68 ], [ %.sroa.0.0.copyload.i.i.pre.i, %76 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull align 16 dereferenceable(32) %3, i64 16, i1 false), !tbaa.struct !75
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i, ptr noundef nonnull align 16 dereferenceable(32) %2, i64 16, i1 false), !tbaa.struct !75
   store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %3, align 16, !tbaa !42
   %77 = load ptr, ptr %10, align 16, !tbaa !24
   store ptr %77, ptr %9, align 16, !tbaa !24

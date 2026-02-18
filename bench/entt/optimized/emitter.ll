@@ -10592,7 +10592,7 @@ declare void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr no
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIvESaISt4pairIKjS4_EEE19insert_or_overwriteIjZNS_7emitterIN4test7emitterESaIvEE2onINSF_10boxed_typeIiEEEEvS1_IFvRT_RSG_EEEUlS2_E_EEDaOSM_OT0_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"class.std::function.65", align 16
+  %.sroa.0.i.i.i = alloca %"class.std::function.65", align 16
   %5 = load i32, ptr %1, align 4, !tbaa !65
   %6 = zext i32 %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10664,8 +10664,8 @@ _ZNSt8functionIFvPvEEC2IZN4entt7emitterIN4test7emitterESaIvEE2onINS6_10boxed_typ
   %42 = load ptr, ptr %41, align 8, !tbaa !77
   store ptr %42, ptr %40, align 8, !tbaa !77
   store ptr %30, ptr %4, align 16, !tbaa !94
-  %.sroa.0.0.copyload.i.i.i = load <2 x i64>, ptr %4, align 16, !tbaa !59
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 16, i1 false), !tbaa.struct !76
+  %.sroa.0.0.copyload.i.i.i = load <2 x i64>, ptr %.sroa.0.i.i.i, align 16, !tbaa !59
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 16, i1 false), !tbaa.struct !76
   store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %28, align 8, !tbaa !59
   %43 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %44 = load ptr, ptr %43, align 8, !tbaa !94
@@ -11900,7 +11900,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4test10boxed_t
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIvESaISt4pairIKjS4_EEE19insert_or_overwriteIjZNS_7emitterIN4test7emitterESaIvEE2onINSF_10boxed_typeIcEEEEvS1_IFvRT_RSG_EEEUlS2_E_EEDaOSM_OT0_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"class.std::function.65", align 16
+  %.sroa.0.i.i.i = alloca %"class.std::function.65", align 16
   %5 = load i32, ptr %1, align 4, !tbaa !65
   %6 = zext i32 %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11972,8 +11972,8 @@ _ZNSt8functionIFvPvEEC2IZN4entt7emitterIN4test7emitterESaIvEE2onINS6_10boxed_typ
   %42 = load ptr, ptr %41, align 8, !tbaa !105
   store ptr %42, ptr %40, align 8, !tbaa !105
   store ptr %30, ptr %4, align 16, !tbaa !94
-  %.sroa.0.0.copyload.i.i.i = load <2 x i64>, ptr %4, align 16, !tbaa !59
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 16, i1 false), !tbaa.struct !76
+  %.sroa.0.0.copyload.i.i.i = load <2 x i64>, ptr %.sroa.0.i.i.i, align 16, !tbaa !59
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 16, i1 false), !tbaa.struct !76
   store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %28, align 8, !tbaa !59
   %43 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %44 = load ptr, ptr %43, align 8, !tbaa !94
@@ -12498,7 +12498,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4test10boxed_t
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIvESaISt4pairIKjS4_EEE12move_and_popEm(ptr noundef nonnull align 8 dereferenceable(52) %0, i64 noundef %1) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.std::function.65", align 16
+  %.sroa.0.i.i.i.i.i = alloca %"class.std::function.65", align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !69
@@ -12551,7 +12551,7 @@ define linkonce_odr hidden void @_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8ident
 
 _ZNSt8functionIFvPvEEC2EOS2_.exit.i.i.i:          ; preds = %37, %13
   %.sroa.0.0.copyload.i.i.i.i.i = phi <2 x i64> [ zeroinitializer, %13 ], [ %.sroa.0.0.copyload.i.i.pre.i.i.i, %37 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %31, i64 16, i1 false), !tbaa.struct !76
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %31, i64 16, i1 false), !tbaa.struct !76
   store <2 x i64> %.sroa.0.0.copyload.i.i.i.i.i, ptr %31, align 8, !tbaa !59
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %28, i64 32
@@ -12650,7 +12650,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4test10boxed_t
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIvESaISt4pairIKjS4_EEE19insert_or_overwriteIjZNS_7emitterIN4test7emitterESaIvEE2onINSF_5emptyEEEvS1_IFvRT_RSG_EEEUlS2_E_EEDaOSL_OT0_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"class.std::function.65", align 16
+  %.sroa.0.i.i.i = alloca %"class.std::function.65", align 16
   %5 = load i32, ptr %1, align 4, !tbaa !65
   %6 = zext i32 %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12722,8 +12722,8 @@ _ZNSt8functionIFvPvEEC2IZN4entt7emitterIN4test7emitterESaIvEE2onINS6_5emptyEEEvS
   %42 = load ptr, ptr %41, align 8, !tbaa !107
   store ptr %42, ptr %40, align 8, !tbaa !107
   store ptr %30, ptr %4, align 16, !tbaa !94
-  %.sroa.0.0.copyload.i.i.i = load <2 x i64>, ptr %4, align 16, !tbaa !59
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 16, i1 false), !tbaa.struct !76
+  %.sroa.0.0.copyload.i.i.i = load <2 x i64>, ptr %.sroa.0.i.i.i, align 16, !tbaa !59
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 16, i1 false), !tbaa.struct !76
   store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %28, align 8, !tbaa !59
   %43 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %44 = load ptr, ptr %43, align 8, !tbaa !94

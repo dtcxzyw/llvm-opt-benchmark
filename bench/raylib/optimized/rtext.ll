@@ -1552,8 +1552,8 @@ UnloadFont.exit.i:                                ; preds = %231, %226
   %.sroa.6.0.copyload9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 4), align 4
   %.sroa.7.0.copyload10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 8), align 8
   %.sroa.10.0.copyload12 = load <4 x i32>, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 16), align 8
-  %.sroa.11.0.copyload13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 32), align 8
-  %.sroa.12.0.copyload14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 40), align 8
+  %.sroa.11.0.copyload12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 32), align 8
+  %.sroa.12.0.copyload13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 40), align 8
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.82, ptr noundef %1) #46, !noalias !8
   br label %233
 
@@ -1566,8 +1566,8 @@ UnloadFont.exit.i:                                ; preds = %231, %226
   %.sroa.6.0 = phi i32 [ %.sroa.6.0.copyload9, %UnloadFont.exit.i ], [ %164, %232 ]
   %.sroa.7.0 = phi i32 [ %.sroa.7.0.copyload10, %UnloadFont.exit.i ], [ 0, %232 ]
   %.sroa.8.1 = phi i32 [ %.sroa.8.0.copyload11, %UnloadFont.exit.i ], [ %.sroa.8.0, %232 ]
-  %.sroa.11.0 = phi ptr [ %.sroa.11.0.copyload13, %UnloadFont.exit.i ], [ %169, %232 ]
-  %.sroa.12.0 = phi ptr [ %.sroa.12.0.copyload14, %UnloadFont.exit.i ], [ %167, %232 ]
+  %.sroa.11.0 = phi ptr [ %.sroa.11.0.copyload12, %UnloadFont.exit.i ], [ %169, %232 ]
+  %.sroa.12.0 = phi ptr [ %.sroa.12.0.copyload13, %UnloadFont.exit.i ], [ %167, %232 ]
   %.sroa.10.1 = phi <4 x i32> [ %.sroa.10.0.copyload12, %UnloadFont.exit.i ], [ %.sroa.10.0, %232 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !8
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !8

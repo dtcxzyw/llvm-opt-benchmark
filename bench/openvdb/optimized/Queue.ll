@@ -518,7 +518,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d11
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN7openvdb5v11_02io5Queue11addNotifierESt8functionIFvjNS2_6StatusEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef %notify) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i = alloca %"class.std::function", align 16
+  %__tmp.sroa.0.i.i.i = alloca %"class.std::function", align 16
   %ref.tmp9.i = alloca %"class.std::tuple.70", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.73", align 1
   %id = alloca i32, align 4
@@ -625,7 +625,7 @@ _ZNSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEC2ERKS6_.exit.i: ; preds = %
   %14 = phi ptr [ null, %invoke.cont ], [ %8, %invoke.cont.i.i ]
   %15 = phi ptr [ null, %invoke.cont ], [ %9, %invoke.cont.i.i ]
   %__tmp.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %invoke.cont ], [ %__tmp.sroa.0.0.copyload.i.i.pre.i, %invoke.cont.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i, i64 16, i1 false)
   store <2 x i64> %__tmp.sroa.0.0.copyload.i.i.i, ptr %second.i, align 8
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 56
   %16 = load ptr, ptr %_M_manager3.i.i, align 8
@@ -945,7 +945,7 @@ entry:
   %alloc.i.i.i = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %id.addr.i.i = alloca i32, align 4
   %acc.i.i = alloca %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::accessor", align 8
-  %ref.tmp.i.i.i = alloca %"class.std::function", align 16
+  %__tmp.sroa.0.i.i.i.i.i = alloca %"class.std::function", align 16
   %__ts.i.i = alloca %struct.timespec, align 8
   %_openvdb_throw_msg.i = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os.i = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -1233,8 +1233,8 @@ _ZNSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEC2ERKS6_.exit.i.i.i: ; preds
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i.i3637.i, ptr noundef nonnull align 8 dereferenceable(24) %call.i.i2.i.i9, i64 24, i1 false)
   store ptr %call.i.i.i.i3637.i, ptr %ref.tmp.i.i.i, align 16
   %_M_invoker.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i, i64 24
-  %__tmp.sroa.0.0.copyload.i.i.pre.i.i.i = load <2 x i64>, ptr %ref.tmp.i.i.i, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %mNotify.i.i, i64 16, i1 false)
+  %__tmp.sroa.0.0.copyload.i.i.pre.i.i.i = load <2 x i64>, ptr %__tmp.sroa.0.i.i.i.i.i, align 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %__tmp.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %mNotify.i.i, i64 16, i1 false)
   store <2 x i64> %__tmp.sroa.0.0.copyload.i.i.pre.i.i.i, ptr %mNotify.i.i, align 8
   %_M_manager3.i.i.i.i = getelementptr inbounds nuw i8, ptr %task, i64 32
   %26 = load ptr, ptr %_M_manager3.i.i.i.i, align 8

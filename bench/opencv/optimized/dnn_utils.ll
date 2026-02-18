@@ -7929,7 +7929,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit16:   ; preds = %_ZNSt6vectorIN2cv5R
   br label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit18
 
 _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit18:   ; preds = %.thread, %35
-  %.pn31 = phi { ptr, i32 } [ %34, %.thread ], [ %36, %35 ]
+  %.pn28 = phi { ptr, i32 } [ %34, %.thread ], [ %36, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %37 = load ptr, ptr %6, align 8, !tbaa !158
   %.not.i.i.i19 = icmp eq ptr %37, null
@@ -7944,7 +7944,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit20:   ; preds = %_ZNSt6vectorIN2cv5R
   br label %39
 
 39:                                               ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn9.pn = phi { ptr, i32 } [ %.pn9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn31, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit20 ]
+  %.pn9.pn = phi { ptr, i32 } [ %.pn9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn28, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit20 ]
   resume { ptr, i32 } %.pn9.pn
 }
 

@@ -2306,7 +2306,7 @@ _ZN9grpc_core8Resolver6ResultD2Ev.exit:           ; preds = %_ZN4absl12lts_20240
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core15PollingResolver23OnRequestCompleteLockedENS_8Resolver6ResultE(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.std::function", align 16
+  %.sroa.0.i.i.i = alloca %"class.std::function", align 16
   %4 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
@@ -2764,8 +2764,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115: ; preds = %15
   %169 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %0, ptr %167, align 8, !tbaa !122
   store ptr %167, ptr %3, align 16, !tbaa !169
-  %.sroa.0.0.copyload.i.i.i = load <2 x i64>, ptr %3, align 16, !tbaa !16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %160, i64 16, i1 false), !tbaa.struct !155
+  %.sroa.0.0.copyload.i.i.i = load <2 x i64>, ptr %.sroa.0.i.i.i, align 16, !tbaa !16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %160, i64 16, i1 false), !tbaa.struct !155
   store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %160, align 8, !tbaa !16
   %170 = load ptr, ptr %161, align 8, !tbaa !169
   store ptr %170, ptr %169, align 16, !tbaa !169

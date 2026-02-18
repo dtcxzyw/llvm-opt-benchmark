@@ -220,8 +220,8 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8QuantLib19FdmVPPStepConditionC2ERKNS_25FdmVPPStepConditionParamsEmRKNS_25FdmVPPStepConditionMesherEN5boost10shared_ptrINS_23FdmInnerValueCalculatorEEESA_(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 136)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %params, i64 noundef %nStates, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %mesh, ptr noundef captures(none) %gasPrice, ptr noundef captures(none) %sparkSpreadPrice) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i52 = alloca %"class.std::function", align 16
-  %ref.tmp.i = alloca %"class.std::function", align 16
+  %__tmp.sroa.0.i.i.i52 = alloca %"class.std::function", align 16
+  %ref.tmp.i53 = alloca %"class.std::function", align 16
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp20 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp21 = alloca %"class.std::allocator.6", align 1
@@ -382,8 +382,8 @@ for.cond.preheader:                               ; preds = %invoke.cont9
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %26 = ptrtoint ptr %this to i64
-  %_M_manager.i.i.i53 = getelementptr inbounds nuw i8, ptr %ref.tmp.i52, i64 16
-  %_M_invoker.i.i54 = getelementptr inbounds nuw i8, ptr %ref.tmp.i52, i64 24
+  %_M_manager.i.i.i54 = getelementptr inbounds nuw i8, ptr %ref.tmp.i52, i64 16
+  %_M_invoker.i.i55 = getelementptr inbounds nuw i8, ptr %ref.tmp.i52, i64 24
   %27 = getelementptr inbounds nuw i8, ptr %ref.tmp.i52, i64 8
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
@@ -601,16 +601,16 @@ if.then58:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i52)
   store i64 0, ptr %27, align 8
   store i64 %26, ptr %ref.tmp.i52, align 16, !tbaa !58
-  %__tmp.sroa.0.0.copyload.i.i.i55 = load <2 x i64>, ptr %ref.tmp.i52, align 16, !tbaa !12
+  %__tmp.sroa.0.0.copyload.i.i.i55 = load <2 x i64>, ptr %__tmp.sroa.0.i.i.i52, align 16, !tbaa !12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i52, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i51, i64 16, i1 false), !tbaa.struct !59
   store <2 x i64> %__tmp.sroa.0.0.copyload.i.i.i55, ptr %add.ptr.i51, align 8, !tbaa !12
   %_M_manager3.i.i56 = getelementptr inbounds nuw i8, ptr %add.ptr.i51, i64 16
   %57 = load ptr, ptr %_M_manager3.i.i56, align 8, !tbaa !58
-  store ptr %57, ptr %_M_manager.i.i.i53, align 16, !tbaa !58
+  store ptr %57, ptr %_M_manager.i.i.i54, align 16, !tbaa !58
   store ptr @"_ZNSt17_Function_handlerIFddEZN8QuantLib19FdmVPPStepConditionC1ERKNS1_25FdmVPPStepConditionParamsEmRKNS1_25FdmVPPStepConditionMesherEN5boost10shared_ptrINS1_23FdmInnerValueCalculatorEEESC_E3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i.i56, align 8, !tbaa !58
   %_M_invoker4.i.i57 = getelementptr inbounds nuw i8, ptr %add.ptr.i51, i64 24
   %58 = load ptr, ptr %_M_invoker4.i.i57, align 8, !tbaa !58
-  store ptr %58, ptr %_M_invoker.i.i54, align 8, !tbaa !58
+  store ptr %58, ptr %_M_invoker.i.i55, align 8, !tbaa !58
   store ptr @"_ZNSt17_Function_handlerIFddEZN8QuantLib19FdmVPPStepConditionC1ERKNS1_25FdmVPPStepConditionParamsEmRKNS1_25FdmVPPStepConditionMesherEN5boost10shared_ptrINS1_23FdmInnerValueCalculatorEEESC_E3$_1E9_M_invokeERKSt9_Any_dataOd", ptr %_M_invoker4.i.i57, align 8, !tbaa !58
   %tobool.not.i.i58 = icmp eq ptr %57, null
   br i1 %tobool.not.i.i58, label %"_ZNSt8functionIFddEEaSIZN8QuantLib19FdmVPPStepConditionC1ERKNS3_25FdmVPPStepConditionParamsEmRKNS3_25FdmVPPStepConditionMesherEN5boost10shared_ptrINS3_23FdmInnerValueCalculatorEEESE_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSH_.exit", label %if.then.i.i59

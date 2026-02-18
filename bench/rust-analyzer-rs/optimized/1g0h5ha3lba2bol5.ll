@@ -20141,8 +20141,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h0e7e6fe149b54bcbE.exit.i: ; pred
   store i64 %167, ptr %169, align 8, !noalias !4105
   call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h341ae55bd41d9991E.llvm.836043833466553463"(ptr noalias noundef nonnull sret({ i32, [1 x i32], { { i32, i32 }, ptr } }) align 8 captures(none) dereferenceable(24) %18, ptr noundef nonnull %32, ptr noundef nonnull %25, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %19, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %16), !noalias !4131
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !4105
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %.sroa.3.0.copyload.i = load <2 x i32>, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !4132
+  %.sroa.012.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %.sroa.012.sroa.4.0.copyload.i = load <2 x i32>, ptr %.sroa.012.sroa.4.0..sroa_idx.i, align 8, !noalias !4132
   %.sroa.4.0..sroa_idx.i7 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i7, align 8, !noalias !4132
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !4104

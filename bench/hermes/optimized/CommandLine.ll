@@ -12002,7 +12002,7 @@ _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh2cl17SetVersionPrinterESt8functionIFvRNS_11raw_ostreamEEE(ptr noundef %func) local_unnamed_addr #0 {
 entry:
-  %ref.tmp.i = alloca %"class.std::function", align 16
+  %__tmp.sroa.0.i.i.i = alloca %"class.std::function", align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %func, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
@@ -12022,7 +12022,7 @@ _ZNSt8functionIFvRN4llvh11raw_ostreamEEEC2ERKS4_.exit.i: ; preds = %if.then.i.i,
   %3 = phi ptr [ null, %entry ], [ %1, %if.then.i.i ]
   %4 = phi ptr [ null, %entry ], [ %2, %if.then.i.i ]
   %__tmp.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %entry ], [ %__tmp.sroa.0.0.copyload.i.i.pre.i, %if.then.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 16 dereferenceable(32) @_ZL22OverrideVersionPrinter, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 16 dereferenceable(32) @_ZL22OverrideVersionPrinter, i64 16, i1 false)
   store <2 x i64> %__tmp.sroa.0.0.copyload.i.i.i, ptr @_ZL22OverrideVersionPrinter, align 16
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22OverrideVersionPrinter, i64 16), align 16

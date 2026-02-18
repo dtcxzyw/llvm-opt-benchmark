@@ -3764,8 +3764,8 @@ define { double, double } @edgeMidpoint(ptr noundef readonly captures(none) %0, 
   %17 = getelementptr %struct.bezier, ptr %11, i64 %16
   %.sroa.8.0..sroa_idx7.i = getelementptr i8, ptr %17, i64 -36
   %.sroa.8.0.copyload8.i = load i32, ptr %.sroa.8.0..sroa_idx7.i, align 4, !tbaa !86
-  %.not19.i = icmp eq i32 %.sroa.8.0.copyload8.i, 0
-  br i1 %.not19.i, label %18, label %endPoints.exit
+  %.not17.i = icmp eq i32 %.sroa.8.0.copyload8.i, 0
+  br i1 %.not17.i, label %18, label %endPoints.exit
 
 18:                                               ; preds = %14
   %19 = getelementptr i8, ptr %17, i64 -56
@@ -3791,7 +3791,7 @@ endPoints.exit:                                   ; preds = %14, %18
 
 26:                                               ; preds = %endPoints.exit
   %.sroa.016.0.vec.extract = extractelement <2 x double> %.sroa.016.0, i64 0
-  %27 = insertvalue { double, double } poison, double %.sroa.016.0.vec.extract, 0
+  %28 = insertvalue { double, double } poison, double %.sroa.016.0.vec.extract, 0
   %28 = insertvalue { double, double } %27, double %.sroa.016.8.vec.extract, 1
   br label %75
 
@@ -3803,7 +3803,7 @@ endPoints.exit:                                   ; preds = %14, %18
   ]
 
 31:                                               ; preds = %29, %29
-  %foldExtExtBinop51 = fadd <2 x double> %.sroa.016.0, %.sroa.0.0
+  %32 = fadd <2 x double> %.sroa.016.0, %.sroa.0.0
   %32 = extractelement <2 x double> %foldExtExtBinop51, i64 0
   %33 = fmul double %32, 5.000000e-01
   %34 = fadd double %.sroa.016.8.vec.extract, %.sroa.0.8.vec.extract

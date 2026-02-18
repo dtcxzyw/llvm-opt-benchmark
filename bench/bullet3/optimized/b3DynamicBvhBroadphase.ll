@@ -2447,8 +2447,8 @@ _ZN20b3AlignedObjectArrayI6b3Int4E9quickSortI29b3BroadphasePairSortPredicateEEvR
   %27 = phi i32 [ %22, %.lr.ph ], [ %84, %83 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %83 ]
   %.036 = phi i32 [ 0, %.lr.ph ], [ %.1, %83 ]
-  %.sroa.028.sroa.5.034 = phi i32 [ -1, %.lr.ph ], [ %.sroa.028.sroa.5.0.extract.trunc31, %83 ]
-  %.sroa.028.sroa.0.033 = phi i32 [ -1, %.lr.ph ], [ %.sroa.028.sroa.0.0.extract.trunc29, %83 ]
+  %.sroa.028.sroa.0.034 = phi i32 [ -1, %.lr.ph ], [ %.sroa.028.sroa.5.0.extract.trunc31, %83 ]
+  %.sroa.028.sroa.5.033 = phi i32 [ -1, %.lr.ph ], [ %.sroa.028.sroa.0.0.extract.trunc29, %83 ]
   %28 = load ptr, ptr %24, align 8, !tbaa !98
   %29 = getelementptr inbounds nuw %struct.b3Int4, ptr %28, i64 %indvars.iv
   %30 = load i32, ptr %29, align 16, !tbaa !49

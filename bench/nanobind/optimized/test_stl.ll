@@ -11003,7 +11003,7 @@ declare i32 @PyCallable_Check(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8functionIFiiEEaSIN8nanobind6detail11type_casterIS1_iE16pyfunc_wrapper_tEEENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.std::function.501", align 16
+  %.sroa.0.i.i = alloca %"class.std::function.501", align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -11014,8 +11014,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNS
   store ptr %8, ptr %7, align 8, !tbaa !346
   store ptr null, ptr %1, align 8, !tbaa !346
   store ptr %7, ptr %3, align 16, !tbaa !355
-  %.sroa.0.0.copyload.i.i = load <2 x i64>, ptr %3, align 16, !tbaa !44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 16, i1 false), !tbaa.struct !364
+  %.sroa.0.0.copyload.i.i = load <2 x i64>, ptr %.sroa.0.i.i, align 16, !tbaa !44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 16, i1 false), !tbaa.struct !364
   store <2 x i64> %.sroa.0.0.copyload.i.i, ptr %0, align 8, !tbaa !44
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !351
@@ -11441,7 +11441,7 @@ _ZNKR8nanobind6handle7inc_refEv.exit:             ; preds = %11, %9, %14, %28, %
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8functionIFvvEEaSIN8nanobind6detail11type_casterIS1_iE16pyfunc_wrapper_tEEENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.std::function", align 16
+  %.sroa.0.i.i = alloca %"class.std::function", align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -11452,8 +11452,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNS
   store ptr %8, ptr %7, align 8, !tbaa !346
   store ptr null, ptr %1, align 8, !tbaa !346
   store ptr %7, ptr %3, align 16, !tbaa !372
-  %.sroa.0.0.copyload.i.i = load <2 x i64>, ptr %3, align 16, !tbaa !44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 16, i1 false), !tbaa.struct !364
+  %.sroa.0.0.copyload.i.i = load <2 x i64>, ptr %.sroa.0.i.i, align 16, !tbaa !44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 16, i1 false), !tbaa.struct !364
   store <2 x i64> %.sroa.0.0.copyload.i.i, ptr %0, align 8, !tbaa !44
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !351
@@ -12395,7 +12395,7 @@ _ZN8nanobind6detail5tupleIJNS0_11type_casterISt8functionIFvvEEiEEEED2Ev.exit5: ;
 
 ; Function Attrs: mustprogress nounwind optsize uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8functionIFvvEEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.std::function", align 16
+  %.sroa.0.i.i = alloca %"class.std::function", align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -12414,7 +12414,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8funct
 
 _ZNSt8functionIFvvEEC2EOS1_.exit:                 ; preds = %2, %9
   %.sroa.0.0.copyload.i.i = phi <2 x i64> [ zeroinitializer, %2 ], [ %.sroa.0.0.copyload.i.i.pre, %9 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 16, i1 false), !tbaa.struct !364
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 16, i1 false), !tbaa.struct !364
   store <2 x i64> %.sroa.0.0.copyload.i.i, ptr %0, align 8, !tbaa !44
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16

@@ -6476,14 +6476,14 @@ define void @aiMatrix4RotationX(ptr noundef writeonly captures(none) initializes
   store <4 x float> zeroinitializer, ptr %.sroa.8.0..sroa_idx.i, align 4
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 60
   store float 1.000000e+00, ptr %.sroa.9.0..sroa_idx.i, align 4
-  %3 = tail call noundef float @cosf(float noundef %1) #51
-  store float %3, ptr %.sroa.7.0..sroa_idx.i, align 4
-  store float %3, ptr %.sroa.5.0..sroa_idx.i, align 4
-  %4 = tail call noundef float @sinf(float noundef %1) #51
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store float %4, ptr %5, align 4
-  %6 = fneg float %4
-  store float %6, ptr %.sroa.6.0..sroa_idx.i, align 4
+  %4 = tail call noundef float @cosf(float noundef %1) #51
+  store float %4, ptr %.sroa.7.0..sroa_idx.i, align 4
+  store float %4, ptr %.sroa.5.0..sroa_idx.i, align 4
+  %5 = tail call noundef float @sinf(float noundef %1) #51
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store float %5, ptr %6, align 4
+  %7 = fneg float %5
+  store float %7, ptr %.sroa.6.0..sroa_idx.i, align 4
   ret void
 }
 
@@ -6525,14 +6525,14 @@ define void @aiMatrix4RotationZ(ptr noundef writeonly captures(none) initializes
   store <4 x float> zeroinitializer, ptr %.sroa.8.0..sroa_idx.i, align 4
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 60
   store float 1.000000e+00, ptr %.sroa.9.0..sroa_idx.i, align 4
-  %3 = tail call noundef float @cosf(float noundef %1) #51
-  store float %3, ptr %.sroa.5.0..sroa_idx.i, align 4
-  store float %3, ptr %0, align 4
-  %4 = tail call noundef float @sinf(float noundef %1) #51
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %4, ptr %5, align 4
-  %6 = fneg float %4
-  store float %6, ptr %.sroa.4.0..sroa_idx.i, align 4
+  %4 = tail call noundef float @cosf(float noundef %1) #51
+  store float %4, ptr %.sroa.5.0..sroa_idx.i, align 4
+  store float %4, ptr %0, align 4
+  %5 = tail call noundef float @sinf(float noundef %1) #51
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %5, ptr %6, align 4
+  %7 = fneg float %5
+  store float %7, ptr %.sroa.4.0..sroa_idx.i, align 4
   ret void
 }
 

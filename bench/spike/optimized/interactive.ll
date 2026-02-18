@@ -8835,7 +8835,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_M
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5sim_t15interactive_runERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS5_SaIS5_EEb(ptr noundef nonnull align 8 dereferenceable(2800) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %5 = alloca %"class.std::function", align 16
+  %.sroa.0.i.i.i.i = alloca %"class.std::function", align 16
   %6 = alloca %class.anon, align 8
   %7 = alloca %"class.std::basic_ostream", align 8
   %8 = zext i1 %3 to i8
@@ -8959,8 +8959,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
           to label %.noexc unwind label %71
 
 .noexc:                                           ; preds = %52
-  %.sroa.0.0.copyload.i.i.i.i = load <2 x i64>, ptr %5, align 16, !tbaa !15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %48, i64 16, i1 false), !tbaa.struct !409
+  %.sroa.0.0.copyload.i.i.i.i = load <2 x i64>, ptr %.sroa.0.i.i.i.i, align 16, !tbaa !15
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %48, i64 16, i1 false), !tbaa.struct !409
   store <2 x i64> %.sroa.0.0.copyload.i.i.i.i, ptr %48, align 8, !tbaa !15
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 1400
@@ -12794,7 +12794,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93: ; preds = %178
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5sim_t17interactive_untilERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS5_SaIS5_EEb(ptr noundef nonnull align 8 dereferenceable(2800) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %5 = alloca %"class.std::function", align 16
+  %.sroa.0.i.i.i.i = alloca %"class.std::function", align 16
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %"class.std::vector", align 8
@@ -13341,8 +13341,8 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
           to label %.noexc142 unwind label %286
 
 .noexc142:                                        ; preds = %231
-  %.sroa.0.0.copyload.i.i.i.i = load <2 x i64>, ptr %5, align 16, !tbaa !15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %227, i64 16, i1 false), !tbaa.struct !409
+  %.sroa.0.0.copyload.i.i.i.i = load <2 x i64>, ptr %.sroa.0.i.i.i.i, align 16, !tbaa !15
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %227, i64 16, i1 false), !tbaa.struct !409
   store <2 x i64> %.sroa.0.0.copyload.i.i.i.i, ptr %227, align 8, !tbaa !15
   %232 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 1400

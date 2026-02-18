@@ -8559,7 +8559,7 @@ _ZN5uu_tr9operation26TranslateOperationStandard3new17h5d1ddbff825eeef5E.exit: ; 
   %.sroa.022.1 = phi ptr [ %.sroa.022.0, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h35447d7f7c07d35aE.exit40.i" ], [ %.sroa.022.0.copyload, %21 ]
   %.sroa.624.1 = phi i64 [ %.sroa.624.0, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h35447d7f7c07d35aE.exit40.i" ], [ %.sroa.624.0.copyload, %21 ]
   %.sroa.928.1 = phi <2 x i64> [ %.sroa.928.0, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h35447d7f7c07d35aE.exit40.i" ], [ %.sroa.928.0.copyload, %21 ]
-  %.sroa.927.sroa.0.1 = phi <2 x i64> [ zeroinitializer, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h35447d7f7c07d35aE.exit40.i" ], [ %.sroa.927.sroa.0.0.copyload, %21 ]
+  %.sroa.11.1 = phi <2 x i64> [ zeroinitializer, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h35447d7f7c07d35aE.exit40.i" ], [ %.sroa.927.sroa.0.0.copyload, %21 ]
   %61 = icmp eq ptr %.sroa.022.1, null
   br i1 %61, label %77, label %76
 
@@ -8618,10 +8618,10 @@ _ZN5uu_tr9operation28TranslateOperationComplement3new17h5dcf963ef583cab6E.exit: 
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2182
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !2182
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0, i64 80, i1 false)
-  %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 %72, ptr %.sroa.416.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx17 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %74, ptr %.sroa.5.0..sroa_idx17, align 8
+  %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i64 %72, ptr %.sroa.417.0..sroa_idx, align 8
+  %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i64 %74, ptr %.sroa.518.0..sroa_idx, align 8
   %.sroa.619.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 0, ptr %.sroa.619.0..sroa_idx, align 8
   %.sroa.720.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -8635,7 +8635,7 @@ _ZN5uu_tr9operation28TranslateOperationComplement3new17h5dcf963ef583cab6E.exit: 
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.624.1, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.5.sroa.5.0..sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store <2 x i64> %.sroa.927.sroa.0.1, ptr %.sroa.5.sroa.5.sroa.5.0..sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx, align 8
+  store <2 x i64> %.sroa.11.1, ptr %.sroa.5.sroa.5.sroa.5.0..sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store <2 x i64> %.sroa.928.1, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   br label %79
@@ -8644,7 +8644,7 @@ _ZN5uu_tr9operation28TranslateOperationComplement3new17h5dcf963ef583cab6E.exit: 
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.624.1, ptr %78, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store <2 x i64> %.sroa.927.sroa.0.1, ptr %.sroa.2.0..sroa_idx, align 8
+  store <2 x i64> %.sroa.11.1, ptr %.sroa.2.0..sroa_idx, align 8
   store i64 -9223372036854775807, ptr %0, align 8
   br label %79
 

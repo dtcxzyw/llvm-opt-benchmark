@@ -415,7 +415,7 @@ define void @_ZN5folly6fibers5Baton4waitERNS1_14TimeoutHandlerE(ptr noundef nonn
   %3 = alloca %"class.folly::fibers::Baton::FiberWaiter", align 8
   %4 = alloca %class.anon.29, align 8
   %5 = alloca %class.anon, align 1
-  %6 = alloca %"class.std::function", align 16
+  %.sroa.0.i.i.i = alloca %"class.std::function", align 16
   %7 = alloca %class.anon.34, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %0, ptr %7, align 8, !tbaa !105
@@ -427,8 +427,8 @@ define void @_ZN5folly6fibers5Baton4waitERNS1_14TimeoutHandlerE(ptr noundef nonn
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %12, align 8
   store i64 %9, ptr %6, align 16
-  %.sroa.0.0.copyload.i.i.i = load <2 x i64>, ptr %6, align 16, !tbaa !107
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false), !tbaa.struct !108
+  %.sroa.0.0.copyload.i.i.i = load <2 x i64>, ptr %.sroa.0.i.i.i, align 16, !tbaa !107
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false), !tbaa.struct !108
   store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %8, align 8, !tbaa !107
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %14 = load ptr, ptr %13, align 8, !tbaa !94

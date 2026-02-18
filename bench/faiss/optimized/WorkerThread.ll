@@ -3246,8 +3246,8 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss12WorkerThread10threadLoopEv(ptr noundef nonnull align 8 dereferenceable(184) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::promise", align 8
-  %3 = alloca %"class.std::function", align 16
-  %4 = alloca %"struct.std::pair", align 16
+  %.sroa.0.i.i.i.i = alloca %"class.std::function", align 16
+  %3 = alloca %"struct.std::pair", align 16
   %5 = alloca %"class.std::unique_lock", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3344,7 +3344,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %24
 
 _ZNSt8functionIFvvEEC2EOS1_.exit.i.i:             ; preds = %49, %.critedge
   %.sroa.0.0.copyload.i.i.i.i = phi <2 x i64> [ zeroinitializer, %.critedge ], [ %.sroa.0.0.copyload.i.i.pre.i.i, %49 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 16 dereferenceable(56) %4, i64 16, i1 false), !tbaa.struct !92
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(56) %3, i64 16, i1 false), !tbaa.struct !92
   store <2 x i64> %.sroa.0.0.copyload.i.i.i.i, ptr %4, align 16, !tbaa !47
   %50 = load ptr, ptr %14, align 16, !tbaa !114
   store ptr %50, ptr %13, align 16, !tbaa !114

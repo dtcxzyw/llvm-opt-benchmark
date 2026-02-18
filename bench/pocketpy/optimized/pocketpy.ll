@@ -20774,14 +20774,14 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_9RangeIterEJRNS_
   store ptr null, ptr %8, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4pkpy3Py_INS_9RangeIterEEE, i64 16), ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sroa.06.0.copyload.i = load i64, ptr %2, align 8
+  %.sroa.05.0.copyload.i = load i64, ptr %2, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload.i = load <2 x i64>, ptr %.sroa.2.0..sroa_idx.i, align 8
-  store i64 %.sroa.06.0.copyload.i, ptr %9, align 8
+  store i64 %.sroa.05.0.copyload.i, ptr %9, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   store <2 x i64> %.sroa.2.0.copyload.i, ptr %.sroa.5.0..sroa_idx.i, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store i64 %.sroa.06.0.copyload.i, ptr %10, align 8
+  store i64 %.sroa.05.0.copyload.i, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8

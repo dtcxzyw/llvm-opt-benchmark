@@ -3351,8 +3351,8 @@ define noundef range(i32 -1, 1) i32 @_ZN11OpenImageIO6v3_1_08ArgParse4Impl10pars
   %10 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %11 = alloca %"class.OpenImageIO::v3_1_0::span", align 8
   %12 = alloca i64, align 8
+  %.sroa.0.i.i.i139 = alloca %"class.std::function", align 16
   %13 = alloca %"class.std::function", align 16
-  %14 = alloca %"class.std::function", align 16
   %15 = alloca ptr, align 8
   %16 = alloca ptr, align 8
   %17 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3546,8 +3546,8 @@ _ZN11OpenImageIO6v3_1_08ArgParse4Impl11find_optionEPKc.exit: ; preds = %42, %.lr
   %113 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %113, align 8
   store i64 %110, ptr %13, align 16, !tbaa !144
-  %.sroa.0.0.copyload.i.i.i139 = load <2 x i64>, ptr %13, align 16, !tbaa !14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %109, i64 16, i1 false), !tbaa.struct !145
+  %.sroa.0.0.copyload.i.i.i139 = load <2 x i64>, ptr %.sroa.0.i.i.i139, align 16, !tbaa !14
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i139, ptr noundef nonnull align 8 dereferenceable(32) %109, i64 16, i1 false), !tbaa.struct !145
   store <2 x i64> %.sroa.0.0.copyload.i.i.i139, ptr %109, align 8, !tbaa !14
   %114 = getelementptr inbounds nuw i8, ptr %108, i64 328
   %115 = load ptr, ptr %114, align 8, !tbaa !93
@@ -7098,7 +7098,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN11OpenImageIO6v3_1_08ArgParse3Arg6actionEOSt8functionIFvRS2_NS0_4spanIKPKcLm18446744073709551615EEEEE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.std::function", align 16
+  %.sroa.0.i.i.i = alloca %"class.std::function", align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 312
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -7118,7 +7118,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN11OpenImageIO6v3_1_08A
 
 _ZNSt8functionIFvRN11OpenImageIO6v3_1_08ArgParse3ArgENS1_4spanIKPKcLm18446744073709551615EEEEEC2EOSB_.exit.i: ; preds = %10, %2
   %.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %2 ], [ %.sroa.0.0.copyload.i.i.pre.i, %10 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false), !tbaa.struct !145
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false), !tbaa.struct !145
   store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %4, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -8266,7 +8266,7 @@ declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN11OpenImageIO6v3_1_08ArgParse18set_preoption_helpESt8functionIFvRKS1_RSoEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.std::function.25", align 16
+  %.sroa.0.i.i.i = alloca %"class.std::function.25", align 16
   %4 = load ptr, ptr %0, align 8, !tbaa !106
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 272
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -8314,7 +8314,7 @@ _ZNSt8functionIFvRKN11OpenImageIO6v3_1_08ArgParseERSoEEC2ERKS7_.exit.i: ; preds 
   %24 = phi ptr [ null, %2 ], [ %14, %12 ]
   %25 = phi ptr [ null, %2 ], [ %15, %12 ]
   %.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %2 ], [ %.sroa.0.0.copyload.i.i.pre.i, %12 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !145
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !145
   store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %5, align 8, !tbaa !14
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 288
   %27 = load ptr, ptr %26, align 8, !tbaa !93
@@ -8345,7 +8345,7 @@ _ZNSt8functionIFvRKN11OpenImageIO6v3_1_08ArgParseERSoEEaSERKS7_.exit: ; preds = 
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN11OpenImageIO6v3_1_08ArgParse19set_postoption_helpESt8functionIFvRKS1_RSoEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.std::function.25", align 16
+  %.sroa.0.i.i.i = alloca %"class.std::function.25", align 16
   %4 = load ptr, ptr %0, align 8, !tbaa !106
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 304
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -8393,7 +8393,7 @@ _ZNSt8functionIFvRKN11OpenImageIO6v3_1_08ArgParseERSoEEC2ERKS7_.exit.i: ; preds 
   %24 = phi ptr [ null, %2 ], [ %14, %12 ]
   %25 = phi ptr [ null, %2 ], [ %15, %12 ]
   %.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %2 ], [ %.sroa.0.0.copyload.i.i.pre.i, %12 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !145
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !145
   store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %5, align 8, !tbaa !14
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 320
   %27 = load ptr, ptr %26, align 8, !tbaa !93

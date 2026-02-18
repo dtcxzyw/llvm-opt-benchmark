@@ -14276,7 +14276,7 @@ define linkonce_odr void @_ZN6duckdb14ScalarFunction14BinaryFunctionINS_8string_
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN6duckdbL19InStrPropagateStatsERNS_13ClientContextERNS_23FunctionStatisticsInputE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr.30") align 8 captures(none) %0, ptr nonnull readnone align 1 captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) #0 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"class.std::function", align 16
+  %.sroa.0.i.i.i = alloca %"class.std::function", align 16
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !573
   %7 = load ptr, ptr %2, align 8, !tbaa !578
@@ -14292,8 +14292,8 @@ define internal void @_ZN6duckdbL19InStrPropagateStatsERNS_13ClientContextERNS_2
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %14, align 8
   store ptr @_ZN6duckdb14ScalarFunction14BinaryFunctionINS_8string_tES2_lNS_18InstrAsciiOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %4, align 16, !tbaa !14
-  %.sroa.0.0.copyload.i.i.i = load <2 x i64>, ptr %4, align 16, !tbaa !65
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 16, i1 false), !tbaa.struct !297
+  %.sroa.0.0.copyload.i.i.i = load <2 x i64>, ptr %.sroa.0.i.i.i, align 16, !tbaa !65
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 16, i1 false), !tbaa.struct !297
   store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %11, align 8, !tbaa !65
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 280
   %16 = load ptr, ptr %15, align 8, !tbaa !14
@@ -57291,7 +57291,7 @@ _ZN6duckdbL28TemplatedJaroWinklerFunctionIN19duckdb_jaro_winkler20CachedJaroSimi
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(296) ptr @_ZN6duckdb14ScalarFunctionaSEOS0_(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull align 8 dereferenceable(296) %1) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.std::function", align 16
+  %.sroa.0.i.i.i = alloca %"class.std::function", align 16
   %4 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZN6duckdb14SimpleFunctionaSERKS0_(ptr noundef nonnull align 8 dereferenceable(172) %0, ptr noundef nonnull align 8 dereferenceable(172) %1)
   %5 = icmp eq ptr %0, %1
   br i1 %5, label %_ZN6duckdb18BaseScalarFunctionaSERKS0_.exit, label %6
@@ -57406,7 +57406,7 @@ _ZN6duckdb18BaseScalarFunctionaSERKS0_.exit:      ; preds = %2, %_ZN6duckdb10sha
 
 _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i: ; preds = %58, %_ZN6duckdb18BaseScalarFunctionaSERKS0_.exit
   %.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %_ZN6duckdb18BaseScalarFunctionaSERKS0_.exit ], [ %.sroa.0.0.copyload.i.i.pre.i, %58 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %52, i64 16, i1 false), !tbaa.struct !297
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %52, i64 16, i1 false), !tbaa.struct !297
   store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %52, align 8, !tbaa !65
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 192

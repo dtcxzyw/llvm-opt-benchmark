@@ -5808,7 +5808,7 @@ define noundef zeroext i1 @_ZN6Assimp16ExportProperties19SetPropertyCallbackEPKc
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_Z18SetGenericPropertyISt8functionIFPvS1_EEEbRSt3mapIjT_St4lessIjESaISt4pairIKjS5_EEEPKcRKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #17 comdat personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"class.std::function", align 16
+  %.sroa.0.i.i.i = alloca %"class.std::function", align 16
   %5 = alloca %"struct.std::pair.90", align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %_Z13SuperFastHashPKcjj.exit, label %7
@@ -6113,7 +6113,7 @@ _ZNSt8functionIFPvS0_EEC2ERKS2_.exit.i:           ; preds = %134, %126
   %146 = phi ptr [ null, %126 ], [ %136, %134 ]
   %147 = phi ptr [ null, %126 ], [ %137, %134 ]
   %.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %126 ], [ %.sroa.0.0.copyload.i.i.pre.i, %134 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %127, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %127, i64 16, i1 false)
   store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %127, align 8
   %148 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 56
   %149 = load ptr, ptr %148, align 8

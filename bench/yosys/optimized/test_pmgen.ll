@@ -34673,7 +34673,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_113test_pmgen_pm10run_reduce
   %45 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %46 = alloca %"struct.std::pair.351", align 8
   %47 = alloca %"struct.std::pair.354", align 8
-  %48 = alloca %"class.std::function", align 16
+  %.sroa.0.i.i.i = alloca %"class.std::function", align 16
   %49 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 124
   store i32 0, ptr %50, align 4, !tbaa !690
@@ -34724,7 +34724,7 @@ _ZNSt8functionIFvvEEC2ERKS1_.exit.i:              ; preds = %58, %2
   %70 = phi ptr [ null, %2 ], [ %60, %58 ]
   %71 = phi ptr [ null, %2 ], [ %61, %58 ]
   %.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %2 ], [ %.sroa.0.0.copyload.i.i.pre.i, %58 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %51, i64 16, i1 false), !tbaa.struct !691
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %51, i64 16, i1 false), !tbaa.struct !691
   store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %51, align 8, !tbaa !20
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %73 = load ptr, ptr %72, align 8, !tbaa !31
@@ -42597,7 +42597,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113test_pmgen_pm10run_eqpmuxESt8fun
   %30 = alloca %"class.std::__cxx11::basic_string", align 8
   %31 = alloca %"class.std::__cxx11::basic_string", align 8
   %32 = alloca %"class.std::__cxx11::basic_string", align 8
-  %33 = alloca %"class.std::function", align 16
+  %.sroa.0.i.i.i = alloca %"class.std::function", align 16
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 124
   store i32 0, ptr %34, align 4, !tbaa !690
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -42647,7 +42647,7 @@ _ZNSt8functionIFvvEEC2ERKS1_.exit.i:              ; preds = %42, %2
   %54 = phi ptr [ null, %2 ], [ %44, %42 ]
   %55 = phi ptr [ null, %2 ], [ %45, %42 ]
   %.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %2 ], [ %.sroa.0.0.copyload.i.i.pre.i, %42 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %35, i64 16, i1 false), !tbaa.struct !691
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %35, i64 16, i1 false), !tbaa.struct !691
   store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %35, align 8, !tbaa !20
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %57 = load ptr, ptr %56, align 8, !tbaa !31
@@ -78453,7 +78453,7 @@ define internal void @_ZNSt17_Function_handlerIFvRN12_GLOBAL__N_112ice40_dsp_pmE
   %14 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %15 = alloca %"struct.std::pair.351", align 8
   %16 = alloca %"struct.std::pair.354", align 8
-  %17 = alloca %"class.std::function", align 16
+  %.sroa.0.i.i.i.i.i.i.i = alloca %"class.std::function", align 16
   %18 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %19 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %20 = alloca %"class.std::function", align 8
@@ -78563,7 +78563,7 @@ _ZNSt8functionIFvvEEC2ERKS1_.exit.i.i.i.i.i:      ; preds = %52, %_ZNSt8function
   %68 = phi ptr [ null, %_ZNSt8functionIFvvEEC2ERKS1_.exit.i.i.i ], [ %54, %52 ], [ null, %_ZNSt8functionIFvvEEC2ERKS1_.exit.thread.i.i.i ]
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = phi <2 x i64> [ zeroinitializer, %_ZNSt8functionIFvvEEC2ERKS1_.exit.i.i.i ], [ %.sroa.0.0.copyload.i.i.pre.i.i.i.i.i, %52 ], [ zeroinitializer, %_ZNSt8functionIFvvEEC2ERKS1_.exit.thread.i.i.i ]
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false), !tbaa.struct !691
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 16, i1 false), !tbaa.struct !691
   store <2 x i64> %.sroa.0.0.copyload.i.i.i.i.i.i.i, ptr %69, align 8, !tbaa !20
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %71 = load ptr, ptr %70, align 8, !tbaa !31
@@ -112308,7 +112308,7 @@ _ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_116generate_patternINS1_13xi
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNSt17_Function_handlerIFvRN12_GLOBAL__N_113xilinx_srl_pmESt8functionIFvvEEEZNS0_13TestPmgenPass16execute_generateESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEPN5Yosys5RTLIL6DesignEEUlS2_S5_E_E9_M_invokeERKSt9_Any_dataS2_OS5_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(1136) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %2) #4 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"class.std::function", align 16
+  %.sroa.0.i.i.i.i.i.i.i = alloca %"class.std::function", align 16
   %5 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %6 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %7 = alloca %"class.std::function", align 8
@@ -112418,7 +112418,7 @@ _ZNSt8functionIFvvEEC2ERKS1_.exit.i.i.i.i.i:      ; preds = %39, %_ZNSt8function
   %55 = phi ptr [ null, %_ZNSt8functionIFvvEEC2ERKS1_.exit.i.i.i ], [ %41, %39 ], [ null, %_ZNSt8functionIFvvEEC2ERKS1_.exit.thread.i.i.i ]
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = phi <2 x i64> [ zeroinitializer, %_ZNSt8functionIFvvEEC2ERKS1_.exit.i.i.i ], [ %.sroa.0.0.copyload.i.i.pre.i.i.i.i.i, %39 ], [ zeroinitializer, %_ZNSt8functionIFvvEEC2ERKS1_.exit.thread.i.i.i ]
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %56, i64 16, i1 false), !tbaa.struct !691
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %56, i64 16, i1 false), !tbaa.struct !691
   store <2 x i64> %.sroa.0.0.copyload.i.i.i.i.i.i.i, ptr %56, align 8, !tbaa !20
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %58 = load ptr, ptr %57, align 8, !tbaa !31
@@ -122800,7 +122800,7 @@ declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNSt17_Function_handlerIFvRN12_GLOBAL__N_113xilinx_srl_pmESt8functionIFvvEEEZNS0_13TestPmgenPass16execute_generateESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEPN5Yosys5RTLIL6DesignEEUlS2_S5_E0_E9_M_invokeERKSt9_Any_dataS2_OS5_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(1136) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %2) #4 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"class.std::function", align 16
+  %.sroa.0.i.i.i.i.i.i.i = alloca %"class.std::function", align 16
   %5 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %6 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %7 = alloca %"class.std::function", align 8
@@ -122910,7 +122910,7 @@ _ZNSt8functionIFvvEEC2ERKS1_.exit.i.i.i.i.i:      ; preds = %39, %_ZNSt8function
   %55 = phi ptr [ null, %_ZNSt8functionIFvvEEC2ERKS1_.exit.i.i.i ], [ %41, %39 ], [ null, %_ZNSt8functionIFvvEEC2ERKS1_.exit.thread.i.i.i ]
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = phi <2 x i64> [ zeroinitializer, %_ZNSt8functionIFvvEEC2ERKS1_.exit.i.i.i ], [ %.sroa.0.0.copyload.i.i.pre.i.i.i.i.i, %39 ], [ zeroinitializer, %_ZNSt8functionIFvvEEC2ERKS1_.exit.thread.i.i.i ]
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %56, i64 16, i1 false), !tbaa.struct !691
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %56, i64 16, i1 false), !tbaa.struct !691
   store <2 x i64> %.sroa.0.0.copyload.i.i.i.i.i.i.i, ptr %56, align 8, !tbaa !20
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %58 = load ptr, ptr %57, align 8, !tbaa !31

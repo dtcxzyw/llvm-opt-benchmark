@@ -10428,8 +10428,8 @@ define hidden void @_ZN14regex_automata4meta8wrappers13OnePassEngine3new17h0c198
   %9 = load ptr, ptr %1, align 8, !alias.scope !2241, !nonnull !5, !noundef !5
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 127
   %11 = load i8, ptr %10, align 1, !range !97, !alias.scope !2244, !noundef !5
-  %.not27 = icmp eq i8 %11, 0
-  br i1 %.not27, label %12, label %13
+  %.not25 = icmp eq i8 %11, 0
+  br i1 %.not25, label %12, label %13
 
 12:                                               ; preds = %3
   store i64 3, ptr %0, align 8
@@ -12442,8 +12442,8 @@ define hidden void @_ZN14regex_automata4meta8wrappers19ReverseHybridEngine3new17
   %11 = load ptr, ptr %1, align 8, !alias.scope !2851, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 125
   %13 = load i8, ptr %12, align 1, !range !97, !alias.scope !2854, !noundef !5
-  %.not114 = icmp eq i8 %13, 0
-  br i1 %.not114, label %14, label %16
+  %.not110 = icmp eq i8 %13, 0
+  br i1 %.not110, label %14, label %16
 
 14:                                               ; preds = %3
   store i64 2, ptr %0, align 8

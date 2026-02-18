@@ -44765,8 +44765,8 @@ if.then.i.i.i.i.i.i11:                            ; preds = %ehcleanup
   br label %_ZN4asio6detail7binder2INS0_8write_opINS_19basic_stream_socketINS_2ip3tcpENS_15any_io_executorEEESt6vectorINS_12const_bufferESaIS9_EEN9__gnu_cxx17__normal_iteratorIPKS9_SB_EENS0_14transfer_all_tEZZN7coro_io11async_writeIS7_RSB_EEN12async_simple4coro4LazyISt4pairISt10error_codemEEERT_OT0_ENKUlSS_E_clINSI_21callback_awaitor_baseISQ_NSI_16callback_awaitorISQ_EEE15awaitor_handlerEEEDaSS_EUlRKSS_SU_E_EESP_mED2Ev.exit12
 
 _ZN4asio6detail7binder2INS0_8write_opINS_19basic_stream_socketINS_2ip3tcpENS_15any_io_executorEEESt6vectorINS_12const_bufferESaIS9_EEN9__gnu_cxx17__normal_iteratorIPKS9_SB_EENS0_14transfer_all_tEZZN7coro_io11async_writeIS7_RSB_EEN12async_simple4coro4LazyISt4pairISt10error_codemEEERT_OT0_ENKUlSS_E_clINSI_21callback_awaitor_baseISQ_NSI_16callback_awaitorISQ_EEE15awaitor_handlerEEEDaSS_EUlRKSS_SU_E_EESP_mED2Ev.exit12: ; preds = %if.then.i6, %lpad7, %ehcleanup, %if.then.i.i.i.i.i.i11
-  %.pn19 = phi { ptr, i32 } [ %22, %if.then.i.i.i.i.i.i11 ], [ %22, %ehcleanup ], [ %17, %lpad7 ], [ %17, %if.then.i6 ]
-  resume { ptr, i32 } %.pn19
+  %.pn18 = phi { ptr, i32 } [ %22, %if.then.i.i.i.i.i.i11 ], [ %22, %ehcleanup ], [ %17, %lpad7 ], [ %17, %if.then.i6 ]
+  resume { ptr, i32 } %.pn18
 
 if.end:                                           ; preds = %invoke.cont8, %if.then.i, %if.then
   ret void

@@ -2244,8 +2244,8 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll28_$u7b$
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !403
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !403
   store <2 x i64> %.sroa.0.sroa.0.0.copyload.i, ptr %6, align 16, !noalias !403
-  %.sroa.4.0..sroa_idx8.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 %.sroa.4.0.copyload.i, ptr %.sroa.4.0..sroa_idx8.i, align 16, !noalias !403
+  %.sroa.4.0..sroa_idx7.i = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i32 %.sroa.4.0.copyload.i, ptr %.sroa.4.0..sroa_idx7.i, align 16, !noalias !403
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %.sroa.5.0.copyload.i, ptr %.sroa.6.0..sroa_idx.i, align 4, !noalias !403
   invoke void @"_ZN11actix_files7chunked26chunked_read_file_callback28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1e1e44be9a4bf18cE.llvm.10116804099265645101"(ptr noalias noundef nonnull sret({ i32, [9 x i32] }) align 8 captures(none) dereferenceable(40) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)

@@ -491,7 +491,7 @@ NonlinearCompression.exit:                        ; preds = %67
   br label %ComputeCorrelates.exit
 
 ComputeCorrelates.exit:                           ; preds = %96, %85, %83, %101, %98, %93, %87
-  %.sroa.31302.0 = phi double [ %103, %101 ], [ 0.000000e+00, %83 ], [ 2.700000e+02, %87 ], [ %95, %93 ], [ 9.000000e+01, %85 ], [ %100, %98 ], [ 0.000000e+00, %96 ]
+  %.sroa.31301.0 = phi double [ %103, %101 ], [ 0.000000e+00, %83 ], [ 2.700000e+02, %87 ], [ %95, %93 ], [ 9.000000e+01, %85 ], [ %100, %98 ], [ 0.000000e+00, %96 ]
   %104 = tail call double @llvm.fmuladd.f64(double %69, double 2.000000e+00, double %70)
   %105 = fdiv double %71, 2.000000e+01
   %106 = fadd double %104, %105
@@ -501,7 +501,7 @@ ComputeCorrelates.exit:                           ; preds = %96, %85, %83, %101,
   %110 = load double, ptr %109, align 8, !noalias !21
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %112 = load double, ptr %111, align 8, !noalias !21
-  %113 = tail call double @llvm.fmuladd.f64(double %.sroa.31302.0, double 0x3F91DF46A25CA311, double 2.000000e+00)
+  %113 = tail call double @llvm.fmuladd.f64(double %.sroa.31301.0, double 0x3F91DF46A25CA311, double 2.000000e+00)
   %114 = tail call double @cos(double noundef %113) #8, !noalias !21
   %115 = fmul double %110, 0x408E0C4EC4EC4EC5
   %116 = fmul double %115, %112
@@ -548,7 +548,7 @@ ComputeCorrelates.exit:                           ; preds = %96, %85, %83, %101,
   %156 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %151, ptr %156, align 8
   %157 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store double %.sroa.31302.0, ptr %157, align 8
+  store double %.sroa.31301.0, ptr %157, align 8
   ret void
 }
 
