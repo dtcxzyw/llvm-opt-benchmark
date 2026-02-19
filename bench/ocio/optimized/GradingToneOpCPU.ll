@@ -415,10 +415,10 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_125GradingToneLinear
   br label %22
 
 22:                                               ; preds = %.lr.ph, %22
-  %.086 = phi i64 [ 0, %.lr.ph ], [ %86, %22 ]
-  %.07985 = phi ptr [ %1, %.lr.ph ], [ %84, %22 ]
-  %.08084 = phi ptr [ %2, %.lr.ph ], [ %85, %22 ]
-  %.079.val = load <4 x float>, ptr %.07985, align 1, !tbaa !60
+  %.085 = phi i64 [ 0, %.lr.ph ], [ %87, %22 ]
+  %.07984 = phi ptr [ %1, %.lr.ph ], [ %85, %22 ]
+  %.08083 = phi ptr [ %2, %.lr.ph ], [ %86, %22 ]
+  %.079.val = load <4 x float>, ptr %.07984, align 1, !tbaa !60
   %23 = fcmp ule <4 x float> %.079.val, splat (float 0x3F70EC8BA0000000)
   %24 = fmul <4 x float> %.079.val, splat (float 0x4076B08DC0000000)
   %25 = fadd <4 x float> %24, splat (float -7.000000e+00)
@@ -444,30 +444,30 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_125GradingToneLinear
   %45 = sitofp <4 x i32> %44 to <4 x float>
   %46 = fadd <4 x float> %41, %45
   %.v.i = select <4 x i1> %23, <4 x float> %25, <4 x float> %46
-  store <4 x float> %.v.i, ptr %.08084, align 1, !tbaa !60
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 0, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 1, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 2, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 3, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 1, i1 noundef zeroext false, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 2, i1 noundef zeroext false, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 3, i1 noundef zeroext false, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 1, i1 noundef zeroext false, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 2, i1 noundef zeroext false, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 3, i1 noundef zeroext false, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 1, i1 noundef zeroext true, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 2, i1 noundef zeroext true, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 3, i1 noundef zeroext true, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 1, i1 noundef zeroext true, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 2, i1 noundef zeroext true, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 3, i1 noundef zeroext true, ptr noundef nonnull %.08084)
+  store <4 x float> %.v.i, ptr %.08083, align 1, !tbaa !60
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 0, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 1, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 2, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 3, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 1, i1 noundef zeroext false, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 2, i1 noundef zeroext false, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 3, i1 noundef zeroext false, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 1, i1 noundef zeroext false, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 2, i1 noundef zeroext false, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 3, i1 noundef zeroext false, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 1, i1 noundef zeroext true, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 2, i1 noundef zeroext true, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 3, i1 noundef zeroext true, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 1, i1 noundef zeroext true, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 2, i1 noundef zeroext true, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 3, i1 noundef zeroext true, ptr noundef nonnull %.08083)
   %.val = load double, ptr %21, align 8, !tbaa !79
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU9scontrastERKNS_11GradingToneERKNS_20GradingTonePreRenderEPf(double %.val, ptr noundef nonnull align 8 dereferenceable(936) %19, ptr noundef nonnull %.08084)
-  %47 = load <4 x float>, ptr %.08084, align 1, !tbaa !60
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpCPU9scontrastERKNS_11GradingToneERKNS_20GradingTonePreRenderEPf(double %.val, ptr noundef nonnull align 8 dereferenceable(936) %19, ptr noundef nonnull %.08083)
+  %47 = load <4 x float>, ptr %.08083, align 1, !tbaa !60
   %48 = fcmp ule <4 x float> %47, splat (float -5.500000e+00)
   %49 = fadd <4 x float> %47, splat (float 7.000000e+00)
   %50 = fmul <4 x float> %49, splat (float 0x3F6690BA40000000)
@@ -496,26 +496,26 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_125GradingToneLinear
   %73 = fadd <4 x float> %72, splat (float 0x3F24B08FE0000000)
   %74 = select <4 x i1> %70, <4 x float> %73, <4 x float> splat (float 0x3F24B08FE0000000)
   %75 = select <4 x i1> %71, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %74
-  %.v.i83 = select <4 x i1> %48, <4 x float> %50, <4 x float> %75
-  store <4 x float> %.v.i83, ptr %.08084, align 1, !tbaa !60
-  %76 = extractelement <4 x float> %.v.i83, i64 0
-  %77 = fcmp ogt float %76, 6.550400e+04
-  %.sroa.speculated13.i = select i1 %77, float 6.550400e+04, float %76
-  store float %.sroa.speculated13.i, ptr %.08084, align 4, !tbaa !80
-  %78 = getelementptr inbounds nuw i8, ptr %.08084, i64 4
-  %79 = extractelement <4 x float> %.v.i83, i64 1
-  %80 = fcmp ogt float %79, 6.550400e+04
-  %.sroa.speculated9.i = select i1 %80, float 6.550400e+04, float %79
-  store float %.sroa.speculated9.i, ptr %78, align 4, !tbaa !80
-  %81 = getelementptr inbounds nuw i8, ptr %.08084, i64 8
-  %82 = extractelement <4 x float> %.v.i83, i64 2
-  %83 = fcmp ogt float %82, 6.550400e+04
-  %.sroa.speculated.i = select i1 %83, float 6.550400e+04, float %82
-  store float %.sroa.speculated.i, ptr %81, align 4, !tbaa !80
-  %84 = getelementptr inbounds nuw i8, ptr %.07985, i64 16
-  %85 = getelementptr inbounds nuw i8, ptr %.08084, i64 16
-  %86 = add nuw nsw i64 %.086, 1
-  %exitcond.not = icmp eq i64 %86, %3
+  %76 = select <4 x i1> %48, <4 x float> %50, <4 x float> %75
+  store <4 x float> %76, ptr %.08083, align 1, !tbaa !60
+  %77 = extractelement <4 x float> %76, i64 0
+  %78 = fcmp ogt float %77, 6.550400e+04
+  %.sroa.speculated13.i = select i1 %78, float 6.550400e+04, float %77
+  store float %.sroa.speculated13.i, ptr %.08083, align 4, !tbaa !80
+  %79 = getelementptr inbounds nuw i8, ptr %.08083, i64 4
+  %80 = extractelement <4 x float> %76, i64 1
+  %81 = fcmp ogt float %80, 6.550400e+04
+  %.sroa.speculated9.i = select i1 %81, float 6.550400e+04, float %80
+  store float %.sroa.speculated9.i, ptr %79, align 4, !tbaa !80
+  %82 = getelementptr inbounds nuw i8, ptr %.08083, i64 8
+  %83 = extractelement <4 x float> %76, i64 2
+  %84 = fcmp ogt float %83, 6.550400e+04
+  %.sroa.speculated.i = select i1 %84, float 6.550400e+04, float %83
+  store float %.sroa.speculated.i, ptr %82, align 4, !tbaa !80
+  %85 = getelementptr inbounds nuw i8, ptr %.07984, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %.08083, i64 16
+  %87 = add nuw nsw i64 %.085, 1
+  %exitcond.not = icmp eq i64 %87, %3
   br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !81
 
 .loopexit:                                        ; preds = %22, %13, %10, %11
@@ -2659,10 +2659,10 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_125GradingToneLinear
   br label %22
 
 22:                                               ; preds = %.lr.ph, %22
-  %.086 = phi i64 [ 0, %.lr.ph ], [ %86, %22 ]
-  %.07985 = phi ptr [ %1, %.lr.ph ], [ %84, %22 ]
-  %.08084 = phi ptr [ %2, %.lr.ph ], [ %85, %22 ]
-  %.079.val = load <4 x float>, ptr %.07985, align 1, !tbaa !60
+  %.085 = phi i64 [ 0, %.lr.ph ], [ %87, %22 ]
+  %.07984 = phi ptr [ %1, %.lr.ph ], [ %85, %22 ]
+  %.08083 = phi ptr [ %2, %.lr.ph ], [ %86, %22 ]
+  %.079.val = load <4 x float>, ptr %.07984, align 1, !tbaa !60
   %23 = fcmp ule <4 x float> %.079.val, splat (float 0x3F70EC8BA0000000)
   %24 = fmul <4 x float> %.079.val, splat (float 0x4076B08DC0000000)
   %25 = fadd <4 x float> %24, splat (float -7.000000e+00)
@@ -2688,30 +2688,30 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_125GradingToneLinear
   %45 = sitofp <4 x i32> %44 to <4 x float>
   %46 = fadd <4 x float> %41, %45
   %.v.i = select <4 x i1> %23, <4 x float> %25, <4 x float> %46
-  store <4 x float> %.v.i, ptr %.08084, align 1, !tbaa !60
+  store <4 x float> %.v.i, ptr %.08083, align 1, !tbaa !60
   %.val = load double, ptr %21, align 8, !tbaa !79
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU9scontrastERKNS_11GradingToneERKNS_20GradingTonePreRenderEPf(double %.val, ptr noundef nonnull align 8 dereferenceable(936) %19, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 3, i1 noundef zeroext true, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 1, i1 noundef zeroext true, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 2, i1 noundef zeroext true, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 3, i1 noundef zeroext true, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 1, i1 noundef zeroext true, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 2, i1 noundef zeroext true, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 3, i1 noundef zeroext false, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 1, i1 noundef zeroext false, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 2, i1 noundef zeroext false, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 3, i1 noundef zeroext false, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 1, i1 noundef zeroext false, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 2, i1 noundef zeroext false, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 3, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 0, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 1, ptr noundef nonnull %.08084)
-  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 2, ptr noundef nonnull %.08084)
-  %47 = load <4 x float>, ptr %.08084, align 1, !tbaa !60
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU9scontrastERKNS_11GradingToneERKNS_20GradingTonePreRenderEPf(double %.val, ptr noundef nonnull align 8 dereferenceable(936) %19, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 3, i1 noundef zeroext true, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 1, i1 noundef zeroext true, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 2, i1 noundef zeroext true, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 3, i1 noundef zeroext true, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 1, i1 noundef zeroext true, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 2, i1 noundef zeroext true, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 3, i1 noundef zeroext false, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 1, i1 noundef zeroext false, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 2, i1 noundef zeroext false, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 3, i1 noundef zeroext false, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 1, i1 noundef zeroext false, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 2, i1 noundef zeroext false, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 3, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 0, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 1, ptr noundef nonnull %.08083)
+  tail call fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %17, ptr noundef nonnull align 8 dereferenceable(936) %19, i32 noundef 2, ptr noundef nonnull %.08083)
+  %47 = load <4 x float>, ptr %.08083, align 1, !tbaa !60
   %48 = fcmp ule <4 x float> %47, splat (float -5.500000e+00)
   %49 = fadd <4 x float> %47, splat (float 7.000000e+00)
   %50 = fmul <4 x float> %49, splat (float 0x3F6690BA40000000)
@@ -2740,26 +2740,26 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_125GradingToneLinear
   %73 = fadd <4 x float> %72, splat (float 0x3F24B08FE0000000)
   %74 = select <4 x i1> %70, <4 x float> %73, <4 x float> splat (float 0x3F24B08FE0000000)
   %75 = select <4 x i1> %71, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %74
-  %.v.i83 = select <4 x i1> %48, <4 x float> %50, <4 x float> %75
-  store <4 x float> %.v.i83, ptr %.08084, align 1, !tbaa !60
-  %76 = extractelement <4 x float> %.v.i83, i64 0
-  %77 = fcmp ogt float %76, 6.550400e+04
-  %.sroa.speculated13.i = select i1 %77, float 6.550400e+04, float %76
-  store float %.sroa.speculated13.i, ptr %.08084, align 4, !tbaa !80
-  %78 = getelementptr inbounds nuw i8, ptr %.08084, i64 4
-  %79 = extractelement <4 x float> %.v.i83, i64 1
-  %80 = fcmp ogt float %79, 6.550400e+04
-  %.sroa.speculated9.i = select i1 %80, float 6.550400e+04, float %79
-  store float %.sroa.speculated9.i, ptr %78, align 4, !tbaa !80
-  %81 = getelementptr inbounds nuw i8, ptr %.08084, i64 8
-  %82 = extractelement <4 x float> %.v.i83, i64 2
-  %83 = fcmp ogt float %82, 6.550400e+04
-  %.sroa.speculated.i = select i1 %83, float 6.550400e+04, float %82
-  store float %.sroa.speculated.i, ptr %81, align 4, !tbaa !80
-  %84 = getelementptr inbounds nuw i8, ptr %.07985, i64 16
-  %85 = getelementptr inbounds nuw i8, ptr %.08084, i64 16
-  %86 = add nuw nsw i64 %.086, 1
-  %exitcond.not = icmp eq i64 %86, %3
+  %76 = select <4 x i1> %48, <4 x float> %50, <4 x float> %75
+  store <4 x float> %76, ptr %.08083, align 1, !tbaa !60
+  %77 = extractelement <4 x float> %76, i64 0
+  %78 = fcmp ogt float %77, 6.550400e+04
+  %.sroa.speculated13.i = select i1 %78, float 6.550400e+04, float %77
+  store float %.sroa.speculated13.i, ptr %.08083, align 4, !tbaa !80
+  %79 = getelementptr inbounds nuw i8, ptr %.08083, i64 4
+  %80 = extractelement <4 x float> %76, i64 1
+  %81 = fcmp ogt float %80, 6.550400e+04
+  %.sroa.speculated9.i = select i1 %81, float 6.550400e+04, float %80
+  store float %.sroa.speculated9.i, ptr %79, align 4, !tbaa !80
+  %82 = getelementptr inbounds nuw i8, ptr %.08083, i64 8
+  %83 = extractelement <4 x float> %76, i64 2
+  %84 = fcmp ogt float %83, 6.550400e+04
+  %.sroa.speculated.i = select i1 %84, float 6.550400e+04, float %83
+  store float %.sroa.speculated.i, ptr %82, align 4, !tbaa !80
+  %85 = getelementptr inbounds nuw i8, ptr %.07984, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %.08083, i64 16
+  %87 = add nuw nsw i64 %.085, 1
+  %exitcond.not = icmp eq i64 %87, %3
   br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !96
 
 .loopexit:                                        ; preds = %22, %13, %10, %11

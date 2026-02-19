@@ -6920,31 +6920,31 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load double, ptr %2, align 8
   %.inv.i.i.i.i.i.i.i.i.i.i = fcmp oeq double %5, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %5
-  %6 = bitcast double %storemerge.i.i.i.i.i.i.i.i.i.i to i64
-  %7 = load double, ptr %3, align 8
-  %.inv.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq double %7, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %7
-  %8 = bitcast double %storemerge.i.i.i.i.i.i.i.i.i.i.i to i64
-  %9 = add i64 %8, %6
-  %10 = add i64 %9, 1
-  %11 = mul i64 %10, %9
-  %12 = lshr i64 %11, 1
-  %13 = load double, ptr %4, align 8
-  %.inv.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq double %13, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %13
-  %14 = bitcast double %storemerge.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %15 = add i64 %14, %8
-  %16 = add i64 %15, %12
-  %17 = add i64 %16, 1
-  %18 = mul i64 %17, %16
-  %19 = lshr i64 %18, 1
-  %20 = add i64 %19, %14
-  %21 = mul i64 %20, -7046029254386353067
-  %22 = tail call noundef i64 @llvm.bswap.i64(i64 %21)
-  %23 = mul i64 %22, -7046029254386353067
-  %24 = tail call noundef i64 @llvm.bswap.i64(i64 %23)
-  ret i64 %24
+  %6 = bitcast double %5 to i64
+  %7 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %6
+  %8 = load double, ptr %3, align 8
+  %.inv.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq double %8, 0.000000e+00
+  %9 = bitcast double %8 to i64
+  %10 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %9
+  %11 = add i64 %10, %7
+  %12 = add i64 %11, 1
+  %13 = mul i64 %12, %11
+  %14 = lshr i64 %13, 1
+  %15 = load double, ptr %4, align 8
+  %.inv.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq double %15, 0.000000e+00
+  %16 = bitcast double %15 to i64
+  %17 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %16
+  %18 = add i64 %17, %10
+  %19 = add i64 %18, %14
+  %20 = add i64 %19, 1
+  %21 = mul i64 %20, %19
+  %22 = lshr i64 %21, 1
+  %23 = add i64 %22, %17
+  %24 = mul i64 %23, -7046029254386353067
+  %25 = tail call noundef i64 @llvm.bswap.i64(i64 %24)
+  %26 = mul i64 %25, -7046029254386353067
+  %27 = tail call noundef i64 @llvm.bswap.i64(i64 %26)
+  ret i64 %27
 }
 
 ; Function Attrs: mustprogress uwtable

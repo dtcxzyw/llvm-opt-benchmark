@@ -308,16 +308,16 @@ declare i32 @rb_eql(i64 noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @rb_dbl_long_hash(double noundef %0) local_unnamed_addr #0 {
   %2 = fcmp oeq double %0, 0.000000e+00
-  %.0 = select i1 %2, double 0.000000e+00, double %0
-  %3 = bitcast double %.0 to i64
-  %4 = tail call i64 @rb_hash_start(i64 noundef %3) #28
-  %5 = add i64 %4, 2198850233
-  %6 = zext i64 %5 to i128
-  %7 = mul nuw nsw i128 %6, 3317948294049201653
-  %8 = lshr i128 %7, 64
-  %9 = xor i128 %8, %7
-  %10 = trunc i128 %9 to i64
-  ret i64 %10
+  %3 = bitcast double %0 to i64
+  %4 = select i1 %2, i64 0, i64 %3
+  %5 = tail call i64 @rb_hash_start(i64 noundef %4) #28
+  %6 = add i64 %5, 2198850233
+  %7 = zext i64 %6 to i128
+  %8 = mul nuw nsw i128 %7, 3317948294049201653
+  %9 = lshr i128 %8, 64
+  %10 = xor i128 %9, %8
+  %11 = trunc i128 %10 to i64
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -340,7 +340,7 @@ define internal fastcc range(i64 -4611686018427387904, 4611686018427387904) i64 
     i64 0, label %rb_type.exit.thread
     i64 1, label %rb_type.exit.thread
     i64 5, label %rb_type.exit.thread
-    i64 9, label %rb_type.exit.thread17
+    i64 9, label %rb_type.exit.thread16
   ]
 
 9:                                                ; preds = %7
@@ -350,39 +350,39 @@ define internal fastcc range(i64 -4611686018427387904, 4611686018427387904) i64 
 11:                                               ; preds = %9
   %12 = and i64 %0, 254
   %13 = icmp eq i64 %12, 12
-  br i1 %13, label %rb_type.exit.thread19, label %rb_type.exit.thread21
+  br i1 %13, label %rb_type.exit.thread18, label %rb_type.exit.thread20
 
 rb_type.exit:                                     ; preds = %2
   %14 = inttoptr i64 %0 to ptr
   %15 = load i64, ptr %14, align 8, !tbaa !11
   %16 = trunc i64 %15 to i32
   %17 = and i32 %16, 31
-  switch i32 %17, label %rb_type.exit.thread17 [
-    i32 20, label %rb_type.exit.thread19
+  switch i32 %17, label %rb_type.exit.thread16 [
+    i32 20, label %rb_type.exit.thread18
     i32 21, label %rb_type.exit.thread
     i32 18, label %rb_type.exit.thread
     i32 19, label %rb_type.exit.thread
     i32 17, label %rb_type.exit.thread
     i32 5, label %34
     i32 10, label %36
-    i32 4, label %rb_type.exit.thread21
+    i32 4, label %rb_type.exit.thread20
   ]
 
-rb_type.exit.thread19:                            ; preds = %11, %rb_type.exit
+rb_type.exit.thread18:                            ; preds = %11, %rb_type.exit
   %18 = and i64 %0, 255
   %19 = icmp eq i64 %18, 12
   br i1 %19, label %20, label %23
 
-20:                                               ; preds = %rb_type.exit.thread19
+20:                                               ; preds = %rb_type.exit.thread18
   %21 = lshr i64 %0, 12
   %22 = tail call i64 @rb_hash_start(i64 noundef %21) #28
-  br label %50
+  br label %51
 
-23:                                               ; preds = %rb_type.exit.thread19
+23:                                               ; preds = %rb_type.exit.thread18
   %24 = inttoptr i64 %0 to ptr
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i64, ptr %25, align 8, !tbaa !14
-  br label %50
+  br label %51
 
 rb_type.exit.thread:                              ; preds = %7, %7, %9, %7, %rb_type.exit, %rb_type.exit, %rb_type.exit, %rb_type.exit
   %27 = tail call i64 @rb_hash_start(i64 noundef %0) #28
@@ -392,41 +392,41 @@ rb_type.exit.thread:                              ; preds = %7, %7, %9, %7, %rb_
   %31 = lshr i128 %30, 64
   %32 = xor i128 %31, %30
   %33 = trunc i128 %32 to i64
-  br label %50
+  br label %51
 
 34:                                               ; preds = %rb_type.exit
   %35 = tail call i64 @rb_str_hash(i64 noundef %0) #28
-  br label %50
+  br label %51
 
 36:                                               ; preds = %rb_type.exit
   %37 = tail call i64 @rb_big_hash(i64 noundef %0) #28
   %38 = ashr i64 %37, 1
-  br label %50
+  br label %51
 
-rb_type.exit.thread21:                            ; preds = %11, %rb_type.exit
+rb_type.exit.thread20:                            ; preds = %11, %rb_type.exit
   %39 = tail call double @rb_float_value(i64 noundef %0) #29
   %40 = fcmp oeq double %39, 0.000000e+00
-  %.0.i15 = select i1 %40, double 0.000000e+00, double %39
-  %41 = bitcast double %.0.i15 to i64
-  %42 = tail call i64 @rb_hash_start(i64 noundef %41) #28
-  %43 = add i64 %42, 2198850233
-  %44 = zext i64 %43 to i128
-  %45 = mul nuw nsw i128 %44, 3317948294049201653
-  %46 = lshr i128 %45, 64
-  %47 = xor i128 %46, %45
-  %48 = trunc i128 %47 to i64
-  br label %50
+  %41 = bitcast double %39 to i64
+  %42 = select i1 %40, i64 0, i64 %41
+  %43 = tail call i64 @rb_hash_start(i64 noundef %42) #28
+  %44 = add i64 %43, 2198850233
+  %45 = zext i64 %44 to i128
+  %46 = mul nuw nsw i128 %45, 3317948294049201653
+  %47 = lshr i128 %46, 64
+  %48 = xor i128 %47, %46
+  %49 = trunc i128 %48 to i64
+  br label %51
 
-rb_type.exit.thread17:                            ; preds = %7, %rb_type.exit
-  %49 = tail call i64 %1(i64 noundef %0) #28, !callees !16
-  br label %50
+rb_type.exit.thread16:                            ; preds = %7, %rb_type.exit
+  %50 = tail call i64 %1(i64 noundef %0) #28, !callees !16
+  br label %51
 
-50:                                               ; preds = %20, %23, %rb_type.exit.thread17, %rb_type.exit.thread21, %36, %34, %rb_type.exit.thread
-  %.0 = phi i64 [ %49, %rb_type.exit.thread17 ], [ %22, %20 ], [ %26, %23 ], [ %33, %rb_type.exit.thread ], [ %35, %34 ], [ %38, %36 ], [ %48, %rb_type.exit.thread21 ]
-  %51 = icmp sgt i64 %.0, 0
-  %52 = and i64 %.0, 4611686018427387903
-  %masksel = select i1 %51, i64 0, i64 -4611686018427387904
-  %.1 = or disjoint i64 %masksel, %52
+51:                                               ; preds = %20, %23, %rb_type.exit.thread16, %rb_type.exit.thread20, %36, %34, %rb_type.exit.thread
+  %.0 = phi i64 [ %50, %rb_type.exit.thread16 ], [ %22, %20 ], [ %26, %23 ], [ %33, %rb_type.exit.thread ], [ %35, %34 ], [ %38, %36 ], [ %49, %rb_type.exit.thread20 ]
+  %52 = icmp sgt i64 %.0, 0
+  %53 = and i64 %.0, 4611686018427387903
+  %masksel = select i1 %52, i64 0, i64 -4611686018427387904
+  %.1 = or disjoint i64 %masksel, %53
   ret i64 %.1
 }
 

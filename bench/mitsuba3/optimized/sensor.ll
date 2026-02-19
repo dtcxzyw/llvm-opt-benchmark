@@ -482,9 +482,9 @@ _ZNSt3__14pairIN7mitsuba8SpectrumIfLm4EEEN5drjit6MatrixIS3_Lm4EEEEC2B8ne190000IS
   %99 = fadd contract <4 x float> %79, %98
   %100 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %93, <4 x float> splat (float 0x3FE6300000000000), <4 x float> %99)
   %101 = fmul contract <4 x float> %100, splat (float 5.000000e-01)
-  %102 = tail call <4 x float> @llvm.fabs.v4f32(<4 x float> %101)
-  %103 = tail call <4 x i1> @llvm.is.fpclass.v4f32(<4 x float> %74, i32 608)
-  %104 = select <4 x i1> %103, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %102
+  %102 = tail call <4 x i1> @llvm.is.fpclass.v4f32(<4 x float> %74, i32 608)
+  %103 = tail call <4 x float> @llvm.fabs.v4f32(<4 x float> %101)
+  %104 = select <4 x i1> %102, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %103
   %105 = select <4 x i1> %94, <4 x float> splat (float 0x7FFFFFFFE0000000), <4 x float> %104
   %106 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> %105, <4 x float> %56)
   br label %_ZN7mitsuba19sample_rgb_spectrumINS_8SpectrumIfLm4EEEEENSt3__14pairIT_S5_EERKS5_.exit.i
@@ -4932,10 +4932,10 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x float> @llvm.fabs.v4f32(<4 x float>) #21
+declare <4 x i1> @llvm.is.fpclass.v4f32(<4 x float>, i32 immarg) #21
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i1> @llvm.is.fpclass.v4f32(<4 x float>, i32 immarg) #21
+declare <4 x float> @llvm.fabs.v4f32(<4 x float>) #21
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare <4 x float> @llvm.copysign.v4f32(<4 x float>, <4 x float>) #21

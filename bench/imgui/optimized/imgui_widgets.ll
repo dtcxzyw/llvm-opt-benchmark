@@ -39056,33 +39056,34 @@ define noundef zeroext i1 @_ZN5ImGui16BeginMainMenuBarEv() local_unnamed_addr #5
   %8 = load float, ptr %7, align 4, !tbaa !213
   %9 = fsub float %6, %8
   %10 = fcmp oge float %9, 0.000000e+00
-  %11 = select i1 %10, float %9, float 0.000000e+00
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 7716
-  store i32 %4, ptr %12, align 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 7716
+  %12 = bitcast float %9 to i32
+  %13 = select i1 %10, i32 %12, i32 0
+  store i32 %4, ptr %11, align 4
   %.sroa_idx13 = getelementptr inbounds nuw i8, ptr %1, i64 7720
-  store float %11, ptr %.sroa_idx13, align 8
-  %13 = tail call noundef float @_ZN5ImGui14GetFrameHeightEv()
-  %14 = tail call noundef zeroext i1 @_ZN5ImGui20BeginViewportSideBarEPKcP13ImGuiViewport8ImGuiDirfi(ptr noundef nonnull @.str.123, ptr noundef %2, i32 noundef 2, float noundef %13, i32 noundef 1288)
-  store i32 0, ptr %12, align 4
+  store i32 %13, ptr %.sroa_idx13, align 8
+  %14 = tail call noundef float @_ZN5ImGui14GetFrameHeightEv()
+  %15 = tail call noundef zeroext i1 @_ZN5ImGui20BeginViewportSideBarEPKcP13ImGuiViewport8ImGuiDirfi(ptr noundef nonnull @.str.123, ptr noundef %2, i32 noundef 2, float noundef %14, i32 noundef 1288)
+  store i32 0, ptr %11, align 4
   store i32 0, ptr %.sroa_idx13, align 8
-  br i1 %14, label %16, label %15
-
-15:                                               ; preds = %0
-  tail call void @_ZN5ImGui3EndEv()
-  br label %23
+  br i1 %15, label %17, label %16
 
 16:                                               ; preds = %0
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 5016
-  %18 = load ptr, ptr %17, align 8, !tbaa !8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 20
-  %20 = load i32, ptr %19, align 4, !tbaa !223
-  %21 = and i32 %20, -257
-  store i32 %21, ptr %19, align 4, !tbaa !223
-  %22 = tail call noundef zeroext i1 @_ZN5ImGui12BeginMenuBarEv()
-  br label %23
+  tail call void @_ZN5ImGui3EndEv()
+  br label %24
 
-23:                                               ; preds = %16, %15
-  ret i1 %14
+17:                                               ; preds = %0
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 5016
+  %19 = load ptr, ptr %18, align 8, !tbaa !8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 20
+  %21 = load i32, ptr %20, align 4, !tbaa !223
+  %22 = and i32 %21, -257
+  store i32 %22, ptr %20, align 4, !tbaa !223
+  %23 = tail call noundef zeroext i1 @_ZN5ImGui12BeginMenuBarEv()
+  br label %24
+
+24:                                               ; preds = %17, %16
+  ret i1 %15
 }
 
 declare void @_ZN5ImGui3EndEv() local_unnamed_addr #2

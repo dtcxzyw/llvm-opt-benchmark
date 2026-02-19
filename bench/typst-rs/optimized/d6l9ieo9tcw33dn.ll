@@ -79482,18 +79482,18 @@ define internal fastcc void @_ZN5typst9visualize5color5Color11scale_alpha17h3f46
   %6 = alloca { { { [2 x i64] } } }, align 8
   %.sroa.02 = alloca [2 x i64], align 8
   %7 = load i32, ptr %1, align 4, !range !17471, !noundef !4
-  switch i32 %7, label %default.unreachable89 [
+  switch i32 %7, label %default.unreachable88 [
     i32 0, label %8
-    i32 1, label %19
-    i32 2, label %29
-    i32 3, label %39
-    i32 4, label %49
-    i32 5, label %59
-    i32 6, label %65
-    i32 7, label %75
+    i32 1, label %21
+    i32 2, label %33
+    i32 3, label %45
+    i32 4, label %57
+    i32 5, label %69
+    i32 6, label %75
+    i32 7, label %87
   ]
 
-default.unreachable89:                            ; preds = %3
+default.unreachable88:                            ; preds = %3
   unreachable
 
 8:                                                ; preds = %3
@@ -79511,111 +79511,111 @@ default.unreachable89:                            ; preds = %3
   %16 = fcmp olt float %15, 0.000000e+00
   %.0.i.i = select i1 %16, float 0.000000e+00, float %15
   %17 = fcmp ogt float %.0.i.i, 1.000000e+00
-  %.1.i.i = select i1 %17, float 1.000000e+00, float %.0.i.i
-  %18 = bitcast float %.1.i.i to i32
-  %.sroa.28.0.insert.ext.i = zext i32 %18 to i64
-  %.sroa.28.0.insert.shift.i = shl nuw i64 %.sroa.28.0.insert.ext.i, 32
+  %18 = bitcast float %.0.i.i to i32
+  %19 = zext i32 %18 to i64
+  %20 = shl nuw i64 %19, 32
+  %.sroa.28.0.insert.shift.i = select i1 %17, i64 4575657221408423936, i64 %20
   %.sroa.07.0.insert.ext.i = and i64 %.sroa.01.0.copyload, 4294967295
   %.sroa.07.0.insert.insert.i = or disjoint i64 %.sroa.28.0.insert.shift.i, %.sroa.07.0.insert.ext.i
-  br label %85
+  br label %99
 
-19:                                               ; preds = %3
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0.sroa.0.0.copyload = load i64, ptr %20, align 4
+21:                                               ; preds = %3
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0.sroa.0.0.copyload = load i64, ptr %22, align 4
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.sroa.2.0.copyload = load i32, ptr %.sroa.0.sroa.2.0..sroa_idx, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.2.0.copyload = load float, ptr %.sroa.2.0..sroa_idx, align 4
-  %21 = fptrunc double %2 to float
-  %22 = fcmp ogt double %2, 0x3690000000000000
-  %23 = fsub float 1.000000e+00, %.sroa.2.0.copyload
-  %.0.i27 = select i1 %22, float %23, float %.sroa.2.0.copyload
-  %24 = fmul float %.0.i27, %21
-  %25 = fadd float %.sroa.2.0.copyload, %24
-  %26 = fcmp olt float %25, 0.000000e+00
-  %.0.i.i28 = select i1 %26, float 0.000000e+00, float %25
-  %27 = fcmp ogt float %.0.i.i28, 1.000000e+00
-  %.1.i.i29 = select i1 %27, float 1.000000e+00, float %.0.i.i28
-  %28 = bitcast float %.1.i.i29 to i32
-  %.sroa.4.sroa.4.0.insert.ext = zext i32 %28 to i64
-  %.sroa.4.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.sroa.4.0.insert.ext, 32
+  %23 = fptrunc double %2 to float
+  %24 = fcmp ogt double %2, 0x3690000000000000
+  %25 = fsub float 1.000000e+00, %.sroa.2.0.copyload
+  %.0.i27 = select i1 %24, float %25, float %.sroa.2.0.copyload
+  %26 = fmul float %.0.i27, %23
+  %27 = fadd float %.sroa.2.0.copyload, %26
+  %28 = fcmp olt float %27, 0.000000e+00
+  %.0.i.i28 = select i1 %28, float 0.000000e+00, float %27
+  %29 = fcmp ogt float %.0.i.i28, 1.000000e+00
+  %30 = bitcast float %.0.i.i28 to i32
+  %31 = zext i32 %30 to i64
+  %32 = shl nuw i64 %31, 32
+  %.sroa.4.sroa.4.0.insert.shift = select i1 %29, i64 4575657221408423936, i64 %32
   %.sroa.4.sroa.0.0.insert.ext = zext i32 %.sroa.0.sroa.2.0.copyload to i64
   %.sroa.4.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.sroa.4.0.insert.shift, %.sroa.4.sroa.0.0.insert.ext
-  br label %85
+  br label %99
 
-29:                                               ; preds = %3
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0.sroa.055.0.copyload = load i64, ptr %30, align 4
-  %.sroa.0.sroa.256.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.0.sroa.256.0.copyload = load i32, ptr %.sroa.0.sroa.256.0..sroa_idx, align 4
-  %.sroa.249.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.249.0.copyload = load float, ptr %.sroa.249.0..sroa_idx, align 4
-  %31 = fptrunc double %2 to float
-  %32 = fcmp ogt double %2, 0x3690000000000000
-  %33 = fsub float 1.000000e+00, %.sroa.249.0.copyload
-  %.0.i30 = select i1 %32, float %33, float %.sroa.249.0.copyload
-  %34 = fmul float %.0.i30, %31
-  %35 = fadd float %.sroa.249.0.copyload, %34
-  %36 = fcmp olt float %35, 0.000000e+00
-  %.0.i.i31 = select i1 %36, float 0.000000e+00, float %35
-  %37 = fcmp ogt float %.0.i.i31, 1.000000e+00
-  %.1.i.i32 = select i1 %37, float 1.000000e+00, float %.0.i.i31
-  %38 = bitcast float %.1.i.i32 to i32
-  %.sroa.4.sroa.454.0.insert.ext = zext i32 %38 to i64
-  %.sroa.4.sroa.454.0.insert.shift = shl nuw i64 %.sroa.4.sroa.454.0.insert.ext, 32
-  %.sroa.4.sroa.053.0.insert.ext = zext i32 %.sroa.0.sroa.256.0.copyload to i64
-  %.sroa.4.sroa.053.0.insert.insert = or disjoint i64 %.sroa.4.sroa.454.0.insert.shift, %.sroa.4.sroa.053.0.insert.ext
-  br label %85
+33:                                               ; preds = %3
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0.sroa.054.0.copyload = load i64, ptr %34, align 4
+  %.sroa.0.sroa.255.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.0.sroa.255.0.copyload = load i32, ptr %.sroa.0.sroa.255.0..sroa_idx, align 4
+  %.sroa.248.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.248.0.copyload = load float, ptr %.sroa.248.0..sroa_idx, align 4
+  %35 = fptrunc double %2 to float
+  %36 = fcmp ogt double %2, 0x3690000000000000
+  %37 = fsub float 1.000000e+00, %.sroa.248.0.copyload
+  %.0.i29 = select i1 %36, float %37, float %.sroa.248.0.copyload
+  %38 = fmul float %.0.i29, %35
+  %39 = fadd float %.sroa.248.0.copyload, %38
+  %40 = fcmp olt float %39, 0.000000e+00
+  %.0.i.i30 = select i1 %40, float 0.000000e+00, float %39
+  %41 = fcmp ogt float %.0.i.i30, 1.000000e+00
+  %42 = bitcast float %.0.i.i30 to i32
+  %43 = zext i32 %42 to i64
+  %44 = shl nuw i64 %43, 32
+  %.sroa.4.sroa.453.0.insert.shift = select i1 %41, i64 4575657221408423936, i64 %44
+  %.sroa.4.sroa.052.0.insert.ext = zext i32 %.sroa.0.sroa.255.0.copyload to i64
+  %.sroa.4.sroa.052.0.insert.insert = or disjoint i64 %.sroa.4.sroa.453.0.insert.shift, %.sroa.4.sroa.052.0.insert.ext
+  br label %99
 
-39:                                               ; preds = %3
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0.sroa.063.0.copyload = load i64, ptr %40, align 4
-  %.sroa.0.sroa.264.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.0.sroa.264.0.copyload = load i32, ptr %.sroa.0.sroa.264.0..sroa_idx, align 4
-  %.sroa.257.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.257.0.copyload = load float, ptr %.sroa.257.0..sroa_idx, align 4
-  %41 = fptrunc double %2 to float
-  %42 = fcmp ogt double %2, 0x3690000000000000
-  %43 = fsub float 1.000000e+00, %.sroa.257.0.copyload
-  %.0.i33 = select i1 %42, float %43, float %.sroa.257.0.copyload
-  %44 = fmul float %.0.i33, %41
-  %45 = fadd float %.sroa.257.0.copyload, %44
-  %46 = fcmp olt float %45, 0.000000e+00
-  %.0.i.i34 = select i1 %46, float 0.000000e+00, float %45
-  %47 = fcmp ogt float %.0.i.i34, 1.000000e+00
-  %.1.i.i35 = select i1 %47, float 1.000000e+00, float %.0.i.i34
-  %48 = bitcast float %.1.i.i35 to i32
-  %.sroa.4.sroa.462.0.insert.ext = zext i32 %48 to i64
-  %.sroa.4.sroa.462.0.insert.shift = shl nuw i64 %.sroa.4.sroa.462.0.insert.ext, 32
-  %.sroa.4.sroa.061.0.insert.ext = zext i32 %.sroa.0.sroa.264.0.copyload to i64
-  %.sroa.4.sroa.061.0.insert.insert = or disjoint i64 %.sroa.4.sroa.462.0.insert.shift, %.sroa.4.sroa.061.0.insert.ext
-  br label %85
+45:                                               ; preds = %3
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0.sroa.062.0.copyload = load i64, ptr %46, align 4
+  %.sroa.0.sroa.263.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.0.sroa.263.0.copyload = load i32, ptr %.sroa.0.sroa.263.0..sroa_idx, align 4
+  %.sroa.256.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.256.0.copyload = load float, ptr %.sroa.256.0..sroa_idx, align 4
+  %47 = fptrunc double %2 to float
+  %48 = fcmp ogt double %2, 0x3690000000000000
+  %49 = fsub float 1.000000e+00, %.sroa.256.0.copyload
+  %.0.i32 = select i1 %48, float %49, float %.sroa.256.0.copyload
+  %50 = fmul float %.0.i32, %47
+  %51 = fadd float %.sroa.256.0.copyload, %50
+  %52 = fcmp olt float %51, 0.000000e+00
+  %.0.i.i33 = select i1 %52, float 0.000000e+00, float %51
+  %53 = fcmp ogt float %.0.i.i33, 1.000000e+00
+  %54 = bitcast float %.0.i.i33 to i32
+  %55 = zext i32 %54 to i64
+  %56 = shl nuw i64 %55, 32
+  %.sroa.4.sroa.461.0.insert.shift = select i1 %53, i64 4575657221408423936, i64 %56
+  %.sroa.4.sroa.060.0.insert.ext = zext i32 %.sroa.0.sroa.263.0.copyload to i64
+  %.sroa.4.sroa.060.0.insert.insert = or disjoint i64 %.sroa.4.sroa.461.0.insert.shift, %.sroa.4.sroa.060.0.insert.ext
+  br label %99
 
-49:                                               ; preds = %3
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0.sroa.071.0.copyload = load i64, ptr %50, align 4
-  %.sroa.0.sroa.272.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.0.sroa.272.0.copyload = load i32, ptr %.sroa.0.sroa.272.0..sroa_idx, align 4
-  %.sroa.265.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.265.0.copyload = load float, ptr %.sroa.265.0..sroa_idx, align 4
-  %51 = fptrunc double %2 to float
-  %52 = fcmp ogt double %2, 0x3690000000000000
-  %53 = fsub float 1.000000e+00, %.sroa.265.0.copyload
-  %.0.i36 = select i1 %52, float %53, float %.sroa.265.0.copyload
-  %54 = fmul float %.0.i36, %51
-  %55 = fadd float %.sroa.265.0.copyload, %54
-  %56 = fcmp olt float %55, 0.000000e+00
-  %.0.i.i37 = select i1 %56, float 0.000000e+00, float %55
-  %57 = fcmp ogt float %.0.i.i37, 1.000000e+00
-  %.1.i.i38 = select i1 %57, float 1.000000e+00, float %.0.i.i37
-  %58 = bitcast float %.1.i.i38 to i32
-  %.sroa.4.sroa.470.0.insert.ext = zext i32 %58 to i64
-  %.sroa.4.sroa.470.0.insert.shift = shl nuw i64 %.sroa.4.sroa.470.0.insert.ext, 32
-  %.sroa.4.sroa.069.0.insert.ext = zext i32 %.sroa.0.sroa.272.0.copyload to i64
-  %.sroa.4.sroa.069.0.insert.insert = or disjoint i64 %.sroa.4.sroa.470.0.insert.shift, %.sroa.4.sroa.069.0.insert.ext
-  br label %85
+57:                                               ; preds = %3
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0.sroa.070.0.copyload = load i64, ptr %58, align 4
+  %.sroa.0.sroa.271.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.0.sroa.271.0.copyload = load i32, ptr %.sroa.0.sroa.271.0..sroa_idx, align 4
+  %.sroa.264.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.264.0.copyload = load float, ptr %.sroa.264.0..sroa_idx, align 4
+  %59 = fptrunc double %2 to float
+  %60 = fcmp ogt double %2, 0x3690000000000000
+  %61 = fsub float 1.000000e+00, %.sroa.264.0.copyload
+  %.0.i35 = select i1 %60, float %61, float %.sroa.264.0.copyload
+  %62 = fmul float %.0.i35, %59
+  %63 = fadd float %.sroa.264.0.copyload, %62
+  %64 = fcmp olt float %63, 0.000000e+00
+  %.0.i.i36 = select i1 %64, float 0.000000e+00, float %63
+  %65 = fcmp ogt float %.0.i.i36, 1.000000e+00
+  %66 = bitcast float %.0.i.i36 to i32
+  %67 = zext i32 %66 to i64
+  %68 = shl nuw i64 %67, 32
+  %.sroa.4.sroa.469.0.insert.shift = select i1 %65, i64 4575657221408423936, i64 %68
+  %.sroa.4.sroa.068.0.insert.ext = zext i32 %.sroa.0.sroa.271.0.copyload to i64
+  %.sroa.4.sroa.068.0.insert.insert = or disjoint i64 %.sroa.4.sroa.469.0.insert.shift, %.sroa.4.sroa.068.0.insert.ext
+  br label %99
 
-59:                                               ; preds = %3
+69:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.02)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %6, i8 0, i64 15, i1 false)
@@ -79623,119 +79623,119 @@ default.unreachable89:                            ; preds = %3
   store i8 -128, ptr %.sroa.03.sroa.4.0..sroa_idx, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @anon.a2b023d1a4e2834952d16152dce23780.440, ptr %5, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 1, ptr %60, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %61, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %62, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 0, ptr %63, align 8
-  %64 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h4311bce0ee536615E(ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.308.llvm.7889846851399105414, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
-          to label %92 unwind label %87
-
-65:                                               ; preds = %3
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0.sroa.079.0.copyload = load i64, ptr %66, align 4
-  %.sroa.0.sroa.280.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.0.sroa.280.0.copyload = load i32, ptr %.sroa.0.sroa.280.0..sroa_idx, align 4
-  %.sroa.273.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.273.0.copyload = load float, ptr %.sroa.273.0..sroa_idx, align 4
-  %67 = fptrunc double %2 to float
-  %68 = fcmp ogt double %2, 0x3690000000000000
-  %69 = fsub float 1.000000e+00, %.sroa.273.0.copyload
-  %.0.i39 = select i1 %68, float %69, float %.sroa.273.0.copyload
-  %70 = fmul float %.0.i39, %67
-  %71 = fadd float %.sroa.273.0.copyload, %70
-  %72 = fcmp olt float %71, 0.000000e+00
-  %.0.i.i40 = select i1 %72, float 0.000000e+00, float %71
-  %73 = fcmp ogt float %.0.i.i40, 1.000000e+00
-  %.1.i.i41 = select i1 %73, float 1.000000e+00, float %.0.i.i40
-  %74 = bitcast float %.1.i.i41 to i32
-  %.sroa.4.sroa.478.0.insert.ext = zext i32 %74 to i64
-  %.sroa.4.sroa.478.0.insert.shift = shl nuw i64 %.sroa.4.sroa.478.0.insert.ext, 32
-  %.sroa.4.sroa.077.0.insert.ext = zext i32 %.sroa.0.sroa.280.0.copyload to i64
-  %.sroa.4.sroa.077.0.insert.insert = or disjoint i64 %.sroa.4.sroa.478.0.insert.shift, %.sroa.4.sroa.077.0.insert.ext
-  br label %85
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 1, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr null, ptr %71, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %72, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 0, ptr %73, align 8
+  %74 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h4311bce0ee536615E(ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.308.llvm.7889846851399105414, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
+          to label %106 unwind label %101
 
 75:                                               ; preds = %3
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0.sroa.087.0.copyload = load i64, ptr %76, align 4
-  %.sroa.0.sroa.288.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.0.sroa.288.0.copyload = load i32, ptr %.sroa.0.sroa.288.0..sroa_idx, align 4
-  %.sroa.281.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.281.0.copyload = load float, ptr %.sroa.281.0..sroa_idx, align 4
+  %.sroa.0.sroa.078.0.copyload = load i64, ptr %76, align 4
+  %.sroa.0.sroa.279.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.0.sroa.279.0.copyload = load i32, ptr %.sroa.0.sroa.279.0..sroa_idx, align 4
+  %.sroa.272.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.272.0.copyload = load float, ptr %.sroa.272.0..sroa_idx, align 4
   %77 = fptrunc double %2 to float
   %78 = fcmp ogt double %2, 0x3690000000000000
-  %79 = fsub float 1.000000e+00, %.sroa.281.0.copyload
-  %.0.i42 = select i1 %78, float %79, float %.sroa.281.0.copyload
-  %80 = fmul float %.0.i42, %77
-  %81 = fadd float %.sroa.281.0.copyload, %80
+  %79 = fsub float 1.000000e+00, %.sroa.272.0.copyload
+  %.0.i38 = select i1 %78, float %79, float %.sroa.272.0.copyload
+  %80 = fmul float %.0.i38, %77
+  %81 = fadd float %.sroa.272.0.copyload, %80
   %82 = fcmp olt float %81, 0.000000e+00
-  %.0.i.i43 = select i1 %82, float 0.000000e+00, float %81
-  %83 = fcmp ogt float %.0.i.i43, 1.000000e+00
-  %.1.i.i44 = select i1 %83, float 1.000000e+00, float %.0.i.i43
-  %84 = bitcast float %.1.i.i44 to i32
-  %.sroa.4.sroa.486.0.insert.ext = zext i32 %84 to i64
-  %.sroa.4.sroa.486.0.insert.shift = shl nuw i64 %.sroa.4.sroa.486.0.insert.ext, 32
-  %.sroa.4.sroa.085.0.insert.ext = zext i32 %.sroa.0.sroa.288.0.copyload to i64
-  %.sroa.4.sroa.085.0.insert.insert = or disjoint i64 %.sroa.4.sroa.486.0.insert.shift, %.sroa.4.sroa.085.0.insert.ext
-  br label %85
+  %.0.i.i39 = select i1 %82, float 0.000000e+00, float %81
+  %83 = fcmp ogt float %.0.i.i39, 1.000000e+00
+  %84 = bitcast float %.0.i.i39 to i32
+  %85 = zext i32 %84 to i64
+  %86 = shl nuw i64 %85, 32
+  %.sroa.4.sroa.477.0.insert.shift = select i1 %83, i64 4575657221408423936, i64 %86
+  %.sroa.4.sroa.076.0.insert.ext = zext i32 %.sroa.0.sroa.279.0.copyload to i64
+  %.sroa.4.sroa.076.0.insert.insert = or disjoint i64 %.sroa.4.sroa.477.0.insert.shift, %.sroa.4.sroa.076.0.insert.ext
+  br label %99
 
-85:                                               ; preds = %75, %65, %49, %39, %29, %19, %8
-  %.sroa.11.sroa.0.0 = phi i64 [ %.sroa.07.0.insert.insert.i, %8 ], [ %.sroa.0.sroa.0.0.copyload, %19 ], [ %.sroa.0.sroa.055.0.copyload, %29 ], [ %.sroa.0.sroa.063.0.copyload, %39 ], [ %.sroa.0.sroa.071.0.copyload, %49 ], [ %.sroa.0.sroa.079.0.copyload, %65 ], [ %.sroa.0.sroa.087.0.copyload, %75 ]
-  %.sroa.11.sroa.11.0 = phi i64 [ undef, %8 ], [ %.sroa.4.sroa.0.0.insert.insert, %19 ], [ %.sroa.4.sroa.053.0.insert.insert, %29 ], [ %.sroa.4.sroa.061.0.insert.insert, %39 ], [ %.sroa.4.sroa.069.0.insert.insert, %49 ], [ %.sroa.4.sroa.077.0.insert.insert, %65 ], [ %.sroa.4.sroa.085.0.insert.insert, %75 ]
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %7, ptr %86, align 4
+87:                                               ; preds = %3
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0.sroa.086.0.copyload = load i64, ptr %88, align 4
+  %.sroa.0.sroa.287.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.0.sroa.287.0.copyload = load i32, ptr %.sroa.0.sroa.287.0..sroa_idx, align 4
+  %.sroa.280.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.280.0.copyload = load float, ptr %.sroa.280.0..sroa_idx, align 4
+  %89 = fptrunc double %2 to float
+  %90 = fcmp ogt double %2, 0x3690000000000000
+  %91 = fsub float 1.000000e+00, %.sroa.280.0.copyload
+  %.0.i41 = select i1 %90, float %91, float %.sroa.280.0.copyload
+  %92 = fmul float %.0.i41, %89
+  %93 = fadd float %.sroa.280.0.copyload, %92
+  %94 = fcmp olt float %93, 0.000000e+00
+  %.0.i.i42 = select i1 %94, float 0.000000e+00, float %93
+  %95 = fcmp ogt float %.0.i.i42, 1.000000e+00
+  %96 = bitcast float %.0.i.i42 to i32
+  %97 = zext i32 %96 to i64
+  %98 = shl nuw i64 %97, 32
+  %.sroa.4.sroa.485.0.insert.shift = select i1 %95, i64 4575657221408423936, i64 %98
+  %.sroa.4.sroa.084.0.insert.ext = zext i32 %.sroa.0.sroa.287.0.copyload to i64
+  %.sroa.4.sroa.084.0.insert.insert = or disjoint i64 %.sroa.4.sroa.485.0.insert.shift, %.sroa.4.sroa.084.0.insert.ext
+  br label %99
+
+99:                                               ; preds = %87, %75, %57, %45, %33, %21, %8
+  %.sroa.11.sroa.0.0 = phi i64 [ %.sroa.07.0.insert.insert.i, %8 ], [ %.sroa.0.sroa.0.0.copyload, %21 ], [ %.sroa.0.sroa.054.0.copyload, %33 ], [ %.sroa.0.sroa.062.0.copyload, %45 ], [ %.sroa.0.sroa.070.0.copyload, %57 ], [ %.sroa.0.sroa.078.0.copyload, %75 ], [ %.sroa.0.sroa.086.0.copyload, %87 ]
+  %.sroa.11.sroa.11.0 = phi i64 [ undef, %8 ], [ %.sroa.4.sroa.0.0.insert.insert, %21 ], [ %.sroa.4.sroa.052.0.insert.insert, %33 ], [ %.sroa.4.sroa.060.0.insert.insert, %45 ], [ %.sroa.4.sroa.068.0.insert.insert, %57 ], [ %.sroa.4.sroa.076.0.insert.insert, %75 ], [ %.sroa.4.sroa.084.0.insert.insert, %87 ]
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %7, ptr %100, align 4
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.11.sroa.0.0, ptr %.sroa.11.0..sroa_idx, align 8
   %.sroa.11.sroa.11.0..sroa.11.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.11.sroa.11.0, ptr %.sroa.11.sroa.11.0..sroa.11.0..sroa_idx.sroa_idx, align 8
   store i32 0, ptr %0, align 8
-  br label %95
+  br label %109
 
-87:                                               ; preds = %93, %59
-  %88 = landingpad { ptr, i32 }
+101:                                              ; preds = %107, %69
+  %102 = landingpad { ptr, i32 }
           cleanup
-  %89 = load i8, ptr %.sroa.03.sroa.4.0..sroa_idx, align 1, !alias.scope !17472, !noundef !4
-  %90 = icmp sgt i8 %89, -1
-  br i1 %90, label %91, label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit"
+  %103 = load i8, ptr %.sroa.03.sroa.4.0..sroa_idx, align 1, !alias.scope !17472, !noundef !4
+  %104 = icmp sgt i8 %103, -1
+  br i1 %104, label %105, label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit"
 
-91:                                               ; preds = %87
+105:                                              ; preds = %101
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3d104556f500dee7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
-          to label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit" unwind label %96
+          to label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit" unwind label %110
 
-92:                                               ; preds = %59
+106:                                              ; preds = %69
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %64, label %93, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h530d178225a0875aE.llvm.7889846851399105414.exit"
+  br i1 %74, label %107, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h530d178225a0875aE.llvm.7889846851399105414.exit"
 
-93:                                               ; preds = %92
+107:                                              ; preds = %106
   invoke void @_ZN4core6result13unwrap_failed17hff299ec748d62aabE(ptr noalias noundef nonnull readonly align 1 @anon.a2b023d1a4e2834952d16152dce23780.161.llvm.7889846851399105414, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.163.llvm.7889846851399105414, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.441) #52
-          to label %.noexc unwind label %87
+          to label %.noexc unwind label %101
 
-.noexc:                                           ; preds = %93
+.noexc:                                           ; preds = %107
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h530d178225a0875aE.llvm.7889846851399105414.exit": ; preds = %92
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h530d178225a0875aE.llvm.7889846851399105414.exit": ; preds = %106
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.02, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.02, i64 16, i1 false)
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %108, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.02, i64 16, i1 false)
   store i32 1, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.02)
-  br label %95
+  br label %109
 
-95:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h530d178225a0875aE.llvm.7889846851399105414.exit", %85
+109:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h530d178225a0875aE.llvm.7889846851399105414.exit", %99
   ret void
 
-96:                                               ; preds = %91
-  %97 = landingpad { ptr, i32 }
+110:                                              ; preds = %105
+  %111 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #55
   unreachable
 
-"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit": ; preds = %87, %91
-  resume { ptr, i32 } %88
+"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit": ; preds = %101, %105
+  resume { ptr, i32 } %102
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -79940,29 +79940,29 @@ define void @_ZN5typst9visualize5color5Color7to_luma17h5142bbcd559633d9E(ptr noa
   %22 = alloca { float, float, float }, align 8
   %23 = load i32, ptr %1, align 4, !range !17471, !noundef !4
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  switch i32 %23, label %default.unreachable148 [
+  switch i32 %23, label %default.unreachable130 [
     i32 0, label %25
     i32 1, label %26
-    i32 2, label %42
-    i32 3, label %58
-    i32 4, label %74
-    i32 5, label %92
-    i32 6, label %132
-    i32 7, label %148
+    i32 2, label %45
+    i32 3, label %64
+    i32 4, label %83
+    i32 5, label %104
+    i32 6, label %146
+    i32 7, label %165
   ]
 
-default.unreachable148:                           ; preds = %2
+default.unreachable130:                           ; preds = %2
   unreachable
 
 25:                                               ; preds = %2
   %.sroa.07.0.copyload = load i64, ptr %24, align 4
-  br label %164
+  br label %184
 
 26:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %22, ptr noundef nonnull align 4 dereferenceable(12) %24, i64 12, i1 false)
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.2.0.copyload135 = load float, ptr %.sroa.2.0..sroa_idx, align 4
+  %.sroa.2.0.copyload117 = load float, ptr %.sroa.2.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !17482
   call void @"_ZN176_$LT$palette..xyz..Xyz$LT$palette..white_point..D65$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..oklab..Oklab$LT$T$GT$$GT$$GT$20from_color_unclamped17h8db69894a700eca5E"(ptr noalias noundef nonnull sret({ float, float, float, {} }) align 4 captures(none) dereferenceable(12) %21, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %22), !noalias !17489
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17490)
@@ -79989,24 +79989,24 @@ default.unreachable148:                           ; preds = %2
   %36 = fcmp olt float %.0.i.i.i.i.i.i.i, 0.000000e+00
   %.0.i.i.i.i = select i1 %36, float 0.000000e+00, float %.0.i.i.i.i.i.i.i
   %37 = fcmp ogt float %.0.i.i.i.i, 1.000000e+00
-  %.1.i.i.i.i = select i1 %37, float 1.000000e+00, float %.0.i.i.i.i
-  %38 = bitcast float %.1.i.i.i.i to i32
-  %39 = fcmp olt float %.sroa.2.0.copyload135, 0.000000e+00
-  %.0.i.i.i = select i1 %39, float 0.000000e+00, float %.sroa.2.0.copyload135
+  %38 = bitcast float %.0.i.i.i.i to i32
+  %39 = fcmp olt float %.sroa.2.0.copyload117, 0.000000e+00
+  %.0.i.i.i = select i1 %39, float 0.000000e+00, float %.sroa.2.0.copyload117
   %40 = fcmp ogt float %.0.i.i.i, 1.000000e+00
-  %.1.i.i.i = select i1 %40, float 1.000000e+00, float %.0.i.i.i
-  %41 = bitcast float %.1.i.i.i to i32
-  %.sroa.24.0.insert.ext.i = zext i32 %41 to i64
-  %.sroa.24.0.insert.shift.i = shl nuw i64 %.sroa.24.0.insert.ext.i, 32
-  %.sroa.03.0.insert.ext.i = zext i32 %38 to i64
-  %.sroa.03.0.insert.insert.i = or disjoint i64 %.sroa.24.0.insert.shift.i, %.sroa.03.0.insert.ext.i
-  br label %164
+  %41 = bitcast float %.0.i.i.i to i32
+  %42 = zext i32 %41 to i64
+  %43 = shl nuw i64 %42, 32
+  %.sroa.24.0.insert.shift.i = select i1 %40, i64 4575657221408423936, i64 %43
+  %44 = zext i32 %38 to i64
+  %.sroa.03.0.insert.ext.i = select i1 %37, i64 1065353216, i64 %44
+  %.sroa.03.0.insert.insert.i = or disjoint i64 %.sroa.03.0.insert.ext.i, %.sroa.24.0.insert.shift.i
+  br label %184
 
-42:                                               ; preds = %2
+45:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %20, ptr noundef nonnull align 4 dereferenceable(12) %24, i64 12, i1 false)
-  %.sroa.2115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.2115.0.copyload134 = load float, ptr %.sroa.2115.0..sroa_idx, align 4
+  %.sroa.297.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.297.0.copyload116 = load float, ptr %.sroa.297.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !17498
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !17505
   call void @"_ZN152_$LT$palette..oklab..Oklab$LT$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..oklch..Oklch$LT$T$GT$$GT$$GT$20from_color_unclamped17h78ab4819962db4b6E"(ptr noalias noundef nonnull sret({ float, float, float }) align 4 captures(none) dereferenceable(12) %18, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %20), !noalias !17509
@@ -80014,93 +80014,93 @@ default.unreachable148:                           ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !17505
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17511)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17514)
-  %43 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %44 = load float, ptr %43, align 4, !alias.scope !17517, !noalias !17498, !noundef !4
-  %45 = fcmp ugt float %44, 0x3F69A5C380000000
-  br i1 %45, label %46, label %50
+  %46 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %47 = load float, ptr %46, align 4, !alias.scope !17517, !noalias !17498, !noundef !4
+  %48 = fcmp ugt float %47, 0x3F69A5C380000000
+  br i1 %48, label %49, label %53
 
-46:                                               ; preds = %42
-  %47 = tail call noundef float @_ZN4libm4math4powf4powf17h1ea6a5f8fa4e4372E(float noundef %44, float noundef 0x3FDAAAAAA0000000), !noalias !17518
-  %48 = fmul float %47, 0x3FF0E147A0000000
-  %49 = fadd float %48, 0xBFAC28F5C0000000
+49:                                               ; preds = %45
+  %50 = tail call noundef float @_ZN4libm4math4powf4powf17h1ea6a5f8fa4e4372E(float noundef %47, float noundef 0x3FDAAAAAA0000000), !noalias !17518
+  %51 = fmul float %50, 0x3FF0E147A0000000
+  %52 = fadd float %51, 0xBFAC28F5C0000000
   br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h13f24019d400e53aE.exit"
 
-50:                                               ; preds = %42
-  %51 = fmul nnan float %44, 0x4029D70A40000000
+53:                                               ; preds = %45
+  %54 = fmul nnan float %47, 0x4029D70A40000000
   br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h13f24019d400e53aE.exit"
 
-"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h13f24019d400e53aE.exit": ; preds = %46, %50
-  %.0.i.i.i.i.i.i.i27 = phi float [ %51, %50 ], [ %49, %46 ]
+"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h13f24019d400e53aE.exit": ; preds = %49, %53
+  %.0.i.i.i.i.i.i.i27 = phi float [ %54, %53 ], [ %52, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !17498
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  %52 = fcmp olt float %.0.i.i.i.i.i.i.i27, 0.000000e+00
-  %.0.i.i.i.i33 = select i1 %52, float 0.000000e+00, float %.0.i.i.i.i.i.i.i27
-  %53 = fcmp ogt float %.0.i.i.i.i33, 1.000000e+00
-  %.1.i.i.i.i34 = select i1 %53, float 1.000000e+00, float %.0.i.i.i.i33
-  %54 = bitcast float %.1.i.i.i.i34 to i32
-  %55 = fcmp olt float %.sroa.2115.0.copyload134, 0.000000e+00
-  %.0.i.i.i35 = select i1 %55, float 0.000000e+00, float %.sroa.2115.0.copyload134
-  %56 = fcmp ogt float %.0.i.i.i35, 1.000000e+00
-  %.1.i.i.i36 = select i1 %56, float 1.000000e+00, float %.0.i.i.i35
-  %57 = bitcast float %.1.i.i.i36 to i32
-  %.sroa.24.0.insert.ext.i37 = zext i32 %57 to i64
-  %.sroa.24.0.insert.shift.i38 = shl nuw i64 %.sroa.24.0.insert.ext.i37, 32
-  %.sroa.03.0.insert.ext.i39 = zext i32 %54 to i64
-  %.sroa.03.0.insert.insert.i40 = or disjoint i64 %.sroa.24.0.insert.shift.i38, %.sroa.03.0.insert.ext.i39
-  br label %164
+  %55 = fcmp olt float %.0.i.i.i.i.i.i.i27, 0.000000e+00
+  %.0.i.i.i.i33 = select i1 %55, float 0.000000e+00, float %.0.i.i.i.i.i.i.i27
+  %56 = fcmp ogt float %.0.i.i.i.i33, 1.000000e+00
+  %57 = bitcast float %.0.i.i.i.i33 to i32
+  %58 = fcmp olt float %.sroa.297.0.copyload116, 0.000000e+00
+  %.0.i.i.i34 = select i1 %58, float 0.000000e+00, float %.sroa.297.0.copyload116
+  %59 = fcmp ogt float %.0.i.i.i34, 1.000000e+00
+  %60 = bitcast float %.0.i.i.i34 to i32
+  %61 = zext i32 %60 to i64
+  %62 = shl nuw i64 %61, 32
+  %.sroa.24.0.insert.shift.i35 = select i1 %59, i64 4575657221408423936, i64 %62
+  %63 = zext i32 %57 to i64
+  %.sroa.03.0.insert.ext.i36 = select i1 %56, i64 1065353216, i64 %63
+  %.sroa.03.0.insert.insert.i37 = or disjoint i64 %.sroa.03.0.insert.ext.i36, %.sroa.24.0.insert.shift.i35
+  br label %184
 
-58:                                               ; preds = %2
+64:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %17, ptr noundef nonnull align 4 dereferenceable(12) %24, i64 12, i1 false)
-  %.sroa.2117.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.2117.0.copyload133 = load float, ptr %.sroa.2117.0..sroa_idx, align 4
+  %.sroa.299.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.299.0.copyload115 = load float, ptr %.sroa.299.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !17519
   call void @"_ZN158_$LT$palette..xyz..Xyz$LT$Wp$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$GT$$GT$20from_color_unclamped17hb2a47f941427f2f8E"(ptr noalias noundef nonnull sret({ float, float, float, {} }) align 4 captures(none) dereferenceable(12) %16, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %17), !noalias !17526
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17527)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17530)
-  %59 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %60 = load float, ptr %59, align 4, !alias.scope !17533, !noalias !17519, !noundef !4
-  %61 = fcmp ugt float %60, 0x3F69A5C380000000
-  br i1 %61, label %62, label %66
+  %65 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %66 = load float, ptr %65, align 4, !alias.scope !17533, !noalias !17519, !noundef !4
+  %67 = fcmp ugt float %66, 0x3F69A5C380000000
+  br i1 %67, label %68, label %72
 
-62:                                               ; preds = %58
-  %63 = tail call noundef float @_ZN4libm4math4powf4powf17h1ea6a5f8fa4e4372E(float noundef %60, float noundef 0x3FDAAAAAA0000000), !noalias !17534
-  %64 = fmul float %63, 0x3FF0E147A0000000
-  %65 = fadd float %64, 0xBFAC28F5C0000000
+68:                                               ; preds = %64
+  %69 = tail call noundef float @_ZN4libm4math4powf4powf17h1ea6a5f8fa4e4372E(float noundef %66, float noundef 0x3FDAAAAAA0000000), !noalias !17534
+  %70 = fmul float %69, 0x3FF0E147A0000000
+  %71 = fadd float %70, 0xBFAC28F5C0000000
   br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit"
 
-66:                                               ; preds = %58
-  %67 = fmul nnan float %60, 0x4029D70A40000000
+72:                                               ; preds = %64
+  %73 = fmul nnan float %66, 0x4029D70A40000000
   br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit"
 
-"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit": ; preds = %62, %66
-  %.0.i.i.i.i.i.i.i41 = phi float [ %67, %66 ], [ %65, %62 ]
+"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit": ; preds = %68, %72
+  %.0.i.i.i.i.i.i.i38 = phi float [ %73, %72 ], [ %71, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !17519
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %68 = fcmp olt float %.0.i.i.i.i.i.i.i41, 0.000000e+00
-  %.0.i.i.i.i47 = select i1 %68, float 0.000000e+00, float %.0.i.i.i.i.i.i.i41
-  %69 = fcmp ogt float %.0.i.i.i.i47, 1.000000e+00
-  %.1.i.i.i.i48 = select i1 %69, float 1.000000e+00, float %.0.i.i.i.i47
-  %70 = bitcast float %.1.i.i.i.i48 to i32
-  %71 = fcmp olt float %.sroa.2117.0.copyload133, 0.000000e+00
-  %.0.i.i.i49 = select i1 %71, float 0.000000e+00, float %.sroa.2117.0.copyload133
-  %72 = fcmp ogt float %.0.i.i.i49, 1.000000e+00
-  %.1.i.i.i50 = select i1 %72, float 1.000000e+00, float %.0.i.i.i49
-  %73 = bitcast float %.1.i.i.i50 to i32
-  %.sroa.24.0.insert.ext.i51 = zext i32 %73 to i64
-  %.sroa.24.0.insert.shift.i52 = shl nuw i64 %.sroa.24.0.insert.ext.i51, 32
-  %.sroa.03.0.insert.ext.i53 = zext i32 %70 to i64
-  %.sroa.03.0.insert.insert.i54 = or disjoint i64 %.sroa.24.0.insert.shift.i52, %.sroa.03.0.insert.ext.i53
-  br label %164
+  %74 = fcmp olt float %.0.i.i.i.i.i.i.i38, 0.000000e+00
+  %.0.i.i.i.i44 = select i1 %74, float 0.000000e+00, float %.0.i.i.i.i.i.i.i38
+  %75 = fcmp ogt float %.0.i.i.i.i44, 1.000000e+00
+  %76 = bitcast float %.0.i.i.i.i44 to i32
+  %77 = fcmp olt float %.sroa.299.0.copyload115, 0.000000e+00
+  %.0.i.i.i45 = select i1 %77, float 0.000000e+00, float %.sroa.299.0.copyload115
+  %78 = fcmp ogt float %.0.i.i.i45, 1.000000e+00
+  %79 = bitcast float %.0.i.i.i45 to i32
+  %80 = zext i32 %79 to i64
+  %81 = shl nuw i64 %80, 32
+  %.sroa.24.0.insert.shift.i46 = select i1 %78, i64 4575657221408423936, i64 %81
+  %82 = zext i32 %76 to i64
+  %.sroa.03.0.insert.ext.i47 = select i1 %75, i64 1065353216, i64 %82
+  %.sroa.03.0.insert.insert.i48 = or disjoint i64 %.sroa.03.0.insert.ext.i47, %.sroa.24.0.insert.shift.i46
+  br label %184
 
-74:                                               ; preds = %2
-  %.sroa.0118.0.copyload = load float, ptr %24, align 4
-  %.sroa.2119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.2119.0.copyload = load float, ptr %.sroa.2119.0..sroa_idx, align 4
+83:                                               ; preds = %2
+  %.sroa.0100.0.copyload = load float, ptr %24, align 4
+  %.sroa.2101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.2101.0.copyload = load float, ptr %.sroa.2101.0..sroa_idx, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.3.0.copyload = load float, ptr %.sroa.3.0..sroa_idx, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.4.0.copyload132 = load float, ptr %.sroa.4.0..sroa_idx, align 4
+  %.sroa.4.0.copyload114 = load float, ptr %.sroa.4.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !17535
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !17542
   store float 0x3FDA65AF80000000, ptr %14, align 4, !noalias !17542
@@ -80121,138 +80121,138 @@ default.unreachable148:                           ; preds = %2
   %.sroa.11.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 32
   store float 0x3FEE68E420000000, ptr %.sroa.11.0..sroa_idx.i.i.i.i, align 4, !noalias !17542
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !17542
-  store float %.sroa.0118.0.copyload, ptr %13, align 4, !alias.scope !17546, !noalias !17549
-  %75 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store float %.sroa.2119.0.copyload, ptr %75, align 4, !alias.scope !17546, !noalias !17549
-  %76 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store float %.sroa.3.0.copyload, ptr %76, align 4, !alias.scope !17546, !noalias !17549
+  store float %.sroa.0100.0.copyload, ptr %13, align 4, !alias.scope !17546, !noalias !17549
+  %84 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  store float %.sroa.2101.0.copyload, ptr %84, align 4, !alias.scope !17546, !noalias !17549
+  %85 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store float %.sroa.3.0.copyload, ptr %85, align 4, !alias.scope !17546, !noalias !17549
   call void @_ZN7palette6matrix19multiply_rgb_to_xyz17h2100e70f9adb708fE.llvm.12777920187102919001(ptr noalias noundef nonnull sret({ float, float, float, {} }) align 4 captures(none) dereferenceable(12) %15, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(36) %14, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %13), !noalias !17551
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !17542
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !17542
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17552)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17555)
-  %77 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %78 = load float, ptr %77, align 4, !alias.scope !17558, !noalias !17535, !noundef !4
-  %79 = fcmp ugt float %78, 0x3F69A5C380000000
-  br i1 %79, label %80, label %84
+  %86 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %87 = load float, ptr %86, align 4, !alias.scope !17558, !noalias !17535, !noundef !4
+  %88 = fcmp ugt float %87, 0x3F69A5C380000000
+  br i1 %88, label %89, label %93
 
-80:                                               ; preds = %74
-  %81 = tail call noundef float @_ZN4libm4math4powf4powf17h1ea6a5f8fa4e4372E(float noundef %78, float noundef 0x3FDAAAAAA0000000), !noalias !17559
-  %82 = fmul float %81, 0x3FF0E147A0000000
-  %83 = fadd float %82, 0xBFAC28F5C0000000
+89:                                               ; preds = %83
+  %90 = tail call noundef float @_ZN4libm4math4powf4powf17h1ea6a5f8fa4e4372E(float noundef %87, float noundef 0x3FDAAAAAA0000000), !noalias !17559
+  %91 = fmul float %90, 0x3FF0E147A0000000
+  %92 = fadd float %91, 0xBFAC28F5C0000000
   br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h50b1110469a8d334E.exit"
 
-84:                                               ; preds = %74
-  %85 = fmul nnan float %78, 0x4029D70A40000000
+93:                                               ; preds = %83
+  %94 = fmul nnan float %87, 0x4029D70A40000000
   br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h50b1110469a8d334E.exit"
 
-"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h50b1110469a8d334E.exit": ; preds = %80, %84
-  %.0.i.i.i.i.i.i.i55 = phi float [ %85, %84 ], [ %83, %80 ]
+"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h50b1110469a8d334E.exit": ; preds = %89, %93
+  %.0.i.i.i.i.i.i.i49 = phi float [ %94, %93 ], [ %92, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !17535
-  %86 = fcmp olt float %.0.i.i.i.i.i.i.i55, 0.000000e+00
-  %.0.i.i.i.i61 = select i1 %86, float 0.000000e+00, float %.0.i.i.i.i.i.i.i55
-  %87 = fcmp ogt float %.0.i.i.i.i61, 1.000000e+00
-  %.1.i.i.i.i62 = select i1 %87, float 1.000000e+00, float %.0.i.i.i.i61
-  %88 = bitcast float %.1.i.i.i.i62 to i32
-  %89 = fcmp olt float %.sroa.4.0.copyload132, 0.000000e+00
-  %.0.i.i.i63 = select i1 %89, float 0.000000e+00, float %.sroa.4.0.copyload132
-  %90 = fcmp ogt float %.0.i.i.i63, 1.000000e+00
-  %.1.i.i.i64 = select i1 %90, float 1.000000e+00, float %.0.i.i.i63
-  %91 = bitcast float %.1.i.i.i64 to i32
-  %.sroa.24.0.insert.ext.i65 = zext i32 %91 to i64
-  %.sroa.24.0.insert.shift.i66 = shl nuw i64 %.sroa.24.0.insert.ext.i65, 32
-  %.sroa.03.0.insert.ext.i67 = zext i32 %88 to i64
-  %.sroa.03.0.insert.insert.i68 = or disjoint i64 %.sroa.24.0.insert.shift.i66, %.sroa.03.0.insert.ext.i67
-  br label %164
+  %95 = fcmp olt float %.0.i.i.i.i.i.i.i49, 0.000000e+00
+  %.0.i.i.i.i55 = select i1 %95, float 0.000000e+00, float %.0.i.i.i.i.i.i.i49
+  %96 = fcmp ogt float %.0.i.i.i.i55, 1.000000e+00
+  %97 = bitcast float %.0.i.i.i.i55 to i32
+  %98 = fcmp olt float %.sroa.4.0.copyload114, 0.000000e+00
+  %.0.i.i.i56 = select i1 %98, float 0.000000e+00, float %.sroa.4.0.copyload114
+  %99 = fcmp ogt float %.0.i.i.i56, 1.000000e+00
+  %100 = bitcast float %.0.i.i.i56 to i32
+  %101 = zext i32 %100 to i64
+  %102 = shl nuw i64 %101, 32
+  %.sroa.24.0.insert.shift.i57 = select i1 %99, i64 4575657221408423936, i64 %102
+  %103 = zext i32 %97 to i64
+  %.sroa.03.0.insert.ext.i58 = select i1 %96, i64 1065353216, i64 %103
+  %.sroa.03.0.insert.insert.i59 = or disjoint i64 %.sroa.03.0.insert.ext.i58, %.sroa.24.0.insert.shift.i57
+  br label %184
 
-92:                                               ; preds = %2
-  %.sroa.0120.0.copyload = load float, ptr %24, align 4
-  %.sroa.2121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.2121.0.copyload = load float, ptr %.sroa.2121.0..sroa_idx, align 4
-  %.sroa.3122.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.3122.0.copyload = load float, ptr %.sroa.3122.0..sroa_idx, align 4
-  %.sroa.4123.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.4123.0.copyload = load float, ptr %.sroa.4123.0..sroa_idx, align 4
+104:                                              ; preds = %2
+  %.sroa.0102.0.copyload = load float, ptr %24, align 4
+  %.sroa.2103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.2103.0.copyload = load float, ptr %.sroa.2103.0..sroa_idx, align 4
+  %.sroa.3104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.3104.0.copyload = load float, ptr %.sroa.3104.0..sroa_idx, align 4
+  %.sroa.4105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.4105.0.copyload = load float, ptr %.sroa.4105.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !17560
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %12, i8 0, i64 3, i1 false), !noalias !17560
-  %93 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hf1e32f6484fde0c1E.llvm.4622153547959463051"(ptr noundef nonnull align 8 @_ZN5typst9visualize5color7TO_SRGB17h0f0c71de2897159eE, ptr noundef nonnull align 8 @_ZN5typst9visualize5color7TO_SRGB17h0f0c71de2897159eE), !noalias !17560
+  %105 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hf1e32f6484fde0c1E.llvm.4622153547959463051"(ptr noundef nonnull align 8 @_ZN5typst9visualize5color7TO_SRGB17h0f0c71de2897159eE, ptr noundef nonnull align 8 @_ZN5typst9visualize5color7TO_SRGB17h0f0c71de2897159eE), !noalias !17560
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !17560
-  %94 = fmul float %.sroa.0120.0.copyload, 2.550000e+02
-  %95 = tail call float @llvm.round.f32(float %94)
-  %96 = tail call i8 @llvm.fptoui.sat.i8.f32(float %95)
-  %97 = fmul float %.sroa.2121.0.copyload, 2.550000e+02
-  %98 = tail call float @llvm.round.f32(float %97)
-  %99 = tail call i8 @llvm.fptoui.sat.i8.f32(float %98)
-  %100 = fmul float %.sroa.3122.0.copyload, 2.550000e+02
-  %101 = tail call float @llvm.round.f32(float %100)
-  %102 = tail call i8 @llvm.fptoui.sat.i8.f32(float %101)
-  %103 = fmul float %.sroa.4123.0.copyload, 2.550000e+02
-  %104 = tail call float @llvm.round.f32(float %103)
-  %105 = tail call i8 @llvm.fptoui.sat.i8.f32(float %104)
-  store i8 %96, ptr %11, align 1, !noalias !17560
-  %106 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  store i8 %99, ptr %106, align 1, !noalias !17560
-  %107 = getelementptr inbounds nuw i8, ptr %11, i64 2
-  store i8 %102, ptr %107, align 1, !noalias !17560
-  %108 = getelementptr inbounds nuw i8, ptr %11, i64 3
-  store i8 %105, ptr %108, align 1, !noalias !17560
-  call void @_ZN4qcms9transform9Transform7convert17hf8ff7dabc84519deE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %93, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef 4, ptr noalias noundef nonnull align 1 %12, i64 noundef 3), !noalias !17560
+  %106 = fmul float %.sroa.0102.0.copyload, 2.550000e+02
+  %107 = tail call float @llvm.round.f32(float %106)
+  %108 = tail call i8 @llvm.fptoui.sat.i8.f32(float %107)
+  %109 = fmul float %.sroa.2103.0.copyload, 2.550000e+02
+  %110 = tail call float @llvm.round.f32(float %109)
+  %111 = tail call i8 @llvm.fptoui.sat.i8.f32(float %110)
+  %112 = fmul float %.sroa.3104.0.copyload, 2.550000e+02
+  %113 = tail call float @llvm.round.f32(float %112)
+  %114 = tail call i8 @llvm.fptoui.sat.i8.f32(float %113)
+  %115 = fmul float %.sroa.4105.0.copyload, 2.550000e+02
+  %116 = tail call float @llvm.round.f32(float %115)
+  %117 = tail call i8 @llvm.fptoui.sat.i8.f32(float %116)
+  store i8 %108, ptr %11, align 1, !noalias !17560
+  %118 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  store i8 %111, ptr %118, align 1, !noalias !17560
+  %119 = getelementptr inbounds nuw i8, ptr %11, i64 2
+  store i8 %114, ptr %119, align 1, !noalias !17560
+  %120 = getelementptr inbounds nuw i8, ptr %11, i64 3
+  store i8 %117, ptr %120, align 1, !noalias !17560
+  call void @_ZN4qcms9transform9Transform7convert17hf8ff7dabc84519deE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %105, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef 4, ptr noalias noundef nonnull align 1 %12, i64 noundef 3), !noalias !17560
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !17560
-  %109 = load i8, ptr %12, align 1, !noalias !17560, !noundef !4
-  %110 = uitofp i8 %109 to float
-  %111 = fdiv float %110, 2.550000e+02
-  %112 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %113 = load i8, ptr %112, align 1, !noalias !17560, !noundef !4
-  %114 = uitofp i8 %113 to float
-  %115 = fdiv float %114, 2.550000e+02
-  %116 = getelementptr inbounds nuw i8, ptr %12, i64 2
-  %117 = load i8, ptr %116, align 1, !noalias !17560, !noundef !4
-  %118 = uitofp i8 %117 to float
-  %119 = fdiv float %118, 2.550000e+02
+  %121 = load i8, ptr %12, align 1, !noalias !17560, !noundef !4
+  %122 = uitofp i8 %121 to float
+  %123 = fdiv float %122, 2.550000e+02
+  %124 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  %125 = load i8, ptr %124, align 1, !noalias !17560, !noundef !4
+  %126 = uitofp i8 %125 to float
+  %127 = fdiv float %126, 2.550000e+02
+  %128 = getelementptr inbounds nuw i8, ptr %12, i64 2
+  %129 = load i8, ptr %128, align 1, !noalias !17560, !noundef !4
+  %130 = uitofp i8 %129 to float
+  %131 = fdiv float %130, 2.550000e+02
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !17560
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  store float %111, ptr %10, align 8
-  %.sroa.4125.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store float %115, ptr %.sroa.4125.0..sroa_idx, align 4
+  store float %123, ptr %10, align 8
+  %.sroa.4107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 4
+  store float %127, ptr %.sroa.4107.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store float %119, ptr %.sroa.5.0..sroa_idx, align 8
+  store float %131, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !17564
   call void @"_ZN158_$LT$palette..xyz..Xyz$LT$Wp$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$GT$$GT$20from_color_unclamped17hb2a47f941427f2f8E"(ptr noalias noundef nonnull sret({ float, float, float, {} }) align 4 captures(none) dereferenceable(12) %9, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %10), !noalias !17571
   call void @llvm.experimental.noalias.scope.decl(metadata !17572)
   call void @llvm.experimental.noalias.scope.decl(metadata !17575)
-  %120 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %121 = load float, ptr %120, align 4, !alias.scope !17578, !noalias !17564, !noundef !4
-  %122 = fcmp ugt float %121, 0x3F69A5C380000000
-  br i1 %122, label %123, label %127
+  %132 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %133 = load float, ptr %132, align 4, !alias.scope !17578, !noalias !17564, !noundef !4
+  %134 = fcmp ugt float %133, 0x3F69A5C380000000
+  br i1 %134, label %135, label %139
 
-123:                                              ; preds = %92
-  %124 = call noundef float @_ZN4libm4math4powf4powf17h1ea6a5f8fa4e4372E(float noundef %121, float noundef 0x3FDAAAAAA0000000), !noalias !17579
-  %125 = fmul float %124, 0x3FF0E147A0000000
-  %126 = fadd float %125, 0xBFAC28F5C0000000
-  br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit76"
+135:                                              ; preds = %104
+  %136 = call noundef float @_ZN4libm4math4powf4powf17h1ea6a5f8fa4e4372E(float noundef %133, float noundef 0x3FDAAAAAA0000000), !noalias !17579
+  %137 = fmul float %136, 0x3FF0E147A0000000
+  %138 = fadd float %137, 0xBFAC28F5C0000000
+  br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit67"
 
-127:                                              ; preds = %92
-  %128 = fmul nnan float %121, 0x4029D70A40000000
-  br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit76"
+139:                                              ; preds = %104
+  %140 = fmul nnan float %133, 0x4029D70A40000000
+  br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit67"
 
-"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit76": ; preds = %123, %127
-  %.0.i.i.i.i.i.i.i71 = phi float [ %128, %127 ], [ %126, %123 ]
+"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit67": ; preds = %135, %139
+  %.0.i.i.i.i.i.i.i62 = phi float [ %140, %139 ], [ %138, %135 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !17564
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %129 = fcmp olt float %.0.i.i.i.i.i.i.i71, 0.000000e+00
-  %.0.i.i.i.i78 = select i1 %129, float 0.000000e+00, float %.0.i.i.i.i.i.i.i71
-  %130 = fcmp ogt float %.0.i.i.i.i78, 1.000000e+00
-  %.1.i.i.i.i79 = select i1 %130, float 1.000000e+00, float %.0.i.i.i.i78
-  %131 = bitcast float %.1.i.i.i.i79 to i32
-  %.sroa.03.0.insert.ext.i84 = zext i32 %131 to i64
-  %.sroa.03.0.insert.insert.i85 = or disjoint i64 %.sroa.03.0.insert.ext.i84, 4575657221408423936
-  br label %164
+  %141 = fcmp olt float %.0.i.i.i.i.i.i.i62, 0.000000e+00
+  %.0.i.i.i.i69 = select i1 %141, float 0.000000e+00, float %.0.i.i.i.i.i.i.i62
+  %142 = fcmp ogt float %.0.i.i.i.i69, 1.000000e+00
+  %143 = bitcast float %.0.i.i.i.i69 to i32
+  %144 = zext i32 %143 to i64
+  %145 = or disjoint i64 %144, 4575657221408423936
+  %.sroa.03.0.insert.insert.i73 = select i1 %142, i64 4575657222473777152, i64 %145
+  br label %184
 
-132:                                              ; preds = %2
+146:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %24, i64 12, i1 false)
-  %.sroa.2127.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.2127.0.copyload131 = load float, ptr %.sroa.2127.0..sroa_idx, align 4
+  %.sroa.2109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.2109.0.copyload113 = load float, ptr %.sroa.2109.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !17580
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !17587
   call void @"_ZN157_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..hsl..Hsl$LT$S$C$T$GT$$GT$$GT$20from_color_unclamped17h45854ab0d3a33cefE"(ptr noalias noundef nonnull sret({ float, float, float, {} }) align 4 captures(none) dereferenceable(12) %6, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %8), !noalias !17591
@@ -80260,46 +80260,46 @@ default.unreachable148:                           ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !17587
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17593)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17596)
-  %133 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %134 = load float, ptr %133, align 4, !alias.scope !17599, !noalias !17580, !noundef !4
-  %135 = fcmp ugt float %134, 0x3F69A5C380000000
-  br i1 %135, label %136, label %140
+  %147 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %148 = load float, ptr %147, align 4, !alias.scope !17599, !noalias !17580, !noundef !4
+  %149 = fcmp ugt float %148, 0x3F69A5C380000000
+  br i1 %149, label %150, label %154
 
-136:                                              ; preds = %132
-  %137 = tail call noundef float @_ZN4libm4math4powf4powf17h1ea6a5f8fa4e4372E(float noundef %134, float noundef 0x3FDAAAAAA0000000), !noalias !17600
-  %138 = fmul float %137, 0x3FF0E147A0000000
-  %139 = fadd float %138, 0xBFAC28F5C0000000
+150:                                              ; preds = %146
+  %151 = tail call noundef float @_ZN4libm4math4powf4powf17h1ea6a5f8fa4e4372E(float noundef %148, float noundef 0x3FDAAAAAA0000000), !noalias !17600
+  %152 = fmul float %151, 0x3FF0E147A0000000
+  %153 = fadd float %152, 0xBFAC28F5C0000000
   br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17hccc572d8438f33b9E.exit"
 
-140:                                              ; preds = %132
-  %141 = fmul nnan float %134, 0x4029D70A40000000
+154:                                              ; preds = %146
+  %155 = fmul nnan float %148, 0x4029D70A40000000
   br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17hccc572d8438f33b9E.exit"
 
-"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17hccc572d8438f33b9E.exit": ; preds = %136, %140
-  %.0.i.i.i.i.i.i.i86 = phi float [ %141, %140 ], [ %139, %136 ]
+"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17hccc572d8438f33b9E.exit": ; preds = %150, %154
+  %.0.i.i.i.i.i.i.i74 = phi float [ %155, %154 ], [ %153, %150 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !17580
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %142 = fcmp olt float %.0.i.i.i.i.i.i.i86, 0.000000e+00
-  %.0.i.i.i.i92 = select i1 %142, float 0.000000e+00, float %.0.i.i.i.i.i.i.i86
-  %143 = fcmp ogt float %.0.i.i.i.i92, 1.000000e+00
-  %.1.i.i.i.i93 = select i1 %143, float 1.000000e+00, float %.0.i.i.i.i92
-  %144 = bitcast float %.1.i.i.i.i93 to i32
-  %145 = fcmp olt float %.sroa.2127.0.copyload131, 0.000000e+00
-  %.0.i.i.i94 = select i1 %145, float 0.000000e+00, float %.sroa.2127.0.copyload131
-  %146 = fcmp ogt float %.0.i.i.i94, 1.000000e+00
-  %.1.i.i.i95 = select i1 %146, float 1.000000e+00, float %.0.i.i.i94
-  %147 = bitcast float %.1.i.i.i95 to i32
-  %.sroa.24.0.insert.ext.i96 = zext i32 %147 to i64
-  %.sroa.24.0.insert.shift.i97 = shl nuw i64 %.sroa.24.0.insert.ext.i96, 32
-  %.sroa.03.0.insert.ext.i98 = zext i32 %144 to i64
-  %.sroa.03.0.insert.insert.i99 = or disjoint i64 %.sroa.24.0.insert.shift.i97, %.sroa.03.0.insert.ext.i98
-  br label %164
+  %156 = fcmp olt float %.0.i.i.i.i.i.i.i74, 0.000000e+00
+  %.0.i.i.i.i80 = select i1 %156, float 0.000000e+00, float %.0.i.i.i.i.i.i.i74
+  %157 = fcmp ogt float %.0.i.i.i.i80, 1.000000e+00
+  %158 = bitcast float %.0.i.i.i.i80 to i32
+  %159 = fcmp olt float %.sroa.2109.0.copyload113, 0.000000e+00
+  %.0.i.i.i81 = select i1 %159, float 0.000000e+00, float %.sroa.2109.0.copyload113
+  %160 = fcmp ogt float %.0.i.i.i81, 1.000000e+00
+  %161 = bitcast float %.0.i.i.i81 to i32
+  %162 = zext i32 %161 to i64
+  %163 = shl nuw i64 %162, 32
+  %.sroa.24.0.insert.shift.i82 = select i1 %160, i64 4575657221408423936, i64 %163
+  %164 = zext i32 %158 to i64
+  %.sroa.03.0.insert.ext.i83 = select i1 %157, i64 1065353216, i64 %164
+  %.sroa.03.0.insert.insert.i84 = or disjoint i64 %.sroa.03.0.insert.ext.i83, %.sroa.24.0.insert.shift.i82
+  br label %184
 
-148:                                              ; preds = %2
+165:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %24, i64 12, i1 false)
-  %.sroa.2129.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.2129.0.copyload130 = load float, ptr %.sroa.2129.0..sroa_idx, align 4
+  %.sroa.2111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.2111.0.copyload112 = load float, ptr %.sroa.2111.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !17601
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !17608
   call void @"_ZN157_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..hsv..Hsv$LT$S$C$T$GT$$GT$$GT$20from_color_unclamped17hf2151186df5dff80E"(ptr noalias noundef nonnull sret({ float, float, float, {} }) align 4 captures(none) dereferenceable(12) %3, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %5), !noalias !17612
@@ -80307,45 +80307,45 @@ default.unreachable148:                           ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !17608
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17614)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17617)
-  %149 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %150 = load float, ptr %149, align 4, !alias.scope !17620, !noalias !17601, !noundef !4
-  %151 = fcmp ugt float %150, 0x3F69A5C380000000
-  br i1 %151, label %152, label %156
+  %166 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %167 = load float, ptr %166, align 4, !alias.scope !17620, !noalias !17601, !noundef !4
+  %168 = fcmp ugt float %167, 0x3F69A5C380000000
+  br i1 %168, label %169, label %173
 
-152:                                              ; preds = %148
-  %153 = tail call noundef float @_ZN4libm4math4powf4powf17h1ea6a5f8fa4e4372E(float noundef %150, float noundef 0x3FDAAAAAA0000000), !noalias !17621
-  %154 = fmul float %153, 0x3FF0E147A0000000
-  %155 = fadd float %154, 0xBFAC28F5C0000000
+169:                                              ; preds = %165
+  %170 = tail call noundef float @_ZN4libm4math4powf4powf17h1ea6a5f8fa4e4372E(float noundef %167, float noundef 0x3FDAAAAAA0000000), !noalias !17621
+  %171 = fmul float %170, 0x3FF0E147A0000000
+  %172 = fadd float %171, 0xBFAC28F5C0000000
   br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h7eef31f22976ef44E.exit"
 
-156:                                              ; preds = %148
-  %157 = fmul nnan float %150, 0x4029D70A40000000
+173:                                              ; preds = %165
+  %174 = fmul nnan float %167, 0x4029D70A40000000
   br label %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h7eef31f22976ef44E.exit"
 
-"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h7eef31f22976ef44E.exit": ; preds = %152, %156
-  %.0.i.i.i.i.i.i.i100 = phi float [ %157, %156 ], [ %155, %152 ]
+"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h7eef31f22976ef44E.exit": ; preds = %169, %173
+  %.0.i.i.i.i.i.i.i85 = phi float [ %174, %173 ], [ %172, %169 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !17601
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %158 = fcmp olt float %.0.i.i.i.i.i.i.i100, 0.000000e+00
-  %.0.i.i.i.i106 = select i1 %158, float 0.000000e+00, float %.0.i.i.i.i.i.i.i100
-  %159 = fcmp ogt float %.0.i.i.i.i106, 1.000000e+00
-  %.1.i.i.i.i107 = select i1 %159, float 1.000000e+00, float %.0.i.i.i.i106
-  %160 = bitcast float %.1.i.i.i.i107 to i32
-  %161 = fcmp olt float %.sroa.2129.0.copyload130, 0.000000e+00
-  %.0.i.i.i108 = select i1 %161, float 0.000000e+00, float %.sroa.2129.0.copyload130
-  %162 = fcmp ogt float %.0.i.i.i108, 1.000000e+00
-  %.1.i.i.i109 = select i1 %162, float 1.000000e+00, float %.0.i.i.i108
-  %163 = bitcast float %.1.i.i.i109 to i32
-  %.sroa.24.0.insert.ext.i110 = zext i32 %163 to i64
-  %.sroa.24.0.insert.shift.i111 = shl nuw i64 %.sroa.24.0.insert.ext.i110, 32
-  %.sroa.03.0.insert.ext.i112 = zext i32 %160 to i64
-  %.sroa.03.0.insert.insert.i113 = or disjoint i64 %.sroa.24.0.insert.shift.i111, %.sroa.03.0.insert.ext.i112
-  br label %164
+  %175 = fcmp olt float %.0.i.i.i.i.i.i.i85, 0.000000e+00
+  %.0.i.i.i.i91 = select i1 %175, float 0.000000e+00, float %.0.i.i.i.i.i.i.i85
+  %176 = fcmp ogt float %.0.i.i.i.i91, 1.000000e+00
+  %177 = bitcast float %.0.i.i.i.i91 to i32
+  %178 = fcmp olt float %.sroa.2111.0.copyload112, 0.000000e+00
+  %.0.i.i.i92 = select i1 %178, float 0.000000e+00, float %.sroa.2111.0.copyload112
+  %179 = fcmp ogt float %.0.i.i.i92, 1.000000e+00
+  %180 = bitcast float %.0.i.i.i92 to i32
+  %181 = zext i32 %180 to i64
+  %182 = shl nuw i64 %181, 32
+  %.sroa.24.0.insert.shift.i93 = select i1 %179, i64 4575657221408423936, i64 %182
+  %183 = zext i32 %177 to i64
+  %.sroa.03.0.insert.ext.i94 = select i1 %176, i64 1065353216, i64 %183
+  %.sroa.03.0.insert.insert.i95 = or disjoint i64 %.sroa.03.0.insert.ext.i94, %.sroa.24.0.insert.shift.i93
+  br label %184
 
-164:                                              ; preds = %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h7eef31f22976ef44E.exit", %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17hccc572d8438f33b9E.exit", %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit76", %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h50b1110469a8d334E.exit", %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit", %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h13f24019d400e53aE.exit", %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h40496822d3f1e5dfE.exit", %25
-  %.sroa.07.0 = phi i64 [ %.sroa.07.0.copyload, %25 ], [ %.sroa.03.0.insert.insert.i, %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h40496822d3f1e5dfE.exit" ], [ %.sroa.03.0.insert.insert.i40, %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h13f24019d400e53aE.exit" ], [ %.sroa.03.0.insert.insert.i54, %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit" ], [ %.sroa.03.0.insert.insert.i68, %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h50b1110469a8d334E.exit" ], [ %.sroa.03.0.insert.insert.i85, %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit76" ], [ %.sroa.03.0.insert.insert.i99, %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17hccc572d8438f33b9E.exit" ], [ %.sroa.03.0.insert.insert.i113, %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h7eef31f22976ef44E.exit" ]
-  %165 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.07.0, ptr %165, align 4
+184:                                              ; preds = %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h7eef31f22976ef44E.exit", %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17hccc572d8438f33b9E.exit", %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit67", %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h50b1110469a8d334E.exit", %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit", %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h13f24019d400e53aE.exit", %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h40496822d3f1e5dfE.exit", %25
+  %.sroa.07.0 = phi i64 [ %.sroa.07.0.copyload, %25 ], [ %.sroa.03.0.insert.insert.i, %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h40496822d3f1e5dfE.exit" ], [ %.sroa.03.0.insert.insert.i37, %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h13f24019d400e53aE.exit" ], [ %.sroa.03.0.insert.insert.i48, %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit" ], [ %.sroa.03.0.insert.insert.i59, %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h50b1110469a8d334E.exit" ], [ %.sroa.03.0.insert.insert.i73, %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h138b2611268ee49dE.exit67" ], [ %.sroa.03.0.insert.insert.i84, %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17hccc572d8438f33b9E.exit" ], [ %.sroa.03.0.insert.insert.i95, %"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h7eef31f22976ef44E.exit" ]
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.07.0, ptr %185, align 4
   store i32 0, ptr %0, align 4
   ret void
 }
@@ -173010,18 +173010,18 @@ define void @_ZN5typst9visualize5color5Color7lighten17hdc999fc0db6e245aE(ptr noa
   %4 = fptrunc double %2 to float
   %5 = load i32, ptr %1, align 4, !range !17471, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  switch i32 %5, label %default.unreachable109 [
+  switch i32 %5, label %default.unreachable108 [
     i32 0, label %7
-    i32 1, label %18
-    i32 2, label %27
-    i32 3, label %36
-    i32 4, label %61
-    i32 5, label %86
-    i32 6, label %104
-    i32 7, label %113
+    i32 1, label %19
+    i32 2, label %28
+    i32 3, label %37
+    i32 4, label %62
+    i32 5, label %87
+    i32 6, label %105
+    i32 7, label %114
   ]
 
-default.unreachable109:                           ; preds = %3
+default.unreachable108:                           ; preds = %3
   unreachable
 
 7:                                                ; preds = %3
@@ -173037,284 +173037,284 @@ default.unreachable109:                           ; preds = %3
   %14 = fcmp olt float %13, 0.000000e+00
   %.0.i.i.i.i = select i1 %14, float 0.000000e+00, float %13
   %15 = fcmp ogt float %.0.i.i.i.i, 1.000000e+00
-  %.1.i.i.i.i = select i1 %15, float 1.000000e+00, float %.0.i.i.i.i
-  %16 = bitcast float %.1.i.i.i.i to i32
+  %16 = bitcast float %.0.i.i.i.i to i32
   %.sroa.4.0.extract.shift.i = and i64 %.sroa.0.0.copyload, -4294967296
-  %.sroa.03.0.insert.ext.i = zext i32 %16 to i64
-  %.sroa.03.0.insert.insert.i = or disjoint i64 %.sroa.4.0.extract.shift.i, %.sroa.03.0.insert.ext.i
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.03.0.insert.insert.i, ptr %17, align 4
-  br label %122
+  %17 = zext i32 %16 to i64
+  %.sroa.03.0.insert.ext.i = select i1 %15, i64 1065353216, i64 %17
+  %.sroa.03.0.insert.insert.i = or disjoint i64 %.sroa.03.0.insert.ext.i, %.sroa.4.0.extract.shift.i
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.03.0.insert.insert.i, ptr %18, align 4
+  br label %123
 
-18:                                               ; preds = %3
-  %.sroa.0.0.copyload58 = load float, ptr %6, align 4
+19:                                               ; preds = %3
+  %.sroa.0.0.copyload57 = load float, ptr %6, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load float, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.3.0.copyload = load float, ptr %.sroa.3.0..sroa_idx, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
-  %19 = fcmp oge double %2, 0xB690000000000000
-  %20 = fsub float 1.000000e+00, %.sroa.0.0.copyload58
-  %.0.i.i.i2 = select i1 %19, float %20, float %.sroa.0.0.copyload58
-  %21 = tail call noundef float @llvm.maxnum.f32(float %.0.i.i.i2, float 0.000000e+00)
-  %22 = fmul float %21, %4
-  %23 = fadd float %.sroa.0.0.copyload58, %22
-  %24 = fcmp olt float %23, 0.000000e+00
-  %.0.i.i.i.i3 = select i1 %24, float 0.000000e+00, float %23
-  %25 = fcmp ogt float %.0.i.i.i.i3, 1.000000e+00
-  %.1.i.i.i.i4 = select i1 %25, float 1.000000e+00, float %.0.i.i.i.i3
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %.1.i.i.i.i4, ptr %26, align 4
-  %.sroa.460.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %.sroa.2.0.copyload, ptr %.sroa.460.0..sroa_idx, align 4
+  %20 = fcmp oge double %2, 0xB690000000000000
+  %21 = fsub float 1.000000e+00, %.sroa.0.0.copyload57
+  %.0.i.i.i2 = select i1 %20, float %21, float %.sroa.0.0.copyload57
+  %22 = tail call noundef float @llvm.maxnum.f32(float %.0.i.i.i2, float 0.000000e+00)
+  %23 = fmul float %22, %4
+  %24 = fadd float %.sroa.0.0.copyload57, %23
+  %25 = fcmp olt float %24, 0.000000e+00
+  %.0.i.i.i.i3 = select i1 %25, float 0.000000e+00, float %24
+  %26 = fcmp ogt float %.0.i.i.i.i3, 1.000000e+00
+  %.1.i.i.i.i = select i1 %26, float 1.000000e+00, float %.0.i.i.i.i3
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %.1.i.i.i.i, ptr %27, align 4
+  %.sroa.459.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %.sroa.2.0.copyload, ptr %.sroa.459.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store float %.sroa.3.0.copyload, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float %.sroa.4.0.copyload, ptr %.sroa.6.0..sroa_idx, align 4
-  br label %122
+  br label %123
 
-27:                                               ; preds = %3
-  %.sroa.061.0.copyload = load float, ptr %6, align 4
-  %.sroa.262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.262.0.copyload = load float, ptr %.sroa.262.0..sroa_idx, align 4
-  %.sroa.363.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.363.0.copyload = load float, ptr %.sroa.363.0..sroa_idx, align 4
-  %.sroa.464.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.464.0.copyload = load float, ptr %.sroa.464.0..sroa_idx, align 4
-  %28 = fcmp oge double %2, 0xB690000000000000
-  %29 = fsub float 1.000000e+00, %.sroa.061.0.copyload
-  %.0.i.i.i10 = select i1 %28, float %29, float %.sroa.061.0.copyload
-  %30 = tail call noundef float @llvm.maxnum.f32(float %.0.i.i.i10, float 0.000000e+00)
-  %31 = fmul float %30, %4
-  %32 = fadd float %.sroa.061.0.copyload, %31
-  %33 = fcmp olt float %32, 0.000000e+00
-  %.0.i.i.i.i11 = select i1 %33, float 0.000000e+00, float %32
-  %34 = fcmp ogt float %.0.i.i.i.i11, 1.000000e+00
-  %.1.i.i.i.i12 = select i1 %34, float 1.000000e+00, float %.0.i.i.i.i11
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %.1.i.i.i.i12, ptr %35, align 4
-  %.sroa.466.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %.sroa.262.0.copyload, ptr %.sroa.466.0..sroa_idx, align 4
-  %.sroa.567.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %.sroa.363.0.copyload, ptr %.sroa.567.0..sroa_idx, align 4
-  %.sroa.668.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %.sroa.464.0.copyload, ptr %.sroa.668.0..sroa_idx, align 4
-  br label %122
+28:                                               ; preds = %3
+  %.sroa.060.0.copyload = load float, ptr %6, align 4
+  %.sroa.261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.261.0.copyload = load float, ptr %.sroa.261.0..sroa_idx, align 4
+  %.sroa.362.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.362.0.copyload = load float, ptr %.sroa.362.0..sroa_idx, align 4
+  %.sroa.463.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.463.0.copyload = load float, ptr %.sroa.463.0..sroa_idx, align 4
+  %29 = fcmp oge double %2, 0xB690000000000000
+  %30 = fsub float 1.000000e+00, %.sroa.060.0.copyload
+  %.0.i.i.i9 = select i1 %29, float %30, float %.sroa.060.0.copyload
+  %31 = tail call noundef float @llvm.maxnum.f32(float %.0.i.i.i9, float 0.000000e+00)
+  %32 = fmul float %31, %4
+  %33 = fadd float %.sroa.060.0.copyload, %32
+  %34 = fcmp olt float %33, 0.000000e+00
+  %.0.i.i.i.i10 = select i1 %34, float 0.000000e+00, float %33
+  %35 = fcmp ogt float %.0.i.i.i.i10, 1.000000e+00
+  %.1.i.i.i.i11 = select i1 %35, float 1.000000e+00, float %.0.i.i.i.i10
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %.1.i.i.i.i11, ptr %36, align 4
+  %.sroa.465.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %.sroa.261.0.copyload, ptr %.sroa.465.0..sroa_idx, align 4
+  %.sroa.566.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %.sroa.362.0.copyload, ptr %.sroa.566.0..sroa_idx, align 4
+  %.sroa.667.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %.sroa.463.0.copyload, ptr %.sroa.667.0..sroa_idx, align 4
+  br label %123
 
-36:                                               ; preds = %3
-  %.sroa.077.0.copyload = load float, ptr %6, align 4
-  %.sroa.278.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.278.0.copyload = load float, ptr %.sroa.278.0..sroa_idx, align 4
-  %.sroa.379.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.379.0.copyload = load float, ptr %.sroa.379.0..sroa_idx, align 4
-  %.sroa.480.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.480.0.copyload = load float, ptr %.sroa.480.0..sroa_idx, align 4
-  %37 = fcmp ult double %2, 0xB690000000000000
-  br i1 %37, label %38, label %41
+37:                                               ; preds = %3
+  %.sroa.076.0.copyload = load float, ptr %6, align 4
+  %.sroa.277.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.277.0.copyload = load float, ptr %.sroa.277.0..sroa_idx, align 4
+  %.sroa.378.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.378.0.copyload = load float, ptr %.sroa.378.0..sroa_idx, align 4
+  %.sroa.479.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.479.0.copyload = load float, ptr %.sroa.479.0..sroa_idx, align 4
+  %38 = fcmp ult double %2, 0xB690000000000000
+  br i1 %38, label %39, label %42
 
-38:                                               ; preds = %36
-  %39 = tail call noundef float @llvm.maxnum.f32(float %.sroa.077.0.copyload, float 0.000000e+00)
-  %40 = tail call noundef float @llvm.maxnum.f32(float %.sroa.278.0.copyload, float 0.000000e+00)
+39:                                               ; preds = %37
+  %40 = tail call noundef float @llvm.maxnum.f32(float %.sroa.076.0.copyload, float 0.000000e+00)
+  %41 = tail call noundef float @llvm.maxnum.f32(float %.sroa.277.0.copyload, float 0.000000e+00)
   br label %"_ZN122_$LT$palette..alpha..alpha..Alpha$LT$C$C$$LT$C$u20$as$u20$palette..Lighten$GT$..Scalar$GT$$u20$as$u20$palette..Lighten$GT$7lighten17hd618106cb579e19bE.exit"
 
-41:                                               ; preds = %36
-  %42 = fsub float 1.000000e+00, %.sroa.077.0.copyload
-  %43 = tail call nsz noundef float @llvm.maxnum.f32(float %42, float 0.000000e+00)
-  %44 = fsub float 1.000000e+00, %.sroa.278.0.copyload
-  %45 = tail call nsz noundef float @llvm.maxnum.f32(float %44, float 0.000000e+00)
-  %46 = fsub float 1.000000e+00, %.sroa.379.0.copyload
+42:                                               ; preds = %37
+  %43 = fsub float 1.000000e+00, %.sroa.076.0.copyload
+  %44 = tail call nsz noundef float @llvm.maxnum.f32(float %43, float 0.000000e+00)
+  %45 = fsub float 1.000000e+00, %.sroa.277.0.copyload
+  %46 = tail call nsz noundef float @llvm.maxnum.f32(float %45, float 0.000000e+00)
+  %47 = fsub float 1.000000e+00, %.sroa.378.0.copyload
   br label %"_ZN122_$LT$palette..alpha..alpha..Alpha$LT$C$C$$LT$C$u20$as$u20$palette..Lighten$GT$..Scalar$GT$$u20$as$u20$palette..Lighten$GT$7lighten17hd618106cb579e19bE.exit"
 
-"_ZN122_$LT$palette..alpha..alpha..Alpha$LT$C$C$$LT$C$u20$as$u20$palette..Lighten$GT$..Scalar$GT$$u20$as$u20$palette..Lighten$GT$7lighten17hd618106cb579e19bE.exit": ; preds = %38, %41
-  %.pn.i.i = phi float [ %45, %41 ], [ %40, %38 ]
-  %.pn29.i.i = phi float [ %43, %41 ], [ %39, %38 ]
-  %.0.i7.i.i = phi float [ %46, %41 ], [ %.sroa.379.0.copyload, %38 ]
-  %47 = fmul float %.pn29.i.i, %4
-  %48 = fmul float %.pn.i.i, %4
-  %49 = tail call noundef float @llvm.maxnum.f32(float %.0.i7.i.i, float 0.000000e+00)
-  %50 = fmul float %49, %4
-  %51 = fadd float %.sroa.077.0.copyload, %47
-  %52 = fcmp olt float %51, 0.000000e+00
-  %.0.i.i.i.i18 = select i1 %52, float 0.000000e+00, float %51
-  %53 = fcmp ogt float %.0.i.i.i.i18, 1.000000e+00
-  %.1.i.i.i.i19 = select i1 %53, float 1.000000e+00, float %.0.i.i.i.i18
-  %54 = fadd float %.sroa.278.0.copyload, %48
-  %55 = fcmp olt float %54, 0.000000e+00
-  %.0.i.i23.i.i = select i1 %55, float 0.000000e+00, float %54
-  %56 = fcmp ogt float %.0.i.i23.i.i, 1.000000e+00
-  %.1.i.i24.i.i = select i1 %56, float 1.000000e+00, float %.0.i.i23.i.i
-  %57 = fadd float %.sroa.379.0.copyload, %50
-  %58 = fcmp olt float %57, 0.000000e+00
-  %.0.i.i25.i.i = select i1 %58, float 0.000000e+00, float %57
-  %59 = fcmp ogt float %.0.i.i25.i.i, 1.000000e+00
-  %.1.i.i26.i.i = select i1 %59, float 1.000000e+00, float %.0.i.i25.i.i
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %.1.i.i.i.i19, ptr %60, align 4
-  %.sroa.482.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %.1.i.i24.i.i, ptr %.sroa.482.0..sroa_idx, align 4
-  %.sroa.583.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %.1.i.i26.i.i, ptr %.sroa.583.0..sroa_idx, align 4
-  %.sroa.684.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %.sroa.480.0.copyload, ptr %.sroa.684.0..sroa_idx, align 4
-  br label %122
+"_ZN122_$LT$palette..alpha..alpha..Alpha$LT$C$C$$LT$C$u20$as$u20$palette..Lighten$GT$..Scalar$GT$$u20$as$u20$palette..Lighten$GT$7lighten17hd618106cb579e19bE.exit": ; preds = %39, %42
+  %.pn.i.i = phi float [ %46, %42 ], [ %41, %39 ]
+  %.pn29.i.i = phi float [ %44, %42 ], [ %40, %39 ]
+  %.0.i7.i.i = phi float [ %47, %42 ], [ %.sroa.378.0.copyload, %39 ]
+  %48 = fmul float %.pn29.i.i, %4
+  %49 = fmul float %.pn.i.i, %4
+  %50 = tail call noundef float @llvm.maxnum.f32(float %.0.i7.i.i, float 0.000000e+00)
+  %51 = fmul float %50, %4
+  %52 = fadd float %.sroa.076.0.copyload, %48
+  %53 = fcmp olt float %52, 0.000000e+00
+  %.0.i.i.i.i17 = select i1 %53, float 0.000000e+00, float %52
+  %54 = fcmp ogt float %.0.i.i.i.i17, 1.000000e+00
+  %.1.i.i.i.i18 = select i1 %54, float 1.000000e+00, float %.0.i.i.i.i17
+  %55 = fadd float %.sroa.277.0.copyload, %49
+  %56 = fcmp olt float %55, 0.000000e+00
+  %.0.i.i23.i.i = select i1 %56, float 0.000000e+00, float %55
+  %57 = fcmp ogt float %.0.i.i23.i.i, 1.000000e+00
+  %.1.i.i24.i.i = select i1 %57, float 1.000000e+00, float %.0.i.i23.i.i
+  %58 = fadd float %.sroa.378.0.copyload, %51
+  %59 = fcmp olt float %58, 0.000000e+00
+  %.0.i.i25.i.i = select i1 %59, float 0.000000e+00, float %58
+  %60 = fcmp ogt float %.0.i.i25.i.i, 1.000000e+00
+  %.1.i.i26.i.i = select i1 %60, float 1.000000e+00, float %.0.i.i25.i.i
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %.1.i.i.i.i18, ptr %61, align 4
+  %.sroa.481.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %.1.i.i24.i.i, ptr %.sroa.481.0..sroa_idx, align 4
+  %.sroa.582.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %.1.i.i26.i.i, ptr %.sroa.582.0..sroa_idx, align 4
+  %.sroa.683.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %.sroa.479.0.copyload, ptr %.sroa.683.0..sroa_idx, align 4
+  br label %123
 
-61:                                               ; preds = %3
-  %.sroa.069.0.copyload = load float, ptr %6, align 4
-  %.sroa.270.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.270.0.copyload = load float, ptr %.sroa.270.0..sroa_idx, align 4
-  %.sroa.371.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.371.0.copyload = load float, ptr %.sroa.371.0..sroa_idx, align 4
-  %.sroa.472.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.472.0.copyload = load float, ptr %.sroa.472.0..sroa_idx, align 4
-  %62 = fcmp ult double %2, 0xB690000000000000
-  br i1 %62, label %63, label %66
+62:                                               ; preds = %3
+  %.sroa.068.0.copyload = load float, ptr %6, align 4
+  %.sroa.269.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.269.0.copyload = load float, ptr %.sroa.269.0..sroa_idx, align 4
+  %.sroa.370.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.370.0.copyload = load float, ptr %.sroa.370.0..sroa_idx, align 4
+  %.sroa.471.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.471.0.copyload = load float, ptr %.sroa.471.0..sroa_idx, align 4
+  %63 = fcmp ult double %2, 0xB690000000000000
+  br i1 %63, label %64, label %67
 
-63:                                               ; preds = %61
-  %64 = tail call noundef float @llvm.maxnum.f32(float %.sroa.069.0.copyload, float 0.000000e+00)
-  %65 = tail call noundef float @llvm.maxnum.f32(float %.sroa.270.0.copyload, float 0.000000e+00)
+64:                                               ; preds = %62
+  %65 = tail call noundef float @llvm.maxnum.f32(float %.sroa.068.0.copyload, float 0.000000e+00)
+  %66 = tail call noundef float @llvm.maxnum.f32(float %.sroa.269.0.copyload, float 0.000000e+00)
   br label %"_ZN122_$LT$palette..alpha..alpha..Alpha$LT$C$C$$LT$C$u20$as$u20$palette..Lighten$GT$..Scalar$GT$$u20$as$u20$palette..Lighten$GT$7lighten17h54da89e39f21b565E.exit"
 
-66:                                               ; preds = %61
-  %67 = fsub float 1.000000e+00, %.sroa.069.0.copyload
-  %68 = tail call nsz noundef float @llvm.maxnum.f32(float %67, float 0.000000e+00)
-  %69 = fsub float 1.000000e+00, %.sroa.270.0.copyload
-  %70 = tail call nsz noundef float @llvm.maxnum.f32(float %69, float 0.000000e+00)
-  %71 = fsub float 1.000000e+00, %.sroa.371.0.copyload
+67:                                               ; preds = %62
+  %68 = fsub float 1.000000e+00, %.sroa.068.0.copyload
+  %69 = tail call nsz noundef float @llvm.maxnum.f32(float %68, float 0.000000e+00)
+  %70 = fsub float 1.000000e+00, %.sroa.269.0.copyload
+  %71 = tail call nsz noundef float @llvm.maxnum.f32(float %70, float 0.000000e+00)
+  %72 = fsub float 1.000000e+00, %.sroa.370.0.copyload
   br label %"_ZN122_$LT$palette..alpha..alpha..Alpha$LT$C$C$$LT$C$u20$as$u20$palette..Lighten$GT$..Scalar$GT$$u20$as$u20$palette..Lighten$GT$7lighten17h54da89e39f21b565E.exit"
 
-"_ZN122_$LT$palette..alpha..alpha..Alpha$LT$C$C$$LT$C$u20$as$u20$palette..Lighten$GT$..Scalar$GT$$u20$as$u20$palette..Lighten$GT$7lighten17h54da89e39f21b565E.exit": ; preds = %63, %66
-  %.pn.i.i27 = phi float [ %70, %66 ], [ %65, %63 ]
-  %.pn29.i.i28 = phi float [ %68, %66 ], [ %64, %63 ]
-  %.0.i.i.i29 = phi float [ %71, %66 ], [ %.sroa.371.0.copyload, %63 ]
-  %72 = fmul float %.pn29.i.i28, %4
-  %73 = fmul float %.pn.i.i27, %4
-  %74 = tail call noundef float @llvm.maxnum.f32(float %.0.i.i.i29, float 0.000000e+00)
-  %75 = fmul float %74, %4
-  %76 = fadd float %.sroa.069.0.copyload, %72
-  %77 = fcmp olt float %76, 0.000000e+00
-  %.0.i.i.i.i30 = select i1 %77, float 0.000000e+00, float %76
-  %78 = fcmp ogt float %.0.i.i.i.i30, 1.000000e+00
-  %.1.i.i.i.i31 = select i1 %78, float 1.000000e+00, float %.0.i.i.i.i30
-  %79 = fadd float %.sroa.270.0.copyload, %73
-  %80 = fcmp olt float %79, 0.000000e+00
-  %.0.i.i23.i.i32 = select i1 %80, float 0.000000e+00, float %79
-  %81 = fcmp ogt float %.0.i.i23.i.i32, 1.000000e+00
-  %.1.i.i24.i.i33 = select i1 %81, float 1.000000e+00, float %.0.i.i23.i.i32
-  %82 = fadd float %.sroa.371.0.copyload, %75
-  %83 = fcmp olt float %82, 0.000000e+00
-  %.0.i.i25.i.i34 = select i1 %83, float 0.000000e+00, float %82
-  %84 = fcmp ogt float %.0.i.i25.i.i34, 1.000000e+00
-  %.1.i.i26.i.i35 = select i1 %84, float 1.000000e+00, float %.0.i.i25.i.i34
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %.1.i.i.i.i31, ptr %85, align 4
-  %.sroa.474.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %.1.i.i24.i.i33, ptr %.sroa.474.0..sroa_idx, align 4
-  %.sroa.575.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %.1.i.i26.i.i35, ptr %.sroa.575.0..sroa_idx, align 4
-  %.sroa.676.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %.sroa.472.0.copyload, ptr %.sroa.676.0..sroa_idx, align 4
-  br label %122
+"_ZN122_$LT$palette..alpha..alpha..Alpha$LT$C$C$$LT$C$u20$as$u20$palette..Lighten$GT$..Scalar$GT$$u20$as$u20$palette..Lighten$GT$7lighten17h54da89e39f21b565E.exit": ; preds = %64, %67
+  %.pn.i.i26 = phi float [ %71, %67 ], [ %66, %64 ]
+  %.pn29.i.i27 = phi float [ %69, %67 ], [ %65, %64 ]
+  %.0.i.i.i28 = phi float [ %72, %67 ], [ %.sroa.370.0.copyload, %64 ]
+  %73 = fmul float %.pn29.i.i27, %4
+  %74 = fmul float %.pn.i.i26, %4
+  %75 = tail call noundef float @llvm.maxnum.f32(float %.0.i.i.i28, float 0.000000e+00)
+  %76 = fmul float %75, %4
+  %77 = fadd float %.sroa.068.0.copyload, %73
+  %78 = fcmp olt float %77, 0.000000e+00
+  %.0.i.i.i.i29 = select i1 %78, float 0.000000e+00, float %77
+  %79 = fcmp ogt float %.0.i.i.i.i29, 1.000000e+00
+  %.1.i.i.i.i30 = select i1 %79, float 1.000000e+00, float %.0.i.i.i.i29
+  %80 = fadd float %.sroa.269.0.copyload, %74
+  %81 = fcmp olt float %80, 0.000000e+00
+  %.0.i.i23.i.i31 = select i1 %81, float 0.000000e+00, float %80
+  %82 = fcmp ogt float %.0.i.i23.i.i31, 1.000000e+00
+  %.1.i.i24.i.i32 = select i1 %82, float 1.000000e+00, float %.0.i.i23.i.i31
+  %83 = fadd float %.sroa.370.0.copyload, %76
+  %84 = fcmp olt float %83, 0.000000e+00
+  %.0.i.i25.i.i33 = select i1 %84, float 0.000000e+00, float %83
+  %85 = fcmp ogt float %.0.i.i25.i.i33, 1.000000e+00
+  %.1.i.i26.i.i34 = select i1 %85, float 1.000000e+00, float %.0.i.i25.i.i33
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %.1.i.i.i.i30, ptr %86, align 4
+  %.sroa.473.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %.1.i.i24.i.i32, ptr %.sroa.473.0..sroa_idx, align 4
+  %.sroa.574.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %.1.i.i26.i.i34, ptr %.sroa.574.0..sroa_idx, align 4
+  %.sroa.675.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %.sroa.471.0.copyload, ptr %.sroa.675.0..sroa_idx, align 4
+  br label %123
 
-86:                                               ; preds = %3
-  %.sroa.085.0.copyload = load float, ptr %6, align 4
-  %.sroa.286.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.286.0.copyload = load float, ptr %.sroa.286.0..sroa_idx, align 4
-  %.sroa.387.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.387.0.copyload = load float, ptr %.sroa.387.0..sroa_idx, align 4
-  %.sroa.488.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.488.0.copyload = load float, ptr %.sroa.488.0..sroa_idx, align 4
-  %87 = fmul float %.sroa.085.0.copyload, %4
-  %88 = fsub float %.sroa.085.0.copyload, %87
-  %89 = fcmp olt float %88, 0.000000e+00
-  %.0.i.i = select i1 %89, float 0.000000e+00, float %88
-  %90 = fcmp ogt float %.0.i.i, 1.000000e+00
-  %.1.i.i = select i1 %90, float 1.000000e+00, float %.0.i.i
-  %91 = fmul float %.sroa.286.0.copyload, %4
-  %92 = fsub float %.sroa.286.0.copyload, %91
-  %93 = fcmp olt float %92, 0.000000e+00
-  %.0.i1.i = select i1 %93, float 0.000000e+00, float %92
-  %94 = fcmp ogt float %.0.i1.i, 1.000000e+00
-  %.1.i2.i = select i1 %94, float 1.000000e+00, float %.0.i1.i
-  %95 = fmul float %.sroa.387.0.copyload, %4
-  %96 = fsub float %.sroa.387.0.copyload, %95
-  %97 = fcmp olt float %96, 0.000000e+00
-  %.0.i3.i = select i1 %97, float 0.000000e+00, float %96
-  %98 = fcmp ogt float %.0.i3.i, 1.000000e+00
-  %.1.i4.i = select i1 %98, float 1.000000e+00, float %.0.i3.i
-  %99 = fmul float %.sroa.488.0.copyload, %4
-  %100 = fsub float %.sroa.488.0.copyload, %99
-  %101 = fcmp olt float %100, 0.000000e+00
-  %.0.i5.i = select i1 %101, float 0.000000e+00, float %100
-  %102 = fcmp ogt float %.0.i5.i, 1.000000e+00
-  %.1.i6.i = select i1 %102, float 1.000000e+00, float %.0.i5.i
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %.1.i.i, ptr %103, align 4
-  %.sroa.490.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %.1.i2.i, ptr %.sroa.490.0..sroa_idx, align 4
-  %.sroa.591.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %.1.i4.i, ptr %.sroa.591.0..sroa_idx, align 4
-  %.sroa.692.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %.1.i6.i, ptr %.sroa.692.0..sroa_idx, align 4
-  br label %122
+87:                                               ; preds = %3
+  %.sroa.084.0.copyload = load float, ptr %6, align 4
+  %.sroa.285.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.285.0.copyload = load float, ptr %.sroa.285.0..sroa_idx, align 4
+  %.sroa.386.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.386.0.copyload = load float, ptr %.sroa.386.0..sroa_idx, align 4
+  %.sroa.487.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.487.0.copyload = load float, ptr %.sroa.487.0..sroa_idx, align 4
+  %88 = fmul float %.sroa.084.0.copyload, %4
+  %89 = fsub float %.sroa.084.0.copyload, %88
+  %90 = fcmp olt float %89, 0.000000e+00
+  %.0.i.i = select i1 %90, float 0.000000e+00, float %89
+  %91 = fcmp ogt float %.0.i.i, 1.000000e+00
+  %.1.i.i = select i1 %91, float 1.000000e+00, float %.0.i.i
+  %92 = fmul float %.sroa.285.0.copyload, %4
+  %93 = fsub float %.sroa.285.0.copyload, %92
+  %94 = fcmp olt float %93, 0.000000e+00
+  %.0.i1.i = select i1 %94, float 0.000000e+00, float %93
+  %95 = fcmp ogt float %.0.i1.i, 1.000000e+00
+  %.1.i2.i = select i1 %95, float 1.000000e+00, float %.0.i1.i
+  %96 = fmul float %.sroa.386.0.copyload, %4
+  %97 = fsub float %.sroa.386.0.copyload, %96
+  %98 = fcmp olt float %97, 0.000000e+00
+  %.0.i3.i = select i1 %98, float 0.000000e+00, float %97
+  %99 = fcmp ogt float %.0.i3.i, 1.000000e+00
+  %.1.i4.i = select i1 %99, float 1.000000e+00, float %.0.i3.i
+  %100 = fmul float %.sroa.487.0.copyload, %4
+  %101 = fsub float %.sroa.487.0.copyload, %100
+  %102 = fcmp olt float %101, 0.000000e+00
+  %.0.i5.i = select i1 %102, float 0.000000e+00, float %101
+  %103 = fcmp ogt float %.0.i5.i, 1.000000e+00
+  %.1.i6.i = select i1 %103, float 1.000000e+00, float %.0.i5.i
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %.1.i.i, ptr %104, align 4
+  %.sroa.489.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %.1.i2.i, ptr %.sroa.489.0..sroa_idx, align 4
+  %.sroa.590.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %.1.i4.i, ptr %.sroa.590.0..sroa_idx, align 4
+  %.sroa.691.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %.1.i6.i, ptr %.sroa.691.0..sroa_idx, align 4
+  br label %123
 
-104:                                              ; preds = %3
-  %.sroa.093.0.copyload = load float, ptr %6, align 4
-  %.sroa.294.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.294.0.copyload = load float, ptr %.sroa.294.0..sroa_idx, align 4
-  %.sroa.395.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.395.0.copyload = load float, ptr %.sroa.395.0..sroa_idx, align 4
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.496.0.copyload = load float, ptr %.sroa.496.0..sroa_idx, align 4
-  %105 = fcmp oge double %2, 0xB690000000000000
-  %106 = fsub float 1.000000e+00, %.sroa.395.0.copyload
-  %.0.i.i.i43 = select i1 %105, float %106, float %.sroa.395.0.copyload
-  %107 = tail call noundef float @llvm.maxnum.f32(float %.0.i.i.i43, float 0.000000e+00)
-  %108 = fmul float %107, %4
-  %109 = fadd float %.sroa.395.0.copyload, %108
-  %110 = fcmp olt float %109, 0.000000e+00
-  %.0.i.i.i.i44 = select i1 %110, float 0.000000e+00, float %109
-  %111 = fcmp ogt float %.0.i.i.i.i44, 1.000000e+00
-  %.1.i.i.i.i45 = select i1 %111, float 1.000000e+00, float %.0.i.i.i.i44
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %.sroa.093.0.copyload, ptr %112, align 4
-  %.sroa.498.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %.sroa.294.0.copyload, ptr %.sroa.498.0..sroa_idx, align 4
-  %.sroa.599.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %.1.i.i.i.i45, ptr %.sroa.599.0..sroa_idx, align 4
-  %.sroa.6100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %.sroa.496.0.copyload, ptr %.sroa.6100.0..sroa_idx, align 4
-  br label %122
+105:                                              ; preds = %3
+  %.sroa.092.0.copyload = load float, ptr %6, align 4
+  %.sroa.293.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.293.0.copyload = load float, ptr %.sroa.293.0..sroa_idx, align 4
+  %.sroa.394.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.394.0.copyload = load float, ptr %.sroa.394.0..sroa_idx, align 4
+  %.sroa.495.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.495.0.copyload = load float, ptr %.sroa.495.0..sroa_idx, align 4
+  %106 = fcmp oge double %2, 0xB690000000000000
+  %107 = fsub float 1.000000e+00, %.sroa.394.0.copyload
+  %.0.i.i.i42 = select i1 %106, float %107, float %.sroa.394.0.copyload
+  %108 = tail call noundef float @llvm.maxnum.f32(float %.0.i.i.i42, float 0.000000e+00)
+  %109 = fmul float %108, %4
+  %110 = fadd float %.sroa.394.0.copyload, %109
+  %111 = fcmp olt float %110, 0.000000e+00
+  %.0.i.i.i.i43 = select i1 %111, float 0.000000e+00, float %110
+  %112 = fcmp ogt float %.0.i.i.i.i43, 1.000000e+00
+  %.1.i.i.i.i44 = select i1 %112, float 1.000000e+00, float %.0.i.i.i.i43
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %.sroa.092.0.copyload, ptr %113, align 4
+  %.sroa.497.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %.sroa.293.0.copyload, ptr %.sroa.497.0..sroa_idx, align 4
+  %.sroa.598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %.1.i.i.i.i44, ptr %.sroa.598.0..sroa_idx, align 4
+  %.sroa.699.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %.sroa.495.0.copyload, ptr %.sroa.699.0..sroa_idx, align 4
+  br label %123
 
-113:                                              ; preds = %3
-  %.sroa.0101.0.copyload = load float, ptr %6, align 4
-  %.sroa.2102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.2102.0.copyload = load float, ptr %.sroa.2102.0..sroa_idx, align 4
-  %.sroa.3103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.3103.0.copyload = load float, ptr %.sroa.3103.0..sroa_idx, align 4
-  %.sroa.4104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.4104.0.copyload = load float, ptr %.sroa.4104.0..sroa_idx, align 4
-  %114 = fcmp oge double %2, 0xB690000000000000
-  %115 = fsub float 1.000000e+00, %.sroa.3103.0.copyload
-  %.0.i.i.i53 = select i1 %114, float %115, float %.sroa.3103.0.copyload
-  %116 = tail call noundef float @llvm.maxnum.f32(float %.0.i.i.i53, float 0.000000e+00)
-  %117 = fmul float %116, %4
-  %118 = fadd float %.sroa.3103.0.copyload, %117
-  %119 = fcmp olt float %118, 0.000000e+00
-  %.0.i.i.i.i54 = select i1 %119, float 0.000000e+00, float %118
-  %120 = fcmp ogt float %.0.i.i.i.i54, 1.000000e+00
-  %.1.i.i.i.i55 = select i1 %120, float 1.000000e+00, float %.0.i.i.i.i54
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %.sroa.0101.0.copyload, ptr %121, align 4
-  %.sroa.4106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %.sroa.2102.0.copyload, ptr %.sroa.4106.0..sroa_idx, align 4
-  %.sroa.5107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %.1.i.i.i.i55, ptr %.sroa.5107.0..sroa_idx, align 4
-  %.sroa.6108.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %.sroa.4104.0.copyload, ptr %.sroa.6108.0..sroa_idx, align 4
-  br label %122
+114:                                              ; preds = %3
+  %.sroa.0100.0.copyload = load float, ptr %6, align 4
+  %.sroa.2101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.2101.0.copyload = load float, ptr %.sroa.2101.0..sroa_idx, align 4
+  %.sroa.3102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.3102.0.copyload = load float, ptr %.sroa.3102.0..sroa_idx, align 4
+  %.sroa.4103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.4103.0.copyload = load float, ptr %.sroa.4103.0..sroa_idx, align 4
+  %115 = fcmp oge double %2, 0xB690000000000000
+  %116 = fsub float 1.000000e+00, %.sroa.3102.0.copyload
+  %.0.i.i.i52 = select i1 %115, float %116, float %.sroa.3102.0.copyload
+  %117 = tail call noundef float @llvm.maxnum.f32(float %.0.i.i.i52, float 0.000000e+00)
+  %118 = fmul float %117, %4
+  %119 = fadd float %.sroa.3102.0.copyload, %118
+  %120 = fcmp olt float %119, 0.000000e+00
+  %.0.i.i.i.i53 = select i1 %120, float 0.000000e+00, float %119
+  %121 = fcmp ogt float %.0.i.i.i.i53, 1.000000e+00
+  %.1.i.i.i.i54 = select i1 %121, float 1.000000e+00, float %.0.i.i.i.i53
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %.sroa.0100.0.copyload, ptr %122, align 4
+  %.sroa.4105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %.sroa.2101.0.copyload, ptr %.sroa.4105.0..sroa_idx, align 4
+  %.sroa.5106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %.1.i.i.i.i54, ptr %.sroa.5106.0..sroa_idx, align 4
+  %.sroa.6107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %.sroa.4103.0.copyload, ptr %.sroa.6107.0..sroa_idx, align 4
+  br label %123
 
-122:                                              ; preds = %113, %104, %86, %"_ZN122_$LT$palette..alpha..alpha..Alpha$LT$C$C$$LT$C$u20$as$u20$palette..Lighten$GT$..Scalar$GT$$u20$as$u20$palette..Lighten$GT$7lighten17h54da89e39f21b565E.exit", %"_ZN122_$LT$palette..alpha..alpha..Alpha$LT$C$C$$LT$C$u20$as$u20$palette..Lighten$GT$..Scalar$GT$$u20$as$u20$palette..Lighten$GT$7lighten17hd618106cb579e19bE.exit", %27, %18, %7
+123:                                              ; preds = %114, %105, %87, %"_ZN122_$LT$palette..alpha..alpha..Alpha$LT$C$C$$LT$C$u20$as$u20$palette..Lighten$GT$..Scalar$GT$$u20$as$u20$palette..Lighten$GT$7lighten17h54da89e39f21b565E.exit", %"_ZN122_$LT$palette..alpha..alpha..Alpha$LT$C$C$$LT$C$u20$as$u20$palette..Lighten$GT$..Scalar$GT$$u20$as$u20$palette..Lighten$GT$7lighten17hd618106cb579e19bE.exit", %28, %19, %7
   store i32 %5, ptr %0, align 4
   ret void
 }
@@ -173329,18 +173329,18 @@ define void @_ZN5typst9visualize5color5Color6darken17hd5327ecc693571daE(ptr noal
   %4 = fptrunc double %2 to float
   %5 = load i32, ptr %1, align 4, !range !17471, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  switch i32 %5, label %default.unreachable121 [
+  switch i32 %5, label %default.unreachable120 [
     i32 0, label %7
-    i32 1, label %18
-    i32 2, label %27
-    i32 3, label %36
-    i32 4, label %61
-    i32 5, label %86
-    i32 6, label %108
-    i32 7, label %117
+    i32 1, label %19
+    i32 2, label %28
+    i32 3, label %37
+    i32 4, label %62
+    i32 5, label %87
+    i32 6, label %109
+    i32 7, label %118
   ]
 
-default.unreachable121:                           ; preds = %3
+default.unreachable120:                           ; preds = %3
   unreachable
 
 7:                                                ; preds = %3
@@ -173356,288 +173356,288 @@ default.unreachable121:                           ; preds = %3
   %14 = fcmp olt float %13, 0.000000e+00
   %.0.i.i.i.i.i = select i1 %14, float 0.000000e+00, float %13
   %15 = fcmp ogt float %.0.i.i.i.i.i, 1.000000e+00
-  %.1.i.i.i.i.i = select i1 %15, float 1.000000e+00, float %.0.i.i.i.i.i
-  %16 = bitcast float %.1.i.i.i.i.i to i32
+  %16 = bitcast float %.0.i.i.i.i.i to i32
   %.sroa.4.0.extract.shift.i.i = and i64 %.sroa.0.0.copyload, -4294967296
-  %.sroa.03.0.insert.ext.i.i = zext i32 %16 to i64
-  %.sroa.03.0.insert.insert.i.i = or disjoint i64 %.sroa.4.0.extract.shift.i.i, %.sroa.03.0.insert.ext.i.i
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.03.0.insert.insert.i.i, ptr %17, align 4
-  br label %126
+  %17 = zext i32 %16 to i64
+  %.sroa.03.0.insert.ext.i.i = select i1 %15, i64 1065353216, i64 %17
+  %.sroa.03.0.insert.insert.i.i = or disjoint i64 %.sroa.03.0.insert.ext.i.i, %.sroa.4.0.extract.shift.i.i
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.03.0.insert.insert.i.i, ptr %18, align 4
+  br label %127
 
-18:                                               ; preds = %3
-  %.sroa.0.0.copyload70 = load float, ptr %6, align 4
+19:                                               ; preds = %3
+  %.sroa.0.0.copyload69 = load float, ptr %6, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load float, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.3.0.copyload = load float, ptr %.sroa.3.0..sroa_idx, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
-  %19 = fcmp ole double %2, 0x3690000000000000
-  %20 = fsub float 1.000000e+00, %.sroa.0.0.copyload70
-  %.0.i.i.i.i2 = select i1 %19, float %20, float %.sroa.0.0.copyload70
-  %21 = tail call noundef float @llvm.maxnum.f32(float %.0.i.i.i.i2, float 0.000000e+00)
-  %22 = fmul float %21, %4
-  %23 = fsub float %.sroa.0.0.copyload70, %22
-  %24 = fcmp olt float %23, 0.000000e+00
-  %.0.i.i.i.i.i3 = select i1 %24, float 0.000000e+00, float %23
-  %25 = fcmp ogt float %.0.i.i.i.i.i3, 1.000000e+00
-  %.1.i.i.i.i.i4 = select i1 %25, float 1.000000e+00, float %.0.i.i.i.i.i3
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %.1.i.i.i.i.i4, ptr %26, align 4
-  %.sroa.472.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %.sroa.2.0.copyload, ptr %.sroa.472.0..sroa_idx, align 4
+  %20 = fcmp ole double %2, 0x3690000000000000
+  %21 = fsub float 1.000000e+00, %.sroa.0.0.copyload69
+  %.0.i.i.i.i2 = select i1 %20, float %21, float %.sroa.0.0.copyload69
+  %22 = tail call noundef float @llvm.maxnum.f32(float %.0.i.i.i.i2, float 0.000000e+00)
+  %23 = fmul float %22, %4
+  %24 = fsub float %.sroa.0.0.copyload69, %23
+  %25 = fcmp olt float %24, 0.000000e+00
+  %.0.i.i.i.i.i3 = select i1 %25, float 0.000000e+00, float %24
+  %26 = fcmp ogt float %.0.i.i.i.i.i3, 1.000000e+00
+  %.1.i.i.i.i.i = select i1 %26, float 1.000000e+00, float %.0.i.i.i.i.i3
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %.1.i.i.i.i.i, ptr %27, align 4
+  %.sroa.471.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %.sroa.2.0.copyload, ptr %.sroa.471.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store float %.sroa.3.0.copyload, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float %.sroa.4.0.copyload, ptr %.sroa.6.0..sroa_idx, align 4
-  br label %126
+  br label %127
 
-27:                                               ; preds = %3
-  %.sroa.073.0.copyload = load float, ptr %6, align 4
-  %.sroa.274.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.274.0.copyload = load float, ptr %.sroa.274.0..sroa_idx, align 4
-  %.sroa.375.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.375.0.copyload = load float, ptr %.sroa.375.0..sroa_idx, align 4
-  %.sroa.476.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.476.0.copyload = load float, ptr %.sroa.476.0..sroa_idx, align 4
-  %28 = fcmp ole double %2, 0x3690000000000000
-  %29 = fsub float 1.000000e+00, %.sroa.073.0.copyload
-  %.0.i.i.i.i12 = select i1 %28, float %29, float %.sroa.073.0.copyload
-  %30 = tail call noundef float @llvm.maxnum.f32(float %.0.i.i.i.i12, float 0.000000e+00)
-  %31 = fmul float %30, %4
-  %32 = fsub float %.sroa.073.0.copyload, %31
-  %33 = fcmp olt float %32, 0.000000e+00
-  %.0.i.i.i.i.i13 = select i1 %33, float 0.000000e+00, float %32
-  %34 = fcmp ogt float %.0.i.i.i.i.i13, 1.000000e+00
-  %.1.i.i.i.i.i14 = select i1 %34, float 1.000000e+00, float %.0.i.i.i.i.i13
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %.1.i.i.i.i.i14, ptr %35, align 4
-  %.sroa.478.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %.sroa.274.0.copyload, ptr %.sroa.478.0..sroa_idx, align 4
-  %.sroa.579.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %.sroa.375.0.copyload, ptr %.sroa.579.0..sroa_idx, align 4
-  %.sroa.680.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %.sroa.476.0.copyload, ptr %.sroa.680.0..sroa_idx, align 4
-  br label %126
+28:                                               ; preds = %3
+  %.sroa.072.0.copyload = load float, ptr %6, align 4
+  %.sroa.273.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.273.0.copyload = load float, ptr %.sroa.273.0..sroa_idx, align 4
+  %.sroa.374.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.374.0.copyload = load float, ptr %.sroa.374.0..sroa_idx, align 4
+  %.sroa.475.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.475.0.copyload = load float, ptr %.sroa.475.0..sroa_idx, align 4
+  %29 = fcmp ole double %2, 0x3690000000000000
+  %30 = fsub float 1.000000e+00, %.sroa.072.0.copyload
+  %.0.i.i.i.i11 = select i1 %29, float %30, float %.sroa.072.0.copyload
+  %31 = tail call noundef float @llvm.maxnum.f32(float %.0.i.i.i.i11, float 0.000000e+00)
+  %32 = fmul float %31, %4
+  %33 = fsub float %.sroa.072.0.copyload, %32
+  %34 = fcmp olt float %33, 0.000000e+00
+  %.0.i.i.i.i.i12 = select i1 %34, float 0.000000e+00, float %33
+  %35 = fcmp ogt float %.0.i.i.i.i.i12, 1.000000e+00
+  %.1.i.i.i.i.i13 = select i1 %35, float 1.000000e+00, float %.0.i.i.i.i.i12
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %.1.i.i.i.i.i13, ptr %36, align 4
+  %.sroa.477.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %.sroa.273.0.copyload, ptr %.sroa.477.0..sroa_idx, align 4
+  %.sroa.578.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %.sroa.374.0.copyload, ptr %.sroa.578.0..sroa_idx, align 4
+  %.sroa.679.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %.sroa.475.0.copyload, ptr %.sroa.679.0..sroa_idx, align 4
+  br label %127
 
-36:                                               ; preds = %3
-  %.sroa.089.0.copyload = load float, ptr %6, align 4
-  %.sroa.290.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.290.0.copyload = load float, ptr %.sroa.290.0..sroa_idx, align 4
-  %.sroa.391.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.391.0.copyload = load float, ptr %.sroa.391.0..sroa_idx, align 4
-  %.sroa.492.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.492.0.copyload = load float, ptr %.sroa.492.0..sroa_idx, align 4
-  %37 = fcmp ugt double %2, 0x3690000000000000
-  br i1 %37, label %38, label %41
+37:                                               ; preds = %3
+  %.sroa.088.0.copyload = load float, ptr %6, align 4
+  %.sroa.289.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.289.0.copyload = load float, ptr %.sroa.289.0..sroa_idx, align 4
+  %.sroa.390.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.390.0.copyload = load float, ptr %.sroa.390.0..sroa_idx, align 4
+  %.sroa.491.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.491.0.copyload = load float, ptr %.sroa.491.0..sroa_idx, align 4
+  %38 = fcmp ugt double %2, 0x3690000000000000
+  br i1 %38, label %39, label %42
 
-38:                                               ; preds = %36
-  %39 = tail call noundef float @llvm.maxnum.f32(float %.sroa.089.0.copyload, float 0.000000e+00)
-  %40 = tail call noundef float @llvm.maxnum.f32(float %.sroa.290.0.copyload, float 0.000000e+00)
+39:                                               ; preds = %37
+  %40 = tail call noundef float @llvm.maxnum.f32(float %.sroa.088.0.copyload, float 0.000000e+00)
+  %41 = tail call noundef float @llvm.maxnum.f32(float %.sroa.289.0.copyload, float 0.000000e+00)
   br label %"_ZN37_$LT$T$u20$as$u20$palette..Darken$GT$6darken17h6324c316e15961a4E.exit"
 
-41:                                               ; preds = %36
-  %42 = fsub float 1.000000e+00, %.sroa.089.0.copyload
-  %43 = tail call nsz noundef float @llvm.maxnum.f32(float %42, float 0.000000e+00)
-  %44 = fsub float 1.000000e+00, %.sroa.290.0.copyload
-  %45 = tail call nsz noundef float @llvm.maxnum.f32(float %44, float 0.000000e+00)
-  %46 = fsub float 1.000000e+00, %.sroa.391.0.copyload
+42:                                               ; preds = %37
+  %43 = fsub float 1.000000e+00, %.sroa.088.0.copyload
+  %44 = tail call nsz noundef float @llvm.maxnum.f32(float %43, float 0.000000e+00)
+  %45 = fsub float 1.000000e+00, %.sroa.289.0.copyload
+  %46 = tail call nsz noundef float @llvm.maxnum.f32(float %45, float 0.000000e+00)
+  %47 = fsub float 1.000000e+00, %.sroa.390.0.copyload
   br label %"_ZN37_$LT$T$u20$as$u20$palette..Darken$GT$6darken17h6324c316e15961a4E.exit"
 
-"_ZN37_$LT$T$u20$as$u20$palette..Darken$GT$6darken17h6324c316e15961a4E.exit": ; preds = %38, %41
-  %.pn.i.i.i = phi float [ %45, %41 ], [ %40, %38 ]
-  %.pn29.i.i.i = phi float [ %43, %41 ], [ %39, %38 ]
-  %.0.i7.i.i.i = phi float [ %46, %41 ], [ %.sroa.391.0.copyload, %38 ]
-  %47 = tail call noundef float @llvm.maxnum.f32(float %.0.i7.i.i.i, float 0.000000e+00)
-  %48 = fmul float %.pn29.i.i.i, %4
-  %49 = fsub float %.sroa.089.0.copyload, %48
-  %50 = fcmp olt float %49, 0.000000e+00
-  %.0.i.i.i.i.i24 = select i1 %50, float 0.000000e+00, float %49
-  %51 = fcmp ogt float %.0.i.i.i.i.i24, 1.000000e+00
-  %.1.i.i.i.i.i25 = select i1 %51, float 1.000000e+00, float %.0.i.i.i.i.i24
-  %52 = fmul float %.pn.i.i.i, %4
-  %53 = fsub float %.sroa.290.0.copyload, %52
-  %54 = fcmp olt float %53, 0.000000e+00
-  %.0.i.i23.i.i.i = select i1 %54, float 0.000000e+00, float %53
-  %55 = fcmp ogt float %.0.i.i23.i.i.i, 1.000000e+00
-  %.1.i.i24.i.i.i = select i1 %55, float 1.000000e+00, float %.0.i.i23.i.i.i
-  %56 = fmul float %47, %4
-  %57 = fsub float %.sroa.391.0.copyload, %56
-  %58 = fcmp olt float %57, 0.000000e+00
-  %.0.i.i25.i.i.i = select i1 %58, float 0.000000e+00, float %57
-  %59 = fcmp ogt float %.0.i.i25.i.i.i, 1.000000e+00
-  %.1.i.i26.i.i.i = select i1 %59, float 1.000000e+00, float %.0.i.i25.i.i.i
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %.1.i.i.i.i.i25, ptr %60, align 4
-  %.sroa.494.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %.1.i.i24.i.i.i, ptr %.sroa.494.0..sroa_idx, align 4
-  %.sroa.595.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %.1.i.i26.i.i.i, ptr %.sroa.595.0..sroa_idx, align 4
-  %.sroa.696.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %.sroa.492.0.copyload, ptr %.sroa.696.0..sroa_idx, align 4
-  br label %126
+"_ZN37_$LT$T$u20$as$u20$palette..Darken$GT$6darken17h6324c316e15961a4E.exit": ; preds = %39, %42
+  %.pn.i.i.i = phi float [ %46, %42 ], [ %41, %39 ]
+  %.pn29.i.i.i = phi float [ %44, %42 ], [ %40, %39 ]
+  %.0.i7.i.i.i = phi float [ %47, %42 ], [ %.sroa.390.0.copyload, %39 ]
+  %48 = tail call noundef float @llvm.maxnum.f32(float %.0.i7.i.i.i, float 0.000000e+00)
+  %49 = fmul float %.pn29.i.i.i, %4
+  %50 = fsub float %.sroa.088.0.copyload, %49
+  %51 = fcmp olt float %50, 0.000000e+00
+  %.0.i.i.i.i.i23 = select i1 %51, float 0.000000e+00, float %50
+  %52 = fcmp ogt float %.0.i.i.i.i.i23, 1.000000e+00
+  %.1.i.i.i.i.i24 = select i1 %52, float 1.000000e+00, float %.0.i.i.i.i.i23
+  %53 = fmul float %.pn.i.i.i, %4
+  %54 = fsub float %.sroa.289.0.copyload, %53
+  %55 = fcmp olt float %54, 0.000000e+00
+  %.0.i.i23.i.i.i = select i1 %55, float 0.000000e+00, float %54
+  %56 = fcmp ogt float %.0.i.i23.i.i.i, 1.000000e+00
+  %.1.i.i24.i.i.i = select i1 %56, float 1.000000e+00, float %.0.i.i23.i.i.i
+  %57 = fmul float %48, %4
+  %58 = fsub float %.sroa.390.0.copyload, %57
+  %59 = fcmp olt float %58, 0.000000e+00
+  %.0.i.i25.i.i.i = select i1 %59, float 0.000000e+00, float %58
+  %60 = fcmp ogt float %.0.i.i25.i.i.i, 1.000000e+00
+  %.1.i.i26.i.i.i = select i1 %60, float 1.000000e+00, float %.0.i.i25.i.i.i
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %.1.i.i.i.i.i24, ptr %61, align 4
+  %.sroa.493.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %.1.i.i24.i.i.i, ptr %.sroa.493.0..sroa_idx, align 4
+  %.sroa.594.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %.1.i.i26.i.i.i, ptr %.sroa.594.0..sroa_idx, align 4
+  %.sroa.695.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %.sroa.491.0.copyload, ptr %.sroa.695.0..sroa_idx, align 4
+  br label %127
 
-61:                                               ; preds = %3
-  %.sroa.081.0.copyload = load float, ptr %6, align 4
-  %.sroa.282.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.282.0.copyload = load float, ptr %.sroa.282.0..sroa_idx, align 4
-  %.sroa.383.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.383.0.copyload = load float, ptr %.sroa.383.0..sroa_idx, align 4
-  %.sroa.484.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.484.0.copyload = load float, ptr %.sroa.484.0..sroa_idx, align 4
-  %62 = fcmp ugt double %2, 0x3690000000000000
-  br i1 %62, label %63, label %66
+62:                                               ; preds = %3
+  %.sroa.080.0.copyload = load float, ptr %6, align 4
+  %.sroa.281.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.281.0.copyload = load float, ptr %.sroa.281.0..sroa_idx, align 4
+  %.sroa.382.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.382.0.copyload = load float, ptr %.sroa.382.0..sroa_idx, align 4
+  %.sroa.483.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.483.0.copyload = load float, ptr %.sroa.483.0..sroa_idx, align 4
+  %63 = fcmp ugt double %2, 0x3690000000000000
+  br i1 %63, label %64, label %67
 
-63:                                               ; preds = %61
-  %64 = tail call noundef float @llvm.maxnum.f32(float %.sroa.081.0.copyload, float 0.000000e+00)
-  %65 = tail call noundef float @llvm.maxnum.f32(float %.sroa.282.0.copyload, float 0.000000e+00)
+64:                                               ; preds = %62
+  %65 = tail call noundef float @llvm.maxnum.f32(float %.sroa.080.0.copyload, float 0.000000e+00)
+  %66 = tail call noundef float @llvm.maxnum.f32(float %.sroa.281.0.copyload, float 0.000000e+00)
   br label %"_ZN37_$LT$T$u20$as$u20$palette..Darken$GT$6darken17h13d908f4e3e8d219E.exit"
 
-66:                                               ; preds = %61
-  %67 = fsub float 1.000000e+00, %.sroa.081.0.copyload
-  %68 = tail call nsz noundef float @llvm.maxnum.f32(float %67, float 0.000000e+00)
-  %69 = fsub float 1.000000e+00, %.sroa.282.0.copyload
-  %70 = tail call nsz noundef float @llvm.maxnum.f32(float %69, float 0.000000e+00)
-  %71 = fsub float 1.000000e+00, %.sroa.383.0.copyload
+67:                                               ; preds = %62
+  %68 = fsub float 1.000000e+00, %.sroa.080.0.copyload
+  %69 = tail call nsz noundef float @llvm.maxnum.f32(float %68, float 0.000000e+00)
+  %70 = fsub float 1.000000e+00, %.sroa.281.0.copyload
+  %71 = tail call nsz noundef float @llvm.maxnum.f32(float %70, float 0.000000e+00)
+  %72 = fsub float 1.000000e+00, %.sroa.382.0.copyload
   br label %"_ZN37_$LT$T$u20$as$u20$palette..Darken$GT$6darken17h13d908f4e3e8d219E.exit"
 
-"_ZN37_$LT$T$u20$as$u20$palette..Darken$GT$6darken17h13d908f4e3e8d219E.exit": ; preds = %63, %66
-  %.pn.i.i.i35 = phi float [ %70, %66 ], [ %65, %63 ]
-  %.pn29.i.i.i36 = phi float [ %68, %66 ], [ %64, %63 ]
-  %.0.i.i.i.i37 = phi float [ %71, %66 ], [ %.sroa.383.0.copyload, %63 ]
-  %72 = tail call noundef float @llvm.maxnum.f32(float %.0.i.i.i.i37, float 0.000000e+00)
-  %73 = fmul float %.pn29.i.i.i36, %4
-  %74 = fsub float %.sroa.081.0.copyload, %73
-  %75 = fcmp olt float %74, 0.000000e+00
-  %.0.i.i.i.i.i38 = select i1 %75, float 0.000000e+00, float %74
-  %76 = fcmp ogt float %.0.i.i.i.i.i38, 1.000000e+00
-  %.1.i.i.i.i.i39 = select i1 %76, float 1.000000e+00, float %.0.i.i.i.i.i38
-  %77 = fmul float %.pn.i.i.i35, %4
-  %78 = fsub float %.sroa.282.0.copyload, %77
-  %79 = fcmp olt float %78, 0.000000e+00
-  %.0.i.i23.i.i.i40 = select i1 %79, float 0.000000e+00, float %78
-  %80 = fcmp ogt float %.0.i.i23.i.i.i40, 1.000000e+00
-  %.1.i.i24.i.i.i41 = select i1 %80, float 1.000000e+00, float %.0.i.i23.i.i.i40
-  %81 = fmul float %72, %4
-  %82 = fsub float %.sroa.383.0.copyload, %81
-  %83 = fcmp olt float %82, 0.000000e+00
-  %.0.i.i25.i.i.i42 = select i1 %83, float 0.000000e+00, float %82
-  %84 = fcmp ogt float %.0.i.i25.i.i.i42, 1.000000e+00
-  %.1.i.i26.i.i.i43 = select i1 %84, float 1.000000e+00, float %.0.i.i25.i.i.i42
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %.1.i.i.i.i.i39, ptr %85, align 4
-  %.sroa.486.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %.1.i.i24.i.i.i41, ptr %.sroa.486.0..sroa_idx, align 4
-  %.sroa.587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %.1.i.i26.i.i.i43, ptr %.sroa.587.0..sroa_idx, align 4
-  %.sroa.688.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %.sroa.484.0.copyload, ptr %.sroa.688.0..sroa_idx, align 4
-  br label %126
+"_ZN37_$LT$T$u20$as$u20$palette..Darken$GT$6darken17h13d908f4e3e8d219E.exit": ; preds = %64, %67
+  %.pn.i.i.i34 = phi float [ %71, %67 ], [ %66, %64 ]
+  %.pn29.i.i.i35 = phi float [ %69, %67 ], [ %65, %64 ]
+  %.0.i.i.i.i36 = phi float [ %72, %67 ], [ %.sroa.382.0.copyload, %64 ]
+  %73 = tail call noundef float @llvm.maxnum.f32(float %.0.i.i.i.i36, float 0.000000e+00)
+  %74 = fmul float %.pn29.i.i.i35, %4
+  %75 = fsub float %.sroa.080.0.copyload, %74
+  %76 = fcmp olt float %75, 0.000000e+00
+  %.0.i.i.i.i.i37 = select i1 %76, float 0.000000e+00, float %75
+  %77 = fcmp ogt float %.0.i.i.i.i.i37, 1.000000e+00
+  %.1.i.i.i.i.i38 = select i1 %77, float 1.000000e+00, float %.0.i.i.i.i.i37
+  %78 = fmul float %.pn.i.i.i34, %4
+  %79 = fsub float %.sroa.281.0.copyload, %78
+  %80 = fcmp olt float %79, 0.000000e+00
+  %.0.i.i23.i.i.i39 = select i1 %80, float 0.000000e+00, float %79
+  %81 = fcmp ogt float %.0.i.i23.i.i.i39, 1.000000e+00
+  %.1.i.i24.i.i.i40 = select i1 %81, float 1.000000e+00, float %.0.i.i23.i.i.i39
+  %82 = fmul float %73, %4
+  %83 = fsub float %.sroa.382.0.copyload, %82
+  %84 = fcmp olt float %83, 0.000000e+00
+  %.0.i.i25.i.i.i41 = select i1 %84, float 0.000000e+00, float %83
+  %85 = fcmp ogt float %.0.i.i25.i.i.i41, 1.000000e+00
+  %.1.i.i26.i.i.i42 = select i1 %85, float 1.000000e+00, float %.0.i.i25.i.i.i41
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %.1.i.i.i.i.i38, ptr %86, align 4
+  %.sroa.485.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %.1.i.i24.i.i.i40, ptr %.sroa.485.0..sroa_idx, align 4
+  %.sroa.586.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %.1.i.i26.i.i.i42, ptr %.sroa.586.0..sroa_idx, align 4
+  %.sroa.687.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %.sroa.483.0.copyload, ptr %.sroa.687.0..sroa_idx, align 4
+  br label %127
 
-86:                                               ; preds = %3
-  %.sroa.097.0.copyload = load float, ptr %6, align 4
-  %.sroa.298.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.298.0.copyload = load float, ptr %.sroa.298.0..sroa_idx, align 4
-  %.sroa.399.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.399.0.copyload = load float, ptr %.sroa.399.0..sroa_idx, align 4
-  %.sroa.4100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.4100.0.copyload = load float, ptr %.sroa.4100.0..sroa_idx, align 4
-  %87 = fsub float 1.000000e+00, %.sroa.097.0.copyload
-  %88 = fmul float %87, %4
-  %89 = fadd float %.sroa.097.0.copyload, %88
-  %90 = fcmp olt float %89, 0.000000e+00
-  %.0.i.i = select i1 %90, float 0.000000e+00, float %89
-  %91 = fcmp ogt float %.0.i.i, 1.000000e+00
-  %.1.i.i = select i1 %91, float 1.000000e+00, float %.0.i.i
-  %92 = fsub float 1.000000e+00, %.sroa.298.0.copyload
-  %93 = fmul float %92, %4
-  %94 = fadd float %.sroa.298.0.copyload, %93
-  %95 = fcmp olt float %94, 0.000000e+00
-  %.0.i1.i = select i1 %95, float 0.000000e+00, float %94
-  %96 = fcmp ogt float %.0.i1.i, 1.000000e+00
-  %.1.i2.i = select i1 %96, float 1.000000e+00, float %.0.i1.i
-  %97 = fsub float 1.000000e+00, %.sroa.399.0.copyload
-  %98 = fmul float %97, %4
-  %99 = fadd float %.sroa.399.0.copyload, %98
-  %100 = fcmp olt float %99, 0.000000e+00
-  %.0.i3.i = select i1 %100, float 0.000000e+00, float %99
-  %101 = fcmp ogt float %.0.i3.i, 1.000000e+00
-  %.1.i4.i = select i1 %101, float 1.000000e+00, float %.0.i3.i
-  %102 = fsub float 1.000000e+00, %.sroa.4100.0.copyload
-  %103 = fmul float %102, %4
-  %104 = fadd float %.sroa.4100.0.copyload, %103
-  %105 = fcmp olt float %104, 0.000000e+00
-  %.0.i5.i = select i1 %105, float 0.000000e+00, float %104
-  %106 = fcmp ogt float %.0.i5.i, 1.000000e+00
-  %.1.i6.i = select i1 %106, float 1.000000e+00, float %.0.i5.i
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %.1.i.i, ptr %107, align 4
-  %.sroa.4102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %.1.i2.i, ptr %.sroa.4102.0..sroa_idx, align 4
-  %.sroa.5103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %.1.i4.i, ptr %.sroa.5103.0..sroa_idx, align 4
-  %.sroa.6104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %.1.i6.i, ptr %.sroa.6104.0..sroa_idx, align 4
-  br label %126
+87:                                               ; preds = %3
+  %.sroa.096.0.copyload = load float, ptr %6, align 4
+  %.sroa.297.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.297.0.copyload = load float, ptr %.sroa.297.0..sroa_idx, align 4
+  %.sroa.398.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.398.0.copyload = load float, ptr %.sroa.398.0..sroa_idx, align 4
+  %.sroa.499.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.499.0.copyload = load float, ptr %.sroa.499.0..sroa_idx, align 4
+  %88 = fsub float 1.000000e+00, %.sroa.096.0.copyload
+  %89 = fmul float %88, %4
+  %90 = fadd float %.sroa.096.0.copyload, %89
+  %91 = fcmp olt float %90, 0.000000e+00
+  %.0.i.i = select i1 %91, float 0.000000e+00, float %90
+  %92 = fcmp ogt float %.0.i.i, 1.000000e+00
+  %.1.i.i = select i1 %92, float 1.000000e+00, float %.0.i.i
+  %93 = fsub float 1.000000e+00, %.sroa.297.0.copyload
+  %94 = fmul float %93, %4
+  %95 = fadd float %.sroa.297.0.copyload, %94
+  %96 = fcmp olt float %95, 0.000000e+00
+  %.0.i1.i = select i1 %96, float 0.000000e+00, float %95
+  %97 = fcmp ogt float %.0.i1.i, 1.000000e+00
+  %.1.i2.i = select i1 %97, float 1.000000e+00, float %.0.i1.i
+  %98 = fsub float 1.000000e+00, %.sroa.398.0.copyload
+  %99 = fmul float %98, %4
+  %100 = fadd float %.sroa.398.0.copyload, %99
+  %101 = fcmp olt float %100, 0.000000e+00
+  %.0.i3.i = select i1 %101, float 0.000000e+00, float %100
+  %102 = fcmp ogt float %.0.i3.i, 1.000000e+00
+  %.1.i4.i = select i1 %102, float 1.000000e+00, float %.0.i3.i
+  %103 = fsub float 1.000000e+00, %.sroa.499.0.copyload
+  %104 = fmul float %103, %4
+  %105 = fadd float %.sroa.499.0.copyload, %104
+  %106 = fcmp olt float %105, 0.000000e+00
+  %.0.i5.i = select i1 %106, float 0.000000e+00, float %105
+  %107 = fcmp ogt float %.0.i5.i, 1.000000e+00
+  %.1.i6.i = select i1 %107, float 1.000000e+00, float %.0.i5.i
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %.1.i.i, ptr %108, align 4
+  %.sroa.4101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %.1.i2.i, ptr %.sroa.4101.0..sroa_idx, align 4
+  %.sroa.5102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %.1.i4.i, ptr %.sroa.5102.0..sroa_idx, align 4
+  %.sroa.6103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %.1.i6.i, ptr %.sroa.6103.0..sroa_idx, align 4
+  br label %127
 
-108:                                              ; preds = %3
-  %.sroa.0105.0.copyload = load float, ptr %6, align 4
-  %.sroa.2106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.2106.0.copyload = load float, ptr %.sroa.2106.0..sroa_idx, align 4
-  %.sroa.3107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.3107.0.copyload = load float, ptr %.sroa.3107.0..sroa_idx, align 4
-  %.sroa.4108.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.4108.0.copyload = load float, ptr %.sroa.4108.0..sroa_idx, align 4
-  %109 = fcmp ole double %2, 0x3690000000000000
-  %110 = fsub float 1.000000e+00, %.sroa.3107.0.copyload
-  %.0.i.i.i.i53 = select i1 %109, float %110, float %.sroa.3107.0.copyload
-  %111 = tail call noundef float @llvm.maxnum.f32(float %.0.i.i.i.i53, float 0.000000e+00)
-  %112 = fmul float %111, %4
-  %113 = fsub float %.sroa.3107.0.copyload, %112
-  %114 = fcmp olt float %113, 0.000000e+00
-  %.0.i.i.i.i.i54 = select i1 %114, float 0.000000e+00, float %113
-  %115 = fcmp ogt float %.0.i.i.i.i.i54, 1.000000e+00
-  %.1.i.i.i.i.i55 = select i1 %115, float 1.000000e+00, float %.0.i.i.i.i.i54
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %.sroa.0105.0.copyload, ptr %116, align 4
-  %.sroa.4110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %.sroa.2106.0.copyload, ptr %.sroa.4110.0..sroa_idx, align 4
-  %.sroa.5111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %.1.i.i.i.i.i55, ptr %.sroa.5111.0..sroa_idx, align 4
-  %.sroa.6112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %.sroa.4108.0.copyload, ptr %.sroa.6112.0..sroa_idx, align 4
-  br label %126
+109:                                              ; preds = %3
+  %.sroa.0104.0.copyload = load float, ptr %6, align 4
+  %.sroa.2105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.2105.0.copyload = load float, ptr %.sroa.2105.0..sroa_idx, align 4
+  %.sroa.3106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.3106.0.copyload = load float, ptr %.sroa.3106.0..sroa_idx, align 4
+  %.sroa.4107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.4107.0.copyload = load float, ptr %.sroa.4107.0..sroa_idx, align 4
+  %110 = fcmp ole double %2, 0x3690000000000000
+  %111 = fsub float 1.000000e+00, %.sroa.3106.0.copyload
+  %.0.i.i.i.i52 = select i1 %110, float %111, float %.sroa.3106.0.copyload
+  %112 = tail call noundef float @llvm.maxnum.f32(float %.0.i.i.i.i52, float 0.000000e+00)
+  %113 = fmul float %112, %4
+  %114 = fsub float %.sroa.3106.0.copyload, %113
+  %115 = fcmp olt float %114, 0.000000e+00
+  %.0.i.i.i.i.i53 = select i1 %115, float 0.000000e+00, float %114
+  %116 = fcmp ogt float %.0.i.i.i.i.i53, 1.000000e+00
+  %.1.i.i.i.i.i54 = select i1 %116, float 1.000000e+00, float %.0.i.i.i.i.i53
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %.sroa.0104.0.copyload, ptr %117, align 4
+  %.sroa.4109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %.sroa.2105.0.copyload, ptr %.sroa.4109.0..sroa_idx, align 4
+  %.sroa.5110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %.1.i.i.i.i.i54, ptr %.sroa.5110.0..sroa_idx, align 4
+  %.sroa.6111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %.sroa.4107.0.copyload, ptr %.sroa.6111.0..sroa_idx, align 4
+  br label %127
 
-117:                                              ; preds = %3
-  %.sroa.0113.0.copyload = load float, ptr %6, align 4
-  %.sroa.2114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.2114.0.copyload = load float, ptr %.sroa.2114.0..sroa_idx, align 4
-  %.sroa.3115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.3115.0.copyload = load float, ptr %.sroa.3115.0..sroa_idx, align 4
-  %.sroa.4116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.4116.0.copyload = load float, ptr %.sroa.4116.0..sroa_idx, align 4
-  %118 = fcmp ole double %2, 0x3690000000000000
-  %119 = fsub float 1.000000e+00, %.sroa.3115.0.copyload
-  %.0.i.i.i.i65 = select i1 %118, float %119, float %.sroa.3115.0.copyload
-  %120 = tail call noundef float @llvm.maxnum.f32(float %.0.i.i.i.i65, float 0.000000e+00)
-  %121 = fmul float %120, %4
-  %122 = fsub float %.sroa.3115.0.copyload, %121
-  %123 = fcmp olt float %122, 0.000000e+00
-  %.0.i.i.i.i.i66 = select i1 %123, float 0.000000e+00, float %122
-  %124 = fcmp ogt float %.0.i.i.i.i.i66, 1.000000e+00
-  %.1.i.i.i.i.i67 = select i1 %124, float 1.000000e+00, float %.0.i.i.i.i.i66
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %.sroa.0113.0.copyload, ptr %125, align 4
-  %.sroa.4118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %.sroa.2114.0.copyload, ptr %.sroa.4118.0..sroa_idx, align 4
-  %.sroa.5119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %.1.i.i.i.i.i67, ptr %.sroa.5119.0..sroa_idx, align 4
-  %.sroa.6120.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %.sroa.4116.0.copyload, ptr %.sroa.6120.0..sroa_idx, align 4
-  br label %126
+118:                                              ; preds = %3
+  %.sroa.0112.0.copyload = load float, ptr %6, align 4
+  %.sroa.2113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.2113.0.copyload = load float, ptr %.sroa.2113.0..sroa_idx, align 4
+  %.sroa.3114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.3114.0.copyload = load float, ptr %.sroa.3114.0..sroa_idx, align 4
+  %.sroa.4115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.4115.0.copyload = load float, ptr %.sroa.4115.0..sroa_idx, align 4
+  %119 = fcmp ole double %2, 0x3690000000000000
+  %120 = fsub float 1.000000e+00, %.sroa.3114.0.copyload
+  %.0.i.i.i.i64 = select i1 %119, float %120, float %.sroa.3114.0.copyload
+  %121 = tail call noundef float @llvm.maxnum.f32(float %.0.i.i.i.i64, float 0.000000e+00)
+  %122 = fmul float %121, %4
+  %123 = fsub float %.sroa.3114.0.copyload, %122
+  %124 = fcmp olt float %123, 0.000000e+00
+  %.0.i.i.i.i.i65 = select i1 %124, float 0.000000e+00, float %123
+  %125 = fcmp ogt float %.0.i.i.i.i.i65, 1.000000e+00
+  %.1.i.i.i.i.i66 = select i1 %125, float 1.000000e+00, float %.0.i.i.i.i.i65
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %.sroa.0112.0.copyload, ptr %126, align 4
+  %.sroa.4117.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %.sroa.2113.0.copyload, ptr %.sroa.4117.0..sroa_idx, align 4
+  %.sroa.5118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %.1.i.i.i.i.i66, ptr %.sroa.5118.0..sroa_idx, align 4
+  %.sroa.6119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %.sroa.4115.0.copyload, ptr %.sroa.6119.0..sroa_idx, align 4
+  br label %127
 
-126:                                              ; preds = %117, %108, %86, %"_ZN37_$LT$T$u20$as$u20$palette..Darken$GT$6darken17h13d908f4e3e8d219E.exit", %"_ZN37_$LT$T$u20$as$u20$palette..Darken$GT$6darken17h6324c316e15961a4E.exit", %27, %18, %7
+127:                                              ; preds = %118, %109, %87, %"_ZN37_$LT$T$u20$as$u20$palette..Darken$GT$6darken17h13d908f4e3e8d219E.exit", %"_ZN37_$LT$T$u20$as$u20$palette..Darken$GT$6darken17h6324c316e15961a4E.exit", %28, %19, %7
   store i32 %5, ptr %0, align 4
   ret void
 }

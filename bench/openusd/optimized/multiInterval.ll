@@ -785,62 +785,62 @@ define noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__15GfMultiInterval4Hash
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.02.04.i.i.i.i.i, i64 40
   %11 = load double, ptr %8, align 8
   %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq double %11, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %11
-  %12 = bitcast double %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %13 = load i8, ptr %10, align 8
-  %14 = and i8 %13, 1
-  %15 = zext nneg i8 %14 to i64
-  %16 = add i64 %12, %15
-  %17 = add i64 %16, 1
-  %18 = mul i64 %17, %16
-  %19 = lshr i64 %18, 1
-  %20 = add nuw i64 %19, %15
-  %21 = mul i64 %20, -7046029254386353067
-  %22 = tail call noundef i64 @llvm.bswap.i64(i64 %21)
-  %23 = load double, ptr %9, align 8
-  %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq double %23, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %23
-  %24 = bitcast double %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.02.04.i.i.i.i.i, i64 56
-  %26 = load i8, ptr %25, align 8
-  %27 = and i8 %26, 1
-  %28 = zext nneg i8 %27 to i64
-  %29 = add i64 %24, %28
-  %30 = add i64 %29, 1
-  %31 = mul i64 %30, %29
-  %32 = lshr i64 %31, 1
-  %33 = add nuw i64 %32, %28
-  %34 = mul i64 %33, -7046029254386353067
-  %35 = tail call noundef i64 @llvm.bswap.i64(i64 %34)
-  %36 = add i64 %35, %22
-  %37 = add i64 %36, 1
-  %38 = mul i64 %37, %36
-  %39 = lshr i64 %38, 1
-  %40 = add i64 %39, %35
-  %41 = mul i64 %40, -7046029254386353067
-  %42 = tail call noundef i64 @llvm.bswap.i64(i64 %41)
-  br i1 %5, label %43, label %_ZN32pxrInternal_v0_24__pxrReserved__12Tf_HashState7_AppendIRKNS_10GfIntervalEEENSt9enable_ifIXntsr3std11is_integralINSt5decayIT_E4typeEEE5valueEvE4typeEOS7_.exit.i.i.i.i.i
+  %12 = bitcast double %11 to i64
+  %13 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %12
+  %14 = load i8, ptr %10, align 8
+  %15 = and i8 %14, 1
+  %16 = zext nneg i8 %15 to i64
+  %17 = add i64 %13, %16
+  %18 = add i64 %17, 1
+  %19 = mul i64 %18, %17
+  %20 = lshr i64 %19, 1
+  %21 = add nuw i64 %20, %16
+  %22 = mul i64 %21, -7046029254386353067
+  %23 = tail call noundef i64 @llvm.bswap.i64(i64 %22)
+  %24 = load double, ptr %9, align 8
+  %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq double %24, 0.000000e+00
+  %25 = bitcast double %24 to i64
+  %26 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.02.04.i.i.i.i.i, i64 56
+  %28 = load i8, ptr %27, align 8
+  %29 = and i8 %28, 1
+  %30 = zext nneg i8 %29 to i64
+  %31 = add i64 %26, %30
+  %32 = add i64 %31, 1
+  %33 = mul i64 %32, %31
+  %34 = lshr i64 %33, 1
+  %35 = add nuw i64 %34, %30
+  %36 = mul i64 %35, -7046029254386353067
+  %37 = tail call noundef i64 @llvm.bswap.i64(i64 %36)
+  %38 = add i64 %37, %23
+  %39 = add i64 %38, 1
+  %40 = mul i64 %39, %38
+  %41 = lshr i64 %40, 1
+  %42 = add i64 %41, %37
+  %43 = mul i64 %42, -7046029254386353067
+  %44 = tail call noundef i64 @llvm.bswap.i64(i64 %43)
+  br i1 %5, label %45, label %_ZN32pxrInternal_v0_24__pxrReserved__12Tf_HashState7_AppendIRKNS_10GfIntervalEEENSt9enable_ifIXntsr3std11is_integralINSt5decayIT_E4typeEEE5valueEvE4typeEOS7_.exit.i.i.i.i.i
 
-43:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %44 = add i64 %42, %6
-  %45 = add i64 %44, 1
-  %46 = mul i64 %45, %44
-  %47 = lshr i64 %46, 1
-  %48 = add i64 %47, %42
+45:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %46 = add i64 %44, %6
+  %47 = add i64 %46, 1
+  %48 = mul i64 %47, %46
+  %49 = lshr i64 %48, 1
+  %50 = add i64 %49, %44
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Tf_HashState7_AppendIRKNS_10GfIntervalEEENSt9enable_ifIXntsr3std11is_integralINSt5decayIT_E4typeEEE5valueEvE4typeEOS7_.exit.i.i.i.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__12Tf_HashState7_AppendIRKNS_10GfIntervalEEENSt9enable_ifIXntsr3std11is_integralINSt5decayIT_E4typeEEE5valueEvE4typeEOS7_.exit.i.i.i.i.i: ; preds = %43, %.lr.ph.i.i.i.i.i
-  %.sink.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %48, %43 ], [ %42, %.lr.ph.i.i.i.i.i ]
+_ZN32pxrInternal_v0_24__pxrReserved__12Tf_HashState7_AppendIRKNS_10GfIntervalEEENSt9enable_ifIXntsr3std11is_integralINSt5decayIT_E4typeEEE5valueEvE4typeEOS7_.exit.i.i.i.i.i: ; preds = %45, %.lr.ph.i.i.i.i.i
+  %.sink.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %50, %45 ], [ %44, %.lr.ph.i.i.i.i.i ]
   %.not.i.i.i.i.i = icmp eq ptr %7, %4
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt3setINS_10GfIntervalESt4lessIS3_ESaIS3_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSA_i.exit.loopexit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !12
 
 _ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt3setINS_10GfIntervalESt4lessIS3_ESaIS3_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSA_i.exit.loopexit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12Tf_HashState7_AppendIRKNS_10GfIntervalEEENSt9enable_ifIXntsr3std11is_integralINSt5decayIT_E4typeEEE5valueEvE4typeEOS7_.exit.i.i.i.i.i
-  %49 = mul i64 %.sink.i.i.i.i.i.i.i.i.i.i.i, -7046029254386353067
-  %50 = tail call i64 @llvm.bswap.i64(i64 %49)
+  %51 = mul i64 %.sink.i.i.i.i.i.i.i.i.i.i.i, -7046029254386353067
+  %52 = tail call i64 @llvm.bswap.i64(i64 %51)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__6TfHashclIRKSt3setINS_10GfIntervalESt4lessIS3_ESaIS3_EEEEDTcmcl11Tf_HashImplclL_ZSt7declvalIRNS_12Tf_HashStateEEDTcl9__declvalIT_ELi0EEEvEEclsr3stdE7forwardISD_Efp_ELi0EEcvm_EEOSD_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__6TfHashclIRKSt3setINS_10GfIntervalESt4lessIS3_ESaIS3_EEEEDTcmcl11Tf_HashImplclL_ZSt7declvalIRNS_12Tf_HashStateEEDTcl9__declvalIT_ELi0EEEvEEclsr3stdE7forwardISD_Efp_ELi0EEcvm_EEOSD_.exit: ; preds = %1, %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt3setINS_10GfIntervalESt4lessIS3_ESaIS3_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSA_i.exit.loopexit.i
-  %.sroa.0.0.i = phi i64 [ 0, %1 ], [ %50, %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt3setINS_10GfIntervalESt4lessIS3_ESaIS3_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSA_i.exit.loopexit.i ]
+  %.sroa.0.0.i = phi i64 [ 0, %1 ], [ %52, %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt3setINS_10GfIntervalESt4lessIS3_ESaIS3_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSA_i.exit.loopexit.i ]
   ret i64 %.sroa.0.0.i
 }
 

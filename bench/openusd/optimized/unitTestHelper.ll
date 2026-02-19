@@ -5587,12 +5587,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
 define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplIffNS0_14_LocalTypeInfoIfEEE5_HashERKNSt15aligned_storageILm8ELm8EE4typeE(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = load float, ptr %0, align 8
   %.inv.i.i.i.i.i.i = fcmp oeq float %2, 0.000000e+00
-  %storemerge.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i, float 0.000000e+00, float %2
-  %3 = bitcast float %storemerge.i.i.i.i.i.i to i32
+  %3 = bitcast float %2 to i32
   %4 = zext i32 %3 to i64
   %5 = mul i64 %4, -7046029254386353067
-  %6 = tail call noundef i64 @llvm.bswap.i64(i64 %5)
-  ret i64 %6
+  %6 = tail call i64 @llvm.bswap.i64(i64 %5)
+  %7 = select i1 %.inv.i.i.i.i.i.i, i64 0, i64 %6
+  ret i64 %7
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5739,24 +5739,24 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load float, ptr %0, align 8
   %.inv.i.i.i.i.i.i.i.i.i.i = fcmp oeq float %3, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i, float 0.000000e+00, float %3
-  %4 = bitcast float %storemerge.i.i.i.i.i.i.i.i.i.i to i32
+  %4 = bitcast float %3 to i32
   %5 = zext i32 %4 to i64
-  %6 = load float, ptr %2, align 4
-  %.inv.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq float %6, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i, float 0.000000e+00, float %6
-  %7 = bitcast float %storemerge.i.i.i.i.i.i.i.i.i.i.i to i32
-  %8 = zext i32 %7 to i64
-  %9 = add nuw nsw i64 %8, %5
-  %10 = add nuw nsw i64 %9, 1
-  %11 = mul i64 %10, %9
-  %12 = lshr i64 %11, 1
-  %13 = add nuw i64 %12, %8
-  %14 = mul i64 %13, -7046029254386353067
-  %15 = tail call noundef i64 @llvm.bswap.i64(i64 %14)
+  %6 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %5
+  %7 = load float, ptr %2, align 4
+  %.inv.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq float %7, 0.000000e+00
+  %8 = bitcast float %7 to i32
+  %9 = zext i32 %8 to i64
+  %10 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %9
+  %11 = add nuw nsw i64 %10, %6
+  %12 = add nuw nsw i64 %11, 1
+  %13 = mul i64 %12, %11
+  %14 = lshr i64 %13, 1
+  %15 = add nuw i64 %14, %10
   %16 = mul i64 %15, -7046029254386353067
   %17 = tail call noundef i64 @llvm.bswap.i64(i64 %16)
-  ret i64 %17
+  %18 = mul i64 %17, -7046029254386353067
+  %19 = tail call noundef i64 @llvm.bswap.i64(i64 %18)
+  ret i64 %19
 }
 
 ; Function Attrs: mustprogress uwtable

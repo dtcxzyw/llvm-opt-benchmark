@@ -14915,27 +14915,27 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %1, %.lr.ph.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i = phi i64 [ %7, %.lr.ph.i.i.i.i.i.i.i.i ], [ %5, %1 ]
   %.024.i.i.i.i.i.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i.i.i.i.i.i ], [ %4, %1 ]
-  %6 = phi i64 [ %16, %.lr.ph.i.i.i.i.i.i.i.i ], [ %3, %1 ]
+  %6 = phi i64 [ %17, %.lr.ph.i.i.i.i.i.i.i.i ], [ %3, %1 ]
   %7 = add i64 %.05.i.i.i.i.i.i.i.i, -1
   %8 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i.i.i.i.i, i64 4
   %9 = load float, ptr %.024.i.i.i.i.i.i.i.i, align 4
   %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq float %9, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i, float 0.000000e+00, float %9
-  %10 = bitcast float %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i to i32
+  %10 = bitcast float %9 to i32
   %11 = zext i32 %10 to i64
-  %12 = add i64 %6, %11
-  %13 = add i64 %12, 1
-  %14 = mul i64 %13, %12
-  %15 = lshr i64 %14, 1
-  %16 = add nuw i64 %15, %11
+  %12 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %11
+  %13 = add i64 %12, %6
+  %14 = add i64 %13, 1
+  %15 = mul i64 %14, %13
+  %16 = lshr i64 %15, 1
+  %17 = add nuw i64 %16, %12
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %7, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7VtArrayIfEEvE4HashERKS3_.exit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !152
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7VtArrayIfEEvE4HashERKS3_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %1
-  %.sroa.0.0.i.i.i.i = phi i64 [ %3, %1 ], [ %16, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %17 = mul i64 %.sroa.0.0.i.i.i.i, -7046029254386353067
-  %18 = tail call noundef i64 @llvm.bswap.i64(i64 %17)
-  ret i64 %18
+  %.sroa.0.0.i.i.i.i = phi i64 [ %3, %1 ], [ %17, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %18 = mul i64 %.sroa.0.0.i.i.i.i, -7046029254386353067
+  %19 = tail call noundef i64 @llvm.bswap.i64(i64 %18)
+  ret i64 %19
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -15316,40 +15316,40 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %1, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi i64 [ %7, %.lr.ph.i.i.i.i.i.i.i ], [ %5, %1 ]
   %.024.i.i.i.i.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i.i.i.i.i ], [ %4, %1 ]
-  %6 = phi i64 [ %27, %.lr.ph.i.i.i.i.i.i.i ], [ %3, %1 ]
+  %6 = phi i64 [ %29, %.lr.ph.i.i.i.i.i.i.i ], [ %3, %1 ]
   %7 = add i64 %.05.i.i.i.i.i.i.i, -1
   %8 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i.i.i.i, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i.i.i.i, i64 4
   %10 = load float, ptr %9, align 4
   %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq float %10, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, float 0.000000e+00, float %10
-  %11 = bitcast float %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i32
+  %11 = bitcast float %10 to i32
   %12 = zext i32 %11 to i64
-  %13 = load float, ptr %.024.i.i.i.i.i.i.i, align 4
-  %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq float %13, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, float 0.000000e+00, float %13
-  %14 = bitcast float %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i32
-  %15 = zext i32 %14 to i64
-  %16 = add nuw nsw i64 %15, %12
-  %17 = add nuw nsw i64 %16, 1
-  %18 = mul i64 %17, %16
-  %19 = lshr i64 %18, 1
-  %20 = add nuw i64 %19, %12
-  %21 = mul i64 %20, -7046029254386353067
-  %22 = tail call noundef i64 @llvm.bswap.i64(i64 %21)
-  %23 = add i64 %22, %6
-  %24 = add i64 %23, 1
-  %25 = mul i64 %24, %23
-  %26 = lshr i64 %25, 1
-  %27 = add i64 %26, %22
+  %13 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %12
+  %14 = load float, ptr %.024.i.i.i.i.i.i.i, align 4
+  %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq float %14, 0.000000e+00
+  %15 = bitcast float %14 to i32
+  %16 = zext i32 %15 to i64
+  %17 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %16
+  %18 = add nuw nsw i64 %17, %13
+  %19 = add nuw nsw i64 %18, 1
+  %20 = mul i64 %19, %18
+  %21 = lshr i64 %20, 1
+  %22 = add nuw i64 %21, %13
+  %23 = mul i64 %22, -7046029254386353067
+  %24 = tail call noundef i64 @llvm.bswap.i64(i64 %23)
+  %25 = add i64 %24, %6
+  %26 = add i64 %25, 1
+  %27 = mul i64 %26, %25
+  %28 = lshr i64 %27, 1
+  %29 = add i64 %28, %24
   %.not.i.i.i.i.i.i.i = icmp eq i64 %7, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7VtArrayINS_7GfVec2fEEEvE4HashERKS4_.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !159
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7VtArrayINS_7GfVec2fEEEvE4HashERKS4_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %1
-  %.sroa.0.0.i.i.i.i = phi i64 [ %3, %1 ], [ %27, %.lr.ph.i.i.i.i.i.i.i ]
-  %28 = mul i64 %.sroa.0.0.i.i.i.i, -7046029254386353067
-  %29 = tail call noundef i64 @llvm.bswap.i64(i64 %28)
-  ret i64 %29
+  %.sroa.0.0.i.i.i.i = phi i64 [ %3, %1 ], [ %29, %.lr.ph.i.i.i.i.i.i.i ]
+  %30 = mul i64 %.sroa.0.0.i.i.i.i, -7046029254386353067
+  %31 = tail call noundef i64 @llvm.bswap.i64(i64 %30)
+  ret i64 %31
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -15935,7 +15935,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6Appen
   br label %17
 
 17:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec3fEEEEvDpOT_.exit.i.i, %.lr.ph.i.i
-  %18 = phi i8 [ %.promoted6.i.i, %.lr.ph.i.i ], [ %53, %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec3fEEEEvDpOT_.exit.i.i ]
+  %18 = phi i8 [ %.promoted6.i.i, %.lr.ph.i.i ], [ %56, %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec3fEEEEvDpOT_.exit.i.i ]
   %.05.i.i = phi i64 [ %16, %.lr.ph.i.i ], [ %20, %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec3fEEEEvDpOT_.exit.i.i ]
   %.024.i.i = phi ptr [ %15, %.lr.ph.i.i ], [ %21, %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec3fEEEEvDpOT_.exit.i.i ]
   %19 = phi i64 [ %.promoted.i.i, %.lr.ph.i.i ], [ %.sink.i.i.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec3fEEEEvDpOT_.exit.i.i ]
@@ -15945,49 +15945,49 @@ _ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6Appen
   %23 = getelementptr inbounds nuw i8, ptr %.024.i.i, i64 8
   %24 = load float, ptr %.024.i.i, align 4
   %.inv.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq float %24, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i, float 0.000000e+00, float %24
-  %25 = bitcast float %storemerge.i.i.i.i.i.i.i.i.i.i.i to i32
+  %25 = bitcast float %24 to i32
   %26 = zext i32 %25 to i64
-  %27 = load float, ptr %22, align 4
-  %.inv.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq float %27, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i, float 0.000000e+00, float %27
-  %28 = bitcast float %storemerge.i.i.i.i.i.i.i.i.i.i.i.i to i32
-  %29 = zext i32 %28 to i64
-  %30 = add nuw nsw i64 %29, %26
-  %31 = add nuw nsw i64 %30, 1
-  %32 = mul i64 %31, %30
-  %33 = lshr i64 %32, 1
-  %34 = load float, ptr %23, align 4
-  %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq float %34, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i, float 0.000000e+00, float %34
-  %35 = bitcast float %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i to i32
-  %36 = zext i32 %35 to i64
-  %37 = add nuw nsw i64 %36, %29
-  %38 = add nuw i64 %37, %33
-  %39 = add nuw i64 %38, 1
-  %40 = mul i64 %39, %38
-  %41 = lshr i64 %40, 1
-  %42 = add nuw i64 %41, %36
-  %43 = mul i64 %42, -7046029254386353067
-  %44 = tail call noundef i64 @llvm.bswap.i64(i64 %43)
-  %45 = trunc i8 %18 to i1
-  br i1 %45, label %47, label %46
+  %27 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %26
+  %28 = load float, ptr %22, align 4
+  %.inv.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq float %28, 0.000000e+00
+  %29 = bitcast float %28 to i32
+  %30 = zext i32 %29 to i64
+  %31 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %30
+  %32 = add nuw nsw i64 %31, %27
+  %33 = add nuw nsw i64 %32, 1
+  %34 = mul i64 %33, %32
+  %35 = lshr i64 %34, 1
+  %36 = load float, ptr %23, align 4
+  %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq float %36, 0.000000e+00
+  %37 = bitcast float %36 to i32
+  %38 = zext i32 %37 to i64
+  %39 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %38
+  %40 = add nuw nsw i64 %39, %31
+  %41 = add nuw i64 %40, %35
+  %42 = add nuw i64 %41, 1
+  %43 = mul i64 %42, %41
+  %44 = lshr i64 %43, 1
+  %45 = add nuw i64 %44, %39
+  %46 = mul i64 %45, -7046029254386353067
+  %47 = tail call noundef i64 @llvm.bswap.i64(i64 %46)
+  %48 = trunc i8 %18 to i1
+  br i1 %48, label %50, label %49
 
-46:                                               ; preds = %17
+49:                                               ; preds = %17
   store i8 1, ptr %4, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec3fEEEEvDpOT_.exit.i.i
 
-47:                                               ; preds = %17
-  %48 = add i64 %44, %19
-  %49 = add i64 %48, 1
-  %50 = mul i64 %49, %48
-  %51 = lshr i64 %50, 1
-  %52 = add i64 %51, %44
+50:                                               ; preds = %17
+  %51 = add i64 %47, %19
+  %52 = add i64 %51, 1
+  %53 = mul i64 %52, %51
+  %54 = lshr i64 %53, 1
+  %55 = add i64 %54, %47
   br label %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec3fEEEEvDpOT_.exit.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec3fEEEEvDpOT_.exit.i.i: ; preds = %47, %46
-  %53 = phi i8 [ %18, %47 ], [ 1, %46 ]
-  %.sink.i.i.i.i.i.i.i.i.i.i = phi i64 [ %52, %47 ], [ %44, %46 ]
+_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec3fEEEEvDpOT_.exit.i.i: ; preds = %50, %49
+  %56 = phi i8 [ %18, %50 ], [ 1, %49 ]
+  %.sink.i.i.i.i.i.i.i.i.i.i = phi i64 [ %55, %50 ], [ %47, %49 ]
   store i64 %.sink.i.i.i.i.i.i.i.i.i.i, ptr %0, align 8
   %.not.i.i = icmp eq i64 %20, 0
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE16AppendContiguousINS_7GfVec3fEEEvPKT_m.exit, label %17, !llvm.loop !172
@@ -16406,7 +16406,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6Appen
   br label %17
 
 17:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec4fEEEEvDpOT_.exit.i.i, %.lr.ph.i.i
-  %18 = phi i8 [ %.promoted6.i.i, %.lr.ph.i.i ], [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec4fEEEEvDpOT_.exit.i.i ]
+  %18 = phi i8 [ %.promoted6.i.i, %.lr.ph.i.i ], [ %66, %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec4fEEEEvDpOT_.exit.i.i ]
   %.05.i.i = phi i64 [ %16, %.lr.ph.i.i ], [ %20, %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec4fEEEEvDpOT_.exit.i.i ]
   %.024.i.i = phi ptr [ %15, %.lr.ph.i.i ], [ %21, %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec4fEEEEvDpOT_.exit.i.i ]
   %19 = phi i64 [ %.promoted.i.i, %.lr.ph.i.i ], [ %.sink.i.i.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec4fEEEEvDpOT_.exit.i.i ]
@@ -16417,59 +16417,59 @@ _ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6Appen
   %24 = getelementptr inbounds nuw i8, ptr %.024.i.i, i64 12
   %25 = load float, ptr %.024.i.i, align 4
   %.inv.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq float %25, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i, float 0.000000e+00, float %25
-  %26 = bitcast float %storemerge.i.i.i.i.i.i.i.i.i.i.i to i32
+  %26 = bitcast float %25 to i32
   %27 = zext i32 %26 to i64
-  %28 = load float, ptr %22, align 4
-  %.inv.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq float %28, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i, float 0.000000e+00, float %28
-  %29 = bitcast float %storemerge.i.i.i.i.i.i.i.i.i.i.i.i to i32
-  %30 = zext i32 %29 to i64
-  %31 = add nuw nsw i64 %30, %27
-  %32 = add nuw nsw i64 %31, 1
-  %33 = mul i64 %32, %31
-  %34 = lshr i64 %33, 1
-  %35 = load float, ptr %23, align 4
-  %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq float %35, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i, float 0.000000e+00, float %35
-  %36 = bitcast float %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i to i32
-  %37 = zext i32 %36 to i64
-  %38 = add nuw nsw i64 %37, %30
-  %39 = add nuw i64 %38, %34
-  %40 = add nuw i64 %39, 1
-  %41 = mul i64 %40, %39
-  %42 = lshr i64 %41, 1
-  %43 = load float, ptr %24, align 4
-  %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq float %43, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i, float 0.000000e+00, float %43
-  %44 = bitcast float %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i32
-  %45 = zext i32 %44 to i64
-  %46 = add nuw nsw i64 %45, %37
-  %47 = add nuw i64 %46, %42
-  %48 = add nuw i64 %47, 1
-  %49 = mul i64 %48, %47
-  %50 = lshr i64 %49, 1
+  %28 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %27
+  %29 = load float, ptr %22, align 4
+  %.inv.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq float %29, 0.000000e+00
+  %30 = bitcast float %29 to i32
+  %31 = zext i32 %30 to i64
+  %32 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %31
+  %33 = add nuw nsw i64 %32, %28
+  %34 = add nuw nsw i64 %33, 1
+  %35 = mul i64 %34, %33
+  %36 = lshr i64 %35, 1
+  %37 = load float, ptr %23, align 4
+  %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq float %37, 0.000000e+00
+  %38 = bitcast float %37 to i32
+  %39 = zext i32 %38 to i64
+  %40 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %39
+  %41 = add nuw nsw i64 %40, %32
+  %42 = add nuw i64 %41, %36
+  %43 = add nuw i64 %42, 1
+  %44 = mul i64 %43, %42
+  %45 = lshr i64 %44, 1
+  %46 = load float, ptr %24, align 4
+  %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq float %46, 0.000000e+00
+  %47 = bitcast float %46 to i32
+  %48 = zext i32 %47 to i64
+  %49 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %48
+  %50 = add nuw nsw i64 %49, %40
   %51 = add nuw i64 %50, %45
-  %52 = mul i64 %51, -7046029254386353067
-  %53 = tail call noundef i64 @llvm.bswap.i64(i64 %52)
-  %54 = trunc i8 %18 to i1
-  br i1 %54, label %56, label %55
+  %52 = add nuw i64 %51, 1
+  %53 = mul i64 %52, %51
+  %54 = lshr i64 %53, 1
+  %55 = add nuw i64 %54, %49
+  %56 = mul i64 %55, -7046029254386353067
+  %57 = tail call noundef i64 @llvm.bswap.i64(i64 %56)
+  %58 = trunc i8 %18 to i1
+  br i1 %58, label %60, label %59
 
-55:                                               ; preds = %17
+59:                                               ; preds = %17
   store i8 1, ptr %4, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec4fEEEEvDpOT_.exit.i.i
 
-56:                                               ; preds = %17
-  %57 = add i64 %53, %19
-  %58 = add i64 %57, 1
-  %59 = mul i64 %58, %57
-  %60 = lshr i64 %59, 1
-  %61 = add i64 %60, %53
+60:                                               ; preds = %17
+  %61 = add i64 %57, %19
+  %62 = add i64 %61, 1
+  %63 = mul i64 %62, %61
+  %64 = lshr i64 %63, 1
+  %65 = add i64 %64, %57
   br label %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec4fEEEEvDpOT_.exit.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec4fEEEEvDpOT_.exit.i.i: ; preds = %56, %55
-  %62 = phi i8 [ %18, %56 ], [ 1, %55 ]
-  %.sink.i.i.i.i.i.i.i.i.i.i = phi i64 [ %61, %56 ], [ %53, %55 ]
+_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec4fEEEEvDpOT_.exit.i.i: ; preds = %60, %59
+  %66 = phi i8 [ %18, %60 ], [ 1, %59 ]
+  %.sink.i.i.i.i.i.i.i.i.i.i = phi i64 [ %65, %60 ], [ %57, %59 ]
   store i64 %.sink.i.i.i.i.i.i.i.i.i.i, ptr %0, align 8
   %.not.i.i = icmp eq i64 %20, 0
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE16AppendContiguousINS_7GfVec4fEEEvPKT_m.exit, label %17, !llvm.loop !179
@@ -16676,26 +16676,26 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %1, %.lr.ph.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i = phi i64 [ %7, %.lr.ph.i.i.i.i.i.i.i.i ], [ %5, %1 ]
   %.024.i.i.i.i.i.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i.i.i.i.i.i ], [ %4, %1 ]
-  %6 = phi i64 [ %15, %.lr.ph.i.i.i.i.i.i.i.i ], [ %3, %1 ]
+  %6 = phi i64 [ %16, %.lr.ph.i.i.i.i.i.i.i.i ], [ %3, %1 ]
   %7 = add i64 %.05.i.i.i.i.i.i.i.i, -1
   %8 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i.i.i.i.i, i64 8
   %9 = load double, ptr %.024.i.i.i.i.i.i.i.i, align 8
   %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq double %9, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %9
-  %10 = bitcast double %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %11 = add i64 %6, %10
-  %12 = add i64 %11, 1
-  %13 = mul i64 %12, %11
-  %14 = lshr i64 %13, 1
-  %15 = add i64 %14, %10
+  %10 = bitcast double %9 to i64
+  %11 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %10
+  %12 = add i64 %11, %6
+  %13 = add i64 %12, 1
+  %14 = mul i64 %13, %12
+  %15 = lshr i64 %14, 1
+  %16 = add i64 %15, %11
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %7, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7VtArrayIdEEvE4HashERKS3_.exit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !180
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7VtArrayIdEEvE4HashERKS3_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %1
-  %.sroa.0.0.i.i.i.i = phi i64 [ %3, %1 ], [ %15, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %16 = mul i64 %.sroa.0.0.i.i.i.i, -7046029254386353067
-  %17 = tail call noundef i64 @llvm.bswap.i64(i64 %16)
-  ret i64 %17
+  %.sroa.0.0.i.i.i.i = phi i64 [ %3, %1 ], [ %16, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %17 = mul i64 %.sroa.0.0.i.i.i.i, -7046029254386353067
+  %18 = tail call noundef i64 @llvm.bswap.i64(i64 %17)
+  ret i64 %18
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -17069,38 +17069,38 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %1, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi i64 [ %7, %.lr.ph.i.i.i.i.i.i.i ], [ %5, %1 ]
   %.024.i.i.i.i.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i.i.i.i.i ], [ %4, %1 ]
-  %6 = phi i64 [ %25, %.lr.ph.i.i.i.i.i.i.i ], [ %3, %1 ]
+  %6 = phi i64 [ %27, %.lr.ph.i.i.i.i.i.i.i ], [ %3, %1 ]
   %7 = add i64 %.05.i.i.i.i.i.i.i, -1
   %8 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i.i.i.i, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i.i.i.i, i64 8
   %10 = load double, ptr %9, align 8
   %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq double %10, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %10
-  %11 = bitcast double %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %12 = load double, ptr %.024.i.i.i.i.i.i.i, align 8
-  %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq double %12, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %12
-  %13 = bitcast double %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %14 = add i64 %13, %11
-  %15 = add i64 %14, 1
-  %16 = mul i64 %15, %14
-  %17 = lshr i64 %16, 1
-  %18 = add i64 %17, %11
-  %19 = mul i64 %18, -7046029254386353067
-  %20 = tail call noundef i64 @llvm.bswap.i64(i64 %19)
-  %21 = add i64 %20, %6
-  %22 = add i64 %21, 1
-  %23 = mul i64 %22, %21
-  %24 = lshr i64 %23, 1
-  %25 = add i64 %24, %20
+  %11 = bitcast double %10 to i64
+  %12 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %11
+  %13 = load double, ptr %.024.i.i.i.i.i.i.i, align 8
+  %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq double %13, 0.000000e+00
+  %14 = bitcast double %13 to i64
+  %15 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %14
+  %16 = add i64 %15, %12
+  %17 = add i64 %16, 1
+  %18 = mul i64 %17, %16
+  %19 = lshr i64 %18, 1
+  %20 = add i64 %19, %12
+  %21 = mul i64 %20, -7046029254386353067
+  %22 = tail call noundef i64 @llvm.bswap.i64(i64 %21)
+  %23 = add i64 %22, %6
+  %24 = add i64 %23, 1
+  %25 = mul i64 %24, %23
+  %26 = lshr i64 %25, 1
+  %27 = add i64 %26, %22
   %.not.i.i.i.i.i.i.i = icmp eq i64 %7, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7VtArrayINS_7GfVec2dEEEvE4HashERKS4_.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !187
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7VtArrayINS_7GfVec2dEEEvE4HashERKS4_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %1
-  %.sroa.0.0.i.i.i.i = phi i64 [ %3, %1 ], [ %25, %.lr.ph.i.i.i.i.i.i.i ]
-  %26 = mul i64 %.sroa.0.0.i.i.i.i, -7046029254386353067
-  %27 = tail call noundef i64 @llvm.bswap.i64(i64 %26)
-  ret i64 %27
+  %.sroa.0.0.i.i.i.i = phi i64 [ %3, %1 ], [ %27, %.lr.ph.i.i.i.i.i.i.i ]
+  %28 = mul i64 %.sroa.0.0.i.i.i.i, -7046029254386353067
+  %29 = tail call noundef i64 @llvm.bswap.i64(i64 %28)
+  ret i64 %29
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -17686,7 +17686,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6Appen
   br label %17
 
 17:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec3dEEEEvDpOT_.exit.i.i, %.lr.ph.i.i
-  %18 = phi i8 [ %.promoted6.i.i, %.lr.ph.i.i ], [ %50, %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec3dEEEEvDpOT_.exit.i.i ]
+  %18 = phi i8 [ %.promoted6.i.i, %.lr.ph.i.i ], [ %53, %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec3dEEEEvDpOT_.exit.i.i ]
   %.05.i.i = phi i64 [ %16, %.lr.ph.i.i ], [ %20, %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec3dEEEEvDpOT_.exit.i.i ]
   %.024.i.i = phi ptr [ %15, %.lr.ph.i.i ], [ %21, %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec3dEEEEvDpOT_.exit.i.i ]
   %19 = phi i64 [ %.promoted.i.i, %.lr.ph.i.i ], [ %.sink.i.i.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec3dEEEEvDpOT_.exit.i.i ]
@@ -17696,46 +17696,46 @@ _ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6Appen
   %23 = getelementptr inbounds nuw i8, ptr %.024.i.i, i64 16
   %24 = load double, ptr %.024.i.i, align 8
   %.inv.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq double %24, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %24
-  %25 = bitcast double %storemerge.i.i.i.i.i.i.i.i.i.i.i to i64
-  %26 = load double, ptr %22, align 8
-  %.inv.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq double %26, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %26
-  %27 = bitcast double %storemerge.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %28 = add i64 %27, %25
-  %29 = add i64 %28, 1
-  %30 = mul i64 %29, %28
-  %31 = lshr i64 %30, 1
-  %32 = load double, ptr %23, align 8
-  %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq double %32, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %32
-  %33 = bitcast double %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %34 = add i64 %33, %27
-  %35 = add i64 %34, %31
-  %36 = add i64 %35, 1
-  %37 = mul i64 %36, %35
-  %38 = lshr i64 %37, 1
-  %39 = add i64 %38, %33
-  %40 = mul i64 %39, -7046029254386353067
-  %41 = tail call noundef i64 @llvm.bswap.i64(i64 %40)
-  %42 = trunc i8 %18 to i1
-  br i1 %42, label %44, label %43
+  %25 = bitcast double %24 to i64
+  %26 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %25
+  %27 = load double, ptr %22, align 8
+  %.inv.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq double %27, 0.000000e+00
+  %28 = bitcast double %27 to i64
+  %29 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %28
+  %30 = add i64 %29, %26
+  %31 = add i64 %30, 1
+  %32 = mul i64 %31, %30
+  %33 = lshr i64 %32, 1
+  %34 = load double, ptr %23, align 8
+  %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq double %34, 0.000000e+00
+  %35 = bitcast double %34 to i64
+  %36 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %35
+  %37 = add i64 %36, %29
+  %38 = add i64 %37, %33
+  %39 = add i64 %38, 1
+  %40 = mul i64 %39, %38
+  %41 = lshr i64 %40, 1
+  %42 = add i64 %41, %36
+  %43 = mul i64 %42, -7046029254386353067
+  %44 = tail call noundef i64 @llvm.bswap.i64(i64 %43)
+  %45 = trunc i8 %18 to i1
+  br i1 %45, label %47, label %46
 
-43:                                               ; preds = %17
+46:                                               ; preds = %17
   store i8 1, ptr %4, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec3dEEEEvDpOT_.exit.i.i
 
-44:                                               ; preds = %17
-  %45 = add i64 %41, %19
-  %46 = add i64 %45, 1
-  %47 = mul i64 %46, %45
-  %48 = lshr i64 %47, 1
-  %49 = add i64 %48, %41
+47:                                               ; preds = %17
+  %48 = add i64 %44, %19
+  %49 = add i64 %48, 1
+  %50 = mul i64 %49, %48
+  %51 = lshr i64 %50, 1
+  %52 = add i64 %51, %44
   br label %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec3dEEEEvDpOT_.exit.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec3dEEEEvDpOT_.exit.i.i: ; preds = %44, %43
-  %50 = phi i8 [ %18, %44 ], [ 1, %43 ]
-  %.sink.i.i.i.i.i.i.i.i.i.i = phi i64 [ %49, %44 ], [ %41, %43 ]
+_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec3dEEEEvDpOT_.exit.i.i: ; preds = %47, %46
+  %53 = phi i8 [ %18, %47 ], [ 1, %46 ]
+  %.sink.i.i.i.i.i.i.i.i.i.i = phi i64 [ %52, %47 ], [ %44, %46 ]
   store i64 %.sink.i.i.i.i.i.i.i.i.i.i, ptr %0, align 8
   %.not.i.i = icmp eq i64 %20, 0
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE16AppendContiguousINS_7GfVec3dEEEvPKT_m.exit, label %17, !llvm.loop !200
@@ -18154,7 +18154,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6Appen
   br label %17
 
 17:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec4dEEEEvDpOT_.exit.i.i, %.lr.ph.i.i
-  %18 = phi i8 [ %.promoted6.i.i, %.lr.ph.i.i ], [ %58, %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec4dEEEEvDpOT_.exit.i.i ]
+  %18 = phi i8 [ %.promoted6.i.i, %.lr.ph.i.i ], [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec4dEEEEvDpOT_.exit.i.i ]
   %.05.i.i = phi i64 [ %16, %.lr.ph.i.i ], [ %20, %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec4dEEEEvDpOT_.exit.i.i ]
   %.024.i.i = phi ptr [ %15, %.lr.ph.i.i ], [ %21, %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec4dEEEEvDpOT_.exit.i.i ]
   %19 = phi i64 [ %.promoted.i.i, %.lr.ph.i.i ], [ %.sink.i.i.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec4dEEEEvDpOT_.exit.i.i ]
@@ -18165,55 +18165,55 @@ _ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6Appen
   %24 = getelementptr inbounds nuw i8, ptr %.024.i.i, i64 24
   %25 = load double, ptr %.024.i.i, align 8
   %.inv.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq double %25, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %25
-  %26 = bitcast double %storemerge.i.i.i.i.i.i.i.i.i.i.i to i64
-  %27 = load double, ptr %22, align 8
-  %.inv.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq double %27, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %27
-  %28 = bitcast double %storemerge.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %29 = add i64 %28, %26
-  %30 = add i64 %29, 1
-  %31 = mul i64 %30, %29
-  %32 = lshr i64 %31, 1
-  %33 = load double, ptr %23, align 8
-  %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq double %33, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %33
-  %34 = bitcast double %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %35 = add i64 %34, %28
-  %36 = add i64 %35, %32
-  %37 = add i64 %36, 1
-  %38 = mul i64 %37, %36
-  %39 = lshr i64 %38, 1
-  %40 = load double, ptr %24, align 8
-  %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq double %40, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %40
-  %41 = bitcast double %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %42 = add i64 %41, %34
-  %43 = add i64 %42, %39
-  %44 = add i64 %43, 1
-  %45 = mul i64 %44, %43
-  %46 = lshr i64 %45, 1
-  %47 = add i64 %46, %41
-  %48 = mul i64 %47, -7046029254386353067
-  %49 = tail call noundef i64 @llvm.bswap.i64(i64 %48)
-  %50 = trunc i8 %18 to i1
-  br i1 %50, label %52, label %51
+  %26 = bitcast double %25 to i64
+  %27 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %26
+  %28 = load double, ptr %22, align 8
+  %.inv.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq double %28, 0.000000e+00
+  %29 = bitcast double %28 to i64
+  %30 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %29
+  %31 = add i64 %30, %27
+  %32 = add i64 %31, 1
+  %33 = mul i64 %32, %31
+  %34 = lshr i64 %33, 1
+  %35 = load double, ptr %23, align 8
+  %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq double %35, 0.000000e+00
+  %36 = bitcast double %35 to i64
+  %37 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %36
+  %38 = add i64 %37, %30
+  %39 = add i64 %38, %34
+  %40 = add i64 %39, 1
+  %41 = mul i64 %40, %39
+  %42 = lshr i64 %41, 1
+  %43 = load double, ptr %24, align 8
+  %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq double %43, 0.000000e+00
+  %44 = bitcast double %43 to i64
+  %45 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %44
+  %46 = add i64 %45, %37
+  %47 = add i64 %46, %42
+  %48 = add i64 %47, 1
+  %49 = mul i64 %48, %47
+  %50 = lshr i64 %49, 1
+  %51 = add i64 %50, %45
+  %52 = mul i64 %51, -7046029254386353067
+  %53 = tail call noundef i64 @llvm.bswap.i64(i64 %52)
+  %54 = trunc i8 %18 to i1
+  br i1 %54, label %56, label %55
 
-51:                                               ; preds = %17
+55:                                               ; preds = %17
   store i8 1, ptr %4, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec4dEEEEvDpOT_.exit.i.i
 
-52:                                               ; preds = %17
-  %53 = add i64 %49, %19
-  %54 = add i64 %53, 1
-  %55 = mul i64 %54, %53
-  %56 = lshr i64 %55, 1
-  %57 = add i64 %56, %49
+56:                                               ; preds = %17
+  %57 = add i64 %53, %19
+  %58 = add i64 %57, 1
+  %59 = mul i64 %58, %57
+  %60 = lshr i64 %59, 1
+  %61 = add i64 %60, %53
   br label %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec4dEEEEvDpOT_.exit.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec4dEEEEvDpOT_.exit.i.i: ; preds = %52, %51
-  %58 = phi i8 [ %18, %52 ], [ 1, %51 ]
-  %.sink.i.i.i.i.i.i.i.i.i.i = phi i64 [ %57, %52 ], [ %49, %51 ]
+_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7GfVec4dEEEEvDpOT_.exit.i.i: ; preds = %56, %55
+  %62 = phi i8 [ %18, %56 ], [ 1, %55 ]
+  %.sink.i.i.i.i.i.i.i.i.i.i = phi i64 [ %61, %56 ], [ %53, %55 ]
   store i64 %.sink.i.i.i.i.i.i.i.i.i.i, ptr %0, align 8
   %.not.i.i = icmp eq i64 %20, 0
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE16AppendContiguousINS_7GfVec4dEEEvPKT_m.exit, label %17, !llvm.loop !207

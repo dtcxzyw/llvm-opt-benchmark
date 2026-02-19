@@ -12399,34 +12399,34 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load float, ptr %2, align 4
   %.inv.i.i.i.i.i.i.i.i.i.i = fcmp oeq float %5, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i, float 0.000000e+00, float %5
-  %6 = bitcast float %storemerge.i.i.i.i.i.i.i.i.i.i to i32
+  %6 = bitcast float %5 to i32
   %7 = zext i32 %6 to i64
-  %8 = load float, ptr %3, align 4
-  %.inv.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq float %8, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i, float 0.000000e+00, float %8
-  %9 = bitcast float %storemerge.i.i.i.i.i.i.i.i.i.i.i to i32
-  %10 = zext i32 %9 to i64
-  %11 = add nuw nsw i64 %10, %7
-  %12 = add nuw nsw i64 %11, 1
-  %13 = mul i64 %12, %11
-  %14 = lshr i64 %13, 1
-  %15 = load float, ptr %4, align 4
-  %.inv.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq float %15, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i, float 0.000000e+00, float %15
-  %16 = bitcast float %storemerge.i.i.i.i.i.i.i.i.i.i.i.i to i32
-  %17 = zext i32 %16 to i64
-  %18 = add nuw nsw i64 %17, %10
-  %19 = add nuw i64 %18, %14
-  %20 = add nuw i64 %19, 1
-  %21 = mul i64 %20, %19
-  %22 = lshr i64 %21, 1
-  %23 = add nuw i64 %22, %17
-  %24 = mul i64 %23, -7046029254386353067
-  %25 = tail call noundef i64 @llvm.bswap.i64(i64 %24)
-  %26 = mul i64 %25, -7046029254386353067
-  %27 = tail call noundef i64 @llvm.bswap.i64(i64 %26)
-  ret i64 %27
+  %8 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %7
+  %9 = load float, ptr %3, align 4
+  %.inv.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq float %9, 0.000000e+00
+  %10 = bitcast float %9 to i32
+  %11 = zext i32 %10 to i64
+  %12 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %11
+  %13 = add nuw nsw i64 %12, %8
+  %14 = add nuw nsw i64 %13, 1
+  %15 = mul i64 %14, %13
+  %16 = lshr i64 %15, 1
+  %17 = load float, ptr %4, align 4
+  %.inv.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq float %17, 0.000000e+00
+  %18 = bitcast float %17 to i32
+  %19 = zext i32 %18 to i64
+  %20 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %19
+  %21 = add nuw nsw i64 %20, %12
+  %22 = add nuw i64 %21, %16
+  %23 = add nuw i64 %22, 1
+  %24 = mul i64 %23, %22
+  %25 = lshr i64 %24, 1
+  %26 = add nuw i64 %25, %20
+  %27 = mul i64 %26, -7046029254386353067
+  %28 = tail call noundef i64 @llvm.bswap.i64(i64 %27)
+  %29 = mul i64 %28, -7046029254386353067
+  %30 = tail call noundef i64 @llvm.bswap.i64(i64 %29)
+  ret i64 %30
 }
 
 ; Function Attrs: mustprogress uwtable

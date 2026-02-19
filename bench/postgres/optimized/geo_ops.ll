@@ -8765,9 +8765,9 @@ define dso_local i64 @dist_cpoly(ptr noundef readonly captures(none) %0) local_u
 
 dist_cpoly_internal.exit:                         ; preds = %1, %15
   %21 = fcmp olt double %12, 0.000000e+00
-  %.0.i = select i1 %21, double 0.000000e+00, double %12
-  %22 = bitcast double %.0.i to i64
-  ret i64 %22
+  %22 = bitcast double %12 to i64
+  %23 = select i1 %21, i64 0, i64 %22
+  ret i64 %23
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8801,9 +8801,9 @@ define dso_local i64 @dist_polyc(ptr noundef readonly captures(none) %0) local_u
 
 dist_cpoly_internal.exit:                         ; preds = %1, %15
   %21 = fcmp olt double %12, 0.000000e+00
-  %.0.i = select i1 %21, double 0.000000e+00, double %12
-  %22 = bitcast double %.0.i to i64
-  ret i64 %22
+  %22 = bitcast double %12 to i64
+  %23 = select i1 %21, i64 0, i64 %22
+  ret i64 %23
 }
 
 ; Function Attrs: nounwind uwtable
@@ -17210,9 +17210,9 @@ float8_pl.exit:                                   ; preds = %point_dt.exit, %62
 
 float8_mi.exit:                                   ; preds = %float8_pl.exit, %71
   %75 = fcmp olt double %68, 0.000000e+00
-  %.0 = select i1 %75, double 0.000000e+00, double %68
-  %76 = bitcast double %.0 to i64
-  ret i64 %76
+  %76 = bitcast double %68 to i64
+  %77 = select i1 %75, i64 0, i64 %76
+  ret i64 %77
 }
 
 ; Function Attrs: nounwind uwtable
@@ -17535,9 +17535,9 @@ point_dt.exit:                                    ; preds = %float8_mi.exit.i, %
 
 float8_mi.exit:                                   ; preds = %point_dt.exit, %60
   %66 = fcmp olt double %57, 0.000000e+00
-  %.0 = select i1 %66, double 0.000000e+00, double %57
-  %67 = bitcast double %.0 to i64
-  ret i64 %67
+  %67 = bitcast double %57 to i64
+  %68 = select i1 %66, i64 0, i64 %67
+  ret i64 %68
 }
 
 ; Function Attrs: nounwind uwtable
@@ -17656,9 +17656,9 @@ point_dt.exit:                                    ; preds = %float8_mi.exit.i, %
 
 float8_mi.exit:                                   ; preds = %point_dt.exit, %60
   %66 = fcmp olt double %57, 0.000000e+00
-  %.0 = select i1 %66, double 0.000000e+00, double %57
-  %67 = bitcast double %.0 to i64
-  ret i64 %67
+  %67 = bitcast double %57 to i64
+  %68 = select i1 %66, i64 0, i64 %67
+  ret i64 %68
 }
 
 ; Function Attrs: nounwind uwtable

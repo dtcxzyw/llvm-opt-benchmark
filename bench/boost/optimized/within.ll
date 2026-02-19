@@ -132586,23 +132586,23 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.
   %170 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i51, 0x3CB0000000000000
   %171 = fcmp ugt double %166, %170
   %172 = fcmp olt double %155, %157
-  %or.cond78 = and i1 %172, %171
-  br i1 %or.cond78, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i54._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit55.thread
+  %or.cond75 = and i1 %172, %171
+  br i1 %or.cond75, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i54._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit55.thread
 
 _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i54: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i47, %144, %141
   %173 = fcmp olt double %40, %6
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load double, ptr %.phi.trans.insert, align 8, !tbaa !1591
-  %.phi.trans.insert81 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.pre82 = load double, ptr %.phi.trans.insert81, align 8, !tbaa !1591
+  %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.pre79 = load double, ptr %.phi.trans.insert78, align 8, !tbaa !1591
   br i1 %173, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i54._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit55.thread
 
 _ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit55: ; preds = %159, %162
-  %.old77 = fcmp olt double %155, %157
-  br i1 %.old77, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i54._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit55.thread
+  %.old74 = fcmp olt double %155, %157
+  br i1 %.old74, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i54._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit55.thread
 
 _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i54._crit_edge: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i54, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i50, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit55
-  %174 = phi double [ %155, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit55 ], [ %155, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i50 ], [ %.pre82, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i54 ]
+  %174 = phi double [ %155, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit55 ], [ %155, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i50 ], [ %.pre79, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i54 ]
   %175 = phi double [ %157, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit55 ], [ %157, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i50 ], [ %.pre, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i54 ]
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %177 = load double, ptr %176, align 8, !tbaa !1591
@@ -132621,163 +132621,167 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.th
   %189 = fcmp olt double %.sroa.speculated6.i.i.i, %185
   %190 = select i1 %189, double %185, double %.sroa.speculated6.i.i.i
   %191 = fcmp olt double %190, 1.000000e+00
-  %.sroa.speculated.i.i.i = select i1 %191, double 1.000000e+00, double %190
-  store double %.sroa.speculated.i.i.i, ptr %3, align 8, !tbaa !1591
-  %192 = fneg double %180
-  %193 = fmul double %179, %192
-  %194 = tail call noundef double @llvm.fmuladd.f64(double %178, double %181, double %193)
+  %192 = bitcast double %190 to i64
+  %193 = select i1 %191, i64 4607182418800017408, i64 %192
+  store i64 %193, ptr %3, align 8, !tbaa !1591
+  %194 = fneg double %180
+  %195 = fmul double %179, %194
+  %196 = tail call noundef double @llvm.fmuladd.f64(double %178, double %181, double %195)
   br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit
 
 _ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit55.thread: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i54, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i49, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i50, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit55
-  %195 = phi double [ %155, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit55 ], [ %155, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i49 ], [ %155, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i50 ], [ %.pre82, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i54 ]
-  %196 = phi double [ %157, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit55 ], [ %157, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i49 ], [ %157, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i50 ], [ %.pre, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i54 ]
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %198 = load double, ptr %197, align 8, !tbaa !1591
-  %199 = fsub double %40, %6
-  %200 = fsub double %195, %196
-  %201 = fsub double %5, %6
-  %202 = fsub double %198, %196
-  %203 = tail call noundef double @llvm.fabs.f64(double %199)
-  %204 = tail call noundef double @llvm.fabs.f64(double %200)
+  %197 = phi double [ %155, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit55 ], [ %155, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i49 ], [ %155, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i50 ], [ %.pre79, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i54 ]
+  %198 = phi double [ %157, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit55 ], [ %157, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i49 ], [ %157, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i50 ], [ %.pre, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i54 ]
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %200 = load double, ptr %199, align 8, !tbaa !1591
+  %201 = fsub double %40, %6
+  %202 = fsub double %197, %198
+  %203 = fsub double %5, %6
+  %204 = fsub double %200, %198
   %205 = tail call noundef double @llvm.fabs.f64(double %201)
   %206 = tail call noundef double @llvm.fabs.f64(double %202)
-  %207 = fcmp olt double %203, %204
-  %208 = select i1 %207, double %204, double %203
-  %209 = fcmp olt double %208, %205
-  %.sroa.speculated6.i.i.i56 = select i1 %209, double %205, double %208
-  %210 = fcmp olt double %.sroa.speculated6.i.i.i56, %206
-  %211 = select i1 %210, double %206, double %.sroa.speculated6.i.i.i56
-  %212 = fcmp olt double %211, 1.000000e+00
-  %.sroa.speculated.i.i.i57 = select i1 %212, double 1.000000e+00, double %211
-  store double %.sroa.speculated.i.i.i57, ptr %3, align 8, !tbaa !1591
-  %213 = fneg double %201
-  %214 = fmul double %200, %213
-  %215 = tail call noundef double @llvm.fmuladd.f64(double %199, double %202, double %214)
+  %207 = tail call noundef double @llvm.fabs.f64(double %203)
+  %208 = tail call noundef double @llvm.fabs.f64(double %204)
+  %209 = fcmp olt double %205, %206
+  %210 = select i1 %209, double %206, double %205
+  %211 = fcmp olt double %210, %207
+  %.sroa.speculated6.i.i.i56 = select i1 %211, double %207, double %210
+  %212 = fcmp olt double %.sroa.speculated6.i.i.i56, %208
+  %213 = select i1 %212, double %208, double %.sroa.speculated6.i.i.i56
+  %214 = fcmp olt double %213, 1.000000e+00
+  %215 = bitcast double %213 to i64
+  %216 = select i1 %214, i64 4607182418800017408, i64 %215
+  store i64 %216, ptr %3, align 8, !tbaa !1591
+  %217 = fneg double %203
+  %218 = fmul double %202, %217
+  %219 = tail call noundef double @llvm.fmuladd.f64(double %201, double %204, double %218)
   br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit
 
 _ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit
-  br i1 %7, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i60, label %216
+  br i1 %7, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i59, label %220
 
-216:                                              ; preds = %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread
-  %217 = tail call double @llvm.fabs.f64(double %5)
-  %218 = fcmp ueq double %217, 0x7FF0000000000000
-  br i1 %218, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i65, label %219
+220:                                              ; preds = %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread
+  %221 = tail call double @llvm.fabs.f64(double %5)
+  %222 = fcmp ueq double %221, 0x7FF0000000000000
+  br i1 %222, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64, label %223
 
-219:                                              ; preds = %216
-  %220 = tail call double @llvm.fabs.f64(double %6)
-  %221 = fcmp ueq double %220, 0x7FF0000000000000
-  br i1 %221, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i65, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i58
+223:                                              ; preds = %220
+  %224 = tail call double @llvm.fabs.f64(double %6)
+  %225 = fcmp ueq double %224, 0x7FF0000000000000
+  br i1 %225, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i57
 
-_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i58: ; preds = %219
-  %222 = fsub double %5, %6
-  %223 = tail call noundef double @llvm.fabs.f64(double %222)
-  %224 = fcmp olt double %217, %220
-  %225 = select i1 %224, double %220, double %217
-  %226 = fcmp olt double %225, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i59 = select i1 %226, double 1.000000e+00, double %225
-  %227 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i59, 0x3CB0000000000000
-  %228 = fcmp ugt double %223, %227
-  br i1 %228, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i65, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i60
+_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i57: ; preds = %223
+  %226 = fsub double %5, %6
+  %227 = tail call noundef double @llvm.fabs.f64(double %226)
+  %228 = fcmp olt double %221, %224
+  %229 = select i1 %228, double %224, double %221
+  %230 = fcmp olt double %229, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i58 = select i1 %230, double 1.000000e+00, double %229
+  %231 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i58, 0x3CB0000000000000
+  %232 = fcmp ugt double %227, %231
+  br i1 %232, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i59
 
-_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i60: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i58, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread
-  %229 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %230 = load double, ptr %229, align 8, !tbaa !1591
-  %231 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %232 = load double, ptr %231, align 8, !tbaa !1591
-  %233 = fcmp oeq double %230, %232
-  br i1 %233, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit66.thread, label %234
+_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i59: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i57, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %234 = load double, ptr %233, align 8, !tbaa !1591
+  %235 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %236 = load double, ptr %235, align 8, !tbaa !1591
+  %237 = fcmp oeq double %234, %236
+  br i1 %237, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit65.thread, label %238
 
-234:                                              ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i60
-  %235 = tail call double @llvm.fabs.f64(double %230)
-  %236 = fcmp ueq double %235, 0x7FF0000000000000
-  br i1 %236, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit66, label %237
+238:                                              ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i59
+  %239 = tail call double @llvm.fabs.f64(double %234)
+  %240 = fcmp ueq double %239, 0x7FF0000000000000
+  br i1 %240, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit65, label %241
 
-237:                                              ; preds = %234
-  %238 = tail call double @llvm.fabs.f64(double %232)
-  %239 = fcmp ueq double %238, 0x7FF0000000000000
-  br i1 %239, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit66, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i61
+241:                                              ; preds = %238
+  %242 = tail call double @llvm.fabs.f64(double %236)
+  %243 = fcmp ueq double %242, 0x7FF0000000000000
+  br i1 %243, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit65, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i60
 
-_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i61: ; preds = %237
-  %240 = fsub double %230, %232
-  %241 = tail call noundef double @llvm.fabs.f64(double %240)
-  %242 = fcmp olt double %235, %238
-  %243 = select i1 %242, double %238, double %235
-  %244 = fcmp olt double %243, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i.i62 = select i1 %244, double 1.000000e+00, double %243
-  %245 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i62, 0x3CB0000000000000
-  %246 = fcmp ugt double %241, %245
-  %247 = fcmp olt double %230, %232
-  %or.cond80 = and i1 %247, %246
-  br i1 %or.cond80, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i65._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit66.thread
+_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i60: ; preds = %241
+  %244 = fsub double %234, %236
+  %245 = tail call noundef double @llvm.fabs.f64(double %244)
+  %246 = fcmp olt double %239, %242
+  %247 = select i1 %246, double %242, double %239
+  %248 = fcmp olt double %247, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i.i61 = select i1 %248, double 1.000000e+00, double %247
+  %249 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i61, 0x3CB0000000000000
+  %250 = fcmp ugt double %245, %249
+  %251 = fcmp olt double %234, %236
+  %or.cond77 = and i1 %251, %250
+  br i1 %or.cond77, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit65.thread
 
-_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i65: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i58, %219, %216
-  %248 = fcmp olt double %5, %6
-  %.phi.trans.insert87 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre88 = load double, ptr %.phi.trans.insert87, align 8, !tbaa !1591
-  %.phi.trans.insert89 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre90 = load double, ptr %.phi.trans.insert89, align 8, !tbaa !1591
-  br i1 %248, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i65._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit66.thread
+_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i57, %223, %220
+  %252 = fcmp olt double %5, %6
+  %.phi.trans.insert84 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.pre85 = load double, ptr %.phi.trans.insert84, align 8, !tbaa !1591
+  %.phi.trans.insert86 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.pre87 = load double, ptr %.phi.trans.insert86, align 8, !tbaa !1591
+  br i1 %252, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit65.thread
 
-_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit66: ; preds = %234, %237
-  %.old79 = fcmp olt double %230, %232
-  br i1 %.old79, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i65._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit66.thread
+_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit65: ; preds = %238, %241
+  %.old76 = fcmp olt double %234, %236
+  br i1 %.old76, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit65.thread
 
-_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i65._crit_edge: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i65, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i61, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit66
-  %249 = phi double [ %232, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit66 ], [ %232, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i61 ], [ %.pre90, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i65 ]
-  %250 = phi double [ %230, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit66 ], [ %230, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i61 ], [ %.pre88, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i65 ]
-  %251 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %252 = load double, ptr %251, align 8, !tbaa !1591
-  %253 = fsub double %6, %5
-  %254 = fsub double %249, %250
-  %255 = fsub double %40, %5
-  %256 = fsub double %252, %250
-  %257 = tail call noundef double @llvm.fabs.f64(double %253)
-  %258 = tail call noundef double @llvm.fabs.f64(double %254)
-  %259 = tail call noundef double @llvm.fabs.f64(double %255)
-  %260 = tail call noundef double @llvm.fabs.f64(double %256)
-  %261 = fcmp olt double %257, %258
-  %262 = select i1 %261, double %258, double %257
-  %263 = fcmp olt double %262, %259
-  %.sroa.speculated6.i.i.i67 = select i1 %263, double %259, double %262
-  %264 = fcmp olt double %.sroa.speculated6.i.i.i67, %260
-  %265 = select i1 %264, double %260, double %.sroa.speculated6.i.i.i67
-  %266 = fcmp olt double %265, 1.000000e+00
-  %.sroa.speculated.i.i.i68 = select i1 %266, double 1.000000e+00, double %265
-  store double %.sroa.speculated.i.i.i68, ptr %3, align 8, !tbaa !1591
-  %267 = fneg double %255
-  %268 = fmul double %254, %267
-  %269 = tail call noundef double @llvm.fmuladd.f64(double %253, double %256, double %268)
+_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64._crit_edge: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i60, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit65
+  %253 = phi double [ %236, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit65 ], [ %236, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i60 ], [ %.pre87, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64 ]
+  %254 = phi double [ %234, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit65 ], [ %234, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i60 ], [ %.pre85, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64 ]
+  %255 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %256 = load double, ptr %255, align 8, !tbaa !1591
+  %257 = fsub double %6, %5
+  %258 = fsub double %253, %254
+  %259 = fsub double %40, %5
+  %260 = fsub double %256, %254
+  %261 = tail call noundef double @llvm.fabs.f64(double %257)
+  %262 = tail call noundef double @llvm.fabs.f64(double %258)
+  %263 = tail call noundef double @llvm.fabs.f64(double %259)
+  %264 = tail call noundef double @llvm.fabs.f64(double %260)
+  %265 = fcmp olt double %261, %262
+  %266 = select i1 %265, double %262, double %261
+  %267 = fcmp olt double %266, %263
+  %.sroa.speculated6.i.i.i66 = select i1 %267, double %263, double %266
+  %268 = fcmp olt double %.sroa.speculated6.i.i.i66, %264
+  %269 = select i1 %268, double %264, double %.sroa.speculated6.i.i.i66
+  %270 = fcmp olt double %269, 1.000000e+00
+  %271 = bitcast double %269 to i64
+  %272 = select i1 %270, i64 4607182418800017408, i64 %271
+  store i64 %272, ptr %3, align 8, !tbaa !1591
+  %273 = fneg double %259
+  %274 = fmul double %258, %273
+  %275 = tail call noundef double @llvm.fmuladd.f64(double %257, double %260, double %274)
   br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit
 
-_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit66.thread: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i65, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i60, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i61, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit66
-  %270 = phi double [ %232, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit66 ], [ %232, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i60 ], [ %232, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i61 ], [ %.pre90, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i65 ]
-  %271 = phi double [ %230, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit66 ], [ %230, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i60 ], [ %230, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i61 ], [ %.pre88, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i65 ]
-  %272 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %273 = load double, ptr %272, align 8, !tbaa !1591
-  %274 = fsub double %40, %6
-  %275 = fsub double %273, %270
-  %276 = fsub double %5, %6
-  %277 = fsub double %271, %270
-  %278 = tail call noundef double @llvm.fabs.f64(double %274)
-  %279 = tail call noundef double @llvm.fabs.f64(double %275)
-  %280 = tail call noundef double @llvm.fabs.f64(double %276)
-  %281 = tail call noundef double @llvm.fabs.f64(double %277)
-  %282 = fcmp olt double %278, %279
-  %283 = select i1 %282, double %279, double %278
-  %284 = fcmp olt double %283, %280
-  %.sroa.speculated6.i.i.i69 = select i1 %284, double %280, double %283
-  %285 = fcmp olt double %.sroa.speculated6.i.i.i69, %281
-  %286 = select i1 %285, double %281, double %.sroa.speculated6.i.i.i69
-  %287 = fcmp olt double %286, 1.000000e+00
-  %.sroa.speculated.i.i.i70 = select i1 %287, double 1.000000e+00, double %286
-  store double %.sroa.speculated.i.i.i70, ptr %3, align 8, !tbaa !1591
-  %288 = fneg double %276
-  %289 = fmul double %275, %288
-  %290 = tail call noundef double @llvm.fmuladd.f64(double %274, double %277, double %289)
+_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit65.thread: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i59, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i60, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit65
+  %276 = phi double [ %236, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit65 ], [ %236, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i59 ], [ %236, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i60 ], [ %.pre87, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64 ]
+  %277 = phi double [ %234, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit65 ], [ %234, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i59 ], [ %234, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i60 ], [ %.pre85, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64 ]
+  %278 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %279 = load double, ptr %278, align 8, !tbaa !1591
+  %280 = fsub double %40, %6
+  %281 = fsub double %279, %276
+  %282 = fsub double %5, %6
+  %283 = fsub double %277, %276
+  %284 = tail call noundef double @llvm.fabs.f64(double %280)
+  %285 = tail call noundef double @llvm.fabs.f64(double %281)
+  %286 = tail call noundef double @llvm.fabs.f64(double %282)
+  %287 = tail call noundef double @llvm.fabs.f64(double %283)
+  %288 = fcmp olt double %284, %285
+  %289 = select i1 %288, double %285, double %284
+  %290 = fcmp olt double %289, %286
+  %.sroa.speculated6.i.i.i67 = select i1 %290, double %286, double %289
+  %291 = fcmp olt double %.sroa.speculated6.i.i.i67, %287
+  %292 = select i1 %291, double %287, double %.sroa.speculated6.i.i.i67
+  %293 = fcmp olt double %292, 1.000000e+00
+  %294 = bitcast double %292 to i64
+  %295 = select i1 %293, i64 4607182418800017408, i64 %294
+  store i64 %295, ptr %3, align 8, !tbaa !1591
+  %296 = fneg double %282
+  %297 = fmul double %281, %296
+  %298 = tail call noundef double @llvm.fmuladd.f64(double %280, double %283, double %297)
   br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit
 
-_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i40, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i39, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i32, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i31, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit66.thread, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i65._crit_edge, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit55.thread, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i54._crit_edge
-  %.0 = phi double [ %290, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit66.thread ], [ %194, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i54._crit_edge ], [ %215, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit55.thread ], [ %269, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i65._crit_edge ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i32 ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i31 ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i39 ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i40 ]
+_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i40, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i39, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i32, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i31, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit65.thread, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64._crit_edge, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit55.thread, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i54._crit_edge
+  %.0 = phi double [ %298, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit65.thread ], [ %196, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i54._crit_edge ], [ %219, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit55.thread ], [ %275, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64._crit_edge ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i32 ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i31 ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i39 ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i40 ]
   ret double %.0
 }
 
@@ -152180,23 +152184,23 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.
   %170 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i50, 0x3CB0000000000000
   %171 = fcmp ugt double %166, %170
   %172 = fcmp olt double %155, %157
-  %or.cond76 = and i1 %172, %171
-  br i1 %or.cond76, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit54.thread
+  %or.cond73 = and i1 %172, %171
+  br i1 %or.cond73, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit54.thread
 
 _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i46, %144, %141
   %173 = fcmp olt double %40, %6
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load double, ptr %.phi.trans.insert, align 8, !tbaa !1591
-  %.phi.trans.insert79 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.pre80 = load double, ptr %.phi.trans.insert79, align 8, !tbaa !1591
+  %.phi.trans.insert76 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.pre77 = load double, ptr %.phi.trans.insert76, align 8, !tbaa !1591
   br i1 %173, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit54.thread
 
 _ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit54: ; preds = %159, %162
-  %.old75 = fcmp olt double %155, %157
-  br i1 %.old75, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit54.thread
+  %.old72 = fcmp olt double %155, %157
+  br i1 %.old72, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit54.thread
 
 _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53._crit_edge: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i49, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit54
-  %174 = phi double [ %155, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit54 ], [ %155, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i49 ], [ %.pre80, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53 ]
+  %174 = phi double [ %155, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit54 ], [ %155, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i49 ], [ %.pre77, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53 ]
   %175 = phi double [ %157, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit54 ], [ %157, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i49 ], [ %.pre, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53 ]
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %177 = load double, ptr %176, align 8, !tbaa !1591
@@ -152215,163 +152219,167 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.th
   %189 = fcmp olt double %.sroa.speculated6.i.i.i, %185
   %190 = select i1 %189, double %185, double %.sroa.speculated6.i.i.i
   %191 = fcmp olt double %190, 1.000000e+00
-  %.sroa.speculated.i.i.i = select i1 %191, double 1.000000e+00, double %190
-  store double %.sroa.speculated.i.i.i, ptr %3, align 8, !tbaa !1591
-  %192 = fneg double %180
-  %193 = fmul double %179, %192
-  %194 = tail call noundef double @llvm.fmuladd.f64(double %178, double %181, double %193)
+  %192 = bitcast double %190 to i64
+  %193 = select i1 %191, i64 4607182418800017408, i64 %192
+  store i64 %193, ptr %3, align 8, !tbaa !1591
+  %194 = fneg double %180
+  %195 = fmul double %179, %194
+  %196 = tail call noundef double @llvm.fmuladd.f64(double %178, double %181, double %195)
   br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESA_EEbRKT_RKT0_.exit
 
 _ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit54.thread: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i48, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i49, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit54
-  %195 = phi double [ %155, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit54 ], [ %155, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i48 ], [ %155, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i49 ], [ %.pre80, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53 ]
-  %196 = phi double [ %157, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit54 ], [ %157, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i48 ], [ %157, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i49 ], [ %.pre, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53 ]
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %198 = load double, ptr %197, align 8, !tbaa !1591
-  %199 = fsub double %40, %6
-  %200 = fsub double %195, %196
-  %201 = fsub double %5, %6
-  %202 = fsub double %198, %196
-  %203 = tail call noundef double @llvm.fabs.f64(double %199)
-  %204 = tail call noundef double @llvm.fabs.f64(double %200)
+  %197 = phi double [ %155, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit54 ], [ %155, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i48 ], [ %155, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i49 ], [ %.pre77, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53 ]
+  %198 = phi double [ %157, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit54 ], [ %157, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i48 ], [ %157, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i49 ], [ %.pre, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53 ]
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %200 = load double, ptr %199, align 8, !tbaa !1591
+  %201 = fsub double %40, %6
+  %202 = fsub double %197, %198
+  %203 = fsub double %5, %6
+  %204 = fsub double %200, %198
   %205 = tail call noundef double @llvm.fabs.f64(double %201)
   %206 = tail call noundef double @llvm.fabs.f64(double %202)
-  %207 = fcmp olt double %203, %204
-  %208 = select i1 %207, double %204, double %203
-  %209 = fcmp olt double %208, %205
-  %.sroa.speculated6.i.i.i55 = select i1 %209, double %205, double %208
-  %210 = fcmp olt double %.sroa.speculated6.i.i.i55, %206
-  %211 = select i1 %210, double %206, double %.sroa.speculated6.i.i.i55
-  %212 = fcmp olt double %211, 1.000000e+00
-  %.sroa.speculated.i.i.i56 = select i1 %212, double 1.000000e+00, double %211
-  store double %.sroa.speculated.i.i.i56, ptr %3, align 8, !tbaa !1591
-  %213 = fneg double %201
-  %214 = fmul double %200, %213
-  %215 = tail call noundef double @llvm.fmuladd.f64(double %199, double %202, double %214)
+  %207 = tail call noundef double @llvm.fabs.f64(double %203)
+  %208 = tail call noundef double @llvm.fabs.f64(double %204)
+  %209 = fcmp olt double %205, %206
+  %210 = select i1 %209, double %206, double %205
+  %211 = fcmp olt double %210, %207
+  %.sroa.speculated6.i.i.i55 = select i1 %211, double %207, double %210
+  %212 = fcmp olt double %.sroa.speculated6.i.i.i55, %208
+  %213 = select i1 %212, double %208, double %.sroa.speculated6.i.i.i55
+  %214 = fcmp olt double %213, 1.000000e+00
+  %215 = bitcast double %213 to i64
+  %216 = select i1 %214, i64 4607182418800017408, i64 %215
+  store i64 %216, ptr %3, align 8, !tbaa !1591
+  %217 = fneg double %203
+  %218 = fmul double %202, %217
+  %219 = tail call noundef double @llvm.fmuladd.f64(double %201, double %204, double %218)
   br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESA_EEbRKT_RKT0_.exit
 
 _ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit.thread: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit
-  br i1 %7, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i59, label %216
+  br i1 %7, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i58, label %220
 
-216:                                              ; preds = %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit.thread
-  %217 = tail call double @llvm.fabs.f64(double %5)
-  %218 = fcmp ueq double %217, 0x7FF0000000000000
-  br i1 %218, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64, label %219
+220:                                              ; preds = %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit.thread
+  %221 = tail call double @llvm.fabs.f64(double %5)
+  %222 = fcmp ueq double %221, 0x7FF0000000000000
+  br i1 %222, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63, label %223
 
-219:                                              ; preds = %216
-  %220 = tail call double @llvm.fabs.f64(double %6)
-  %221 = fcmp ueq double %220, 0x7FF0000000000000
-  br i1 %221, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i57
+223:                                              ; preds = %220
+  %224 = tail call double @llvm.fabs.f64(double %6)
+  %225 = fcmp ueq double %224, 0x7FF0000000000000
+  br i1 %225, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i56
 
-_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i57: ; preds = %219
-  %222 = fsub double %5, %6
-  %223 = tail call noundef double @llvm.fabs.f64(double %222)
-  %224 = fcmp olt double %217, %220
-  %225 = select i1 %224, double %220, double %217
-  %226 = fcmp olt double %225, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i58 = select i1 %226, double 1.000000e+00, double %225
-  %227 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i58, 0x3CB0000000000000
-  %228 = fcmp ugt double %223, %227
-  br i1 %228, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i59
+_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i56: ; preds = %223
+  %226 = fsub double %5, %6
+  %227 = tail call noundef double @llvm.fabs.f64(double %226)
+  %228 = fcmp olt double %221, %224
+  %229 = select i1 %228, double %224, double %221
+  %230 = fcmp olt double %229, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i57 = select i1 %230, double 1.000000e+00, double %229
+  %231 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i57, 0x3CB0000000000000
+  %232 = fcmp ugt double %227, %231
+  br i1 %232, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i58
 
-_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i59: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i57, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit.thread
-  %229 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %230 = load double, ptr %229, align 8, !tbaa !1591
-  %231 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %232 = load double, ptr %231, align 8, !tbaa !1591
-  %233 = fcmp oeq double %230, %232
-  br i1 %233, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit.thread, label %234
+_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i58: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i56, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit.thread
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %234 = load double, ptr %233, align 8, !tbaa !1591
+  %235 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %236 = load double, ptr %235, align 8, !tbaa !1591
+  %237 = fcmp oeq double %234, %236
+  br i1 %237, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit.thread, label %238
 
-234:                                              ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i59
-  %235 = tail call double @llvm.fabs.f64(double %230)
-  %236 = fcmp ueq double %235, 0x7FF0000000000000
-  br i1 %236, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit, label %237
+238:                                              ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i58
+  %239 = tail call double @llvm.fabs.f64(double %234)
+  %240 = fcmp ueq double %239, 0x7FF0000000000000
+  br i1 %240, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit, label %241
 
-237:                                              ; preds = %234
-  %238 = tail call double @llvm.fabs.f64(double %232)
-  %239 = fcmp ueq double %238, 0x7FF0000000000000
-  br i1 %239, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i60
+241:                                              ; preds = %238
+  %242 = tail call double @llvm.fabs.f64(double %236)
+  %243 = fcmp ueq double %242, 0x7FF0000000000000
+  br i1 %243, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i59
 
-_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i60: ; preds = %237
-  %240 = fsub double %230, %232
-  %241 = tail call noundef double @llvm.fabs.f64(double %240)
-  %242 = fcmp olt double %235, %238
-  %243 = select i1 %242, double %238, double %235
-  %244 = fcmp olt double %243, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i.i61 = select i1 %244, double 1.000000e+00, double %243
-  %245 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i61, 0x3CB0000000000000
-  %246 = fcmp ugt double %241, %245
-  %247 = fcmp olt double %230, %232
-  %or.cond78 = and i1 %247, %246
-  br i1 %or.cond78, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit.thread
+_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i59: ; preds = %241
+  %244 = fsub double %234, %236
+  %245 = tail call noundef double @llvm.fabs.f64(double %244)
+  %246 = fcmp olt double %239, %242
+  %247 = select i1 %246, double %242, double %239
+  %248 = fcmp olt double %247, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i.i60 = select i1 %248, double 1.000000e+00, double %247
+  %249 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i60, 0x3CB0000000000000
+  %250 = fcmp ugt double %245, %249
+  %251 = fcmp olt double %234, %236
+  %or.cond75 = and i1 %251, %250
+  br i1 %or.cond75, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit.thread
 
-_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i57, %219, %216
-  %248 = fcmp olt double %5, %6
-  %.phi.trans.insert85 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre86 = load double, ptr %.phi.trans.insert85, align 8, !tbaa !1591
-  %.phi.trans.insert87 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre88 = load double, ptr %.phi.trans.insert87, align 8, !tbaa !1591
-  br i1 %248, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit.thread
+_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i56, %223, %220
+  %252 = fcmp olt double %5, %6
+  %.phi.trans.insert82 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.pre83 = load double, ptr %.phi.trans.insert82, align 8, !tbaa !1591
+  %.phi.trans.insert84 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.pre85 = load double, ptr %.phi.trans.insert84, align 8, !tbaa !1591
+  br i1 %252, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit.thread
 
-_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit: ; preds = %234, %237
-  %.old77 = fcmp olt double %230, %232
-  br i1 %.old77, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit.thread
+_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit: ; preds = %238, %241
+  %.old74 = fcmp olt double %234, %236
+  br i1 %.old74, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit.thread
 
-_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64._crit_edge: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i60, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit
-  %249 = phi double [ %232, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit ], [ %232, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i60 ], [ %.pre88, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64 ]
-  %250 = phi double [ %230, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit ], [ %230, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i60 ], [ %.pre86, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64 ]
-  %251 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %252 = load double, ptr %251, align 8, !tbaa !1591
-  %253 = fsub double %6, %5
-  %254 = fsub double %249, %250
-  %255 = fsub double %40, %5
-  %256 = fsub double %252, %250
-  %257 = tail call noundef double @llvm.fabs.f64(double %253)
-  %258 = tail call noundef double @llvm.fabs.f64(double %254)
-  %259 = tail call noundef double @llvm.fabs.f64(double %255)
-  %260 = tail call noundef double @llvm.fabs.f64(double %256)
-  %261 = fcmp olt double %257, %258
-  %262 = select i1 %261, double %258, double %257
-  %263 = fcmp olt double %262, %259
-  %.sroa.speculated6.i.i.i65 = select i1 %263, double %259, double %262
-  %264 = fcmp olt double %.sroa.speculated6.i.i.i65, %260
-  %265 = select i1 %264, double %260, double %.sroa.speculated6.i.i.i65
-  %266 = fcmp olt double %265, 1.000000e+00
-  %.sroa.speculated.i.i.i66 = select i1 %266, double 1.000000e+00, double %265
-  store double %.sroa.speculated.i.i.i66, ptr %3, align 8, !tbaa !1591
-  %267 = fneg double %255
-  %268 = fmul double %254, %267
-  %269 = tail call noundef double @llvm.fmuladd.f64(double %253, double %256, double %268)
+_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63._crit_edge: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i59, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit
+  %253 = phi double [ %236, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit ], [ %236, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i59 ], [ %.pre85, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63 ]
+  %254 = phi double [ %234, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit ], [ %234, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i59 ], [ %.pre83, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63 ]
+  %255 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %256 = load double, ptr %255, align 8, !tbaa !1591
+  %257 = fsub double %6, %5
+  %258 = fsub double %253, %254
+  %259 = fsub double %40, %5
+  %260 = fsub double %256, %254
+  %261 = tail call noundef double @llvm.fabs.f64(double %257)
+  %262 = tail call noundef double @llvm.fabs.f64(double %258)
+  %263 = tail call noundef double @llvm.fabs.f64(double %259)
+  %264 = tail call noundef double @llvm.fabs.f64(double %260)
+  %265 = fcmp olt double %261, %262
+  %266 = select i1 %265, double %262, double %261
+  %267 = fcmp olt double %266, %263
+  %.sroa.speculated6.i.i.i64 = select i1 %267, double %263, double %266
+  %268 = fcmp olt double %.sroa.speculated6.i.i.i64, %264
+  %269 = select i1 %268, double %264, double %.sroa.speculated6.i.i.i64
+  %270 = fcmp olt double %269, 1.000000e+00
+  %271 = bitcast double %269 to i64
+  %272 = select i1 %270, i64 4607182418800017408, i64 %271
+  store i64 %272, ptr %3, align 8, !tbaa !1591
+  %273 = fneg double %259
+  %274 = fmul double %258, %273
+  %275 = tail call noundef double @llvm.fmuladd.f64(double %257, double %260, double %274)
   br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESA_EEbRKT_RKT0_.exit
 
-_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit.thread: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i59, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i60, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit
-  %270 = phi double [ %232, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit ], [ %232, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i59 ], [ %232, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i60 ], [ %.pre88, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64 ]
-  %271 = phi double [ %230, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit ], [ %230, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i59 ], [ %230, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i60 ], [ %.pre86, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64 ]
-  %272 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %273 = load double, ptr %272, align 8, !tbaa !1591
-  %274 = fsub double %40, %6
-  %275 = fsub double %273, %270
-  %276 = fsub double %5, %6
-  %277 = fsub double %271, %270
-  %278 = tail call noundef double @llvm.fabs.f64(double %274)
-  %279 = tail call noundef double @llvm.fabs.f64(double %275)
-  %280 = tail call noundef double @llvm.fabs.f64(double %276)
-  %281 = tail call noundef double @llvm.fabs.f64(double %277)
-  %282 = fcmp olt double %278, %279
-  %283 = select i1 %282, double %279, double %278
-  %284 = fcmp olt double %283, %280
-  %.sroa.speculated6.i.i.i67 = select i1 %284, double %280, double %283
-  %285 = fcmp olt double %.sroa.speculated6.i.i.i67, %281
-  %286 = select i1 %285, double %281, double %.sroa.speculated6.i.i.i67
-  %287 = fcmp olt double %286, 1.000000e+00
-  %.sroa.speculated.i.i.i68 = select i1 %287, double 1.000000e+00, double %286
-  store double %.sroa.speculated.i.i.i68, ptr %3, align 8, !tbaa !1591
-  %288 = fneg double %276
-  %289 = fmul double %275, %288
-  %290 = tail call noundef double @llvm.fmuladd.f64(double %274, double %277, double %289)
+_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit.thread: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i58, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i59, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit
+  %276 = phi double [ %236, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit ], [ %236, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i58 ], [ %236, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i59 ], [ %.pre85, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63 ]
+  %277 = phi double [ %234, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit ], [ %234, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i58 ], [ %234, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i59 ], [ %.pre83, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63 ]
+  %278 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %279 = load double, ptr %278, align 8, !tbaa !1591
+  %280 = fsub double %40, %6
+  %281 = fsub double %279, %276
+  %282 = fsub double %5, %6
+  %283 = fsub double %277, %276
+  %284 = tail call noundef double @llvm.fabs.f64(double %280)
+  %285 = tail call noundef double @llvm.fabs.f64(double %281)
+  %286 = tail call noundef double @llvm.fabs.f64(double %282)
+  %287 = tail call noundef double @llvm.fabs.f64(double %283)
+  %288 = fcmp olt double %284, %285
+  %289 = select i1 %288, double %285, double %284
+  %290 = fcmp olt double %289, %286
+  %.sroa.speculated6.i.i.i65 = select i1 %290, double %286, double %289
+  %291 = fcmp olt double %.sroa.speculated6.i.i.i65, %287
+  %292 = select i1 %291, double %287, double %.sroa.speculated6.i.i.i65
+  %293 = fcmp olt double %292, 1.000000e+00
+  %294 = bitcast double %292 to i64
+  %295 = select i1 %293, i64 4607182418800017408, i64 %294
+  store i64 %295, ptr %3, align 8, !tbaa !1591
+  %296 = fneg double %282
+  %297 = fmul double %281, %296
+  %298 = tail call noundef double @llvm.fmuladd.f64(double %280, double %283, double %297)
   br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESA_EEbRKT_RKT0_.exit
 
-_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESA_EEbRKT_RKT0_.exit: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i39, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i38, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i32, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i31, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit.thread, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64._crit_edge, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit54.thread, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53._crit_edge
-  %.0 = phi double [ %290, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit.thread ], [ %194, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53._crit_edge ], [ %215, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit54.thread ], [ %269, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64._crit_edge ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i32 ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i31 ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i38 ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i39 ]
+_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESA_EEbRKT_RKT0_.exit: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i39, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i38, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i32, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i31, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit.thread, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63._crit_edge, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit54.thread, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53._crit_edge
+  %.0 = phi double [ %298, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit.thread ], [ %196, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53._crit_edge ], [ %219, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit54.thread ], [ %275, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63._crit_edge ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i32 ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i31 ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i38 ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i39 ]
   ret double %.0
 }
 
@@ -156319,23 +156327,23 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.
   %170 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i50, 0x3CB0000000000000
   %171 = fcmp ugt double %166, %170
   %172 = fcmp olt double %155, %157
-  %or.cond76 = and i1 %172, %171
-  br i1 %or.cond76, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIdSB_EEEEbRKT_RKT0_.exit54.thread
+  %or.cond73 = and i1 %172, %171
+  br i1 %or.cond73, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIdSB_EEEEbRKT_RKT0_.exit54.thread
 
 _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i46, %144, %141
   %173 = fcmp olt double %40, %6
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load double, ptr %.phi.trans.insert, align 8, !tbaa !1591
-  %.phi.trans.insert79 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.pre80 = load double, ptr %.phi.trans.insert79, align 8, !tbaa !1591
+  %.phi.trans.insert76 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.pre77 = load double, ptr %.phi.trans.insert76, align 8, !tbaa !1591
   br i1 %173, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIdSB_EEEEbRKT_RKT0_.exit54.thread
 
 _ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIdSB_EEEEbRKT_RKT0_.exit54: ; preds = %159, %162
-  %.old75 = fcmp olt double %155, %157
-  br i1 %.old75, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIdSB_EEEEbRKT_RKT0_.exit54.thread
+  %.old72 = fcmp olt double %155, %157
+  br i1 %.old72, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIdSB_EEEEbRKT_RKT0_.exit54.thread
 
 _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53._crit_edge: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i49, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIdSB_EEEEbRKT_RKT0_.exit54
-  %174 = phi double [ %155, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIdSB_EEEEbRKT_RKT0_.exit54 ], [ %155, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i49 ], [ %.pre80, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53 ]
+  %174 = phi double [ %155, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIdSB_EEEEbRKT_RKT0_.exit54 ], [ %155, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i49 ], [ %.pre77, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53 ]
   %175 = phi double [ %157, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIdSB_EEEEbRKT_RKT0_.exit54 ], [ %157, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i49 ], [ %.pre, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53 ]
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %177 = load double, ptr %176, align 8, !tbaa !1591
@@ -156354,163 +156362,167 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.th
   %189 = fcmp olt double %.sroa.speculated6.i.i.i, %185
   %190 = select i1 %189, double %185, double %.sroa.speculated6.i.i.i
   %191 = fcmp olt double %190, 1.000000e+00
-  %.sroa.speculated.i.i.i = select i1 %191, double 1.000000e+00, double %190
-  store double %.sroa.speculated.i.i.i, ptr %3, align 8, !tbaa !1591
-  %192 = fneg double %180
-  %193 = fmul double %179, %192
-  %194 = tail call noundef double @llvm.fmuladd.f64(double %178, double %181, double %193)
+  %192 = bitcast double %190 to i64
+  %193 = select i1 %191, i64 4607182418800017408, i64 %192
+  store i64 %193, ptr %3, align 8, !tbaa !1591
+  %194 = fneg double %180
+  %195 = fmul double %179, %194
+  %196 = tail call noundef double @llvm.fmuladd.f64(double %178, double %181, double %195)
   br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit
 
 _ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIdSB_EEEEbRKT_RKT0_.exit54.thread: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i48, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i49, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIdSB_EEEEbRKT_RKT0_.exit54
-  %195 = phi double [ %155, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIdSB_EEEEbRKT_RKT0_.exit54 ], [ %155, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i48 ], [ %155, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i49 ], [ %.pre80, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53 ]
-  %196 = phi double [ %157, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIdSB_EEEEbRKT_RKT0_.exit54 ], [ %157, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i48 ], [ %157, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i49 ], [ %.pre, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53 ]
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %198 = load double, ptr %197, align 8, !tbaa !1591
-  %199 = fsub double %40, %6
-  %200 = fsub double %195, %196
-  %201 = fsub double %5, %6
-  %202 = fsub double %198, %196
-  %203 = tail call noundef double @llvm.fabs.f64(double %199)
-  %204 = tail call noundef double @llvm.fabs.f64(double %200)
+  %197 = phi double [ %155, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIdSB_EEEEbRKT_RKT0_.exit54 ], [ %155, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i48 ], [ %155, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i49 ], [ %.pre77, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53 ]
+  %198 = phi double [ %157, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIdSB_EEEEbRKT_RKT0_.exit54 ], [ %157, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i48 ], [ %157, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i49 ], [ %.pre, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53 ]
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %200 = load double, ptr %199, align 8, !tbaa !1591
+  %201 = fsub double %40, %6
+  %202 = fsub double %197, %198
+  %203 = fsub double %5, %6
+  %204 = fsub double %200, %198
   %205 = tail call noundef double @llvm.fabs.f64(double %201)
   %206 = tail call noundef double @llvm.fabs.f64(double %202)
-  %207 = fcmp olt double %203, %204
-  %208 = select i1 %207, double %204, double %203
-  %209 = fcmp olt double %208, %205
-  %.sroa.speculated6.i.i.i55 = select i1 %209, double %205, double %208
-  %210 = fcmp olt double %.sroa.speculated6.i.i.i55, %206
-  %211 = select i1 %210, double %206, double %.sroa.speculated6.i.i.i55
-  %212 = fcmp olt double %211, 1.000000e+00
-  %.sroa.speculated.i.i.i56 = select i1 %212, double 1.000000e+00, double %211
-  store double %.sroa.speculated.i.i.i56, ptr %3, align 8, !tbaa !1591
-  %213 = fneg double %201
-  %214 = fmul double %200, %213
-  %215 = tail call noundef double @llvm.fmuladd.f64(double %199, double %202, double %214)
+  %207 = tail call noundef double @llvm.fabs.f64(double %203)
+  %208 = tail call noundef double @llvm.fabs.f64(double %204)
+  %209 = fcmp olt double %205, %206
+  %210 = select i1 %209, double %206, double %205
+  %211 = fcmp olt double %210, %207
+  %.sroa.speculated6.i.i.i55 = select i1 %211, double %207, double %210
+  %212 = fcmp olt double %.sroa.speculated6.i.i.i55, %208
+  %213 = select i1 %212, double %208, double %.sroa.speculated6.i.i.i55
+  %214 = fcmp olt double %213, 1.000000e+00
+  %215 = bitcast double %213 to i64
+  %216 = select i1 %214, i64 4607182418800017408, i64 %215
+  store i64 %216, ptr %3, align 8, !tbaa !1591
+  %217 = fneg double %203
+  %218 = fmul double %202, %217
+  %219 = tail call noundef double @llvm.fmuladd.f64(double %201, double %204, double %218)
   br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit
 
 _ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIdSB_EEEEbRKT_RKT0_.exit.thread: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIdSB_EEEEbRKT_RKT0_.exit
-  br i1 %7, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i59, label %216
+  br i1 %7, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i58, label %220
 
-216:                                              ; preds = %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIdSB_EEEEbRKT_RKT0_.exit.thread
-  %217 = tail call double @llvm.fabs.f64(double %5)
-  %218 = fcmp ueq double %217, 0x7FF0000000000000
-  br i1 %218, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64, label %219
+220:                                              ; preds = %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIdSB_EEEEbRKT_RKT0_.exit.thread
+  %221 = tail call double @llvm.fabs.f64(double %5)
+  %222 = fcmp ueq double %221, 0x7FF0000000000000
+  br i1 %222, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63, label %223
 
-219:                                              ; preds = %216
-  %220 = tail call double @llvm.fabs.f64(double %6)
-  %221 = fcmp ueq double %220, 0x7FF0000000000000
-  br i1 %221, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i57
+223:                                              ; preds = %220
+  %224 = tail call double @llvm.fabs.f64(double %6)
+  %225 = fcmp ueq double %224, 0x7FF0000000000000
+  br i1 %225, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i56
 
-_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i57: ; preds = %219
-  %222 = fsub double %5, %6
-  %223 = tail call noundef double @llvm.fabs.f64(double %222)
-  %224 = fcmp olt double %217, %220
-  %225 = select i1 %224, double %220, double %217
-  %226 = fcmp olt double %225, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i58 = select i1 %226, double 1.000000e+00, double %225
-  %227 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i58, 0x3CB0000000000000
-  %228 = fcmp ugt double %223, %227
-  br i1 %228, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i59
+_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i56: ; preds = %223
+  %226 = fsub double %5, %6
+  %227 = tail call noundef double @llvm.fabs.f64(double %226)
+  %228 = fcmp olt double %221, %224
+  %229 = select i1 %228, double %224, double %221
+  %230 = fcmp olt double %229, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i57 = select i1 %230, double 1.000000e+00, double %229
+  %231 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i57, 0x3CB0000000000000
+  %232 = fcmp ugt double %227, %231
+  br i1 %232, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i58
 
-_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i59: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i57, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIdSB_EEEEbRKT_RKT0_.exit.thread
-  %229 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %230 = load double, ptr %229, align 8, !tbaa !1591
-  %231 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %232 = load double, ptr %231, align 8, !tbaa !1591
-  %233 = fcmp oeq double %230, %232
-  br i1 %233, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread, label %234
+_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i58: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i56, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIdSB_EEEEbRKT_RKT0_.exit.thread
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %234 = load double, ptr %233, align 8, !tbaa !1591
+  %235 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %236 = load double, ptr %235, align 8, !tbaa !1591
+  %237 = fcmp oeq double %234, %236
+  br i1 %237, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread, label %238
 
-234:                                              ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i59
-  %235 = tail call double @llvm.fabs.f64(double %230)
-  %236 = fcmp ueq double %235, 0x7FF0000000000000
-  br i1 %236, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit, label %237
+238:                                              ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i58
+  %239 = tail call double @llvm.fabs.f64(double %234)
+  %240 = fcmp ueq double %239, 0x7FF0000000000000
+  br i1 %240, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit, label %241
 
-237:                                              ; preds = %234
-  %238 = tail call double @llvm.fabs.f64(double %232)
-  %239 = fcmp ueq double %238, 0x7FF0000000000000
-  br i1 %239, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i60
+241:                                              ; preds = %238
+  %242 = tail call double @llvm.fabs.f64(double %236)
+  %243 = fcmp ueq double %242, 0x7FF0000000000000
+  br i1 %243, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i59
 
-_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i60: ; preds = %237
-  %240 = fsub double %230, %232
-  %241 = tail call noundef double @llvm.fabs.f64(double %240)
-  %242 = fcmp olt double %235, %238
-  %243 = select i1 %242, double %238, double %235
-  %244 = fcmp olt double %243, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i.i61 = select i1 %244, double 1.000000e+00, double %243
-  %245 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i61, 0x3CB0000000000000
-  %246 = fcmp ugt double %241, %245
-  %247 = fcmp olt double %230, %232
-  %or.cond78 = and i1 %247, %246
-  br i1 %or.cond78, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread
+_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i59: ; preds = %241
+  %244 = fsub double %234, %236
+  %245 = tail call noundef double @llvm.fabs.f64(double %244)
+  %246 = fcmp olt double %239, %242
+  %247 = select i1 %246, double %242, double %239
+  %248 = fcmp olt double %247, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i.i60 = select i1 %248, double 1.000000e+00, double %247
+  %249 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i60, 0x3CB0000000000000
+  %250 = fcmp ugt double %245, %249
+  %251 = fcmp olt double %234, %236
+  %or.cond75 = and i1 %251, %250
+  br i1 %or.cond75, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread
 
-_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i57, %219, %216
-  %248 = fcmp olt double %5, %6
-  %.phi.trans.insert85 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre86 = load double, ptr %.phi.trans.insert85, align 8, !tbaa !1591
-  %.phi.trans.insert87 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre88 = load double, ptr %.phi.trans.insert87, align 8, !tbaa !1591
-  br i1 %248, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread
+_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i56, %223, %220
+  %252 = fcmp olt double %5, %6
+  %.phi.trans.insert82 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.pre83 = load double, ptr %.phi.trans.insert82, align 8, !tbaa !1591
+  %.phi.trans.insert84 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.pre85 = load double, ptr %.phi.trans.insert84, align 8, !tbaa !1591
+  br i1 %252, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread
 
-_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit: ; preds = %234, %237
-  %.old77 = fcmp olt double %230, %232
-  br i1 %.old77, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread
+_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit: ; preds = %238, %241
+  %.old74 = fcmp olt double %234, %236
+  br i1 %.old74, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread
 
-_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64._crit_edge: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i60, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit
-  %249 = phi double [ %232, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit ], [ %232, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i60 ], [ %.pre88, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64 ]
-  %250 = phi double [ %230, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit ], [ %230, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i60 ], [ %.pre86, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64 ]
-  %251 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %252 = load double, ptr %251, align 8, !tbaa !1591
-  %253 = fsub double %6, %5
-  %254 = fsub double %249, %250
-  %255 = fsub double %40, %5
-  %256 = fsub double %252, %250
-  %257 = tail call noundef double @llvm.fabs.f64(double %253)
-  %258 = tail call noundef double @llvm.fabs.f64(double %254)
-  %259 = tail call noundef double @llvm.fabs.f64(double %255)
-  %260 = tail call noundef double @llvm.fabs.f64(double %256)
-  %261 = fcmp olt double %257, %258
-  %262 = select i1 %261, double %258, double %257
-  %263 = fcmp olt double %262, %259
-  %.sroa.speculated6.i.i.i65 = select i1 %263, double %259, double %262
-  %264 = fcmp olt double %.sroa.speculated6.i.i.i65, %260
-  %265 = select i1 %264, double %260, double %.sroa.speculated6.i.i.i65
-  %266 = fcmp olt double %265, 1.000000e+00
-  %.sroa.speculated.i.i.i66 = select i1 %266, double 1.000000e+00, double %265
-  store double %.sroa.speculated.i.i.i66, ptr %3, align 8, !tbaa !1591
-  %267 = fneg double %255
-  %268 = fmul double %254, %267
-  %269 = tail call noundef double @llvm.fmuladd.f64(double %253, double %256, double %268)
+_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63._crit_edge: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i59, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit
+  %253 = phi double [ %236, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit ], [ %236, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i59 ], [ %.pre85, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63 ]
+  %254 = phi double [ %234, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit ], [ %234, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i59 ], [ %.pre83, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63 ]
+  %255 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %256 = load double, ptr %255, align 8, !tbaa !1591
+  %257 = fsub double %6, %5
+  %258 = fsub double %253, %254
+  %259 = fsub double %40, %5
+  %260 = fsub double %256, %254
+  %261 = tail call noundef double @llvm.fabs.f64(double %257)
+  %262 = tail call noundef double @llvm.fabs.f64(double %258)
+  %263 = tail call noundef double @llvm.fabs.f64(double %259)
+  %264 = tail call noundef double @llvm.fabs.f64(double %260)
+  %265 = fcmp olt double %261, %262
+  %266 = select i1 %265, double %262, double %261
+  %267 = fcmp olt double %266, %263
+  %.sroa.speculated6.i.i.i64 = select i1 %267, double %263, double %266
+  %268 = fcmp olt double %.sroa.speculated6.i.i.i64, %264
+  %269 = select i1 %268, double %264, double %.sroa.speculated6.i.i.i64
+  %270 = fcmp olt double %269, 1.000000e+00
+  %271 = bitcast double %269 to i64
+  %272 = select i1 %270, i64 4607182418800017408, i64 %271
+  store i64 %272, ptr %3, align 8, !tbaa !1591
+  %273 = fneg double %259
+  %274 = fmul double %258, %273
+  %275 = tail call noundef double @llvm.fmuladd.f64(double %257, double %260, double %274)
   br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit
 
-_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i59, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i60, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit
-  %270 = phi double [ %232, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit ], [ %232, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i59 ], [ %232, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i60 ], [ %.pre88, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64 ]
-  %271 = phi double [ %230, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit ], [ %230, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i59 ], [ %230, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i60 ], [ %.pre86, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64 ]
-  %272 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %273 = load double, ptr %272, align 8, !tbaa !1591
-  %274 = fsub double %40, %6
-  %275 = fsub double %273, %270
-  %276 = fsub double %5, %6
-  %277 = fsub double %271, %270
-  %278 = tail call noundef double @llvm.fabs.f64(double %274)
-  %279 = tail call noundef double @llvm.fabs.f64(double %275)
-  %280 = tail call noundef double @llvm.fabs.f64(double %276)
-  %281 = tail call noundef double @llvm.fabs.f64(double %277)
-  %282 = fcmp olt double %278, %279
-  %283 = select i1 %282, double %279, double %278
-  %284 = fcmp olt double %283, %280
-  %.sroa.speculated6.i.i.i67 = select i1 %284, double %280, double %283
-  %285 = fcmp olt double %.sroa.speculated6.i.i.i67, %281
-  %286 = select i1 %285, double %281, double %.sroa.speculated6.i.i.i67
-  %287 = fcmp olt double %286, 1.000000e+00
-  %.sroa.speculated.i.i.i68 = select i1 %287, double 1.000000e+00, double %286
-  store double %.sroa.speculated.i.i.i68, ptr %3, align 8, !tbaa !1591
-  %288 = fneg double %276
-  %289 = fmul double %275, %288
-  %290 = tail call noundef double @llvm.fmuladd.f64(double %274, double %277, double %289)
+_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i58, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i59, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit
+  %276 = phi double [ %236, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit ], [ %236, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i58 ], [ %236, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i59 ], [ %.pre85, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63 ]
+  %277 = phi double [ %234, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit ], [ %234, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i58 ], [ %234, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i59 ], [ %.pre83, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63 ]
+  %278 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %279 = load double, ptr %278, align 8, !tbaa !1591
+  %280 = fsub double %40, %6
+  %281 = fsub double %279, %276
+  %282 = fsub double %5, %6
+  %283 = fsub double %277, %276
+  %284 = tail call noundef double @llvm.fabs.f64(double %280)
+  %285 = tail call noundef double @llvm.fabs.f64(double %281)
+  %286 = tail call noundef double @llvm.fabs.f64(double %282)
+  %287 = tail call noundef double @llvm.fabs.f64(double %283)
+  %288 = fcmp olt double %284, %285
+  %289 = select i1 %288, double %285, double %284
+  %290 = fcmp olt double %289, %286
+  %.sroa.speculated6.i.i.i65 = select i1 %290, double %286, double %289
+  %291 = fcmp olt double %.sroa.speculated6.i.i.i65, %287
+  %292 = select i1 %291, double %287, double %.sroa.speculated6.i.i.i65
+  %293 = fcmp olt double %292, 1.000000e+00
+  %294 = bitcast double %292 to i64
+  %295 = select i1 %293, i64 4607182418800017408, i64 %294
+  store i64 %295, ptr %3, align 8, !tbaa !1591
+  %296 = fneg double %282
+  %297 = fmul double %281, %296
+  %298 = tail call noundef double @llvm.fmuladd.f64(double %280, double %283, double %297)
   br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit
 
-_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i39, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i38, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i32, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i31, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64._crit_edge, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIdSB_EEEEbRKT_RKT0_.exit54.thread, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53._crit_edge
-  %.0 = phi double [ %290, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread ], [ %194, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53._crit_edge ], [ %215, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIdSB_EEEEbRKT_RKT0_.exit54.thread ], [ %269, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i64._crit_edge ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i32 ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i31 ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i38 ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i39 ]
+_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i39, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i38, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i32, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i31, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63._crit_edge, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIdSB_EEEEbRKT_RKT0_.exit54.thread, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53._crit_edge
+  %.0 = phi double [ %298, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread ], [ %196, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i53._crit_edge ], [ %219, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIdSB_EEEEbRKT_RKT0_.exit54.thread ], [ %275, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i63._crit_edge ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i32 ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i31 ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i38 ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i39 ]
   ret double %.0
 }
 
@@ -167923,31 +167935,31 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.i.
   %175 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i46, 0x3CB0000000000000
   %176 = fcmp ugt double %171, %175
   %177 = fcmp ogt double %161, %162
-  %or.cond67 = and i1 %177, %176
-  br i1 %or.cond67, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.thread.i.i49._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit50.thread
+  %or.cond64 = and i1 %177, %176
+  br i1 %or.cond64, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.thread.i.i49._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit50.thread
 
 _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.thread.i.i49: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.i.i42, %148, %145
   %178 = fcmp ogt double %6, %41
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load double, ptr %.phi.trans.insert, align 8, !tbaa !1591
-  %.phi.trans.insert70 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %.pre71 = load float, ptr %.phi.trans.insert70, align 4, !tbaa !3408
-  %.pre85 = fpext float %.pre71 to double
+  %.phi.trans.insert67 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %.pre68 = load float, ptr %.phi.trans.insert67, align 4, !tbaa !3408
+  %.pre82 = fpext float %.pre68 to double
   br i1 %178, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.thread.i.i49._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit50.thread
 
 _ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit50: ; preds = %164, %167
-  %.old66 = fcmp ogt double %161, %162
-  br i1 %.old66, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.thread.i.i49._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit50.thread
+  %.old63 = fcmp ogt double %161, %162
+  br i1 %.old63, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.thread.i.i49._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit50.thread
 
 _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.thread.i.i49._crit_edge: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.thread.i.i49, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.i.i.i45, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit50
-  %.pre-phi86 = phi double [ %162, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit50 ], [ %162, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.i.i.i45 ], [ %.pre85, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.thread.i.i49 ]
+  %.pre-phi83 = phi double [ %162, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit50 ], [ %162, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.i.i.i45 ], [ %.pre82, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.thread.i.i49 ]
   %179 = phi double [ %161, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit50 ], [ %161, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.i.i.i45 ], [ %.pre, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.thread.i.i49 ]
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %181 = load double, ptr %180, align 8, !tbaa !1591
   %182 = fsub double %5, %41
-  %183 = fsub double %181, %.pre-phi86
+  %183 = fsub double %181, %.pre-phi83
   %184 = fsub double %6, %41
-  %185 = fsub double %179, %.pre-phi86
+  %185 = fsub double %179, %.pre-phi83
   %186 = tail call noundef double @llvm.fabs.f64(double %182)
   %187 = tail call noundef double @llvm.fabs.f64(double %183)
   %188 = tail call noundef double @llvm.fabs.f64(double %184)
@@ -167959,165 +167971,169 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.th
   %193 = fcmp olt double %.sroa.speculated6.i.i.i, %189
   %194 = select i1 %193, double %189, double %.sroa.speculated6.i.i.i
   %195 = fcmp olt double %194, 1.000000e+00
-  %.sroa.speculated.i.i.i = select i1 %195, double 1.000000e+00, double %194
-  store double %.sroa.speculated.i.i.i, ptr %3, align 8, !tbaa !1591
-  %196 = fneg double %184
-  %197 = fmul double %183, %196
-  %198 = tail call noundef double @llvm.fmuladd.f64(double %182, double %185, double %197)
+  %196 = bitcast double %194 to i64
+  %197 = select i1 %195, i64 4607182418800017408, i64 %196
+  store i64 %197, ptr %3, align 8, !tbaa !1591
+  %198 = fneg double %184
+  %199 = fmul double %183, %198
+  %200 = tail call noundef double @llvm.fmuladd.f64(double %182, double %185, double %199)
   br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESA_EEbRKT_RKT0_.exit
 
 _ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit50.thread: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.thread.i.i49, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.thread13.i.i44, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.i.i.i45, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit50
-  %.pre-phi = phi double [ %162, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit50 ], [ %162, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.thread13.i.i44 ], [ %162, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.i.i.i45 ], [ %.pre85, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.thread.i.i49 ]
-  %199 = phi double [ %161, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit50 ], [ %161, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.thread13.i.i44 ], [ %161, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.i.i.i45 ], [ %.pre, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.thread.i.i49 ]
-  %200 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %201 = load double, ptr %200, align 8, !tbaa !1591
-  %202 = fsub double %41, %6
-  %203 = fsub double %.pre-phi, %199
-  %204 = fsub double %5, %6
-  %205 = fsub double %201, %199
-  %206 = tail call noundef double @llvm.fabs.f64(double %202)
-  %207 = tail call noundef double @llvm.fabs.f64(double %203)
+  %.pre-phi = phi double [ %162, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit50 ], [ %162, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.thread13.i.i44 ], [ %162, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.i.i.i45 ], [ %.pre82, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.thread.i.i49 ]
+  %201 = phi double [ %161, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit50 ], [ %161, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.thread13.i.i44 ], [ %161, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.i.i.i45 ], [ %.pre, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.thread.i.i49 ]
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %203 = load double, ptr %202, align 8, !tbaa !1591
+  %204 = fsub double %41, %6
+  %205 = fsub double %.pre-phi, %201
+  %206 = fsub double %5, %6
+  %207 = fsub double %203, %201
   %208 = tail call noundef double @llvm.fabs.f64(double %204)
   %209 = tail call noundef double @llvm.fabs.f64(double %205)
-  %210 = fcmp olt double %206, %207
-  %211 = select i1 %210, double %207, double %206
-  %212 = fcmp olt double %211, %208
-  %.sroa.speculated6.i.i.i51 = select i1 %212, double %208, double %211
-  %213 = fcmp olt double %.sroa.speculated6.i.i.i51, %209
-  %214 = select i1 %213, double %209, double %.sroa.speculated6.i.i.i51
-  %215 = fcmp olt double %214, 1.000000e+00
-  %.sroa.speculated.i.i.i52 = select i1 %215, double 1.000000e+00, double %214
-  store double %.sroa.speculated.i.i.i52, ptr %3, align 8, !tbaa !1591
-  %216 = fneg double %204
-  %217 = fmul double %203, %216
-  %218 = tail call noundef double @llvm.fmuladd.f64(double %202, double %205, double %217)
+  %210 = tail call noundef double @llvm.fabs.f64(double %206)
+  %211 = tail call noundef double @llvm.fabs.f64(double %207)
+  %212 = fcmp olt double %208, %209
+  %213 = select i1 %212, double %209, double %208
+  %214 = fcmp olt double %213, %210
+  %.sroa.speculated6.i.i.i51 = select i1 %214, double %210, double %213
+  %215 = fcmp olt double %.sroa.speculated6.i.i.i51, %211
+  %216 = select i1 %215, double %211, double %.sroa.speculated6.i.i.i51
+  %217 = fcmp olt double %216, 1.000000e+00
+  %218 = bitcast double %216 to i64
+  %219 = select i1 %217, i64 4607182418800017408, i64 %218
+  store i64 %219, ptr %3, align 8, !tbaa !1591
+  %220 = fneg double %206
+  %221 = fmul double %205, %220
+  %222 = tail call noundef double @llvm.fmuladd.f64(double %204, double %207, double %221)
   br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESA_EEbRKT_RKT0_.exit
 
 _ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit.thread: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.thread13.i.i, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.i.i.i, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.thread.i.i, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit
-  br i1 %7, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i, label %219
+  br i1 %7, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i, label %223
 
-219:                                              ; preds = %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit.thread
-  %220 = tail call double @llvm.fabs.f64(double %5)
-  %221 = fcmp ueq double %220, 0x7FF0000000000000
-  br i1 %221, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i, label %222
+223:                                              ; preds = %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit.thread
+  %224 = tail call double @llvm.fabs.f64(double %5)
+  %225 = fcmp ueq double %224, 0x7FF0000000000000
+  br i1 %225, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i, label %226
 
-222:                                              ; preds = %219
-  %223 = tail call double @llvm.fabs.f64(double %6)
-  %224 = fcmp ueq double %223, 0x7FF0000000000000
-  br i1 %224, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i
+226:                                              ; preds = %223
+  %227 = tail call double @llvm.fabs.f64(double %6)
+  %228 = fcmp ueq double %227, 0x7FF0000000000000
+  br i1 %228, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i
 
-_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i: ; preds = %222
-  %225 = fsub double %5, %6
-  %226 = tail call noundef double @llvm.fabs.f64(double %225)
-  %227 = fcmp olt double %220, %223
-  %228 = select i1 %227, double %223, double %220
-  %229 = fcmp olt double %228, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i53 = select i1 %229, double 1.000000e+00, double %228
-  %230 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i53, 0x3CB0000000000000
-  %231 = fcmp ugt double %226, %230
-  br i1 %231, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i
+_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i: ; preds = %226
+  %229 = fsub double %5, %6
+  %230 = tail call noundef double @llvm.fabs.f64(double %229)
+  %231 = fcmp olt double %224, %227
+  %232 = select i1 %231, double %227, double %224
+  %233 = fcmp olt double %232, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i52 = select i1 %233, double 1.000000e+00, double %232
+  %234 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i52, 0x3CB0000000000000
+  %235 = fcmp ugt double %230, %234
+  br i1 %235, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i
 
 _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit.thread
-  %232 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %233 = load double, ptr %232, align 8, !tbaa !1591
-  %234 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %235 = load double, ptr %234, align 8, !tbaa !1591
-  %236 = fcmp oeq double %233, %235
-  br i1 %236, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit.thread, label %237
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %237 = load double, ptr %236, align 8, !tbaa !1591
+  %238 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %239 = load double, ptr %238, align 8, !tbaa !1591
+  %240 = fcmp oeq double %237, %239
+  br i1 %240, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit.thread, label %241
 
-237:                                              ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i
-  %238 = tail call double @llvm.fabs.f64(double %233)
-  %239 = fcmp ueq double %238, 0x7FF0000000000000
-  br i1 %239, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit, label %240
+241:                                              ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i
+  %242 = tail call double @llvm.fabs.f64(double %237)
+  %243 = fcmp ueq double %242, 0x7FF0000000000000
+  br i1 %243, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit, label %244
 
-240:                                              ; preds = %237
-  %241 = tail call double @llvm.fabs.f64(double %235)
-  %242 = fcmp ueq double %241, 0x7FF0000000000000
-  br i1 %242, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i
+244:                                              ; preds = %241
+  %245 = tail call double @llvm.fabs.f64(double %239)
+  %246 = fcmp ueq double %245, 0x7FF0000000000000
+  br i1 %246, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i
 
-_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i: ; preds = %240
-  %243 = fsub double %233, %235
-  %244 = tail call noundef double @llvm.fabs.f64(double %243)
-  %245 = fcmp olt double %238, %241
-  %246 = select i1 %245, double %241, double %238
-  %247 = fcmp olt double %246, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i.i54 = select i1 %247, double 1.000000e+00, double %246
-  %248 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i54, 0x3CB0000000000000
-  %249 = fcmp ugt double %244, %248
-  %250 = fcmp olt double %233, %235
-  %or.cond69 = and i1 %250, %249
-  br i1 %or.cond69, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit.thread
+_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i: ; preds = %244
+  %247 = fsub double %237, %239
+  %248 = tail call noundef double @llvm.fabs.f64(double %247)
+  %249 = fcmp olt double %242, %245
+  %250 = select i1 %249, double %245, double %242
+  %251 = fcmp olt double %250, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i.i53 = select i1 %251, double 1.000000e+00, double %250
+  %252 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i53, 0x3CB0000000000000
+  %253 = fcmp ugt double %248, %252
+  %254 = fcmp olt double %237, %239
+  %or.cond66 = and i1 %254, %253
+  br i1 %or.cond66, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit.thread
 
-_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i, %222, %219
-  %251 = fcmp olt double %5, %6
-  %.phi.trans.insert76 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre77 = load double, ptr %.phi.trans.insert76, align 8, !tbaa !1591
-  %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre79 = load double, ptr %.phi.trans.insert78, align 8, !tbaa !1591
-  br i1 %251, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit.thread
+_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i, %226, %223
+  %255 = fcmp olt double %5, %6
+  %.phi.trans.insert73 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.pre74 = load double, ptr %.phi.trans.insert73, align 8, !tbaa !1591
+  %.phi.trans.insert75 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.pre76 = load double, ptr %.phi.trans.insert75, align 8, !tbaa !1591
+  br i1 %255, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit.thread
 
-_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit: ; preds = %237, %240
-  %.old68 = fcmp olt double %233, %235
-  br i1 %.old68, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit.thread
+_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit: ; preds = %241, %244
+  %.old65 = fcmp olt double %237, %239
+  br i1 %.old65, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit.thread
 
 _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i._crit_edge: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit
-  %252 = phi double [ %235, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit ], [ %235, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i ], [ %.pre79, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i ]
-  %253 = phi double [ %233, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit ], [ %233, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i ], [ %.pre77, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i ]
-  %254 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %255 = load float, ptr %254, align 4, !tbaa !3408
-  %256 = fpext float %255 to double
-  %257 = fsub double %6, %5
-  %258 = fsub double %252, %253
-  %259 = fsub double %41, %5
-  %260 = fsub double %256, %253
-  %261 = tail call noundef double @llvm.fabs.f64(double %257)
-  %262 = tail call noundef double @llvm.fabs.f64(double %258)
-  %263 = tail call noundef double @llvm.fabs.f64(double %259)
-  %264 = tail call noundef double @llvm.fabs.f64(double %260)
-  %265 = fcmp olt double %261, %262
-  %266 = select i1 %265, double %262, double %261
-  %267 = fcmp olt double %266, %263
-  %.sroa.speculated6.i.i.i56 = select i1 %267, double %263, double %266
-  %268 = fcmp olt double %.sroa.speculated6.i.i.i56, %264
-  %269 = select i1 %268, double %264, double %.sroa.speculated6.i.i.i56
-  %270 = fcmp olt double %269, 1.000000e+00
-  %.sroa.speculated.i.i.i57 = select i1 %270, double 1.000000e+00, double %269
-  store double %.sroa.speculated.i.i.i57, ptr %3, align 8, !tbaa !1591
-  %271 = fneg double %259
-  %272 = fmul double %258, %271
-  %273 = tail call noundef double @llvm.fmuladd.f64(double %257, double %260, double %272)
+  %256 = phi double [ %239, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit ], [ %239, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i ], [ %.pre76, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i ]
+  %257 = phi double [ %237, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit ], [ %237, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i ], [ %.pre74, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i ]
+  %258 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %259 = load float, ptr %258, align 4, !tbaa !3408
+  %260 = fpext float %259 to double
+  %261 = fsub double %6, %5
+  %262 = fsub double %256, %257
+  %263 = fsub double %41, %5
+  %264 = fsub double %260, %257
+  %265 = tail call noundef double @llvm.fabs.f64(double %261)
+  %266 = tail call noundef double @llvm.fabs.f64(double %262)
+  %267 = tail call noundef double @llvm.fabs.f64(double %263)
+  %268 = tail call noundef double @llvm.fabs.f64(double %264)
+  %269 = fcmp olt double %265, %266
+  %270 = select i1 %269, double %266, double %265
+  %271 = fcmp olt double %270, %267
+  %.sroa.speculated6.i.i.i55 = select i1 %271, double %267, double %270
+  %272 = fcmp olt double %.sroa.speculated6.i.i.i55, %268
+  %273 = select i1 %272, double %268, double %.sroa.speculated6.i.i.i55
+  %274 = fcmp olt double %273, 1.000000e+00
+  %275 = bitcast double %273 to i64
+  %276 = select i1 %274, i64 4607182418800017408, i64 %275
+  store i64 %276, ptr %3, align 8, !tbaa !1591
+  %277 = fneg double %263
+  %278 = fmul double %262, %277
+  %279 = tail call noundef double @llvm.fmuladd.f64(double %261, double %264, double %278)
   br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESA_EEbRKT_RKT0_.exit
 
 _ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit.thread: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit
-  %274 = phi double [ %235, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit ], [ %235, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i ], [ %235, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i ], [ %.pre79, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i ]
-  %275 = phi double [ %233, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit ], [ %233, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i ], [ %233, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i ], [ %.pre77, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i ]
-  %276 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %277 = load float, ptr %276, align 4, !tbaa !3408
-  %278 = fpext float %277 to double
-  %279 = fsub double %41, %6
-  %280 = fsub double %278, %274
-  %281 = fsub double %5, %6
-  %282 = fsub double %275, %274
-  %283 = tail call noundef double @llvm.fabs.f64(double %279)
-  %284 = tail call noundef double @llvm.fabs.f64(double %280)
-  %285 = tail call noundef double @llvm.fabs.f64(double %281)
-  %286 = tail call noundef double @llvm.fabs.f64(double %282)
-  %287 = fcmp olt double %283, %284
-  %288 = select i1 %287, double %284, double %283
-  %289 = fcmp olt double %288, %285
-  %.sroa.speculated6.i.i.i58 = select i1 %289, double %285, double %288
-  %290 = fcmp olt double %.sroa.speculated6.i.i.i58, %286
-  %291 = select i1 %290, double %286, double %.sroa.speculated6.i.i.i58
-  %292 = fcmp olt double %291, 1.000000e+00
-  %.sroa.speculated.i.i.i59 = select i1 %292, double 1.000000e+00, double %291
-  store double %.sroa.speculated.i.i.i59, ptr %3, align 8, !tbaa !1591
-  %293 = fneg double %281
-  %294 = fmul double %280, %293
-  %295 = tail call noundef double @llvm.fmuladd.f64(double %279, double %282, double %294)
+  %280 = phi double [ %239, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit ], [ %239, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i ], [ %239, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i ], [ %.pre76, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i ]
+  %281 = phi double [ %237, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit ], [ %237, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i ], [ %237, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i ], [ %.pre74, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i ]
+  %282 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %283 = load float, ptr %282, align 4, !tbaa !3408
+  %284 = fpext float %283 to double
+  %285 = fsub double %41, %6
+  %286 = fsub double %284, %280
+  %287 = fsub double %5, %6
+  %288 = fsub double %281, %280
+  %289 = tail call noundef double @llvm.fabs.f64(double %285)
+  %290 = tail call noundef double @llvm.fabs.f64(double %286)
+  %291 = tail call noundef double @llvm.fabs.f64(double %287)
+  %292 = tail call noundef double @llvm.fabs.f64(double %288)
+  %293 = fcmp olt double %289, %290
+  %294 = select i1 %293, double %290, double %289
+  %295 = fcmp olt double %294, %291
+  %.sroa.speculated6.i.i.i56 = select i1 %295, double %291, double %294
+  %296 = fcmp olt double %.sroa.speculated6.i.i.i56, %292
+  %297 = select i1 %296, double %292, double %.sroa.speculated6.i.i.i56
+  %298 = fcmp olt double %297, 1.000000e+00
+  %299 = bitcast double %297 to i64
+  %300 = select i1 %298, i64 4607182418800017408, i64 %299
+  store i64 %300, ptr %3, align 8, !tbaa !1591
+  %301 = fneg double %287
+  %302 = fmul double %286, %301
+  %303 = tail call noundef double @llvm.fmuladd.f64(double %285, double %288, double %302)
   br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESA_EEbRKT_RKT0_.exit
 
 _ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESA_EEbRKT_RKT0_.exit: ; preds = %_ZN5boost8geometry4math6equalsIdfEEbRKT_RKT0_.exit.i.i.i.i35, %_ZN5boost8geometry4math6equalsIdfEEbRKT_RKT0_.exit.thread7.i.i.i34, %_ZN5boost8geometry4math6equalsIdfEEbRKT_RKT0_.exit.i.i.i.i, %_ZN5boost8geometry4math6equalsIdfEEbRKT_RKT0_.exit.thread7.i.i.i, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit.thread, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i._crit_edge, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit50.thread, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.thread.i.i49._crit_edge
-  %.0 = phi double [ %295, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit.thread ], [ %198, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.thread.i.i49._crit_edge ], [ %218, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit50.thread ], [ %273, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i._crit_edge ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIdfEEbRKT_RKT0_.exit.i.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIdfEEbRKT_RKT0_.exit.thread7.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIdfEEbRKT_RKT0_.exit.thread7.i.i.i34 ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIdfEEbRKT_RKT0_.exit.i.i.i.i35 ]
+  %.0 = phi double [ %303, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESC_EEbRKT_RKT0_.exit.thread ], [ %200, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIfdEEbRKT_RKT0_.exit.thread.i.i49._crit_edge ], [ %222, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEENS8_5pointIdLm2ESC_EEEEbRKT_RKT0_.exit50.thread ], [ %279, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i._crit_edge ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIdfEEbRKT_RKT0_.exit.i.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIdfEEbRKT_RKT0_.exit.thread7.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIdfEEbRKT_RKT0_.exit.thread7.i.i.i34 ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIdfEEbRKT_RKT0_.exit.i.i.i.i35 ]
   ret double %.0
 }
 
@@ -172076,32 +172092,32 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.i.
   %176 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i46, 0x3CB0000000000000
   %177 = fcmp ugt double %172, %176
   %178 = fcmp olt double %160, %163
-  %or.cond67 = and i1 %178, %177
-  br i1 %or.cond67, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.thread.i.i49._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIfSB_EEEEbRKT_RKT0_.exit50.thread
+  %or.cond64 = and i1 %178, %177
+  br i1 %or.cond64, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.thread.i.i49._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIfSB_EEEEbRKT_RKT0_.exit50.thread
 
 _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.thread.i.i49: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.i.i42, %149, %146
   %179 = fcmp olt double %40, %76
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.pre = load float, ptr %.phi.trans.insert, align 4, !tbaa !3408
-  %.phi.trans.insert70 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.pre71 = load double, ptr %.phi.trans.insert70, align 8, !tbaa !1591
-  %.pre85 = fpext float %.pre to double
+  %.phi.trans.insert67 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.pre68 = load double, ptr %.phi.trans.insert67, align 8, !tbaa !1591
+  %.pre82 = fpext float %.pre to double
   br i1 %179, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.thread.i.i49._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIfSB_EEEEbRKT_RKT0_.exit50.thread
 
 _ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIfSB_EEEEbRKT_RKT0_.exit50: ; preds = %165, %168
-  %.old66 = fcmp olt double %160, %163
-  br i1 %.old66, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.thread.i.i49._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIfSB_EEEEbRKT_RKT0_.exit50.thread
+  %.old63 = fcmp olt double %160, %163
+  br i1 %.old63, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.thread.i.i49._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIfSB_EEEEbRKT_RKT0_.exit50.thread
 
 _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.thread.i.i49._crit_edge: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.thread.i.i49, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.i.i.i45, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIfSB_EEEEbRKT_RKT0_.exit50
-  %.pre-phi86 = phi double [ %163, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIfSB_EEEEbRKT_RKT0_.exit50 ], [ %163, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.i.i.i45 ], [ %.pre85, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.thread.i.i49 ]
-  %180 = phi double [ %160, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIfSB_EEEEbRKT_RKT0_.exit50 ], [ %160, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.i.i.i45 ], [ %.pre71, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.thread.i.i49 ]
+  %.pre-phi83 = phi double [ %163, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIfSB_EEEEbRKT_RKT0_.exit50 ], [ %163, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.i.i.i45 ], [ %.pre82, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.thread.i.i49 ]
+  %180 = phi double [ %160, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIfSB_EEEEbRKT_RKT0_.exit50 ], [ %160, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.i.i.i45 ], [ %.pre68, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.thread.i.i49 ]
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %182 = load float, ptr %181, align 4, !tbaa !3408
   %183 = fpext float %182 to double
   %184 = fsub double %41, %40
   %185 = fsub double %183, %180
   %186 = fsub double %76, %40
-  %187 = fsub double %.pre-phi86, %180
+  %187 = fsub double %.pre-phi83, %180
   %188 = tail call noundef double @llvm.fabs.f64(double %184)
   %189 = tail call noundef double @llvm.fabs.f64(double %185)
   %190 = tail call noundef double @llvm.fabs.f64(double %186)
@@ -172113,168 +172129,172 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.th
   %195 = fcmp olt double %.sroa.speculated6.i.i.i, %191
   %196 = select i1 %195, double %191, double %.sroa.speculated6.i.i.i
   %197 = fcmp olt double %196, 1.000000e+00
-  %.sroa.speculated.i.i.i = select i1 %197, double 1.000000e+00, double %196
-  store double %.sroa.speculated.i.i.i, ptr %3, align 8, !tbaa !1591
-  %198 = fneg double %186
-  %199 = fmul double %185, %198
-  %200 = tail call noundef double @llvm.fmuladd.f64(double %184, double %187, double %199)
+  %198 = bitcast double %196 to i64
+  %199 = select i1 %197, i64 4607182418800017408, i64 %198
+  store i64 %199, ptr %3, align 8, !tbaa !1591
+  %200 = fneg double %186
+  %201 = fmul double %185, %200
+  %202 = tail call noundef double @llvm.fmuladd.f64(double %184, double %187, double %201)
   br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit
 
 _ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIfSB_EEEEbRKT_RKT0_.exit50.thread: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.thread.i.i49, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.thread13.i.i44, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.i.i.i45, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIfSB_EEEEbRKT_RKT0_.exit50
-  %.pre-phi = phi double [ %163, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIfSB_EEEEbRKT_RKT0_.exit50 ], [ %163, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.thread13.i.i44 ], [ %163, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.i.i.i45 ], [ %.pre85, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.thread.i.i49 ]
-  %201 = phi double [ %160, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIfSB_EEEEbRKT_RKT0_.exit50 ], [ %160, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.thread13.i.i44 ], [ %160, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.i.i.i45 ], [ %.pre71, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.thread.i.i49 ]
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %203 = load float, ptr %202, align 4, !tbaa !3408
-  %204 = fpext float %203 to double
-  %205 = fsub double %40, %76
-  %206 = fsub double %201, %.pre-phi
-  %207 = fsub double %41, %76
-  %208 = fsub double %204, %.pre-phi
-  %209 = tail call noundef double @llvm.fabs.f64(double %205)
-  %210 = tail call noundef double @llvm.fabs.f64(double %206)
+  %.pre-phi = phi double [ %163, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIfSB_EEEEbRKT_RKT0_.exit50 ], [ %163, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.thread13.i.i44 ], [ %163, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.i.i.i45 ], [ %.pre82, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.thread.i.i49 ]
+  %203 = phi double [ %160, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIfSB_EEEEbRKT_RKT0_.exit50 ], [ %160, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.thread13.i.i44 ], [ %160, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.i.i.i45 ], [ %.pre68, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.thread.i.i49 ]
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %205 = load float, ptr %204, align 4, !tbaa !3408
+  %206 = fpext float %205 to double
+  %207 = fsub double %40, %76
+  %208 = fsub double %203, %.pre-phi
+  %209 = fsub double %41, %76
+  %210 = fsub double %206, %.pre-phi
   %211 = tail call noundef double @llvm.fabs.f64(double %207)
   %212 = tail call noundef double @llvm.fabs.f64(double %208)
-  %213 = fcmp olt double %209, %210
-  %214 = select i1 %213, double %210, double %209
-  %215 = fcmp olt double %214, %211
-  %.sroa.speculated6.i.i.i51 = select i1 %215, double %211, double %214
-  %216 = fcmp olt double %.sroa.speculated6.i.i.i51, %212
-  %217 = select i1 %216, double %212, double %.sroa.speculated6.i.i.i51
-  %218 = fcmp olt double %217, 1.000000e+00
-  %.sroa.speculated.i.i.i52 = select i1 %218, double 1.000000e+00, double %217
-  store double %.sroa.speculated.i.i.i52, ptr %3, align 8, !tbaa !1591
-  %219 = fneg double %207
-  %220 = fmul double %206, %219
-  %221 = tail call noundef double @llvm.fmuladd.f64(double %205, double %208, double %220)
+  %213 = tail call noundef double @llvm.fabs.f64(double %209)
+  %214 = tail call noundef double @llvm.fabs.f64(double %210)
+  %215 = fcmp olt double %211, %212
+  %216 = select i1 %215, double %212, double %211
+  %217 = fcmp olt double %216, %213
+  %.sroa.speculated6.i.i.i51 = select i1 %217, double %213, double %216
+  %218 = fcmp olt double %.sroa.speculated6.i.i.i51, %214
+  %219 = select i1 %218, double %214, double %.sroa.speculated6.i.i.i51
+  %220 = fcmp olt double %219, 1.000000e+00
+  %221 = bitcast double %219 to i64
+  %222 = select i1 %220, i64 4607182418800017408, i64 %221
+  store i64 %222, ptr %3, align 8, !tbaa !1591
+  %223 = fneg double %209
+  %224 = fmul double %208, %223
+  %225 = tail call noundef double @llvm.fmuladd.f64(double %207, double %210, double %224)
   br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit
 
 _ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIfSB_EEEEbRKT_RKT0_.exit.thread: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.thread13.i.i, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.i.i.i, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.thread.i.i, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIfSB_EEEEbRKT_RKT0_.exit
-  br i1 %7, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread13.i.i, label %222
+  br i1 %7, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread13.i.i, label %226
 
-222:                                              ; preds = %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIfSB_EEEEbRKT_RKT0_.exit.thread
-  %223 = tail call float @llvm.fabs.f32(float %5)
-  %224 = fcmp ueq float %223, 0x7FF0000000000000
-  br i1 %224, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i, label %225
+226:                                              ; preds = %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIfSB_EEEEbRKT_RKT0_.exit.thread
+  %227 = tail call float @llvm.fabs.f32(float %5)
+  %228 = fcmp ueq float %227, 0x7FF0000000000000
+  br i1 %228, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i, label %229
 
-225:                                              ; preds = %222
-  %226 = tail call float @llvm.fabs.f32(float %6)
-  %227 = fcmp ueq float %226, 0x7FF0000000000000
-  br i1 %227, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.i.i
+229:                                              ; preds = %226
+  %230 = tail call float @llvm.fabs.f32(float %6)
+  %231 = fcmp ueq float %230, 0x7FF0000000000000
+  br i1 %231, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.i.i
 
-_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.i.i: ; preds = %225
-  %228 = fsub float %5, %6
-  %229 = tail call noundef float @llvm.fabs.f32(float %228)
-  %230 = fcmp olt float %223, %226
-  %231 = select i1 %230, float %226, float %223
-  %232 = fcmp olt float %231, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i53 = select i1 %232, float 1.000000e+00, float %231
-  %233 = fmul nnan float %.sroa.speculated.i.i.i.i.i.i53, 0x3E80000000000000
-  %234 = fcmp ugt float %229, %233
-  br i1 %234, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread13.i.i
+_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.i.i: ; preds = %229
+  %232 = fsub float %5, %6
+  %233 = tail call noundef float @llvm.fabs.f32(float %232)
+  %234 = fcmp olt float %227, %230
+  %235 = select i1 %234, float %230, float %227
+  %236 = fcmp olt float %235, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i52 = select i1 %236, float 1.000000e+00, float %235
+  %237 = fmul nnan float %.sroa.speculated.i.i.i.i.i.i52, 0x3E80000000000000
+  %238 = fcmp ugt float %233, %237
+  br i1 %238, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread13.i.i
 
 _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread13.i.i: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.i.i, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIfSB_EEEEbRKT_RKT0_.exit.thread
-  %235 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %236 = load float, ptr %235, align 4, !tbaa !3408
-  %237 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %238 = load float, ptr %237, align 4, !tbaa !3408
-  %239 = fcmp oeq float %236, %238
-  br i1 %239, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread, label %240
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %240 = load float, ptr %239, align 4, !tbaa !3408
+  %241 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %242 = load float, ptr %241, align 4, !tbaa !3408
+  %243 = fcmp oeq float %240, %242
+  br i1 %243, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread, label %244
 
-240:                                              ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread13.i.i
-  %241 = tail call float @llvm.fabs.f32(float %236)
-  %242 = fcmp ueq float %241, 0x7FF0000000000000
-  br i1 %242, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit, label %243
+244:                                              ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread13.i.i
+  %245 = tail call float @llvm.fabs.f32(float %240)
+  %246 = fcmp ueq float %245, 0x7FF0000000000000
+  br i1 %246, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit, label %247
 
-243:                                              ; preds = %240
-  %244 = tail call float @llvm.fabs.f32(float %238)
-  %245 = fcmp ueq float %244, 0x7FF0000000000000
-  br i1 %245, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.i.i.i
+247:                                              ; preds = %244
+  %248 = tail call float @llvm.fabs.f32(float %242)
+  %249 = fcmp ueq float %248, 0x7FF0000000000000
+  br i1 %249, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.i.i.i
 
-_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.i.i.i: ; preds = %243
-  %246 = fsub float %236, %238
-  %247 = tail call noundef float @llvm.fabs.f32(float %246)
-  %248 = fcmp olt float %241, %244
-  %249 = select i1 %248, float %244, float %241
-  %250 = fcmp olt float %249, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i.i54 = select i1 %250, float 1.000000e+00, float %249
-  %251 = fmul nnan float %.sroa.speculated.i.i.i.i.i.i.i54, 0x3E80000000000000
-  %252 = fcmp ugt float %247, %251
-  %253 = fcmp olt float %236, %238
-  %or.cond69 = and i1 %253, %252
-  br i1 %or.cond69, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread
+_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.i.i.i: ; preds = %247
+  %250 = fsub float %240, %242
+  %251 = tail call noundef float @llvm.fabs.f32(float %250)
+  %252 = fcmp olt float %245, %248
+  %253 = select i1 %252, float %248, float %245
+  %254 = fcmp olt float %253, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i.i53 = select i1 %254, float 1.000000e+00, float %253
+  %255 = fmul nnan float %.sroa.speculated.i.i.i.i.i.i.i53, 0x3E80000000000000
+  %256 = fcmp ugt float %251, %255
+  %257 = fcmp olt float %240, %242
+  %or.cond66 = and i1 %257, %256
+  br i1 %or.cond66, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread
 
-_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.i.i, %225, %222
-  %254 = fcmp olt float %5, %6
-  %.phi.trans.insert76 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %.pre77 = load float, ptr %.phi.trans.insert76, align 4, !tbaa !3408
-  %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.pre79 = load float, ptr %.phi.trans.insert78, align 4, !tbaa !3408
-  br i1 %254, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread
+_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.i.i, %229, %226
+  %258 = fcmp olt float %5, %6
+  %.phi.trans.insert73 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %.pre74 = load float, ptr %.phi.trans.insert73, align 4, !tbaa !3408
+  %.phi.trans.insert75 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.pre76 = load float, ptr %.phi.trans.insert75, align 4, !tbaa !3408
+  br i1 %258, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread
 
-_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit: ; preds = %240, %243
-  %.old68 = fcmp olt float %236, %238
-  br i1 %.old68, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread
+_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit: ; preds = %244, %247
+  %.old65 = fcmp olt float %240, %242
+  br i1 %.old65, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread
 
 _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i._crit_edge: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.i.i.i, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit
-  %255 = phi float [ %238, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit ], [ %238, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.i.i.i ], [ %.pre79, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i ]
-  %256 = phi float [ %236, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit ], [ %236, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.i.i.i ], [ %.pre77, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i ]
-  %257 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %258 = load double, ptr %257, align 8, !tbaa !1591
-  %259 = fpext float %256 to double
-  %260 = fpext float %255 to double
-  %261 = fsub double %76, %41
-  %262 = fsub double %260, %259
-  %263 = fsub double %40, %41
-  %264 = fsub double %258, %259
-  %265 = tail call noundef double @llvm.fabs.f64(double %261)
-  %266 = tail call noundef double @llvm.fabs.f64(double %262)
-  %267 = tail call noundef double @llvm.fabs.f64(double %263)
-  %268 = tail call noundef double @llvm.fabs.f64(double %264)
-  %269 = fcmp olt double %265, %266
-  %270 = select i1 %269, double %266, double %265
-  %271 = fcmp olt double %270, %267
-  %.sroa.speculated6.i.i.i56 = select i1 %271, double %267, double %270
-  %272 = fcmp olt double %.sroa.speculated6.i.i.i56, %268
-  %273 = select i1 %272, double %268, double %.sroa.speculated6.i.i.i56
-  %274 = fcmp olt double %273, 1.000000e+00
-  %.sroa.speculated.i.i.i57 = select i1 %274, double 1.000000e+00, double %273
-  store double %.sroa.speculated.i.i.i57, ptr %3, align 8, !tbaa !1591
-  %275 = fneg double %263
-  %276 = fmul double %262, %275
-  %277 = tail call noundef double @llvm.fmuladd.f64(double %261, double %264, double %276)
+  %259 = phi float [ %242, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit ], [ %242, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.i.i.i ], [ %.pre76, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i ]
+  %260 = phi float [ %240, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit ], [ %240, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.i.i.i ], [ %.pre74, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i ]
+  %261 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %262 = load double, ptr %261, align 8, !tbaa !1591
+  %263 = fpext float %260 to double
+  %264 = fpext float %259 to double
+  %265 = fsub double %76, %41
+  %266 = fsub double %264, %263
+  %267 = fsub double %40, %41
+  %268 = fsub double %262, %263
+  %269 = tail call noundef double @llvm.fabs.f64(double %265)
+  %270 = tail call noundef double @llvm.fabs.f64(double %266)
+  %271 = tail call noundef double @llvm.fabs.f64(double %267)
+  %272 = tail call noundef double @llvm.fabs.f64(double %268)
+  %273 = fcmp olt double %269, %270
+  %274 = select i1 %273, double %270, double %269
+  %275 = fcmp olt double %274, %271
+  %.sroa.speculated6.i.i.i55 = select i1 %275, double %271, double %274
+  %276 = fcmp olt double %.sroa.speculated6.i.i.i55, %272
+  %277 = select i1 %276, double %272, double %.sroa.speculated6.i.i.i55
+  %278 = fcmp olt double %277, 1.000000e+00
+  %279 = bitcast double %277 to i64
+  %280 = select i1 %278, i64 4607182418800017408, i64 %279
+  store i64 %280, ptr %3, align 8, !tbaa !1591
+  %281 = fneg double %267
+  %282 = fmul double %266, %281
+  %283 = tail call noundef double @llvm.fmuladd.f64(double %265, double %268, double %282)
   br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit
 
 _ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread13.i.i, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.i.i.i, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit
-  %278 = phi float [ %238, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit ], [ %238, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread13.i.i ], [ %238, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.i.i.i ], [ %.pre79, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i ]
-  %279 = phi float [ %236, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit ], [ %236, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread13.i.i ], [ %236, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.i.i.i ], [ %.pre77, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i ]
-  %280 = fpext float %279 to double
-  %281 = fpext float %278 to double
-  %282 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %283 = load double, ptr %282, align 8, !tbaa !1591
-  %284 = fsub double %40, %76
-  %285 = fsub double %283, %281
-  %286 = fsub double %41, %76
-  %287 = fsub double %280, %281
-  %288 = tail call noundef double @llvm.fabs.f64(double %284)
-  %289 = tail call noundef double @llvm.fabs.f64(double %285)
-  %290 = tail call noundef double @llvm.fabs.f64(double %286)
-  %291 = tail call noundef double @llvm.fabs.f64(double %287)
-  %292 = fcmp olt double %288, %289
-  %293 = select i1 %292, double %289, double %288
-  %294 = fcmp olt double %293, %290
-  %.sroa.speculated6.i.i.i58 = select i1 %294, double %290, double %293
-  %295 = fcmp olt double %.sroa.speculated6.i.i.i58, %291
-  %296 = select i1 %295, double %291, double %.sroa.speculated6.i.i.i58
-  %297 = fcmp olt double %296, 1.000000e+00
-  %.sroa.speculated.i.i.i59 = select i1 %297, double 1.000000e+00, double %296
-  store double %.sroa.speculated.i.i.i59, ptr %3, align 8, !tbaa !1591
-  %298 = fneg double %286
-  %299 = fmul double %285, %298
-  %300 = tail call noundef double @llvm.fmuladd.f64(double %284, double %287, double %299)
+  %284 = phi float [ %242, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit ], [ %242, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread13.i.i ], [ %242, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.i.i.i ], [ %.pre76, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i ]
+  %285 = phi float [ %240, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit ], [ %240, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread13.i.i ], [ %240, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.i.i.i ], [ %.pre74, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i ]
+  %286 = fpext float %285 to double
+  %287 = fpext float %284 to double
+  %288 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %289 = load double, ptr %288, align 8, !tbaa !1591
+  %290 = fsub double %40, %76
+  %291 = fsub double %289, %287
+  %292 = fsub double %41, %76
+  %293 = fsub double %286, %287
+  %294 = tail call noundef double @llvm.fabs.f64(double %290)
+  %295 = tail call noundef double @llvm.fabs.f64(double %291)
+  %296 = tail call noundef double @llvm.fabs.f64(double %292)
+  %297 = tail call noundef double @llvm.fabs.f64(double %293)
+  %298 = fcmp olt double %294, %295
+  %299 = select i1 %298, double %295, double %294
+  %300 = fcmp olt double %299, %296
+  %.sroa.speculated6.i.i.i56 = select i1 %300, double %296, double %299
+  %301 = fcmp olt double %.sroa.speculated6.i.i.i56, %297
+  %302 = select i1 %301, double %297, double %.sroa.speculated6.i.i.i56
+  %303 = fcmp olt double %302, 1.000000e+00
+  %304 = bitcast double %302 to i64
+  %305 = select i1 %303, i64 4607182418800017408, i64 %304
+  store i64 %305, ptr %3, align 8, !tbaa !1591
+  %306 = fneg double %292
+  %307 = fmul double %291, %306
+  %308 = tail call noundef double @llvm.fmuladd.f64(double %290, double %293, double %307)
   br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit
 
 _ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit: ; preds = %_ZN5boost8geometry4math6equalsIfdEEbRKT_RKT0_.exit.i.i.i.i35, %_ZN5boost8geometry4math6equalsIfdEEbRKT_RKT0_.exit.thread7.i.i.i34, %_ZN5boost8geometry4math6equalsIfdEEbRKT_RKT0_.exit.i.i.i.i, %_ZN5boost8geometry4math6equalsIfdEEbRKT_RKT0_.exit.thread7.i.i.i, %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit.i.i.i.i, %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit.thread7.i.i.i, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i._crit_edge, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIfSB_EEEEbRKT_RKT0_.exit50.thread, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.thread.i.i49._crit_edge
-  %.0 = phi double [ %300, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread ], [ %200, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.thread.i.i49._crit_edge ], [ %221, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIfSB_EEEEbRKT_RKT0_.exit50.thread ], [ %277, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i._crit_edge ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIfdEEbRKT_RKT0_.exit.i.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit.i.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit.thread7.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIfdEEbRKT_RKT0_.exit.thread7.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIfdEEbRKT_RKT0_.exit.thread7.i.i.i34 ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIfdEEbRKT_RKT0_.exit.i.i.i.i35 ]
+  %.0 = phi double [ %308, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIfNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread ], [ %202, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdfEEbRKT_RKT0_.exit.thread.i.i49._crit_edge ], [ %225, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS8_2d28point_xyIfSB_EEEEbRKT_RKT0_.exit50.thread ], [ %283, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i._crit_edge ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIfdEEbRKT_RKT0_.exit.i.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit.i.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit.thread7.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIfdEEbRKT_RKT0_.exit.thread7.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIfdEEbRKT_RKT0_.exit.thread7.i.i.i34 ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIfdEEbRKT_RKT0_.exit.i.i.i.i35 ]
   ret double %.0
 }
 
@@ -184040,31 +184060,31 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.i.
   %159 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i46, 0x3CB0000000000000
   %160 = fcmp ugt double %155, %159
   %161 = fcmp ogt double %147, %148
-  %or.cond67 = and i1 %161, %160
-  br i1 %or.cond67, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.thread12.i.i49._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENSA_IdSC_EEEEbRKT_RKT0_.exit50.thread
+  %or.cond64 = and i1 %161, %160
+  br i1 %or.cond64, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.thread12.i.i49._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENSA_IdSC_EEEEbRKT_RKT0_.exit50.thread
 
 _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.thread12.i.i49: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.i.i42, %133
   %162 = fcmp ogt double %6, %41
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load double, ptr %.phi.trans.insert, align 8, !tbaa !1591
-  %.phi.trans.insert70 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %.pre71 = load i32, ptr %.phi.trans.insert70, align 4, !tbaa !263
-  %.pre85 = sitofp i32 %.pre71 to double
+  %.phi.trans.insert67 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %.pre68 = load i32, ptr %.phi.trans.insert67, align 4, !tbaa !263
+  %.pre82 = sitofp i32 %.pre68 to double
   br i1 %162, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.thread12.i.i49._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENSA_IdSC_EEEEbRKT_RKT0_.exit50.thread
 
 _ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENSA_IdSC_EEEEbRKT_RKT0_.exit50: ; preds = %150
-  %.old66 = fcmp ogt double %147, %148
-  br i1 %.old66, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.thread12.i.i49._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENSA_IdSC_EEEEbRKT_RKT0_.exit50.thread
+  %.old63 = fcmp ogt double %147, %148
+  br i1 %.old63, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.thread12.i.i49._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENSA_IdSC_EEEEbRKT_RKT0_.exit50.thread
 
 _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.thread12.i.i49._crit_edge: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.thread12.i.i49, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.i.i.i45, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENSA_IdSC_EEEEbRKT_RKT0_.exit50
-  %.pre-phi86 = phi double [ %148, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENSA_IdSC_EEEEbRKT_RKT0_.exit50 ], [ %148, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.i.i.i45 ], [ %.pre85, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.thread12.i.i49 ]
+  %.pre-phi83 = phi double [ %148, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENSA_IdSC_EEEEbRKT_RKT0_.exit50 ], [ %148, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.i.i.i45 ], [ %.pre82, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.thread12.i.i49 ]
   %163 = phi double [ %147, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENSA_IdSC_EEEEbRKT_RKT0_.exit50 ], [ %147, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.i.i.i45 ], [ %.pre, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.thread12.i.i49 ]
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %165 = load double, ptr %164, align 8, !tbaa !1591
   %166 = fsub double %5, %41
-  %167 = fsub double %165, %.pre-phi86
+  %167 = fsub double %165, %.pre-phi83
   %168 = fsub double %6, %41
-  %169 = fsub double %163, %.pre-phi86
+  %169 = fsub double %163, %.pre-phi83
   %170 = tail call noundef double @llvm.fabs.f64(double %166)
   %171 = tail call noundef double @llvm.fabs.f64(double %167)
   %172 = tail call noundef double @llvm.fabs.f64(double %168)
@@ -184076,165 +184096,169 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.th
   %177 = fcmp olt double %.sroa.speculated6.i.i.i, %173
   %178 = select i1 %177, double %173, double %.sroa.speculated6.i.i.i
   %179 = fcmp olt double %178, 1.000000e+00
-  %.sroa.speculated.i.i.i = select i1 %179, double 1.000000e+00, double %178
-  store double %.sroa.speculated.i.i.i, ptr %3, align 8, !tbaa !1591
-  %180 = fneg double %168
-  %181 = fmul double %167, %180
-  %182 = tail call noundef double @llvm.fmuladd.f64(double %166, double %169, double %181)
+  %180 = bitcast double %178 to i64
+  %181 = select i1 %179, i64 4607182418800017408, i64 %180
+  store i64 %181, ptr %3, align 8, !tbaa !1591
+  %182 = fneg double %168
+  %183 = fmul double %167, %182
+  %184 = tail call noundef double @llvm.fmuladd.f64(double %166, double %169, double %183)
   br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit
 
 _ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENSA_IdSC_EEEEbRKT_RKT0_.exit50.thread: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.thread12.i.i49, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.thread.i.i44, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.i.i.i45, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENSA_IdSC_EEEEbRKT_RKT0_.exit50
-  %.pre-phi = phi double [ %148, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENSA_IdSC_EEEEbRKT_RKT0_.exit50 ], [ %148, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.thread.i.i44 ], [ %148, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.i.i.i45 ], [ %.pre85, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.thread12.i.i49 ]
-  %183 = phi double [ %147, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENSA_IdSC_EEEEbRKT_RKT0_.exit50 ], [ %147, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.thread.i.i44 ], [ %147, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.i.i.i45 ], [ %.pre, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.thread12.i.i49 ]
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %185 = load double, ptr %184, align 8, !tbaa !1591
-  %186 = fsub double %41, %6
-  %187 = fsub double %.pre-phi, %183
-  %188 = fsub double %5, %6
-  %189 = fsub double %185, %183
-  %190 = tail call noundef double @llvm.fabs.f64(double %186)
-  %191 = tail call noundef double @llvm.fabs.f64(double %187)
+  %.pre-phi = phi double [ %148, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENSA_IdSC_EEEEbRKT_RKT0_.exit50 ], [ %148, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.thread.i.i44 ], [ %148, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.i.i.i45 ], [ %.pre82, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.thread12.i.i49 ]
+  %185 = phi double [ %147, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENSA_IdSC_EEEEbRKT_RKT0_.exit50 ], [ %147, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.thread.i.i44 ], [ %147, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.i.i.i45 ], [ %.pre, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.thread12.i.i49 ]
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %187 = load double, ptr %186, align 8, !tbaa !1591
+  %188 = fsub double %41, %6
+  %189 = fsub double %.pre-phi, %185
+  %190 = fsub double %5, %6
+  %191 = fsub double %187, %185
   %192 = tail call noundef double @llvm.fabs.f64(double %188)
   %193 = tail call noundef double @llvm.fabs.f64(double %189)
-  %194 = fcmp olt double %190, %191
-  %195 = select i1 %194, double %191, double %190
-  %196 = fcmp olt double %195, %192
-  %.sroa.speculated6.i.i.i51 = select i1 %196, double %192, double %195
-  %197 = fcmp olt double %.sroa.speculated6.i.i.i51, %193
-  %198 = select i1 %197, double %193, double %.sroa.speculated6.i.i.i51
-  %199 = fcmp olt double %198, 1.000000e+00
-  %.sroa.speculated.i.i.i52 = select i1 %199, double 1.000000e+00, double %198
-  store double %.sroa.speculated.i.i.i52, ptr %3, align 8, !tbaa !1591
-  %200 = fneg double %188
-  %201 = fmul double %187, %200
-  %202 = tail call noundef double @llvm.fmuladd.f64(double %186, double %189, double %201)
+  %194 = tail call noundef double @llvm.fabs.f64(double %190)
+  %195 = tail call noundef double @llvm.fabs.f64(double %191)
+  %196 = fcmp olt double %192, %193
+  %197 = select i1 %196, double %193, double %192
+  %198 = fcmp olt double %197, %194
+  %.sroa.speculated6.i.i.i51 = select i1 %198, double %194, double %197
+  %199 = fcmp olt double %.sroa.speculated6.i.i.i51, %195
+  %200 = select i1 %199, double %195, double %.sroa.speculated6.i.i.i51
+  %201 = fcmp olt double %200, 1.000000e+00
+  %202 = bitcast double %200 to i64
+  %203 = select i1 %201, i64 4607182418800017408, i64 %202
+  store i64 %203, ptr %3, align 8, !tbaa !1591
+  %204 = fneg double %190
+  %205 = fmul double %189, %204
+  %206 = tail call noundef double @llvm.fmuladd.f64(double %188, double %191, double %205)
   br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit
 
 _ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENSA_IdSC_EEEEbRKT_RKT0_.exit.thread: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.thread.i.i, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.i.i.i, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.thread12.i.i, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENSA_IdSC_EEEEbRKT_RKT0_.exit
-  br i1 %7, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i, label %203
+  br i1 %7, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i, label %207
 
-203:                                              ; preds = %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENSA_IdSC_EEEEbRKT_RKT0_.exit.thread
-  %204 = tail call double @llvm.fabs.f64(double %5)
-  %205 = fcmp ueq double %204, 0x7FF0000000000000
-  br i1 %205, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i, label %206
+207:                                              ; preds = %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENSA_IdSC_EEEEbRKT_RKT0_.exit.thread
+  %208 = tail call double @llvm.fabs.f64(double %5)
+  %209 = fcmp ueq double %208, 0x7FF0000000000000
+  br i1 %209, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i, label %210
 
-206:                                              ; preds = %203
-  %207 = tail call double @llvm.fabs.f64(double %6)
-  %208 = fcmp ueq double %207, 0x7FF0000000000000
-  br i1 %208, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i
+210:                                              ; preds = %207
+  %211 = tail call double @llvm.fabs.f64(double %6)
+  %212 = fcmp ueq double %211, 0x7FF0000000000000
+  br i1 %212, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i
 
-_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i: ; preds = %206
-  %209 = fsub double %5, %6
-  %210 = tail call noundef double @llvm.fabs.f64(double %209)
-  %211 = fcmp olt double %204, %207
-  %212 = select i1 %211, double %207, double %204
-  %213 = fcmp olt double %212, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i53 = select i1 %213, double 1.000000e+00, double %212
-  %214 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i53, 0x3CB0000000000000
-  %215 = fcmp ugt double %210, %214
-  br i1 %215, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i
+_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i: ; preds = %210
+  %213 = fsub double %5, %6
+  %214 = tail call noundef double @llvm.fabs.f64(double %213)
+  %215 = fcmp olt double %208, %211
+  %216 = select i1 %215, double %211, double %208
+  %217 = fcmp olt double %216, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i52 = select i1 %217, double 1.000000e+00, double %216
+  %218 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i52, 0x3CB0000000000000
+  %219 = fcmp ugt double %214, %218
+  br i1 %219, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i
 
 _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENSA_IdSC_EEEEbRKT_RKT0_.exit.thread
-  %216 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %217 = load double, ptr %216, align 8, !tbaa !1591
-  %218 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %219 = load double, ptr %218, align 8, !tbaa !1591
-  %220 = fcmp oeq double %217, %219
-  br i1 %220, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread, label %221
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %221 = load double, ptr %220, align 8, !tbaa !1591
+  %222 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %223 = load double, ptr %222, align 8, !tbaa !1591
+  %224 = fcmp oeq double %221, %223
+  br i1 %224, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread, label %225
 
-221:                                              ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i
-  %222 = tail call double @llvm.fabs.f64(double %217)
-  %223 = fcmp ueq double %222, 0x7FF0000000000000
-  br i1 %223, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit, label %224
+225:                                              ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i
+  %226 = tail call double @llvm.fabs.f64(double %221)
+  %227 = fcmp ueq double %226, 0x7FF0000000000000
+  br i1 %227, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit, label %228
 
-224:                                              ; preds = %221
-  %225 = tail call double @llvm.fabs.f64(double %219)
-  %226 = fcmp ueq double %225, 0x7FF0000000000000
-  br i1 %226, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i
+228:                                              ; preds = %225
+  %229 = tail call double @llvm.fabs.f64(double %223)
+  %230 = fcmp ueq double %229, 0x7FF0000000000000
+  br i1 %230, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i
 
-_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i: ; preds = %224
-  %227 = fsub double %217, %219
-  %228 = tail call noundef double @llvm.fabs.f64(double %227)
-  %229 = fcmp olt double %222, %225
-  %230 = select i1 %229, double %225, double %222
-  %231 = fcmp olt double %230, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i.i54 = select i1 %231, double 1.000000e+00, double %230
-  %232 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i54, 0x3CB0000000000000
-  %233 = fcmp ugt double %228, %232
-  %234 = fcmp olt double %217, %219
-  %or.cond69 = and i1 %234, %233
-  br i1 %or.cond69, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread
+_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i: ; preds = %228
+  %231 = fsub double %221, %223
+  %232 = tail call noundef double @llvm.fabs.f64(double %231)
+  %233 = fcmp olt double %226, %229
+  %234 = select i1 %233, double %229, double %226
+  %235 = fcmp olt double %234, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i.i53 = select i1 %235, double 1.000000e+00, double %234
+  %236 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i53, 0x3CB0000000000000
+  %237 = fcmp ugt double %232, %236
+  %238 = fcmp olt double %221, %223
+  %or.cond66 = and i1 %238, %237
+  br i1 %or.cond66, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread
 
-_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i, %206, %203
-  %235 = fcmp olt double %5, %6
-  %.phi.trans.insert76 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre77 = load double, ptr %.phi.trans.insert76, align 8, !tbaa !1591
-  %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre79 = load double, ptr %.phi.trans.insert78, align 8, !tbaa !1591
-  br i1 %235, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread
+_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i, %210, %207
+  %239 = fcmp olt double %5, %6
+  %.phi.trans.insert73 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.pre74 = load double, ptr %.phi.trans.insert73, align 8, !tbaa !1591
+  %.phi.trans.insert75 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.pre76 = load double, ptr %.phi.trans.insert75, align 8, !tbaa !1591
+  br i1 %239, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread
 
-_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit: ; preds = %221, %224
-  %.old68 = fcmp olt double %217, %219
-  br i1 %.old68, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread
+_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit: ; preds = %225, %228
+  %.old65 = fcmp olt double %221, %223
+  br i1 %.old65, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread
 
 _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i._crit_edge: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit
-  %236 = phi double [ %219, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit ], [ %219, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i ], [ %.pre79, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i ]
-  %237 = phi double [ %217, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit ], [ %217, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i ], [ %.pre77, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i ]
-  %238 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %239 = load i32, ptr %238, align 4, !tbaa !263
-  %240 = sitofp i32 %239 to double
-  %241 = fsub double %6, %5
-  %242 = fsub double %236, %237
-  %243 = fsub double %41, %5
-  %244 = fsub double %240, %237
-  %245 = tail call noundef double @llvm.fabs.f64(double %241)
-  %246 = tail call noundef double @llvm.fabs.f64(double %242)
-  %247 = tail call noundef double @llvm.fabs.f64(double %243)
-  %248 = tail call noundef double @llvm.fabs.f64(double %244)
-  %249 = fcmp olt double %245, %246
-  %250 = select i1 %249, double %246, double %245
-  %251 = fcmp olt double %250, %247
-  %.sroa.speculated6.i.i.i56 = select i1 %251, double %247, double %250
-  %252 = fcmp olt double %.sroa.speculated6.i.i.i56, %248
-  %253 = select i1 %252, double %248, double %.sroa.speculated6.i.i.i56
-  %254 = fcmp olt double %253, 1.000000e+00
-  %.sroa.speculated.i.i.i57 = select i1 %254, double 1.000000e+00, double %253
-  store double %.sroa.speculated.i.i.i57, ptr %3, align 8, !tbaa !1591
-  %255 = fneg double %243
-  %256 = fmul double %242, %255
-  %257 = tail call noundef double @llvm.fmuladd.f64(double %241, double %244, double %256)
+  %240 = phi double [ %223, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit ], [ %223, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i ], [ %.pre76, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i ]
+  %241 = phi double [ %221, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit ], [ %221, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i ], [ %.pre74, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i ]
+  %242 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %243 = load i32, ptr %242, align 4, !tbaa !263
+  %244 = sitofp i32 %243 to double
+  %245 = fsub double %6, %5
+  %246 = fsub double %240, %241
+  %247 = fsub double %41, %5
+  %248 = fsub double %244, %241
+  %249 = tail call noundef double @llvm.fabs.f64(double %245)
+  %250 = tail call noundef double @llvm.fabs.f64(double %246)
+  %251 = tail call noundef double @llvm.fabs.f64(double %247)
+  %252 = tail call noundef double @llvm.fabs.f64(double %248)
+  %253 = fcmp olt double %249, %250
+  %254 = select i1 %253, double %250, double %249
+  %255 = fcmp olt double %254, %251
+  %.sroa.speculated6.i.i.i55 = select i1 %255, double %251, double %254
+  %256 = fcmp olt double %.sroa.speculated6.i.i.i55, %252
+  %257 = select i1 %256, double %252, double %.sroa.speculated6.i.i.i55
+  %258 = fcmp olt double %257, 1.000000e+00
+  %259 = bitcast double %257 to i64
+  %260 = select i1 %258, i64 4607182418800017408, i64 %259
+  store i64 %260, ptr %3, align 8, !tbaa !1591
+  %261 = fneg double %247
+  %262 = fmul double %246, %261
+  %263 = tail call noundef double @llvm.fmuladd.f64(double %245, double %248, double %262)
   br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit
 
 _ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit
-  %258 = phi double [ %219, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit ], [ %219, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i ], [ %219, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i ], [ %.pre79, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i ]
-  %259 = phi double [ %217, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit ], [ %217, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i ], [ %217, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i ], [ %.pre77, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i ]
-  %260 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %261 = load i32, ptr %260, align 4, !tbaa !263
-  %262 = sitofp i32 %261 to double
-  %263 = fsub double %41, %6
-  %264 = fsub double %262, %258
-  %265 = fsub double %5, %6
-  %266 = fsub double %259, %258
-  %267 = tail call noundef double @llvm.fabs.f64(double %263)
-  %268 = tail call noundef double @llvm.fabs.f64(double %264)
-  %269 = tail call noundef double @llvm.fabs.f64(double %265)
-  %270 = tail call noundef double @llvm.fabs.f64(double %266)
-  %271 = fcmp olt double %267, %268
-  %272 = select i1 %271, double %268, double %267
-  %273 = fcmp olt double %272, %269
-  %.sroa.speculated6.i.i.i58 = select i1 %273, double %269, double %272
-  %274 = fcmp olt double %.sroa.speculated6.i.i.i58, %270
-  %275 = select i1 %274, double %270, double %.sroa.speculated6.i.i.i58
-  %276 = fcmp olt double %275, 1.000000e+00
-  %.sroa.speculated.i.i.i59 = select i1 %276, double 1.000000e+00, double %275
-  store double %.sroa.speculated.i.i.i59, ptr %3, align 8, !tbaa !1591
-  %277 = fneg double %265
-  %278 = fmul double %264, %277
-  %279 = tail call noundef double @llvm.fmuladd.f64(double %263, double %266, double %278)
+  %264 = phi double [ %223, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit ], [ %223, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i ], [ %223, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i ], [ %.pre76, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i ]
+  %265 = phi double [ %221, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit ], [ %221, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i ], [ %221, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i ], [ %.pre74, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i ]
+  %266 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %267 = load i32, ptr %266, align 4, !tbaa !263
+  %268 = sitofp i32 %267 to double
+  %269 = fsub double %41, %6
+  %270 = fsub double %268, %264
+  %271 = fsub double %5, %6
+  %272 = fsub double %265, %264
+  %273 = tail call noundef double @llvm.fabs.f64(double %269)
+  %274 = tail call noundef double @llvm.fabs.f64(double %270)
+  %275 = tail call noundef double @llvm.fabs.f64(double %271)
+  %276 = tail call noundef double @llvm.fabs.f64(double %272)
+  %277 = fcmp olt double %273, %274
+  %278 = select i1 %277, double %274, double %273
+  %279 = fcmp olt double %278, %275
+  %.sroa.speculated6.i.i.i56 = select i1 %279, double %275, double %278
+  %280 = fcmp olt double %.sroa.speculated6.i.i.i56, %276
+  %281 = select i1 %280, double %276, double %.sroa.speculated6.i.i.i56
+  %282 = fcmp olt double %281, 1.000000e+00
+  %283 = bitcast double %281 to i64
+  %284 = select i1 %282, i64 4607182418800017408, i64 %283
+  store i64 %284, ptr %3, align 8, !tbaa !1591
+  %285 = fneg double %271
+  %286 = fmul double %270, %285
+  %287 = tail call noundef double @llvm.fmuladd.f64(double %269, double %272, double %286)
   br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit
 
 _ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESB_EEbRKT_RKT0_.exit: ; preds = %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.i.i.i.i35, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.thread.i.i.i34, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.i.i.i.i, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.thread.i.i.i, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i._crit_edge, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENSA_IdSC_EEEEbRKT_RKT0_.exit50.thread, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.thread12.i.i49._crit_edge
-  %.0 = phi double [ %279, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread ], [ %182, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.thread12.i.i49._crit_edge ], [ %202, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENSA_IdSC_EEEEbRKT_RKT0_.exit50.thread ], [ %257, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i._crit_edge ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.i.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.thread.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.thread.i.i.i34 ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.i.i.i.i35 ]
+  %.0 = phi double [ %287, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEESD_EEbRKT_RKT0_.exit.thread ], [ %184, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIidEEbRKT_RKT0_.exit.thread12.i.i49._crit_edge ], [ %206, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENSA_IdSC_EEEEbRKT_RKT0_.exit50.thread ], [ %263, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i._crit_edge ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.i.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.thread.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.thread.i.i.i34 ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.i.i.i.i35 ]
   ret double %.0
 }
 
@@ -187557,28 +187581,28 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.i.
   %126 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i44, 0x3CB0000000000000
   %127 = fcmp ugt double %122, %126
   %128 = fcmp olt double %114, %115
-  %or.cond61 = and i1 %128, %127
-  br i1 %or.cond61, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.thread12.i.i47._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_IiSC_EEEEbRKT_RKT0_.exit48.thread
+  %or.cond58 = and i1 %128, %127
+  br i1 %or.cond58, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.thread12.i.i47._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_IiSC_EEEEbRKT_RKT0_.exit48.thread
 
 _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.thread12.i.i47: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.i.i40, %102
   %129 = fcmp olt double %14, %44
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.pre = load double, ptr %.phi.trans.insert, align 8, !tbaa !1591
-  %.pre65 = sitofp i32 %11 to double
+  %.pre62 = sitofp i32 %11 to double
   br i1 %129, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.thread12.i.i47._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_IiSC_EEEEbRKT_RKT0_.exit48.thread
 
 _ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_IiSC_EEEEbRKT_RKT0_.exit48: ; preds = %117
-  %.old60 = fcmp olt double %114, %115
-  br i1 %.old60, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.thread12.i.i47._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_IiSC_EEEEbRKT_RKT0_.exit48.thread
+  %.old57 = fcmp olt double %114, %115
+  br i1 %.old57, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.thread12.i.i47._crit_edge, label %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_IiSC_EEEEbRKT_RKT0_.exit48.thread
 
 _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.thread12.i.i47._crit_edge: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.thread12.i.i47, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.i.i.i43, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_IiSC_EEEEbRKT_RKT0_.exit48
-  %.pre-phi66 = phi double [ %115, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_IiSC_EEEEbRKT_RKT0_.exit48 ], [ %115, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.i.i.i43 ], [ %.pre65, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.thread12.i.i47 ]
+  %.pre-phi63 = phi double [ %115, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_IiSC_EEEEbRKT_RKT0_.exit48 ], [ %115, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.i.i.i43 ], [ %.pre62, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.thread12.i.i47 ]
   %130 = phi double [ %114, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_IiSC_EEEEbRKT_RKT0_.exit48 ], [ %114, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.i.i.i43 ], [ %.pre, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.thread12.i.i47 ]
   %131 = sitofp i32 %9 to double
   %132 = fsub double %15, %14
   %133 = fsub double %131, %130
   %134 = fsub double %44, %14
-  %135 = fsub double %.pre-phi66, %130
+  %135 = fsub double %.pre-phi63, %130
   %136 = tail call noundef double @llvm.fabs.f64(double %132)
   %137 = tail call noundef double @llvm.fabs.f64(double %133)
   %138 = tail call noundef double @llvm.fabs.f64(double %134)
@@ -187590,101 +187614,105 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.th
   %143 = fcmp olt double %.sroa.speculated6.i.i.i, %139
   %144 = select i1 %143, double %139, double %.sroa.speculated6.i.i.i
   %145 = fcmp olt double %144, 1.000000e+00
-  %.sroa.speculated.i.i.i = select i1 %145, double 1.000000e+00, double %144
-  store double %.sroa.speculated.i.i.i, ptr %3, align 8, !tbaa !1591
-  %146 = fneg double %134
-  %147 = fmul double %133, %146
-  %148 = tail call noundef double @llvm.fmuladd.f64(double %132, double %135, double %147)
+  %146 = bitcast double %144 to i64
+  %147 = select i1 %145, i64 4607182418800017408, i64 %146
+  store i64 %147, ptr %3, align 8, !tbaa !1591
+  %148 = fneg double %134
+  %149 = fmul double %133, %148
+  %150 = tail call noundef double @llvm.fmuladd.f64(double %132, double %135, double %149)
   br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENS8_IdSA_EEEEbRKT_RKT0_.exit
 
 _ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_IiSC_EEEEbRKT_RKT0_.exit48.thread: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.thread12.i.i47, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.thread.i.i42, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.i.i.i43, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_IiSC_EEEEbRKT_RKT0_.exit48
-  %.pre-phi = phi double [ %115, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_IiSC_EEEEbRKT_RKT0_.exit48 ], [ %115, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.thread.i.i42 ], [ %115, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.i.i.i43 ], [ %.pre65, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.thread12.i.i47 ]
-  %149 = phi double [ %114, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_IiSC_EEEEbRKT_RKT0_.exit48 ], [ %114, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.thread.i.i42 ], [ %114, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.i.i.i43 ], [ %.pre, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.thread12.i.i47 ]
-  %150 = sitofp i32 %9 to double
-  %151 = fsub double %14, %44
-  %152 = fsub double %149, %.pre-phi
-  %153 = fsub double %15, %44
-  %154 = fsub double %150, %.pre-phi
-  %155 = tail call noundef double @llvm.fabs.f64(double %151)
-  %156 = tail call noundef double @llvm.fabs.f64(double %152)
+  %.pre-phi = phi double [ %115, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_IiSC_EEEEbRKT_RKT0_.exit48 ], [ %115, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.thread.i.i42 ], [ %115, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.i.i.i43 ], [ %.pre62, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.thread12.i.i47 ]
+  %151 = phi double [ %114, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_IiSC_EEEEbRKT_RKT0_.exit48 ], [ %114, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.thread.i.i42 ], [ %114, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.i.i.i43 ], [ %.pre, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.thread12.i.i47 ]
+  %152 = sitofp i32 %9 to double
+  %153 = fsub double %14, %44
+  %154 = fsub double %151, %.pre-phi
+  %155 = fsub double %15, %44
+  %156 = fsub double %152, %.pre-phi
   %157 = tail call noundef double @llvm.fabs.f64(double %153)
   %158 = tail call noundef double @llvm.fabs.f64(double %154)
-  %159 = fcmp olt double %155, %156
-  %160 = select i1 %159, double %156, double %155
-  %161 = fcmp olt double %160, %157
-  %.sroa.speculated6.i.i.i49 = select i1 %161, double %157, double %160
-  %162 = fcmp olt double %.sroa.speculated6.i.i.i49, %158
-  %163 = select i1 %162, double %158, double %.sroa.speculated6.i.i.i49
-  %164 = fcmp olt double %163, 1.000000e+00
-  %.sroa.speculated.i.i.i50 = select i1 %164, double 1.000000e+00, double %163
-  store double %.sroa.speculated.i.i.i50, ptr %3, align 8, !tbaa !1591
-  %165 = fneg double %153
-  %166 = fmul double %152, %165
-  %167 = tail call noundef double @llvm.fmuladd.f64(double %151, double %154, double %166)
+  %159 = tail call noundef double @llvm.fabs.f64(double %155)
+  %160 = tail call noundef double @llvm.fabs.f64(double %156)
+  %161 = fcmp olt double %157, %158
+  %162 = select i1 %161, double %158, double %157
+  %163 = fcmp olt double %162, %159
+  %.sroa.speculated6.i.i.i49 = select i1 %163, double %159, double %162
+  %164 = fcmp olt double %.sroa.speculated6.i.i.i49, %160
+  %165 = select i1 %164, double %160, double %.sroa.speculated6.i.i.i49
+  %166 = fcmp olt double %165, 1.000000e+00
+  %167 = bitcast double %165 to i64
+  %168 = select i1 %166, i64 4607182418800017408, i64 %167
+  store i64 %168, ptr %3, align 8, !tbaa !1591
+  %169 = fneg double %155
+  %170 = fmul double %154, %169
+  %171 = tail call noundef double @llvm.fmuladd.f64(double %153, double %156, double %170)
   br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENS8_IdSA_EEEEbRKT_RKT0_.exit
 
 _ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_IiSC_EEEEbRKT_RKT0_.exit.thread: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.thread.i.i, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.i.i.i, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.thread12.i.i, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_IiSC_EEEEbRKT_RKT0_.exit
-  %168 = icmp slt i32 %9, %11
-  %169 = icmp slt i32 %5, %6
-  %.0.i.i51 = select i1 %7, i1 %168, i1 %169
-  br i1 %.0.i.i51, label %170, label %192
+  %172 = icmp slt i32 %9, %11
+  %173 = icmp slt i32 %5, %6
+  %.0.i.i50 = select i1 %7, i1 %172, i1 %173
+  br i1 %.0.i.i50, label %174, label %198
 
-170:                                              ; preds = %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_IiSC_EEEEbRKT_RKT0_.exit.thread
-  %171 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %172 = load double, ptr %171, align 8, !tbaa !1591
-  %173 = sitofp i32 %9 to double
-  %174 = sitofp i32 %11 to double
-  %175 = fsub double %44, %15
-  %176 = fsub double %174, %173
-  %177 = fsub double %14, %15
-  %178 = fsub double %172, %173
-  %179 = tail call noundef double @llvm.fabs.f64(double %175)
-  %180 = tail call noundef double @llvm.fabs.f64(double %176)
-  %181 = tail call noundef double @llvm.fabs.f64(double %177)
-  %182 = tail call noundef double @llvm.fabs.f64(double %178)
-  %183 = fcmp olt double %179, %180
-  %184 = select i1 %183, double %180, double %179
-  %185 = fcmp olt double %184, %181
-  %.sroa.speculated6.i.i.i52 = select i1 %185, double %181, double %184
-  %186 = fcmp olt double %.sroa.speculated6.i.i.i52, %182
-  %187 = select i1 %186, double %182, double %.sroa.speculated6.i.i.i52
-  %188 = fcmp olt double %187, 1.000000e+00
-  %.sroa.speculated.i.i.i53 = select i1 %188, double 1.000000e+00, double %187
-  store double %.sroa.speculated.i.i.i53, ptr %3, align 8, !tbaa !1591
-  %189 = fneg double %177
-  %190 = fmul double %176, %189
-  %191 = tail call noundef double @llvm.fmuladd.f64(double %175, double %178, double %190)
+174:                                              ; preds = %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_IiSC_EEEEbRKT_RKT0_.exit.thread
+  %175 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %176 = load double, ptr %175, align 8, !tbaa !1591
+  %177 = sitofp i32 %9 to double
+  %178 = sitofp i32 %11 to double
+  %179 = fsub double %44, %15
+  %180 = fsub double %178, %177
+  %181 = fsub double %14, %15
+  %182 = fsub double %176, %177
+  %183 = tail call noundef double @llvm.fabs.f64(double %179)
+  %184 = tail call noundef double @llvm.fabs.f64(double %180)
+  %185 = tail call noundef double @llvm.fabs.f64(double %181)
+  %186 = tail call noundef double @llvm.fabs.f64(double %182)
+  %187 = fcmp olt double %183, %184
+  %188 = select i1 %187, double %184, double %183
+  %189 = fcmp olt double %188, %185
+  %.sroa.speculated6.i.i.i51 = select i1 %189, double %185, double %188
+  %190 = fcmp olt double %.sroa.speculated6.i.i.i51, %186
+  %191 = select i1 %190, double %186, double %.sroa.speculated6.i.i.i51
+  %192 = fcmp olt double %191, 1.000000e+00
+  %193 = bitcast double %191 to i64
+  %194 = select i1 %192, i64 4607182418800017408, i64 %193
+  store i64 %194, ptr %3, align 8, !tbaa !1591
+  %195 = fneg double %181
+  %196 = fmul double %180, %195
+  %197 = tail call noundef double @llvm.fmuladd.f64(double %179, double %182, double %196)
   br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENS8_IdSA_EEEEbRKT_RKT0_.exit
 
-192:                                              ; preds = %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_IiSC_EEEEbRKT_RKT0_.exit.thread
-  %193 = sitofp i32 %9 to double
-  %194 = sitofp i32 %11 to double
-  %195 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %196 = load double, ptr %195, align 8, !tbaa !1591
-  %197 = fsub double %14, %44
-  %198 = fsub double %196, %194
-  %199 = fsub double %15, %44
-  %200 = fsub double %193, %194
-  %201 = tail call noundef double @llvm.fabs.f64(double %197)
-  %202 = tail call noundef double @llvm.fabs.f64(double %198)
-  %203 = tail call noundef double @llvm.fabs.f64(double %199)
-  %204 = tail call noundef double @llvm.fabs.f64(double %200)
-  %205 = fcmp olt double %201, %202
-  %206 = select i1 %205, double %202, double %201
-  %207 = fcmp olt double %206, %203
-  %.sroa.speculated6.i.i.i54 = select i1 %207, double %203, double %206
-  %208 = fcmp olt double %.sroa.speculated6.i.i.i54, %204
-  %209 = select i1 %208, double %204, double %.sroa.speculated6.i.i.i54
-  %210 = fcmp olt double %209, 1.000000e+00
-  %.sroa.speculated.i.i.i55 = select i1 %210, double 1.000000e+00, double %209
-  store double %.sroa.speculated.i.i.i55, ptr %3, align 8, !tbaa !1591
-  %211 = fneg double %199
-  %212 = fmul double %198, %211
-  %213 = tail call noundef double @llvm.fmuladd.f64(double %197, double %200, double %212)
+198:                                              ; preds = %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_IiSC_EEEEbRKT_RKT0_.exit.thread
+  %199 = sitofp i32 %9 to double
+  %200 = sitofp i32 %11 to double
+  %201 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %202 = load double, ptr %201, align 8, !tbaa !1591
+  %203 = fsub double %14, %44
+  %204 = fsub double %202, %200
+  %205 = fsub double %15, %44
+  %206 = fsub double %199, %200
+  %207 = tail call noundef double @llvm.fabs.f64(double %203)
+  %208 = tail call noundef double @llvm.fabs.f64(double %204)
+  %209 = tail call noundef double @llvm.fabs.f64(double %205)
+  %210 = tail call noundef double @llvm.fabs.f64(double %206)
+  %211 = fcmp olt double %207, %208
+  %212 = select i1 %211, double %208, double %207
+  %213 = fcmp olt double %212, %209
+  %.sroa.speculated6.i.i.i52 = select i1 %213, double %209, double %212
+  %214 = fcmp olt double %.sroa.speculated6.i.i.i52, %210
+  %215 = select i1 %214, double %210, double %.sroa.speculated6.i.i.i52
+  %216 = fcmp olt double %215, 1.000000e+00
+  %217 = bitcast double %215 to i64
+  %218 = select i1 %216, i64 4607182418800017408, i64 %217
+  store i64 %218, ptr %3, align 8, !tbaa !1591
+  %219 = fneg double %205
+  %220 = fmul double %204, %219
+  %221 = tail call noundef double @llvm.fmuladd.f64(double %203, double %206, double %220)
   br label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENS8_IdSA_EEEEbRKT_RKT0_.exit
 
-_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENS8_IdSA_EEEEbRKT_RKT0_.exit: ; preds = %_ZN5boost8geometry4math6equalsIidEEbRKT_RKT0_.exit.i.i.i.i33, %_ZN5boost8geometry4math6equalsIidEEbRKT_RKT0_.exit.thread.i.i.i32, %_ZN5boost8geometry4math6equalsIidEEbRKT_RKT0_.exit.i.i.i.i, %_ZN5boost8geometry4math6equalsIidEEbRKT_RKT0_.exit.thread.i.i.i, %4, %192, %170, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_IiSC_EEEEbRKT_RKT0_.exit48.thread, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.thread12.i.i47._crit_edge
-  %.0 = phi double [ %213, %192 ], [ %148, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.thread12.i.i47._crit_edge ], [ %167, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_IiSC_EEEEbRKT_RKT0_.exit48.thread ], [ %191, %170 ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIidEEbRKT_RKT0_.exit.i.i.i.i ], [ 0.000000e+00, %4 ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIidEEbRKT_RKT0_.exit.thread.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIidEEbRKT_RKT0_.exit.thread.i.i.i32 ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIidEEbRKT_RKT0_.exit.i.i.i.i33 ]
+_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENS8_IdSA_EEEEbRKT_RKT0_.exit: ; preds = %_ZN5boost8geometry4math6equalsIidEEbRKT_RKT0_.exit.i.i.i.i33, %_ZN5boost8geometry4math6equalsIidEEbRKT_RKT0_.exit.thread.i.i.i32, %_ZN5boost8geometry4math6equalsIidEEbRKT_RKT0_.exit.i.i.i.i, %_ZN5boost8geometry4math6equalsIidEEbRKT_RKT0_.exit.thread.i.i.i, %4, %198, %174, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_IiSC_EEEEbRKT_RKT0_.exit48.thread, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.thread12.i.i47._crit_edge
+  %.0 = phi double [ %221, %198 ], [ %150, %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIdiEEbRKT_RKT0_.exit.thread12.i.i47._crit_edge ], [ %171, %_ZN5boost8geometry8strategy7compare9cartesianINS2_4lessENS2_14equals_epsilonELin1EE5applyINS0_5model2d28point_xyIdNS0_2cs9cartesianEEENSA_IiSC_EEEEbRKT_RKT0_.exit48.thread ], [ %197, %174 ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIidEEbRKT_RKT0_.exit.i.i.i.i ], [ 0.000000e+00, %4 ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIidEEbRKT_RKT0_.exit.thread.i.i.i ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIidEEbRKT_RKT0_.exit.thread.i.i.i32 ], [ 0.000000e+00, %_ZN5boost8geometry4math6equalsIidEEbRKT_RKT0_.exit.i.i.i.i33 ]
   ret double %.0
 }
 
@@ -193125,7 +193153,7 @@ _ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS
   br label %26
 
 26:                                               ; preds = %.lr.ph, %.thread91
-  %.sroa.034.074 = phi ptr [ %20, %.lr.ph ], [ %104, %.thread91 ]
+  %.sroa.034.074 = phi ptr [ %20, %.lr.ph ], [ %105, %.thread91 ]
   %27 = load ptr, ptr %.sroa.034.074, align 8, !tbaa !174
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.034.074, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !174
@@ -193141,7 +193169,7 @@ _ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS
 .lr.ph.i.i22:                                     ; preds = %26, %_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEESF_EEbRKT_RKT0_SL_RNS8_7counterE.exit
   %.sroa.037.0 = phi i32 [ %.sroa.037.1, %_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEESF_EEbRKT_RKT0_SL_RNS8_7counterE.exit ], [ 0, %26 ]
   %.sroa.06.013.i.i23 = phi ptr [ %.sroa.06.0.i.i25, %_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEESF_EEbRKT_RKT0_SL_RNS8_7counterE.exit ], [ %.sroa.06.010.i.i20, %26 ]
-  %.sroa.0.012.i.i24 = phi ptr [ %102, %_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEESF_EEbRKT_RKT0_SL_RNS8_7counterE.exit ], [ %27, %26 ]
+  %.sroa.0.012.i.i24 = phi ptr [ %103, %_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEESF_EEbRKT_RKT0_SL_RNS8_7counterE.exit ], [ %27, %26 ]
   %34 = load i32, ptr %.sroa.0.012.i.i24, align 4, !tbaa !263
   %35 = load i32, ptr %.sroa.06.013.i.i23, align 4, !tbaa !263
   %36 = icmp eq i32 %34, %23
@@ -193202,7 +193230,7 @@ select.unfold.i:                                  ; preds = %47, %44
   %60 = icmp slt i32 %25, %58
   %61 = sub nsw i32 0, %.0.i.ph.i
   %62 = select i1 %60, i32 %61, i32 %.0.i.ph.i
-  br i1 %59, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_2d28point_xyIiNS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISA_NS0_10strategies6relate9cartesianIvEEEEiRKT_RKSC_RKT0_.exit.thread, label %98
+  br i1 %59, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_2d28point_xyIiNS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISA_NS0_10strategies6relate9cartesianIvEEEEiRKT_RKSC_RKT0_.exit.thread, label %99
 
 _ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE13check_segmentINS0_5model2d28point_xyIiNS0_2cs9cartesianEEESF_EEiRKT_RKT0_SL_RNS8_7counterERbSO_.exit.i: ; preds = %52, %49
   %.0.i.i = phi i32 [ 2, %49 ], [ -2, %52 ]
@@ -193229,55 +193257,55 @@ _ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16sid
   %82 = fcmp olt double %.sroa.speculated6.i.i.i.i.i.i, %78
   %83 = select i1 %82, double %78, double %.sroa.speculated6.i.i.i.i.i.i
   %84 = fcmp olt double %83, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i = select i1 %84, double 1.000000e+00, double %83
-  %85 = fneg double %72
-  %86 = fmul nnan double %85, %70
-  %87 = call noundef double @llvm.fmuladd.f64(double %68, double %74, double %86)
-  %88 = fcmp oeq double %87, 0.000000e+00
-  br i1 %88, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_2d28point_xyIiNS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISA_NS0_10strategies6relate9cartesianIvEEEEiRKT_RKSC_RKT0_.exit.thread, label %89
+  %85 = select i1 %84, double 1.000000e+00, double %83
+  %86 = fneg double %72
+  %87 = fmul nnan double %86, %70
+  %88 = call noundef double @llvm.fmuladd.f64(double %68, double %74, double %87)
+  %89 = fcmp oeq double %88, 0.000000e+00
+  br i1 %89, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_2d28point_xyIiNS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISA_NS0_10strategies6relate9cartesianIvEEEEiRKT_RKSC_RKT0_.exit.thread, label %90
 
-89:                                               ; preds = %_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE13check_segmentINS0_5model2d28point_xyIiNS0_2cs9cartesianEEESF_EEiRKT_RKT0_SL_RNS8_7counterERbSO_.exit.i
-  %90 = call double @llvm.fabs.f64(double %87)
-  %91 = fcmp ueq double %90, 0x7FF0000000000000
-  br i1 %91, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i.i, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i
+90:                                               ; preds = %_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE13check_segmentINS0_5model2d28point_xyIiNS0_2cs9cartesianEEESF_EEiRKT_RKT0_SL_RNS8_7counterERbSO_.exit.i
+  %91 = call double @llvm.fabs.f64(double %88)
+  %92 = fcmp ueq double %91, 0x7FF0000000000000
+  br i1 %92, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i.i, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i
 
-_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i.i: ; preds = %89
-  %92 = fcmp ogt double %87, 0.000000e+00
-  %93 = select i1 %92, i32 1, i32 -1
-  br label %98
+_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i.i: ; preds = %90
+  %93 = fcmp ogt double %88, 0.000000e+00
+  %94 = select i1 %93, i32 1, i32 -1
+  br label %99
 
-_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i: ; preds = %89
-  %94 = fmul double %.sroa.speculated.i.i.i.i.i.i, 0x3CB0000000000000
-  %95 = fcmp ugt double %90, %94
-  %96 = fcmp ogt double %87, 0.000000e+00
-  %97 = select i1 %96, i32 1, i32 -1
-  br i1 %95, label %98, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_2d28point_xyIiNS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISA_NS0_10strategies6relate9cartesianIvEEEEiRKT_RKSC_RKT0_.exit.thread
+_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i: ; preds = %90
+  %95 = fmul double %85, 0x3CB0000000000000
+  %96 = fcmp ugt double %91, %95
+  %97 = fcmp ogt double %88, 0.000000e+00
+  %98 = select i1 %97, i32 1, i32 -1
+  br i1 %96, label %99, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_2d28point_xyIiNS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISA_NS0_10strategies6relate9cartesianIvEEEEiRKT_RKSC_RKT0_.exit.thread
 
-98:                                               ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i.i, %select.unfold.i
+99:                                               ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i.i, %select.unfold.i
   %.0.i32.ph.i = phi i32 [ %.0.i.i, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i ], [ %.0.i.i, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i.i ], [ %.0.i.ph.i, %select.unfold.i ]
-  %.024.ph.i = phi i32 [ %97, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i ], [ %93, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i.i ], [ %62, %select.unfold.i ]
+  %.024.ph.i = phi i32 [ %98, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i ], [ %94, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i.i ], [ %62, %select.unfold.i ]
   %.0.i32.ph.i.fr = freeze i32 %.0.i32.ph.i
   %.024.ph.i.fr = freeze i32 %.024.ph.i
-  %99 = mul i32 %.024.ph.i.fr, %.0.i32.ph.i.fr
-  %100 = icmp sgt i32 %99, 0
-  %101 = select i1 %100, i32 %.0.i32.ph.i.fr, i32 0
-  %spec.select = add i32 %101, %.sroa.037.0
+  %100 = mul i32 %.024.ph.i.fr, %.0.i32.ph.i.fr
+  %101 = icmp sgt i32 %100, 0
+  %102 = select i1 %101, i32 %.0.i32.ph.i.fr, i32 0
+  %spec.select = add i32 %102, %.sroa.037.0
   br label %_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEESF_EEbRKT_RKT0_SL_RNS8_7counterE.exit
 
-_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEESF_EEbRKT_RKT0_SL_RNS8_7counterE.exit: ; preds = %98, %43, %52
-  %.sroa.037.1 = phi i32 [ %.sroa.037.0, %43 ], [ %.sroa.037.0, %52 ], [ %spec.select, %98 ]
-  %102 = getelementptr inbounds nuw i8, ptr %.sroa.0.012.i.i24, i64 8
+_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEESF_EEbRKT_RKT0_SL_RNS8_7counterE.exit: ; preds = %99, %43, %52
+  %.sroa.037.1 = phi i32 [ %.sroa.037.0, %43 ], [ %.sroa.037.0, %52 ], [ %spec.select, %99 ]
+  %103 = getelementptr inbounds nuw i8, ptr %.sroa.0.012.i.i24, i64 8
   %.sroa.06.0.i.i25 = getelementptr inbounds nuw i8, ptr %.sroa.06.013.i.i23, i64 8
   %.not.i.i26.not = icmp eq ptr %.sroa.06.0.i.i25, %29
   br i1 %.not.i.i26.not, label %._crit_edge.loopexit.i.i28.thread, label %.lr.ph.i.i22, !llvm.loop !5339
 
 ._crit_edge.loopexit.i.i28.thread:                ; preds = %_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEESF_EEbRKT_RKT0_SL_RNS8_7counterE.exit
-  %103 = icmp eq i32 %.sroa.037.1, 0
-  br i1 %103, label %.thread91, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_2d28point_xyIiNS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISA_NS0_10strategies6relate9cartesianIvEEEEiRKT_RKSC_RKT0_.exit.thread
+  %104 = icmp eq i32 %.sroa.037.1, 0
+  br i1 %104, label %.thread91, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_2d28point_xyIiNS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISA_NS0_10strategies6relate9cartesianIvEEEEiRKT_RKSC_RKT0_.exit.thread
 
 .thread91:                                        ; preds = %._crit_edge.loopexit.i.i28.thread, %26
-  %104 = getelementptr inbounds nuw i8, ptr %.sroa.034.074, i64 24
-  %.not70 = icmp eq ptr %104, %22
+  %105 = getelementptr inbounds nuw i8, ptr %.sroa.034.074, i64 24
+  %.not70 = icmp eq ptr %105, %22
   br i1 %.not70, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_2d28point_xyIiNS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISA_NS0_10strategies6relate9cartesianIvEEEEiRKT_RKSC_RKT0_.exit.thread, label %26, !llvm.loop !5340
 
 _ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_2d28point_xyIiNS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISA_NS0_10strategies6relate9cartesianIvEEEEiRKT_RKSC_RKT0_.exit.thread: ; preds = %.thread91, %._crit_edge.loopexit.i.i28.thread, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i, %_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE13check_segmentINS0_5model2d28point_xyIiNS0_2cs9cartesianEEESF_EEiRKT_RKT0_SL_RNS8_7counterERbSO_.exit.i, %select.unfold.i, %38, %43, %18, %3, %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_2d28point_xyIiNS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISA_NS0_10strategies6relate9cartesianIvEEEEiRKT_RKSC_RKT0_.exit, %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_2d28point_xyIiNS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISA_NS0_10strategies6relate9cartesianIvEEEEiRKT_RKSC_RKT0_.exit.thread42
@@ -193357,7 +193385,7 @@ select.unfold:                                    ; preds = %23, %20
   %38 = icmp slt i32 %34, %36
   %39 = sub nsw i32 0, %.0.i.ph
   %40 = select i1 %38, i32 %39, i32 %.0.i.ph
-  br i1 %37, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i, label %78
+  br i1 %37, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i, label %79
 
 _ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE13check_segmentINS0_5model2d28point_xyIiNS0_2cs9cartesianEEESF_EEiRKT_RKT0_SL_RNS8_7counterERbSO_.exit: ; preds = %28, %25
   %.0.i = phi i32 [ 2, %25 ], [ -2, %28 ]
@@ -193386,58 +193414,58 @@ _ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16sid
   %62 = fcmp olt double %.sroa.speculated6.i.i.i.i.i, %58
   %63 = select i1 %62, double %58, double %.sroa.speculated6.i.i.i.i.i
   %64 = fcmp olt double %63, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i = select i1 %64, double 1.000000e+00, double %63
-  %65 = fneg double %52
-  %66 = fmul nnan double %65, %50
-  %67 = tail call noundef double @llvm.fmuladd.f64(double %48, double %54, double %66)
-  %68 = fcmp oeq double %67, 0.000000e+00
-  br i1 %68, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i, label %69
+  %65 = select i1 %64, double 1.000000e+00, double %63
+  %66 = fneg double %52
+  %67 = fmul nnan double %66, %50
+  %68 = tail call noundef double @llvm.fmuladd.f64(double %48, double %54, double %67)
+  %69 = fcmp oeq double %68, 0.000000e+00
+  br i1 %69, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i, label %70
 
-69:                                               ; preds = %_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE13check_segmentINS0_5model2d28point_xyIiNS0_2cs9cartesianEEESF_EEiRKT_RKT0_SL_RNS8_7counterERbSO_.exit
-  %70 = tail call double @llvm.fabs.f64(double %67)
-  %71 = fcmp ueq double %70, 0x7FF0000000000000
-  br i1 %71, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i
+70:                                               ; preds = %_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE13check_segmentINS0_5model2d28point_xyIiNS0_2cs9cartesianEEESF_EEiRKT_RKT0_SL_RNS8_7counterERbSO_.exit
+  %71 = tail call double @llvm.fabs.f64(double %68)
+  %72 = fcmp ueq double %71, 0x7FF0000000000000
+  br i1 %72, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i
 
-_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i: ; preds = %69
-  %72 = fcmp ogt double %67, 0.000000e+00
-  %73 = select i1 %72, i32 1, i32 -1
-  br label %78
+_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i: ; preds = %70
+  %73 = fcmp ogt double %68, 0.000000e+00
+  %74 = select i1 %73, i32 1, i32 -1
+  br label %79
 
-_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i: ; preds = %69
-  %74 = fmul double %.sroa.speculated.i.i.i.i.i, 0x3CB0000000000000
-  %75 = fcmp ugt double %70, %74
-  %76 = fcmp ogt double %67, 0.000000e+00
-  %77 = select i1 %76, i32 1, i32 -1
-  br i1 %75, label %78, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i
+_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i: ; preds = %70
+  %75 = fmul double %65, 0x3CB0000000000000
+  %76 = fcmp ugt double %71, %75
+  %77 = fcmp ogt double %68, 0.000000e+00
+  %78 = select i1 %77, i32 1, i32 -1
+  br i1 %76, label %79, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i
 
-78:                                               ; preds = %select.unfold, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i
+79:                                               ; preds = %select.unfold, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i
   %.0.i32.ph = phi i32 [ %.0.i, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i ], [ %.0.i, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i ], [ %.0.i.ph, %select.unfold ]
-  %.024.ph = phi i32 [ %77, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i ], [ %73, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i ], [ %40, %select.unfold ]
-  %79 = mul nsw i32 %.024.ph, %.0.i32.ph
-  %80 = icmp sgt i32 %79, 0
-  br i1 %80, label %81, label %_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE13check_segmentINS0_5model2d28point_xyIiNS0_2cs9cartesianEEESF_EEiRKT_RKT0_SL_RNS8_7counterERbSO_.exit.thread37
+  %.024.ph = phi i32 [ %78, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i ], [ %74, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i ], [ %40, %select.unfold ]
+  %80 = mul nsw i32 %.024.ph, %.0.i32.ph
+  %81 = icmp sgt i32 %80, 0
+  br i1 %81, label %82, label %_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE13check_segmentINS0_5model2d28point_xyIiNS0_2cs9cartesianEEESF_EEiRKT_RKT0_SL_RNS8_7counterERbSO_.exit.thread37
 
-81:                                               ; preds = %78
-  %82 = load i32, ptr %3, align 4, !tbaa !3237
-  %83 = add nsw i32 %82, %.0.i32.ph
-  store i32 %83, ptr %3, align 4, !tbaa !3237
+82:                                               ; preds = %79
+  %83 = load i32, ptr %3, align 4, !tbaa !3237
+  %84 = add nsw i32 %83, %.0.i32.ph
+  store i32 %84, ptr %3, align 4, !tbaa !3237
   br label %_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE13check_segmentINS0_5model2d28point_xyIiNS0_2cs9cartesianEEESF_EEiRKT_RKT0_SL_RNS8_7counterERbSO_.exit.thread37
 
 _ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i: ; preds = %select.unfold, %_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE13check_segmentINS0_5model2d28point_xyIiNS0_2cs9cartesianEEESF_EEiRKT_RKT0_SL_RNS8_7counterERbSO_.exit, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i
-  %84 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i8 1, ptr %84, align 4, !tbaa !3239
-  store i32 0, ptr %3, align 4, !tbaa !3237
-  br label %89
-
-_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE13check_segmentINS0_5model2d28point_xyIiNS0_2cs9cartesianEEESF_EEiRKT_RKT0_SL_RNS8_7counterERbSO_.exit.thread37: ; preds = %81, %78, %17, %28, %18
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %86 = load i8, ptr %85, align 4, !tbaa !3239, !range !17, !noundef !18
-  %87 = trunc nuw i8 %86 to i1
-  %88 = xor i1 %87, true
-  br label %89
+  store i8 1, ptr %85, align 4, !tbaa !3239
+  store i32 0, ptr %3, align 4, !tbaa !3237
+  br label %90
 
-89:                                               ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i, %_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE13check_segmentINS0_5model2d28point_xyIiNS0_2cs9cartesianEEESF_EEiRKT_RKT0_SL_RNS8_7counterERbSO_.exit.thread37
-  %.1 = phi i1 [ %88, %_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE13check_segmentINS0_5model2d28point_xyIiNS0_2cs9cartesianEEESF_EEiRKT_RKT0_SL_RNS8_7counterERbSO_.exit.thread37 ], [ false, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i ]
+_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE13check_segmentINS0_5model2d28point_xyIiNS0_2cs9cartesianEEESF_EEiRKT_RKT0_SL_RNS8_7counterERbSO_.exit.thread37: ; preds = %82, %79, %17, %28, %18
+  %86 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %87 = load i8, ptr %86, align 4, !tbaa !3239, !range !17, !noundef !18
+  %88 = trunc nuw i8 %87 to i1
+  %89 = xor i1 %88, true
+  br label %90
+
+90:                                               ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i, %_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE13check_segmentINS0_5model2d28point_xyIiNS0_2cs9cartesianEEESF_EEiRKT_RKT0_SL_RNS8_7counterERbSO_.exit.thread37
+  %.1 = phi i1 [ %89, %_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE13check_segmentINS0_5model2d28point_xyIiNS0_2cs9cartesianEEESF_EEiRKT_RKT0_SL_RNS8_7counterERbSO_.exit.thread37 ], [ false, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i ]
   ret i1 %.1
 }
 

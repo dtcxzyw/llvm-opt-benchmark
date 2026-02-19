@@ -3770,10 +3770,10 @@ define hidden noundef <4 x float> @_ZN19OpenColorIO_v2_5dev22Renderer_PQ_TO_LIN_
   %40 = fmul <4 x float> %39, %29
   %41 = fcmp uge <4 x float> %22, splat (float -1.260000e+02)
   %42 = fcmp oge <4 x float> %22, splat (float 1.280000e+02)
-  %43 = select <4 x i1> %41, <4 x float> %40, <4 x float> zeroinitializer
-  %44 = select <4 x i1> %42, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %43
-  %45 = fcmp ogt <4 x float> %0, zeroinitializer
-  %46 = select <4 x i1> %45, <4 x float> %44, <4 x float> zeroinitializer
+  %43 = fcmp ogt <4 x float> %0, zeroinitializer
+  %44 = select <4 x i1> %41, <4 x float> %40, <4 x float> zeroinitializer
+  %45 = select <4 x i1> %42, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %44
+  %46 = select <4 x i1> %43, <4 x float> %45, <4 x float> zeroinitializer
   ret <4 x float> %46
 }
 
@@ -3819,10 +3819,10 @@ define hidden noundef <4 x float> @_ZN19OpenColorIO_v2_5dev22Renderer_LIN_TO_PQ_
   %40 = fmul <4 x float> %39, %29
   %41 = fcmp uge <4 x float> %22, splat (float -1.260000e+02)
   %42 = fcmp oge <4 x float> %22, splat (float 1.280000e+02)
-  %43 = select <4 x i1> %41, <4 x float> %40, <4 x float> zeroinitializer
-  %44 = select <4 x i1> %42, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %43
-  %45 = fcmp ogt <4 x float> %0, zeroinitializer
-  %46 = select <4 x i1> %45, <4 x float> %44, <4 x float> zeroinitializer
+  %43 = fcmp ogt <4 x float> %0, zeroinitializer
+  %44 = select <4 x i1> %41, <4 x float> %40, <4 x float> zeroinitializer
+  %45 = select <4 x i1> %42, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %44
+  %46 = select <4 x i1> %43, <4 x float> %45, <4 x float> zeroinitializer
   ret <4 x float> %46
 }
 
@@ -7263,10 +7263,10 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev22Renderer_LIN_TO_PQ_S
   %47 = fmul <4 x float> %46, %36
   %48 = fcmp uge <4 x float> %29, splat (float -1.260000e+02)
   %49 = fcmp oge <4 x float> %29, splat (float 1.280000e+02)
-  %50 = select <4 x i1> %48, <4 x float> %47, <4 x float> zeroinitializer
-  %51 = select <4 x i1> %49, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %50
-  %52 = fcmp ogt <4 x float> %9, zeroinitializer
-  %53 = select <4 x i1> %52, <4 x float> %51, <4 x float> zeroinitializer
+  %50 = fcmp ogt <4 x float> %9, zeroinitializer
+  %51 = select <4 x i1> %48, <4 x float> %47, <4 x float> zeroinitializer
+  %52 = select <4 x i1> %49, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %51
+  %53 = select <4 x i1> %50, <4 x float> %52, <4 x float> zeroinitializer
   %54 = fmul <4 x float> %53, splat (float 0x4032DA0000000000)
   %55 = fadd <4 x float> %54, splat (float 0x3FEAC00000000000)
   %56 = fmul <4 x float> %53, splat (float 1.868750e+01)
@@ -7312,12 +7312,12 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev22Renderer_LIN_TO_PQ_S
   %96 = fmul <4 x float> %95, %85
   %97 = fcmp uge <4 x float> %78, splat (float -1.260000e+02)
   %98 = fcmp oge <4 x float> %78, splat (float 1.280000e+02)
-  %99 = select <4 x i1> %97, <4 x float> %96, <4 x float> zeroinitializer
-  %100 = select <4 x i1> %98, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %99
-  %101 = fcmp ogt <4 x float> %58, zeroinitializer
-  %102 = select <4 x i1> %101, <4 x float> %100, <4 x float> zeroinitializer
-  %103 = bitcast <4 x float> %102 to <4 x i32>
-  %104 = and <4 x i32> %103, <i32 2147483647, i32 2147483647, i32 2147483647, i32 0>
+  %99 = fcmp ogt <4 x float> %58, zeroinitializer
+  %100 = bitcast <4 x float> %96 to <4 x i32>
+  %101 = and <4 x i32> %100, <i32 2147483647, i32 2147483647, i32 2147483647, i32 0>
+  %102 = select <4 x i1> %97, <4 x i32> %101, <4 x i32> zeroinitializer
+  %103 = select <4 x i1> %98, <4 x i32> <i32 2139095040, i32 2139095040, i32 2139095040, i32 0>, <4 x i32> %102
+  %104 = select <4 x i1> %99, <4 x i32> %103, <4 x i32> zeroinitializer
   %105 = and <4 x i32> %6, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -1>
   %106 = or <4 x i32> %104, %105
   store <4 x i32> %106, ptr %.01720, align 1, !tbaa !94
@@ -7543,10 +7543,10 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev22Renderer_PQ_TO_LIN_S
   %44 = fmul <4 x float> %43, %33
   %45 = fcmp uge <4 x float> %26, splat (float -1.260000e+02)
   %46 = fcmp oge <4 x float> %26, splat (float 1.280000e+02)
-  %47 = select <4 x i1> %45, <4 x float> %44, <4 x float> zeroinitializer
-  %48 = select <4 x i1> %46, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %47
-  %49 = fcmp ogt <4 x float> %8, zeroinitializer
-  %50 = select <4 x i1> %49, <4 x float> %48, <4 x float> zeroinitializer
+  %47 = fcmp ogt <4 x float> %8, zeroinitializer
+  %48 = select <4 x i1> %45, <4 x float> %44, <4 x float> zeroinitializer
+  %49 = select <4 x i1> %46, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %48
+  %50 = select <4 x i1> %47, <4 x float> %49, <4 x float> zeroinitializer
   %51 = fadd <4 x float> %50, splat (float 0xBFEAC00000000000)
   %52 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> %51)
   %53 = fmul <4 x float> %50, splat (float 1.868750e+01)
@@ -7594,11 +7594,11 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev22Renderer_PQ_TO_LIN_S
   %95 = fcmp oge <4 x float> %75, splat (float 1.280000e+02)
   %96 = fcmp ogt <4 x float> %55, zeroinitializer
   %97 = fmul <4 x float> %93, splat (float 1.000000e+02)
-  %98 = select <4 x i1> %94, <4 x float> %97, <4 x float> zeroinitializer
-  %99 = select <4 x i1> %95, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %98
-  %100 = select <4 x i1> %96, <4 x float> %99, <4 x float> zeroinitializer
-  %101 = bitcast <4 x float> %100 to <4 x i32>
-  %102 = and <4 x i32> %101, <i32 2147483647, i32 2147483647, i32 2147483647, i32 0>
+  %98 = bitcast <4 x float> %97 to <4 x i32>
+  %99 = and <4 x i32> %98, <i32 2147483647, i32 2147483647, i32 2147483647, i32 0>
+  %100 = select <4 x i1> %94, <4 x i32> %99, <4 x i32> zeroinitializer
+  %101 = select <4 x i1> %95, <4 x i32> <i32 2139095040, i32 2139095040, i32 2139095040, i32 0>, <4 x i32> %100
+  %102 = select <4 x i1> %96, <4 x i32> %101, <4 x i32> zeroinitializer
   %103 = and <4 x i32> %6, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -1>
   %104 = or <4 x i32> %102, %103
   store <4 x i32> %104, ptr %.01720, align 1, !tbaa !94

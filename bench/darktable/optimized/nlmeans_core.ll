@@ -750,8 +750,8 @@ init_column_sums.exit:                            ; preds = %._crit_edge148.i, %
   %416 = fptosi float %415 to i32
   %417 = add nsw i32 %416, 1065353216
   %418 = icmp sgt i32 %416, -1056964609
-  %419 = select i1 %418, i32 %417, i32 0
-  %420 = bitcast i32 %419 to float
+  %419 = bitcast i32 %417 to float
+  %420 = select i1 %418, float %419, float 0.000000e+00
   %421 = shl nsw i64 %indvars.iv550, 2
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %gep499 = getelementptr float, ptr %invariant.gep498, i64 %421
@@ -842,8 +842,8 @@ pixel_difference.exit:                            ; preds = %446
   %473 = fptosi float %472 to i32
   %474 = add nsw i32 %473, 1065353216
   %475 = icmp sgt i32 %473, -1056964609
-  %476 = select i1 %475, i32 %474, i32 0
-  %477 = bitcast i32 %476 to float
+  %476 = bitcast i32 %474 to float
+  %477 = select i1 %475, float %476, float 0.000000e+00
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %478 = load float, ptr %445, align 4, !tbaa !14
   store float %478, ptr %15, align 16, !tbaa !14

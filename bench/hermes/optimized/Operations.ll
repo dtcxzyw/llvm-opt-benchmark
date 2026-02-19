@@ -2562,22 +2562,22 @@ if.end:                                           ; preds = %entry
   %2 = bitcast i64 %1 to double
   %3 = fcmp uno double %2, 0.000000e+00
   %4 = tail call double @llvm.trunc.f64(double %2)
-  %result.0.i = select i1 %3, double 0.000000e+00, double %4
-  %cmp = fcmp ugt double %result.0.i, 0.000000e+00
+  %5 = select i1 %3, double 0.000000e+00, double %4
+  %cmp = fcmp ugt double %5, 0.000000e+00
   br i1 %cmp, label %if.else, label %if.end11
 
 if.else:                                          ; preds = %if.end
-  %cmp8 = fcmp ogt double %result.0.i, 0x433FFFFFFFFFFFFF
+  %cmp8 = fcmp ogt double %5, 0x433FFFFFFFFFFFFF
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.else
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end, %if.else, %if.then9
-  %len.0 = phi double [ %result.0.i, %if.else ], [ 0x433FFFFFFFFFFFFF, %if.then9 ], [ 0.000000e+00, %if.end ]
-  %5 = fcmp uno double %len.0, 0.000000e+00
-  %6 = bitcast double %len.0 to i64
-  %retval.sroa.0.0.i3 = select i1 %5, i64 9221120237041090560, i64 %6
+  %len.0 = phi double [ %5, %if.else ], [ 0x433FFFFFFFFFFFFF, %if.then9 ], [ 0.000000e+00, %if.end ]
+  %6 = fcmp uno double %len.0, 0.000000e+00
+  %7 = bitcast double %len.0 to i64
+  %retval.sroa.0.0.i3 = select i1 %6, i64 9221120237041090560, i64 %7
   br label %return
 
 return:                                           ; preds = %entry, %if.end11
@@ -2601,13 +2601,13 @@ if.end:                                           ; preds = %entry
   %2 = bitcast i64 %1 to double
   %3 = fcmp uno double %2, 0.000000e+00
   %4 = tail call double @llvm.trunc.f64(double %2)
-  %result.0 = select i1 %3, double 0.000000e+00, double %4
-  %5 = bitcast double %result.0 to i64
+  %5 = bitcast double %4 to i64
+  %6 = select i1 %3, i64 0, i64 %5
   br label %return
 
 return:                                           ; preds = %entry, %if.end
   %retval.sroa.0.0 = phi i32 [ 1, %if.end ], [ 0, %entry ]
-  %retval.sroa.3.0 = phi i64 [ %5, %if.end ], [ undef, %entry ]
+  %retval.sroa.3.0 = phi i64 [ %6, %if.end ], [ undef, %entry ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -2626,19 +2626,19 @@ if.end:                                           ; preds = %entry
   %2 = bitcast i64 %1 to double
   %3 = fcmp uno double %2, 0.000000e+00
   %4 = tail call double @llvm.trunc.f64(double %2)
-  %result.0.i = select i1 %3, double 0.000000e+00, double %4
-  %cmp = fcmp ugt double %result.0.i, 0.000000e+00
+  %5 = select i1 %3, double 0.000000e+00, double %4
+  %cmp = fcmp ugt double %5, 0.000000e+00
   br i1 %cmp, label %if.else, label %if.end11
 
 if.else:                                          ; preds = %if.end
-  %cmp8 = fcmp ogt double %result.0.i, 0x433FFFFFFFFFFFFF
+  %cmp8 = fcmp ogt double %5, 0x433FFFFFFFFFFFFF
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.else
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end, %if.else, %if.then9
-  %len.0 = phi double [ %result.0.i, %if.else ], [ 0x433FFFFFFFFFFFFF, %if.then9 ], [ 0.000000e+00, %if.end ]
+  %len.0 = phi double [ %5, %if.else ], [ 0x433FFFFFFFFFFFFF, %if.then9 ], [ 0.000000e+00, %if.end ]
   %conv = fptoui double %len.0 to i64
   br label %return
 
@@ -2658,8 +2658,8 @@ entry:
   %0 = load i64, ptr %valueHandle.coerce, align 8
   %shr.i.mask.i = and i64 %0, -140737488355328
   %cmp.i = icmp eq i64 %shr.i.mask.i, -1688849860263936
-  %ref.tmp39.sink51.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp39, i64 8
-  %ref.tmp39.sink51.sroa.gep52 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
+  %ref.tmp39.sink53.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp39, i64 8
+  %ref.tmp39.sink53.sroa.gep54 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
@@ -2694,8 +2694,10 @@ if.end:                                           ; preds = %cond.end
   %6 = bitcast i64 %5 to double
   %7 = fcmp uno double %6, 0.000000e+00
   %8 = tail call double @llvm.trunc.f64(double %6)
-  %result.0.i = select i1 %7, double 0.000000e+00, double %8
-  %cmp = fcmp olt double %result.0.i, 0.000000e+00
+  %9 = bitcast double %8 to i64
+  %10 = select i1 %7, i64 0, i64 %9
+  %11 = bitcast i64 %10 to double
+  %cmp = fcmp olt double %11, 0.000000e+00
   br i1 %cmp, label %if.then16, label %if.end18
 
 if.then16:                                        ; preds = %if.end
@@ -2709,58 +2711,57 @@ if.then16:                                        ; preds = %if.end
   br label %return.sink.split
 
 if.end18:                                         ; preds = %if.end
-  %9 = bitcast double %result.0.i to i64
-  %10 = fcmp uno double %result.0.i, 0.000000e+00
-  %retval.sroa.0.0.i10 = select i1 %10, i64 9221120237041090560, i64 %9
+  %12 = fcmp uno double %11, 0.000000e+00
+  %retval.sroa.0.0.i10 = select i1 %12, i64 9221120237041090560, i64 %10
   %topGCScope_.i.i.i.i11 = getelementptr inbounds nuw i8, ptr %runtime, i64 8
-  %11 = load ptr, ptr %topGCScope_.i.i.i.i11, align 8
-  %next_.i.i.i.i.i.i.i12 = getelementptr inbounds nuw i8, ptr %11, i64 192
-  %12 = load ptr, ptr %next_.i.i.i.i.i.i.i12, align 8
-  %curChunkEnd_.i.i.i.i.i.i13 = getelementptr inbounds nuw i8, ptr %11, i64 200
-  %13 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i13, align 8
-  %cmp.i.i.i.i.i.i14 = icmp ult ptr %12, %13
+  %13 = load ptr, ptr %topGCScope_.i.i.i.i11, align 8
+  %next_.i.i.i.i.i.i.i12 = getelementptr inbounds nuw i8, ptr %13, i64 192
+  %14 = load ptr, ptr %next_.i.i.i.i.i.i.i12, align 8
+  %curChunkEnd_.i.i.i.i.i.i13 = getelementptr inbounds nuw i8, ptr %13, i64 200
+  %15 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i13, align 8
+  %cmp.i.i.i.i.i.i14 = icmp ult ptr %14, %15
   br i1 %cmp.i.i.i.i.i.i14, label %if.then.i.i.i.i.i.i18, label %if.end.i.i.i.i.i.i15
 
 if.then.i.i.i.i.i.i18:                            ; preds = %if.end18
-  %incdec.ptr.i.i.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %incdec.ptr.i.i.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i19, ptr %next_.i.i.i.i.i.i.i12, align 8
-  store i64 %retval.sroa.0.0.i10, ptr %12, align 8
+  store i64 %retval.sroa.0.0.i10, ptr %14, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit20
 
 if.end.i.i.i.i.i.i15:                             ; preds = %if.end18
-  %call7.i.i.i.i.i.i16 = tail call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %11, i64 %retval.sroa.0.0.i10) #17
+  %call7.i.i.i.i.i.i16 = tail call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %13, i64 %retval.sroa.0.0.i10) #17
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit20
 
 _ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit20: ; preds = %if.then.i.i.i.i.i.i18, %if.end.i.i.i.i.i.i15
-  %retval.0.i.i.i.i.i.i17 = phi ptr [ %12, %if.then.i.i.i.i.i.i18 ], [ %call7.i.i.i.i.i.i16, %if.end.i.i.i.i.i.i15 ]
+  %retval.0.i.i.i.i.i.i17 = phi ptr [ %14, %if.then.i.i.i.i.i.i18 ], [ %call7.i.i.i.i.i.i16, %if.end.i.i.i.i.i.i15 ]
   %call.i.i21 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %retval.0.i.i.i.i.i.i17)
-  %14 = extractvalue { i32, i64 } %call.i.i21, 0
-  %cmp.i.i.i = icmp eq i32 %14, 0
+  %16 = extractvalue { i32, i64 } %call.i.i21, 0
+  %cmp.i.i.i = icmp eq i32 %16, 0
   br i1 %cmp.i.i.i, label %return, label %if.end.i22
 
 if.end.i22:                                       ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit20
-  %15 = extractvalue { i32, i64 } %call.i.i21, 1
-  %16 = bitcast i64 %15 to double
-  %17 = fcmp uno double %16, 0.000000e+00
-  %18 = tail call double @llvm.trunc.f64(double %16)
-  %result.0.i.i = select i1 %17, double 0.000000e+00, double %18
-  %cmp.i23 = fcmp ugt double %result.0.i.i, 0.000000e+00
+  %17 = extractvalue { i32, i64 } %call.i.i21, 1
+  %18 = bitcast i64 %17 to double
+  %19 = fcmp uno double %18, 0.000000e+00
+  %20 = tail call double @llvm.trunc.f64(double %18)
+  %21 = select i1 %19, double 0.000000e+00, double %20
+  %cmp.i23 = fcmp ugt double %21, 0.000000e+00
   br i1 %cmp.i23, label %if.else.i, label %if.end34
 
 if.else.i:                                        ; preds = %if.end.i22
-  %cmp8.i = fcmp ogt double %result.0.i.i, 0x433FFFFFFFFFFFFF
+  %cmp8.i = fcmp ogt double %21, 0x433FFFFFFFFFFFFF
   br i1 %cmp8.i, label %if.then9.i, label %if.end34
 
 if.then9.i:                                       ; preds = %if.else.i
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then9.i, %if.else.i, %if.end.i22
-  %len.0.i = phi double [ %result.0.i.i, %if.else.i ], [ 0x433FFFFFFFFFFFFF, %if.then9.i ], [ 0.000000e+00, %if.end.i22 ]
-  %19 = fcmp uno double %len.0.i, 0.000000e+00
-  %20 = bitcast double %len.0.i to i64
-  %retval.sroa.0.0.i3.i = select i1 %19, i64 9221120237041090560, i64 %20
-  %21 = bitcast i64 %retval.sroa.0.0.i3.i to double
-  %cmp37 = fcmp une double %result.0.i, %21
+  %len.0.i = phi double [ %21, %if.else.i ], [ 0x433FFFFFFFFFFFFF, %if.then9.i ], [ 0.000000e+00, %if.end.i22 ]
+  %22 = fcmp uno double %len.0.i, 0.000000e+00
+  %23 = bitcast double %len.0.i to i64
+  %retval.sroa.0.0.i3.i = select i1 %22, i64 9221120237041090560, i64 %23
+  %24 = bitcast i64 %retval.sroa.0.0.i3.i to double
+  %cmp37 = fcmp une double %24, %11
   br i1 %cmp37, label %if.then38, label %return
 
 if.then38:                                        ; preds = %if.end34
@@ -2774,10 +2775,10 @@ if.then38:                                        ; preds = %if.end34
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then16, %if.then38
-  %ref.tmp39.sink51.sroa.phi = phi ptr [ %ref.tmp39.sink51.sroa.gep, %if.then38 ], [ %ref.tmp39.sink51.sroa.gep52, %if.then16 ]
-  %ref.tmp39.sink51 = phi ptr [ %ref.tmp39, %if.then38 ], [ %ref.tmp, %if.then16 ]
-  store i32 3, ptr %ref.tmp39.sink51.sroa.phi, align 8
-  %call40 = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp39.sink51) #17
+  %ref.tmp39.sink53.sroa.phi = phi ptr [ %ref.tmp39.sink53.sroa.gep, %if.then38 ], [ %ref.tmp39.sink53.sroa.gep54, %if.then16 ]
+  %ref.tmp39.sink53 = phi ptr [ %ref.tmp39, %if.then38 ], [ %ref.tmp, %if.then16 ]
+  store i32 3, ptr %ref.tmp39.sink53.sroa.phi, align 8
+  %call40 = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp39.sink53) #17
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end34, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit20, %cond.end

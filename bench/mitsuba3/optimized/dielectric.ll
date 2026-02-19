@@ -5858,12 +5858,12 @@ _ZN5drjit4sqrtIN7mitsuba8SpectrumIfLm4EEEEENS_7ComplexIT_EERKS6_.exit.critedge:
   %26 = select contract <4 x i1> %24, <4 x float> %21, <4 x float> %25
   %27 = tail call <4 x float> @llvm.fabs.v4f32(<4 x float> %21)
   %28 = select contract <4 x i1> %24, <4 x float> %22, <4 x float> %27
-  %29 = select contract <4 x i1> %23, <4 x float> zeroinitializer, <4 x float> %28
-  %30 = bitcast <4 x float> %26 to <4 x i32>
-  %31 = bitcast <4 x float> %29 to <4 x i32>
+  %29 = bitcast <4 x float> %26 to <4 x i32>
+  %30 = bitcast <4 x float> %28 to <4 x i32>
+  %31 = select <4 x i1> %23, <4 x i32> zeroinitializer, <4 x i32> %30
   %32 = bitcast <4 x float> %15 to <4 x i32>
   %33 = and <4 x i32> %32, splat (i32 -2147483648)
-  %34 = xor <4 x i32> %33, %30
+  %34 = xor <4 x i32> %33, %29
   %35 = xor <4 x i32> %33, %31
   %.sroa.0643.0..sroa.0643.0..sroa.0643.0.copyload.cast = bitcast <4 x i32> %34 to <4 x float>
   %.sroa.2644.0..sroa.2644.0..sroa.2644.0.copyload.cast = bitcast <4 x i32> %35 to <4 x float>

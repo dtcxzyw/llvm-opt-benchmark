@@ -9655,27 +9655,27 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %1, %.lr.ph.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i = phi i64 [ %7, %.lr.ph.i.i.i.i.i.i.i.i ], [ %5, %1 ]
   %.024.i.i.i.i.i.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i.i.i.i.i.i ], [ %4, %1 ]
-  %6 = phi i64 [ %16, %.lr.ph.i.i.i.i.i.i.i.i ], [ %3, %1 ]
+  %6 = phi i64 [ %17, %.lr.ph.i.i.i.i.i.i.i.i ], [ %3, %1 ]
   %7 = add i64 %.05.i.i.i.i.i.i.i.i, -1
   %8 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i.i.i.i.i, i64 4
   %9 = load float, ptr %.024.i.i.i.i.i.i.i.i, align 4
   %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq float %9, 0.000000e+00
-  %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i, float 0.000000e+00, float %9
-  %10 = bitcast float %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i to i32
+  %10 = bitcast float %9 to i32
   %11 = zext i32 %10 to i64
-  %12 = add i64 %6, %11
-  %13 = add i64 %12, 1
-  %14 = mul i64 %13, %12
-  %15 = lshr i64 %14, 1
-  %16 = add nuw i64 %15, %11
+  %12 = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %11
+  %13 = add i64 %12, %6
+  %14 = add i64 %13, 1
+  %15 = mul i64 %14, %13
+  %16 = lshr i64 %15, 1
+  %17 = add nuw i64 %16, %12
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %7, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7VtArrayIfEEvE4HashERKS3_.exit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !31
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7VtArrayIfEEvE4HashERKS3_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %1
-  %.sroa.0.0.i.i.i.i = phi i64 [ %3, %1 ], [ %16, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %17 = mul i64 %.sroa.0.0.i.i.i.i, -7046029254386353067
-  %18 = tail call noundef i64 @llvm.bswap.i64(i64 %17)
-  ret i64 %18
+  %.sroa.0.0.i.i.i.i = phi i64 [ %3, %1 ], [ %17, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %18 = mul i64 %.sroa.0.0.i.i.i.i, -7046029254386353067
+  %19 = tail call noundef i64 @llvm.bswap.i64(i64 %18)
+  ret i64 %19
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -5714,8 +5714,8 @@ _ZN7mitsuba12_GLOBAL__N_118sutherland_hodgmanINS_5PointIdLm3EEEEEmPT_mS5_idb.exi
   %166 = select <4 x i1> %.not.inv, <4 x i32> splat (i32 -1), <4 x i32> splat (i32 1)
   %167 = select <4 x i1> %163, <4 x i32> zeroinitializer, <4 x i32> %166
   %168 = add <4 x i32> %167, %164
-  %169 = select <4 x i1> %165, <4 x i32> splat (i32 -2147483647), <4 x i32> %168
-  %170 = bitcast <4 x i32> %169 to <4 x float>
+  %169 = bitcast <4 x i32> %168 to <4 x float>
+  %170 = select <4 x i1> %165, <4 x float> splat (float 0xB6A0000000000000), <4 x float> %169
   %171 = and <4 x i32> %.lcssa382, splat (i32 2139095040)
   %172 = icmp eq <4 x i32> %171, splat (i32 2139095040)
   %173 = icmp eq <4 x i32> %.lcssa382, splat (i32 -2147483648)
@@ -5723,8 +5723,8 @@ _ZN7mitsuba12_GLOBAL__N_118sutherland_hodgmanINS_5PointIdLm3EEEEEmPT_mS5_idb.exi
   %174 = select <4 x i1> %.not312.inv, <4 x i32> splat (i32 1), <4 x i32> splat (i32 -1)
   %175 = select <4 x i1> %172, <4 x i32> zeroinitializer, <4 x i32> %174
   %176 = add <4 x i32> %175, %.lcssa382
-  %177 = select <4 x i1> %173, <4 x i32> splat (i32 1), <4 x i32> %176
-  %178 = bitcast <4 x i32> %177 to <4 x float>
+  %177 = bitcast <4 x i32> %176 to <4 x float>
+  %178 = select <4 x i1> %173, <4 x float> splat (float 0x36A0000000000000), <4 x float> %177
   %179 = load <4 x float>, ptr %3, align 16
   %180 = tail call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %179, <4 x float> %170)
   store <4 x float> %180, ptr %0, align 16

@@ -38130,21 +38130,21 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h01637ee572f6b98
   %4 = load float, ptr %1, align 4, !alias.scope !3190, !noalias !3195, !noundef !6
   %5 = fadd float %4, 0.000000e+00
   %6 = fcmp uno float %4, 0.000000e+00
-  %.sroa.0.0.i.i.i = select i1 %6, float 0x7FF8000000000000, float %5
-  %7 = bitcast float %.sroa.0.0.i.i.i to i32
+  %7 = bitcast float %5 to i32
   %8 = zext i32 %7 to i64
-  %9 = xor i64 %2, %8
-  %10 = zext i64 %9 to i128
-  %11 = zext i64 %3 to i128
-  %12 = mul nuw i128 %10, %11
-  %13 = lshr i128 %12, 64
-  %.masked = and i128 %12, 18446744073709551615
-  %14 = xor i128 %.masked, %13
-  %15 = mul nuw nsw i128 %14, 2611923443488327891
-  %16 = lshr i128 %15, 64
-  %17 = xor i128 %16, %15
-  %18 = trunc i128 %17 to i64
-  ret i64 %18
+  %9 = select i1 %6, i64 2143289344, i64 %8
+  %10 = xor i64 %9, %2
+  %11 = zext i64 %10 to i128
+  %12 = zext i64 %3 to i128
+  %13 = mul nuw i128 %11, %12
+  %14 = lshr i128 %13, 64
+  %.masked = and i128 %13, 18446744073709551615
+  %15 = xor i128 %.masked, %14
+  %16 = mul nuw nsw i128 %15, 2611923443488327891
+  %17 = lshr i128 %16, 64
+  %18 = xor i128 %17, %16
+  %19 = trunc i128 %18 to i64
+  ret i64 %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
@@ -38202,27 +38202,27 @@ _ZN8foldhash4fast10FoldHasher9write_num17h3c3e0d687b5f44bdE.exit.i.i: ; preds = 
   %5 = load float, ptr %.val.i, align 4, !alias.scope !3238, !noalias !3241, !noundef !6
   %6 = fadd float %5, 0.000000e+00
   %7 = fcmp uno float %5, 0.000000e+00
-  %.sroa.0.0.i.i.i.i = select i1 %7, float 0x7FF8000000000000, float %6
-  %8 = bitcast float %.sroa.0.0.i.i.i.i to i32
+  %8 = bitcast float %6 to i32
   %9 = zext i32 %8 to i64
   %10 = shl nuw nsw i64 %9, 8
-  %extract.t15 = or disjoint i64 %10, 1
+  %11 = or disjoint i64 %10, 1
+  %extract.t15 = select i1 %7, i64 548682072065, i64 %11
   br label %"_ZN68_$LT$foldhash..quality..FoldHasher$u20$as$u20$core..hash..Hasher$GT$6finish17hcb2b74a370351cc7E.exit"
 
 "_ZN68_$LT$foldhash..quality..FoldHasher$u20$as$u20$core..hash..Hasher$GT$6finish17hcb2b74a370351cc7E.exit": ; preds = %_ZN8foldhash4fast10FoldHasher9write_num17hfbdbffe60f483928E.exit.i.i, %_ZN8foldhash4fast10FoldHasher9write_num17h3c3e0d687b5f44bdE.exit.i.i
   %.sroa.02.0.off0 = phi i64 [ %extract.t, %_ZN8foldhash4fast10FoldHasher9write_num17hfbdbffe60f483928E.exit.i.i ], [ %extract.t15, %_ZN8foldhash4fast10FoldHasher9write_num17h3c3e0d687b5f44bdE.exit.i.i ]
-  %11 = xor i64 %.sroa.02.0.off0, %2
-  %12 = zext i64 %11 to i128
-  %13 = zext i64 %3 to i128
-  %14 = mul nuw i128 %12, %13
-  %15 = lshr i128 %14, 64
-  %.masked = and i128 %14, 18446744073709551615
-  %16 = xor i128 %.masked, %15
-  %17 = mul nuw nsw i128 %16, 2611923443488327891
-  %18 = lshr i128 %17, 64
-  %19 = xor i128 %18, %17
-  %20 = trunc i128 %19 to i64
-  ret i64 %20
+  %12 = xor i64 %.sroa.02.0.off0, %2
+  %13 = zext i64 %12 to i128
+  %14 = zext i64 %3 to i128
+  %15 = mul nuw i128 %13, %14
+  %16 = lshr i128 %15, 64
+  %.masked = and i128 %15, 18446744073709551615
+  %17 = xor i128 %.masked, %16
+  %18 = mul nuw nsw i128 %17, 2611923443488327891
+  %19 = lshr i128 %18, 64
+  %20 = xor i128 %19, %18
+  %21 = trunc i128 %20 to i64
+  ret i64 %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
@@ -38303,20 +38303,20 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hbe720512685e5df
   %4 = load double, ptr %1, align 8, !alias.scope !3305, !noalias !3310, !noundef !6
   %5 = fadd double %4, 0.000000e+00
   %6 = fcmp uno double %4, 0.000000e+00
-  %.sroa.0.0.i.i.i = select i1 %6, double 0x7FF8000000000000, double %5
-  %7 = bitcast double %.sroa.0.0.i.i.i to i64
-  %8 = xor i64 %2, %7
-  %9 = zext i64 %8 to i128
-  %10 = zext i64 %3 to i128
-  %11 = mul nuw i128 %9, %10
-  %12 = lshr i128 %11, 64
-  %.masked = and i128 %11, 18446744073709551615
-  %13 = xor i128 %.masked, %12
-  %14 = mul nuw nsw i128 %13, 2611923443488327891
-  %15 = lshr i128 %14, 64
-  %16 = xor i128 %15, %14
-  %17 = trunc i128 %16 to i64
-  ret i64 %17
+  %7 = bitcast double %5 to i64
+  %8 = select i1 %6, i64 9221120237041090560, i64 %7
+  %9 = xor i64 %8, %2
+  %10 = zext i64 %9 to i128
+  %11 = zext i64 %3 to i128
+  %12 = mul nuw i128 %10, %11
+  %13 = lshr i128 %12, 64
+  %.masked = and i128 %12, 18446744073709551615
+  %14 = xor i128 %.masked, %13
+  %15 = mul nuw nsw i128 %14, 2611923443488327891
+  %16 = lshr i128 %15, 64
+  %17 = xor i128 %16, %15
+  %18 = trunc i128 %17 to i64
+  ret i64 %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
@@ -38372,29 +38372,32 @@ _ZN8foldhash4fast10FoldHasher9write_num17hf8666304a8bf6582E.exit.i.i: ; preds = 
   %5 = load double, ptr %.val.i, align 8, !alias.scope !3353, !noalias !3356, !noundef !6
   %6 = fadd double %5, 0.000000e+00
   %7 = fcmp uno double %5, 0.000000e+00
-  %.sroa.0.0.i.i.i.i = select i1 %7, double 0x7FF8000000000000, double %6
-  %8 = bitcast double %.sroa.0.0.i.i.i.i to i64
-  %9 = shl i64 %8, 8
-  %10 = or disjoint i64 %9, 1
-  %extract17 = lshr i64 %8, 56
-  %11 = xor i64 %extract17, %3
+  %8 = bitcast double %6 to i64
+  %9 = zext i64 %8 to i128
+  %10 = shl nuw nsw i128 %9, 8
+  %11 = select i1 %7, i128 2360606780682519183360, i128 %10
+  %12 = trunc i128 %11 to i64
+  %extract.t15 = or disjoint i64 %12, 1
+  %extract17 = lshr i128 %11, 64
+  %extract.t18 = trunc nuw nsw i128 %extract17 to i64
+  %13 = xor i64 %3, %extract.t18
   br label %"_ZN68_$LT$foldhash..quality..FoldHasher$u20$as$u20$core..hash..Hasher$GT$6finish17hcb2b74a370351cc7E.exit"
 
 "_ZN68_$LT$foldhash..quality..FoldHasher$u20$as$u20$core..hash..Hasher$GT$6finish17hcb2b74a370351cc7E.exit": ; preds = %_ZN8foldhash4fast10FoldHasher9write_num17hfbdbffe60f483928E.exit.i.i, %_ZN8foldhash4fast10FoldHasher9write_num17hf8666304a8bf6582E.exit.i.i
-  %.sroa.02.0.off0 = phi i64 [ %extract.t, %_ZN8foldhash4fast10FoldHasher9write_num17hfbdbffe60f483928E.exit.i.i ], [ %10, %_ZN8foldhash4fast10FoldHasher9write_num17hf8666304a8bf6582E.exit.i.i ]
-  %.sroa.02.0.off64 = phi i64 [ %3, %_ZN8foldhash4fast10FoldHasher9write_num17hfbdbffe60f483928E.exit.i.i ], [ %11, %_ZN8foldhash4fast10FoldHasher9write_num17hf8666304a8bf6582E.exit.i.i ]
-  %12 = xor i64 %.sroa.02.0.off0, %2
-  %13 = zext i64 %12 to i128
-  %14 = zext i64 %.sroa.02.0.off64 to i128
-  %15 = mul nuw i128 %14, %13
-  %16 = lshr i128 %15, 64
-  %.masked = and i128 %15, 18446744073709551615
-  %17 = xor i128 %.masked, %16
-  %18 = mul nuw nsw i128 %17, 2611923443488327891
-  %19 = lshr i128 %18, 64
-  %20 = xor i128 %19, %18
-  %21 = trunc i128 %20 to i64
-  ret i64 %21
+  %.sroa.02.0.off0 = phi i64 [ %extract.t, %_ZN8foldhash4fast10FoldHasher9write_num17hfbdbffe60f483928E.exit.i.i ], [ %extract.t15, %_ZN8foldhash4fast10FoldHasher9write_num17hf8666304a8bf6582E.exit.i.i ]
+  %.sroa.02.0.off64 = phi i64 [ %3, %_ZN8foldhash4fast10FoldHasher9write_num17hfbdbffe60f483928E.exit.i.i ], [ %13, %_ZN8foldhash4fast10FoldHasher9write_num17hf8666304a8bf6582E.exit.i.i ]
+  %14 = xor i64 %.sroa.02.0.off0, %2
+  %15 = zext i64 %14 to i128
+  %16 = zext i64 %.sroa.02.0.off64 to i128
+  %17 = mul nuw i128 %16, %15
+  %18 = lshr i128 %17, 64
+  %.masked = and i128 %17, 18446744073709551615
+  %19 = xor i128 %.masked, %18
+  %20 = mul nuw nsw i128 %19, 2611923443488327891
+  %21 = lshr i128 %20, 64
+  %22 = xor i128 %21, %20
+  %23 = trunc i128 %22 to i64
+  ret i64 %23
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

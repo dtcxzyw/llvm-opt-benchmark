@@ -1195,10 +1195,10 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev18GammaBasicOpCPUSSE5applyEPKvPvl(p
   %65 = fmul <4 x float> %64, %54
   %66 = fcmp uge <4 x float> %47, splat (float -1.260000e+02)
   %67 = fcmp oge <4 x float> %47, splat (float 1.280000e+02)
-  %68 = select <4 x i1> %66, <4 x float> %65, <4 x float> zeroinitializer
-  %69 = select <4 x i1> %67, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %68
-  %70 = fcmp ogt <4 x float> %27, zeroinitializer
-  %71 = select <4 x i1> %70, <4 x float> %69, <4 x float> zeroinitializer
+  %68 = fcmp ogt <4 x float> %27, zeroinitializer
+  %69 = select <4 x i1> %66, <4 x float> %65, <4 x float> zeroinitializer
+  %70 = select <4 x i1> %67, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %69
+  %71 = select <4 x i1> %68, <4 x float> %70, <4 x float> zeroinitializer
   store <4 x float> %71, ptr %.01617, align 1, !tbaa !126
   %72 = getelementptr inbounds nuw i8, ptr %.019, i64 16
   %73 = getelementptr inbounds nuw i8, ptr %.01617, i64 16
@@ -1421,12 +1421,12 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev24GammaBasicMirrorOpCPUSSE5applyEPK
   %67 = fmul <4 x float> %66, %56
   %68 = fcmp uge <4 x float> %49, splat (float -1.260000e+02)
   %69 = fcmp oge <4 x float> %49, splat (float 1.280000e+02)
-  %70 = select <4 x i1> %68, <4 x float> %67, <4 x float> zeroinitializer
-  %71 = select <4 x i1> %69, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %70
-  %72 = fcmp one <4 x float> %27, zeroinitializer
-  %73 = select <4 x i1> %72, <4 x float> %71, <4 x float> zeroinitializer
-  %74 = bitcast <4 x float> %73 to <4 x i32>
-  %75 = or <4 x i32> %29, %74
+  %70 = fcmp one <4 x float> %27, zeroinitializer
+  %71 = bitcast <4 x float> %67 to <4 x i32>
+  %72 = select <4 x i1> %68, <4 x i32> %71, <4 x i32> zeroinitializer
+  %73 = select <4 x i1> %69, <4 x i32> splat (i32 2139095040), <4 x i32> %72
+  %74 = select <4 x i1> %70, <4 x i32> %73, <4 x i32> zeroinitializer
+  %75 = or <4 x i32> %74, %29
   store <4 x i32> %75, ptr %.01922, align 1, !tbaa !126
   %76 = getelementptr inbounds nuw i8, ptr %.023, i64 16
   %77 = getelementptr inbounds nuw i8, ptr %.01922, i64 16
@@ -1597,9 +1597,9 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev26GammaBasicPassThruOpCPUSSE5applyE
   ret void
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.025 = phi ptr [ %71, %.lr.ph ], [ %1, %4 ]
-  %.02124 = phi ptr [ %72, %.lr.ph ], [ %2, %4 ]
-  %.02223 = phi i64 [ %73, %.lr.ph ], [ 0, %4 ]
+  %.025 = phi ptr [ %72, %.lr.ph ], [ %1, %4 ]
+  %.02124 = phi ptr [ %73, %.lr.ph ], [ %2, %4 ]
+  %.02223 = phi i64 [ %74, %.lr.ph ], [ 0, %4 ]
   %17 = getelementptr inbounds nuw i8, ptr %.025, i64 12
   %18 = load float, ptr %17, align 4, !tbaa !125
   %19 = getelementptr inbounds nuw i8, ptr %.025, i64 8
@@ -1651,15 +1651,15 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev26GammaBasicPassThruOpCPUSSE5applyE
   %65 = fmul <4 x float> %64, %54
   %66 = fcmp uge <4 x float> %47, splat (float -1.260000e+02)
   %67 = fcmp oge <4 x float> %47, splat (float 1.280000e+02)
-  %68 = select <4 x i1> %66, <4 x float> %65, <4 x float> zeroinitializer
-  %69 = select <4 x i1> %67, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %68
-  %70 = fcmp ule <4 x float> %27, zeroinitializer
-  %.v = select <4 x i1> %70, <4 x float> %27, <4 x float> %69
-  store <4 x float> %.v, ptr %.02124, align 1, !tbaa !126
-  %71 = getelementptr inbounds nuw i8, ptr %.025, i64 16
-  %72 = getelementptr inbounds nuw i8, ptr %.02124, i64 16
-  %73 = add nuw nsw i64 %.02223, 1
-  %exitcond.not = icmp eq i64 %73, %3
+  %68 = fcmp ule <4 x float> %27, zeroinitializer
+  %69 = select <4 x i1> %66, <4 x float> %65, <4 x float> zeroinitializer
+  %70 = select <4 x i1> %67, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %69
+  %71 = select <4 x i1> %68, <4 x float> %27, <4 x float> %70
+  store <4 x float> %71, ptr %.02124, align 1, !tbaa !126
+  %72 = getelementptr inbounds nuw i8, ptr %.025, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %.02124, i64 16
+  %74 = add nuw nsw i64 %.02223, 1
+  %exitcond.not = icmp eq i64 %74, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !133
 }
 
@@ -1883,9 +1883,9 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev24GammaMoncurveOpCPUFwdSSE5applyEPK
   ret void
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.029 = phi ptr [ %114, %.lr.ph ], [ %1, %4 ]
-  %.02528 = phi ptr [ %115, %.lr.ph ], [ %2, %4 ]
-  %.02627 = phi i64 [ %116, %.lr.ph ], [ 0, %4 ]
+  %.029 = phi ptr [ %119, %.lr.ph ], [ %1, %4 ]
+  %.02528 = phi ptr [ %120, %.lr.ph ], [ %2, %4 ]
+  %.02627 = phi i64 [ %121, %.lr.ph ], [ 0, %4 ]
   %55 = getelementptr inbounds nuw i8, ptr %.029, i64 12
   %56 = load float, ptr %55, align 4, !tbaa !125
   %57 = getelementptr inbounds nuw i8, ptr %.029, i64 8
@@ -1939,18 +1939,22 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev24GammaMoncurveOpCPUFwdSSE5applyEPK
   %105 = fmul <4 x float> %104, %94
   %106 = fcmp uge <4 x float> %87, splat (float -1.260000e+02)
   %107 = fcmp oge <4 x float> %87, splat (float 1.280000e+02)
-  %108 = select <4 x i1> %106, <4 x float> %105, <4 x float> zeroinitializer
-  %109 = select <4 x i1> %107, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %108
-  %110 = fcmp ogt <4 x float> %67, zeroinitializer
-  %111 = select <4 x i1> %110, <4 x float> %109, <4 x float> zeroinitializer
-  %112 = fcmp uge <4 x float> %42, %65
-  %113 = fmul <4 x float> %53, %65
-  %.v = select <4 x i1> %112, <4 x float> %113, <4 x float> %111
-  store <4 x float> %.v, ptr %.02528, align 1, !tbaa !126
-  %114 = getelementptr inbounds nuw i8, ptr %.029, i64 16
-  %115 = getelementptr inbounds nuw i8, ptr %.02528, i64 16
-  %116 = add nuw nsw i64 %.02627, 1
-  %exitcond.not = icmp eq i64 %116, %3
+  %108 = fcmp ogt <4 x float> %67, zeroinitializer
+  %109 = fcmp olt <4 x float> %42, %65
+  %110 = bitcast <4 x float> %105 to <4 x i32>
+  %111 = select <4 x i1> %106, <4 x i32> %110, <4 x i32> zeroinitializer
+  %112 = select <4 x i1> %107, <4 x i32> splat (i32 2139095040), <4 x i32> %111
+  %113 = select <4 x i1> %109, <4 x i1> %108, <4 x i1> zeroinitializer
+  %114 = select <4 x i1> %113, <4 x i32> %112, <4 x i32> zeroinitializer
+  %115 = fmul <4 x float> %53, %65
+  %116 = bitcast <4 x float> %115 to <4 x i32>
+  %117 = select <4 x i1> %109, <4 x i32> zeroinitializer, <4 x i32> %116
+  %118 = or <4 x i32> %114, %117
+  store <4 x i32> %118, ptr %.02528, align 1, !tbaa !126
+  %119 = getelementptr inbounds nuw i8, ptr %.029, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %.02528, i64 16
+  %121 = add nuw nsw i64 %.02627, 1
+  %exitcond.not = icmp eq i64 %121, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !154
 }
 
@@ -2244,10 +2248,10 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev24GammaMoncurveOpCPURevSSE5applyEPK
   %103 = fmul <4 x float> %102, %92
   %104 = fcmp uge <4 x float> %85, splat (float -1.260000e+02)
   %105 = fcmp oge <4 x float> %85, splat (float 1.280000e+02)
-  %106 = select <4 x i1> %104, <4 x float> %103, <4 x float> zeroinitializer
-  %107 = select <4 x i1> %105, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %106
-  %108 = fcmp ogt <4 x float> %65, zeroinitializer
-  %109 = select <4 x i1> %108, <4 x float> %107, <4 x float> zeroinitializer
+  %106 = fcmp ogt <4 x float> %65, zeroinitializer
+  %107 = select <4 x i1> %104, <4 x float> %103, <4 x float> zeroinitializer
+  %108 = select <4 x i1> %105, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %107
+  %109 = select <4 x i1> %106, <4 x float> %108, <4 x float> zeroinitializer
   %110 = fmul <4 x float> %18, %109
   %111 = fsub <4 x float> %110, %27
   %112 = fcmp uge <4 x float> %42, %65
@@ -2499,9 +2503,9 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev30GammaMoncurveMirrorOpCPUFwdSSE5ap
   ret void
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.033 = phi ptr [ %119, %.lr.ph ], [ %1, %4 ]
-  %.02932 = phi ptr [ %120, %.lr.ph ], [ %2, %4 ]
-  %.03031 = phi i64 [ %121, %.lr.ph ], [ 0, %4 ]
+  %.033 = phi ptr [ %123, %.lr.ph ], [ %1, %4 ]
+  %.02932 = phi ptr [ %124, %.lr.ph ], [ %2, %4 ]
+  %.03031 = phi i64 [ %125, %.lr.ph ], [ 0, %4 ]
   %55 = getelementptr inbounds nuw i8, ptr %.033, i64 12
   %56 = load float, ptr %55, align 4, !tbaa !125
   %57 = getelementptr inbounds nuw i8, ptr %.033, i64 8
@@ -2558,20 +2562,23 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev30GammaMoncurveMirrorOpCPUFwdSSE5ap
   %108 = fmul <4 x float> %107, %97
   %109 = fcmp uge <4 x float> %90, splat (float -1.260000e+02)
   %110 = fcmp oge <4 x float> %90, splat (float 1.280000e+02)
-  %111 = select <4 x i1> %109, <4 x float> %108, <4 x float> zeroinitializer
-  %112 = select <4 x i1> %110, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %111
-  %113 = fcmp ogt <4 x float> %70, zeroinitializer
-  %114 = select <4 x i1> %113, <4 x float> %112, <4 x float> zeroinitializer
-  %115 = fcmp uge <4 x float> %42, %68
-  %116 = fmul <4 x float> %53, %68
-  %.v = select <4 x i1> %115, <4 x float> %116, <4 x float> %114
-  %117 = bitcast <4 x float> %.v to <4 x i32>
-  %118 = or <4 x i32> %67, %117
-  store <4 x i32> %118, ptr %.02932, align 1, !tbaa !126
-  %119 = getelementptr inbounds nuw i8, ptr %.033, i64 16
-  %120 = getelementptr inbounds nuw i8, ptr %.02932, i64 16
-  %121 = add nuw nsw i64 %.03031, 1
-  %exitcond.not = icmp eq i64 %121, %3
+  %111 = fcmp ogt <4 x float> %70, zeroinitializer
+  %112 = fcmp olt <4 x float> %42, %68
+  %113 = bitcast <4 x float> %108 to <4 x i32>
+  %114 = select <4 x i1> %109, <4 x i32> %113, <4 x i32> zeroinitializer
+  %115 = select <4 x i1> %110, <4 x i32> splat (i32 2139095040), <4 x i32> %114
+  %116 = select <4 x i1> %112, <4 x i1> %111, <4 x i1> zeroinitializer
+  %117 = select <4 x i1> %116, <4 x i32> %115, <4 x i32> zeroinitializer
+  %118 = fmul <4 x float> %53, %68
+  %119 = bitcast <4 x float> %118 to <4 x i32>
+  %120 = select <4 x i1> %112, <4 x i32> zeroinitializer, <4 x i32> %119
+  %121 = or <4 x i32> %120, %67
+  %122 = or <4 x i32> %121, %117
+  store <4 x i32> %122, ptr %.02932, align 1, !tbaa !126
+  %123 = getelementptr inbounds nuw i8, ptr %.033, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %.02932, i64 16
+  %125 = add nuw nsw i64 %.03031, 1
+  %exitcond.not = icmp eq i64 %125, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !166
 }
 
@@ -2874,10 +2881,10 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev30GammaMoncurveMirrorOpCPURevSSE5ap
   %105 = fmul <4 x float> %104, %94
   %106 = fcmp uge <4 x float> %87, splat (float -1.260000e+02)
   %107 = fcmp oge <4 x float> %87, splat (float 1.280000e+02)
-  %108 = select <4 x i1> %106, <4 x float> %105, <4 x float> zeroinitializer
-  %109 = select <4 x i1> %107, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %108
-  %110 = fcmp one <4 x float> %65, zeroinitializer
-  %111 = select <4 x i1> %110, <4 x float> %109, <4 x float> zeroinitializer
+  %108 = fcmp one <4 x float> %65, zeroinitializer
+  %109 = select <4 x i1> %106, <4 x float> %105, <4 x float> zeroinitializer
+  %110 = select <4 x i1> %107, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %109
+  %111 = select <4 x i1> %108, <4 x float> %110, <4 x float> zeroinitializer
   %112 = fmul <4 x float> %18, %111
   %113 = fsub <4 x float> %112, %27
   %114 = fcmp uge <4 x float> %42, %68

@@ -79272,13 +79272,13 @@ ma_node_input_bus_attach.exit:                    ; preds = %ma_node_input_bus_l
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define range(i32 -2, 1) i32 @ma_node_set_output_bus_volume(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #57 {
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %16, label %ma_node_get_output_bus_count.exit
+  br i1 %4, label %17, label %ma_node_get_output_bus_count.exit
 
 ma_node_get_output_bus_count.exit:                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %6 = load i32, ptr %5, align 4, !tbaa !1667
   %.not = icmp ult i32 %1, %6
-  br i1 %.not, label %7, label %16
+  br i1 %.not, label %7, label %17
 
 7:                                                ; preds = %ma_node_get_output_bus_count.exit
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -79286,13 +79286,13 @@ ma_node_get_output_bus_count.exit:                ; preds = %3
   %10 = zext i32 %1 to i64
   %11 = getelementptr inbounds nuw %struct.ma_node_output_bus, ptr %9, i64 %10
   %12 = fcmp olt float %2, 0.000000e+00
-  %.0.i9 = select i1 %12, float 0.000000e+00, float %2
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 28
-  %14 = bitcast float %.0.i9 to i32
-  %15 = atomicrmw volatile xchg ptr %13, i32 %14 seq_cst, align 4
-  br label %16
+  %14 = bitcast float %2 to i32
+  %15 = select i1 %12, i32 0, i32 %14
+  %16 = atomicrmw volatile xchg ptr %13, i32 %15 seq_cst, align 4
+  br label %17
 
-16:                                               ; preds = %ma_node_get_output_bus_count.exit, %3, %7
+17:                                               ; preds = %ma_node_get_output_bus_count.exit, %3, %7
   %.0 = phi i32 [ 0, %7 ], [ -2, %3 ], [ -2, %ma_node_get_output_bus_count.exit ]
   ret i32 %.0
 }
@@ -83473,10 +83473,10 @@ ma_node_get_output_bus_count.exit.i:              ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %8 = load ptr, ptr %7, align 8, !tbaa !1674
   %9 = fcmp olt float %1, 0.000000e+00
-  %.0.i9.i = select i1 %9, float 0.000000e+00, float %1
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 28
-  %11 = bitcast float %.0.i9.i to i32
-  %12 = atomicrmw volatile xchg ptr %10, i32 %11 seq_cst, align 4
+  %11 = bitcast float %1 to i32
+  %12 = select i1 %9, i32 0, i32 %11
+  %13 = atomicrmw volatile xchg ptr %10, i32 %12 seq_cst, align 4
   br label %ma_node_set_output_bus_volume.exit
 
 ma_node_set_output_bus_volume.exit:               ; preds = %6, %ma_node_get_output_bus_count.exit.i, %2
@@ -83526,11 +83526,11 @@ ma_node_get_output_bus_count.exit.i.i:            ; preds = %2
 10:                                               ; preds = %ma_node_get_output_bus_count.exit.i.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %12 = load ptr, ptr %11, align 8, !tbaa !1674
-  %13 = fcmp olt float %6, 0.000000e+00
-  %.0.i9.i.i = select i1 %13, float 0.000000e+00, float %6
+  %13 = fcmp olt double %5, 0xB690000000000000
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 28
-  %15 = bitcast float %.0.i9.i.i to i32
-  %16 = atomicrmw volatile xchg ptr %14, i32 %15 seq_cst, align 4
+  %15 = bitcast float %6 to i32
+  %16 = select i1 %13, i32 0, i32 %15
+  %17 = atomicrmw volatile xchg ptr %14, i32 %16 seq_cst, align 4
   br label %ma_engine_set_volume.exit
 
 ma_engine_set_volume.exit:                        ; preds = %2, %ma_node_get_output_bus_count.exit.i.i, %10

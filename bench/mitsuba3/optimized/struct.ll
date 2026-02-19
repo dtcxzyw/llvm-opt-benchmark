@@ -5783,48 +5783,42 @@ _ZN7mitsuba6detail14StructCompiler4movsERKN6asmjit9_abi_1_103x863XmmES7_.exit: ;
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %82, ptr noundef nonnull align 4 dereferenceable(16) %17, i64 16, i1 false)
   %121 = fpext float %108 to double
   %122 = fcmp contract ogt double %switch.load259, %121
-  br i1 %122, label %.lr.ph.preheader, label %.preheader
-
-.lr.ph.preheader:                                 ; preds = %_ZN7mitsuba6detail14StructCompiler4movsERKN6asmjit9_abi_1_103x863XmmES7_.exit
-  %123 = bitcast float %108 to i32
-  br label %.lr.ph
+  br i1 %122, label %.lr.ph, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph, %_ZN7mitsuba6detail14StructCompiler4movsERKN6asmjit9_abi_1_103x863XmmES7_.exit
-  %.sroa.0.0.lcssa = phi float [ %108, %_ZN7mitsuba6detail14StructCompiler4movsERKN6asmjit9_abi_1_103x863XmmES7_.exit ], [ %134, %.lr.ph ]
-  %124 = fpext float %109 to double
-  %125 = fcmp contract olt double %switch.load, %124
-  br i1 %125, label %.lr.ph245.preheader, label %._crit_edge
+  %.sroa.0.0.lcssa = phi float [ %108, %_ZN7mitsuba6detail14StructCompiler4movsERKN6asmjit9_abi_1_103x863XmmES7_.exit ], [ %133, %.lr.ph ]
+  %123 = fpext float %109 to double
+  %124 = fcmp contract olt double %switch.load, %123
+  br i1 %124, label %.lr.ph245, label %._crit_edge
 
-.lr.ph245.preheader:                              ; preds = %.preheader
-  %126 = bitcast float %109 to i32
-  br label %.lr.ph245
+.lr.ph:                                           ; preds = %_ZN7mitsuba6detail14StructCompiler4movsERKN6asmjit9_abi_1_103x863XmmES7_.exit, %.lr.ph
+  %.sroa.0.0243 = phi float [ %133, %.lr.ph ], [ %108, %_ZN7mitsuba6detail14StructCompiler4movsERKN6asmjit9_abi_1_103x863XmmES7_.exit ]
+  %125 = bitcast float %.sroa.0.0243 to i32
+  %126 = and i32 %125, 2139095040
+  %127 = icmp eq i32 %126, 2139095040
+  %128 = icmp eq i32 %125, -2147483648
+  %129 = icmp sgt i32 %125, -1
+  %. = select i1 %129, i32 1, i32 -1
+  %130 = select i1 %127, i32 0, i32 %.
+  %131 = add nsw i32 %130, %125
+  %132 = bitcast i32 %131 to float
+  %133 = select i1 %128, float 0x36A0000000000000, float %132
+  %134 = fpext float %133 to double
+  %135 = fcmp contract ogt double %switch.load259, %134
+  br i1 %135, label %.lr.ph, label %.preheader, !llvm.loop !224
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.sroa.0.0243 = phi i32 [ %133, %.lr.ph ], [ %123, %.lr.ph.preheader ]
-  %127 = and i32 %.sroa.0.0243, 2139095040
-  %128 = icmp eq i32 %127, 2139095040
-  %129 = icmp eq i32 %.sroa.0.0243, -2147483648
-  %130 = icmp sgt i32 %.sroa.0.0243, -1
-  %. = select i1 %130, i32 1, i32 -1
-  %131 = select i1 %128, i32 0, i32 %.
-  %132 = add nsw i32 %131, %.sroa.0.0243
-  %133 = select i1 %129, i32 1, i32 %132
-  %134 = bitcast i32 %133 to float
-  %135 = fpext float %134 to double
-  %136 = fcmp contract ogt double %switch.load259, %135
-  br i1 %136, label %.lr.ph, label %.preheader, !llvm.loop !224
-
-.lr.ph245:                                        ; preds = %.lr.ph245.preheader, %.lr.ph245
-  %.sroa.5.0244 = phi i32 [ %143, %.lr.ph245 ], [ %126, %.lr.ph245.preheader ]
-  %137 = and i32 %.sroa.5.0244, 2139095040
+.lr.ph245:                                        ; preds = %.preheader, %.lr.ph245
+  %.sroa.5.0244 = phi float [ %144, %.lr.ph245 ], [ %109, %.preheader ]
+  %136 = bitcast float %.sroa.5.0244 to i32
+  %137 = and i32 %136, 2139095040
   %138 = icmp eq i32 %137, 2139095040
-  %139 = icmp eq i32 %.sroa.5.0244, 0
-  %140 = icmp sgt i32 %.sroa.5.0244, -1
+  %139 = icmp eq i32 %136, 0
+  %140 = icmp sgt i32 %136, -1
   %.115 = select i1 %140, i32 -1, i32 1
   %141 = select i1 %138, i32 0, i32 %.115
-  %142 = add nsw i32 %141, %.sroa.5.0244
-  %143 = select i1 %139, i32 -2147483647, i32 %142
-  %144 = bitcast i32 %143 to float
+  %142 = add nsw i32 %141, %136
+  %143 = bitcast i32 %142 to float
+  %144 = select i1 %139, float 0xB6A0000000000000, float %143
   %145 = fpext float %144 to double
   %146 = fcmp contract olt double %switch.load, %145
   br i1 %146, label %.lr.ph245, label %._crit_edge, !llvm.loop !225

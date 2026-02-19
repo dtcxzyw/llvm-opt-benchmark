@@ -104047,14 +104047,14 @@ define void @"_ZN5typst4eval4code74_$LT$impl$u20$typst..eval..Eval$u20$for$u20$t
   %6 = extractvalue { double, i8 } %4, 1
   switch i8 %6, label %7 [
     i8 0, label %8
-    i8 1, label %9
-    i8 2, label %11
-    i8 3, label %13
-    i8 4, label %15
-    i8 5, label %16
-    i8 6, label %18
-    i8 7, label %19
-    i8 8, label %20
+    i8 1, label %11
+    i8 2, label %15
+    i8 3, label %19
+    i8 4, label %23
+    i8 5, label %24
+    i8 6, label %26
+    i8 7, label %27
+    i8 8, label %28
   ]
 
 7:                                                ; preds = %3
@@ -104062,63 +104062,67 @@ define void @"_ZN5typst4eval4code74_$LT$impl$u20$typst..eval..Eval$u20$for$u20$t
 
 8:                                                ; preds = %3
   %.0.i.inv.i.i.i.i = fcmp ord double %5, 0.000000e+00
-  %.0.i1.i.i.i = select i1 %.0.i.inv.i.i.i.i, double %5, double 0.000000e+00
-  store double %.0.i1.i.i.i, ptr %.sroa.49, align 8, !alias.scope !20594
-  br label %_ZN5typst11foundations5value5Value7numeric17hf43e3f1111ec7a17E.exit
-
-9:                                                ; preds = %3
-  %10 = fmul double %5, 2.834650e+00
-  %.0.i.inv.i.i.i1.i = fcmp ord double %10, 0.000000e+00
-  %.0.i1.i.i2.i = select i1 %.0.i.inv.i.i.i1.i, double %10, double 0.000000e+00
-  store double %.0.i1.i.i2.i, ptr %.sroa.49, align 8, !alias.scope !20599
+  %9 = bitcast double %5 to i64
+  %10 = select i1 %.0.i.inv.i.i.i.i, i64 %9, i64 0
+  store i64 %10, ptr %.sroa.49, align 8, !alias.scope !20594
   br label %_ZN5typst11foundations5value5Value7numeric17hf43e3f1111ec7a17E.exit
 
 11:                                               ; preds = %3
-  %12 = fmul double %5, 2.834650e+01
-  %.0.i.inv.i.i.i3.i = fcmp ord double %12, 0.000000e+00
-  %.0.i1.i.i4.i = select i1 %.0.i.inv.i.i.i3.i, double %12, double 0.000000e+00
-  store double %.0.i1.i.i4.i, ptr %.sroa.49, align 8, !alias.scope !20602
-  br label %_ZN5typst11foundations5value5Value7numeric17hf43e3f1111ec7a17E.exit
-
-13:                                               ; preds = %3
-  %14 = fmul double %5, 7.200000e+01
-  %.0.i.inv.i.i.i5.i = fcmp ord double %14, 0.000000e+00
-  %.0.i1.i.i6.i = select i1 %.0.i.inv.i.i.i5.i, double %14, double 0.000000e+00
-  store double %.0.i1.i.i6.i, ptr %.sroa.49, align 8, !alias.scope !20605
+  %12 = fmul double %5, 2.834650e+00
+  %.0.i.inv.i.i.i1.i = fcmp ord double %12, 0.000000e+00
+  %13 = bitcast double %12 to i64
+  %14 = select i1 %.0.i.inv.i.i.i1.i, i64 %13, i64 0
+  store i64 %14, ptr %.sroa.49, align 8, !alias.scope !20599
   br label %_ZN5typst11foundations5value5Value7numeric17hf43e3f1111ec7a17E.exit
 
 15:                                               ; preds = %3
+  %16 = fmul double %5, 2.834650e+01
+  %.0.i.inv.i.i.i3.i = fcmp ord double %16, 0.000000e+00
+  %17 = bitcast double %16 to i64
+  %18 = select i1 %.0.i.inv.i.i.i3.i, i64 %17, i64 0
+  store i64 %18, ptr %.sroa.49, align 8, !alias.scope !20602
+  br label %_ZN5typst11foundations5value5Value7numeric17hf43e3f1111ec7a17E.exit
+
+19:                                               ; preds = %3
+  %20 = fmul double %5, 7.200000e+01
+  %.0.i.inv.i.i.i5.i = fcmp ord double %20, 0.000000e+00
+  %21 = bitcast double %20 to i64
+  %22 = select i1 %.0.i.inv.i.i.i5.i, i64 %21, i64 0
+  store i64 %22, ptr %.sroa.49, align 8, !alias.scope !20605
+  br label %_ZN5typst11foundations5value5Value7numeric17hf43e3f1111ec7a17E.exit
+
+23:                                               ; preds = %3
   %.0.i.inv.i.i.i7.i = fcmp ord double %5, 0.000000e+00
   %.0.i.i.i.i = select i1 %.0.i.inv.i.i.i7.i, double %5, double 0.000000e+00
   br label %_ZN5typst11foundations5value5Value7numeric17hf43e3f1111ec7a17E.exit
 
-16:                                               ; preds = %3
-  %17 = fmul double %5, 0x3F91DF46A2529D39
-  %.0.i.inv.i.i.i8.i = fcmp ord double %17, 0.000000e+00
-  %.0.i.i.i9.i = select i1 %.0.i.inv.i.i.i8.i, double %17, double 0.000000e+00
+24:                                               ; preds = %3
+  %25 = fmul double %5, 0x3F91DF46A2529D39
+  %.0.i.inv.i.i.i8.i = fcmp ord double %25, 0.000000e+00
+  %.0.i.i.i9.i = select i1 %.0.i.inv.i.i.i8.i, double %25, double 0.000000e+00
   br label %_ZN5typst11foundations5value5Value7numeric17hf43e3f1111ec7a17E.exit
 
-18:                                               ; preds = %3
+26:                                               ; preds = %3
   %.0.i.inv.i.i.i = fcmp ord double %5, 0.000000e+00
   %.0.i.i.i = select i1 %.0.i.inv.i.i.i, double %5, double 0.000000e+00
   store i64 0, ptr %.sroa.49, align 8, !alias.scope !20608
   br label %_ZN5typst11foundations5value5Value7numeric17hf43e3f1111ec7a17E.exit
 
-19:                                               ; preds = %3
+27:                                               ; preds = %3
   %.0.i.inv.i.i10.i = fcmp ord double %5, 0.000000e+00
   %.0.i.i11.i = select i1 %.0.i.inv.i.i10.i, double %5, double 0.000000e+00
   br label %_ZN5typst11foundations5value5Value7numeric17hf43e3f1111ec7a17E.exit
 
-20:                                               ; preds = %3
-  %21 = fdiv double %5, 1.000000e+02
-  %.0.i.inv.i.i12.i = fcmp ord double %21, 0.000000e+00
-  %.0.i.i13.i = select i1 %.0.i.inv.i.i12.i, double %21, double 0.000000e+00
+28:                                               ; preds = %3
+  %29 = fdiv double %5, 1.000000e+02
+  %.0.i.inv.i.i12.i = fcmp ord double %29, 0.000000e+00
+  %.0.i.i13.i = select i1 %.0.i.inv.i.i12.i, double %29, double 0.000000e+00
   br label %_ZN5typst11foundations5value5Value7numeric17hf43e3f1111ec7a17E.exit
 
-_ZN5typst11foundations5value5Value7numeric17hf43e3f1111ec7a17E.exit: ; preds = %8, %9, %11, %13, %15, %16, %18, %19, %20
-  %.sink15.i.sroa.phi = phi ptr [ %.sroa.49, %20 ], [ %.sroa.49, %19 ], [ %.sroa.13, %18 ], [ %.sroa.49, %16 ], [ %.sroa.49, %15 ], [ %.sroa.13, %13 ], [ %.sroa.13, %11 ], [ %.sroa.13, %9 ], [ %.sroa.13, %8 ]
-  %.0.i.i13.sink.i = phi double [ %.0.i.i13.i, %20 ], [ %.0.i.i11.i, %19 ], [ %.0.i.i.i, %18 ], [ %.0.i.i.i9.i, %16 ], [ %.0.i.i.i.i, %15 ], [ 0.000000e+00, %13 ], [ 0.000000e+00, %11 ], [ 0.000000e+00, %9 ], [ 0.000000e+00, %8 ]
-  %.sink.i = phi i8 [ 7, %20 ], [ 9, %19 ], [ 5, %18 ], [ 6, %16 ], [ 6, %15 ], [ 5, %13 ], [ 5, %11 ], [ 5, %9 ], [ 5, %8 ]
+_ZN5typst11foundations5value5Value7numeric17hf43e3f1111ec7a17E.exit: ; preds = %8, %11, %15, %19, %23, %24, %26, %27, %28
+  %.sink15.i.sroa.phi = phi ptr [ %.sroa.49, %28 ], [ %.sroa.49, %27 ], [ %.sroa.13, %26 ], [ %.sroa.49, %24 ], [ %.sroa.49, %23 ], [ %.sroa.13, %19 ], [ %.sroa.13, %15 ], [ %.sroa.13, %11 ], [ %.sroa.13, %8 ]
+  %.0.i.i13.sink.i = phi double [ %.0.i.i13.i, %28 ], [ %.0.i.i11.i, %27 ], [ %.0.i.i.i, %26 ], [ %.0.i.i.i9.i, %24 ], [ %.0.i.i.i.i, %23 ], [ 0.000000e+00, %19 ], [ 0.000000e+00, %15 ], [ 0.000000e+00, %11 ], [ 0.000000e+00, %8 ]
+  %.sink.i = phi i8 [ 7, %28 ], [ 9, %27 ], [ 5, %26 ], [ 6, %24 ], [ 6, %23 ], [ 5, %19 ], [ 5, %15 ], [ 5, %11 ], [ 5, %8 ]
   store double %.0.i.i13.sink.i, ptr %.sink15.i.sroa.phi, align 8, !alias.scope !20611
   store i8 %.sink.i, ptr %0, align 8
   %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8

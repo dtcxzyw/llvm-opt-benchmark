@@ -38060,27 +38060,28 @@ define dso_local noundef zeroext i1 @_ZN5ImGui16BeginMainMenuBarEv() local_unnam
   %8 = load float, ptr %7, align 8, !tbaa !211
   %9 = fsub float %6, %8
   %10 = fcmp oge float %9, 0.000000e+00
-  %11 = select i1 %10, float %9, float 0.000000e+00
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 7612
-  store i32 %4, ptr %12, align 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 7612
+  %12 = bitcast float %9 to i32
+  %13 = select i1 %10, i32 %12, i32 0
+  store i32 %4, ptr %11, align 4
   %.sroa_idx10 = getelementptr inbounds nuw i8, ptr %1, i64 7616
-  store float %11, ptr %.sroa_idx10, align 8
-  %13 = tail call noundef float @_ZN5ImGui14GetFrameHeightEv()
-  %14 = tail call noundef zeroext i1 @_ZN5ImGui20BeginViewportSideBarEPKcP13ImGuiViewport8ImGuiDirfi(ptr noundef nonnull @.str.121, ptr noundef %2, i32 noundef 2, float noundef %13, i32 noundef 1288)
-  store i32 0, ptr %12, align 4
+  store i32 %13, ptr %.sroa_idx10, align 8
+  %14 = tail call noundef float @_ZN5ImGui14GetFrameHeightEv()
+  %15 = tail call noundef zeroext i1 @_ZN5ImGui20BeginViewportSideBarEPKcP13ImGuiViewport8ImGuiDirfi(ptr noundef nonnull @.str.121, ptr noundef %2, i32 noundef 2, float noundef %14, i32 noundef 1288)
+  store i32 0, ptr %11, align 4
   store i32 0, ptr %.sroa_idx10, align 8
-  br i1 %14, label %15, label %17
+  br i1 %15, label %16, label %18
 
-15:                                               ; preds = %0
-  %16 = tail call noundef zeroext i1 @_ZN5ImGui12BeginMenuBarEv()
-  br label %18
+16:                                               ; preds = %0
+  %17 = tail call noundef zeroext i1 @_ZN5ImGui12BeginMenuBarEv()
+  br label %19
 
-17:                                               ; preds = %0
+18:                                               ; preds = %0
   tail call void @_ZN5ImGui3EndEv()
-  br label %18
+  br label %19
 
-18:                                               ; preds = %17, %15
-  ret i1 %14
+19:                                               ; preds = %18, %16
+  ret i1 %15
 }
 
 declare void @_ZN5ImGui3EndEv() local_unnamed_addr #2

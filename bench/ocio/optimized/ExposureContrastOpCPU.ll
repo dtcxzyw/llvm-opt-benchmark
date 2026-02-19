@@ -1222,10 +1222,10 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116ECLinearRenderer5
   %105 = fmul <4 x float> %104, %94
   %106 = fcmp uge <4 x float> %87, splat (float -1.260000e+02)
   %107 = fcmp oge <4 x float> %87, splat (float 1.280000e+02)
-  %108 = select <4 x i1> %106, <4 x float> %105, <4 x float> zeroinitializer
-  %109 = select <4 x i1> %107, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %108
-  %110 = fcmp ogt <4 x float> %67, zeroinitializer
-  %111 = select <4 x i1> %110, <4 x float> %109, <4 x float> zeroinitializer
+  %108 = fcmp ogt <4 x float> %67, zeroinitializer
+  %109 = select <4 x i1> %106, <4 x float> %105, <4 x float> zeroinitializer
+  %110 = select <4 x i1> %107, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %109
+  %111 = select <4 x i1> %108, <4 x float> %110, <4 x float> zeroinitializer
   %112 = fmul <4 x float> %54, %111
   store <4 x float> %112, ptr %.13945, align 1, !tbaa !74
   %113 = getelementptr inbounds nuw i8, ptr %.13945, i64 12
@@ -1719,10 +1719,10 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119ECLinearRevRender
   %108 = fmul <4 x float> %107, %97
   %109 = fcmp uge <4 x float> %90, splat (float -1.260000e+02)
   %110 = fcmp oge <4 x float> %90, splat (float 1.280000e+02)
-  %111 = select <4 x i1> %109, <4 x float> %108, <4 x float> zeroinitializer
-  %112 = select <4 x i1> %110, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %111
-  %113 = fcmp ogt <4 x float> %70, zeroinitializer
-  %114 = select <4 x i1> %113, <4 x float> %112, <4 x float> zeroinitializer
+  %111 = fcmp ogt <4 x float> %70, zeroinitializer
+  %112 = select <4 x i1> %109, <4 x float> %108, <4 x float> zeroinitializer
+  %113 = select <4 x i1> %110, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %112
+  %114 = select <4 x i1> %111, <4 x float> %113, <4 x float> zeroinitializer
   %115 = fmul <4 x float> %55, %114
   store <4 x float> %115, ptr %.14247, align 1, !tbaa !74
   %116 = getelementptr inbounds nuw i8, ptr %.14247, i64 12
@@ -1940,10 +1940,10 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_115ECVideoRenderer5a
   %106 = fmul <4 x float> %105, %95
   %107 = fcmp uge <4 x float> %88, splat (float -1.260000e+02)
   %108 = fcmp oge <4 x float> %88, splat (float 1.280000e+02)
-  %109 = select <4 x i1> %107, <4 x float> %106, <4 x float> zeroinitializer
-  %110 = select <4 x i1> %108, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %109
-  %111 = fcmp ogt <4 x float> %68, zeroinitializer
-  %112 = select <4 x i1> %111, <4 x float> %110, <4 x float> zeroinitializer
+  %109 = fcmp ogt <4 x float> %68, zeroinitializer
+  %110 = select <4 x i1> %107, <4 x float> %106, <4 x float> zeroinitializer
+  %111 = select <4 x i1> %108, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %110
+  %112 = select <4 x i1> %109, <4 x float> %111, <4 x float> zeroinitializer
   %113 = fmul <4 x float> %55, %112
   store <4 x float> %113, ptr %.13945, align 1, !tbaa !74
   %114 = getelementptr inbounds nuw i8, ptr %.13945, i64 12
@@ -2165,10 +2165,10 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_118ECVideoRevRendere
   %109 = fmul <4 x float> %108, %98
   %110 = fcmp uge <4 x float> %91, splat (float -1.260000e+02)
   %111 = fcmp oge <4 x float> %91, splat (float 1.280000e+02)
-  %112 = select <4 x i1> %110, <4 x float> %109, <4 x float> zeroinitializer
-  %113 = select <4 x i1> %111, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %112
-  %114 = fcmp ogt <4 x float> %71, zeroinitializer
-  %115 = select <4 x i1> %114, <4 x float> %113, <4 x float> zeroinitializer
+  %112 = fcmp ogt <4 x float> %71, zeroinitializer
+  %113 = select <4 x i1> %110, <4 x float> %109, <4 x float> zeroinitializer
+  %114 = select <4 x i1> %111, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %113
+  %115 = select <4 x i1> %112, <4 x float> %114, <4 x float> zeroinitializer
   %116 = fmul <4 x float> %56, %115
   store <4 x float> %116, ptr %.14247, align 1, !tbaa !74
   %117 = getelementptr inbounds nuw i8, ptr %.14247, i64 12

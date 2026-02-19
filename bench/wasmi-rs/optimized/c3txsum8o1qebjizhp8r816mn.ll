@@ -3373,14 +3373,14 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..si
   %.sroa.5.0.copyload6 = load double, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !379
   %3 = load double, ptr %2, align 8, !alias.scope !376, !noalias !381, !noundef !3
   %4 = fcmp une double %3, %.sroa.0.0.copyload7
-  %..i.i = select i1 %4, double 0xFFFFFFFFFFFFFFFF, double 0.000000e+00
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load double, ptr %5, align 8, !alias.scope !376, !noalias !381, !noundef !3
-  %7 = fcmp une double %6, %.sroa.5.0.copyload6
-  %..i.i.c = select i1 %7, double 0xFFFFFFFFFFFFFFFF, double 0.000000e+00
-  store double %..i.i, ptr %0, align 8, !noalias !383
+  %5 = sext i1 %4 to i64
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %7 = load double, ptr %6, align 8, !alias.scope !376, !noalias !381, !noundef !3
+  %8 = fcmp une double %7, %.sroa.5.0.copyload6
+  store i64 %5, ptr %0, align 8, !noalias !383
   %.sroa.5.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %..i.i.c, ptr %.sroa.5.0..sroa_idx3, align 8, !noalias !383
+  %.sroa.5.0..sroa.5.0..sroa.5.0.copyload4.cast = sext i1 %8 to i64
+  store i64 %.sroa.5.0..sroa.5.0..sroa.5.0.copyload4.cast, ptr %.sroa.5.0..sroa_idx3, align 8, !noalias !383
   ret void
 }
 
@@ -3393,14 +3393,14 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..si
   %.sroa.5.0.copyload6 = load double, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !387
   %3 = load double, ptr %2, align 8, !alias.scope !384, !noalias !389, !noundef !3
   %4 = fcmp ole double %3, %.sroa.0.0.copyload7
-  %..i.i = select i1 %4, double 0xFFFFFFFFFFFFFFFF, double 0.000000e+00
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load double, ptr %5, align 8, !alias.scope !384, !noalias !389, !noundef !3
-  %7 = fcmp ole double %6, %.sroa.5.0.copyload6
-  %..i.i.c = select i1 %7, double 0xFFFFFFFFFFFFFFFF, double 0.000000e+00
-  store double %..i.i, ptr %0, align 8, !noalias !391
+  %5 = sext i1 %4 to i64
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %7 = load double, ptr %6, align 8, !alias.scope !384, !noalias !389, !noundef !3
+  %8 = fcmp ole double %7, %.sroa.5.0.copyload6
+  store i64 %5, ptr %0, align 8, !noalias !391
   %.sroa.5.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %..i.i.c, ptr %.sroa.5.0..sroa_idx3, align 8, !noalias !391
+  %.sroa.5.0..sroa.5.0..sroa.5.0.copyload4.cast = sext i1 %8 to i64
+  store i64 %.sroa.5.0..sroa.5.0..sroa.5.0.copyload4.cast, ptr %.sroa.5.0..sroa_idx3, align 8, !noalias !391
   ret void
 }
 
@@ -3413,14 +3413,14 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..si
   %.sroa.5.0.copyload6 = load double, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !395
   %3 = load double, ptr %2, align 8, !alias.scope !392, !noalias !397, !noundef !3
   %4 = fcmp oge double %3, %.sroa.0.0.copyload7
-  %..i.i = select i1 %4, double 0xFFFFFFFFFFFFFFFF, double 0.000000e+00
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load double, ptr %5, align 8, !alias.scope !392, !noalias !397, !noundef !3
-  %7 = fcmp oge double %6, %.sroa.5.0.copyload6
-  %..i.i.c = select i1 %7, double 0xFFFFFFFFFFFFFFFF, double 0.000000e+00
-  store double %..i.i, ptr %0, align 8, !noalias !399
+  %5 = sext i1 %4 to i64
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %7 = load double, ptr %6, align 8, !alias.scope !392, !noalias !397, !noundef !3
+  %8 = fcmp oge double %7, %.sroa.5.0.copyload6
+  store i64 %5, ptr %0, align 8, !noalias !399
   %.sroa.5.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %..i.i.c, ptr %.sroa.5.0..sroa_idx3, align 8, !noalias !399
+  %.sroa.5.0..sroa.5.0..sroa.5.0.copyload4.cast = sext i1 %8 to i64
+  store i64 %.sroa.5.0..sroa.5.0..sroa.5.0.copyload4.cast, ptr %.sroa.5.0..sroa_idx3, align 8, !noalias !399
   ret void
 }
 
@@ -3433,14 +3433,14 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..si
   %.sroa.5.0.copyload6 = load double, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !403
   %3 = load double, ptr %2, align 8, !alias.scope !400, !noalias !405, !noundef !3
   %4 = fcmp oeq double %3, %.sroa.0.0.copyload7
-  %..i.i = select i1 %4, double 0xFFFFFFFFFFFFFFFF, double 0.000000e+00
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load double, ptr %5, align 8, !alias.scope !400, !noalias !405, !noundef !3
-  %7 = fcmp oeq double %6, %.sroa.5.0.copyload6
-  %..i.i.c = select i1 %7, double 0xFFFFFFFFFFFFFFFF, double 0.000000e+00
-  store double %..i.i, ptr %0, align 8, !noalias !407
+  %5 = sext i1 %4 to i64
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %7 = load double, ptr %6, align 8, !alias.scope !400, !noalias !405, !noundef !3
+  %8 = fcmp oeq double %7, %.sroa.5.0.copyload6
+  store i64 %5, ptr %0, align 8, !noalias !407
   %.sroa.5.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %..i.i.c, ptr %.sroa.5.0..sroa_idx3, align 8, !noalias !407
+  %.sroa.5.0..sroa.5.0..sroa.5.0.copyload4.cast = sext i1 %8 to i64
+  store i64 %.sroa.5.0..sroa.5.0..sroa.5.0.copyload4.cast, ptr %.sroa.5.0..sroa_idx3, align 8, !noalias !407
   ret void
 }
 
@@ -3453,14 +3453,14 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..si
   %.sroa.5.0.copyload6 = load double, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !411
   %3 = load double, ptr %2, align 8, !alias.scope !408, !noalias !413, !noundef !3
   %4 = fcmp olt double %3, %.sroa.0.0.copyload7
-  %..i.i = select i1 %4, double 0xFFFFFFFFFFFFFFFF, double 0.000000e+00
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load double, ptr %5, align 8, !alias.scope !408, !noalias !413, !noundef !3
-  %7 = fcmp olt double %6, %.sroa.5.0.copyload6
-  %..i.i.c = select i1 %7, double 0xFFFFFFFFFFFFFFFF, double 0.000000e+00
-  store double %..i.i, ptr %0, align 8, !noalias !415
+  %5 = sext i1 %4 to i64
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %7 = load double, ptr %6, align 8, !alias.scope !408, !noalias !413, !noundef !3
+  %8 = fcmp olt double %7, %.sroa.5.0.copyload6
+  store i64 %5, ptr %0, align 8, !noalias !415
   %.sroa.5.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %..i.i.c, ptr %.sroa.5.0..sroa_idx3, align 8, !noalias !415
+  %.sroa.5.0..sroa.5.0..sroa.5.0.copyload4.cast = sext i1 %8 to i64
+  store i64 %.sroa.5.0..sroa.5.0..sroa.5.0.copyload4.cast, ptr %.sroa.5.0..sroa_idx3, align 8, !noalias !415
   ret void
 }
 
@@ -3473,14 +3473,14 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F64x2$u20$as$u20$wasmi_core..si
   %.sroa.5.0.copyload6 = load double, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !419
   %3 = load double, ptr %2, align 8, !alias.scope !416, !noalias !421, !noundef !3
   %4 = fcmp ogt double %3, %.sroa.0.0.copyload7
-  %..i.i = select i1 %4, double 0xFFFFFFFFFFFFFFFF, double 0.000000e+00
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load double, ptr %5, align 8, !alias.scope !416, !noalias !421, !noundef !3
-  %7 = fcmp ogt double %6, %.sroa.5.0.copyload6
-  %..i.i.c = select i1 %7, double 0xFFFFFFFFFFFFFFFF, double 0.000000e+00
-  store double %..i.i, ptr %0, align 8, !noalias !423
+  %5 = sext i1 %4 to i64
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %7 = load double, ptr %6, align 8, !alias.scope !416, !noalias !421, !noundef !3
+  %8 = fcmp ogt double %7, %.sroa.5.0.copyload6
+  store i64 %5, ptr %0, align 8, !noalias !423
   %.sroa.5.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %..i.i.c, ptr %.sroa.5.0..sroa_idx3, align 8, !noalias !423
+  %.sroa.5.0..sroa.5.0..sroa.5.0.copyload4.cast = sext i1 %8 to i64
+  store i64 %.sroa.5.0..sroa.5.0..sroa.5.0.copyload4.cast, ptr %.sroa.5.0..sroa_idx3, align 8, !noalias !423
   ret void
 }
 

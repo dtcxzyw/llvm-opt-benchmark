@@ -9843,13 +9843,12 @@ common.resume:                                    ; preds = %28, %7
 define noundef i32 @"_ZN71_$LT$f32$u20$as$u20$polars_row..fixed..numeric..FixedLengthEncoding$GT$6encode17he004e727c49f3024E"(float noundef %0) unnamed_addr #4 {
   %2 = fadd float %0, 0.000000e+00
   %3 = fcmp uno float %0, 0.000000e+00
-  %.sroa.01.0 = select i1 %3, float 0x7FF8000000000000, float %2
-  %4 = bitcast float %.sroa.01.0 to i32
-  %5 = ashr i32 %4, 31
-  %6 = lshr i32 %5, 1
-  %7 = fneg float %.sroa.01.0
-  %8 = bitcast float %7 to i32
-  %9 = xor i32 %6, %8
+  %4 = bitcast float %2 to i32
+  %5 = select i1 %3, i32 2143289344, i32 %4
+  %6 = ashr i32 %5, 31
+  %7 = lshr i32 %6, 1
+  %8 = xor i32 %5, %7
+  %9 = xor i32 %8, -2147483648
   %.sroa.0.0.insert.insert.i = tail call noundef i32 @llvm.bswap.i32(i32 %9)
   ret i32 %.sroa.0.0.insert.insert.i
 }
@@ -9869,13 +9868,12 @@ define noundef float @"_ZN71_$LT$f32$u20$as$u20$polars_row..fixed..numeric..Fixe
 define noundef i64 @"_ZN71_$LT$f64$u20$as$u20$polars_row..fixed..numeric..FixedLengthEncoding$GT$6encode17hb981a1a433fa3875E"(double noundef %0) unnamed_addr #4 {
   %2 = fadd double %0, 0.000000e+00
   %3 = fcmp uno double %0, 0.000000e+00
-  %.sroa.01.0 = select i1 %3, double 0x7FF8000000000000, double %2
-  %4 = bitcast double %.sroa.01.0 to i64
-  %5 = ashr i64 %4, 63
-  %6 = lshr i64 %5, 1
-  %7 = fneg double %.sroa.01.0
-  %8 = bitcast double %7 to i64
-  %9 = xor i64 %6, %8
+  %4 = bitcast double %2 to i64
+  %5 = select i1 %3, i64 9221120237041090560, i64 %4
+  %6 = ashr i64 %5, 63
+  %7 = lshr i64 %6, 1
+  %8 = xor i64 %5, %7
+  %9 = xor i64 %8, -9223372036854775808
   %.sroa.0.0.insert.insert.i = tail call noundef i64 @llvm.bswap.i64(i64 %9)
   ret i64 %.sroa.0.0.insert.insert.i
 }

@@ -2059,15 +2059,14 @@ define dso_local i64 @dfloor(ptr noundef readonly captures(none) %0) local_unnam
 declare double @llvm.floor.f64(double) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @dsign(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
+define dso_local range(i64 -4616189618054758400, 4607182418800017409) i64 @dsign(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load double, ptr %2, align 8
   %4 = fcmp ogt double %3, 0.000000e+00
   %5 = fcmp olt double %3, 0.000000e+00
-  %. = select i1 %5, double -1.000000e+00, double 0.000000e+00
-  %.0 = select i1 %4, double 1.000000e+00, double %.
-  %6 = bitcast double %.0 to i64
-  ret i64 %6
+  %6 = select i1 %5, i64 -4616189618054758400, i64 0
+  %7 = select i1 %4, i64 4607182418800017408, i64 %6
+  ret i64 %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -3425,7 +3424,7 @@ define dso_local i64 @dcotd(ptr noundef readonly captures(none) %0) local_unname
   %8 = load double, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = fcmp uno double %8, 0.000000e+00
-  br i1 %9, label %68, label %10
+  br i1 %9, label %69, label %10
 
 10:                                               ; preds = %1
   %11 = tail call double @llvm.fabs.f64(double %8)
@@ -3535,12 +3534,12 @@ sind_q1.exit:                                     ; preds = %46, %52
   %64 = fdiv double %.0..0..0..0., %63
   %65 = fmul double %64, %62
   %66 = fcmp oeq double %65, 0.000000e+00
-  %.019 = select i1 %66, double 0.000000e+00, double %65
-  %67 = bitcast double %.019 to i64
-  br label %68
+  %67 = bitcast double %65 to i64
+  %68 = select i1 %66, i64 0, i64 %67
+  br label %69
 
-68:                                               ; preds = %1, %sind_q1.exit
-  %.023 = phi i64 [ %67, %sind_q1.exit ], [ 9221120237041090560, %1 ]
+69:                                               ; preds = %1, %sind_q1.exit
+  %.023 = phi i64 [ %68, %sind_q1.exit ], [ 9221120237041090560, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.023
 }
@@ -3650,7 +3649,7 @@ define dso_local i64 @dtand(ptr noundef readonly captures(none) %0) local_unname
   %8 = load double, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = fcmp uno double %8, 0.000000e+00
-  br i1 %9, label %68, label %10
+  br i1 %9, label %69, label %10
 
 10:                                               ; preds = %1
   %11 = tail call double @llvm.fabs.f64(double %8)
@@ -3760,12 +3759,12 @@ cosd_q1.exit:                                     ; preds = %46, %54
   %64 = fdiv double %.0..0..0..0., %63
   %65 = fmul double %64, %62
   %66 = fcmp oeq double %65, 0.000000e+00
-  %.019 = select i1 %66, double 0.000000e+00, double %65
-  %67 = bitcast double %.019 to i64
-  br label %68
+  %67 = bitcast double %65 to i64
+  %68 = select i1 %66, i64 0, i64 %67
+  br label %69
 
-68:                                               ; preds = %1, %cosd_q1.exit
-  %.023 = phi i64 [ %67, %cosd_q1.exit ], [ 9221120237041090560, %1 ]
+69:                                               ; preds = %1, %cosd_q1.exit
+  %.023 = phi i64 [ %68, %cosd_q1.exit ], [ 9221120237041090560, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.023
 }

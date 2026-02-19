@@ -11053,9 +11053,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i64 @lean_float_to_bits(double noundef %0) local_unnamed_addr #20 {
   %2 = fcmp uno double %0, 0.000000e+00
-  %.0 = select i1 %2, double 0x7FF8000000000000, double %0
-  %3 = bitcast double %.0 to i64
-  ret i64 %3
+  %3 = bitcast double %0 to i64
+  %4 = select i1 %2, i64 9221120237041090560, i64 %3
+  ret i64 %4
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -11325,9 +11325,9 @@ define noundef float @lean_float32_of_bits(i32 noundef %0) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @lean_float32_to_bits(float noundef %0) local_unnamed_addr #20 {
   %2 = fcmp uno float %0, 0.000000e+00
-  %.0 = select i1 %2, float 0x7FF8000000000000, float %0
-  %3 = bitcast float %.0 to i32
-  ret i32 %3
+  %3 = bitcast float %0 to i32
+  %4 = select i1 %2, i32 2143289344, i32 %3
+  ret i32 %4
 }
 
 ; Function Attrs: mustprogress uwtable

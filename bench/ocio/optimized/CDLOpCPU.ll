@@ -864,10 +864,10 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev17CDLRendererFwdSSEILb
   %60 = fmul <4 x float> %59, %49
   %61 = fcmp uge <4 x float> %42, splat (float -1.260000e+02)
   %62 = fcmp oge <4 x float> %42, splat (float 1.280000e+02)
-  %63 = select <4 x i1> %61, <4 x float> %60, <4 x float> zeroinitializer
-  %64 = select <4 x i1> %62, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %63
-  %65 = fcmp ogt <4 x float> %22, zeroinitializer
-  %66 = select <4 x i1> %65, <4 x float> %64, <4 x float> zeroinitializer
+  %63 = fcmp ogt <4 x float> %22, zeroinitializer
+  %64 = select <4 x i1> %61, <4 x float> %60, <4 x float> zeroinitializer
+  %65 = select <4 x i1> %62, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %64
+  %66 = select <4 x i1> %63, <4 x float> %65, <4 x float> zeroinitializer
   %67 = fmul <4 x float> %66, <float 0x3FCB367A00000000, float 0x3FE6E2EB20000000, float 0x3FB27BB300000000, float 0.000000e+00>
   %68 = shufflevector <4 x float> %67, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %69 = fadd <4 x float> %67, %68
@@ -1156,17 +1156,17 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev17CDLRendererFwdSSEILb
   ret void
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.019 = phi i64 [ %78, %.lr.ph ], [ 0, %4 ]
-  %.0918 = phi ptr [ %77, %.lr.ph ], [ %2, %4 ]
-  %.01017 = phi ptr [ %76, %.lr.ph ], [ %1, %4 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.01017, i64 12
+  %.022 = phi i64 [ %78, %.lr.ph ], [ 0, %4 ]
+  %.0921 = phi ptr [ %77, %.lr.ph ], [ %2, %4 ]
+  %.01020 = phi ptr [ %76, %.lr.ph ], [ %1, %4 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.01020, i64 12
   %17 = load float, ptr %16, align 4, !tbaa !10
-  %18 = load <4 x float>, ptr %.01017, align 4, !tbaa !46
+  %18 = load <4 x float>, ptr %.01020, align 4, !tbaa !46
   %19 = fmul <4 x float> %6, %18
   %20 = fadd <4 x float> %8, %19
-  %21 = fcmp olt <4 x float> %20, zeroinitializer
-  %22 = bitcast <4 x float> %20 to <4 x i32>
-  %23 = and <4 x i32> %22, splat (i32 -2139095041)
+  %21 = bitcast <4 x float> %20 to <4 x i32>
+  %22 = fcmp olt <4 x float> %20, zeroinitializer
+  %23 = and <4 x i32> %21, splat (i32 -2139095041)
   %24 = or disjoint <4 x i32> %23, splat (i32 1065353216)
   %25 = bitcast <4 x i32> %24 to <4 x float>
   %26 = fmul nnan <4 x float> %25, splat (float 0x3FA6F9ACA0000000)
@@ -1179,7 +1179,7 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev17CDLRendererFwdSSEILb
   %33 = fadd nnan <4 x float> %32, splat (float 0x40145DE980000000)
   %34 = fmul nnan <4 x float> %33, %25
   %35 = fadd nnan <4 x float> %34, splat (float 0xC006672540000000)
-  %36 = lshr <4 x i32> %22, splat (i32 23)
+  %36 = lshr <4 x i32> %21, splat (i32 23)
   %37 = and <4 x i32> %36, splat (i32 255)
   %38 = add nsw <4 x i32> %37, splat (i32 -127)
   %39 = sitofp <4 x i32> %38 to <4 x float>
@@ -1205,11 +1205,11 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev17CDLRendererFwdSSEILb
   %59 = fmul <4 x float> %58, %48
   %60 = fcmp uge <4 x float> %41, splat (float -1.260000e+02)
   %61 = fcmp oge <4 x float> %41, splat (float 1.280000e+02)
-  %62 = select <4 x i1> %60, <4 x float> %59, <4 x float> zeroinitializer
-  %63 = select <4 x i1> %61, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %62
-  %64 = fcmp ogt <4 x float> %20, zeroinitializer
-  %65 = select <4 x i1> %64, <4 x float> %63, <4 x float> zeroinitializer
-  %66 = select <4 x i1> %21, <4 x float> %20, <4 x float> %65
+  %62 = fcmp ogt <4 x float> %20, zeroinitializer
+  %63 = select <4 x i1> %60, <4 x float> %59, <4 x float> zeroinitializer
+  %64 = select <4 x i1> %61, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %63
+  %65 = select <4 x i1> %62, <4 x float> %64, <4 x float> zeroinitializer
+  %66 = select <4 x i1> %22, <4 x float> %20, <4 x float> %65
   %67 = fmul <4 x float> %66, <float 0x3FCB367A00000000, float 0x3FE6E2EB20000000, float 0x3FB27BB300000000, float 0.000000e+00>
   %68 = shufflevector <4 x float> %67, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %69 = fadd <4 x float> %67, %68
@@ -1218,12 +1218,12 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev17CDLRendererFwdSSEILb
   %72 = fsub <4 x float> %66, %71
   %73 = fmul <4 x float> %14, %72
   %74 = fadd <4 x float> %71, %73
-  store <4 x float> %74, ptr %.0918, align 1, !tbaa !46
-  %75 = getelementptr inbounds nuw i8, ptr %.0918, i64 12
+  store <4 x float> %74, ptr %.0921, align 1, !tbaa !46
+  %75 = getelementptr inbounds nuw i8, ptr %.0921, i64 12
   store float %17, ptr %75, align 4, !tbaa !10
-  %76 = getelementptr inbounds nuw i8, ptr %.01017, i64 16
-  %77 = getelementptr inbounds nuw i8, ptr %.0918, i64 16
-  %78 = add nuw nsw i64 %.019, 1
+  %76 = getelementptr inbounds nuw i8, ptr %.01020, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %.0921, i64 16
+  %78 = add nuw nsw i64 %.022, 1
   %exitcond.not = icmp eq i64 %78, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !86
 }
@@ -1543,10 +1543,10 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev17CDLRendererRevSSEILb
   %68 = fmul <4 x float> %67, %57
   %69 = fcmp uge <4 x float> %50, splat (float -1.260000e+02)
   %70 = fcmp oge <4 x float> %50, splat (float 1.280000e+02)
-  %71 = select <4 x i1> %69, <4 x float> %68, <4 x float> zeroinitializer
-  %72 = select <4 x i1> %70, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %71
-  %73 = fcmp ogt <4 x float> %30, zeroinitializer
-  %74 = select <4 x i1> %73, <4 x float> %72, <4 x float> zeroinitializer
+  %71 = fcmp ogt <4 x float> %30, zeroinitializer
+  %72 = select <4 x i1> %69, <4 x float> %68, <4 x float> zeroinitializer
+  %73 = select <4 x i1> %70, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %72
+  %74 = select <4 x i1> %71, <4 x float> %73, <4 x float> zeroinitializer
   %75 = fadd <4 x float> %8, %74
   %76 = fmul <4 x float> %6, %75
   %77 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %76, <4 x float> zeroinitializer)
@@ -1823,12 +1823,12 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev17CDLRendererRevSSEILb
   ret void
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.020 = phi i64 [ %78, %.lr.ph ], [ 0, %4 ]
-  %.0919 = phi ptr [ %77, %.lr.ph ], [ %2, %4 ]
-  %.01018 = phi ptr [ %76, %.lr.ph ], [ %1, %4 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.01018, i64 12
+  %.023 = phi i64 [ %78, %.lr.ph ], [ 0, %4 ]
+  %.0922 = phi ptr [ %77, %.lr.ph ], [ %2, %4 ]
+  %.01021 = phi ptr [ %76, %.lr.ph ], [ %1, %4 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.01021, i64 12
   %17 = load float, ptr %16, align 4, !tbaa !10
-  %18 = load <4 x float>, ptr %.01018, align 4, !tbaa !46
+  %18 = load <4 x float>, ptr %.01021, align 4, !tbaa !46
   %19 = fmul <4 x float> %18, <float 0x3FCB367A00000000, float 0x3FE6E2EB20000000, float 0x3FB27BB300000000, float 0.000000e+00>
   %20 = shufflevector <4 x float> %19, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %21 = fadd <4 x float> %19, %20
@@ -1837,9 +1837,9 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev17CDLRendererRevSSEILb
   %24 = fsub <4 x float> %18, %23
   %25 = fmul <4 x float> %14, %24
   %26 = fadd <4 x float> %23, %25
-  %27 = fcmp olt <4 x float> %26, zeroinitializer
-  %28 = bitcast <4 x float> %26 to <4 x i32>
-  %29 = and <4 x i32> %28, splat (i32 -2139095041)
+  %27 = bitcast <4 x float> %26 to <4 x i32>
+  %28 = fcmp olt <4 x float> %26, zeroinitializer
+  %29 = and <4 x i32> %27, splat (i32 -2139095041)
   %30 = or disjoint <4 x i32> %29, splat (i32 1065353216)
   %31 = bitcast <4 x i32> %30 to <4 x float>
   %32 = fmul nnan <4 x float> %31, splat (float 0x3FA6F9ACA0000000)
@@ -1852,7 +1852,7 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev17CDLRendererRevSSEILb
   %39 = fadd nnan <4 x float> %38, splat (float 0x40145DE980000000)
   %40 = fmul nnan <4 x float> %39, %31
   %41 = fadd nnan <4 x float> %40, splat (float 0xC006672540000000)
-  %42 = lshr <4 x i32> %28, splat (i32 23)
+  %42 = lshr <4 x i32> %27, splat (i32 23)
   %43 = and <4 x i32> %42, splat (i32 255)
   %44 = add nsw <4 x i32> %43, splat (i32 -127)
   %45 = sitofp <4 x i32> %44 to <4 x float>
@@ -1878,19 +1878,19 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev17CDLRendererRevSSEILb
   %65 = fmul <4 x float> %64, %54
   %66 = fcmp uge <4 x float> %47, splat (float -1.260000e+02)
   %67 = fcmp oge <4 x float> %47, splat (float 1.280000e+02)
-  %68 = select <4 x i1> %66, <4 x float> %65, <4 x float> zeroinitializer
-  %69 = select <4 x i1> %67, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %68
-  %70 = fcmp ogt <4 x float> %26, zeroinitializer
-  %71 = select <4 x i1> %70, <4 x float> %69, <4 x float> zeroinitializer
-  %72 = select <4 x i1> %27, <4 x float> %26, <4 x float> %71
+  %68 = fcmp ogt <4 x float> %26, zeroinitializer
+  %69 = select <4 x i1> %66, <4 x float> %65, <4 x float> zeroinitializer
+  %70 = select <4 x i1> %67, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %69
+  %71 = select <4 x i1> %68, <4 x float> %70, <4 x float> zeroinitializer
+  %72 = select <4 x i1> %28, <4 x float> %26, <4 x float> %71
   %73 = fadd <4 x float> %8, %72
   %74 = fmul <4 x float> %6, %73
-  store <4 x float> %74, ptr %.0919, align 1, !tbaa !46
-  %75 = getelementptr inbounds nuw i8, ptr %.0919, i64 12
+  store <4 x float> %74, ptr %.0922, align 1, !tbaa !46
+  %75 = getelementptr inbounds nuw i8, ptr %.0922, i64 12
   store float %17, ptr %75, align 4, !tbaa !10
-  %76 = getelementptr inbounds nuw i8, ptr %.01018, i64 16
-  %77 = getelementptr inbounds nuw i8, ptr %.0919, i64 16
-  %78 = add nuw nsw i64 %.020, 1
+  %76 = getelementptr inbounds nuw i8, ptr %.01021, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %.0922, i64 16
+  %78 = add nuw nsw i64 %.023, 1
   %exitcond.not = icmp eq i64 %78, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !90
 }

@@ -556,24 +556,24 @@ calc_rangesel.exit:                               ; preds = %.thread, %switch.lo
 
 260:                                              ; preds = %257, %calc_rangesel.exit
   %261 = fcmp ogt double %.027, 1.000000e+00
-  %.1 = select i1 %261, double 1.000000e+00, double %.027
-  %262 = bitcast double %.1 to i64
+  %262 = bitcast double %.027 to i64
+  %263 = select i1 %261, i64 4607182418800017408, i64 %262
   br label %default_range_selectivity.exit
 
 switch.lookup:                                    ; preds = %26
-  %263 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.rangesel.2, i64 %263
+  %264 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.rangesel.2, i64 %264
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %default_range_selectivity.exit
 
 switch.lookup64:                                  ; preds = %38
-  %264 = zext nneg i32 %switch.tableidx63 to i64
-  %switch.gep65 = getelementptr inbounds nuw i64, ptr @switch.table.rangesel.2, i64 %264
+  %265 = zext nneg i32 %switch.tableidx63 to i64
+  %switch.gep65 = getelementptr inbounds nuw i64, ptr @switch.table.rangesel.2, i64 %265
   %switch.load66 = load i64, ptr %switch.gep65, align 8
   br label %default_range_selectivity.exit
 
 default_range_selectivity.exit:                   ; preds = %38, %switch.lookup64, %26, %switch.lookup, %55, %58, %44, %47, %260
-  %.028 = phi i64 [ 4576918229304087675, %55 ], [ %262, %260 ], [ 0, %44 ], [ %switch.load, %switch.lookup ], [ 0, %47 ], [ 4576918229304087675, %58 ], [ 4576918229304087675, %26 ], [ %switch.load66, %switch.lookup64 ], [ 4576918229304087675, %38 ]
+  %.028 = phi i64 [ 4576918229304087675, %55 ], [ %263, %260 ], [ 0, %44 ], [ %switch.load, %switch.lookup ], [ 0, %47 ], [ 4576918229304087675, %58 ], [ 4576918229304087675, %26 ], [ %switch.load66, %switch.lookup64 ], [ 4576918229304087675, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

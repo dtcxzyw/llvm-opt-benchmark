@@ -3519,7 +3519,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit: ; preds = %19
   %37 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit205 unwind label %629
+          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit205 unwind label %630
 
 38:                                               ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 222
@@ -3543,7 +3543,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit167: ; preds = 
   %.sroa.0294.0 = phi ptr [ %44, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit167 ], [ null, %38 ]
   %50 = landingpad { ptr, i32 }
           cleanup
-  br label %628
+  br label %629
 
 51:                                               ; preds = %48, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit
   %.sroa.0294.1 = phi ptr [ %44, %48 ], [ null, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit ]
@@ -3618,7 +3618,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit167: ; preds = 
 71:                                               ; preds = %.loopexit.split-lp, %.loopexit338
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit338 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %627
+  br label %628
 
 72:                                               ; preds = %70
   %73 = load i8, ptr %52, align 2, !tbaa !64
@@ -4381,7 +4381,7 @@ _ZN11OpenImageIO6v3_1_08TGAInput12decode_pixelEPhS2_S2_iim.exit195: ; preds = %3
 464:                                              ; preds = %.loopexit340, %.loopexit.split-lp341, %.loopexit350, %.loopexit.split-lp351
   %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp353, %.loopexit.split-lp351 ], [ %lpad.loopexit352, %.loopexit350 ], [ %lpad.loopexit342, %.loopexit340 ], [ %lpad.loopexit.split-lp343, %.loopexit.split-lp341 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %627
+  br label %628
 
 _ZN11OpenImageIO6v3_1_08TGAInput12decode_pixelEPhS2_S2_iim.exit181: ; preds = %_ZN11OpenImageIO6v3_1_08TGAInput12decode_pixelEPhS2_S2_iim.exit195, %.preheader348
   %465 = phi i32 [ %205, %.preheader348 ], [ %461, %_ZN11OpenImageIO6v3_1_08TGAInput12decode_pixelEPhS2_S2_iim.exit195 ]
@@ -4526,7 +4526,7 @@ _ZN11OpenImageIO6v3_1_08TGAInput12decode_pixelEPhS2_S2_iim.exit181.thread312: ; 
   %534 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 10, ptr %534, align 8, !tbaa !62
   %535 = invoke noundef float @_ZNK11OpenImageIO6v3_1_09ImageSpec19get_float_attributeENS0_17basic_string_viewIcSt11char_traitsIcEEEf(ptr noundef nonnull align 8 dereferenceable(160) %16, ptr noundef nonnull %4, float noundef 1.000000e+00)
-          to label %536 unwind label %625
+          to label %536 unwind label %626
 
 536:                                              ; preds = %.critedge164
   %537 = load ptr, ptr %15, align 8, !tbaa !15
@@ -4596,8 +4596,8 @@ _ZN11OpenImageIO6v3_1_08TGAInput12decode_pixelEPhS2_S2_iim.exit181.thread312: ; 
   br i1 %exitcond79.not.i, label %.loopexit, label %.preheader.us.i, !llvm.loop !164
 
 564:                                              ; preds = %._crit_edge.i197, %.lr.ph64.i
-  %.163.i = phi ptr [ %537, %.lr.ph64.i ], [ %617, %._crit_edge.i197 ]
-  %.03762.i = phi i64 [ 0, %.lr.ph64.i ], [ %616, %._crit_edge.i197 ]
+  %.163.i = phi ptr [ %537, %.lr.ph64.i ], [ %618, %._crit_edge.i197 ]
+  %.03762.i = phi i64 [ 0, %.lr.ph64.i ], [ %617, %._crit_edge.i197 ]
   %565 = getelementptr inbounds i8, ptr %.163.i, i64 %542
   %566 = load i8, ptr %565, align 1, !tbaa !14
   %567 = uitofp i8 %566 to float
@@ -4605,92 +4605,92 @@ _ZN11OpenImageIO6v3_1_08TGAInput12decode_pixelEPhS2_S2_iim.exit181.thread312: ; 
   %.inv.i = fcmp oge float %568, 0x3810000000000000
   %.0.i.i = select i1 %.inv.i, float %568, float 0x3810000000000000
   %569 = fcmp ogt float %.0.i.i, 0x47EFFFFFE0000000
-  %.1.i.i = select i1 %569, float 0x47EFFFFFE0000000, float %.0.i.i
-  %570 = bitcast float %.1.i.i to i32
-  %571 = lshr i32 %570, 23
-  %572 = add nsw i32 %571, -127
-  %573 = and i32 %570, 8388607
-  %574 = or disjoint i32 %573, 1065353216
-  %575 = bitcast i32 %574 to float
-  %576 = fadd float %575, -1.000000e+00
-  %577 = fmul float %576, %576
+  %570 = bitcast float %.0.i.i to i32
+  %571 = select i1 %569, i32 2139095039, i32 %570
+  %572 = lshr i32 %571, 23
+  %573 = add nsw i32 %572, -127
+  %574 = and i32 %571, 8388607
+  %575 = or disjoint i32 %574, 1065353216
+  %576 = bitcast i32 %575 to float
+  %577 = fadd float %576, -1.000000e+00
   %578 = fmul float %577, %577
-  %579 = fmul nnan contract float %576, 0x3F831161A0000000
-  %580 = fsub nnan contract float 0x3FAAA83920000000, %579
-  %581 = fmul nnan contract float %576, 0x3FDEA2C5A0000000
-  %582 = fadd nnan contract float %581, 0xBFE713CA80000000
-  %583 = fmul contract float %576, %580
-  %584 = fadd contract float %583, 0xBFC19A9FA0000000
-  %585 = fmul contract float %576, %584
-  %586 = fadd contract float %585, 0x3FCEF5B7A0000000
-  %587 = fmul contract float %576, %586
-  %588 = fadd contract float %587, 0xBFD63A40C0000000
-  %589 = fmul contract float %576, %582
-  %590 = fadd contract float %589, 0x3FF7154200000000
-  %591 = fmul float %576, %590
-  %592 = call float @llvm.fmuladd.f32(float %578, float %588, float %591)
-  %593 = sitofp i32 %572 to float
-  %594 = fadd float %592, %593
-  %595 = fmul float %535, %594
-  %.inv57.i = fcmp oge float %595, -1.260000e+02
-  %.0.i44.i = select i1 %.inv57.i, float %595, float -1.260000e+02
-  %596 = fcmp ogt float %.0.i44.i, 1.260000e+02
-  %.1.i45.i = select i1 %596, float 1.260000e+02, float %.0.i44.i
-  %597 = fptosi float %.1.i45.i to i32
-  %598 = sitofp i32 %597 to float
-  %599 = fsub float %598, %.1.i45.i
-  %600 = fadd float %599, 1.000000e+00
-  %601 = fsub float 1.000000e+00, %600
-  %602 = fmul contract float %601, 0x3F55D889C0000000
-  %603 = fadd contract float %602, 0x3F84177340000000
-  %604 = fmul contract float %601, %603
-  %605 = fadd contract float %604, 0x3FAC6CE660000000
-  %606 = fmul contract float %601, %605
-  %607 = fadd contract float %606, 0x3FCEBE3240000000
-  %608 = fmul contract float %601, %607
-  %609 = fadd contract float %608, 0x3FE62E3E20000000
-  %610 = fmul contract float %601, %609
-  %611 = fadd contract float %610, 1.000000e+00
-  %612 = bitcast float %611 to i32
-  %613 = shl i32 %597, 23
-  %614 = add i32 %613, %612
-  %615 = bitcast i32 %614 to float
+  %579 = fmul float %578, %578
+  %580 = fmul nnan contract float %577, 0x3F831161A0000000
+  %581 = fsub nnan contract float 0x3FAAA83920000000, %580
+  %582 = fmul nnan contract float %577, 0x3FDEA2C5A0000000
+  %583 = fadd nnan contract float %582, 0xBFE713CA80000000
+  %584 = fmul contract float %577, %581
+  %585 = fadd contract float %584, 0xBFC19A9FA0000000
+  %586 = fmul contract float %577, %585
+  %587 = fadd contract float %586, 0x3FCEF5B7A0000000
+  %588 = fmul contract float %577, %587
+  %589 = fadd contract float %588, 0xBFD63A40C0000000
+  %590 = fmul contract float %577, %583
+  %591 = fadd contract float %590, 0x3FF7154200000000
+  %592 = fmul float %577, %591
+  %593 = call float @llvm.fmuladd.f32(float %579, float %589, float %592)
+  %594 = sitofp i32 %573 to float
+  %595 = fadd float %593, %594
+  %596 = fmul float %535, %595
+  %.inv57.i = fcmp oge float %596, -1.260000e+02
+  %.0.i44.i = select i1 %.inv57.i, float %596, float -1.260000e+02
+  %597 = fcmp ogt float %.0.i44.i, 1.260000e+02
+  %.1.i45.i = select i1 %597, float 1.260000e+02, float %.0.i44.i
+  %598 = fptosi float %.1.i45.i to i32
+  %599 = sitofp i32 %598 to float
+  %600 = fsub float %599, %.1.i45.i
+  %601 = fadd float %600, 1.000000e+00
+  %602 = fsub float 1.000000e+00, %601
+  %603 = fmul contract float %602, 0x3F55D889C0000000
+  %604 = fadd contract float %603, 0x3F84177340000000
+  %605 = fmul contract float %602, %604
+  %606 = fadd contract float %605, 0x3FAC6CE660000000
+  %607 = fmul contract float %602, %606
+  %608 = fadd contract float %607, 0x3FCEBE3240000000
+  %609 = fmul contract float %602, %608
+  %610 = fadd contract float %609, 0x3FE62E3E20000000
+  %611 = fmul contract float %602, %610
+  %612 = fadd contract float %611, 1.000000e+00
+  %613 = bitcast float %612 to i32
+  %614 = shl i32 %598, 23
+  %615 = add i32 %614, %613
+  %616 = bitcast i32 %615 to float
   br i1 %543, label %.lr.ph.i198, label %._crit_edge.i197
 
-._crit_edge.i197:                                 ; preds = %624, %564
-  %616 = add nuw nsw i64 %.03762.i, 1
-  %617 = getelementptr inbounds i8, ptr %.163.i, i64 %544
-  %exitcond73.not.i = icmp eq i64 %616, %521
+._crit_edge.i197:                                 ; preds = %625, %564
+  %617 = add nuw nsw i64 %.03762.i, 1
+  %618 = getelementptr inbounds i8, ptr %.163.i, i64 %544
+  %exitcond73.not.i = icmp eq i64 %617, %521
   br i1 %exitcond73.not.i, label %.loopexit, label %564, !llvm.loop !165
 
-.lr.ph.i198:                                      ; preds = %564, %624
-  %indvars.iv.i199 = phi i64 [ %indvars.iv.next.i200, %624 ], [ 0, %564 ]
+.lr.ph.i198:                                      ; preds = %564, %625
+  %indvars.iv.i199 = phi i64 [ %indvars.iv.next.i200, %625 ], [ 0, %564 ]
   %.not.i = icmp eq i64 %indvars.iv.i199, %545
-  br i1 %.not.i, label %624, label %618
+  br i1 %.not.i, label %625, label %619
 
-618:                                              ; preds = %.lr.ph.i198
-  %619 = getelementptr inbounds nuw i8, ptr %.163.i, i64 %indvars.iv.i199
-  %620 = load i8, ptr %619, align 1, !tbaa !14
-  %621 = uitofp i8 %620 to float
-  %622 = fmul float %615, %621
-  %623 = fptoui float %622 to i8
-  store i8 %623, ptr %619, align 1, !tbaa !14
-  br label %624
+619:                                              ; preds = %.lr.ph.i198
+  %620 = getelementptr inbounds nuw i8, ptr %.163.i, i64 %indvars.iv.i199
+  %621 = load i8, ptr %620, align 1, !tbaa !14
+  %622 = uitofp i8 %621 to float
+  %623 = fmul float %616, %622
+  %624 = fptoui float %623 to i8
+  store i8 %624, ptr %620, align 1, !tbaa !14
+  br label %625
 
-624:                                              ; preds = %618, %.lr.ph.i198
+625:                                              ; preds = %619, %.lr.ph.i198
   %indvars.iv.next.i200 = add nuw nsw i64 %indvars.iv.i199, 1
   %exitcond.not.i201 = icmp eq i64 %indvars.iv.next.i200, %wide.trip.count.i196
   br i1 %exitcond.not.i201, label %._crit_edge.i197, label %.lr.ph.i198, !llvm.loop !166
 
-625:                                              ; preds = %.critedge164
-  %626 = landingpad { ptr, i32 }
+626:                                              ; preds = %.critedge164
+  %627 = landingpad { ptr, i32 }
           cleanup
-  br label %627
-
-627:                                              ; preds = %625, %464, %71
-  %.pn150 = phi { ptr, i32 } [ %626, %625 ], [ %lpad.phi, %71 ], [ %.pn, %464 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0206)
   br label %628
+
+628:                                              ; preds = %626, %464, %71
+  %.pn150 = phi { ptr, i32 } [ %627, %626 ], [ %lpad.phi, %71 ], [ %.pn, %464 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0206)
+  br label %629
 
 .loopexit:                                        ; preds = %._crit_edge.i197, %._crit_edge67.us.i, %_ZN11OpenImageIO6v3_1_08TGAInput12decode_pixelEPhS2_S2_iim.exit, %_ZN11OpenImageIO6v3_1_08TGAInput12decode_pixelEPhS2_S2_iim.exit181.thread312, %._crit_edge398, %509, %.preheader59.i, %.preheader58.i, %.preheader.lr.ph.i
   %.5 = phi i1 [ false, %_ZN11OpenImageIO6v3_1_08TGAInput12decode_pixelEPhS2_S2_iim.exit181.thread312 ], [ false, %_ZN11OpenImageIO6v3_1_08TGAInput12decode_pixelEPhS2_S2_iim.exit ], [ true, %._crit_edge398 ], [ true, %509 ], [ true, %.preheader59.i ], [ true, %.preheader58.i ], [ true, %.preheader.lr.ph.i ], [ true, %._crit_edge67.us.i ], [ true, %._crit_edge.i197 ]
@@ -4704,13 +4704,13 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   call void @_ZdaPv(ptr noundef nonnull %.sroa.0294.2328) #30
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
 
-628:                                              ; preds = %627, %49
-  %.sroa.0294.3 = phi ptr [ %.sroa.0294.1, %627 ], [ %.sroa.0294.0, %49 ]
-  %.pn150.pn = phi { ptr, i32 } [ %.pn150, %627 ], [ %50, %49 ]
+629:                                              ; preds = %628, %49
+  %.sroa.0294.3 = phi ptr [ %.sroa.0294.1, %628 ], [ %.sroa.0294.0, %49 ]
+  %.pn150.pn = phi { ptr, i32 } [ %.pn150, %628 ], [ %50, %49 ]
   %.not.i203 = icmp eq ptr %.sroa.0294.3, null
   br i1 %.not.i203, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit205, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i204
 
-_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i204: ; preds = %628
+_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i204: ; preds = %629
   call void @_ZdaPv(ptr noundef nonnull %.sroa.0294.3) #30
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit205
 
@@ -4718,15 +4718,15 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNKSt14defau
   %.0 = phi i1 [ false, %35 ], [ %.5, %.loopexit ], [ %.1329, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i ]
   ret i1 %.0
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit205: ; preds = %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i204, %628, %36, %23
-  %.merged = phi { ptr, i32 } [ %37, %36 ], [ %24, %23 ], [ %.pn150.pn, %628 ], [ %.pn150.pn, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i204 ]
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit205: ; preds = %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i204, %629, %36, %23
+  %.merged = phi { ptr, i32 } [ %37, %36 ], [ %24, %23 ], [ %.pn150.pn, %629 ], [ %.pn150.pn, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i204 ]
   resume { ptr, i32 } %.merged
 
-629:                                              ; preds = %36
-  %630 = landingpad { ptr, i32 }
+630:                                              ; preds = %36
+  %631 = landingpad { ptr, i32 }
           catch ptr null
-  %631 = extractvalue { ptr, i32 } %630, 0
-  tail call void @__clang_call_terminate(ptr %631) #32
+  %632 = extractvalue { ptr, i32 } %631, 0
+  tail call void @__clang_call_terminate(ptr %632) #32
   unreachable
 }
 

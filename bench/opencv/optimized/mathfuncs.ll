@@ -206,8 +206,8 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %1, %5
   %36 = and i32 %9, -2147483648
   %37 = add i32 %18, %36
   %38 = add i32 %37, %35
-  %39 = select i1 %.not.not, i32 0, i32 %38
-  %40 = bitcast i32 %39 to float
+  %39 = bitcast i32 %38 to float
+  %40 = select i1 %.not.not, float 0.000000e+00, float %39
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret float %40
 }

@@ -293,35 +293,35 @@ define weak_odr void @_ZNK7mitsuba6MediumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %106 = fadd contract float %90, %105
   %107 = tail call contract noundef float @llvm.fma.f32(float %.sroa.0.4.vec.extract175.i, float 0x3FE6300000000000, float %106)
   %108 = fcmp contract oeq float %75, 0x7FF0000000000000
-  %spec.select.i = select i1 %108, float 0x7FF0000000000000, float %107
   %109 = fcmp contract oeq float %75, 0.000000e+00
-  %.1.i = select i1 %109, float 0xFFF0000000000000, float %spec.select.i
   %110 = fcmp contract ult float %75, 0.000000e+00
-  %111 = select i1 %110, float 0xFFFFFFFFE0000000, float %.1.i
+  %111 = select i1 %108, float 0x7FF0000000000000, float %107
+  %112 = select i1 %109, float 0xFFF0000000000000, float %111
+  %113 = select i1 %110, float 0xFFFFFFFFE0000000, float %112
   %.sroa.0181.0.vec.extract = extractelement <4 x float> %.fr221, i64 0
-  %112 = fdiv contract float %111, %.sroa.0181.0.vec.extract
-  %113 = fsub contract float %..i, %112
-  %114 = fcmp contract ole float %113, %..i184
-  %115 = select i1 %66, i1 %114, i1 false
-  %116 = select i1 %115, float %113, float 0x7FF0000000000000
-  store float %116, ptr %0, align 16
-  %117 = insertelement <4 x float> poison, float %113, i64 0
-  %118 = shufflevector <4 x float> %117, <4 x float> poison, <4 x i32> zeroinitializer
-  %119 = load <4 x float>, ptr %2, align 16
-  %120 = load <4 x float>, ptr %18, align 16
-  %121 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %120, <4 x float> %118, <4 x float> %119)
-  store <4 x float> %121, ptr %9, align 16
+  %114 = fdiv contract float %113, %.sroa.0181.0.vec.extract
+  %115 = fsub contract float %..i, %114
+  %116 = fcmp contract ole float %115, %..i184
+  %117 = select i1 %66, i1 %116, i1 false
+  %118 = select i1 %117, float %115, float 0x7FF0000000000000
+  store float %118, ptr %0, align 16
+  %119 = insertelement <4 x float> poison, float %115, i64 0
+  %120 = shufflevector <4 x float> %119, <4 x float> poison, <4 x i32> zeroinitializer
+  %121 = load <4 x float>, ptr %2, align 16
+  %122 = load <4 x float>, ptr %18, align 16
+  %123 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %122, <4 x float> %120, <4 x float> %121)
+  store <4 x float> %123, ptr %9, align 16
   store ptr %1, ptr %6, align 16
   store float %..i, ptr %16, align 16
-  %122 = load ptr, ptr %1, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 88
-  %124 = load ptr, ptr %123, align 8
-  %125 = tail call <6 x double> %124(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 16 dereferenceable(212) %0, i1 noundef zeroext %115)
-  %.sroa.0185.0.vec.extract = shufflevector <6 x double> %125, <6 x double> poison, <2 x i32> <i32 0, i32 1>
+  %124 = load ptr, ptr %1, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 88
+  %126 = load ptr, ptr %125, align 8
+  %127 = tail call <6 x double> %126(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 16 dereferenceable(212) %0, i1 noundef zeroext %117)
+  %.sroa.0185.0.vec.extract = shufflevector <6 x double> %127, <6 x double> poison, <2 x i32> <i32 0, i32 1>
   store <2 x double> %.sroa.0185.0.vec.extract, ptr %12, align 16
-  %.sroa.0185.16.vec.extract = shufflevector <6 x double> %125, <6 x double> poison, <2 x i32> <i32 2, i32 3>
+  %.sroa.0185.16.vec.extract = shufflevector <6 x double> %127, <6 x double> poison, <2 x i32> <i32 2, i32 3>
   store <2 x double> %.sroa.0185.16.vec.extract, ptr %13, align 16
-  %.sroa.0185.32.vec.extract = shufflevector <6 x double> %125, <6 x double> poison, <2 x i32> <i32 4, i32 5>
+  %.sroa.0185.32.vec.extract = shufflevector <6 x double> %127, <6 x double> poison, <2 x i32> <i32 4, i32 5>
   store <2 x double> %.sroa.0185.32.vec.extract, ptr %14, align 16
   store <4 x float> %.fr221, ptr %15, align 16
   ret void

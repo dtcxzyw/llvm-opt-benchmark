@@ -16101,7 +16101,7 @@ define linkonce_odr hidden noundef i32 @_ZN11OpenImageIO6v3_1_024compute_ellipse
   %17 = load float, ptr %5, align 4, !tbaa !98
   %18 = fmul float %15, %17
   store float %18, ptr %5, align 4, !tbaa !98
-  br i1 %9, label %19, label %95
+  br i1 %9, label %19, label %96
 
 19:                                               ; preds = %11
   store float 1.000000e+00, ptr %7, align 4, !tbaa !98
@@ -16117,173 +16117,173 @@ define linkonce_odr hidden noundef i32 @_ZN11OpenImageIO6v3_1_024compute_ellipse
   %.inv70 = fcmp oge float %26, 0x3810000000000000
   %.0.i.i = select i1 %.inv70, float %26, float 0x3810000000000000
   %27 = fcmp ogt float %.0.i.i, 0x47EFFFFFE0000000
-  %.1.i.i = select i1 %27, float 0x47EFFFFFE0000000, float %.0.i.i
-  %28 = bitcast float %.1.i.i to i32
-  %29 = lshr i32 %28, 23
-  %30 = add nsw i32 %29, -127
-  %31 = and i32 %28, 8388607
-  %32 = or disjoint i32 %31, 1065353216
-  %33 = bitcast i32 %32 to float
-  %34 = fadd float %33, -1.000000e+00
-  %35 = fmul float %34, %34
+  %28 = bitcast float %.0.i.i to i32
+  %29 = select i1 %27, i32 2139095039, i32 %28
+  %30 = lshr i32 %29, 23
+  %31 = add nsw i32 %30, -127
+  %32 = and i32 %29, 8388607
+  %33 = or disjoint i32 %32, 1065353216
+  %34 = bitcast i32 %33 to float
+  %35 = fadd float %34, -1.000000e+00
   %36 = fmul float %35, %35
-  %37 = fmul nnan contract float %34, 0x3F831161A0000000
-  %38 = fsub nnan contract float 0x3FAAA83920000000, %37
-  %39 = fmul nnan contract float %34, 0x3FDEA2C5A0000000
-  %40 = fadd nnan contract float %39, 0xBFE713CA80000000
-  %41 = fmul contract float %34, %38
-  %42 = fadd contract float %41, 0xBFC19A9FA0000000
-  %43 = fmul contract float %34, %42
-  %44 = fadd contract float %43, 0x3FCEF5B7A0000000
-  %45 = fmul contract float %34, %44
-  %46 = fadd contract float %45, 0xBFD63A40C0000000
-  %47 = fmul contract float %34, %40
-  %48 = fadd contract float %47, 0x3FF7154200000000
-  %49 = fmul float %34, %48
-  %50 = tail call float @llvm.fmuladd.f32(float %36, float %46, float %49)
-  %51 = sitofp i32 %30 to float
-  %52 = fadd float %50, %51
-  %53 = fmul float %52, 0x3FE62E4300000000
-  %54 = fcmp ogt float %53, -5.000000e+00
-  br i1 %54, label %55, label %73
+  %37 = fmul float %36, %36
+  %38 = fmul nnan contract float %35, 0x3F831161A0000000
+  %39 = fsub nnan contract float 0x3FAAA83920000000, %38
+  %40 = fmul nnan contract float %35, 0x3FDEA2C5A0000000
+  %41 = fadd nnan contract float %40, 0xBFE713CA80000000
+  %42 = fmul contract float %35, %39
+  %43 = fadd contract float %42, 0xBFC19A9FA0000000
+  %44 = fmul contract float %35, %43
+  %45 = fadd contract float %44, 0x3FCEF5B7A0000000
+  %46 = fmul contract float %35, %45
+  %47 = fadd contract float %46, 0xBFD63A40C0000000
+  %48 = fmul contract float %35, %41
+  %49 = fadd contract float %48, 0x3FF7154200000000
+  %50 = fmul float %35, %49
+  %51 = tail call float @llvm.fmuladd.f32(float %37, float %47, float %50)
+  %52 = sitofp i32 %31 to float
+  %53 = fadd float %51, %52
+  %54 = fmul float %53, 0x3FE62E4300000000
+  %55 = fcmp ogt float %54, -5.000000e+00
+  br i1 %55, label %56, label %74
 
-55:                                               ; preds = %19
-  %56 = fsub float -2.500000e+00, %53
-  %57 = fmul nnan contract float %56, 0x3E5E2CB100000000
-  %58 = fadd nnan contract float %57, 0x3E970966C0000000
-  %59 = fmul contract float %56, %58
-  %60 = fadd contract float %59, 0xBECD8E6AE0000000
-  %61 = fmul contract float %56, %60
-  %62 = fadd contract float %61, 0xBED26B5820000000
-  %63 = fmul contract float %56, %62
-  %64 = fadd contract float %63, 0x3F2CA65B60000000
-  %65 = fmul contract float %56, %64
-  %66 = fadd contract float %65, 0xBF548A8100000000
-  %67 = fmul contract float %56, %66
-  %68 = fadd contract float %67, 0xBF711C9DE0000000
-  %69 = fmul contract float %56, %68
-  %70 = fadd contract float %69, 0x3FCF91EC60000000
-  %71 = fmul contract float %56, %70
-  %72 = fadd contract float %71, 0x3FF805C5E0000000
+56:                                               ; preds = %19
+  %57 = fsub float -2.500000e+00, %54
+  %58 = fmul nnan contract float %57, 0x3E5E2CB100000000
+  %59 = fadd nnan contract float %58, 0x3E970966C0000000
+  %60 = fmul contract float %57, %59
+  %61 = fadd contract float %60, 0xBECD8E6AE0000000
+  %62 = fmul contract float %57, %61
+  %63 = fadd contract float %62, 0xBED26B5820000000
+  %64 = fmul contract float %57, %63
+  %65 = fadd contract float %64, 0x3F2CA65B60000000
+  %66 = fmul contract float %57, %65
+  %67 = fadd contract float %66, 0xBF548A8100000000
+  %68 = fmul contract float %57, %67
+  %69 = fadd contract float %68, 0xBF711C9DE0000000
+  %70 = fmul contract float %57, %69
+  %71 = fadd contract float %70, 0x3FCF91EC60000000
+  %72 = fmul contract float %57, %71
+  %73 = fadd contract float %72, 0x3FF805C5E0000000
   br label %_ZN11OpenImageIO6v3_1_09fast_ierfEf.exit
 
-73:                                               ; preds = %19
-  %74 = fneg float %53
-  %75 = tail call float @llvm.sqrt.f32(float %74)
-  %76 = fadd float %75, -3.000000e+00
-  %77 = fmul contract float %76, 0x3F2A3E1360000000
-  %78 = fsub contract float 0x3F1A76AD60000000, %77
-  %79 = fmul contract float %76, %78
-  %80 = fadd contract float %79, 0x3F561B8E40000000
-  %81 = fmul contract float %76, %80
-  %82 = fadd contract float %81, 0xBF6E17BCE0000000
-  %83 = fmul contract float %76, %82
-  %84 = fadd contract float %83, 0x3F77824F60000000
-  %85 = fmul contract float %76, %84
-  %86 = fadd contract float %85, 0xBF7F38BAE0000000
-  %87 = fmul contract float %76, %86
-  %88 = fadd contract float %87, 0x3F8354AFC0000000
-  %89 = fmul contract float %76, %88
-  %90 = fadd contract float %89, 0x3FF006DB60000000
-  %91 = fmul contract float %76, %90
-  %92 = fadd contract float %91, 0x4006A9EFC0000000
+74:                                               ; preds = %19
+  %75 = fneg float %54
+  %76 = tail call float @llvm.sqrt.f32(float %75)
+  %77 = fadd float %76, -3.000000e+00
+  %78 = fmul contract float %77, 0x3F2A3E1360000000
+  %79 = fsub contract float 0x3F1A76AD60000000, %78
+  %80 = fmul contract float %77, %79
+  %81 = fadd contract float %80, 0x3F561B8E40000000
+  %82 = fmul contract float %77, %81
+  %83 = fadd contract float %82, 0xBF6E17BCE0000000
+  %84 = fmul contract float %77, %83
+  %85 = fadd contract float %84, 0x3F77824F60000000
+  %86 = fmul contract float %77, %85
+  %87 = fadd contract float %86, 0xBF7F38BAE0000000
+  %88 = fmul contract float %77, %87
+  %89 = fadd contract float %88, 0x3F8354AFC0000000
+  %90 = fmul contract float %77, %89
+  %91 = fadd contract float %90, 0x3FF006DB60000000
+  %92 = fmul contract float %77, %91
+  %93 = fadd contract float %92, 0x4006A9EFC0000000
   br label %_ZN11OpenImageIO6v3_1_09fast_ierfEf.exit
 
-_ZN11OpenImageIO6v3_1_09fast_ierfEf.exit:         ; preds = %55, %73
-  %.0.i = phi float [ %72, %55 ], [ %92, %73 ]
-  %93 = fmul float %21, %.0.i
-  %94 = fmul float %93, 0x3FF6A09E60000000
-  store float %94, ptr %8, align 4, !tbaa !98
+_ZN11OpenImageIO6v3_1_09fast_ierfEf.exit:         ; preds = %56, %74
+  %.0.i = phi float [ %73, %56 ], [ %93, %74 ]
+  %94 = fmul float %21, %.0.i
+  %95 = fmul float %94, 0x3FF6A09E60000000
+  store float %95, ptr %8, align 4, !tbaa !98
   br label %.loopexit
 
-95:                                               ; preds = %11
-  %96 = tail call float @llvm.fmuladd.f32(float %0, float 2.000000e+00, float -1.000000e+00)
-  %97 = fptosi float %96 to i32
-  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %97, i32 1)
-  %98 = uitofp nneg i32 %.sroa.speculated to float
-  %99 = fdiv float 1.000000e+00, %98
-  store float %99, ptr %6, align 4, !tbaa !98
-  switch i32 %.sroa.speculated, label %104 [
-    i32 1, label %100
-    i32 2, label %101
+96:                                               ; preds = %11
+  %97 = tail call float @llvm.fmuladd.f32(float %0, float 2.000000e+00, float -1.000000e+00)
+  %98 = fptosi float %97 to i32
+  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %98, i32 1)
+  %99 = uitofp nneg i32 %.sroa.speculated to float
+  %100 = fdiv float 1.000000e+00, %99
+  store float %100, ptr %6, align 4, !tbaa !98
+  switch i32 %.sroa.speculated, label %105 [
+    i32 1, label %101
+    i32 2, label %102
   ]
 
-100:                                              ; preds = %95
+101:                                              ; preds = %96
   store float 1.000000e+00, ptr %7, align 4, !tbaa !98
   store float 0.000000e+00, ptr %8, align 4, !tbaa !98
   br label %.loopexit
 
-101:                                              ; preds = %95
+102:                                              ; preds = %96
   store float 5.000000e-01, ptr %7, align 4, !tbaa !98
-  %102 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store float 5.000000e-01, ptr %102, align 4, !tbaa !98
-  store float -5.000000e-01, ptr %8, align 4, !tbaa !98
-  %103 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store float 5.000000e-01, ptr %103, align 4, !tbaa !98
+  store float -5.000000e-01, ptr %8, align 4, !tbaa !98
+  %104 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store float 5.000000e-01, ptr %104, align 4, !tbaa !98
   br label %.loopexit
 
-104:                                              ; preds = %95
-  %105 = fdiv float %2, %15
+105:                                              ; preds = %96
+  %106 = fdiv float %2, %15
   %wide.trip.count = zext nneg i32 %.sroa.speculated to i64
-  br label %106
+  br label %107
 
-106:                                              ; preds = %104, %106
-  %indvars.iv = phi i64 [ 0, %104 ], [ %indvars.iv.next, %106 ]
-  %.05272 = phi float [ 0.000000e+00, %104 ], [ %138, %106 ]
-  %107 = trunc nuw nsw i64 %indvars.iv to i32
-  %108 = uitofp nneg i32 %107 to float
-  %109 = fadd nnan float %108, 5.000000e-01
-  %110 = fmul nnan float %109, 2.000000e+00
-  %111 = load float, ptr %6, align 4, !tbaa !98
-  %112 = tail call float @llvm.fmuladd.f32(float %110, float %111, float -1.000000e+00)
-  %113 = fmul float %105, %112
-  %114 = fmul float %113, -2.000000e+00
-  %115 = fmul float %113, %114
-  %116 = fmul float %115, 0x3FF7154760000000
-  %.inv = fcmp oge float %116, -1.260000e+02
-  %.0.i.i55 = select i1 %.inv, float %116, float -1.260000e+02
-  %117 = fcmp ogt float %.0.i.i55, 1.260000e+02
-  %.1.i.i56 = select i1 %117, float 1.260000e+02, float %.0.i.i55
-  %118 = fptosi float %.1.i.i56 to i32
-  %119 = sitofp i32 %118 to float
-  %120 = fsub float %119, %.1.i.i56
-  %121 = fadd float %120, 1.000000e+00
-  %122 = fsub float 1.000000e+00, %121
-  %123 = fmul contract float %122, 0x3F55D889C0000000
-  %124 = fadd contract float %123, 0x3F84177340000000
-  %125 = fmul contract float %122, %124
-  %126 = fadd contract float %125, 0x3FAC6CE660000000
-  %127 = fmul contract float %122, %126
-  %128 = fadd contract float %127, 0x3FCEBE3240000000
-  %129 = fmul contract float %122, %128
-  %130 = fadd contract float %129, 0x3FE62E3E20000000
-  %131 = fmul contract float %122, %130
-  %132 = fadd contract float %131, 1.000000e+00
-  %133 = bitcast float %132 to i32
-  %134 = shl i32 %118, 23
-  %135 = add i32 %134, %133
-  %136 = bitcast i32 %135 to float
-  %137 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
-  store i32 %135, ptr %137, align 4, !tbaa !98
-  %138 = fadd float %.05272, %136
-  %139 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
-  store float %112, ptr %139, align 4, !tbaa !98
+107:                                              ; preds = %105, %107
+  %indvars.iv = phi i64 [ 0, %105 ], [ %indvars.iv.next, %107 ]
+  %.05272 = phi float [ 0.000000e+00, %105 ], [ %139, %107 ]
+  %108 = trunc nuw nsw i64 %indvars.iv to i32
+  %109 = uitofp nneg i32 %108 to float
+  %110 = fadd nnan float %109, 5.000000e-01
+  %111 = fmul nnan float %110, 2.000000e+00
+  %112 = load float, ptr %6, align 4, !tbaa !98
+  %113 = tail call float @llvm.fmuladd.f32(float %111, float %112, float -1.000000e+00)
+  %114 = fmul float %106, %113
+  %115 = fmul float %114, -2.000000e+00
+  %116 = fmul float %114, %115
+  %117 = fmul float %116, 0x3FF7154760000000
+  %.inv = fcmp oge float %117, -1.260000e+02
+  %.0.i.i55 = select i1 %.inv, float %117, float -1.260000e+02
+  %118 = fcmp ogt float %.0.i.i55, 1.260000e+02
+  %.1.i.i56 = select i1 %118, float 1.260000e+02, float %.0.i.i55
+  %119 = fptosi float %.1.i.i56 to i32
+  %120 = sitofp i32 %119 to float
+  %121 = fsub float %120, %.1.i.i56
+  %122 = fadd float %121, 1.000000e+00
+  %123 = fsub float 1.000000e+00, %122
+  %124 = fmul contract float %123, 0x3F55D889C0000000
+  %125 = fadd contract float %124, 0x3F84177340000000
+  %126 = fmul contract float %123, %125
+  %127 = fadd contract float %126, 0x3FAC6CE660000000
+  %128 = fmul contract float %123, %127
+  %129 = fadd contract float %128, 0x3FCEBE3240000000
+  %130 = fmul contract float %123, %129
+  %131 = fadd contract float %130, 0x3FE62E3E20000000
+  %132 = fmul contract float %123, %131
+  %133 = fadd contract float %132, 1.000000e+00
+  %134 = bitcast float %133 to i32
+  %135 = shl i32 %119, 23
+  %136 = add i32 %135, %134
+  %137 = bitcast i32 %136 to float
+  %138 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
+  store i32 %136, ptr %138, align 4, !tbaa !98
+  %139 = fadd float %.05272, %137
+  %140 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
+  store float %113, ptr %140, align 4, !tbaa !98
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %106, !llvm.loop !483
+  br i1 %exitcond.not, label %.preheader, label %107, !llvm.loop !483
 
-.preheader:                                       ; preds = %106, %.preheader
-  %indvars.iv75 = phi i64 [ %indvars.iv.next76, %.preheader ], [ 0, %106 ]
-  %140 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv75
-  %141 = load float, ptr %140, align 4, !tbaa !98
-  %142 = fdiv float %141, %138
-  store float %142, ptr %140, align 4, !tbaa !98
+.preheader:                                       ; preds = %107, %.preheader
+  %indvars.iv75 = phi i64 [ %indvars.iv.next76, %.preheader ], [ 0, %107 ]
+  %141 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv75
+  %142 = load float, ptr %141, align 4, !tbaa !98
+  %143 = fdiv float %142, %139
+  store float %143, ptr %141, align 4, !tbaa !98
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count
   br i1 %exitcond79.not, label %.loopexit, label %.preheader, !llvm.loop !484
 
-.loopexit:                                        ; preds = %.preheader, %100, %101, %_ZN11OpenImageIO6v3_1_09fast_ierfEf.exit
-  %.051 = phi i32 [ 1, %_ZN11OpenImageIO6v3_1_09fast_ierfEf.exit ], [ 1, %100 ], [ 2, %101 ], [ %.sroa.speculated, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %101, %102, %_ZN11OpenImageIO6v3_1_09fast_ierfEf.exit
+  %.051 = phi i32 [ 1, %_ZN11OpenImageIO6v3_1_09fast_ierfEf.exit ], [ 1, %101 ], [ 2, %102 ], [ %.sroa.speculated, %.preheader ]
   ret i32 %.051
 }
 

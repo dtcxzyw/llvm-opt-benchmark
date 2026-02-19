@@ -626,10 +626,10 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_129GradingRGBCurveLi
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.026 = phi i64 [ %86, %.lr.ph ], [ 0, %.preheader ]
-  %.01925 = phi ptr [ %85, %.lr.ph ], [ %2, %.preheader ]
-  %.02024 = phi ptr [ %84, %.lr.ph ], [ %1, %.preheader ]
-  %.020.val = load <4 x float>, ptr %.02024, align 1, !tbaa !63
+  %.025 = phi i64 [ %87, %.lr.ph ], [ 0, %.preheader ]
+  %.01924 = phi ptr [ %86, %.lr.ph ], [ %2, %.preheader ]
+  %.02023 = phi ptr [ %85, %.lr.ph ], [ %1, %.preheader ]
+  %.020.val = load <4 x float>, ptr %.02023, align 1, !tbaa !63
   %12 = fcmp ule <4 x float> %.020.val, splat (float 0x3F70EC8BA0000000)
   %13 = fmul <4 x float> %.020.val, splat (float 0x4076B08DC0000000)
   %14 = fadd <4 x float> %13, splat (float -7.000000e+00)
@@ -655,30 +655,30 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_129GradingRGBCurveLi
   %34 = sitofp <4 x i32> %33 to <4 x float>
   %35 = fadd <4 x float> %30, %34
   %.v.i = select <4 x i1> %12, <4 x float> %14, <4 x float> %35
-  store <4 x float> %.v.i, ptr %.01925, align 1, !tbaa !63
+  store <4 x float> %.v.i, ptr %.01924, align 1, !tbaa !63
   %36 = load ptr, ptr %5, align 8, !tbaa !67
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %38 = extractelement <4 x float> %.v.i, i64 0
   %39 = tail call noundef float @_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl10KnotsCoefs9evalCurveEif(ptr noundef nonnull align 8 dereferenceable(104) %37, i32 noundef 0, float noundef %38)
-  store float %39, ptr %.01925, align 4, !tbaa !77
-  %40 = getelementptr inbounds nuw i8, ptr %.01925, i64 4
+  store float %39, ptr %.01924, align 4, !tbaa !77
+  %40 = getelementptr inbounds nuw i8, ptr %.01924, i64 4
   %41 = load float, ptr %40, align 4, !tbaa !77
   %42 = tail call noundef float @_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl10KnotsCoefs9evalCurveEif(ptr noundef nonnull align 8 dereferenceable(104) %37, i32 noundef 1, float noundef %41)
   store float %42, ptr %40, align 4, !tbaa !77
-  %43 = getelementptr inbounds nuw i8, ptr %.01925, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.01924, i64 8
   %44 = load float, ptr %43, align 4, !tbaa !77
   %45 = tail call noundef float @_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl10KnotsCoefs9evalCurveEif(ptr noundef nonnull align 8 dereferenceable(104) %37, i32 noundef 2, float noundef %44)
   store float %45, ptr %43, align 4, !tbaa !77
-  %46 = load float, ptr %.01925, align 4, !tbaa !77
+  %46 = load float, ptr %.01924, align 4, !tbaa !77
   %47 = tail call noundef float @_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl10KnotsCoefs9evalCurveEif(ptr noundef nonnull align 8 dereferenceable(104) %37, i32 noundef 3, float noundef %46)
-  store float %47, ptr %.01925, align 4, !tbaa !77
+  store float %47, ptr %.01924, align 4, !tbaa !77
   %48 = load float, ptr %40, align 4, !tbaa !77
   %49 = tail call noundef float @_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl10KnotsCoefs9evalCurveEif(ptr noundef nonnull align 8 dereferenceable(104) %37, i32 noundef 3, float noundef %48)
   store float %49, ptr %40, align 4, !tbaa !77
   %50 = load float, ptr %43, align 4, !tbaa !77
   %51 = tail call noundef float @_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl10KnotsCoefs9evalCurveEif(ptr noundef nonnull align 8 dereferenceable(104) %37, i32 noundef 3, float noundef %50)
   store float %51, ptr %43, align 4, !tbaa !77
-  %52 = load <4 x float>, ptr %.01925, align 4, !tbaa !63
+  %52 = load <4 x float>, ptr %.01924, align 4, !tbaa !63
   %53 = fcmp ule <4 x float> %52, splat (float -5.500000e+00)
   %54 = fadd <4 x float> %52, splat (float 7.000000e+00)
   %55 = fmul <4 x float> %54, splat (float 0x3F6690BA40000000)
@@ -707,16 +707,16 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_129GradingRGBCurveLi
   %78 = fadd <4 x float> %77, splat (float 0x3F24B08FE0000000)
   %79 = select <4 x i1> %75, <4 x float> %78, <4 x float> splat (float 0x3F24B08FE0000000)
   %80 = select <4 x i1> %76, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %79
-  %.v.i23 = select <4 x i1> %53, <4 x float> %55, <4 x float> %80
-  store <4 x float> %.v.i23, ptr %.01925, align 4, !tbaa !63
-  %81 = getelementptr inbounds nuw i8, ptr %.02024, i64 12
-  %82 = load float, ptr %81, align 4, !tbaa !77
-  %83 = getelementptr inbounds nuw i8, ptr %.01925, i64 12
-  store float %82, ptr %83, align 4, !tbaa !77
-  %84 = getelementptr inbounds nuw i8, ptr %.02024, i64 16
-  %85 = getelementptr inbounds nuw i8, ptr %.01925, i64 16
-  %86 = add nuw nsw i64 %.026, 1
-  %exitcond.not = icmp eq i64 %86, %3
+  %81 = select <4 x i1> %53, <4 x float> %55, <4 x float> %80
+  store <4 x float> %81, ptr %.01924, align 4, !tbaa !63
+  %82 = getelementptr inbounds nuw i8, ptr %.02023, i64 12
+  %83 = load float, ptr %82, align 4, !tbaa !77
+  %84 = getelementptr inbounds nuw i8, ptr %.01924, i64 12
+  store float %83, ptr %84, align 4, !tbaa !77
+  %85 = getelementptr inbounds nuw i8, ptr %.02023, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %.01924, i64 16
+  %87 = add nuw nsw i64 %.025, 1
+  %exitcond.not = icmp eq i64 %87, %3
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !79
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %9, %10
@@ -1265,10 +1265,10 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_129GradingRGBCurveLi
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.026 = phi i64 [ %86, %.lr.ph ], [ 0, %.preheader ]
-  %.01925 = phi ptr [ %85, %.lr.ph ], [ %2, %.preheader ]
-  %.02024 = phi ptr [ %84, %.lr.ph ], [ %1, %.preheader ]
-  %.020.val = load <4 x float>, ptr %.02024, align 1, !tbaa !63
+  %.025 = phi i64 [ %87, %.lr.ph ], [ 0, %.preheader ]
+  %.01924 = phi ptr [ %86, %.lr.ph ], [ %2, %.preheader ]
+  %.02023 = phi ptr [ %85, %.lr.ph ], [ %1, %.preheader ]
+  %.020.val = load <4 x float>, ptr %.02023, align 1, !tbaa !63
   %12 = fcmp ule <4 x float> %.020.val, splat (float 0x3F70EC8BA0000000)
   %13 = fmul <4 x float> %.020.val, splat (float 0x4076B08DC0000000)
   %14 = fadd <4 x float> %13, splat (float -7.000000e+00)
@@ -1294,30 +1294,30 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_129GradingRGBCurveLi
   %34 = sitofp <4 x i32> %33 to <4 x float>
   %35 = fadd <4 x float> %30, %34
   %.v.i = select <4 x i1> %12, <4 x float> %14, <4 x float> %35
-  store <4 x float> %.v.i, ptr %.01925, align 1, !tbaa !63
+  store <4 x float> %.v.i, ptr %.01924, align 1, !tbaa !63
   %36 = load ptr, ptr %5, align 8, !tbaa !67
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %38 = extractelement <4 x float> %.v.i, i64 0
   %39 = tail call noundef float @_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl10KnotsCoefs12evalCurveRevEif(ptr noundef nonnull align 8 dereferenceable(104) %37, i32 noundef 3, float noundef %38)
-  store float %39, ptr %.01925, align 4, !tbaa !77
-  %40 = getelementptr inbounds nuw i8, ptr %.01925, i64 4
+  store float %39, ptr %.01924, align 4, !tbaa !77
+  %40 = getelementptr inbounds nuw i8, ptr %.01924, i64 4
   %41 = load float, ptr %40, align 4, !tbaa !77
   %42 = tail call noundef float @_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl10KnotsCoefs12evalCurveRevEif(ptr noundef nonnull align 8 dereferenceable(104) %37, i32 noundef 3, float noundef %41)
   store float %42, ptr %40, align 4, !tbaa !77
-  %43 = getelementptr inbounds nuw i8, ptr %.01925, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.01924, i64 8
   %44 = load float, ptr %43, align 4, !tbaa !77
   %45 = tail call noundef float @_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl10KnotsCoefs12evalCurveRevEif(ptr noundef nonnull align 8 dereferenceable(104) %37, i32 noundef 3, float noundef %44)
   store float %45, ptr %43, align 4, !tbaa !77
-  %46 = load float, ptr %.01925, align 4, !tbaa !77
+  %46 = load float, ptr %.01924, align 4, !tbaa !77
   %47 = tail call noundef float @_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl10KnotsCoefs12evalCurveRevEif(ptr noundef nonnull align 8 dereferenceable(104) %37, i32 noundef 0, float noundef %46)
-  store float %47, ptr %.01925, align 4, !tbaa !77
+  store float %47, ptr %.01924, align 4, !tbaa !77
   %48 = load float, ptr %40, align 4, !tbaa !77
   %49 = tail call noundef float @_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl10KnotsCoefs12evalCurveRevEif(ptr noundef nonnull align 8 dereferenceable(104) %37, i32 noundef 1, float noundef %48)
   store float %49, ptr %40, align 4, !tbaa !77
   %50 = load float, ptr %43, align 4, !tbaa !77
   %51 = tail call noundef float @_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl10KnotsCoefs12evalCurveRevEif(ptr noundef nonnull align 8 dereferenceable(104) %37, i32 noundef 2, float noundef %50)
   store float %51, ptr %43, align 4, !tbaa !77
-  %52 = load <4 x float>, ptr %.01925, align 4, !tbaa !63
+  %52 = load <4 x float>, ptr %.01924, align 4, !tbaa !63
   %53 = fcmp ule <4 x float> %52, splat (float -5.500000e+00)
   %54 = fadd <4 x float> %52, splat (float 7.000000e+00)
   %55 = fmul <4 x float> %54, splat (float 0x3F6690BA40000000)
@@ -1346,16 +1346,16 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_129GradingRGBCurveLi
   %78 = fadd <4 x float> %77, splat (float 0x3F24B08FE0000000)
   %79 = select <4 x i1> %75, <4 x float> %78, <4 x float> splat (float 0x3F24B08FE0000000)
   %80 = select <4 x i1> %76, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %79
-  %.v.i23 = select <4 x i1> %53, <4 x float> %55, <4 x float> %80
-  store <4 x float> %.v.i23, ptr %.01925, align 4, !tbaa !63
-  %81 = getelementptr inbounds nuw i8, ptr %.02024, i64 12
-  %82 = load float, ptr %81, align 4, !tbaa !77
-  %83 = getelementptr inbounds nuw i8, ptr %.01925, i64 12
-  store float %82, ptr %83, align 4, !tbaa !77
-  %84 = getelementptr inbounds nuw i8, ptr %.02024, i64 16
-  %85 = getelementptr inbounds nuw i8, ptr %.01925, i64 16
-  %86 = add nuw nsw i64 %.026, 1
-  %exitcond.not = icmp eq i64 %86, %3
+  %81 = select <4 x i1> %53, <4 x float> %55, <4 x float> %80
+  store <4 x float> %81, ptr %.01924, align 4, !tbaa !63
+  %82 = getelementptr inbounds nuw i8, ptr %.02023, i64 12
+  %83 = load float, ptr %82, align 4, !tbaa !77
+  %84 = getelementptr inbounds nuw i8, ptr %.01924, i64 12
+  store float %83, ptr %84, align 4, !tbaa !77
+  %85 = getelementptr inbounds nuw i8, ptr %.02023, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %.01924, i64 16
+  %87 = add nuw nsw i64 %.025, 1
+  %exitcond.not = icmp eq i64 %87, %3
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !85
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %9, %10

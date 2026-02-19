@@ -54486,20 +54486,20 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h16d5cf873033e87
   %3 = load float, ptr %1, align 4, !alias.scope !8075, !noalias !8080, !noundef !6
   %4 = fadd float %3, 0.000000e+00
   %5 = fcmp uno float %3, 0.000000e+00
-  %.sroa.0.0.i.i.i = select i1 %5, float 0x7FF8000000000000, float %4
-  %6 = bitcast float %.sroa.0.0.i.i.i to i32
+  %6 = bitcast float %4 to i32
   %7 = zext i32 %6 to i64
-  %8 = xor i64 %2, %7
-  %9 = zext i64 %8 to i128
-  %10 = mul nuw nsw i128 %9, 4983270260364809079
-  %11 = lshr i128 %10, 64
-  %.masked = and i128 %10, 18446744073709551615
-  %12 = xor i128 %.masked, %11
-  %13 = mul nuw nsw i128 %12, 2611923443488327891
-  %14 = lshr i128 %13, 64
-  %15 = xor i128 %14, %13
-  %16 = trunc i128 %15 to i64
-  ret i64 %16
+  %8 = select i1 %5, i64 2143289344, i64 %7
+  %9 = xor i64 %8, %2
+  %10 = zext i64 %9 to i128
+  %11 = mul nuw nsw i128 %10, 4983270260364809079
+  %12 = lshr i128 %11, 64
+  %.masked = and i128 %11, 18446744073709551615
+  %13 = xor i128 %.masked, %12
+  %14 = mul nuw nsw i128 %13, 2611923443488327891
+  %15 = lshr i128 %14, 64
+  %16 = xor i128 %15, %14
+  %17 = trunc i128 %16 to i64
+  ret i64 %17
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -54881,19 +54881,19 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h8f5674ec8a905eb
   %3 = load double, ptr %1, align 8, !alias.scope !8242, !noalias !8247, !noundef !6
   %4 = fadd double %3, 0.000000e+00
   %5 = fcmp uno double %3, 0.000000e+00
-  %.sroa.0.0.i.i.i = select i1 %5, double 0x7FF8000000000000, double %4
-  %6 = bitcast double %.sroa.0.0.i.i.i to i64
-  %7 = xor i64 %2, %6
-  %8 = zext i64 %7 to i128
-  %9 = mul nuw nsw i128 %8, 4983270260364809079
-  %10 = lshr i128 %9, 64
-  %.masked = and i128 %9, 18446744073709551615
-  %11 = xor i128 %.masked, %10
-  %12 = mul nuw nsw i128 %11, 2611923443488327891
-  %13 = lshr i128 %12, 64
-  %14 = xor i128 %13, %12
-  %15 = trunc i128 %14 to i64
-  ret i64 %15
+  %6 = bitcast double %4 to i64
+  %7 = select i1 %5, i64 9221120237041090560, i64 %6
+  %8 = xor i64 %7, %2
+  %9 = zext i64 %8 to i128
+  %10 = mul nuw nsw i128 %9, 4983270260364809079
+  %11 = lshr i128 %10, 64
+  %.masked = and i128 %10, 18446744073709551615
+  %12 = xor i128 %.masked, %11
+  %13 = mul nuw nsw i128 %12, 2611923443488327891
+  %14 = lshr i128 %13, 64
+  %15 = xor i128 %14, %13
+  %16 = trunc i128 %15 to i64
+  ret i64 %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable

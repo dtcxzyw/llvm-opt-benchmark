@@ -3090,7 +3090,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113QuantizerFP16ILi1EE13encode_vect
   ret void
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.06 = phi i64 [ %26, %.lr.ph ], [ 0, %3 ]
+  %.06 = phi i64 [ %27, %.lr.ph ], [ 0, %3 ]
   %6 = getelementptr inbounds nuw float, ptr %1, i64 %.06
   %7 = load float, ptr %6, align 4, !tbaa !23
   %8 = bitcast float %7 to i32
@@ -3102,20 +3102,20 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113QuantizerFP16ILi1EE13encode_vect
   %14 = bitcast i32 %13 to float
   %15 = fmul float %14, 0x38F0000000000000
   %16 = fcmp ogt float %15, 0x39EFFE0000000000
-  %.sroa.speculated.i = select i1 %16, float 0x39EFFE0000000000, float %15
-  %17 = bitcast float %.sroa.speculated.i to i32
+  %17 = bitcast float %15 to i32
   %18 = icmp samesign ult i32 %10, 2139095040
   %19 = add i32 %17, 4096
   %20 = lshr i32 %19, 13
-  %.0.i = select i1 %18, i32 %20, i32 %12
-  %21 = lshr i32 %8, 16
-  %22 = and i32 %21, 32768
-  %23 = or i32 %.0.i, %22
-  %24 = trunc i32 %23 to i16
-  %25 = getelementptr inbounds nuw i16, ptr %2, i64 %.06
-  store i16 %24, ptr %25, align 2, !tbaa !109
-  %26 = add nuw i64 %.06, 1
-  %exitcond.not = icmp eq i64 %26, %5
+  %21 = select i1 %16, i32 31744, i32 %20
+  %.0.i = select i1 %18, i32 %21, i32 %12
+  %22 = lshr i32 %8, 16
+  %23 = and i32 %22, 32768
+  %24 = or i32 %.0.i, %23
+  %25 = trunc i32 %24 to i16
+  %26 = getelementptr inbounds nuw i16, ptr %2, i64 %.06
+  store i16 %25, ptr %26, align 2, !tbaa !109
+  %27 = add nuw i64 %.06, 1
+  %exitcond.not = icmp eq i64 %27, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !111
 }
 

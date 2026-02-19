@@ -321,69 +321,69 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   br label %65
 
 65:                                               ; preds = %.lr.ph85, %65
-  %.07184 = phi i64 [ 0, %.lr.ph85 ], [ %86, %65 ]
+  %.07184 = phi i64 [ 0, %.lr.ph85 ], [ %87, %65 ]
   %66 = getelementptr inbounds nuw float, ptr %2, i64 %.07184
   %67 = load float, ptr %66, align 4, !tbaa !55
   %68 = fmul reassoc nsz arcp contract afn float %67, 1.000000e+02
   %69 = fmul reassoc nsz arcp contract afn float %68, %64
   %70 = fcmp reassoc nsz arcp contract afn olt float %69, 0x3EF0000000000000
-  %.070 = select nsz i1 %70, float 0x3EF0000000000000, float %69
-  %71 = bitcast float %.070 to i32
-  %72 = and i32 %71, 8388607
-  %73 = or disjoint i32 %72, 1056964608
-  %74 = uitofp i32 %71 to float
-  %75 = fmul reassoc nnan nsz arcp contract afn float %74, 0x3E80000000000000
-  %76 = bitcast i32 %73 to float
-  %77 = fadd reassoc nsz arcp contract afn float %76, 0x3FD6889F20000000
-  %.neg.i = fmul reassoc nnan nsz arcp contract afn float %76, 0xBFF7F7EEA0000000
-  %.neg6.i = fdiv reassoc nsz arcp contract afn float 0xBFFB9D3460000000, %77
-  %78 = load float, ptr %62, align 4, !tbaa !57
-  %.neg7.i = fsub reassoc nsz arcp contract afn float 0xC05F0E6EE0000000, %78
-  %79 = fadd reassoc nsz arcp contract afn float %.neg7.i, %75
-  %80 = fadd reassoc nsz arcp contract afn float %79, %.neg.i
-  %81 = fadd reassoc nsz arcp contract afn float %80, %.neg6.i
-  %82 = load float, ptr %63, align 4, !tbaa !58
-  %83 = fdiv reassoc nsz arcp contract afn float %81, %82
-  %84 = fcmp reassoc nsz arcp contract afn olt float %83, 0x3EF0000000000000
-  %.sink96 = select i1 %84, float 0x3EF0000000000000, float %83
-  %85 = getelementptr inbounds nuw float, ptr %3, i64 %.07184
-  store float %.sink96, ptr %85, align 4, !tbaa !55
-  %86 = add nuw i64 %.07184, 1
-  %exitcond95.not = icmp eq i64 %86, %59
+  %71 = bitcast float %69 to i32
+  %72 = select i1 %70, i32 931135488, i32 %71
+  %73 = and i32 %72, 8388607
+  %74 = or disjoint i32 %73, 1056964608
+  %75 = uitofp i32 %72 to float
+  %76 = fmul reassoc nnan nsz arcp contract afn float %75, 0x3E80000000000000
+  %77 = bitcast i32 %74 to float
+  %78 = fadd reassoc nsz arcp contract afn float %77, 0x3FD6889F20000000
+  %.neg.i = fmul reassoc nnan nsz arcp contract afn float %77, 0xBFF7F7EEA0000000
+  %.neg6.i = fdiv reassoc nsz arcp contract afn float 0xBFFB9D3460000000, %78
+  %79 = load float, ptr %62, align 4, !tbaa !57
+  %.neg7.i = fsub reassoc nsz arcp contract afn float 0xC05F0E6EE0000000, %79
+  %80 = fadd reassoc nsz arcp contract afn float %.neg7.i, %76
+  %81 = fadd reassoc nsz arcp contract afn float %80, %.neg.i
+  %82 = fadd reassoc nsz arcp contract afn float %81, %.neg6.i
+  %83 = load float, ptr %63, align 4, !tbaa !58
+  %84 = fdiv reassoc nsz arcp contract afn float %82, %83
+  %85 = fcmp reassoc nsz arcp contract afn olt float %84, 0x3EF0000000000000
+  %.sink96 = select i1 %85, float 0x3EF0000000000000, float %84
+  %86 = getelementptr inbounds nuw float, ptr %3, i64 %.07184
+  store float %.sink96, ptr %86, align 4, !tbaa !55
+  %87 = add nuw i64 %.07184, 1
+  %exitcond95.not = icmp eq i64 %87, %59
   br i1 %exitcond95.not, label %.loopexit, label %65
 
 .loopexit:                                        ; preds = %._crit_edge.us, %65, %.lr.ph, %.preheader77, %50, %6
-  %87 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %88 = load ptr, ptr %87, align 8, !tbaa !59
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 604
-  %90 = load i32, ptr %89, align 4, !tbaa !60
-  %91 = and i32 %90, 1
-  %.not = icmp eq i32 %91, 0
-  br i1 %.not, label %dt_iop_alpha_copy.exit, label %92
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %89 = load ptr, ptr %88, align 8, !tbaa !59
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 604
+  %91 = load i32, ptr %90, align 4, !tbaa !60
+  %92 = and i32 %91, 1
+  %.not = icmp eq i32 %92, 0
+  br i1 %.not, label %dt_iop_alpha_copy.exit, label %93
 
-92:                                               ; preds = %.loopexit
-  %93 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %94 = load i32, ptr %93, align 4, !tbaa !54
-  %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %97 = load i32, ptr %96, align 4, !tbaa !53
-  %98 = sext i32 %97 to i64
-  %99 = shl nsw i64 %95, 2
-  %100 = mul i64 %99, %98
-  %.not.i = icmp eq i64 %100, 0
+93:                                               ; preds = %.loopexit
+  %94 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %95 = load i32, ptr %94, align 4, !tbaa !54
+  %96 = sext i32 %95 to i64
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %98 = load i32, ptr %97, align 4, !tbaa !53
+  %99 = sext i32 %98 to i64
+  %100 = shl nsw i64 %96, 2
+  %101 = mul i64 %100, %99
+  %.not.i = icmp eq i64 %101, 0
   br i1 %.not.i, label %dt_iop_alpha_copy.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %92, %.lr.ph.i
-  %.09.i = phi i64 [ %104, %.lr.ph.i ], [ 3, %92 ]
-  %101 = getelementptr inbounds nuw float, ptr %2, i64 %.09.i
-  %102 = load float, ptr %101, align 4, !tbaa !55
-  %103 = getelementptr inbounds nuw float, ptr %3, i64 %.09.i
-  store float %102, ptr %103, align 4, !tbaa !55
-  %104 = add nuw i64 %.09.i, 4
-  %105 = icmp ult i64 %104, %100
-  br i1 %105, label %.lr.ph.i, label %dt_iop_alpha_copy.exit
+.lr.ph.i:                                         ; preds = %93, %.lr.ph.i
+  %.09.i = phi i64 [ %105, %.lr.ph.i ], [ 3, %93 ]
+  %102 = getelementptr inbounds nuw float, ptr %2, i64 %.09.i
+  %103 = load float, ptr %102, align 4, !tbaa !55
+  %104 = getelementptr inbounds nuw float, ptr %3, i64 %.09.i
+  store float %103, ptr %104, align 4, !tbaa !55
+  %105 = add nuw i64 %.09.i, 4
+  %106 = icmp ult i64 %105, %101
+  br i1 %106, label %.lr.ph.i, label %dt_iop_alpha_copy.exit
 
-dt_iop_alpha_copy.exit:                           ; preds = %.lr.ph.i, %92, %.loopexit
+dt_iop_alpha_copy.exit:                           ; preds = %.lr.ph.i, %93, %.loopexit
   ret void
 }
 

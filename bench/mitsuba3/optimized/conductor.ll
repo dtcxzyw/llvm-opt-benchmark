@@ -5242,12 +5242,12 @@ _ZN5drjit4MaskIN7mitsuba8SpectrumIfLm4EEELm2EECI2NS_8MaskBaseIS3_Lm2ES4_EEIRKNS0
   %53 = select contract <4 x i1> %51, <4 x float> %47, <4 x float> %52
   %54 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> %47, <4 x float> %40)
   %55 = select contract <4 x i1> %51, <4 x float> %49, <4 x float> %54
-  %56 = select contract <4 x i1> %50, <4 x float> zeroinitializer, <4 x float> %55
-  %57 = bitcast <4 x float> %53 to <4 x i32>
-  %58 = bitcast <4 x float> %56 to <4 x i32>
+  %56 = bitcast <4 x float> %53 to <4 x i32>
+  %57 = bitcast <4 x float> %55 to <4 x i32>
+  %58 = select <4 x i1> %50, <4 x i32> zeroinitializer, <4 x i32> %57
   %59 = bitcast <4 x float> %39 to <4 x i32>
   %60 = and <4 x i32> %59, splat (i32 -2147483648)
-  %61 = xor <4 x i32> %60, %57
+  %61 = xor <4 x i32> %60, %56
   %62 = xor <4 x i32> %60, %58
   %63 = tail call <4 x float> @llvm.fabs.v4f32(<4 x float> %1)
   %.sroa.0830.0..sroa.0830.0..sroa.0830.0.copyload.cast = bitcast <4 x i32> %61 to <4 x float>
