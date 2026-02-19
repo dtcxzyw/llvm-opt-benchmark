@@ -4326,8 +4326,8 @@ _ZL19print_lambda_vectorP8t_lambdaibbPc.exit:     ; preds = %_ZL19print_lambda_v
 
 .noexc250:                                        ; preds = %411
   %stpcpy.us.i = call ptr @stpcpy(ptr %.157.us.i, ptr %413)
-  %414 = ptrtoint ptr %stpcpy.us.i to i64
-  %415 = ptrtoint ptr %.157.us.i to i64
+  %414 = ptrtoaddr ptr %stpcpy.us.i to i64
+  %415 = ptrtoaddr ptr %.157.us.i to i64
   %416 = sub i64 %414, %415
   %sext.us.i = shl i64 %416, 32
   %417 = ashr exact i64 %sext.us.i, 32
