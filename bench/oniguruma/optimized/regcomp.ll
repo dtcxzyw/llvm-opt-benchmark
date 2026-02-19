@@ -2681,7 +2681,7 @@ is_anychar_infinite_greedy.exit:                  ; preds = %616
 
 .lr.ph448:                                        ; preds = %.lr.ph448.preheader, %630
   %.08.i262446 = phi i32 [ %631, %630 ], [ 0, %.lr.ph448.preheader ]
-  %632 = tail call fastcc i32 @compile_tree(ptr noundef nonnull %613, ptr noundef %1, ptr noundef nonnull %2)
+  %632 = tail call fastcc i32 @compile_tree(ptr noundef nonnull %613, ptr noundef %1, ptr noundef nonnull %2) #27
   %.not.i264 = icmp eq i32 %632, 0
   br i1 %.not.i264, label %630, label %add_op.exit216
 
@@ -2782,7 +2782,7 @@ compile_tree_n_times.exit258.thread.sink.split:   ; preds = %666
 
 .lr.ph460:                                        ; preds = %.lr.ph460.preheader, %674
   %.08.i255459 = phi i32 [ %675, %674 ], [ 0, %.lr.ph460.preheader ]
-  %676 = tail call fastcc i32 @compile_tree(ptr noundef %673, ptr noundef %1, ptr noundef nonnull %2)
+  %676 = tail call fastcc i32 @compile_tree(ptr noundef %673, ptr noundef %1, ptr noundef nonnull %2) #27
   %.not.i257 = icmp eq i32 %676, 0
   br i1 %.not.i257, label %674, label %add_op.exit216
 
@@ -3023,7 +3023,7 @@ compile_tree_n_times.exit.preheader:              ; preds = %795, %789
 
 .lr.ph452:                                        ; preds = %789, %795
   %.08.i450 = phi i32 [ %796, %795 ], [ 0, %789 ]
-  %800 = tail call fastcc i32 @compile_tree(ptr noundef %793, ptr noundef %1, ptr noundef nonnull %2)
+  %800 = tail call fastcc i32 @compile_tree(ptr noundef %793, ptr noundef %1, ptr noundef nonnull %2) #27
   %.not.i252 = icmp eq i32 %800, 0
   br i1 %.not.i252, label %795, label %add_op.exit216
 
@@ -3922,7 +3922,7 @@ add_op.exit126.i:                                 ; preds = %add_op.exit126.i.si
 
 .lr.ph:                                           ; preds = %1303, %1311
   %.08.i271445 = phi i32 [ %1312, %1311 ], [ 0, %1303 ]
-  %1313 = tail call fastcc i32 @compile_tree(ptr noundef %1307, ptr noundef %1, ptr noundef nonnull %2)
+  %1313 = tail call fastcc i32 @compile_tree(ptr noundef %1307, ptr noundef %1, ptr noundef nonnull %2) #27
   %.not.i273 = icmp eq i32 %1313, 0
   br i1 %.not.i273, label %1311, label %add_op.exit216
 
@@ -5460,7 +5460,7 @@ define dso_local i32 @onig_new(ptr noundef captures(none) initializes((0, 8)) %0
   br i1 %.not.i, label %.sink.split, label %43
 
 43:                                               ; preds = %41
-  tail call void @onig_free_body(ptr noundef nonnull %42)
+  tail call void @onig_free_body(ptr noundef nonnull %42) #28
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %19, %43
@@ -5902,7 +5902,7 @@ onig_free.exit:                                   ; preds = %.onig_free.exit_cri
   %88 = phi ptr [ %.pre37, %.onig_free.exit_crit_edge ], [ %57, %87 ], [ %57, %84 ]
   %.020 = phi i32 [ %41, %.onig_free.exit_crit_edge ], [ %.1, %87 ], [ %.1, %84 ]
   call void @onig_node_free(ptr noundef %88) #24
-  call void @onig_free_body(ptr noundef nonnull %calloc)
+  call void @onig_free_body(ptr noundef nonnull %calloc) #28
   call void @free(ptr noundef nonnull %calloc) #24
   br label %89
 
@@ -9150,7 +9150,7 @@ node_reduce_in_look_behind.exit13.i13.i.i:        ; preds = %705
   br i1 %.not.i14.i.i, label %tune_look_behind.exit, label %.preheader.i8.i.i, !llvm.loop !239
 
 .loopexit:                                        ; preds = %700, %.preheader.i8.i.i, %705, %.loopexit.i.i191, %688, %658, %693
-  %711 = call fastcc i32 @node_char_len1(ptr noundef nonnull %656, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %3, i32 noundef 0)
+  %711 = call fastcc i32 @node_char_len1(ptr noundef nonnull %656, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %3, i32 noundef 0) #29
   %712 = icmp sgt i32 %711, -1
   br i1 %712, label %713, label %tune_look_behind.exit
 
@@ -17615,7 +17615,7 @@ define internal fastcc i32 @compile_anchor_look_behind_not_node(ptr noundef read
   %396 = add nsw i32 %392, %395
   store i32 %396, ptr %394, align 8, !tbaa !20
   %397 = load ptr, ptr %388, align 8, !tbaa !243
-  %398 = call fastcc i32 @node_char_len1(ptr noundef %397, ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull %2, i32 noundef 0)
+  %398 = call fastcc i32 @node_char_len1(ptr noundef %397, ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull %2, i32 noundef 0) #29
   %399 = icmp slt i32 %398, 0
   br i1 %399, label %.thread265, label %400
 
@@ -18210,6 +18210,9 @@ attributes #23 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsiz
 attributes #24 = { nounwind }
 attributes #25 = { nounwind allocsize(1) }
 attributes #26 = { nounwind allocsize(0) }
+attributes #27 = { "function-inline-additional-cost"="1" }
+attributes #28 = { "function-inline-additional-cost"="2" }
+attributes #29 = { "function-inline-additional-cost"="0" }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

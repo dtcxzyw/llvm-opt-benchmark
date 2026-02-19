@@ -461,7 +461,7 @@ CORD_init_min_len.exit:                           ; preds = %102
   unreachable
 
 CORD_init_forest.exit:                            ; preds = %111
-  call fastcc void @CORD_balance_insert(ptr noundef nonnull %78, i64 noundef %109, ptr noundef %4)
+  call fastcc void @CORD_balance_insert(ptr noundef nonnull %78, i64 noundef %109, ptr noundef %4) #22
   %.not.i107111 = icmp eq i64 %109, 0
   br i1 %.not.i107111, label %CORD_balance.exit, label %.lr.ph
 
@@ -597,7 +597,7 @@ CORD_init_forest.exit:                            ; preds = %18
   br i1 %.not15.i, label %33, label %28
 
 28:                                               ; preds = %.lr.ph
-  %29 = tail call ptr @CORD_cat(ptr noundef nonnull %27, ptr noundef %.011.i14)
+  %29 = tail call ptr @CORD_cat(ptr noundef nonnull %27, ptr noundef %.011.i14) #23
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !34
   %32 = add i64 %31, %.0.i15
@@ -1143,7 +1143,7 @@ CORD__call_oom_fn.exit.i125:                      ; preds = %126, %124
   %131 = getelementptr inbounds nuw i8, ptr %122, i64 8
   store i64 %130, ptr %131, align 8, !tbaa !38
   tail call void @GC_ptr_store_and_dirty(ptr noundef nonnull %122, ptr noundef %118) #17
-  %132 = tail call fastcc ptr @CORD_from_fn_inner(ptr noundef %121, ptr noundef nonnull %122, i64 noundef %2)
+  %132 = tail call fastcc ptr @CORD_from_fn_inner(ptr noundef %121, ptr noundef nonnull %122, i64 noundef %2) #24
   %.not.i123 = icmp eq ptr %132, null
   br i1 %.not.i123, label %CORD_substr_closure.exit, label %133
 
@@ -1765,7 +1765,7 @@ define internal fastcc void @CORD_balance_insert(ptr noundef %0, i64 noundef %1,
   br i1 %.not46.i, label %14, label %9
 
 9:                                                ; preds = %.lr.ph55
-  %10 = tail call ptr @CORD_cat(ptr noundef nonnull %8, ptr noundef %.036.i53)
+  %10 = tail call ptr @CORD_cat(ptr noundef nonnull %8, ptr noundef %.036.i53) #25
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !34
   %13 = add i64 %12, %.0.i54
@@ -1790,7 +1790,7 @@ define internal fastcc void @CORD_balance_insert(ptr noundef %0, i64 noundef %1,
   %.040.i.lcssa = phi i64 [ 0, %.preheader ], [ %18, %._crit_edge.loopexit ]
   %.036.i.lcssa = phi ptr [ null, %.preheader ], [ %.137.i, %._crit_edge.loopexit ]
   %.0.i.lcssa = phi i64 [ 0, %.preheader ], [ %.1.i, %._crit_edge.loopexit ]
-  %19 = tail call ptr @CORD_cat(ptr noundef %.036.i.lcssa, ptr noundef nonnull %.tr.lcssa)
+  %19 = tail call ptr @CORD_cat(ptr noundef %.036.i.lcssa, ptr noundef nonnull %.tr.lcssa) #25
   %20 = add i64 %.0.i.lcssa, %.tr43.lcssa
   %21 = getelementptr inbounds nuw i64, ptr @min_len, i64 %.040.i.lcssa
   %22 = load i64, ptr %21, align 8, !tbaa !29
@@ -1807,7 +1807,7 @@ define internal fastcc void @CORD_balance_insert(ptr noundef %0, i64 noundef %1,
   br i1 %.not45.i, label %30, label %25
 
 25:                                               ; preds = %.lr.ph64
-  %26 = tail call ptr @CORD_cat(ptr noundef nonnull %24, ptr noundef %.238.i61)
+  %26 = tail call ptr @CORD_cat(ptr noundef nonnull %24, ptr noundef %.238.i61) #25
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !34
   %29 = add i64 %28, %.2.i62
@@ -2471,7 +2471,7 @@ thread-pre-split:                                 ; preds = %1, %4
   %.lcssa.i = phi i32 [ %15, %21 ], [ %23, %.lr.ph.i ], [ 0, %29 ]
   %33 = add nsw i32 %.lcssa.i, -1
   store i32 %33, ptr %10, align 8, !tbaa !47
-  tail call fastcc void @CORD_extend_path(ptr noundef nonnull %0)
+  tail call fastcc void @CORD_extend_path(ptr noundef nonnull %0) #26
   br label %CORD__prev.exit
 
 CORD__prev.exit:                                  ; preds = %.critedge.i, %13, %12, %8
@@ -2599,6 +2599,11 @@ attributes #18 = { nounwind willreturn memory(read) }
 attributes #19 = { nounwind allocsize(0) }
 attributes #20 = { cold nounwind }
 attributes #21 = { noreturn nounwind }
+attributes #22 = { "function-inline-additional-cost"="9" }
+attributes #23 = { "function-inline-additional-cost"="2" }
+attributes #24 = { "function-inline-additional-cost"="13" }
+attributes #25 = { "function-inline-additional-cost"="12" }
+attributes #26 = { "function-inline-additional-cost"="6" }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -2478,7 +2478,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$jiff..tz..db..zoneinfo..inne
   %13 = landingpad { ptr, i32 }
           cleanup
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$jiff..tz..db..zoneinfo..inner..ZoneInfoName$GT$$GT$17hf138e21ed653dd10E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #19
+  invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$jiff..tz..db..zoneinfo..inner..ZoneInfoName$GT$$GT$17hf138e21ed653dd10E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #21
           to label %.body unwind label %15
 
 15:                                               ; preds = %12
@@ -2489,7 +2489,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$jiff..tz..db..zoneinfo..inne
 
 "_ZN4core3ptr65drop_in_place$LT$jiff..tz..db..zoneinfo..inner..ZoneInfoNames$GT$17hd1704713963c6c64E.exit.i": ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$jiff..tz..db..zoneinfo..inner..ZoneInfoName$GT$$GT$17hf138e21ed653dd10E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$jiff..tz..db..zoneinfo..inner..ZoneInfoName$GT$$GT$17hf138e21ed653dd10E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #22
           to label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$jiff..tz..db..zoneinfo..inner..ZoneInfoNames$GT$$GT$17h8ab2023757d47701E.exit" unwind label %19
 
 .body:                                            ; preds = %19, %12, %6
@@ -2570,7 +2570,7 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$jiff..tz..db..concatenated..
 
 10:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hd1a1f5a0f051ce61E.exit"
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  invoke void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$17hcf767215d836d2e2E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %11)
+  invoke void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$17hcf767215d836d2e2E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %11) #23
           to label %"_ZN4core3ptr61drop_in_place$LT$jiff..tz..db..concatenated..inner..Names$GT$17h453349a0570e580eE.exit.i" unwind label %12
 
 12:                                               ; preds = %10
@@ -3321,7 +3321,7 @@ define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$core..option..Optio
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  invoke void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$17hcf767215d836d2e2E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %6)
+  invoke void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$17hcf767215d836d2e2E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %6) #22
           to label %"_ZN4core3ptr61drop_in_place$LT$jiff..tz..db..concatenated..inner..Names$GT$17h453349a0570e580eE.exit" unwind label %7
 
 7:                                                ; preds = %5
@@ -3444,7 +3444,7 @@ define internal fastcc void @"_ZN4core3ptr93drop_in_place$LT$core..option..Optio
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$jiff..tz..db..zoneinfo..inner..ZoneInfoName$GT$$GT$17hf138e21ed653dd10E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #19
+  invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$jiff..tz..db..zoneinfo..inner..ZoneInfoName$GT$$GT$17hf138e21ed653dd10E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #24
           to label %12 unwind label %10
 
 10:                                               ; preds = %7
@@ -3458,7 +3458,7 @@ define internal fastcc void @"_ZN4core3ptr93drop_in_place$LT$core..option..Optio
 
 "_ZN4core3ptr65drop_in_place$LT$jiff..tz..db..zoneinfo..inner..ZoneInfoNames$GT$17hd1704713963c6c64E.exit": ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$jiff..tz..db..zoneinfo..inner..ZoneInfoName$GT$$GT$17hf138e21ed653dd10E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
+  tail call void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$jiff..tz..db..zoneinfo..inner..ZoneInfoName$GT$$GT$17hf138e21ed653dd10E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #25
   br label %4
 }
 
@@ -9062,6 +9062,11 @@ attributes #17 = { noreturn }
 attributes #18 = { cold noreturn nounwind }
 attributes #19 = { cold }
 attributes #20 = { nounwind }
+attributes #21 = { cold "function-inline-additional-cost"="8" }
+attributes #22 = { "function-inline-additional-cost"="8" }
+attributes #23 = { "function-inline-additional-cost"="9" }
+attributes #24 = { cold "function-inline-additional-cost"="7" }
+attributes #25 = { "function-inline-additional-cost"="7" }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

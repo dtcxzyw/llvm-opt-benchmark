@@ -7089,7 +7089,7 @@ define void @_ZN5image6codecs3ico7decoder10best_entry17hf2af43a31171e0ccE(ptr no
 12:                                               ; preds = %10
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.6960974148744716740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #36
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.6960974148744716740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #39
           to label %.thread115 unwind label %14, !noalias !966
 
 14:                                               ; preds = %12
@@ -7501,7 +7501,7 @@ define internal fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$1
 "_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit": ; preds = %6
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 2
   %32 = load i16, ptr %31, align 2, !alias.scope !1018, !noalias !1021, !noundef !7
-  %33 = tail call fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$10write_bits17h6b197869d2d70e08E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i16 noundef %32, i8 noundef %24), !noalias !1018
+  %33 = tail call fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$10write_bits17h6b197869d2d70e08E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i16 noundef %32, i8 noundef %24) #40, !noalias !1018
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %80
 
@@ -7561,7 +7561,7 @@ define internal fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$1
 "_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit65.us": ; preds = %51
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 2
   %69 = load i16, ptr %68, align 2, !alias.scope !1024, !noalias !1027, !noundef !7
-  %70 = tail call fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$10write_bits17h6b197869d2d70e08E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i16 noundef %69, i8 noundef %66), !noalias !1024
+  %70 = tail call fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$10write_bits17h6b197869d2d70e08E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i16 noundef %69, i8 noundef %66) #40, !noalias !1024
   %71 = icmp eq ptr %70, null
   br i1 %71, label %72, label %.split93.us
 
@@ -7668,7 +7668,7 @@ define internal fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$1
 
 "_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit60": ; preds = %.preheader, %143
   %.280 = phi i8 [ %144, %143 ], [ %.05088, %.preheader ]
-  %112 = tail call fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$10write_bits17h6b197869d2d70e08E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i16 noundef %42, i8 noundef %.fr106), !noalias !1033
+  %112 = tail call fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$10write_bits17h6b197869d2d70e08E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i16 noundef %42, i8 noundef %.fr106) #40, !noalias !1033
   %113 = icmp eq ptr %112, null
   br i1 %113, label %143, label %146
 
@@ -7714,7 +7714,7 @@ define internal fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$1
 "_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$14huffman_encode17he16a02ba52f60cf4E.exit65": ; preds = %._crit_edge
   %134 = getelementptr inbounds nuw i8, ptr %127, i64 2
   %135 = load i16, ptr %134, align 2, !alias.scope !1024, !noalias !1027, !noundef !7
-  %136 = tail call fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$10write_bits17h6b197869d2d70e08E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i16 noundef %135, i8 noundef %128), !noalias !1024
+  %136 = tail call fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$10write_bits17h6b197869d2d70e08E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i16 noundef %135, i8 noundef %128) #40, !noalias !1024
   %137 = icmp eq ptr %136, null
   br i1 %137, label %138, label %.split93.us
 
@@ -10824,7 +10824,7 @@ define internal fastcc void @_ZN5image6codecs4webp7huffman11HuffmanTree4init17hb
 9:                                                ; preds = %7
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.6960974148744716740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #36
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.6960974148744716740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #39
           to label %common.resume unwind label %11, !noalias !1404
 
 11:                                               ; preds = %9
@@ -10871,7 +10871,7 @@ common.resume:                                    ; preds = %21, %9
 21:                                               ; preds = %13
   %22 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr89drop_in_place$LT$alloc..vec..Vec$LT$image..codecs..webp..huffman..HuffmanTreeNode$GT$$GT$17h70073e9a5e320a1eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #36
+  invoke void @"_ZN4core3ptr89drop_in_place$LT$alloc..vec..Vec$LT$image..codecs..webp..huffman..HuffmanTreeNode$GT$$GT$17h70073e9a5e320a1eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #41
           to label %common.resume unwind label %23, !noalias !1411
 
 23:                                               ; preds = %21
@@ -10971,7 +10971,7 @@ default.unreachable111:                           ; preds = %"_ZN81_$LT$alloc..v
 31:                                               ; preds = %29
   %32 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.6960974148744716740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10) #36
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.6960974148744716740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10) #39
           to label %common.resume unwind label %33, !noalias !1425
 
 33:                                               ; preds = %31
@@ -11009,7 +11009,7 @@ common.resume:                                    ; preds = %72, %55, %48, %37, 
 37:                                               ; preds = %35
   %38 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.6960974148744716740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #36
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.6960974148744716740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #39
           to label %common.resume unwind label %39, !noalias !1432
 
 39:                                               ; preds = %37
@@ -11070,7 +11070,7 @@ common.resume:                                    ; preds = %72, %55, %48, %37, 
 48:                                               ; preds = %46
   %49 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.6960974148744716740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8) #36
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.6960974148744716740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8) #39
           to label %common.resume unwind label %50, !noalias !1444
 
 50:                                               ; preds = %48
@@ -11109,7 +11109,7 @@ common.resume:                                    ; preds = %72, %55, %48, %37, 
 55:                                               ; preds = %53
   %56 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.6960974148744716740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #36
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.6960974148744716740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #39
           to label %common.resume unwind label %57, !noalias !1451
 
 57:                                               ; preds = %55
@@ -11169,7 +11169,7 @@ _ZN5image6codecs4webp7huffman11HuffmanTree15assign_children17h5aa14eb1822548c2E.
 72:                                               ; preds = %70
   %73 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.6960974148744716740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6) #36
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.6960974148744716740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6) #39
           to label %common.resume unwind label %74, !noalias !1461
 
 74:                                               ; preds = %72
@@ -11350,7 +11350,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17he12294bda8d9b14bE.exit.thread63.
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.6960974148744716740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #36
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.6960974148744716740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #39
           to label %.body unwind label %61, !noalias !1487
 
 61:                                               ; preds = %59
@@ -12210,7 +12210,7 @@ define void @_ZN5image6codecs4webp7huffman11HuffmanTree11read_symbol17h92fee1808
 27:                                               ; preds = %25
   %28 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.6960974148744716740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4) #36
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.6960974148744716740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4) #39
           to label %31 unwind label %29, !noalias !1598
 
 29:                                               ; preds = %27
@@ -13111,7 +13111,7 @@ define void @_ZN5image6codecs4webp3vp810BoolReader4init17hd4cf1ff7131cb137E(ptr 
 20:                                               ; preds = %18
   %21 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.6960974148744716740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #36
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.6960974148744716740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #39
           to label %51 unwind label %22, !noalias !1637
 
 22:                                               ; preds = %20
@@ -16834,7 +16834,7 @@ define hidden void @"_ZN5image6codecs4webp3vp819Vp8Decoder$LT$R$GT$12decode_fram
 118:                                              ; preds = %116
   %119 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.6960974148744716740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %30) #36
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.6960974148744716740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %30) #39
           to label %common.resume unwind label %120, !noalias !1997
 
 120:                                              ; preds = %118
@@ -18744,7 +18744,7 @@ _ZN5image6codecs4webp11loop_filter16simple_threshold17h517d5dee5e47eb31E.exit173
   br i1 %.not324, label %_ZN5image6codecs4webp11loop_filter14simple_segment17h68ed65405427d4b1E.exit.i, label %861
 
 861:                                              ; preds = %_ZN5image6codecs4webp11loop_filter16simple_threshold17h517d5dee5e47eb31E.exit173
-  %862 = call fastcc noundef i32 @_ZN5image6codecs4webp11loop_filter13common_adjust17h735d23b1228a1403E(i1 noundef zeroext true, ptr noalias noundef nonnull align 1 %.val173.i, i64 noundef %.val174.i, i64 noundef %827, i64 noundef 1), !noalias !2209
+  %862 = call fastcc noundef i32 @_ZN5image6codecs4webp11loop_filter13common_adjust17h735d23b1228a1403E(i1 noundef zeroext true, ptr noalias noundef nonnull align 1 %.val173.i, i64 noundef %.val174.i, i64 noundef %827, i64 noundef 1) #42, !noalias !2209
   br label %_ZN5image6codecs4webp11loop_filter14simple_segment17h68ed65405427d4b1E.exit.i
 
 _ZN5image6codecs4webp11loop_filter14simple_segment17h68ed65405427d4b1E.exit.i: ; preds = %861, %_ZN5image6codecs4webp11loop_filter16simple_threshold17h517d5dee5e47eb31E.exit173
@@ -18814,12 +18814,12 @@ _ZN5image6codecs4webp11loop_filter14simple_segment17h68ed65405427d4b1E.exit.i: ;
   %879 = mul i64 %878, %718
   %880 = add i64 %879, %870
   call void @llvm.experimental.noalias.scope.decl(metadata !2214)
-  %881 = call fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter13should_filter17h674fddabbab381b7E(i8 noundef %spec.store.select.i485.i, i8 noundef %798, ptr noalias noundef nonnull readonly align 1 %.val171.i, i64 noundef %.val172.i, i64 noundef %880, i64 noundef 1), !noalias !2209
+  %881 = call fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter13should_filter17h674fddabbab381b7E(i8 noundef %spec.store.select.i485.i, i8 noundef %798, ptr noalias noundef nonnull readonly align 1 %.val171.i, i64 noundef %.val172.i, i64 noundef %880, i64 noundef 1) #43, !noalias !2209
   br i1 %881, label %882, label %_ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit170
 
 882:                                              ; preds = %876
-  %883 = call fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter18high_edge_variance17h8f33de1d595c8980E(i8 noundef %.0.i484.i, ptr noalias noundef nonnull readonly align 1 %.val171.i, i64 noundef %.val172.i, i64 noundef %880, i64 noundef 1), !noalias !2209
-  %884 = call fastcc noundef i32 @_ZN5image6codecs4webp11loop_filter13common_adjust17h735d23b1228a1403E(i1 noundef zeroext %883, ptr noalias noundef nonnull align 1 %.val171.i, i64 noundef %.val172.i, i64 noundef %880, i64 noundef 1), !noalias !2209
+  %883 = call fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter18high_edge_variance17h8f33de1d595c8980E(i8 noundef %.0.i484.i, ptr noalias noundef nonnull readonly align 1 %.val171.i, i64 noundef %.val172.i, i64 noundef %880, i64 noundef 1) #43, !noalias !2209
+  %884 = call fastcc noundef i32 @_ZN5image6codecs4webp11loop_filter13common_adjust17h735d23b1228a1403E(i1 noundef zeroext %883, ptr noalias noundef nonnull align 1 %.val171.i, i64 noundef %.val172.i, i64 noundef %880, i64 noundef 1) #43, !noalias !2209
   %885 = add nsw i32 %884, 1
   %886 = ashr i32 %885, 1
   br i1 %883, label %_ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit170, label %887
@@ -18863,12 +18863,12 @@ _ZN5image6codecs4webp11loop_filter14simple_segment17h68ed65405427d4b1E.exit.i: ;
 
 _ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit170: ; preds = %876, %882, %900
   call void @llvm.experimental.noalias.scope.decl(metadata !2218)
-  %908 = call fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter13should_filter17h674fddabbab381b7E(i8 noundef %spec.store.select.i485.i, i8 noundef %798, ptr noalias noundef nonnull readonly align 1 %.val169.i, i64 noundef %.val170.i, i64 noundef %880, i64 noundef 1), !noalias !2209
+  %908 = call fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter13should_filter17h674fddabbab381b7E(i8 noundef %spec.store.select.i485.i, i8 noundef %798, ptr noalias noundef nonnull readonly align 1 %.val169.i, i64 noundef %.val170.i, i64 noundef %880, i64 noundef 1) #43, !noalias !2209
   br i1 %908, label %909, label %_ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit167
 
 909:                                              ; preds = %_ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit170
-  %910 = call fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter18high_edge_variance17h8f33de1d595c8980E(i8 noundef %.0.i484.i, ptr noalias noundef nonnull readonly align 1 %.val169.i, i64 noundef %.val170.i, i64 noundef %880, i64 noundef 1), !noalias !2209
-  %911 = call fastcc noundef i32 @_ZN5image6codecs4webp11loop_filter13common_adjust17h735d23b1228a1403E(i1 noundef zeroext %910, ptr noalias noundef nonnull align 1 %.val169.i, i64 noundef %.val170.i, i64 noundef %880, i64 noundef 1), !noalias !2209
+  %910 = call fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter18high_edge_variance17h8f33de1d595c8980E(i8 noundef %.0.i484.i, ptr noalias noundef nonnull readonly align 1 %.val169.i, i64 noundef %.val170.i, i64 noundef %880, i64 noundef 1) #43, !noalias !2209
+  %911 = call fastcc noundef i32 @_ZN5image6codecs4webp11loop_filter13common_adjust17h735d23b1228a1403E(i1 noundef zeroext %910, ptr noalias noundef nonnull align 1 %.val169.i, i64 noundef %.val170.i, i64 noundef %880, i64 noundef 1) #43, !noalias !2209
   %912 = add nsw i32 %911, 1
   %913 = ashr i32 %912, 1
   br i1 %910, label %_ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit167, label %914
@@ -18920,7 +18920,7 @@ _ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit167:
   %937 = add nuw nsw i64 %.sroa.046.0321.i, %733
   %938 = mul i64 %937, %714
   %939 = add i64 %875, %938
-  %940 = call fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter13should_filter17h674fddabbab381b7E(i8 noundef %spec.store.select.i485.i, i8 noundef %798, ptr noalias noundef nonnull readonly align 1 %.val173.i, i64 noundef %.val174.i, i64 noundef %939, i64 noundef 1), !noalias !2209
+  %940 = call fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter13should_filter17h674fddabbab381b7E(i8 noundef %spec.store.select.i485.i, i8 noundef %798, ptr noalias noundef nonnull readonly align 1 %.val173.i, i64 noundef %.val174.i, i64 noundef %939, i64 noundef 1) #43, !noalias !2209
   br i1 %940, label %941, label %_ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit.i
 
 941:                                              ; preds = %935
@@ -19204,7 +19204,7 @@ _ZN5image6codecs4webp11loop_filter16simple_threshold17h517d5dee5e47eb31E.exit: ;
   br i1 %.not325, label %_ZN5image6codecs4webp11loop_filter14simple_segment17h68ed65405427d4b1E.exit180.i, label %1076
 
 1076:                                             ; preds = %_ZN5image6codecs4webp11loop_filter16simple_threshold17h517d5dee5e47eb31E.exit
-  %1077 = call fastcc noundef i32 @_ZN5image6codecs4webp11loop_filter13common_adjust17h735d23b1228a1403E(i1 noundef zeroext true, ptr noalias noundef nonnull align 1 %.val173.i, i64 noundef %.val174.i, i64 noundef %1042, i64 noundef %714), !noalias !2209
+  %1077 = call fastcc noundef i32 @_ZN5image6codecs4webp11loop_filter13common_adjust17h735d23b1228a1403E(i1 noundef zeroext true, ptr noalias noundef nonnull align 1 %.val173.i, i64 noundef %.val174.i, i64 noundef %1042, i64 noundef %714) #42, !noalias !2209
   br label %_ZN5image6codecs4webp11loop_filter14simple_segment17h68ed65405427d4b1E.exit180.i
 
 _ZN5image6codecs4webp11loop_filter14simple_segment17h68ed65405427d4b1E.exit180.i: ; preds = %1076, %_ZN5image6codecs4webp11loop_filter16simple_threshold17h517d5dee5e47eb31E.exit
@@ -19263,12 +19263,12 @@ _ZN5image6codecs4webp11loop_filter14simple_segment17h68ed65405427d4b1E.exit180.i
   %1088 = add nuw nsw i64 %.sroa.0111.0353.i, 1
   %1089 = add i64 %1082, %.sroa.0111.0353.i
   call void @llvm.experimental.noalias.scope.decl(metadata !2237)
-  %1090 = call fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter13should_filter17h674fddabbab381b7E(i8 noundef %spec.store.select.i485.i, i8 noundef %798, ptr noalias noundef nonnull readonly align 1 %.val171.i, i64 noundef %.val172.i, i64 noundef %1089, i64 noundef %718), !noalias !2209
+  %1090 = call fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter13should_filter17h674fddabbab381b7E(i8 noundef %spec.store.select.i485.i, i8 noundef %798, ptr noalias noundef nonnull readonly align 1 %.val171.i, i64 noundef %.val172.i, i64 noundef %1089, i64 noundef %718) #43, !noalias !2209
   br i1 %1090, label %1091, label %_ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit152
 
 1091:                                             ; preds = %1087
-  %1092 = call fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter18high_edge_variance17h8f33de1d595c8980E(i8 noundef %.0.i484.i, ptr noalias noundef nonnull readonly align 1 %.val171.i, i64 noundef %.val172.i, i64 noundef %1089, i64 noundef %718), !noalias !2209
-  %1093 = call fastcc noundef i32 @_ZN5image6codecs4webp11loop_filter13common_adjust17h735d23b1228a1403E(i1 noundef zeroext %1092, ptr noalias noundef nonnull align 1 %.val171.i, i64 noundef %.val172.i, i64 noundef %1089, i64 noundef %718), !noalias !2209
+  %1092 = call fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter18high_edge_variance17h8f33de1d595c8980E(i8 noundef %.0.i484.i, ptr noalias noundef nonnull readonly align 1 %.val171.i, i64 noundef %.val172.i, i64 noundef %1089, i64 noundef %718) #43, !noalias !2209
+  %1093 = call fastcc noundef i32 @_ZN5image6codecs4webp11loop_filter13common_adjust17h735d23b1228a1403E(i1 noundef zeroext %1092, ptr noalias noundef nonnull align 1 %.val171.i, i64 noundef %.val172.i, i64 noundef %1089, i64 noundef %718) #43, !noalias !2209
   %1094 = add nsw i32 %1093, 1
   %1095 = ashr i32 %1094, 1
   br i1 %1092, label %_ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit152, label %1096
@@ -19312,12 +19312,12 @@ _ZN5image6codecs4webp11loop_filter14simple_segment17h68ed65405427d4b1E.exit180.i
 
 _ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit152: ; preds = %1087, %1091, %1109
   call void @llvm.experimental.noalias.scope.decl(metadata !2241)
-  %1117 = call fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter13should_filter17h674fddabbab381b7E(i8 noundef %spec.store.select.i485.i, i8 noundef %798, ptr noalias noundef nonnull readonly align 1 %.val169.i, i64 noundef %.val170.i, i64 noundef %1089, i64 noundef %718), !noalias !2209
+  %1117 = call fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter13should_filter17h674fddabbab381b7E(i8 noundef %spec.store.select.i485.i, i8 noundef %798, ptr noalias noundef nonnull readonly align 1 %.val169.i, i64 noundef %.val170.i, i64 noundef %1089, i64 noundef %718) #43, !noalias !2209
   br i1 %1117, label %1118, label %_ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit
 
 1118:                                             ; preds = %_ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit152
-  %1119 = call fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter18high_edge_variance17h8f33de1d595c8980E(i8 noundef %.0.i484.i, ptr noalias noundef nonnull readonly align 1 %.val169.i, i64 noundef %.val170.i, i64 noundef %1089, i64 noundef %718), !noalias !2209
-  %1120 = call fastcc noundef i32 @_ZN5image6codecs4webp11loop_filter13common_adjust17h735d23b1228a1403E(i1 noundef zeroext %1119, ptr noalias noundef nonnull align 1 %.val169.i, i64 noundef %.val170.i, i64 noundef %1089, i64 noundef %718), !noalias !2209
+  %1119 = call fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter18high_edge_variance17h8f33de1d595c8980E(i8 noundef %.0.i484.i, ptr noalias noundef nonnull readonly align 1 %.val169.i, i64 noundef %.val170.i, i64 noundef %1089, i64 noundef %718) #43, !noalias !2209
+  %1120 = call fastcc noundef i32 @_ZN5image6codecs4webp11loop_filter13common_adjust17h735d23b1228a1403E(i1 noundef zeroext %1119, ptr noalias noundef nonnull align 1 %.val169.i, i64 noundef %.val170.i, i64 noundef %1089, i64 noundef %718) #43, !noalias !2209
   %1121 = add nsw i32 %1120, 1
   %1122 = ashr i32 %1121, 1
   br i1 %1119, label %_ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit, label %1123
@@ -19367,7 +19367,7 @@ _ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit: ; 
   %.sroa.0104.0345.i = phi i64 [ 0, %.lr.ph346.i ], [ %1145, %_ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit187.i ]
   %1145 = add nuw nsw i64 %.sroa.0104.0345.i, 1
   %1146 = add i64 %1086, %.sroa.0104.0345.i
-  %1147 = call fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter13should_filter17h674fddabbab381b7E(i8 noundef %spec.store.select.i485.i, i8 noundef %798, ptr noalias noundef nonnull readonly align 1 %.val173.i, i64 noundef %.val174.i, i64 noundef %1146, i64 noundef %714), !noalias !2209
+  %1147 = call fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter13should_filter17h674fddabbab381b7E(i8 noundef %spec.store.select.i485.i, i8 noundef %798, ptr noalias noundef nonnull readonly align 1 %.val173.i, i64 noundef %.val174.i, i64 noundef %1146, i64 noundef %714) #43, !noalias !2209
   br i1 %1147, label %1148, label %_ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit187.i
 
 1148:                                             ; preds = %1144
@@ -20045,7 +20045,7 @@ _ZN5image6codecs4webp3vp88LumaMode10into_intra17h89b93bee24b5c1bbE.exit.i: ; pre
 1479:                                             ; preds = %1477
   %1480 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.6960974148744716740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10) #36
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.6960974148744716740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10) #39
           to label %common.resume unwind label %1481, !noalias !2302
 
 1481:                                             ; preds = %1479
@@ -20125,7 +20125,7 @@ _ZN5image6codecs4webp3vp88LumaMode10into_intra17h89b93bee24b5c1bbE.exit.i: ; pre
 1507:                                             ; preds = %1505
   %1508 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.6960974148744716740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #36
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.6960974148744716740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #39
           to label %common.resume unwind label %1509, !noalias !2313
 
 1509:                                             ; preds = %1507
@@ -20171,7 +20171,7 @@ _ZN5image6codecs4webp3vp88LumaMode10into_intra17h89b93bee24b5c1bbE.exit.i: ; pre
 1518:                                             ; preds = %1516
   %1519 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.6960974148744716740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8) #36
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.6960974148744716740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8) #39
           to label %common.resume unwind label %1520, !noalias !2323
 
 1520:                                             ; preds = %1518
@@ -24546,6 +24546,11 @@ attributes #35 = { noreturn }
 attributes #36 = { cold }
 attributes #37 = { cold noreturn nounwind }
 attributes #38 = { nounwind }
+attributes #39 = { cold "function-inline-additional-cost"="6" }
+attributes #40 = { "function-inline-additional-cost"="5" }
+attributes #41 = { cold "function-inline-additional-cost"="9" }
+attributes #42 = { "function-inline-additional-cost"="4" }
+attributes #43 = { "function-inline-additional-cost"="18" }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

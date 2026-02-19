@@ -203,7 +203,7 @@ define hidden void @_ZN15output_redirectD2Ev(ptr noundef nonnull align 8 derefer
   br i1 %4, label %_ZN15output_redirect7restoreEv.exit, label %5
 
 5:                                                ; preds = %1
-  invoke void @_ZN15output_redirect5flushEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @_ZN15output_redirect5flushEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %5
@@ -233,7 +233,7 @@ define hidden void @_ZN15output_redirectD2Ev(ptr noundef nonnull align 8 derefer
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %15) #15
   %20 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %21 = tail call i32 @fputs(ptr noundef %19, ptr noundef %20) #18
+  %21 = tail call i32 @fputs(ptr noundef %19, ptr noundef %20) #19
   invoke void @__cxa_end_catch()
           to label %_ZN15output_redirect7restoreEv.exit unwind label %23
 
@@ -247,11 +247,11 @@ _ZN15output_redirect7restoreEv.exit:              ; preds = %1, %.noexc4, %14
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #19
+  tail call void @__clang_call_terminate(ptr %25) #20
   unreachable
 
 26:                                               ; preds = %8
-  tail call void @__clang_call_terminate(ptr %10) #19
+  tail call void @__clang_call_terminate(ptr %10) #20
   unreachable
 }
 
@@ -280,7 +280,7 @@ declare i32 @llvm.eh.typeid.for.p0(ptr) #6
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
-  tail call void @_ZSt9terminatev() #19
+  tail call void @_ZSt9terminatev() #20
   unreachable
 }
 
@@ -330,7 +330,7 @@ define hidden void @_ZN15output_redirect16restore_and_readB5cxx11Ev(ptr dead_on_
   br i1 %6, label %_ZN15output_redirect7restoreEv.exit, label %7
 
 7:                                                ; preds = %2
-  tail call void @_ZN15output_redirect5flushEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  tail call void @_ZN15output_redirect5flushEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #18
   %8 = load ptr, ptr %1, align 8, !tbaa !4
   %9 = tail call i32 @fileno(ptr noundef %8) #15
   tail call void @_ZN3fmt3v114file4dup2Ei(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %9)
@@ -405,7 +405,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %26
   %29 = load i64, ptr %10, align 8, !tbaa !25
   %30 = add i64 %29, 1
-  call void @_ZdlPvm(ptr noundef %27, i64 noundef %30) #20
+  call void @_ZdlPvm(ptr noundef %27, i64 noundef %30) #21
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %26, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -462,7 +462,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %15
   %18 = load i64, ptr %4, align 8, !tbaa !25
   %19 = add i64 %18, 1
-  tail call void @_ZdlPvm(ptr noundef %16, i64 noundef %19) #20
+  tail call void @_ZdlPvm(ptr noundef %16, i64 noundef %19) #21
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %14
@@ -517,9 +517,10 @@ attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn mem
 attributes #15 = { nounwind }
 attributes #16 = { nounwind willreturn memory(none) }
 attributes #17 = { noreturn }
-attributes #18 = { cold }
-attributes #19 = { noreturn nounwind }
-attributes #20 = { builtin nounwind }
+attributes #18 = { "function-inline-additional-cost"="8" }
+attributes #19 = { cold }
+attributes #20 = { noreturn nounwind }
+attributes #21 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

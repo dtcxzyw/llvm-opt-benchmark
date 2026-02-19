@@ -1975,7 +1975,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull alig
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #20
+  tail call void @__clang_call_terminate(ptr %8) #21
   unreachable
 }
 
@@ -1984,7 +1984,7 @@ declare void @_ZN5ImGui7MemFreeEPv(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
-  tail call void @_ZSt9terminatev() #20
+  tail call void @_ZSt9terminatev() #21
   unreachable
 }
 
@@ -2028,7 +2028,8 @@ attributes #16 = { nounwind }
 attributes #17 = { cold }
 attributes #18 = { nounwind willreturn memory(read) }
 attributes #19 = { cold nounwind }
-attributes #20 = { noreturn nounwind }
+attributes #20 = { noreturn nounwind "function-inline-additional-cost"="3" }
+attributes #21 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

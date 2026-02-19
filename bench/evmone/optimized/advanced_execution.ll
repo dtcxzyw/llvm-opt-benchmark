@@ -509,8 +509,8 @@ _ZSt11make_uniqueIN6evmone8advanced22AdvancedExecutionStateEJRK12evmc_messageR13
   br label %147
 
 147:                                              ; preds = %144, %143
-  call void @_ZN6evmone14ExecutionStateD2Ev(ptr noundef nonnull align 8 dereferenceable(564) %96) #17
-  call void @_ZdlPvm(ptr noundef nonnull %96, i64 noundef 568) #22
+  call void @_ZN6evmone14ExecutionStateD2Ev(ptr noundef nonnull align 8 dereferenceable(564) %96) #22
+  call void @_ZdlPvm(ptr noundef nonnull %96, i64 noundef 568) #23
   %.phi.trans.insert83 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %.pre84 = load ptr, ptr %.phi.trans.insert83, align 8, !tbaa !98
   %.not.i.i.i.i32 = icmp eq ptr %.pre84, null
@@ -627,7 +627,7 @@ define linkonce_odr hidden void @_ZN4evmc13HostInterfaceD2Ev(ptr noundef nonnull
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4evmc11HostContextD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #14 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #23
   ret void
 }
 
@@ -853,7 +853,7 @@ define linkonce_odr hidden void @_ZN6evmone14ExecutionStateD2Ev(ptr noundef nonn
   br i1 %.not.i.i, label %_ZN6evmone10StackSpaceD2Ev.exit, label %_ZNKSt14default_deleteIN6evmone10StackSpace7StorageEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN6evmone10StackSpace7StorageEEclEPS2_.exit.i.i: ; preds = %1
-  tail call void @_ZdlPvmSt11align_val_t(ptr noundef nonnull %3, i64 noundef 32768, i64 noundef 32) #22
+  tail call void @_ZdlPvmSt11align_val_t(ptr noundef nonnull %3, i64 noundef 32768, i64 noundef 32) #23
   br label %_ZN6evmone10StackSpaceD2Ev.exit
 
 _ZN6evmone10StackSpaceD2Ev.exit:                  ; preds = %1, %_ZNKSt14default_deleteIN6evmone10StackSpace7StorageEEclEPS2_.exit.i.i
@@ -989,8 +989,9 @@ attributes #17 = { nounwind }
 attributes #18 = { nounwind allocsize(0) }
 attributes #19 = { noreturn nounwind }
 attributes #20 = { builtin nounwind allocsize(0) }
-attributes #21 = { cold noreturn nounwind }
-attributes #22 = { builtin nounwind }
+attributes #21 = { cold noreturn nounwind "function-inline-additional-cost"="13" }
+attributes #22 = { nounwind "function-inline-additional-cost"="3" }
+attributes #23 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

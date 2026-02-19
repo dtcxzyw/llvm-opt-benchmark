@@ -4604,11 +4604,11 @@ define noundef i16 @"_ZN9softposit5p16e13ops75_$LT$impl$u20$core..ops..arith..Re
   br i1 %85, label %87, label %89
 
 87:                                               ; preds = %83
-  %88 = tail call noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8sub_mags17hcbf8873b3be421deE"(i16 noundef %0, i16 noundef %86)
+  %88 = tail call noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8sub_mags17hcbf8873b3be421deE"(i16 noundef %0, i16 noundef %86) #10
   br label %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3rem17h9c04e0182f45a0b2E.exit"
 
 89:                                               ; preds = %83
-  %90 = tail call noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8add_mags17h798b5a931f806d89E"(i16 noundef %0, i16 noundef %86)
+  %90 = tail call noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8add_mags17h798b5a931f806d89E"(i16 noundef %0, i16 noundef %86) #10
   br label %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3rem17h9c04e0182f45a0b2E.exit"
 
 "_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3rem17h9c04e0182f45a0b2E.exit": ; preds = %"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit.i", %80, %87, %89
@@ -4882,11 +4882,11 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..si
   br i1 %15, label %17, label %19
 
 17:                                               ; preds = %13
-  %18 = tail call noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8sub_mags17hcbf8873b3be421deE"(i16 noundef %3, i16 noundef %16)
+  %18 = tail call noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8sub_mags17hcbf8873b3be421deE"(i16 noundef %3, i16 noundef %16) #10
   br label %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3sub17hcac3eddc80ee93ffE.exit"
 
 19:                                               ; preds = %13
-  %20 = tail call noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8add_mags17h798b5a931f806d89E"(i16 noundef %3, i16 noundef %16)
+  %20 = tail call noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8add_mags17h798b5a931f806d89E"(i16 noundef %3, i16 noundef %16) #10
   br label %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3sub17hcac3eddc80ee93ffE.exit"
 
 "_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3sub17hcac3eddc80ee93ffE.exit": ; preds = %19, %17, %10, %5, %2
@@ -5597,11 +5597,11 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..fl
   br i1 %82, label %84, label %86
 
 84:                                               ; preds = %80
-  %85 = tail call noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8sub_mags17hcbf8873b3be421deE"(i16 noundef %0, i16 noundef %83)
+  %85 = tail call noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8sub_mags17hcbf8873b3be421deE"(i16 noundef %0, i16 noundef %83) #10
   br label %"_ZN9softposit5p16e14math41_$LT$impl$u20$softposit..p16e1..P16E1$GT$5fract17h4b5421c3153de77aE.exit"
 
 86:                                               ; preds = %80
-  %87 = tail call noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8add_mags17h798b5a931f806d89E"(i16 noundef %0, i16 noundef %83)
+  %87 = tail call noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8add_mags17h798b5a931f806d89E"(i16 noundef %0, i16 noundef %83) #10
   br label %"_ZN9softposit5p16e14math41_$LT$impl$u20$softposit..p16e1..P16E1$GT$5fract17h4b5421c3153de77aE.exit"
 
 "_ZN9softposit5p16e14math41_$LT$impl$u20$softposit..p16e1..P16E1$GT$5fract17h4b5421c3153de77aE.exit": ; preds = %"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit.i", %77, %84, %86
@@ -5840,11 +5840,11 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..fl
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8add_mags17h798b5a931f806d89E"(i16 noundef %4, i16 noundef 16384)
+  %9 = tail call noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8add_mags17h798b5a931f806d89E"(i16 noundef %4, i16 noundef 16384) #11
   br label %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3add17hb8ac77547fcc1596E.exit.i"
 
 10:                                               ; preds = %6
-  %11 = tail call noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8sub_mags17hcbf8873b3be421deE"(i16 noundef %4, i16 noundef 16384)
+  %11 = tail call noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8sub_mags17hcbf8873b3be421deE"(i16 noundef %4, i16 noundef 16384) #11
   br label %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3add17hb8ac77547fcc1596E.exit.i"
 
 "_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3add17hb8ac77547fcc1596E.exit.i": ; preds = %10, %8, %5, %3
@@ -5869,11 +5869,11 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..fl
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %19
-  %23 = tail call noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8add_mags17h798b5a931f806d89E"(i16 noundef %0, i16 noundef %12)
+  %23 = tail call noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8add_mags17h798b5a931f806d89E"(i16 noundef %0, i16 noundef %12) #10
   br label %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3add17hb8ac77547fcc1596E.exit3.i"
 
 24:                                               ; preds = %19
-  %25 = tail call noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8sub_mags17hcbf8873b3be421deE"(i16 noundef %0, i16 noundef %12)
+  %25 = tail call noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8sub_mags17hcbf8873b3be421deE"(i16 noundef %0, i16 noundef %12) #10
   br label %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3add17hb8ac77547fcc1596E.exit3.i"
 
 "_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3add17hb8ac77547fcc1596E.exit3.i": ; preds = %24, %22, %17, %15
@@ -5906,11 +5906,11 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..fl
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8sub_mags17hcbf8873b3be421deE"(i16 noundef %4, i16 noundef -16384)
+  %9 = tail call noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8sub_mags17hcbf8873b3be421deE"(i16 noundef %4, i16 noundef -16384) #11
   br label %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3sub17hcac3eddc80ee93ffE.exit.i"
 
 10:                                               ; preds = %6
-  %11 = tail call noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8add_mags17h798b5a931f806d89E"(i16 noundef %4, i16 noundef -16384)
+  %11 = tail call noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8add_mags17h798b5a931f806d89E"(i16 noundef %4, i16 noundef -16384) #11
   br label %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3sub17hcac3eddc80ee93ffE.exit.i"
 
 "_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3sub17hcac3eddc80ee93ffE.exit.i": ; preds = %10, %8, %5, %3
@@ -5927,11 +5927,11 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..fl
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %13
-  %17 = tail call noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8add_mags17h798b5a931f806d89E"(i16 noundef %0, i16 noundef %12)
+  %17 = tail call noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8add_mags17h798b5a931f806d89E"(i16 noundef %0, i16 noundef %12) #10
   br label %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3add17hb8ac77547fcc1596E.exit.i"
 
 18:                                               ; preds = %13
-  %19 = tail call noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8sub_mags17hcbf8873b3be421deE"(i16 noundef %0, i16 noundef %12)
+  %19 = tail call noundef i16 @"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8sub_mags17hcbf8873b3be421deE"(i16 noundef %0, i16 noundef %12) #10
   br label %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3add17hb8ac77547fcc1596E.exit.i"
 
 "_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3add17hb8ac77547fcc1596E.exit.fold.split.i": ; preds = %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$3sub17hcac3eddc80ee93ffE.exit.i"
@@ -6134,6 +6134,8 @@ attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { noreturn }
+attributes #10 = { "function-inline-additional-cost"="6" }
+attributes #11 = { "function-inline-additional-cost"="5" }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

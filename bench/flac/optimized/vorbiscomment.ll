@@ -31,7 +31,7 @@ define dso_local range(i32 0, 2) i32 @flac__vorbiscomment_add(ptr noundef %0, pt
   br i1 %9, label %10, label %local_strdup.exit.i
 
 10:                                               ; preds = %5
-  tail call fastcc void @die(ptr noundef nonnull @.str.2)
+  tail call fastcc void @die(ptr noundef nonnull @.str.2) #12
   unreachable
 
 local_strdup.exit.i:                              ; preds = %5
@@ -40,11 +40,11 @@ local_strdup.exit.i:                              ; preds = %5
   br i1 %12, label %13, label %local_strdup.exit29.i
 
 13:                                               ; preds = %local_strdup.exit.i
-  tail call fastcc void @die(ptr noundef nonnull @.str.2)
+  tail call fastcc void @die(ptr noundef nonnull @.str.2) #12
   unreachable
 
 local_strdup.exit29.i:                            ; preds = %local_strdup.exit.i
-  %14 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 61) #12
+  %14 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 61) #13
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %16
 
@@ -82,7 +82,7 @@ switch.early.test.i:                              ; preds = %.lr.ph.i
   br i1 %24, label %25, label %local_strdup.exit30.i
 
 25:                                               ; preds = %._crit_edge.i
-  tail call fastcc void @die(ptr noundef nonnull @.str.2)
+  tail call fastcc void @die(ptr noundef nonnull @.str.2) #12
   unreachable
 
 local_strdup.exit30.i:                            ; preds = %._crit_edge.i
@@ -102,7 +102,7 @@ local_strdup.exit30.i:                            ; preds = %._crit_edge.i
   br label %free_field.exit
 
 29:                                               ; preds = %local_strdup.exit30.i
-  %30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #12
+  %30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #13
   tail call void @free(ptr noundef nonnull %11) #11
   %31 = and i64 %30, 4294967295
   %.not6 = icmp eq i64 %31, 0
@@ -126,7 +126,7 @@ local_strdup.exit30.i:                            ; preds = %._crit_edge.i
 
 38:                                               ; preds = %36
   %39 = add nuw nsw i64 %34, 1
-  %40 = tail call noalias ptr @malloc(i64 noundef %39) #13
+  %40 = tail call noalias ptr @malloc(i64 noundef %39) #14
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %43
 
@@ -157,7 +157,7 @@ fread.inline.exit.i:                              ; preds = %43
 
 50:                                               ; preds = %fread.inline.exit.i
   %51 = tail call i32 @fclose(ptr noundef nonnull %45)
-  %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #12
+  %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #13
   %.not56.i = icmp eq i64 %52, %34
   br i1 %.not56.i, label %54, label %53
 
@@ -219,7 +219,7 @@ fread.inline.exit.i:                              ; preds = %43
 
 77:                                               ; preds = %75, %71
   %78 = phi ptr [ %76, %75 ], [ %8, %71 ]
-  %79 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %78) #12
+  %79 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %78) #13
   %80 = trunc i64 %79 to i32
   %81 = call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef nonnull %78, i32 noundef %80) #11
   %.not50.i = icmp eq i32 %81, 0
@@ -296,7 +296,7 @@ declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_a
 define internal fastcc void @die(ptr noundef %0) unnamed_addr #4 {
   %2 = load ptr, ptr @stderr, align 8, !tbaa !15
   %3 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef %0) #11
-  tail call void @exit(i32 noundef 1) #14
+  tail call void @exit(i32 noundef 1) #15
   unreachable
 }
 
@@ -345,9 +345,10 @@ attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buf
 attributes #9 = { alwaysinline nobuiltin nounwind sspstrong uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
-attributes #13 = { nounwind allocsize(0) }
-attributes #14 = { cold noreturn nounwind }
+attributes #12 = { "function-inline-additional-cost"="2" }
+attributes #13 = { nounwind willreturn memory(read) }
+attributes #14 = { nounwind allocsize(0) }
+attributes #15 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -462,7 +462,7 @@ define void @DrawCircle(i32 noundef %0, i32 noundef %1, float noundef %2, i32 %3
   %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %5, i64 0
   %6 = sitofp i32 %1 to float
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %6, i64 1
-  tail call void @DrawCircleSector(<2 x float> %.sroa.0.4.vec.insert, float noundef %2, float noundef 0.000000e+00, float noundef 3.600000e+02, i32 noundef 36, i32 %3)
+  tail call void @DrawCircleSector(<2 x float> %.sroa.0.4.vec.insert, float noundef %2, float noundef 0.000000e+00, float noundef 3.600000e+02, i32 noundef 36, i32 %3) #17
   ret void
 }
 
@@ -1246,7 +1246,7 @@ define void @DrawRectangle(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %8, i64 0
   %9 = sitofp i32 %3 to float
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %9, i64 1
-  tail call void @DrawRectanglePro(<2 x float> %.sroa.02.4.vec.insert, <2 x float> %.sroa.0.4.vec.insert, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %4)
+  tail call void @DrawRectanglePro(<2 x float> %.sroa.02.4.vec.insert, <2 x float> %.sroa.0.4.vec.insert, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %4) #17
   ret void
 }
 
@@ -1578,10 +1578,10 @@ define void @DrawRectangleLinesEx(<2 x float> %0, <2 x float> %1, float noundef 
   %22 = fadd float %.sroa.9.8.vec.extract, %21
   %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %22, i64 0
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %18, i64 1
-  tail call void @DrawRectanglePro(<2 x float> %0, <2 x float> %.sroa.513.12.vec.insert, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %3)
-  tail call void @DrawRectanglePro(<2 x float> %.sroa.07.4.vec.insert, <2 x float> %.sroa.513.12.vec.insert, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %3)
-  tail call void @DrawRectanglePro(<2 x float> %.sroa.03.4.vec.insert, <2 x float> %.sroa.55.12.vec.insert, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %3)
-  tail call void @DrawRectanglePro(<2 x float> %.sroa.0.4.vec.insert, <2 x float> %.sroa.55.12.vec.insert, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %3)
+  tail call void @DrawRectanglePro(<2 x float> %0, <2 x float> %.sroa.513.12.vec.insert, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %3) #17
+  tail call void @DrawRectanglePro(<2 x float> %.sroa.07.4.vec.insert, <2 x float> %.sroa.513.12.vec.insert, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %3) #17
+  tail call void @DrawRectanglePro(<2 x float> %.sroa.03.4.vec.insert, <2 x float> %.sroa.55.12.vec.insert, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %3) #17
+  tail call void @DrawRectanglePro(<2 x float> %.sroa.0.4.vec.insert, <2 x float> %.sroa.55.12.vec.insert, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %3) #17
   ret void
 }
 
@@ -1599,7 +1599,7 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %5
-  tail call void @DrawRectanglePro(<2 x float> %0, <2 x float> %1, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %4)
+  tail call void @DrawRectanglePro(<2 x float> %0, <2 x float> %1, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %4) #17
   br label %246
 
 9:                                                ; preds = %5
@@ -2048,10 +2048,10 @@ DrawRectangleLinesEx.exit:                        ; preds = %11, %20, %22, %24
   %32 = fadd float %14, %31
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %32, i64 0
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %28, i64 1
-  tail call void @DrawRectanglePro(<2 x float> %.sroa.0202.4.vec.insert, <2 x float> %.sroa.513.12.vec.insert.i, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %5)
-  tail call void @DrawRectanglePro(<2 x float> %.sroa.07.4.vec.insert.i, <2 x float> %.sroa.513.12.vec.insert.i, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %5)
-  tail call void @DrawRectanglePro(<2 x float> %.sroa.03.4.vec.insert.i, <2 x float> %.sroa.55.12.vec.insert.i, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %5)
-  tail call void @DrawRectanglePro(<2 x float> %.sroa.0.4.vec.insert.i, <2 x float> %.sroa.55.12.vec.insert.i, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %5)
+  tail call void @DrawRectanglePro(<2 x float> %.sroa.0202.4.vec.insert, <2 x float> %.sroa.513.12.vec.insert.i, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %5) #18
+  tail call void @DrawRectanglePro(<2 x float> %.sroa.07.4.vec.insert.i, <2 x float> %.sroa.513.12.vec.insert.i, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %5) #18
+  tail call void @DrawRectanglePro(<2 x float> %.sroa.03.4.vec.insert.i, <2 x float> %.sroa.55.12.vec.insert.i, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %5) #18
+  tail call void @DrawRectanglePro(<2 x float> %.sroa.0.4.vec.insert.i, <2 x float> %.sroa.55.12.vec.insert.i, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %5) #18
   br label %291
 
 33:                                               ; preds = %6
@@ -2992,7 +2992,7 @@ define void @DrawSplineBasis(ptr noundef readonly captures(none) %0, i32 noundef
   br label %13
 
 ._crit_edge:                                      ; preds = %.split137.us
-  tail call void @DrawCircleSector(<2 x float> %.us-phi144, float noundef %12, float noundef 0.000000e+00, float noundef 3.600000e+02, i32 noundef 36, i32 %3)
+  tail call void @DrawCircleSector(<2 x float> %.us-phi144, float noundef %12, float noundef 0.000000e+00, float noundef 3.600000e+02, i32 noundef 36, i32 %3) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %121
 
@@ -3067,7 +3067,7 @@ define void @DrawSplineBasis(ptr noundef readonly captures(none) %0, i32 noundef
   br label %.split.us
 
 .split.preheader:                                 ; preds = %13
-  tail call void @DrawCircleSector(<2 x float> %.sroa.048.4.vec.insert, float noundef %12, float noundef 0.000000e+00, float noundef 3.600000e+02, i32 noundef 36, i32 %3)
+  tail call void @DrawCircleSector(<2 x float> %.sroa.048.4.vec.insert, float noundef %12, float noundef 0.000000e+00, float noundef 3.600000e+02, i32 noundef 36, i32 %3) #17
   br label %.split
 
 .split.us:                                        ; preds = %.split.us.preheader, %.split.us
@@ -3210,7 +3210,7 @@ define void @DrawSplineCatmullRom(ptr noundef readonly captures(none) %0, i32 no
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %8, i8 0, i64 384, i1 false)
   %9 = fmul float %2, 5.000000e-01
-  tail call void @DrawCircleSector(<2 x float> %.sroa.057.0.copyload, float noundef %9, float noundef 0.000000e+00, float noundef 3.600000e+02, i32 noundef 36, i32 %3)
+  tail call void @DrawCircleSector(<2 x float> %.sroa.057.0.copyload, float noundef %9, float noundef 0.000000e+00, float noundef 3.600000e+02, i32 noundef 36, i32 %3) #17
   %10 = add nsw i32 %1, -3
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3219,7 +3219,7 @@ define void @DrawSplineCatmullRom(ptr noundef readonly captures(none) %0, i32 no
   br label %14
 
 ._crit_edge:                                      ; preds = %29
-  tail call void @DrawCircleSector(<2 x float> %.sroa.057.4.vec.insert, float noundef %9, float noundef 0.000000e+00, float noundef 3.600000e+02, i32 noundef 36, i32 %3)
+  tail call void @DrawCircleSector(<2 x float> %.sroa.057.4.vec.insert, float noundef %9, float noundef 0.000000e+00, float noundef 3.600000e+02, i32 noundef 36, i32 %3) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %95
 
@@ -3482,7 +3482,7 @@ DrawSplineSegmentBezierQuadratic.exit:            ; preds = %51
   store float %53, ptr %11, align 8
   store float %52, ptr %10, align 4
   store float %55, ptr %5, align 16
-  call void @DrawTriangleStrip(ptr noundef nonnull %5, i32 noundef 50, i32 %3)
+  call void @DrawTriangleStrip(ptr noundef nonnull %5, i32 noundef 50, i32 %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %64 = icmp samesign ult i64 %indvars.iv.next, %13
   br i1 %64, label %14, label %.loopexit
@@ -4707,6 +4707,9 @@ attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nounwind }
+attributes #17 = { "function-inline-additional-cost"="0" }
+attributes #18 = { "function-inline-additional-cost"="18" }
+attributes #19 = { "function-inline-additional-cost"="15" }
 
 !llvm.module.flags = !{!0, !1, !2}
 

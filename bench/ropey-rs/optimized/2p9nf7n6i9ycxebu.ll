@@ -747,7 +747,7 @@ define hidden void @_ZN5ropey4tree13node_children12NodeChildren17update_child_in
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load i64, ptr %19, align 8, !noalias !94, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !94
-  call void @_ZN5ropey4tree9text_info8TextInfo8from_str17h819b0c193d8bea4eE.llvm.15236414416081531888(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %18, i64 noundef %20)
+  call void @_ZN5ropey4tree9text_info8TextInfo8from_str17h819b0c193d8bea4eE.llvm.15236414416081531888(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %18, i64 noundef %20) #21
   br label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit
 
 21:                                               ; preds = %11
@@ -1204,7 +1204,7 @@ _ZN5ropey4tree13node_children12NodeChildren11get_two_mut17h867e2dd6559cda8aE.exi
   unreachable
 
 _ZN5ropey4tree9node_text8NodeText8push_str17hd26f08c6f314aa95E.exit: ; preds = %77, %88, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit.i"
-  tail call void @"_ZN8smallvec17SmallVec$LT$A$GT$17insert_from_slice17h625c22246fefa2baE.llvm.8018463459433534105"(ptr noalias noundef nonnull align 8 dereferenceable(1000) %42, i64 noundef %82, ptr noalias noundef nonnull readonly align 1 %78, i64 noundef %80)
+  tail call void @"_ZN8smallvec17SmallVec$LT$A$GT$17insert_from_slice17h625c22246fefa2baE.llvm.8018463459433534105"(ptr noalias noundef nonnull align 8 dereferenceable(1000) %42, i64 noundef %82, ptr noalias noundef nonnull readonly align 1 %78, i64 noundef %80) #22
   br label %.loopexit
 
 common.resume:                                    ; preds = %131, %135, %94
@@ -1742,7 +1742,7 @@ _ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit34: ; preds = %_ZN5ro
   unreachable
 
 _ZN5ropey4tree9node_text8NodeText8push_str17hd26f08c6f314aa95E.exit: ; preds = %_ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit34, %101, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit.i"
-  call void @"_ZN8smallvec17SmallVec$LT$A$GT$17insert_from_slice17h625c22246fefa2baE.llvm.8018463459433534105"(ptr noalias noundef nonnull align 8 dereferenceable(1000) %88, i64 noundef %96, ptr noalias noundef nonnull readonly align 1 %94, i64 noundef %95)
+  call void @"_ZN8smallvec17SmallVec$LT$A$GT$17insert_from_slice17h625c22246fefa2baE.llvm.8018463459433534105"(ptr noalias noundef nonnull align 8 dereferenceable(1000) %88, i64 noundef %96, ptr noalias noundef nonnull readonly align 1 %94, i64 noundef %95) #22
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @_ZN5ropey4tree13node_children12NodeChildren6remove17h3b2b5eceb1834907E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %13, ptr noalias noundef nonnull align 8 dereferenceable(968) %0, i64 noundef %.sroa.0.0183)
   call void @llvm.experimental.noalias.scope.decl(metadata !395)
@@ -1914,7 +1914,7 @@ _ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit.thread: ; preds = %_ZN5ropey4cr
   unreachable
 
 _ZN5ropey4tree9node_text8NodeText8push_str17hd26f08c6f314aa95E.exit46: ; preds = %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$5index17h66d5095e8283f190E.exit", %161, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.llvm.8018463459433534105.exit.i45"
-  call void @"_ZN8smallvec17SmallVec$LT$A$GT$17insert_from_slice17h625c22246fefa2baE.llvm.8018463459433534105"(ptr noalias noundef nonnull align 8 dereferenceable(1000) %133, i64 noundef %156, ptr noalias noundef nonnull readonly align 1 %146, i64 noundef %.sroa.014.0)
+  call void @"_ZN8smallvec17SmallVec$LT$A$GT$17insert_from_slice17h625c22246fefa2baE.llvm.8018463459433534105"(ptr noalias noundef nonnull align 8 dereferenceable(1000) %133, i64 noundef %156, ptr noalias noundef nonnull readonly align 1 %146, i64 noundef %.sroa.014.0) #22
   call void @_ZN5ropey4tree9node_text8NodeText14truncate_front17h3c3a9309cf029dd7E(ptr noalias noundef nonnull align 8 dereferenceable(1000) %137, i64 noundef %.sroa.014.0)
   %167 = add nuw nsw i64 %.sroa.0.0183, 1
   br label %182
@@ -3746,6 +3746,8 @@ attributes #17 = { noreturn }
 attributes #18 = { cold }
 attributes #19 = { cold noreturn nounwind }
 attributes #20 = { nounwind }
+attributes #21 = { "function-inline-additional-cost"="13" }
+attributes #22 = { "function-inline-additional-cost"="12" }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

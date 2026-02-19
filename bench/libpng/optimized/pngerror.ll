@@ -799,7 +799,7 @@ define void @png_formatted_warning(ptr noalias noundef %0, ptr noundef readonly 
   br i1 %exitcond.not.i, label %.thread20.loopexit.i, label %.preheader.i, !llvm.loop !28
 
 .split.i:                                         ; preds = %.critedge
-  call fastcc void @png_default_warning(ptr noundef nonnull %4), !noalias !33
+  call fastcc void @png_default_warning(ptr noundef nonnull %4) #24, !noalias !33
   br label %png_warning.exit
 
 .thread20.loopexit.i:                             ; preds = %36, %.preheader.i
@@ -816,7 +816,7 @@ define void @png_formatted_warning(ptr noalias noundef %0, ptr noundef readonly 
   br i1 %.not17.i, label %.split14.i, label %41
 
 .split14.i:                                       ; preds = %.thread20.i
-  call fastcc void @png_default_warning(ptr noundef nonnull %40), !noalias !33
+  call fastcc void @png_default_warning(ptr noundef nonnull %40) #24, !noalias !33
   br label %png_warning.exit
 
 41:                                               ; preds = %.thread20.i
@@ -885,7 +885,7 @@ define void @png_benign_error(ptr noalias noundef %0, ptr noundef %1) local_unna
   br i1 %.not17.i, label %.split14.i, label %25
 
 .split14.i:                                       ; preds = %.thread20.i
-  tail call fastcc void @png_default_warning(ptr noundef nonnull %24), !noalias !39
+  tail call fastcc void @png_default_warning(ptr noundef nonnull %24) #24, !noalias !39
   br label %png_warning.exit
 
 25:                                               ; preds = %.thread20.i
@@ -1055,7 +1055,7 @@ define void @png_chunk_warning(ptr noalias noundef %0, ptr noundef %1) local_unn
   br i1 %.not17.i, label %.split14.i, label %67
 
 .split14.i:                                       ; preds = %.thread20.i
-  call fastcc void @png_default_warning(ptr noundef nonnull %66), !noalias !47
+  call fastcc void @png_default_warning(ptr noundef nonnull %66) #25, !noalias !47
   br label %png_warning.exit
 
 67:                                               ; preds = %.thread20.i
@@ -1126,7 +1126,7 @@ define void @png_app_warning(ptr noalias noundef %0, ptr noundef %1) local_unnam
   br i1 %.not17.i, label %.split14.i, label %17
 
 .split14.i:                                       ; preds = %.thread20.i
-  tail call fastcc void @png_default_warning(ptr noundef nonnull %16), !noalias !50
+  tail call fastcc void @png_default_warning(ptr noundef nonnull %16) #24, !noalias !50
   br label %png_warning.exit
 
 17:                                               ; preds = %.thread20.i
@@ -1181,7 +1181,7 @@ define void @png_app_error(ptr noalias noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not17.i, label %.split14.i, label %17
 
 .split14.i:                                       ; preds = %.thread20.i
-  tail call fastcc void @png_default_warning(ptr noundef nonnull %16), !noalias !53
+  tail call fastcc void @png_default_warning(ptr noundef nonnull %16) #24, !noalias !53
   br label %png_warning.exit
 
 17:                                               ; preds = %.thread20.i
@@ -1339,11 +1339,11 @@ define void @png_chunk_report(ptr noalias noundef %0, ptr noundef %1, i32 nounde
   br i1 %.not.i, label %14, label %png_chunk_benign_error.exit
 
 14:                                               ; preds = %10
-  tail call void @png_chunk_error(ptr noundef nonnull %0, ptr noundef %1) #22
+  tail call void @png_chunk_error(ptr noundef nonnull %0, ptr noundef %1) #26
   unreachable
 
 png_chunk_benign_error.exit:                      ; preds = %10
-  tail call void @png_chunk_warning(ptr noundef nonnull %0, ptr noundef %1)
+  tail call void @png_chunk_warning(ptr noundef nonnull %0, ptr noundef %1) #27
   br label %png_app_warning.exit
 
 15:                                               ; preds = %3
@@ -1390,7 +1390,7 @@ png_chunk_benign_error.exit:                      ; preds = %10
   br i1 %.not17.i.i, label %.split14.i.i, label %32
 
 .split14.i.i:                                     ; preds = %.thread20.i.i
-  tail call fastcc void @png_default_warning(ptr noundef nonnull %31), !noalias !65
+  tail call fastcc void @png_default_warning(ptr noundef nonnull %31) #28, !noalias !65
   br label %png_app_warning.exit
 
 32:                                               ; preds = %.thread20.i.i
@@ -1398,7 +1398,7 @@ png_chunk_benign_error.exit:                      ; preds = %10
   br label %png_app_warning.exit
 
 33:                                               ; preds = %18
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef %1) #22
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef %1) #29
   unreachable
 
 34:                                               ; preds = %15
@@ -1440,7 +1440,7 @@ png_chunk_benign_error.exit:                      ; preds = %10
   br i1 %.not17.i.i15, label %.split14.i.i16, label %48
 
 .split14.i.i16:                                   ; preds = %.thread20.i.i13
-  tail call fastcc void @png_default_warning(ptr noundef nonnull %47), !noalias !72
+  tail call fastcc void @png_default_warning(ptr noundef nonnull %47) #28, !noalias !72
   br label %png_app_warning.exit
 
 48:                                               ; preds = %.thread20.i.i13
@@ -1448,7 +1448,7 @@ png_chunk_benign_error.exit:                      ; preds = %10
   br label %png_app_warning.exit
 
 49:                                               ; preds = %34
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef %1) #22
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef %1) #29
   unreachable
 
 png_app_warning.exit:                             ; preds = %48, %.split14.i.i16, %32, %.split14.i.i, %9, %png_chunk_benign_error.exit
@@ -1552,7 +1552,7 @@ define ptr @png_set_longjmp_fn(ptr noalias noundef %0, ptr noundef %1, i64 nound
   br i1 %.not17.i, label %.split14.i, label %26
 
 .split14.i:                                       ; preds = %23
-  tail call fastcc void @png_default_warning(ptr noundef nonnull @.str.2), !noalias !75
+  tail call fastcc void @png_default_warning(ptr noundef nonnull @.str.2) #25, !noalias !75
   br label %png_warning.exit.thread
 
 26:                                               ; preds = %23
@@ -1594,7 +1594,7 @@ define void @png_free_jmpbuf(ptr noalias noundef %0) local_unnamed_addr #4 {
 
 9:                                                ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %10 = call i32 @_setjmp(ptr noundef nonnull %2) #24
+  %10 = call i32 @_setjmp(ptr noundef nonnull %2) #30
   %.not18 = icmp eq i32 %10, 0
   br i1 %.not18, label %11, label %13
 
@@ -1649,7 +1649,7 @@ define void @png_longjmp(ptr noalias noundef readonly captures(address_is_null) 
   br label %10
 
 10:                                               ; preds = %9, %6, %3, %2
-  tail call void @abort() #25
+  tail call void @abort() #31
   unreachable
 }
 
@@ -1742,7 +1742,7 @@ png_safecat.exit:                                 ; preds = %.lr.ph.i, %5, %.pre
   br i1 %.not15, label %.lr.ph.i17.preheader, label %24
 
 24:                                               ; preds = %21
-  tail call void @longjmp(ptr noundef nonnull %23, i32 noundef 1) #25
+  tail call void @longjmp(ptr noundef nonnull %23, i32 noundef 1) #31
   unreachable
 
 .lr.ph.i17:                                       ; preds = %.lr.ph.i17.preheader, %.lr.ph.i17
@@ -1788,7 +1788,7 @@ png_safecat.exit28:                               ; preds = %.lr.ph.i25, %30, %.
   br label %42
 
 42:                                               ; preds = %png_safecat.exit28, %2
-  tail call void @abort() #25
+  tail call void @abort() #31
   unreachable
 }
 
@@ -1843,7 +1843,7 @@ define i32 @png_safe_execute(ptr noundef %0, ptr noundef readonly captures(none)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !84
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %8 = call i32 @_setjmp(ptr noundef nonnull %4) #24
+  %8 = call i32 @_setjmp(ptr noundef nonnull %4) #30
   %9 = icmp eq i32 %8, 0
   %10 = load ptr, ptr %0, align 8, !tbaa !83
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -1912,8 +1912,14 @@ attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessi
 attributes #21 = { nounwind }
 attributes #22 = { noreturn }
 attributes #23 = { cold nounwind }
-attributes #24 = { nounwind returns_twice }
-attributes #25 = { noreturn nounwind }
+attributes #24 = { "function-inline-additional-cost"="7" }
+attributes #25 = { "function-inline-additional-cost"="4" }
+attributes #26 = { noreturn "function-inline-additional-cost"="3" }
+attributes #27 = { "function-inline-additional-cost"="3" }
+attributes #28 = { "function-inline-additional-cost"="8" }
+attributes #29 = { noreturn "function-inline-additional-cost"="8" }
+attributes #30 = { nounwind returns_twice }
+attributes #31 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -3730,7 +3730,7 @@ define void @"_ZN111_$LT$i16$u20$as$u20$deku..impls..primitive..DekuRead$LT$$LP$
   %6 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = shl i64 %4, 3
-  call void @"_ZN110_$LT$u16$u20$as$u20$deku..impls..primitive..DekuRead$LT$$LP$deku..ctx..Endian$C$deku..ctx..BitSize$RP$$GT$$GT$4read17h8f4af839055dda00E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef zeroext %3, i64 noundef %7)
+  call void @"_ZN110_$LT$u16$u20$as$u20$deku..impls..primitive..DekuRead$LT$$LP$deku..ctx..Endian$C$deku..ctx..BitSize$RP$$GT$$GT$4read17h8f4af839055dda00E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef zeroext %3, i64 noundef %7) #15
   %8 = load i8, ptr %6, align 8, !range !393, !noundef !6
   %.not = icmp eq i8 %8, 7
   br i1 %.not, label %10, label %9
@@ -3825,7 +3825,7 @@ define void @"_ZN111_$LT$i32$u20$as$u20$deku..impls..primitive..DekuRead$LT$$LP$
   %6 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = shl i64 %4, 3
-  call void @"_ZN110_$LT$u32$u20$as$u20$deku..impls..primitive..DekuRead$LT$$LP$deku..ctx..Endian$C$deku..ctx..BitSize$RP$$GT$$GT$4read17h5bcb36a01508144cE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef zeroext %3, i64 noundef %7)
+  call void @"_ZN110_$LT$u32$u20$as$u20$deku..impls..primitive..DekuRead$LT$$LP$deku..ctx..Endian$C$deku..ctx..BitSize$RP$$GT$$GT$4read17h5bcb36a01508144cE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef zeroext %3, i64 noundef %7) #15
   %8 = load i8, ptr %6, align 8, !range !393, !noundef !6
   %.not = icmp eq i8 %8, 7
   br i1 %.not, label %10, label %9
@@ -3920,7 +3920,7 @@ define void @"_ZN111_$LT$i64$u20$as$u20$deku..impls..primitive..DekuRead$LT$$LP$
   %6 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = shl i64 %4, 3
-  call void @"_ZN110_$LT$u64$u20$as$u20$deku..impls..primitive..DekuRead$LT$$LP$deku..ctx..Endian$C$deku..ctx..BitSize$RP$$GT$$GT$4read17h839a3b41cbe734bdE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef zeroext %3, i64 noundef %7)
+  call void @"_ZN110_$LT$u64$u20$as$u20$deku..impls..primitive..DekuRead$LT$$LP$deku..ctx..Endian$C$deku..ctx..BitSize$RP$$GT$$GT$4read17h839a3b41cbe734bdE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef zeroext %3, i64 noundef %7) #15
   %8 = load i8, ptr %6, align 8, !range !393, !noundef !6
   %.not = icmp eq i8 %8, 7
   br i1 %.not, label %10, label %9
@@ -4015,7 +4015,7 @@ define void @"_ZN112_$LT$i128$u20$as$u20$deku..impls..primitive..DekuRead$LT$$LP
   %6 = alloca [48 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = shl i64 %4, 3
-  call void @"_ZN111_$LT$u128$u20$as$u20$deku..impls..primitive..DekuRead$LT$$LP$deku..ctx..Endian$C$deku..ctx..BitSize$RP$$GT$$GT$4read17hca0b30d6ce777ea3E"(ptr noalias noundef nonnull sret([48 x i8]) align 16 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef zeroext %3, i64 noundef %7)
+  call void @"_ZN111_$LT$u128$u20$as$u20$deku..impls..primitive..DekuRead$LT$$LP$deku..ctx..Endian$C$deku..ctx..BitSize$RP$$GT$$GT$4read17hca0b30d6ce777ea3E"(ptr noalias noundef nonnull sret([48 x i8]) align 16 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef zeroext %3, i64 noundef %7) #15
   %8 = load i64, ptr %6, align 16, !range !153, !noundef !6
   %9 = trunc nuw i64 %8 to i1
   br i1 %9, label %10, label %13
@@ -4120,7 +4120,7 @@ define void @"_ZN113_$LT$isize$u20$as$u20$deku..impls..primitive..DekuRead$LT$$L
   %6 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = shl i64 %4, 3
-  call void @"_ZN112_$LT$usize$u20$as$u20$deku..impls..primitive..DekuRead$LT$$LP$deku..ctx..Endian$C$deku..ctx..BitSize$RP$$GT$$GT$4read17ha3a704d71fbb5e53E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef zeroext %3, i64 noundef %7)
+  call void @"_ZN112_$LT$usize$u20$as$u20$deku..impls..primitive..DekuRead$LT$$LP$deku..ctx..Endian$C$deku..ctx..BitSize$RP$$GT$$GT$4read17ha3a704d71fbb5e53E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef zeroext %3, i64 noundef %7) #15
   %8 = load i8, ptr %6, align 8, !range !393, !noundef !6
   %.not = icmp eq i8 %8, 7
   br i1 %.not, label %10, label %9
@@ -5267,6 +5267,7 @@ attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { noreturn }
 attributes #13 = { cold }
 attributes #14 = { cold noreturn nounwind }
+attributes #15 = { "function-inline-additional-cost"="0" }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

@@ -178,7 +178,7 @@ define dso_local range(i32 -1, 1) i32 @xopen_for_read(ptr noundef readonly captu
   br i1 %18, label %quote_path.exit.thread, label %20
 
 quote_path.exit.thread:                           ; preds = %17
-  tail call void (ptr, ...) @msg(ptr noundef nonnull @.str)
+  tail call void (ptr, ...) @msg(ptr noundef nonnull @.str) #23
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %19, align 8, !tbaa !21
   br label %34
@@ -260,7 +260,7 @@ define dso_local range(i32 -2, 1) i32 @xopen_for_write(ptr noundef readonly capt
   br i1 %18, label %quote_path.exit.thread, label %quote_path.exit
 
 quote_path.exit.thread:                           ; preds = %17
-  tail call void (ptr, ...) @msg(ptr noundef nonnull @.str)
+  tail call void (ptr, ...) @msg(ptr noundef nonnull @.str) #24
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %19, align 8, !tbaa !21
   br label %55
@@ -438,7 +438,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @read_full_contents(ptr nou
   br i1 %3, label %xmalloc.exit.thread, label %xmalloc.exit
 
 xmalloc.exit.thread:                              ; preds = %1
-  tail call void (ptr, ...) @msg(ptr noundef nonnull @.str)
+  tail call void (ptr, ...) @msg(ptr noundef nonnull @.str) #25
   br label %40
 
 xmalloc.exit:                                     ; preds = %1, %32
@@ -454,7 +454,7 @@ xmalloc.exit:                                     ; preds = %1, %32
 
 7:                                                ; preds = %5
   %8 = tail call i64 @llvm.uadd.sat.i64(i64 %.037, i64 %.037)
-  %9 = tail call ptr @realloc(ptr noundef %.033, i64 noundef %8) #23
+  %9 = tail call ptr @realloc(ptr noundef %.033, i64 noundef %8) #26
   %10 = icmp eq ptr %9, null
   br i1 %10, label %select.unfold, label %11
 
@@ -493,7 +493,7 @@ xmalloc.exit:                                     ; preds = %1, %32
 xread.exit.thread:                                ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !21
-  tail call void (ptr, ...) @msg_errno(ptr noundef nonnull @.str.11, ptr noundef %24)
+  tail call void (ptr, ...) @msg_errno(ptr noundef nonnull @.str.11, ptr noundef %24) #23
   br label %.loopexit
 
 25:                                               ; preds = %18
@@ -839,7 +839,10 @@ attributes #19 = { cold nounwind }
 attributes #20 = { nounwind }
 attributes #21 = { nounwind allocsize(0) }
 attributes #22 = { nounwind willreturn memory(read) }
-attributes #23 = { nounwind allocsize(1) }
+attributes #23 = { "function-inline-additional-cost"="10" }
+attributes #24 = { "function-inline-additional-cost"="6" }
+attributes #25 = { "function-inline-additional-cost"="3" }
+attributes #26 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 !llvm.ident = !{!4}

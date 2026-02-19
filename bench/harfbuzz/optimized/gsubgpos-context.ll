@@ -136,7 +136,7 @@ _ZN5graph5GSTAR8sanitizeERKNS_7graph_t8vertex_tE.exit.i: ; preds = %34
 
 _ZN5graph5GSTAR12find_lookupsERNS_7graph_tER12hb_hashmap_tIjPNS_6LookupELb0EE.exit: ; preds = %40
   %42 = load ptr, ptr %4, align 8, !tbaa !50
-  tail call void @_ZN5graph5GSTAR12find_lookupsIN2OT6Layout10SmallTypesEEEvRNS_7graph_tER12hb_hashmap_tIjPNS_6LookupELb0EE(ptr noundef nonnull align 1 dereferenceable(14) %26, ptr noundef nonnull align 8 dereferenceable(72) %42, ptr noundef nonnull align 8 dereferenceable(48) %6)
+  tail call void @_ZN5graph5GSTAR12find_lookupsIN2OT6Layout10SmallTypesEEEvRNS_7graph_tER12hb_hashmap_tIjPNS_6LookupELb0EE(ptr noundef nonnull align 1 dereferenceable(14) %26, ptr noundef nonnull align 8 dereferenceable(72) %42, ptr noundef nonnull align 8 dereferenceable(48) %6) #14
   %.pre = load i16, ptr %26, align 1, !tbaa !48
   %.pre.fr = freeze i16 %.pre
   %43 = icmp eq i16 %.pre.fr, 256
@@ -207,7 +207,7 @@ _ZN5graph5GSTAR14graph_to_gstarERNS_7graph_tE.exit.thread: ; preds = %27, %18, %
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN5graph24gsubgpos_graph_context_t11create_nodeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = zext i32 %1 to i64
-  %4 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %3) #14
+  %4 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %3) #15
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %46, label %5
 
@@ -252,7 +252,7 @@ _ZN11hb_vector_tIPcLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivi
   %22 = load ptr, ptr %21, align 8, !tbaa !62
   %23 = shl nuw i32 %18, 3
   %24 = zext i32 %23 to i64
-  %25 = tail call ptr @realloc(ptr noundef %22, i64 noundef %24) #15
+  %25 = tail call ptr @realloc(ptr noundef %22, i64 noundef %24) #16
   %.not21.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not21.i.i.i.i, label %26, label %_ZN11hb_vector_tIPcLb0EE5allocEjb.exit.i.i.i, !prof !64
 
@@ -336,7 +336,7 @@ define linkonce_odr dso_local noundef i32 @_ZN5graph7graph_t8new_nodeEPcS1_(ptr 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !68
   %8 = add i32 %7, 1
-  %9 = tail call noundef zeroext i1 @_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EE6resizeEibb(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %8, i1 noundef zeroext true, i1 noundef zeroext false)
+  %9 = tail call noundef zeroext i1 @_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EE6resizeEibb(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %8, i1 noundef zeroext true, i1 noundef zeroext false) #17
   br i1 %9, label %11, label %10, !prof !69
 
 10:                                               ; preds = %3
@@ -791,7 +791,7 @@ _ZNK5graph6Lookup8sanitizeERNS_7graph_t8vertex_tE.exit: ; preds = %_ZN11hb_vecto
 95:                                               ; preds = %_ZNK5graph6Lookup8sanitizeERNS_7graph_t8vertex_tE.exit
   %.val.i = load i32, ptr %4, align 4, !tbaa !95
   %96 = mul i32 %.val.i, -1640531535
-  %97 = call noundef zeroext i1 @_ZN12hb_hashmap_tIjPN5graph6LookupELb0EE13set_with_hashIRKjRS2_EEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %96, ptr noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext true)
+  %97 = call noundef zeroext i1 @_ZN12hb_hashmap_tIjPN5graph6LookupELb0EE13set_with_hashIRKjRS2_EEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %96, ptr noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext true) #14
   br label %_ZNK5graph6Lookup8sanitizeERNS_7graph_t8vertex_tE.exit.thread
 
 _ZNK5graph6Lookup8sanitizeERNS_7graph_t8vertex_tE.exit.thread: ; preds = %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit29, %_ZNK5graph7graph_t16index_for_offsetEjPKv.exit, %_ZNK5graph6Lookup8sanitizeERNS_7graph_t8vertex_tE.exit, %95
@@ -981,7 +981,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjPN5graph6Lo
   %19 = shl nuw i32 1, %narrow.i
   %20 = zext i32 %19 to i64
   %21 = shl nuw nsw i64 %20, 4
-  %22 = tail call noalias ptr @malloc(i64 noundef %21) #16
+  %22 = tail call noalias ptr @malloc(i64 noundef %21) #18
   %.not24.not = icmp eq ptr %22, null
   br i1 %.not24.not, label %23, label %24, !prof !37
 
@@ -1295,7 +1295,7 @@ _ZNK12hb_hashmap_tIjjLb0EE10fetch_itemERKjj.exit.i: ; preds = %30, %.lr.ph.i.i
   %46 = load i32, ptr %45, align 4, !tbaa !95
   store i32 %46, ptr %5, align 4, !tbaa !95
   %47 = mul i32 %2, -1640531535
-  %48 = call noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb0EE13set_with_hashIRKjRjEEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %47, ptr noundef nonnull align 4 dereferenceable(4) %5, i1 noundef zeroext true)
+  %48 = call noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb0EE13set_with_hashIRKjRjEEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %47, ptr noundef nonnull align 4 dereferenceable(4) %5, i1 noundef zeroext true) #14
   br i1 %48, label %54, label %49
 
 49:                                               ; preds = %43
@@ -1470,7 +1470,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN11hb_vector_tIN5graph7graph
   br i1 %18, label %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EE5allocEjb.exit.thread21, label %19, !prof !37
 
 19:                                               ; preds = %.thread.i
-  %20 = tail call noundef ptr @_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXntsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.01437.i)
+  %20 = tail call noundef ptr @_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXntsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.01437.i) #19
   %21 = icmp ne i32 %.01437.i, 0
   %.not21.i = icmp eq ptr %20, null
   %22 = and i1 %21, %.not21.i
@@ -1580,7 +1580,7 @@ define linkonce_odr dso_local void @_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb
 14:                                               ; preds = %.lr.ph
   %15 = inttoptr i64 %13 to ptr
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(56) %15)
+  tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(56) %15) #20
   %17 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %15) #13
   tail call void @free(ptr noundef nonnull %15) #13
   store atomic i64 0, ptr %12 monotonic, align 8
@@ -1648,7 +1648,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11hb_vector_tIN5graph7graph_t8vert
 3:                                                ; preds = %2
   %4 = zext i32 %1 to i64
   %5 = mul nuw nsw i64 %4, 136
-  %6 = tail call noalias ptr @malloc(i64 noundef %5) #16
+  %6 = tail call noalias ptr @malloc(i64 noundef %5) #18
   %.not16 = icmp eq ptr %6, null
   br i1 %.not16, label %87, label %.preheader, !prof !37
 
@@ -1766,7 +1766,7 @@ _ZN5graph7graph_t8vertex_taSEOS1_.exit:           ; preds = %10, %47
 67:                                               ; preds = %_ZN5graph7graph_t8vertex_taSEOS1_.exit
   %68 = inttoptr i64 %66 to ptr
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
-  tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(56) %68)
+  tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(56) %68) #20
   %70 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %68) #13
   tail call void @free(ptr noundef nonnull %68) #13
   store atomic i64 0, ptr %65 monotonic, align 8
@@ -2235,7 +2235,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb0EE5allo
   %narrow.i = sub nuw nsw i32 32, %18
   %19 = zext nneg i32 %narrow.i to i64
   %20 = shl nuw nsw i64 12, %19
-  %21 = tail call noalias ptr @malloc(i64 noundef %20) #16
+  %21 = tail call noalias ptr @malloc(i64 noundef %20) #18
   %.not24.not = icmp eq ptr %21, null
   br i1 %.not24.not, label %22, label %23, !prof !37
 
@@ -2487,9 +2487,13 @@ attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-si
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind }
-attributes #14 = { nounwind allocsize(0,1) }
-attributes #15 = { nounwind allocsize(1) }
-attributes #16 = { nounwind allocsize(0) }
+attributes #14 = { "function-inline-additional-cost"="0" }
+attributes #15 = { nounwind allocsize(0,1) }
+attributes #16 = { nounwind allocsize(1) }
+attributes #17 = { "function-inline-additional-cost"="3" }
+attributes #18 = { nounwind allocsize(0) }
+attributes #19 = { "function-inline-additional-cost"="9" }
+attributes #20 = { "function-inline-additional-cost"="18" }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

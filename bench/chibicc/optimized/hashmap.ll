@@ -564,7 +564,7 @@ define dso_local void @hashmap_test() local_unnamed_addr #0 {
   %5 = inttoptr i64 %indvars.iv to ptr
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #9
   %7 = trunc i64 %6 to i32
-  tail call void @hashmap_put2(ptr noundef %1, ptr noundef nonnull %4, i32 noundef %7, ptr noundef %5)
+  tail call void @hashmap_put2(ptr noundef %1, ptr noundef nonnull %4, i32 noundef %7, ptr noundef %5) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5000
   br i1 %exitcond.not, label %.preheader53, label %2, !llvm.loop !31
@@ -584,7 +584,7 @@ define dso_local void @hashmap_test() local_unnamed_addr #0 {
   %12 = inttoptr i64 %indvars.iv61 to ptr
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #9
   %14 = trunc i64 %13 to i32
-  tail call void @hashmap_put2(ptr noundef %1, ptr noundef nonnull %11, i32 noundef %14, ptr noundef nonnull %12)
+  tail call void @hashmap_put2(ptr noundef %1, ptr noundef nonnull %11, i32 noundef %14, ptr noundef nonnull %12) #13
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next62, 1600
   br i1 %exitcond64.not, label %.preheader51, label %.preheader52, !llvm.loop !33
@@ -596,7 +596,7 @@ define dso_local void @hashmap_test() local_unnamed_addr #0 {
   %17 = inttoptr i64 %indvars.iv65 to ptr
   %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #9
   %19 = trunc i64 %18 to i32
-  tail call void @hashmap_put2(ptr noundef %1, ptr noundef nonnull %16, i32 noundef %19, ptr noundef nonnull %17)
+  tail call void @hashmap_put2(ptr noundef %1, ptr noundef nonnull %16, i32 noundef %19, ptr noundef nonnull %17) #13
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next66, 7000
   br i1 %exitcond68.not, label %.preheader, label %.preheader51, !llvm.loop !34
@@ -612,7 +612,7 @@ define dso_local void @hashmap_test() local_unnamed_addr #0 {
   %23 = inttoptr i64 %indvars.iv69 to ptr
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #9
   %25 = trunc i64 %24 to i32
-  tail call void @hashmap_put2(ptr noundef %1, ptr noundef nonnull %22, i32 noundef %25, ptr noundef nonnull %23)
+  tail call void @hashmap_put2(ptr noundef %1, ptr noundef nonnull %22, i32 noundef %25, ptr noundef nonnull %23) #13
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next70, 7000
   br i1 %exitcond72.not, label %20, label %.preheader, !llvm.loop !35
@@ -654,6 +654,7 @@ attributes #9 = { nounwind willreturn memory(read) }
 attributes #10 = { noreturn nounwind }
 attributes #11 = { nounwind allocsize(0,1) }
 attributes #12 = { nounwind }
+attributes #13 = { "function-inline-additional-cost"="2" }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

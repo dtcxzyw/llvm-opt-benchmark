@@ -327,7 +327,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficients(i32 nound
   ]
 
 2:                                                ; preds = %1
-  %3 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef 1, i32 noundef 2)
+  %3 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef 1, i32 noundef 2) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %SplittingStepCoefficients_LieTrotter.exit, label %5
 
@@ -354,7 +354,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficients(i32 nound
 15:                                               ; preds = %1
   %16 = tail call i32 @SUNIpowerI(i32 noundef 3, i32 noundef 0) #16
   %17 = add nsw i32 %16, 1
-  %18 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef %17, i32 noundef 2)
+  %18 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef %17, i32 noundef 2) #18
   %19 = icmp eq ptr %18, null
   br i1 %19, label %SplittingStepCoefficients_LieTrotter.exit, label %20
 
@@ -411,7 +411,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficients(i32 nound
   br label %SplittingStepCoefficients_LieTrotter.exit
 
 46:                                               ; preds = %1
-  %47 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef 3, i32 noundef 2)
+  %47 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef 3, i32 noundef 2) #18
   %48 = icmp eq ptr %47, null
   br i1 %48, label %SplittingStepCoefficients_LieTrotter.exit, label %.preheader36.us.i
 
@@ -484,7 +484,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficients(i32 nound
 85:                                               ; preds = %1
   %86 = tail call i32 @SUNIpowerI(i32 noundef 3, i32 noundef 1) #16
   %87 = add nsw i32 %86, 1
-  %88 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef %87, i32 noundef 2)
+  %88 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef %87, i32 noundef 2) #18
   %89 = icmp eq ptr %88, null
   br i1 %89, label %SplittingStepCoefficients_LieTrotter.exit, label %90
 
@@ -496,13 +496,13 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficients(i32 nound
   %93 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %94 = load ptr, ptr %93, align 8, !tbaa !15
   %95 = load ptr, ptr %94, align 8, !tbaa !16
-  %96 = tail call fastcc ptr @SplittingStepCoefficients_ComposeStrangHelper(i32 noundef 2, i32 noundef 4, i32 noundef 3, double noundef 0.000000e+00, double noundef 1.000000e+00, ptr noundef %95)
+  %96 = tail call fastcc ptr @SplittingStepCoefficients_ComposeStrangHelper(i32 noundef 2, i32 noundef 4, i32 noundef 3, double noundef 0.000000e+00, double noundef 1.000000e+00, ptr noundef %95) #18
   br label %SplittingStepCoefficients_LieTrotter.exit
 
 97:                                               ; preds = %1
   %98 = tail call i32 @SUNIpowerI(i32 noundef 3, i32 noundef 2) #16
   %99 = add nsw i32 %98, 1
-  %100 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef %99, i32 noundef 2)
+  %100 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef %99, i32 noundef 2) #18
   %101 = icmp eq ptr %100, null
   br i1 %101, label %SplittingStepCoefficients_LieTrotter.exit, label %102
 
@@ -514,7 +514,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficients(i32 nound
   %105 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %106 = load ptr, ptr %105, align 8, !tbaa !15
   %107 = load ptr, ptr %106, align 8, !tbaa !16
-  %108 = tail call fastcc ptr @SplittingStepCoefficients_ComposeStrangHelper(i32 noundef 2, i32 noundef 6, i32 noundef 3, double noundef 0.000000e+00, double noundef 1.000000e+00, ptr noundef %107)
+  %108 = tail call fastcc ptr @SplittingStepCoefficients_ComposeStrangHelper(i32 noundef 2, i32 noundef 6, i32 noundef 3, double noundef 0.000000e+00, double noundef 1.000000e+00, ptr noundef %107) #18
   br label %SplittingStepCoefficients_LieTrotter.exit
 
 109:                                              ; preds = %1
@@ -567,7 +567,7 @@ define noalias noundef ptr @SplittingStepCoefficients_Strang(i32 noundef %0) loc
   %3 = tail call i32 @SUNIpowerI(i32 noundef 3, i32 noundef 0) #16
   %4 = mul nsw i32 %3, %2
   %5 = add nsw i32 %4, 1
-  %6 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef %5, i32 noundef %0)
+  %6 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef %5, i32 noundef %0) #18
   %7 = icmp eq ptr %6, null
   br i1 %7, label %SplittingStepCoefficients_TripleJump.exit, label %8
 
@@ -709,7 +709,7 @@ define noalias noundef ptr @SplittingStepCoefficients_TripleJump(i32 noundef %0,
   %9 = tail call i32 @SUNIpowerI(i32 noundef 3, i32 noundef %8) #16
   %10 = mul nsw i32 %9, %6
   %11 = add nsw i32 %10, 1
-  %12 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef %11, i32 noundef %0)
+  %12 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef %11, i32 noundef %0) #19
   %13 = icmp eq ptr %12, null
   br i1 %13, label %SplittingStepCoefficients_ComposeStrang.exit, label %14
 
@@ -721,7 +721,7 @@ define noalias noundef ptr @SplittingStepCoefficients_TripleJump(i32 noundef %0,
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !15
   %19 = load ptr, ptr %18, align 8, !tbaa !16
-  %20 = tail call fastcc ptr @SplittingStepCoefficients_ComposeStrangHelper(i32 noundef %0, i32 noundef %1, i32 noundef 3, double noundef 0.000000e+00, double noundef 1.000000e+00, ptr noundef %19)
+  %20 = tail call fastcc ptr @SplittingStepCoefficients_ComposeStrangHelper(i32 noundef %0, i32 noundef %1, i32 noundef 3, double noundef 0.000000e+00, double noundef 1.000000e+00, ptr noundef %19) #19
   br label %SplittingStepCoefficients_ComposeStrang.exit
 
 SplittingStepCoefficients_ComposeStrang.exit:     ; preds = %2, %5, %14
@@ -733,17 +733,17 @@ declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
-  %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(22) @.str.2, ptr noundef nonnull dereferenceable(1) %0) #17
+  %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(22) @.str.2, ptr noundef nonnull dereferenceable(1) %0) #20
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %SplittingStepCoefficients_LieTrotter.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(35) @.str.3, ptr noundef nonnull dereferenceable(1) %0) #17
+  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(35) @.str.3, ptr noundef nonnull dereferenceable(1) %0) #20
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %20
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef 1, i32 noundef 2)
+  %8 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef 1, i32 noundef 2) #17
   %9 = icmp eq ptr %8, null
   br i1 %9, label %SplittingStepCoefficients_LieTrotter.exit, label %10
 
@@ -768,14 +768,14 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr
   br i1 %exitcond.not.i, label %SplittingStepCoefficients_LieTrotter.exit, label %18
 
 20:                                               ; preds = %4
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(30) @.str.4, ptr noundef nonnull dereferenceable(1) %0) #17
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(30) @.str.4, ptr noundef nonnull dereferenceable(1) %0) #20
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %41
 
 23:                                               ; preds = %20
   %24 = tail call i32 @SUNIpowerI(i32 noundef 3, i32 noundef 0) #16
   %25 = add nsw i32 %24, 1
-  %26 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef %25, i32 noundef 2)
+  %26 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef %25, i32 noundef 2) #18
   %27 = icmp eq ptr %26, null
   br i1 %27, label %SplittingStepCoefficients_LieTrotter.exit, label %28
 
@@ -811,7 +811,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr
   br i1 %exitcond69.not.i.i, label %SplittingStepCoefficients_LieTrotter.exit, label %.preheader.us.i.i
 
 41:                                               ; preds = %20
-  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(28) @.str.5, ptr noundef nonnull dereferenceable(1) %0) #17
+  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(28) @.str.5, ptr noundef nonnull dereferenceable(1) %0) #20
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %57
 
@@ -837,12 +837,12 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr
   br label %SplittingStepCoefficients_LieTrotter.exit
 
 57:                                               ; preds = %41
-  %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(30) @.str.6, ptr noundef nonnull dereferenceable(1) %0) #17
+  %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(30) @.str.6, ptr noundef nonnull dereferenceable(1) %0) #20
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %83
 
 60:                                               ; preds = %57
-  %61 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef 3, i32 noundef 2)
+  %61 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef 3, i32 noundef 2) #18
   %62 = icmp eq ptr %61, null
   br i1 %62, label %SplittingStepCoefficients_LieTrotter.exit, label %.preheader36.us.i
 
@@ -887,7 +887,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr
   br i1 %exitcond50.not.i, label %SplittingStepCoefficients_LieTrotter.exit, label %81
 
 83:                                               ; preds = %57
-  %84 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(28) @.str.7, ptr noundef nonnull dereferenceable(1) %0) #17
+  %84 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(28) @.str.7, ptr noundef nonnull dereferenceable(1) %0) #20
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %86, label %102
 
@@ -918,14 +918,14 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr
   br label %SplittingStepCoefficients_LieTrotter.exit
 
 102:                                              ; preds = %83
-  %103 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(31) @.str.8, ptr noundef nonnull dereferenceable(1) %0) #17
+  %103 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(31) @.str.8, ptr noundef nonnull dereferenceable(1) %0) #20
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %105, label %117
 
 105:                                              ; preds = %102
   %106 = tail call i32 @SUNIpowerI(i32 noundef 3, i32 noundef 1) #16
   %107 = add nsw i32 %106, 1
-  %108 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef %107, i32 noundef 2)
+  %108 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef %107, i32 noundef 2) #18
   %109 = icmp eq ptr %108, null
   br i1 %109, label %SplittingStepCoefficients_LieTrotter.exit, label %110
 
@@ -937,11 +937,11 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr
   %113 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %114 = load ptr, ptr %113, align 8, !tbaa !15
   %115 = load ptr, ptr %114, align 8, !tbaa !16
-  %116 = tail call fastcc ptr @SplittingStepCoefficients_ComposeStrangHelper(i32 noundef 2, i32 noundef 4, i32 noundef 3, double noundef 0.000000e+00, double noundef 1.000000e+00, ptr noundef %115)
+  %116 = tail call fastcc ptr @SplittingStepCoefficients_ComposeStrangHelper(i32 noundef 2, i32 noundef 4, i32 noundef 3, double noundef 0.000000e+00, double noundef 1.000000e+00, ptr noundef %115) #18
   br label %SplittingStepCoefficients_LieTrotter.exit
 
 117:                                              ; preds = %102
-  %118 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(31) @.str.9, ptr noundef nonnull dereferenceable(1) %0) #17
+  %118 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(31) @.str.9, ptr noundef nonnull dereferenceable(1) %0) #20
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %120, label %122
 
@@ -1361,7 +1361,10 @@ attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessi
 attributes #14 = { nounwind allocsize(0) }
 attributes #15 = { nounwind allocsize(0,1) }
 attributes #16 = { nounwind }
-attributes #17 = { nounwind willreturn memory(read) }
+attributes #17 = { "function-inline-additional-cost"="4" }
+attributes #18 = { "function-inline-additional-cost"="9" }
+attributes #19 = { "function-inline-additional-cost"="11" }
+attributes #20 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

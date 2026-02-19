@@ -57,7 +57,7 @@ define noundef i64 @_ZN11OpenImageIO6v3_1_08farmhash4HashEPKcm(ptr noundef %0, i
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN11OpenImageIO6v3_1_08farmhash14Hash64WithSeedEPKcmm(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 {
-  %4 = tail call noundef i64 @_ZN11OpenImageIO6v3_1_08farmhash10farmhashna6Hash64EPKcm(ptr noundef %0, i64 noundef %1)
+  %4 = tail call noundef i64 @_ZN11OpenImageIO6v3_1_08farmhash10farmhashna6Hash64EPKcm(ptr noundef %0, i64 noundef %1) #7
   %5 = add i64 %4, 7286425919675154353
   %6 = xor i64 %5, %2
   %7 = mul i64 %6, -7070675565921424023
@@ -73,7 +73,7 @@ define noundef i64 @_ZN11OpenImageIO6v3_1_08farmhash14Hash64WithSeedEPKcmm(ptr n
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN11OpenImageIO6v3_1_08farmhash15Hash64WithSeedsEPKcmmm(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #3 {
-  %5 = tail call noundef i64 @_ZN11OpenImageIO6v3_1_08farmhash10farmhashna6Hash64EPKcm(ptr noundef %0, i64 noundef %1)
+  %5 = tail call noundef i64 @_ZN11OpenImageIO6v3_1_08farmhash10farmhashna6Hash64EPKcm(ptr noundef %0, i64 noundef %1) #7
   %6 = sub i64 %5, %2
   %7 = xor i64 %6, %3
   %8 = mul i64 %7, -7070675565921424023
@@ -99,11 +99,11 @@ define { i64, i64 } @_ZN11OpenImageIO6v3_1_08farmhash7Hash128EPKcm(ptr noundef %
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 1
   %10 = add i64 %9, -4348849565147123417
-  %11 = tail call { i64, i64 } @_ZN11OpenImageIO6v3_1_08farmhash10farmhashcc19CityHash128WithSeedEPKcmSt4pairImmE(ptr noundef nonnull %5, i64 noundef %6, i64 %7, i64 %10)
+  %11 = tail call { i64, i64 } @_ZN11OpenImageIO6v3_1_08farmhash10farmhashcc19CityHash128WithSeedEPKcmSt4pairImmE(ptr noundef nonnull %5, i64 noundef %6, i64 %7, i64 %10) #8
   br label %_ZN11OpenImageIO6v3_1_08farmhash7inlined7Hash128EPKcm.exit
 
 12:                                               ; preds = %2
-  %13 = tail call { i64, i64 } @_ZN11OpenImageIO6v3_1_08farmhash10farmhashcc19CityHash128WithSeedEPKcmSt4pairImmE(ptr noundef %0, i64 noundef %1, i64 -4348849565147123417, i64 -5435081209227447693)
+  %13 = tail call { i64, i64 } @_ZN11OpenImageIO6v3_1_08farmhash10farmhashcc19CityHash128WithSeedEPKcmSt4pairImmE(ptr noundef %0, i64 noundef %1, i64 -4348849565147123417, i64 -5435081209227447693) #8
   br label %_ZN11OpenImageIO6v3_1_08farmhash7inlined7Hash128EPKcm.exit
 
 _ZN11OpenImageIO6v3_1_08farmhash7inlined7Hash128EPKcm.exit: ; preds = %4, %12
@@ -141,11 +141,11 @@ define { i64, i64 } @_ZN11OpenImageIO6v3_1_08farmhash14Fingerprint128EPKcm(ptr n
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 1
   %10 = add i64 %9, -4348849565147123417
-  %11 = tail call { i64, i64 } @_ZN11OpenImageIO6v3_1_08farmhash10farmhashcc19CityHash128WithSeedEPKcmSt4pairImmE(ptr noundef nonnull %5, i64 noundef %6, i64 %7, i64 %10)
+  %11 = tail call { i64, i64 } @_ZN11OpenImageIO6v3_1_08farmhash10farmhashcc19CityHash128WithSeedEPKcmSt4pairImmE(ptr noundef nonnull %5, i64 noundef %6, i64 %7, i64 %10) #8
   br label %_ZN11OpenImageIO6v3_1_08farmhash7inlined14Fingerprint128EPKcm.exit
 
 12:                                               ; preds = %2
-  %13 = tail call { i64, i64 } @_ZN11OpenImageIO6v3_1_08farmhash10farmhashcc19CityHash128WithSeedEPKcmSt4pairImmE(ptr noundef %0, i64 noundef %1, i64 -4348849565147123417, i64 -5435081209227447693)
+  %13 = tail call { i64, i64 } @_ZN11OpenImageIO6v3_1_08farmhash10farmhashcc19CityHash128WithSeedEPKcmSt4pairImmE(ptr noundef %0, i64 noundef %1, i64 -4348849565147123417, i64 -5435081209227447693) #8
   br label %_ZN11OpenImageIO6v3_1_08farmhash7inlined14Fingerprint128EPKcm.exit
 
 _ZN11OpenImageIO6v3_1_08farmhash7inlined14Fingerprint128EPKcm.exit: ; preds = %4, %12
@@ -995,7 +995,7 @@ define linkonce_odr hidden noundef i64 @_ZN11OpenImageIO6v3_1_08farmhash10farmha
   br label %_ZN11OpenImageIO6v3_1_08farmhash10farmhashna12HashLen0to16EPKcm.exit
 
 _ZN11OpenImageIO6v3_1_08farmhash10farmhashuo6Hash64EPKcm.exit: ; preds = %268
-  %272 = tail call noundef i64 @_ZN11OpenImageIO6v3_1_08farmhash10farmhashuo15Hash64WithSeedsEPKcmmm(ptr noundef %0, i64 noundef %1, i64 noundef 81, i64 noundef 0)
+  %272 = tail call noundef i64 @_ZN11OpenImageIO6v3_1_08farmhash10farmhashuo15Hash64WithSeedsEPKcmmm(ptr noundef %0, i64 noundef %1, i64 noundef 81, i64 noundef 0) #9
   br label %_ZN11OpenImageIO6v3_1_08farmhash10farmhashna12HashLen0to16EPKcm.exit
 
 _ZN11OpenImageIO6v3_1_08farmhash10farmhashna12HashLen0to16EPKcm.exit: ; preds = %54, %53, %33, %8, %_ZN11OpenImageIO6v3_1_08farmhash10farmhashuo6Hash64EPKcm.exit, %270, %173, %109, %75
@@ -1384,7 +1384,7 @@ define linkonce_odr hidden noundef i64 @_ZN11OpenImageIO6v3_1_08farmhash10farmha
   br i1 %5, label %6, label %18
 
 6:                                                ; preds = %4
-  %7 = tail call noundef i64 @_ZN11OpenImageIO6v3_1_08farmhash10farmhashna6Hash64EPKcm(ptr noundef %0, i64 noundef %1)
+  %7 = tail call noundef i64 @_ZN11OpenImageIO6v3_1_08farmhash10farmhashna6Hash64EPKcm(ptr noundef %0, i64 noundef %1) #7
   %8 = sub i64 %7, %2
   %9 = xor i64 %8, %3
   %10 = mul i64 %9, -7070675565921424023
@@ -2067,7 +2067,7 @@ _ZN11OpenImageIO6v3_1_08farmhash10farmhashcc12HashLen0to16EPKcm.exit.thread: ; p
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_farmhash.cpp() #5 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #7
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #10
   ret void
 }
 
@@ -2084,7 +2084,10 @@ attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping
 attributes #4 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
+attributes #7 = { "function-inline-additional-cost"="2" }
+attributes #8 = { "function-inline-additional-cost"="5" }
+attributes #9 = { "function-inline-additional-cost"="3" }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

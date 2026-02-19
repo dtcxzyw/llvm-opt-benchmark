@@ -1956,7 +1956,7 @@ need_numeric_port_hack.exit:                      ; preds = %10, %11
   br i1 %.b.i29, label %need_socktype_protocol_hack.exit, label %33
 
 33:                                               ; preds = %.thread
-  tail call fastcc void @test_for_getaddrinfo_hacks()
+  tail call fastcc void @test_for_getaddrinfo_hacks() #33
   br label %need_socktype_protocol_hack.exit
 
 need_socktype_protocol_hack.exit:                 ; preds = %.thread, %33
@@ -3014,7 +3014,7 @@ define noundef ptr @evutil_format_sockaddr_port_(ptr noundef readonly captures(n
   %13 = lshr i32 %9, 8
   %14 = and i32 %13, 255
   %15 = and i32 %9, 255
-  %16 = call i32 (ptr, i64, ptr, ...) @evutil_snprintf(ptr noundef nonnull %4, i64 noundef 128, ptr noundef nonnull @.str.18, i32 noundef %10, i32 noundef %12, i32 noundef %14, i32 noundef %15)
+  %16 = call i32 (ptr, i64, ptr, ...) @evutil_snprintf(ptr noundef nonnull %4, i64 noundef 128, ptr noundef nonnull @.str.18, i32 noundef %10, i32 noundef %12, i32 noundef %14, i32 noundef %15) #34
   %.not117.i = icmp ugt i32 %16, 127
   br i1 %.not117.i, label %.critedge, label %17
 
@@ -4248,6 +4248,8 @@ attributes #29 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #30 = { nounwind }
 attributes #31 = { nounwind willreturn memory(none) }
 attributes #32 = { nounwind willreturn memory(read) }
+attributes #33 = { "function-inline-additional-cost"="0" }
+attributes #34 = { "function-inline-additional-cost"="5" }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -1160,11 +1160,11 @@ define internal fastcc void @create_patches(ptr noundef %0, ptr noundef %1, ptr 
 sort_object.exit112:                              ; preds = %.split
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %67 = load ptr, ptr %66, align 8, !tbaa !17
-  %68 = tail call fastcc ptr @sort_list(ptr noundef %67, i32 noundef range(i32 0, 2) %4)
+  %68 = tail call fastcc ptr @sort_list(ptr noundef %67, i32 noundef range(i32 0, 2) %4) #17
   store ptr %68, ptr %66, align 8, !tbaa !17
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %70 = load ptr, ptr %69, align 8, !tbaa !17
-  %71 = tail call fastcc ptr @sort_list(ptr noundef %70, i32 noundef range(i32 0, 2) %4)
+  %71 = tail call fastcc ptr @sort_list(ptr noundef %70, i32 noundef range(i32 0, 2) %4) #17
   store ptr %71, ptr %69, align 8, !tbaa !17
   %72 = load ptr, ptr %66, align 8, !tbaa !17
   %73 = icmp ne ptr %72, null
@@ -1383,7 +1383,7 @@ define void @cJSONUtils_SortObject(ptr noundef captures(address_is_null) %0) loc
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !17
-  %6 = tail call fastcc ptr @sort_list(ptr noundef %5, i32 noundef 0)
+  %6 = tail call fastcc ptr @sort_list(ptr noundef %5, i32 noundef 0) #17
   store ptr %6, ptr %4, align 8, !tbaa !17
   br label %sort_object.exit
 
@@ -1399,7 +1399,7 @@ define void @cJSONUtils_SortObjectCaseSensitive(ptr noundef captures(address_is_
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !17
-  %6 = tail call fastcc ptr @sort_list(ptr noundef %5, i32 noundef 1)
+  %6 = tail call fastcc ptr @sort_list(ptr noundef %5, i32 noundef 1) #17
   store ptr %6, ptr %4, align 8, !tbaa !17
   br label %sort_object.exit
 
@@ -1552,7 +1552,7 @@ define internal fastcc ptr @generate_merge_patch(ptr noundef %0, ptr noundef %1,
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !17
-  %18 = tail call fastcc ptr @sort_list(ptr noundef %17, i32 noundef range(i32 0, 2) %2)
+  %18 = tail call fastcc ptr @sort_list(ptr noundef %17, i32 noundef range(i32 0, 2) %2) #17
   store ptr %18, ptr %16, align 8, !tbaa !17
   br label %sort_object.exit48
 
@@ -1623,7 +1623,7 @@ sort_object.exit48:                               ; preds = %13, %15
 55:                                               ; preds = %53
   %56 = getelementptr inbounds nuw i8, ptr %.03850, i64 56
   %57 = load ptr, ptr %56, align 8, !tbaa !8
-  %58 = tail call fastcc ptr @generate_merge_patch(ptr noundef %.03949, ptr noundef %.03850, i32 noundef 0)
+  %58 = tail call fastcc ptr @generate_merge_patch(ptr noundef %.03949, ptr noundef %.03850, i32 noundef 0) #18
   %59 = tail call i32 @cJSON_AddItemToObject(ptr noundef nonnull %24, ptr noundef %57, ptr noundef %58) #14
   br label %60
 
@@ -1833,11 +1833,11 @@ define internal fastcc range(i32 0, 2) i32 @compare_json(ptr noundef captures(ad
 sort_object.exit67:                               ; preds = %.split
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %51 = load ptr, ptr %50, align 8, !tbaa !17
-  %52 = tail call fastcc ptr @sort_list(ptr noundef %51, i32 noundef range(i32 0, 2) %2)
+  %52 = tail call fastcc ptr @sort_list(ptr noundef %51, i32 noundef range(i32 0, 2) %2) #17
   store ptr %52, ptr %50, align 8, !tbaa !17
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !17
-  %55 = tail call fastcc ptr @sort_list(ptr noundef %54, i32 noundef range(i32 0, 2) %2)
+  %55 = tail call fastcc ptr @sort_list(ptr noundef %54, i32 noundef range(i32 0, 2) %2) #17
   store ptr %55, ptr %53, align 8, !tbaa !17
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %sort_object.exit67.split.us, label %sort_object.exit67.split
@@ -2581,6 +2581,8 @@ attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { nounwind }
 attributes #15 = { nounwind willreturn memory(read) }
 attributes #16 = { nounwind willreturn memory(none) }
+attributes #17 = { "function-inline-additional-cost"="1" }
+attributes #18 = { "function-inline-additional-cost"="0" }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -2362,7 +2362,7 @@ define internal noundef i32 @png_image_read_colormap(ptr noundef captures(none) 
 
 .preheader:                                       ; preds = %84, %.preheader
   %.07.i = phi i32 [ %89, %.preheader ], [ 0, %84 ]
-  tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef %.07.i, i32 noundef %.07.i, i32 noundef %.07.i, i32 noundef %.07.i, i32 noundef 255, i32 noundef 1)
+  tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef %.07.i, i32 noundef %.07.i, i32 noundef %.07.i, i32 noundef %.07.i, i32 noundef 255, i32 noundef 1) #16
   %89 = add nuw nsw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %89, 256
   br i1 %exitcond.not.i, label %make_gray_colormap.exit, label %.preheader, !llvm.loop !151
@@ -2455,12 +2455,12 @@ make_gray_colormap.exit:                          ; preds = %.preheader
   %131 = udiv i16 %.lhs.trunc.i, 231
   %.zext.i = zext nneg i16 %131 to i32
   %132 = add nuw nsw i32 %.01921.i, 1
-  tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef %.01921.i, i32 noundef %.zext.i, i32 noundef %.zext.i, i32 noundef %.zext.i, i32 noundef 255, i32 noundef 1)
+  tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef %.01921.i, i32 noundef %.zext.i, i32 noundef %.zext.i, i32 noundef %.zext.i, i32 noundef 255, i32 noundef 1) #17
   %exitcond.not.i466 = icmp eq i32 %132, 231
   br i1 %exitcond.not.i466, label %133, label %.preheader587, !llvm.loop !158
 
 133:                                              ; preds = %.preheader587
-  tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef 231, i32 noundef 255, i32 noundef 255, i32 noundef 255, i32 noundef 0, i32 noundef 1)
+  tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef 231, i32 noundef 255, i32 noundef 255, i32 noundef 255, i32 noundef 0, i32 noundef 1) #17
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %139, %133
@@ -2474,7 +2474,7 @@ make_gray_colormap.exit:                          ; preds = %.preheader
   %.222.i = phi i32 [ %.125.i, %.preheader.i ], [ %136, %135 ]
   %136 = add i32 %.222.i, 1
   %137 = mul nuw nsw i32 %.023.i, 51
-  tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef %.222.i, i32 noundef %137, i32 noundef %137, i32 noundef %137, i32 noundef %134, i32 noundef 1)
+  tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef %.222.i, i32 noundef %137, i32 noundef %137, i32 noundef %137, i32 noundef %134, i32 noundef 1) #17
   %138 = add nuw nsw i32 %.023.i, 1
   %exitcond27.not.i = icmp eq i32 %138, 6
   br i1 %exitcond27.not.i, label %139, label %135, !llvm.loop !159
@@ -2508,7 +2508,7 @@ make_gray_colormap.exit:                          ; preds = %.preheader
 
 .preheader584:                                    ; preds = %147, %.preheader584
   %.07.i467 = phi i32 [ %152, %.preheader584 ], [ 0, %147 ]
-  tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef %.07.i467, i32 noundef %.07.i467, i32 noundef %.07.i467, i32 noundef %.07.i467, i32 noundef 255, i32 noundef 1)
+  tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef %.07.i467, i32 noundef %.07.i467, i32 noundef %.07.i467, i32 noundef %.07.i467, i32 noundef 255, i32 noundef 1) #16
   %152 = add nuw nsw i32 %.07.i467, 1
   %exitcond.not.i468 = icmp eq i32 %152, 256
   br i1 %exitcond.not.i468, label %make_gray_colormap.exit469, label %.preheader584, !llvm.loop !151
@@ -2917,7 +2917,7 @@ make_gray_file_colormap.exit:                     ; preds = %.preheader588, %png
   %.215.i = phi i32 [ %.117.i, %.preheader.i488 ], [ %362, %361 ]
   %362 = add i32 %.215.i, 1
   %363 = mul nuw nsw i32 %.016.i, 51
-  tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef %.215.i, i32 noundef %359, i32 noundef %360, i32 noundef %363, i32 noundef 255, i32 noundef 1)
+  tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef %.215.i, i32 noundef %359, i32 noundef %360, i32 noundef %363, i32 noundef 255, i32 noundef 1) #18
   %364 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i489 = icmp eq i32 %364, 6
   br i1 %exitcond.not.i489, label %365, label %361, !llvm.loop !165
@@ -2999,7 +2999,7 @@ make_rgb_colormap.exit:                           ; preds = %367
   %.215.i497 = phi i32 [ %.117.i495, %.preheader.i493 ], [ %394, %393 ]
   %394 = add i32 %.215.i497, 1
   %395 = mul nuw nsw i32 %.016.i496, 51
-  tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef %.215.i497, i32 noundef %391, i32 noundef %392, i32 noundef %395, i32 noundef 255, i32 noundef 1)
+  tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef %.215.i497, i32 noundef %391, i32 noundef %392, i32 noundef %395, i32 noundef 255, i32 noundef 1) #18
   %396 = add nuw nsw i32 %.016.i496, 1
   %exitcond.not.i498 = icmp eq i32 %396, 6
   br i1 %exitcond.not.i498, label %397, label %393, !llvm.loop !165
@@ -3388,8 +3388,8 @@ decode_gamma.exit527.thread:                      ; preds = %.preheader591, %dec
   %642 = getelementptr inbounds nuw %struct.png_color_struct, ptr %620, i64 %indvars.iv
   %643 = load i8, ptr %642, align 1, !tbaa !146
   %644 = zext i8 %643 to i32
-  %645 = tail call fastcc i32 @decode_gamma(ptr noundef nonnull %0, i32 noundef range(i32 0, 256) %644, i32 noundef 3)
-  %646 = tail call fastcc i32 @decode_gamma(ptr noundef nonnull %0, i32 noundef range(i32 0, 65536) %.0403, i32 noundef range(i32 1, 3) %12)
+  %645 = tail call fastcc i32 @decode_gamma(ptr noundef nonnull %0, i32 noundef range(i32 0, 256) %644, i32 noundef 3) #19
+  %646 = tail call fastcc i32 @decode_gamma(ptr noundef nonnull %0, i32 noundef range(i32 0, 65536) %.0403, i32 noundef range(i32 1, 3) %12) #19
   %647 = mul nuw i32 %645, %641
   %648 = xor i32 %641, 255
   %649 = mul nuw i32 %646, %648
@@ -3428,8 +3428,8 @@ png_colormap_compose.exit520:                     ; preds = %651, %657
   %674 = zext i8 %673 to i32
   %675 = load i8, ptr %636, align 1, !tbaa !44
   %676 = zext i8 %675 to i32
-  %677 = tail call fastcc i32 @decode_gamma(ptr noundef nonnull %0, i32 noundef range(i32 0, 256) %674, i32 noundef 3)
-  %678 = tail call fastcc i32 @decode_gamma(ptr noundef nonnull %0, i32 noundef range(i32 0, 65536) %.0405, i32 noundef range(i32 1, 3) %12)
+  %677 = tail call fastcc i32 @decode_gamma(ptr noundef nonnull %0, i32 noundef range(i32 0, 256) %674, i32 noundef 3) #19
+  %678 = tail call fastcc i32 @decode_gamma(ptr noundef nonnull %0, i32 noundef range(i32 0, 65536) %.0405, i32 noundef range(i32 1, 3) %12) #19
   %679 = mul nuw i32 %677, %676
   %680 = xor i32 %676, 255
   %681 = mul nuw i32 %678, %680
@@ -6106,6 +6106,10 @@ attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #13 = { nounwind }
 attributes #14 = { noreturn nounwind }
 attributes #15 = { nounwind willreturn memory(none) }
+attributes #16 = { "function-inline-additional-cost"="2" }
+attributes #17 = { "function-inline-additional-cost"="15" }
+attributes #18 = { "function-inline-additional-cost"="5" }
+attributes #19 = { "function-inline-additional-cost"="8" }
 
 !llvm.module.flags = !{!0, !1, !2}
 

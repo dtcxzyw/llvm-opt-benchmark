@@ -278,11 +278,11 @@ define linkonce_odr dso_local void @_ZN4pstd3pmr25monotonic_buffer_resourceD0Ev(
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #17
+  tail call void @__clang_call_terminate(ptr %17) #20
   unreachable
 
 _ZN4pstd3pmr25monotonic_buffer_resourceD2Ev.exit: ; preds = %.noexc.i, %1
-  tail call void @_ZdlPvmSt11align_val_t(ptr noundef nonnull %0, i64 noundef 64, i64 noundef 64) #20
+  tail call void @_ZdlPvmSt11align_val_t(ptr noundef nonnull %0, i64 noundef 64, i64 noundef 64) #21
   ret void
 }
 
@@ -321,7 +321,7 @@ define dso_local void @_ZN4pstd3pmr15memory_resourceD2Ev(ptr nonnull readnone al
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pstd3pmr17NewDeleteResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #10 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #21
   ret void
 }
 
@@ -333,7 +333,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4pstd3pmr17NewDeleteResource11do_a
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %3
-  %7 = tail call noalias ptr @malloc(i64 noundef %1) #21
+  %7 = tail call noalias ptr @malloc(i64 noundef %1) #22
   br label %._crit_edge
 
 8:                                                ; preds = %3
@@ -402,7 +402,7 @@ define internal void @_GLOBAL__sub_I_pstd.cpp() #15 section ".text.startup" pers
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #17
+  tail call void @__clang_call_terminate(ptr %7) #23
   unreachable
 
 __cxx_global_var_init.exit:                       ; preds = %0, %4
@@ -437,8 +437,10 @@ attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn mem
 attributes #17 = { noreturn nounwind }
 attributes #18 = { builtin allocsize(0) }
 attributes #19 = { nounwind }
-attributes #20 = { builtin nounwind }
-attributes #21 = { nounwind allocsize(0) }
+attributes #20 = { noreturn nounwind "function-inline-additional-cost"="6" }
+attributes #21 = { builtin nounwind }
+attributes #22 = { nounwind allocsize(0) }
+attributes #23 = { noreturn nounwind "function-inline-additional-cost"="4" }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -4377,7 +4377,7 @@ Vec_PtrStart.exit:                                ; preds = %315, %318
 
 Abc_ObjHopFromGia.exit:                           ; preds = %.lr.ph.i, %.critedge10
   %397 = trunc nuw nsw i64 %indvars.iv432 to i32
-  %398 = tail call ptr @Abc_ObjHopFromGia_rec(ptr noundef %372, ptr noundef nonnull %0, i32 noundef %397, ptr noundef nonnull %316)
+  %398 = tail call ptr @Abc_ObjHopFromGia_rec(ptr noundef %372, ptr noundef nonnull %0, i32 noundef %397, ptr noundef nonnull %316) #24
   %399 = getelementptr inbounds nuw i8, ptr %345, i64 56
   store ptr %398, ptr %399, align 8, !tbaa !39
   %.val343 = load ptr, ptr %6, align 8, !tbaa !144
@@ -13146,6 +13146,7 @@ attributes #20 = { nounwind allocsize(1) }
 attributes #21 = { nounwind allocsize(0) }
 attributes #22 = { nounwind }
 attributes #23 = { nounwind willreturn memory(read) }
+attributes #24 = { "function-inline-additional-cost"="10" }
 
 !llvm.module.flags = !{!0, !1, !2}
 

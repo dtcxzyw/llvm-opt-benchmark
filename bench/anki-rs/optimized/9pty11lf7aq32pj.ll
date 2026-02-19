@@ -381,7 +381,7 @@ define void @_ZN7anki_io13atomic_rename17h34267177826296e9E(ptr noalias noundef 
 35:                                               ; preds = %31
   %36 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee5980806d1ba524E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10) #8
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee5980806d1ba524E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10) #9
           to label %.thread110 unwind label %37, !noalias !123
 
 37:                                               ; preds = %35
@@ -512,7 +512,7 @@ common.resume:                                    ; preds = %.thread110, %.body8
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i64 %.fca.1.extract, ptr %64, align 8, !noalias !168
   store i64 1, ptr %8, align 8, !noalias !168
-  call void @"_ZN83_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$snafu..ResultExt$LT$T$C$E$GT$$GT$7context17hb45846708203b755E"(ptr noalias noundef nonnull sret({ i64, [7 x i64] }) align 8 captures(none) dereferenceable(64) %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c5b50e3b0588393f71df377af8137931.1.llvm.9826144771010805190)
+  call void @"_ZN83_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$snafu..ResultExt$LT$T$C$E$GT$$GT$7context17hb45846708203b755E"(ptr noalias noundef nonnull sret({ i64, [7 x i64] }) align 8 captures(none) dereferenceable(64) %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c5b50e3b0588393f71df377af8137931.1.llvm.9826144771010805190) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !168
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !168
   %65 = load i64, ptr %14, align 8, !range !176, !noundef !4
@@ -563,7 +563,7 @@ common.resume:                                    ; preds = %.thread110, %.body8
 79:                                               ; preds = %78
   %80 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee5980806d1ba524E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6) #8
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee5980806d1ba524E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6) #9
           to label %..body83_crit_edge145 unwind label %81, !noalias !177
 
 81:                                               ; preds = %79
@@ -826,6 +826,8 @@ attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessib
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { cold noreturn nounwind }
 attributes #8 = { cold }
+attributes #9 = { cold "function-inline-additional-cost"="15" }
+attributes #10 = { "function-inline-additional-cost"="6" }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

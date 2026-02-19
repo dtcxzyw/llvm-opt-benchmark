@@ -12254,11 +12254,11 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw ptr, ptr %2, i64 %1
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17ha8a52e4bfef50763E(ptr noundef nonnull readonly %0, ptr noundef nonnull %19)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17ha8a52e4bfef50763E(ptr noundef nonnull readonly %0, ptr noundef nonnull %19) #39
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17ha8a52e4bfef50763E(ptr noundef readonly %20, ptr noundef %21)
-  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17he2bb3ad7bde42f94E(ptr noalias noundef nonnull readonly align 8 %19, i64 noundef 8, ptr noundef nonnull %2)
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17ha8a52e4bfef50763E(ptr noundef readonly %20, ptr noundef %21) #39
+  tail call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17he2bb3ad7bde42f94E(ptr noalias noundef nonnull readonly align 8 %19, i64 noundef 8, ptr noundef nonnull %2) #39
   %22 = getelementptr inbounds nuw ptr, ptr %0, i64 %13
   %23 = getelementptr inbounds nuw ptr, ptr %2, i64 %13
   %24 = getelementptr i8, ptr %19, i64 64
@@ -17792,11 +17792,11 @@ define hidden void @_ZN4core5slice4sort8unstable9quicksort9quicksort17hce84e5dcb
 
 30:                                               ; preds = %25
   %31 = getelementptr inbounds nuw ptr, ptr %14, i64 %.sroa.11.0.lcssa
-  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h71a44b4dd46cb145E(ptr noundef nonnull readonly align 8 %.sroa.0.0.lcssa, ptr noundef nonnull %31)
+  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h71a44b4dd46cb145E(ptr noundef nonnull readonly align 8 %.sroa.0.0.lcssa, ptr noundef nonnull %31) #39
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 32
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h71a44b4dd46cb145E(ptr noundef readonly %32, ptr noundef %33)
-  call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h6b3c0958efc5545bE(ptr noalias noundef nonnull readonly align 8 %31, i64 noundef 8, ptr noundef nonnull align 8 %14), !noalias !2540
+  call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h71a44b4dd46cb145E(ptr noundef readonly %32, ptr noundef %33) #39
+  call fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h6b3c0958efc5545bE(ptr noalias noundef nonnull readonly align 8 %31, i64 noundef 8, ptr noundef nonnull align 8 %14) #39, !noalias !2540
   %34 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.lcssa, i64 %26
   %35 = getelementptr inbounds nuw ptr, ptr %14, i64 %26
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 64
@@ -23653,7 +23653,7 @@ _ZN4fish8builtins4bind14parse_cmd_opts17hd7d32e43e4e31861E.exit.thread.i: ; pred
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc.i30.i, %.lr.ph.preheader.i.i.i
   %.sroa.0.05.i.i.i = phi ptr [ %319, %.noexc.i30.i ], [ %318, %.lr.ph.preheader.i.i.i ]
-  invoke fastcc void @_ZN4core5slice4sort6shared9smallsort11insert_tail17h580f255ac93f9f6aE(ptr noundef nonnull align 8 %310, ptr noundef %.sroa.0.05.i.i.i)
+  invoke fastcc void @_ZN4core5slice4sort6shared9smallsort11insert_tail17h580f255ac93f9f6aE(ptr noundef nonnull align 8 %310, ptr noundef %.sroa.0.05.i.i.i) #40
           to label %.noexc.i30.i unwind label %.loopexit.i.i, !noalias !3121
 
 .noexc.i30.i:                                     ; preds = %.lr.ph.i.i.i
@@ -23737,7 +23737,7 @@ _ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17h006e15a4feb828
 "_ZN116_$LT$widestring..utfstring..Utf32String$u20$as$u20$core..ops..arith..Add$LT$$RF$widestring..utfstr..Utf32Str$GT$$GT$3add17ha639034929fe9a1dE.exit.i.i.i": ; preds = %330
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull align 8 dereferenceable(24) %47, i64 24, i1 false), !alias.scope !3220, !noalias !3222
   call void @llvm.lifetime.end.p0(ptr nonnull %47), !noalias !3204
-  %335 = invoke noundef zeroext i1 @_ZN4fish2io12OutputStream6append17h011514c1e307376cE(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val25.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %48)
+  %335 = invoke noundef zeroext i1 @_ZN4fish2io12OutputStream6append17h011514c1e307376cE(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val25.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %48) #41
           to label %336 unwind label %326, !noalias !3121
 
 336:                                              ; preds = %"_ZN116_$LT$widestring..utfstring..Utf32String$u20$as$u20$core..ops..arith..Add$LT$$RF$widestring..utfstr..Utf32Str$GT$$GT$3add17ha639034929fe9a1dE.exit.i.i.i"
@@ -23987,7 +23987,7 @@ _ZN4fish8builtins4bind11BuiltinBind10list_modes17h524796c59fbc02ddE.exit.i: ; pr
 410:                                              ; preds = %406
   %411 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %43, i64 %.sroa.0.1.i.i.i
   %412 = add nuw nsw i64 %.sroa.0.1.i.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE"(ptr noalias noundef align 8 dereferenceable(32) %411) #37
+  invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE"(ptr noalias noundef align 8 dereferenceable(32) %411) #42
           to label %406 unwind label %413, !noalias !3238
 
 413:                                              ; preds = %410
@@ -25199,7 +25199,7 @@ common.resume:                                    ; preds = %104, %64
 _ZN4fish2io12OutputStream8appendln17h09005b278334ea8dE.exit: ; preds = %101
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !alias.scope !3360, !noalias !3362
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !3352
-  %108 = call noundef zeroext i1 @_ZN4fish2io12OutputStream6append17h011514c1e307376cE(ptr noalias noundef nonnull align 8 dereferenceable(32) %103, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6), !noalias !3364
+  %108 = call noundef zeroext i1 @_ZN4fish2io12OutputStream6append17h011514c1e307376cE(ptr noalias noundef nonnull align 8 dereferenceable(32) %103, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6) #41, !noalias !3364
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %100
 
@@ -27410,7 +27410,7 @@ _ZN4fish8builtins6string16StringSubCommand8run_impl17hecd5adf8cdc82f99E.exit: ; 
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN4fish9fork_exec8postfork20report_setpgid_error17h0690c9f509f5b79bE(i32 noundef %0, i1 noundef zeroext %1, i32 noundef range(i32 1, 0) %2, i32 noundef range(i32 1, 0) %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %8) unnamed_addr #0 {
-  %10 = tail call noundef i32 @getpgid(i32 noundef %2) #39
+  %10 = tail call noundef i32 @getpgid(i32 noundef %2) #43
   %11 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4fish4flog10categories7warning17hf3ba502f81a48246E, i64 32) monotonic, align 8
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %15, label %13
@@ -27520,7 +27520,7 @@ define hidden void @_ZN4fish9fork_exec8postfork20report_setpgid_error17h0690c9f5
 
 ; Function Attrs: nonlazybind uwtable
 define noundef range(i32 5, 4) i32 @_ZN4fish9fork_exec8postfork15execute_setpgid17h66485e09bc7ee324E(i32 noundef range(i32 1, 0) %0, i32 noundef range(i32 1, 0) %1, i1 noundef zeroext %2) unnamed_addr #0 {
-  %4 = tail call noundef i32 @setpgid(i32 noundef %0, i32 noundef %1) #39
+  %4 = tail call noundef i32 @setpgid(i32 noundef %0, i32 noundef %1) #43
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -27555,7 +27555,7 @@ define noundef range(i32 5, 4) i32 @_ZN4fish9fork_exec8postfork15execute_setpgid
 
 17:                                               ; preds = %15, %11, %.lr.ph.split.us
   %.sroa.06.1.us = phi i32 [ %.sroa.06.08.us, %.lr.ph.split.us ], [ %12, %11 ], [ %12, %15 ]
-  %18 = tail call noundef i32 @setpgid(i32 noundef %0, i32 noundef %1) #39
+  %18 = tail call noundef i32 @setpgid(i32 noundef %0, i32 noundef %1) #43
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %._crit_edge, label %.lr.ph.split.us
 
@@ -27579,7 +27579,7 @@ define noundef range(i32 5, 4) i32 @_ZN4fish9fork_exec8postfork15execute_setpgid
 
 24:                                               ; preds = %.lr.ph.split, %31, %27
   %.sroa.06.1 = phi i32 [ %.sroa.06.08, %.lr.ph.split ], [ %28, %27 ], [ %28, %31 ]
-  %25 = tail call noundef i32 @setpgid(i32 noundef %0, i32 noundef %1) #39
+  %25 = tail call noundef i32 @setpgid(i32 noundef %0, i32 noundef %1) #43
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %._crit_edge, label %.lr.ph.split
 
@@ -27629,11 +27629,11 @@ define noundef range(i32 -2147483648, 1) i32 @_ZN4fish9fork_exec8postfork19child
   br i1 %.not, label %22, label %30
 
 20:                                               ; preds = %12
-  %21 = tail call noundef i32 @close(i32 noundef %17) #39
+  %21 = tail call noundef i32 @close(i32 noundef %17) #43
   br label %_ZN4fish9fork_exec8postfork13clear_cloexec17h65bf7c0248695aebE.exit
 
 22:                                               ; preds = %19
-  %23 = tail call noundef i32 (i32, i32, ...) @fcntl(i32 noundef range(i32 0, -2147483648) %15, i32 noundef 1, i32 noundef 0) #39
+  %23 = tail call noundef i32 (i32, i32, ...) @fcntl(i32 noundef range(i32 0, -2147483648) %15, i32 noundef 1, i32 noundef 0) #43
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %_ZN4fish9fork_exec8postfork13clear_cloexec17h65bf7c0248695aebE.exit.thread, label %25
 
@@ -27643,11 +27643,11 @@ define noundef range(i32 -2147483648, 1) i32 @_ZN4fish9fork_exec8postfork19child
   br i1 %27, label %_ZN4fish9fork_exec8postfork13clear_cloexec17h65bf7c0248695aebE.exit, label %28
 
 28:                                               ; preds = %25
-  %29 = tail call noundef i32 (i32, i32, ...) @fcntl(i32 noundef range(i32 0, -2147483648) %15, i32 noundef 2, i32 noundef %26) #39
+  %29 = tail call noundef i32 (i32, i32, ...) @fcntl(i32 noundef range(i32 0, -2147483648) %15, i32 noundef 2, i32 noundef %26) #43
   br label %_ZN4fish9fork_exec8postfork13clear_cloexec17h65bf7c0248695aebE.exit
 
 30:                                               ; preds = %19
-  %31 = tail call noundef i32 @dup2(i32 noundef %17, i32 noundef %15) #39
+  %31 = tail call noundef i32 @dup2(i32 noundef %17, i32 noundef %15) #43
   br label %_ZN4fish9fork_exec8postfork13clear_cloexec17h65bf7c0248695aebE.exit
 
 _ZN4fish9fork_exec8postfork13clear_cloexec17h65bf7c0248695aebE.exit: ; preds = %28, %25, %30, %20
@@ -27681,7 +27681,7 @@ _ZN4fish9fork_exec8postfork13clear_cloexec17h65bf7c0248695aebE.exit.thread: ; pr
   unreachable
 
 40:                                               ; preds = %18
-  %41 = tail call noundef i32 @tcgetpgrp(i32 noundef 0) #39
+  %41 = tail call noundef i32 @tcgetpgrp(i32 noundef 0) #43
   %42 = icmp eq i32 %41, %0
   br i1 %42, label %44, label %43
 
@@ -27690,14 +27690,14 @@ _ZN4fish9fork_exec8postfork13clear_cloexec17h65bf7c0248695aebE.exit.thread: ; pr
   br i1 %.not10, label %51, label %49
 
 44:                                               ; preds = %40
-  %45 = tail call noundef i64 @signal(i32 noundef 21, i64 noundef 1) #39
-  %46 = tail call noundef i64 @signal(i32 noundef 22, i64 noundef 1) #39
+  %45 = tail call noundef i64 @signal(i32 noundef 21, i64 noundef 1) #43
+  %46 = tail call noundef i64 @signal(i32 noundef 22, i64 noundef 1) #43
   %47 = tail call noundef i32 @_ZN4fish3nix6getpid17h03ebe11a563f6e28E()
-  %48 = tail call noundef i32 @tcsetpgrp(i32 noundef 0, i32 noundef %47) #39
+  %48 = tail call noundef i32 @tcsetpgrp(i32 noundef 0, i32 noundef %47) #43
   br label %43
 
 49:                                               ; preds = %43
-  %50 = tail call noundef i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull %1, ptr noundef null) #39
+  %50 = tail call noundef i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull %1, ptr noundef null) #43
   br label %51
 
 51:                                               ; preds = %49, %43
@@ -27712,7 +27712,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZN4fish9fork_exec8postfork12execu
 1:                                                ; preds = %0, %13
   %.sroa.04.07 = phi i64 [ 0, %0 ], [ %2, %13 ]
   %2 = add nuw nsw i64 %.sroa.04.07, 1
-  %3 = tail call noundef i32 @fork() #39
+  %3 = tail call noundef i32 @fork() #43
   %4 = icmp sgt i32 %3, -1
   br i1 %4, label %10, label %8
 
@@ -27910,7 +27910,7 @@ _ZN4fish9fork_exec8postfork11strlen_safe17hcf0ffd36eb6eec0cE.exit: ; preds = %.l
 ._crit_edge:                                      ; preds = %_ZN4fish9fork_exec8postfork11strlen_safe17hcf0ffd36eb6eec0cE.exit31, %.preheader
   %.sroa.06.0.lcssa = phi i64 [ 0, %.preheader ], [ %69, %_ZN4fish9fork_exec8postfork11strlen_safe17hcf0ffd36eb6eec0cE.exit31 ]
   %62 = add i64 %.sroa.06.0.lcssa, %.sroa.09.0.lcssa
-  %63 = tail call noundef i64 @sysconf(i32 noundef 0) #39
+  %63 = tail call noundef i64 @sysconf(i32 noundef 0) #43
   %64 = icmp sgt i64 %63, 0
   br i1 %64, label %76, label %73
 
@@ -28076,12 +28076,12 @@ _ZN4fish9fork_exec8postfork11strlen_safe17hcf0ffd36eb6eec0cE.exit31: ; preds = %
   br label %.sink.split65
 
 115:                                              ; preds = %18
-  %116 = call noundef i32 (ptr, i32, ...) @open(ptr noundef nonnull %20, i32 noundef 0) #39
+  %116 = call noundef i32 (ptr, i32, ...) @open(ptr noundef nonnull %20, i32 noundef 0) #43
   %117 = icmp eq i32 %116, -1
   br i1 %117, label %.thread, label %121
 
 118:                                              ; preds = %18
-  %119 = call noundef i32 @access(ptr noundef nonnull %1, i32 noundef 1) #39
+  %119 = call noundef i32 @access(ptr noundef nonnull %1, i32 noundef 1) #43
   %120 = icmp eq i32 %119, 0
   br i1 %120, label %153, label %156
 
@@ -28106,7 +28106,7 @@ _ZN4fish9fork_exec8postfork11strlen_safe17hcf0ffd36eb6eec0cE.exit31: ; preds = %
   %.sroa.537.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 56
   %.sroa.537.0.copyload = load i32, ptr %.sroa.537.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %127 = call noundef i32 @access(ptr noundef nonnull %20, i32 noundef 1) #39
+  %127 = call noundef i32 @access(ptr noundef nonnull %20, i32 noundef 1) #43
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h47b2343ca2387d7dE.exit", label %.thread
 
@@ -28343,7 +28343,7 @@ define internal fastcc { ptr, i64 } @_ZN4fish9fork_exec8postfork15get_interprete
   %3 = alloca [16 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [1 x i8], align 1
-  %6 = tail call noundef i32 (ptr, i32, ...) @open(ptr noundef nonnull %0, i32 noundef 0) #39
+  %6 = tail call noundef i32 (ptr, i32, ...) @open(ptr noundef nonnull %0, i32 noundef 0) #43
   %7 = icmp sgt i32 %6, -1
   br i1 %7, label %.preheader, label %8
 
@@ -28357,7 +28357,7 @@ define internal fastcc { ptr, i64 } @_ZN4fish9fork_exec8postfork15get_interprete
   %.sroa.04.020 = phi i64 [ %10, %16 ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1
-  %11 = call noundef i64 @read(i32 noundef %6, ptr noundef nonnull %5, i64 noundef 1) #39
+  %11 = call noundef i64 @read(i32 noundef %6, ptr noundef nonnull %5, i64 noundef 1) #43
   %12 = icmp slt i64 %11, 1
   %13 = load i8, ptr %5, align 1
   %14 = icmp eq i8 %13, 10
@@ -28381,7 +28381,7 @@ define internal fastcc { ptr, i64 } @_ZN4fish9fork_exec8postfork15get_interprete
   %19 = phi i64 [ %10, %15 ], [ 128, %16 ]
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.04.019
   store i8 0, ptr %20, align 1
-  %21 = tail call noundef i32 @close(i32 noundef %6) #39
+  %21 = tail call noundef i32 @close(i32 noundef %6) #43
   br label %8
 
 22:                                               ; preds = %8
@@ -31767,7 +31767,7 @@ define hidden noundef zeroext i1 @_ZN4fish12wcstringutil19wcs2string_callback17h
 
 39:                                               ; preds = %32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6, i8 0, i64 32, i1 false)
-  %40 = call noundef i64 @wcrtomb(ptr noundef nonnull %6, i32 noundef %27, ptr noundef nonnull %7) #39
+  %40 = call noundef i64 @wcrtomb(ptr noundef nonnull %6, i32 noundef %27, ptr noundef nonnull %7) #43
   %41 = icmp eq i64 %40, -1
   br i1 %41, label %42, label %43
 
@@ -31889,7 +31889,7 @@ define hidden noundef zeroext i1 @_ZN4fish12wcstringutil19wcs2string_callback17h
 
 39:                                               ; preds = %32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6, i8 0, i64 32, i1 false)
-  %40 = call noundef i64 @wcrtomb(ptr noundef nonnull %6, i32 noundef %27, ptr noundef nonnull %7) #39
+  %40 = call noundef i64 @wcrtomb(ptr noundef nonnull %6, i32 noundef %27, ptr noundef nonnull %7) #43
   %41 = icmp eq i64 %40, -1
   br i1 %41, label %42, label %43
 
@@ -32018,7 +32018,7 @@ define hidden noundef zeroext i1 @_ZN4fish12wcstringutil19wcs2string_callback17h
 
 49:                                               ; preds = %41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6, i8 0, i64 32, i1 false)
-  %50 = call noundef i64 @wcrtomb(ptr noundef nonnull %6, i32 noundef %33, ptr noundef nonnull %7) #39
+  %50 = call noundef i64 @wcrtomb(ptr noundef nonnull %6, i32 noundef %33, ptr noundef nonnull %7) #43
   %51 = icmp eq i64 %50, -1
   br i1 %51, label %52, label %53
 
@@ -33634,7 +33634,11 @@ attributes #35 = { nocallback nofree nounwind nonlazybind willreturn memory(argm
 attributes #36 = { noreturn }
 attributes #37 = { cold }
 attributes #38 = { cold noreturn nounwind }
-attributes #39 = { nounwind }
+attributes #39 = { "function-inline-additional-cost"="5" }
+attributes #40 = { "function-inline-additional-cost"="1" }
+attributes #41 = { "function-inline-additional-cost"="9" }
+attributes #42 = { cold "function-inline-additional-cost"="11" }
+attributes #43 = { nounwind }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

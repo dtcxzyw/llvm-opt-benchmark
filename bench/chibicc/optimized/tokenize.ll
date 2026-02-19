@@ -779,7 +779,7 @@ define internal fastcc noalias noundef ptr @read_utf16_string_literal(ptr nounde
   ]
 
 6:                                                ; preds = %4, %4
-  tail call void (ptr, ptr, ...) @error_at(ptr noundef nonnull %.ptr30, ptr noundef nonnull @.str.82) #29
+  tail call void (ptr, ptr, ...) @error_at(ptr noundef nonnull %.ptr30, ptr noundef nonnull @.str.82) #32
   unreachable
 
 7:                                                ; preds = %4
@@ -796,7 +796,7 @@ string_literal_end.exit:                          ; preds = %4
   %9 = ptrtoint ptr %.0.i.ptr.le to i64
   %10 = ptrtoint ptr %0 to i64
   %11 = sub i64 %9, %10
-  %12 = tail call noalias ptr @calloc(i64 noundef 2, i64 noundef %11) #32
+  %12 = tail call noalias ptr @calloc(i64 noundef 2, i64 noundef %11) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %.ptr30, ptr %3, align 8, !tbaa !39
   %13 = icmp sgt i64 %.0.i.idx, 1
@@ -810,7 +810,7 @@ string_literal_end.exit:                          ; preds = %4
   %.0.lcssa = phi i32 [ 1, %string_literal_end.exit ], [ %14, %._crit_edge.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = getelementptr inbounds nuw i8, ptr %.0.i.ptr.le, i64 1
-  %16 = call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #32
+  %16 = call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #33
   store i32 3, ptr %16, align 16, !tbaa !36
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store ptr %0, ptr %17, align 16, !tbaa !32
@@ -916,7 +916,7 @@ define internal fastcc noalias noundef ptr @read_utf32_string_literal(ptr nounde
   ]
 
 7:                                                ; preds = %5, %5
-  tail call void (ptr, ptr, ...) @error_at(ptr noundef nonnull %.ptr20, ptr noundef nonnull @.str.82) #29
+  tail call void (ptr, ptr, ...) @error_at(ptr noundef nonnull %.ptr20, ptr noundef nonnull @.str.82) #32
   unreachable
 
 8:                                                ; preds = %5
@@ -930,7 +930,7 @@ define internal fastcc noalias noundef ptr @read_utf32_string_literal(ptr nounde
 
 string_literal_end.exit:                          ; preds = %5
   %.0.i.ptr.le = getelementptr inbounds nuw i8, ptr %1, i64 %.0.i.idx
-  %10 = tail call noalias ptr @calloc(i64 noundef 4, i64 noundef %.0.i.idx) #32
+  %10 = tail call noalias ptr @calloc(i64 noundef 4, i64 noundef %.0.i.idx) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.ptr20, ptr %4, align 8, !tbaa !39
   %11 = icmp sgt i64 %.0.i.idx, 1
@@ -945,7 +945,7 @@ string_literal_end.exit:                          ; preds = %5
   %.0.lcssa = phi i32 [ 1, %string_literal_end.exit ], [ %13, %._crit_edge.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %14 = getelementptr inbounds nuw i8, ptr %.0.i.ptr.le, i64 1
-  %15 = call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #32
+  %15 = call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #33
   store i32 3, ptr %15, align 16, !tbaa !36
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store ptr %0, ptr %16, align 16, !tbaa !32
@@ -1171,7 +1171,7 @@ sub_0:                                            ; preds = %1, %.backedge
   br label %49
 
 68:                                               ; preds = %60
-  %69 = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #32
+  %69 = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #33
   store i32 5, ptr %69, align 16, !tbaa !36
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 48
   store ptr %.0157, ptr %70, align 16, !tbaa !32
@@ -1401,7 +1401,7 @@ sub_1137:                                         ; preds = %39
   %200 = phi ptr [ %0, %1 ], [ %.pre, %._crit_edge.loopexit ]
   %.0107.lcssa = phi ptr [ %2, %1 ], [ %.0107.be, %._crit_edge.loopexit ]
   %.0.lcssa = phi ptr [ %4, %1 ], [ %.0.be, %._crit_edge.loopexit ]
-  %201 = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #32
+  %201 = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #33
   store i32 6, ptr %201, align 16, !tbaa !36
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 48
   store ptr %.0.lcssa, ptr %202, align 16, !tbaa !32
@@ -1478,7 +1478,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noalias noundef ptr @new_token(i32 noundef range(i32 0, 7) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #13 {
-  %4 = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #32
+  %4 = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #33
   store i32 %0, ptr %4, align 16, !tbaa !36
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %1, ptr %5, align 16, !tbaa !32
@@ -1540,7 +1540,7 @@ define internal fastcc noalias noundef ptr @read_string_literal(ptr noundef %0, 
 
 string_literal_end.exit:                          ; preds = %4
   %.0.i.ptr.le = getelementptr inbounds nuw i8, ptr %1, i64 %.0.i.idx
-  %9 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %.0.i.idx) #32
+  %9 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %.0.i.idx) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %.ptr19, ptr %3, align 8, !tbaa !39
   %10 = icmp sgt i64 %.0.i.idx, 1
@@ -1555,7 +1555,7 @@ string_literal_end.exit:                          ; preds = %4
   %.0.lcssa = phi i32 [ 1, %string_literal_end.exit ], [ %12, %._crit_edge.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %13 = getelementptr inbounds nuw i8, ptr %.0.i.ptr.le, i64 1
-  %14 = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #32
+  %14 = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #33
   store i32 3, ptr %14, align 16, !tbaa !36
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store ptr %0, ptr %15, align 16, !tbaa !32
@@ -1656,7 +1656,7 @@ define internal fastcc noalias noundef ptr @read_char_literal(ptr noundef %0, pt
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 1
-  %19 = call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #32
+  %19 = call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #33
   store i32 4, ptr %19, align 16, !tbaa !36
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   store ptr %0, ptr %20, align 16, !tbaa !32
@@ -1780,7 +1780,7 @@ define dso_local ptr @get_input_files() local_unnamed_addr #15 {
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local noalias noundef ptr @new_file(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #16 {
-  %4 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #32
+  %4 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #33
   store ptr %0, ptr %4, align 8, !tbaa !17
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %0, ptr %5, align 8, !tbaa !56
@@ -2147,7 +2147,7 @@ convert_universal_chars.exit:                     ; preds = %145, %remove_backsl
   store i8 0, ptr %.027.lcssa.i, align 1, !tbaa !18
   %147 = load i32, ptr @tokenize_file.file_no, align 4, !tbaa !62
   %148 = add nsw i32 %147, 1
-  %149 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #32
+  %149 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #33
   store ptr %0, ptr %149, align 8, !tbaa !17
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 24
   store ptr %0, ptr %150, align 8, !tbaa !56
@@ -2159,7 +2159,7 @@ convert_universal_chars.exit:                     ; preds = %145, %remove_backsl
   %154 = add nsw i32 %147, 2
   %155 = sext i32 %154 to i64
   %156 = shl nsw i64 %155, 3
-  %157 = call ptr @realloc(ptr noundef %153, i64 noundef %156) #33
+  %157 = call ptr @realloc(ptr noundef %153, i64 noundef %156) #34
   store ptr %157, ptr @input_files, align 8, !tbaa !12
   %158 = sext i32 %147 to i64
   %159 = getelementptr inbounds ptr, ptr %157, i64 %158
@@ -2406,8 +2406,9 @@ attributes #28 = { cold }
 attributes #29 = { noreturn }
 attributes #30 = { nounwind willreturn memory(read) }
 attributes #31 = { nounwind willreturn memory(none) }
-attributes #32 = { nounwind allocsize(0,1) }
-attributes #33 = { nounwind allocsize(1) }
+attributes #32 = { noreturn "function-inline-additional-cost"="4" }
+attributes #33 = { nounwind allocsize(0,1) }
+attributes #34 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

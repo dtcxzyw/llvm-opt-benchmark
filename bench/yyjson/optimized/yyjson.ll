@@ -1381,7 +1381,7 @@ yyjson_mut_val_mut_copy.exit.thread.thread:       ; preds = %17
   br label %unsafe_yyjson_str_pool_release.exit.i
 
 yyjson_mut_val_mut_copy.exit:                     ; preds = %17
-  %24 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %8, ptr noundef nonnull readonly %23)
+  %24 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %8, ptr noundef nonnull readonly %23) #34
   %.not18 = icmp eq ptr %24, null
   br i1 %.not18, label %yyjson_mut_val_mut_copy.exit.thread, label %29
 
@@ -5814,7 +5814,7 @@ yyjson_mut_ptr_getx.exit.thread959:               ; preds = %235, %yyjson_mut_pt
   br i1 %242, label %278, label %yyjson_mut_val_mut_copy.exit, !prof !4
 
 yyjson_mut_val_mut_copy.exit:                     ; preds = %yyjson_mut_ptr_getx.exit.thread959
-  %243 = call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %0, ptr noundef nonnull readonly %.0.i840962)
+  %243 = call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %0, ptr noundef nonnull readonly %.0.i840962) #34
   %.not787 = icmp eq ptr %243, null
   br i1 %.not787, label %yyjson_mut_val_mut_copy.exit.thread, label %248, !prof !104
 
@@ -6097,7 +6097,7 @@ yyjson_mut_is_arr.exit:                           ; preds = %7
   br label %.critedge
 
 yyjson_mut_val_mut_copy.exit:                     ; preds = %yyjson_mut_is_arr.exit
-  %24 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %0, ptr noundef nonnull readonly %1)
+  %24 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %0, ptr noundef nonnull readonly %1) #35
   %.not772 = icmp eq ptr %24, null
   br i1 %.not772, label %yyjson_mut_val_mut_copy.exit.thread, label %yyjson_mut_is_arr.exit.i, !prof !104
 
@@ -6387,7 +6387,7 @@ yyjson_mut_obj_getn.exit855.thread:               ; preds = %yyjson_mut_obj_getn
   br label %.critedge
 
 yyjson_mut_val_mut_copy.exit892:                  ; preds = %yyjson_mut_obj_getn.exit855
-  %116 = call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %0, ptr noundef nonnull readonly %111)
+  %116 = call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %0, ptr noundef nonnull readonly %111) #34
   %.not781 = icmp eq ptr %116, null
   br i1 %.not781, label %yyjson_mut_val_mut_copy.exit892.thread, label %144, !prof !104
 
@@ -6801,7 +6801,7 @@ yyjson_mut_ptr_getx.exit832.thread977:            ; preds = %210, %yyjson_mut_pt
   br i1 %217, label %253, label %yyjson_mut_val_mut_copy.exit895, !prof !4
 
 yyjson_mut_val_mut_copy.exit895:                  ; preds = %yyjson_mut_ptr_getx.exit832.thread977
-  %218 = call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %0, ptr noundef nonnull readonly %.0.i831980)
+  %218 = call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %0, ptr noundef nonnull readonly %.0.i831980) #34
   %.not788 = icmp eq ptr %218, null
   br i1 %.not788, label %yyjson_mut_val_mut_copy.exit895.thread, label %223, !prof !104
 
@@ -7313,7 +7313,7 @@ yyjson_mut_is_obj.exit81:                         ; preds = %3
   br i1 %.not.i, label %yyjson_mut_val_mut_copy.exit, label %8
 
 8:                                                ; preds = %7
-  %9 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %0, ptr noundef nonnull readonly %2)
+  %9 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %0, ptr noundef nonnull readonly %2) #35
   br label %yyjson_mut_val_mut_copy.exit
 
 10:                                               ; preds = %yyjson_mut_is_obj.exit81
@@ -7443,12 +7443,12 @@ yyjson_mut_obj_getn.exit:                         ; preds = %58
   br i1 %.not69, label %yyjson_mut_val_mut_copy.exit107, label %88
 
 yyjson_mut_val_mut_copy.exit107:                  ; preds = %unsafe_yyjson_equals_strn.exit104.backedge, %yyjson_mut_obj_getn.exit, %yyjson_mut_obj_size.exit.i, %yyjson_mut_is_obj.exit.i.i
-  %64 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %0, ptr noundef nonnull readonly %.059209)
+  %64 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %0, ptr noundef nonnull readonly %.059209) #35
   %.not198 = icmp eq ptr %.058210, null
   br i1 %.not198, label %yyjson_mut_is_obj.exit, label %65
 
 65:                                               ; preds = %yyjson_mut_val_mut_copy.exit107
-  %66 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %0, ptr noundef nonnull readonly %.058210)
+  %66 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %0, ptr noundef nonnull readonly %.058210) #35
   br label %yyjson_mut_is_obj.exit
 
 yyjson_mut_is_obj.exit:                           ; preds = %yyjson_mut_val_mut_copy.exit107, %65
@@ -7551,7 +7551,7 @@ yyjson_mut_obj_size.exit87:                       ; preds = %yyjson_mut_is_obj.e
   br i1 %.not199, label %yyjson_mut_val_mut_copy.exit113, label %115
 
 115:                                              ; preds = %114
-  %116 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %0, ptr noundef nonnull readonly %.160218)
+  %116 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %0, ptr noundef nonnull readonly %.160218) #35
   br label %yyjson_mut_val_mut_copy.exit113
 
 yyjson_mut_val_mut_copy.exit113:                  ; preds = %114, %115
@@ -43141,7 +43141,7 @@ define dso_local noundef zeroext i1 @yyjson_write_fp(ptr noundef captures(addres
   br label %yyjson_val_write_fp.exit
 
 15:                                               ; preds = %10
-  %16 = call ptr @yyjson_val_write_opts(ptr noundef readonly %11, i32 noundef %2, ptr noundef nonnull %12, ptr noundef nonnull %7, ptr noundef nonnull %13)
+  %16 = call ptr @yyjson_val_write_opts(ptr noundef readonly %11, i32 noundef %2, ptr noundef nonnull %12, ptr noundef nonnull %7, ptr noundef nonnull %13) #36
   %.not22.i = icmp eq ptr %16, null
   br i1 %.not22.i, label %yyjson_val_write_fp.exit, label %17, !prof !4
 
@@ -50811,7 +50811,7 @@ define dso_local noundef zeroext i1 @yyjson_mut_val_write_file(ptr noundef reado
   br label %30
 
 12:                                               ; preds = %10
-  %13 = call fastcc ptr @yyjson_mut_write_opts_impl(ptr noundef %1, i64 noundef 0, i32 noundef %2, ptr noundef nonnull readonly %8, ptr noundef nonnull %7, ptr noundef nonnull %9)
+  %13 = call fastcc ptr @yyjson_mut_write_opts_impl(ptr noundef %1, i64 noundef 0, i32 noundef %2, ptr noundef nonnull readonly %8, ptr noundef nonnull %7, ptr noundef nonnull %9) #34
   %.not25 = icmp eq ptr %13, null
   br i1 %.not25, label %30, label %14, !prof !4
 
@@ -50891,7 +50891,7 @@ define dso_local noundef zeroext i1 @yyjson_mut_val_write_fp(ptr noundef capture
   br label %21
 
 11:                                               ; preds = %5
-  %12 = call fastcc ptr @yyjson_mut_write_opts_impl(ptr noundef %1, i64 noundef 0, i32 noundef %2, ptr noundef nonnull readonly %8, ptr noundef nonnull %7, ptr noundef nonnull %9)
+  %12 = call fastcc ptr @yyjson_mut_write_opts_impl(ptr noundef %1, i64 noundef 0, i32 noundef %2, ptr noundef nonnull readonly %8, ptr noundef nonnull %7, ptr noundef nonnull %9) #34
   %.not22 = icmp eq ptr %12, null
   br i1 %.not22, label %21, label %13, !prof !4
 
@@ -50969,7 +50969,7 @@ define dso_local noundef zeroext i1 @yyjson_mut_write_fp(ptr noundef captures(ad
   br label %yyjson_mut_val_write_fp.exit
 
 15:                                               ; preds = %10
-  %16 = call fastcc ptr @yyjson_mut_write_opts_impl(ptr noundef %11, i64 noundef 0, i32 noundef %2, ptr noundef nonnull readonly %12, ptr noundef nonnull %7, ptr noundef nonnull %13)
+  %16 = call fastcc ptr @yyjson_mut_write_opts_impl(ptr noundef %11, i64 noundef 0, i32 noundef %2, ptr noundef nonnull readonly %12, ptr noundef nonnull %7, ptr noundef nonnull %13) #37
   %.not22.i = icmp eq ptr %16, null
   br i1 %.not22.i, label %yyjson_mut_val_write_fp.exit, label %17, !prof !4
 
@@ -55912,6 +55912,10 @@ attributes #30 = { nocallback nofree nosync nounwind speculatable willreturn mem
 attributes #31 = { nounwind allocsize(0) }
 attributes #32 = { nounwind allocsize(1) }
 attributes #33 = { nounwind }
+attributes #34 = { "function-inline-additional-cost"="0" }
+attributes #35 = { "function-inline-additional-cost"="1" }
+attributes #36 = { "function-inline-additional-cost"="10" }
+attributes #37 = { "function-inline-additional-cost"="11" }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

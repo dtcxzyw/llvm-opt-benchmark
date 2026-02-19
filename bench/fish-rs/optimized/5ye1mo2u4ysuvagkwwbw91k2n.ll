@@ -620,7 +620,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN3lru25LruCach
   store i64 %12, ptr %18, align 8, !alias.scope !88, !noalias !93
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i64 %13, ptr %19, align 16, !alias.scope !88, !noalias !93
-  call void @"_ZN61_$LT$lru..KeyWrapper$LT$K$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h96772fcd1252e525E"(ptr noalias noundef nonnull readonly align 4 %1, i64 noundef %2, ptr noalias noundef nonnull align 16 dereferenceable(64) %4), !noalias !75
+  call void @"_ZN61_$LT$lru..KeyWrapper$LT$K$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h96772fcd1252e525E"(ptr noalias noundef nonnull readonly align 4 %1, i64 noundef %2, ptr noalias noundef nonnull align 16 dereferenceable(64) %4) #40, !noalias !75
   %20 = load i8, ptr %15, align 8, !alias.scope !94, !noalias !85, !noundef !23
   %.not.i.i.i = icmp eq i8 %20, 0
   br i1 %.not.i.i.i, label %21, label %23
@@ -890,7 +890,7 @@ define hidden { i64, i32 } @"_ZN3lru25LruCache$LT$K$C$V$C$S$GT$3pop17hd52cabb98a
   store i64 %9, ptr %15, align 8, !alias.scope !179, !noalias !184
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i64 %10, ptr %16, align 16, !alias.scope !179, !noalias !184
-  call void @"_ZN61_$LT$lru..KeyWrapper$LT$K$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h96772fcd1252e525E"(ptr noalias noundef nonnull readonly align 4 %1, i64 noundef %2, ptr noalias noundef nonnull align 16 dereferenceable(64) %4), !noalias !167
+  call void @"_ZN61_$LT$lru..KeyWrapper$LT$K$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h96772fcd1252e525E"(ptr noalias noundef nonnull readonly align 4 %1, i64 noundef %2, ptr noalias noundef nonnull align 16 dereferenceable(64) %4) #40, !noalias !167
   %17 = load i8, ptr %12, align 8, !alias.scope !185, !noalias !176, !noundef !23
   %.not.i.i.i = icmp eq i8 %17, 0
   br i1 %.not.i.i.i, label %18, label %20
@@ -1095,7 +1095,7 @@ define hidden { i64, i32 } @"_ZN3lru25LruCache$LT$K$C$V$C$S$GT$3put17h242ec3738a
   store i64 %22, ptr %28, align 8, !alias.scope !253, !noalias !258
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store i64 %23, ptr %29, align 16, !alias.scope !253, !noalias !258
-  invoke void @"_ZN57_$LT$lru..KeyRef$LT$K$GT$$u20$as$u20$core..hash..Hash$GT$4hash17ha7b6c93c5f7145cfE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 16 dereferenceable(64) %10)
+  invoke void @"_ZN57_$LT$lru..KeyRef$LT$K$GT$$u20$as$u20$core..hash..Hash$GT$4hash17ha7b6c93c5f7145cfE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 16 dereferenceable(64) %10) #40
           to label %.noexc.i unwind label %310, !noalias !259
 
 .noexc.i:                                         ; preds = %18
@@ -1247,7 +1247,7 @@ select.unfold.i:                                  ; preds = %"_ZN9hashbrown3raw2
   store i64 %95, ptr %101, align 8, !alias.scope !303, !noalias !308
   %102 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i64 %96, ptr %102, align 16, !alias.scope !303, !noalias !308
-  invoke void @"_ZN57_$LT$lru..KeyRef$LT$K$GT$$u20$as$u20$core..hash..Hash$GT$4hash17ha7b6c93c5f7145cfE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 16 dereferenceable(64) %8)
+  invoke void @"_ZN57_$LT$lru..KeyRef$LT$K$GT$$u20$as$u20$core..hash..Hash$GT$4hash17ha7b6c93c5f7145cfE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 16 dereferenceable(64) %8) #40
           to label %.noexc20.i.i unwind label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$$LP$widestring..utfstring..Utf32String$C$std..time..Instant$RP$$GT$$GT$17h01e1597590cd5d9aE.exit.thread28.i.i", !noalias !290
 
 "_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$$LP$widestring..utfstring..Utf32String$C$std..time..Instant$RP$$GT$$GT$17h01e1597590cd5d9aE.exit.thread28.i.i": ; preds = %86
@@ -1501,7 +1501,7 @@ _ZN9hashbrown3map9make_hash17h3900e680fe0e74f3E.exit.i.i.i: ; preds = %107, %105
   store i64 %206, ptr %212, align 8, !alias.scope !359, !noalias !364
   %213 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i64 %207, ptr %213, align 16, !alias.scope !359, !noalias !364
-  invoke void @"_ZN57_$LT$lru..KeyRef$LT$K$GT$$u20$as$u20$core..hash..Hash$GT$4hash17ha7b6c93c5f7145cfE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noalias noundef nonnull align 16 dereferenceable(64) %6)
+  invoke void @"_ZN57_$LT$lru..KeyRef$LT$K$GT$$u20$as$u20$core..hash..Hash$GT$4hash17ha7b6c93c5f7145cfE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noalias noundef nonnull align 16 dereferenceable(64) %6) #40
           to label %.noexc36.i unwind label %305, !noalias !259
 
 .noexc36.i:                                       ; preds = %"_ZN3lru25LruCache$LT$K$C$V$C$S$GT$22replace_or_create_node17h2bd72a47a8cb6d6aE.exit.i"
@@ -1824,7 +1824,7 @@ define hidden void @"_ZN3lru25LruCache$LT$K$C$V$C$S$GT$3put17h4ef403ea86e5dac8E"
   store i64 %24, ptr %30, align 8, !alias.scope !415, !noalias !420
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i64 %25, ptr %31, align 16, !alias.scope !415, !noalias !420
-  invoke void @"_ZN57_$LT$lru..KeyRef$LT$K$GT$$u20$as$u20$core..hash..Hash$GT$4hash17ha7b6c93c5f7145cfE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %15, ptr noalias noundef nonnull align 16 dereferenceable(64) %11)
+  invoke void @"_ZN57_$LT$lru..KeyRef$LT$K$GT$$u20$as$u20$core..hash..Hash$GT$4hash17ha7b6c93c5f7145cfE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %15, ptr noalias noundef nonnull align 16 dereferenceable(64) %11) #40
           to label %.noexc.i unwind label %242, !noalias !421
 
 .noexc.i:                                         ; preds = %20
@@ -4949,7 +4949,7 @@ _ZN4core5slice4sort6stable5drift10create_run17ha91475babb3dede5E.exit: ; preds =
   %152 = trunc nuw nsw i64 %151 to i32
   %153 = shl nuw nsw i32 %152, 1
   %154 = xor i32 %153, 126
-  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17hc5b4eb2cff79eb41E(ptr noalias noundef nonnull align 8 %141, i64 noundef %137, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %154, ptr noalias noundef readonly align 8 dereferenceable_or_null(56) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17hc5b4eb2cff79eb41E(ptr noalias noundef nonnull align 8 %141, i64 noundef %137, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %154, ptr noalias noundef readonly align 8 dereferenceable_or_null(56) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #41
   br label %155
 
 155:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h28bbe3daf343cf31E.exit", %146
@@ -4962,7 +4962,7 @@ _ZN4core5slice4sort6stable5drift10create_run17ha91475babb3dede5E.exit: ; preds =
   %159 = trunc nuw nsw i64 %158 to i32
   %160 = shl nuw nsw i32 %159, 1
   %161 = xor i32 %160, 126
-  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17hc5b4eb2cff79eb41E(ptr noalias noundef nonnull align 8 %156, i64 noundef %138, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %161, ptr noalias noundef readonly align 8 dereferenceable_or_null(56) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17hc5b4eb2cff79eb41E(ptr noalias noundef nonnull align 8 %156, i64 noundef %138, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %161, ptr noalias noundef readonly align 8 dereferenceable_or_null(56) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #41
   br label %162
 
 162:                                              ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h909825118a1161c0E.exit31", %155
@@ -5584,7 +5584,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h09f8212c566be996E.exit: ; preds =
   %194 = trunc nuw nsw i64 %193 to i32
   %195 = shl nuw nsw i32 %194, 1
   %196 = xor i32 %195, 126
-  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17h8e8ecf85604a0497E(ptr noalias noundef nonnull align 8 %183, i64 noundef %179, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %196, ptr noalias noundef readonly align 8 dereferenceable_or_null(56) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17h8e8ecf85604a0497E(ptr noalias noundef nonnull align 8 %183, i64 noundef %179, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %196, ptr noalias noundef readonly align 8 dereferenceable_or_null(56) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #41
   br label %197
 
 197:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h28bbe3daf343cf31E.exit", %188
@@ -5597,7 +5597,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h09f8212c566be996E.exit: ; preds =
   %201 = trunc nuw nsw i64 %200 to i32
   %202 = shl nuw nsw i32 %201, 1
   %203 = xor i32 %202, 126
-  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17h8e8ecf85604a0497E(ptr noalias noundef nonnull align 8 %198, i64 noundef %180, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %203, ptr noalias noundef readonly align 8 dereferenceable_or_null(56) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17h8e8ecf85604a0497E(ptr noalias noundef nonnull align 8 %198, i64 noundef %180, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %203, ptr noalias noundef readonly align 8 dereferenceable_or_null(56) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #41
   br label %204
 
 204:                                              ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h909825118a1161c0E.exit31", %197
@@ -6103,7 +6103,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h8512569ee7a53af7E.exit: ; preds =
   %95 = trunc nuw nsw i64 %94 to i32
   %96 = shl nuw nsw i32 %95, 1
   %97 = xor i32 %96, 126
-  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17he76fd39880ffe9c8E(ptr noalias noundef nonnull align 8 %84, i64 noundef %80, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %97, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17he76fd39880ffe9c8E(ptr noalias noundef nonnull align 8 %84, i64 noundef %80, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %97, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #41
   br label %98
 
 98:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb89f69617984e29eE.exit", %89
@@ -6116,7 +6116,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h8512569ee7a53af7E.exit: ; preds =
   %102 = trunc nuw nsw i64 %101 to i32
   %103 = shl nuw nsw i32 %102, 1
   %104 = xor i32 %103, 126
-  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17he76fd39880ffe9c8E(ptr noalias noundef nonnull align 8 %99, i64 noundef %81, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %104, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17he76fd39880ffe9c8E(ptr noalias noundef nonnull align 8 %99, i64 noundef %81, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %104, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #41
   br label %105
 
 105:                                              ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h8a2a6780ec5af19aE.exit31", %98
@@ -6488,7 +6488,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h0e59e819f13be157E.exit: ; preds =
   %110 = trunc nuw nsw i64 %109 to i32
   %111 = shl nuw nsw i32 %110, 1
   %112 = xor i32 %111, 126
-  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17h1c7e5fd066c3bd97E(ptr noalias noundef nonnull align 8 %99, i64 noundef %95, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %112, ptr noalias noundef readonly align 8 dereferenceable_or_null(16) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17h1c7e5fd066c3bd97E(ptr noalias noundef nonnull align 8 %99, i64 noundef %95, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %112, ptr noalias noundef readonly align 8 dereferenceable_or_null(16) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #41
   br label %113
 
 113:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha1af06cc59dc8ec2E.exit", %104
@@ -6501,7 +6501,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h0e59e819f13be157E.exit: ; preds =
   %117 = trunc nuw nsw i64 %116 to i32
   %118 = shl nuw nsw i32 %117, 1
   %119 = xor i32 %118, 126
-  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17h1c7e5fd066c3bd97E(ptr noalias noundef nonnull align 8 %114, i64 noundef %96, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %119, ptr noalias noundef readonly align 8 dereferenceable_or_null(16) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17h1c7e5fd066c3bd97E(ptr noalias noundef nonnull align 8 %114, i64 noundef %96, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %119, ptr noalias noundef readonly align 8 dereferenceable_or_null(16) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #41
   br label %120
 
 120:                                              ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2f2eabddfcd8ae3dE.exit31", %113
@@ -6897,7 +6897,7 @@ _ZN4core5slice4sort6stable5drift10create_run17hb65c6e0f4b4a3a69E.exit: ; preds =
   %123 = trunc nuw nsw i64 %122 to i32
   %124 = shl nuw nsw i32 %123, 1
   %125 = xor i32 %124, 126
-  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17h3682000a42640b9cE(ptr noalias noundef nonnull align 8 %112, i64 noundef %108, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %125, ptr noalias noundef readonly align 8 dereferenceable_or_null(80) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17h3682000a42640b9cE(ptr noalias noundef nonnull align 8 %112, i64 noundef %108, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %125, ptr noalias noundef readonly align 8 dereferenceable_or_null(80) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #41
   br label %126
 
 126:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha165a2488c9e149fE.exit", %117
@@ -6910,7 +6910,7 @@ _ZN4core5slice4sort6stable5drift10create_run17hb65c6e0f4b4a3a69E.exit: ; preds =
   %130 = trunc nuw nsw i64 %129 to i32
   %131 = shl nuw nsw i32 %130, 1
   %132 = xor i32 %131, 126
-  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17h3682000a42640b9cE(ptr noalias noundef nonnull align 8 %127, i64 noundef %109, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %132, ptr noalias noundef readonly align 8 dereferenceable_or_null(80) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17h3682000a42640b9cE(ptr noalias noundef nonnull align 8 %127, i64 noundef %109, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %132, ptr noalias noundef readonly align 8 dereferenceable_or_null(80) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #41
   br label %133
 
 133:                                              ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6ed0ca4b4938a50aE.exit31", %126
@@ -7797,7 +7797,7 @@ _ZN4core5slice4sort6stable5drift10create_run17he9db6ffb883f7915E.exit: ; preds =
   %304 = trunc nuw nsw i64 %303 to i32
   %305 = shl nuw nsw i32 %304, 1
   %306 = xor i32 %305, 126
-  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17haf037d4a25be8639E(ptr noalias noundef nonnull align 8 %293, i64 noundef %289, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %306, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17haf037d4a25be8639E(ptr noalias noundef nonnull align 8 %293, i64 noundef %289, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %306, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #41
   br label %307
 
 307:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h5103dc8ebce51fdeE.exit", %298
@@ -7810,7 +7810,7 @@ _ZN4core5slice4sort6stable5drift10create_run17he9db6ffb883f7915E.exit: ; preds =
   %311 = trunc nuw nsw i64 %310 to i32
   %312 = shl nuw nsw i32 %311, 1
   %313 = xor i32 %312, 126
-  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17haf037d4a25be8639E(ptr noalias noundef nonnull align 8 %308, i64 noundef %290, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %313, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17haf037d4a25be8639E(ptr noalias noundef nonnull align 8 %308, i64 noundef %290, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %313, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #41
   br label %314
 
 314:                                              ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd036628243474094E.exit31", %307
@@ -8563,7 +8563,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h28a6bf82e5e3e447E.exit: ; preds =
   %140 = trunc nuw nsw i64 %139 to i32
   %141 = shl nuw nsw i32 %140, 1
   %142 = xor i32 %141, 126
-  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17hc2120fd1309a4109E(ptr noalias noundef nonnull align 8 %129, i64 noundef %125, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %142, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17hc2120fd1309a4109E(ptr noalias noundef nonnull align 8 %129, i64 noundef %125, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %142, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #41
   br label %143
 
 143:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h3da2fe80b63491a5E.exit", %134
@@ -8576,7 +8576,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h28a6bf82e5e3e447E.exit: ; preds =
   %147 = trunc nuw nsw i64 %146 to i32
   %148 = shl nuw nsw i32 %147, 1
   %149 = xor i32 %148, 126
-  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17hc2120fd1309a4109E(ptr noalias noundef nonnull align 8 %144, i64 noundef %126, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %149, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17hc2120fd1309a4109E(ptr noalias noundef nonnull align 8 %144, i64 noundef %126, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %149, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #41
   br label %150
 
 150:                                              ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haf6d1a6b1e75bdc6E.exit31", %143
@@ -9133,7 +9133,7 @@ _ZN4core5slice4sort6stable5drift10create_run17hf7e7f1f5efa31a06E.exit: ; preds =
   %129 = trunc nuw nsw i64 %128 to i32
   %130 = shl nuw nsw i32 %129, 1
   %131 = xor i32 %130, 126
-  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5aeedfe1cca6ca46E(ptr noalias noundef nonnull align 8 %118, i64 noundef %114, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %131, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef nonnull align 1 %5)
+  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5aeedfe1cca6ca46E(ptr noalias noundef nonnull align 8 %118, i64 noundef %114, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %131, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef nonnull align 1 %5) #41
   br label %132
 
 132:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h22cda6d993c88074E.exit", %123
@@ -9146,7 +9146,7 @@ _ZN4core5slice4sort6stable5drift10create_run17hf7e7f1f5efa31a06E.exit: ; preds =
   %136 = trunc nuw nsw i64 %135 to i32
   %137 = shl nuw nsw i32 %136, 1
   %138 = xor i32 %137, 126
-  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5aeedfe1cca6ca46E(ptr noalias noundef nonnull align 8 %133, i64 noundef %115, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %138, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef nonnull align 1 %5)
+  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5aeedfe1cca6ca46E(ptr noalias noundef nonnull align 8 %133, i64 noundef %115, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %138, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef nonnull align 1 %5) #41
   br label %139
 
 139:                                              ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h239bb26b48b3a24fE.exit31", %132
@@ -9627,7 +9627,7 @@ _ZN4core5slice4sort6stable5drift10create_run17hb59c673f66ee2135E.exit: ; preds =
   %120 = trunc nuw nsw i64 %119 to i32
   %121 = shl nuw nsw i32 %120, 1
   %122 = xor i32 %121, 126
-  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17hd2bad006453cc30eE(ptr noalias noundef nonnull align 8 %109, i64 noundef %105, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %122, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17hd2bad006453cc30eE(ptr noalias noundef nonnull align 8 %109, i64 noundef %105, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %122, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #41
   br label %123
 
 123:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h3da2fe80b63491a5E.exit", %114
@@ -9640,7 +9640,7 @@ _ZN4core5slice4sort6stable5drift10create_run17hb59c673f66ee2135E.exit: ; preds =
   %127 = trunc nuw nsw i64 %126 to i32
   %128 = shl nuw nsw i32 %127, 1
   %129 = xor i32 %128, 126
-  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17hd2bad006453cc30eE(ptr noalias noundef nonnull align 8 %124, i64 noundef %106, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %129, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17hd2bad006453cc30eE(ptr noalias noundef nonnull align 8 %124, i64 noundef %106, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %129, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #41
   br label %130
 
 130:                                              ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haf6d1a6b1e75bdc6E.exit31", %123
@@ -10147,7 +10147,7 @@ _ZN4core5slice4sort6stable5drift10create_run17hda6e1b6eeb2512c4E.exit: ; preds =
   %126 = trunc nuw nsw i64 %125 to i32
   %127 = shl nuw nsw i32 %126, 1
   %128 = xor i32 %127, 126
-  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17h0811614f446a634cE(ptr noalias noundef nonnull align 8 %115, i64 noundef %111, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %128, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17h0811614f446a634cE(ptr noalias noundef nonnull align 8 %115, i64 noundef %111, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %128, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #41
   br label %129
 
 129:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he952f3e457ca9a83E.exit", %120
@@ -10160,7 +10160,7 @@ _ZN4core5slice4sort6stable5drift10create_run17hda6e1b6eeb2512c4E.exit: ; preds =
   %133 = trunc nuw nsw i64 %132 to i32
   %134 = shl nuw nsw i32 %133, 1
   %135 = xor i32 %134, 126
-  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17h0811614f446a634cE(ptr noalias noundef nonnull align 8 %130, i64 noundef %112, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %135, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17h0811614f446a634cE(ptr noalias noundef nonnull align 8 %130, i64 noundef %112, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %135, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #41
   br label %136
 
 136:                                              ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h5528b14a49a18d3cE.exit31", %129
@@ -10600,7 +10600,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h3ae640bff2ac1e24E.exit: ; preds =
   %105 = trunc nuw nsw i64 %104 to i32
   %106 = shl nuw nsw i32 %105, 1
   %107 = xor i32 %106, 126
-  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17ha5c90c496762cf49E(ptr noalias noundef nonnull align 8 %94, i64 noundef %90, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %107, ptr noalias noundef readonly align 8 dereferenceable_or_null(56) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17ha5c90c496762cf49E(ptr noalias noundef nonnull align 8 %94, i64 noundef %90, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %107, ptr noalias noundef readonly align 8 dereferenceable_or_null(56) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #41
   br label %108
 
 108:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h28bbe3daf343cf31E.exit", %99
@@ -10613,7 +10613,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h3ae640bff2ac1e24E.exit: ; preds =
   %112 = trunc nuw nsw i64 %111 to i32
   %113 = shl nuw nsw i32 %112, 1
   %114 = xor i32 %113, 126
-  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17ha5c90c496762cf49E(ptr noalias noundef nonnull align 8 %109, i64 noundef %91, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %114, ptr noalias noundef readonly align 8 dereferenceable_or_null(56) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17ha5c90c496762cf49E(ptr noalias noundef nonnull align 8 %109, i64 noundef %91, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %114, ptr noalias noundef readonly align 8 dereferenceable_or_null(56) null, ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #41
   br label %115
 
 115:                                              ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h909825118a1161c0E.exit31", %108
@@ -20593,7 +20593,7 @@ define internal fastcc ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12re
   store i64 %7, ptr %13, align 8, !alias.scope !3229, !noalias !3234
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 %8, ptr %14, align 16, !alias.scope !3229, !noalias !3234
-  call void @"_ZN57_$LT$lru..KeyRef$LT$K$GT$$u20$as$u20$core..hash..Hash$GT$4hash17ha7b6c93c5f7145cfE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull align 16 dereferenceable(64) %3)
+  call void @"_ZN57_$LT$lru..KeyRef$LT$K$GT$$u20$as$u20$core..hash..Hash$GT$4hash17ha7b6c93c5f7145cfE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull align 16 dereferenceable(64) %3) #40
   %15 = load i8, ptr %10, align 8, !alias.scope !3235, !noalias !3226, !noundef !23
   %.not.i.i = icmp eq i8 %15, 0
   br i1 %.not.i.i, label %16, label %18
@@ -25920,7 +25920,7 @@ _ZN4fish12input_common16InputEventQueuer6readch17hd7670714cdfe5f48E.exit: ; pred
 31:                                               ; preds = %30
   %32 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$fish..input_common..CharEvent$GT$17h93255d0e75c3776eE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #38
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$fish..input_common..CharEvent$GT$17h93255d0e75c3776eE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #42
           to label %35 unwind label %33
 
 33:                                               ; preds = %31
@@ -29890,6 +29890,9 @@ attributes #36 = { noreturn }
 attributes #37 = { nounwind }
 attributes #38 = { cold }
 attributes #39 = { cold noreturn nounwind }
+attributes #40 = { "function-inline-additional-cost"="8" }
+attributes #41 = { "function-inline-additional-cost"="1" }
+attributes #42 = { cold "function-inline-additional-cost"="7" }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

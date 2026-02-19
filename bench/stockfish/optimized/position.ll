@@ -475,7 +475,7 @@ define dso_local void @_ZNK9Stockfish8Position3fenB5cxx11Ev(ptr dead_on_unwind n
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   %110 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %110, ptr noundef nonnull align 1 dereferenceable(1) %5) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.16, i64 3))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.16, i64 3)) #19
   br label %114
 
 111:                                              ; preds = %105
@@ -588,7 +588,7 @@ define dso_local noundef nonnull align 8 dereferenceable(865) ptr @_ZN9Stockfish
   %.054 = phi i32 [ 56, %.lr.ph ], [ %.1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread ]
   %21 = load i8, ptr %7, align 1
   %22 = zext i8 %21 to i32
-  %23 = call i32 @isspace(i32 noundef %22) #19
+  %23 = call i32 @isspace(i32 noundef %22) #20
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %24, label %.critedge
 
@@ -693,15 +693,15 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %3
 87:                                               ; preds = %.lr.ph56, %.backedge
   %88 = load i8, ptr %7, align 1
   %89 = zext i8 %88 to i32
-  %90 = call i32 @isspace(i32 noundef %89) #19
+  %90 = call i32 @isspace(i32 noundef %89) #20
   %.not26 = icmp eq i32 %90, 0
   br i1 %.not26, label %91, label %.critedge2
 
 91:                                               ; preds = %87
-  %92 = call i32 @islower(i32 noundef %89) #19
+  %92 = call i32 @islower(i32 noundef %89) #20
   %.not30 = icmp ne i32 %92, 0
   %93 = select i1 %.not30, i32 12, i32 4
-  %94 = call i32 @toupper(i32 noundef %89) #19
+  %94 = call i32 @toupper(i32 noundef %89) #20
   %95 = trunc i32 %94 to i8
   store i8 %95, ptr %7, align 1
   switch i8 %95, label %107 [
@@ -4937,16 +4937,16 @@ define dso_local void @_ZN9Stockfish8Position4flipEv(ptr noundef nonnull align 8
   %.sroa.03.07.i = phi ptr [ %35, %"_ZZN9Stockfish8Position4flipEvENK3$_0clEc.exit.i" ], [ %23, %15 ]
   %26 = load i8, ptr %.sroa.03.07.i, align 1
   %27 = sext i8 %26 to i32
-  %28 = call i32 @islower(i32 noundef %27) #19
+  %28 = call i32 @islower(i32 noundef %27) #20
   %.not.i.i = icmp eq i32 %28, 0
   br i1 %.not.i.i, label %31, label %29
 
 29:                                               ; preds = %.lr.ph.i
-  %30 = call i32 @toupper(i32 noundef %27) #19
+  %30 = call i32 @toupper(i32 noundef %27) #20
   br label %"_ZZN9Stockfish8Position4flipEvENK3$_0clEc.exit.i"
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = call i32 @tolower(i32 noundef %27) #19
+  %32 = call i32 @tolower(i32 noundef %27) #20
   br label %"_ZZN9Stockfish8Position4flipEvENK3$_0clEc.exit.i"
 
 "_ZZN9Stockfish8Position4flipEvENK3$_0clEc.exit.i": ; preds = %31, %29
@@ -5155,7 +5155,8 @@ attributes #15 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-widt
 attributes #16 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nounwind }
-attributes #19 = { nounwind willreturn memory(read) }
+attributes #19 = { "function-inline-additional-cost"="7" }
+attributes #20 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

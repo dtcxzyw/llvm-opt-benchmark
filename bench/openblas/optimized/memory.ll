@@ -234,7 +234,7 @@ define i32 @openblas_get_num_threads() local_unnamed_addr #0 {
   br label %blas_get_cpu_number.exit
 
 2:                                                ; preds = %0
-  %3 = tail call i32 @get_num_procs()
+  %3 = tail call i32 @get_num_procs() #16
   %4 = tail call i32 @openblas_num_threads_env() #15
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %8
@@ -285,7 +285,7 @@ define ptr @blas_memory_alloc(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not48, label %8, label %19
 
 8:                                                ; preds = %6
-  %9 = tail call i32 @get_num_procs()
+  %9 = tail call i32 @get_num_procs() #16
   %10 = tail call i32 @openblas_num_threads_env() #15
   %11 = icmp slt i32 %10, 1
   br i1 %11, label %12, label %blas_get_cpu_number.exit
@@ -402,16 +402,16 @@ blas_get_cpu_number.exit:                         ; preds = %12, %8
 
 55:                                               ; preds = %.loopexit58
   %56 = load ptr, ptr @stderr, align 8, !tbaa !22
-  %57 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 96, i64 1, ptr %56) #16
+  %57 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 96, i64 1, ptr %56) #17
   %58 = load ptr, ptr @stderr, align 8, !tbaa !22
-  %59 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 94, i64 1, ptr %58) #16
+  %59 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 94, i64 1, ptr %58) #17
   %60 = load ptr, ptr @stderr, align 8, !tbaa !22
-  %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.3, i32 noundef 16) #17
+  %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.3, i32 noundef 16) #18
   store i1 true, ptr @memory_overflowed, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !24
-  %62 = tail call noalias dereferenceable_or_null(12288) ptr @malloc(i64 noundef 12288) #18
+  %62 = tail call noalias dereferenceable_or_null(12288) ptr @malloc(i64 noundef 12288) #19
   store ptr %62, ptr @new_release_info, align 8, !tbaa !25
-  %63 = tail call noalias dereferenceable_or_null(32768) ptr @malloc(i64 noundef 32768) #18
+  %63 = tail call noalias dereferenceable_or_null(32768) ptr @malloc(i64 noundef 32768) #19
   store ptr %63, ptr @newmemory, align 8, !tbaa !14
   br label %64
 
@@ -535,7 +535,7 @@ define internal ptr @alloc_mmap(ptr noundef %0) #0 {
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @alloc_malloc(ptr readnone captures(none) %0) #4 {
-  %2 = tail call noalias dereferenceable_or_null(134221824) ptr @malloc(i64 noundef 134221824) #18
+  %2 = tail call noalias dereferenceable_or_null(134221824) ptr @malloc(i64 noundef 134221824) #19
   %3 = icmp eq ptr %2, null
   %spec.store.select = select i1 %3, ptr inttoptr (i64 -1 to ptr), ptr %2
   %.not = icmp eq ptr %spec.store.select, inttoptr (i64 -1 to ptr)
@@ -662,7 +662,7 @@ define void @blas_memory_free(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @blas_memory_alloc_nolock(i32 noundef %0) local_unnamed_addr #7 {
-  %2 = tail call noalias dereferenceable_or_null(134221824) ptr @malloc(i64 noundef 134221824) #18
+  %2 = tail call noalias dereferenceable_or_null(134221824) ptr @malloc(i64 noundef 134221824) #19
   ret ptr %2
 }
 
@@ -781,7 +781,7 @@ openblas_fork_handler.exit:                       ; preds = %1, %3
   br i1 %or.cond, label %7, label %blas_get_cpu_number.exit
 
 7:                                                ; preds = %openblas_fork_handler.exit
-  %8 = tail call i32 @get_num_procs()
+  %8 = tail call i32 @get_num_procs() #16
   %9 = tail call i32 @openblas_num_threads_env() #15
   %10 = icmp slt i32 %9, 1
   br i1 %10, label %11, label %13
@@ -859,9 +859,9 @@ define internal void @alloc_mmap_free(ptr noundef readonly captures(none) %0) #0
   br i1 %.not3, label %10, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @__errno_location() #19
+  %6 = tail call ptr @__errno_location() #20
   %7 = load i32, ptr %6, align 4, !tbaa !3
-  tail call void @perror(ptr noundef nonnull @.str.11) #16
+  tail call void @perror(ptr noundef nonnull @.str.11) #17
   %8 = load ptr, ptr %0, align 8, !tbaa !32
   %9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %7, ptr noundef %8)
   br label %10
@@ -923,10 +923,11 @@ attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn mem
 attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nofree nounwind }
 attributes #15 = { nounwind }
-attributes #16 = { cold }
-attributes #17 = { cold nounwind }
-attributes #18 = { nounwind allocsize(0) }
-attributes #19 = { nounwind willreturn memory(none) }
+attributes #16 = { "function-inline-additional-cost"="11" }
+attributes #17 = { cold }
+attributes #18 = { cold nounwind }
+attributes #19 = { nounwind allocsize(0) }
+attributes #20 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

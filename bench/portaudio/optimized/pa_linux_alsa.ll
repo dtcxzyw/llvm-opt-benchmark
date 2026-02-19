@@ -1691,7 +1691,7 @@ define internal i32 @AbortStream(ptr noundef %0) #2 {
   br label %RealStop.exit
 
 13:                                               ; preds = %1
-  %14 = tail call fastcc i32 @AlsaStop(ptr noundef nonnull %0)
+  %14 = tail call fastcc i32 @AlsaStop(ptr noundef nonnull %0) #31
   store i32 %14, ptr @paUtilErr_, align 4, !tbaa !3
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %16, label %18, !prof !9
@@ -5430,13 +5430,13 @@ define internal noalias noundef nonnull ptr @CallbackThreadFunc(ptr noundef %0) 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !3
-  %8 = call i32 @__sigsetjmp(ptr noundef nonnull %4, i32 noundef 0) #31
+  %8 = call i32 @__sigsetjmp(ptr noundef nonnull %4, i32 noundef 0) #32
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %10, label %9, !prof !35
 
 9:                                                ; preds = %1
   call fastcc void @OnExit(ptr noundef %0)
-  call void @__pthread_unwind_next(ptr noundef nonnull %4) #32
+  call void @__pthread_unwind_next(ptr noundef nonnull %4) #33
   unreachable
 
 10:                                               ; preds = %1
@@ -5739,7 +5739,7 @@ define internal noalias noundef nonnull ptr @CallbackThreadFunc(ptr noundef %0) 
   store volatile i32 1, ptr %133, align 4, !tbaa !127
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %135 = load volatile i32, ptr %134, align 8, !tbaa !126
-  %136 = call fastcc i32 @AlsaStop(ptr noundef nonnull %0)
+  %136 = call fastcc i32 @AlsaStop(ptr noundef nonnull %0) #34
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %138 = load ptr, ptr %137, align 8, !tbaa !244
   %.not.i = icmp eq ptr %138, null
@@ -5758,13 +5758,13 @@ OnExit.exit:                                      ; preds = %.thread108, %139
   br i1 %.not101, label %145, label %143
 
 143:                                              ; preds = %OnExit.exit
-  %144 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #33
+  %144 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store i32 %.8, ptr %144, align 4, !tbaa !3
   br label %145
 
 145:                                              ; preds = %143, %OnExit.exit
   %.0 = phi ptr [ %144, %143 ], [ null, %OnExit.exit ]
-  call void @pthread_exit(ptr noundef %.0) #32
+  call void @pthread_exit(ptr noundef %.0) #33
   unreachable
 }
 
@@ -7947,9 +7947,11 @@ attributes #27 = { nounwind }
 attributes #28 = { nounwind willreturn memory(read) }
 attributes #29 = { nounwind allocsize(1) }
 attributes #30 = { nounwind willreturn memory(none) }
-attributes #31 = { nounwind returns_twice }
-attributes #32 = { noreturn nounwind }
-attributes #33 = { nounwind allocsize(0) }
+attributes #31 = { "function-inline-additional-cost"="11" }
+attributes #32 = { nounwind returns_twice }
+attributes #33 = { noreturn nounwind }
+attributes #34 = { "function-inline-additional-cost"="5" }
+attributes #35 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

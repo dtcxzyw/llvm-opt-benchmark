@@ -428,7 +428,7 @@ define noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLoc
 
 _ZN4YAML7Emitter12EmitBeginSeqEv.exit:            ; preds = %6
   %9 = tail call noundef i32 @_ZNK4YAML12EmitterState13NextGroupTypeENS_9GroupType5valueE(ptr noundef nonnull align 8 dereferenceable(224) %3, i32 noundef 1)
-  tail call void @_ZN4YAML7Emitter11PrepareNodeENS_15EmitterNodeType5valueE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %9)
+  tail call void @_ZN4YAML7Emitter11PrepareNodeENS_15EmitterNodeType5valueE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %9) #18
   %10 = load ptr, ptr %0, align 8, !tbaa !3
   tail call void @_ZN4YAML12EmitterState12StartedGroupENS_9GroupType5valueE(ptr noundef nonnull align 8 dereferenceable(224) %10, i32 noundef 1)
   br label %19
@@ -439,7 +439,7 @@ _ZN4YAML7Emitter12EmitBeginSeqEv.exit:            ; preds = %6
 
 _ZN4YAML7Emitter12EmitBeginMapEv.exit:            ; preds = %6
   %12 = tail call noundef i32 @_ZNK4YAML12EmitterState13NextGroupTypeENS_9GroupType5valueE(ptr noundef nonnull align 8 dereferenceable(224) %3, i32 noundef 2)
-  tail call void @_ZN4YAML7Emitter11PrepareNodeENS_15EmitterNodeType5valueE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %12)
+  tail call void @_ZN4YAML7Emitter11PrepareNodeENS_15EmitterNodeType5valueE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %12) #18
   %13 = load ptr, ptr %0, align 8, !tbaa !3
   tail call void @_ZN4YAML12EmitterState12StartedGroupENS_9GroupType5valueE(ptr noundef nonnull align 8 dereferenceable(224) %13, i32 noundef 2)
   br label %19
@@ -453,7 +453,7 @@ _ZN4YAML7Emitter12EmitBeginMapEv.exit:            ; preds = %6
   br label %19
 
 _ZN4YAML7Emitter11EmitNewlineEv.exit:             ; preds = %6
-  tail call void @_ZN4YAML7Emitter11PrepareNodeENS_15EmitterNodeType5valueE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 0)
+  tail call void @_ZN4YAML7Emitter11PrepareNodeENS_15EmitterNodeType5valueE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 0) #18
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %16, ptr noundef nonnull @.str.1, i64 noundef 1)
   %17 = load ptr, ptr %0, align 8, !tbaa !3
@@ -1086,7 +1086,7 @@ define void @_ZN4YAML7Emitter11EmitKindTagEv(ptr noundef nonnull align 8 derefer
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %7, align 8, !tbaa !46, !noalias !56
   store i8 0, ptr %6, align 8, !tbaa !20, !noalias !56
-  invoke void @_ZN4YAML4_TagC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_NS0_4Type5valueE(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 1)
+  invoke void @_ZN4YAML4_TagC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_NS0_4Type5valueE(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 1) #19
           to label %8 unwind label %11
 
 8:                                                ; preds = %._crit_edge.i.i
@@ -3852,7 +3852,7 @@ define noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter5WriteER
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %9, align 8, !tbaa !46, !noalias !84
   store i8 0, ptr %8, align 8, !tbaa !20, !noalias !84
-  invoke void @_ZN4YAML4_TagC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_NS0_4Type5valueE(ptr noundef nonnull align 8 dereferenceable(68) %3, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 2)
+  invoke void @_ZN4YAML4_TagC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_NS0_4Type5valueE(ptr noundef nonnull align 8 dereferenceable(68) %3, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 2) #19
           to label %10 unwind label %13
 
 10:                                               ; preds = %._crit_edge.i.i
@@ -4110,6 +4110,8 @@ attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessi
 attributes #15 = { builtin allocsize(0) }
 attributes #16 = { builtin nounwind }
 attributes #17 = { nounwind }
+attributes #18 = { "function-inline-additional-cost"="6" }
+attributes #19 = { "function-inline-additional-cost"="8" }
 
 !llvm.module.flags = !{!0, !1, !2}
 

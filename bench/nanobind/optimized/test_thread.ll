@@ -280,7 +280,7 @@ define ptr @PyInit_test_thread_ext() local_unnamed_addr #0 personality ptr @__gx
   store ptr null, ptr %9, align 8, !tbaa !19
   store ptr %73, ptr %36, align 8, !tbaa !19
   store ptr null, ptr %38, align 8, !tbaa !19
-  %74 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  %74 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %38) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
@@ -613,7 +613,7 @@ define ptr @PyInit_test_thread_ext() local_unnamed_addr #0 personality ptr @__gx
   store ptr null, ptr %2, align 8, !tbaa !19
   store ptr %202, ptr %19, align 8, !tbaa !19
   store ptr null, ptr %21, align 8, !tbaa !19
-  %203 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
+  %203 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %204 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %21) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -705,7 +705,7 @@ define ptr @PyInit_test_thread_ext() local_unnamed_addr #0 personality ptr @__gx
   store ptr null, ptr %1, align 8, !tbaa !19
   store ptr %236, ptr %12, align 8, !tbaa !19
   store ptr null, ptr %14, align 8, !tbaa !19
-  %237 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
+  %237 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %238 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -735,8 +735,8 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: noinline noreturn nounwind optsize uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
-  tail call void @_ZSt9terminatev() #13
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
+  tail call void @_ZSt9terminatev() #14
   unreachable
 }
 
@@ -767,7 +767,7 @@ _ZL11_Py_XDECREFP7_object.exit:                   ; preds = %3, %1, %6
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #13
+  tail call void @__clang_call_terminate(ptr %9) #14
   unreachable
 }
 
@@ -869,7 +869,7 @@ define linkonce_odr hidden noundef ptr @_ZZN8nanobind6detail11func_createILb1ELb
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #13
+  call void @__clang_call_terminate(ptr %19) #14
   unreachable
 
 _ZZN8nanobind6detail11func_createILb1ELb1ERZNS_6class_I7CounterJEE6def_roIS3_mJEEERS4_PKcMT_T0_DpRKT1_EUlRKS3_E_RKmJSH_EJLm0EEJNS_9is_methodENS_9is_getterENS_9rv_policyEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSQ_PhSO_PNS0_12cleanup_listEE_clES14_S15_S16_SO_S18_.exit: ; preds = %10, %5
@@ -1267,7 +1267,7 @@ _ZZN8nanobind12cpp_functionI17ClassWithPropertyiS1_JEJNS_9is_methodENS_9is_gette
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #13
+  call void @__clang_call_terminate(ptr %27) #14
   unreachable
 
 _ZZN8nanobind6detail11func_createILb1ELb1EZNS_12cpp_functionI17ClassWithPropertyiS3_JEJNS_9is_methodENS_9is_getterENS_9rv_policyEEEENS_6objectEMT1_KFT0_DpT2_EDpRKT3_EUlPKS3_E_iJSJ_EJLm0EEJS4_S5_S6_EEEP7_objectOS8_PFT2_DpSE_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSM_PhS6_PNS0_12cleanup_listEE_clESY_SZ_S10_S6_S12_.exit: ; preds = %_ZZN8nanobind12cpp_functionI17ClassWithPropertyiS1_JEJNS_9is_methodENS_9is_getterENS_9rv_policyEEEENS_6objectEMT1_KFT0_DpT2_EDpRKT3_ENKUlPKS1_E_clESH_.exit, %5
@@ -1380,8 +1380,9 @@ attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { optsize }
 attributes #11 = { nounwind optsize }
-attributes #12 = { nounwind }
-attributes #13 = { noreturn nounwind }
+attributes #12 = { nounwind optsize "function-inline-additional-cost"="0" }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -2338,7 +2338,7 @@ define void @png_write_png(ptr noalias noundef %0, ptr noalias noundef %1, i32 n
   %.015.i = phi ptr [ %59, %.lr.ph.i ], [ %51, %.preheader.i ]
   %.01114.i = phi i32 [ %58, %.lr.ph.i ], [ 0, %.preheader.i ]
   %57 = load ptr, ptr %.015.i, align 8, !tbaa !149, !noalias !192
-  tail call void @png_write_row(ptr noundef nonnull %0, ptr noundef %57)
+  tail call void @png_write_row(ptr noundef nonnull %0, ptr noundef %57) #18
   %58 = add nuw i32 %.01114.i, 1
   %59 = getelementptr inbounds nuw i8, ptr %.015.i, i64 8
   %60 = load i32, ptr %54, align 8, !tbaa !172, !alias.scope !192
@@ -3470,7 +3470,7 @@ define i32 @png_image_write_to_file(ptr noundef %0, ptr noundef readonly capture
   br i1 %19, label %20, label %31
 
 20:                                               ; preds = %17
-  %21 = tail call fastcc i32 @png_image_write_init(ptr noundef nonnull %0)
+  %21 = tail call fastcc i32 @png_image_write_init(ptr noundef nonnull %0) #19
   %.not22.i = icmp eq i32 %21, 0
   br i1 %.not22.i, label %png_image_write_to_stdio.exit.thread, label %22
 
@@ -3520,12 +3520,12 @@ png_image_write_to_stdio.exit:                    ; preds = %22, %31
   br i1 %41, label %.critedge, label %42
 
 42:                                               ; preds = %39
-  %43 = tail call ptr @__errno_location() #18
+  %43 = tail call ptr @__errno_location() #20
   %44 = load i32, ptr %43, align 4, !tbaa !235
   br label %49
 
 45:                                               ; preds = %36, %33
-  %46 = tail call ptr @__errno_location() #18
+  %46 = tail call ptr @__errno_location() #20
   %47 = load i32, ptr %46, align 4, !tbaa !235
   %48 = call i32 @fclose(ptr noundef nonnull %16)
   br label %49
@@ -3543,7 +3543,7 @@ png_image_write_to_stdio.exit.thread:             ; preds = %20, %png_image_writ
   br label %.critedge
 
 55:                                               ; preds = %15
-  %56 = tail call ptr @__errno_location() #18
+  %56 = tail call ptr @__errno_location() #20
   %57 = load i32, ptr %56, align 4, !tbaa !235
   %58 = tail call ptr @strerror(i32 noundef %57) #16
   %59 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef %58) #16
@@ -4090,7 +4090,9 @@ attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessi
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nounwind }
 attributes #17 = { noreturn nounwind }
-attributes #18 = { nounwind willreturn memory(none) }
+attributes #18 = { "function-inline-additional-cost"="7" }
+attributes #19 = { "function-inline-additional-cost"="10" }
+attributes #20 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 
