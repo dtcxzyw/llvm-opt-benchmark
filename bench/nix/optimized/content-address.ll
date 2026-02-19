@@ -1060,7 +1060,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %74, %_ZNKSt7__cxx11
   %79 = landingpad { ptr, i32 }
           catch ptr null
   %80 = extractvalue { ptr, i32 } %79, 0
-  call void @__clang_call_terminate(ptr %80) #28
+  call void @__clang_call_terminate(ptr %80) #25
   unreachable
 }
 
@@ -1085,7 +1085,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #21
-  tail call void @_ZSt9terminatev() #28
+  tail call void @_ZSt9terminatev() #25
   unreachable
 }
 

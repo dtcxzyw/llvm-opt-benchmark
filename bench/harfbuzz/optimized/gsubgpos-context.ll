@@ -207,7 +207,7 @@ _ZN5graph5GSTAR14graph_to_gstarERNS_7graph_tE.exit.thread: ; preds = %27, %18, %
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN5graph24gsubgpos_graph_context_t11create_nodeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = zext i32 %1 to i64
-  %4 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %3) #15
+  %4 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %3) #14
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %46, label %5
 
@@ -252,7 +252,7 @@ _ZN11hb_vector_tIPcLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivi
   %22 = load ptr, ptr %21, align 8, !tbaa !62
   %23 = shl nuw i32 %18, 3
   %24 = zext i32 %23 to i64
-  %25 = tail call ptr @realloc(ptr noundef %22, i64 noundef %24) #16
+  %25 = tail call ptr @realloc(ptr noundef %22, i64 noundef %24) #15
   %.not21.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not21.i.i.i.i, label %26, label %_ZN11hb_vector_tIPcLb0EE5allocEjb.exit.i.i.i, !prof !64
 
@@ -981,7 +981,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjPN5graph6Lo
   %19 = shl nuw i32 1, %narrow.i
   %20 = zext i32 %19 to i64
   %21 = shl nuw nsw i64 %20, 4
-  %22 = tail call noalias ptr @malloc(i64 noundef %21) #18
+  %22 = tail call noalias ptr @malloc(i64 noundef %21) #16
   %.not24.not = icmp eq ptr %22, null
   br i1 %.not24.not, label %23, label %24, !prof !37
 
@@ -1648,7 +1648,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11hb_vector_tIN5graph7graph_t8vert
 3:                                                ; preds = %2
   %4 = zext i32 %1 to i64
   %5 = mul nuw nsw i64 %4, 136
-  %6 = tail call noalias ptr @malloc(i64 noundef %5) #18
+  %6 = tail call noalias ptr @malloc(i64 noundef %5) #16
   %.not16 = icmp eq ptr %6, null
   br i1 %.not16, label %87, label %.preheader, !prof !37
 
@@ -2235,7 +2235,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb0EE5allo
   %narrow.i = sub nuw nsw i32 32, %18
   %19 = zext nneg i32 %narrow.i to i64
   %20 = shl nuw nsw i64 12, %19
-  %21 = tail call noalias ptr @malloc(i64 noundef %20) #18
+  %21 = tail call noalias ptr @malloc(i64 noundef %20) #16
   %.not24.not = icmp eq ptr %21, null
   br i1 %.not24.not, label %22, label %23, !prof !37
 

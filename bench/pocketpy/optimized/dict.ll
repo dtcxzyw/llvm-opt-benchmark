@@ -713,7 +713,7 @@ define void @_ZNK4pkpy4Dict4keysEv(ptr dead_on_unwind noalias nonnull writable s
           to label %35 unwind label %43
 
 35:                                               ; preds = %34
-  invoke void @__cxa_throw(ptr nonnull %28, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #21
+  invoke void @__cxa_throw(ptr nonnull %28, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #19
           to label %51 unwind label %43
 
 .thread:                                          ; preds = %27
@@ -826,7 +826,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %3
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.3) #21
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.3) #19
           to label %7 unwind label %8
 
 7:                                                ; preds = %6
@@ -980,7 +980,7 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %47, %55
 .body:                                            ; preds = %24, %58
   %eh.lpad-body = phi { ptr, i32 } [ %59, %58 ], [ %25, %24 ]
   %60 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  call void @__clang_call_terminate(ptr %60) #22
+  call void @__clang_call_terminate(ptr %60) #20
   unreachable
 }
 
@@ -1079,7 +1079,7 @@ define void @_ZNK4pkpy4Dict6valuesEv(ptr dead_on_unwind noalias nonnull writable
           to label %36 unwind label %44
 
 36:                                               ; preds = %35
-  invoke void @__cxa_throw(ptr nonnull %29, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #21
+  invoke void @__cxa_throw(ptr nonnull %29, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #19
           to label %52 unwind label %44
 
 .thread:                                          ; preds = %28
@@ -1275,7 +1275,7 @@ define void @_ZNK4pkpy4Dict8_gc_markEv(ptr noundef nonnull readonly align 8 capt
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
-  tail call void @_ZSt9terminatev() #22
+  tail call void @_ZSt9terminatev() #20
   unreachable
 }
 
@@ -1339,7 +1339,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #22
+  tail call void @__clang_call_terminate(ptr %17) #20
   unreachable
 
 18:                                               ; preds = %13, %10
@@ -1397,7 +1397,7 @@ define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #22
+  tail call void @__clang_call_terminate(ptr %7) #20
   unreachable
 }
 

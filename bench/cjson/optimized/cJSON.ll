@@ -2049,7 +2049,7 @@ define ptr @cJSON_GetObjectItem(ptr noundef readonly captures(address_is_null) %
   br i1 %12, label %get_object_item.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %11
-  %13 = tail call ptr @__ctype_tolower_loc() #36
+  %13 = tail call ptr @__ctype_tolower_loc() #35
   %14 = load ptr, ptr %13, align 8, !tbaa !54
   %15 = load i8, ptr %1, align 1, !tbaa !34
   %16 = zext i8 %15 to i64
@@ -2153,7 +2153,7 @@ define range(i32 0, 2) i32 @cJSON_HasObjectItem(ptr noundef readonly captures(ad
   br i1 %12, label %cJSON_GetObjectItem.exit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %11
-  %13 = tail call ptr @__ctype_tolower_loc() #36
+  %13 = tail call ptr @__ctype_tolower_loc() #35
   %14 = load ptr, ptr %13, align 8, !tbaa !54
   %15 = load i8, ptr %1, align 1, !tbaa !34
   %16 = zext i8 %15 to i64
@@ -3794,7 +3794,7 @@ define ptr @cJSON_DetachItemFromObject(ptr noundef captures(address_is_null) %0,
   br i1 %12, label %cJSON_GetObjectItem.exit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %11
-  %13 = tail call ptr @__ctype_tolower_loc() #36
+  %13 = tail call ptr @__ctype_tolower_loc() #35
   %14 = load ptr, ptr %13, align 8, !tbaa !54
   %15 = load i8, ptr %1, align 1, !tbaa !34
   %16 = zext i8 %15 to i64
@@ -3990,7 +3990,7 @@ define void @cJSON_DeleteItemFromObject(ptr noundef captures(address_is_null) %0
   br i1 %12, label %cJSON_GetObjectItem.exit.i, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %11
-  %13 = tail call ptr @__ctype_tolower_loc() #36
+  %13 = tail call ptr @__ctype_tolower_loc() #35
   %14 = load ptr, ptr %13, align 8, !tbaa !54
   %15 = load i8, ptr %1, align 1, !tbaa !34
   %16 = zext i8 %15 to i64
@@ -4531,7 +4531,7 @@ cJSON_strdup.exit.thread:                         ; preds = %16
   br i1 %41, label %get_object_item.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %40
-  %42 = tail call ptr @__ctype_tolower_loc() #36
+  %42 = tail call ptr @__ctype_tolower_loc() #35
   %43 = load ptr, ptr %42, align 8, !tbaa !54
   %44 = load i8, ptr %1, align 1, !tbaa !34
   %45 = zext i8 %44 to i64
@@ -5644,7 +5644,7 @@ define range(i32 0, 2) i32 @cJSON_Compare(ptr noundef readonly captures(address)
   br i1 %62, label %get_object_item.exit.us, label %.preheader.i.i.us
 
 .preheader.i.i.us:                                ; preds = %61
-  %63 = tail call ptr @__ctype_tolower_loc() #36
+  %63 = tail call ptr @__ctype_tolower_loc() #35
   %64 = load ptr, ptr %63, align 8, !tbaa !54
   %65 = load i8, ptr %55, align 1, !tbaa !34
   %66 = zext i8 %65 to i64
@@ -5759,7 +5759,7 @@ get_object_item.exit.loopexit111:                 ; preds = %97
   br i1 %111, label %get_object_item.exit93.us, label %.preheader.i.i87.us
 
 .preheader.i.i87.us:                              ; preds = %110
-  %112 = tail call ptr @__ctype_tolower_loc() #36
+  %112 = tail call ptr @__ctype_tolower_loc() #35
   %113 = load ptr, ptr %112, align 8, !tbaa !54
   %114 = load i8, ptr %104, align 1, !tbaa !34
   %115 = zext i8 %114 to i64

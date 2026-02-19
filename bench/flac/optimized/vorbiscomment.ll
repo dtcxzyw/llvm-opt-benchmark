@@ -44,7 +44,7 @@ local_strdup.exit.i:                              ; preds = %5
   unreachable
 
 local_strdup.exit29.i:                            ; preds = %local_strdup.exit.i
-  %14 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 61) #13
+  %14 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 61) #12
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %16
 
@@ -102,7 +102,7 @@ local_strdup.exit30.i:                            ; preds = %._crit_edge.i
   br label %free_field.exit
 
 29:                                               ; preds = %local_strdup.exit30.i
-  %30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #13
+  %30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #12
   tail call void @free(ptr noundef nonnull %11) #11
   %31 = and i64 %30, 4294967295
   %.not6 = icmp eq i64 %31, 0
@@ -126,7 +126,7 @@ local_strdup.exit30.i:                            ; preds = %._crit_edge.i
 
 38:                                               ; preds = %36
   %39 = add nuw nsw i64 %34, 1
-  %40 = tail call noalias ptr @malloc(i64 noundef %39) #14
+  %40 = tail call noalias ptr @malloc(i64 noundef %39) #13
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %43
 
@@ -157,7 +157,7 @@ fread.inline.exit.i:                              ; preds = %43
 
 50:                                               ; preds = %fread.inline.exit.i
   %51 = tail call i32 @fclose(ptr noundef nonnull %45)
-  %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #13
+  %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #12
   %.not56.i = icmp eq i64 %52, %34
   br i1 %.not56.i, label %54, label %53
 
@@ -219,7 +219,7 @@ fread.inline.exit.i:                              ; preds = %43
 
 77:                                               ; preds = %75, %71
   %78 = phi ptr [ %76, %75 ], [ %8, %71 ]
-  %79 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %78) #13
+  %79 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %78) #12
   %80 = trunc i64 %79 to i32
   %81 = call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef nonnull %78, i32 noundef %80) #11
   %.not50.i = icmp eq i32 %81, 0
@@ -296,7 +296,7 @@ declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_a
 define internal fastcc void @die(ptr noundef %0) unnamed_addr #4 {
   %2 = load ptr, ptr @stderr, align 8, !tbaa !15
   %3 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef %0) #11
-  tail call void @exit(i32 noundef 1) #15
+  tail call void @exit(i32 noundef 1) #14
   unreachable
 }
 

@@ -1643,14 +1643,14 @@ define linkonce_odr void @_ZN18ImGuiTableTempDataD2Ev(ptr noundef nonnull align 
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #25
+  tail call void @__clang_call_terminate(ptr %9) #24
   unreachable
 
 10:                                               ; preds = %1
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #25
+  tail call void @__clang_call_terminate(ptr %12) #24
   unreachable
 
 _ZN18ImDrawListSplitterD2Ev.exit:                 ; preds = %3, %6
@@ -1667,7 +1667,7 @@ _ZN18ImDrawListSplitterD2Ev.exit:                 ; preds = %3, %6
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #26
+  tail call void @__clang_call_terminate(ptr %18) #24
   unreachable
 
 _ZN8ImVectorI20ImGuiTableHeaderDataED2Ev.exit:    ; preds = %_ZN18ImDrawListSplitterD2Ev.exit, %15
@@ -8438,7 +8438,7 @@ _ZL23TableInitColumnDefaultsP10ImGuiTableP16ImGuiTableColumni.exit: ; preds = %5
   %spec.select.i = tail call noundef i32 @llvm.usub.sat.i32(i32 %96, i32 1)
   %97 = trunc i32 %spec.select.i to i16
   store i16 %97, ptr %91, align 4, !tbaa !371
-  %98 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
+  %98 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #25
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 1
   tail call void @_ZN15ImGuiTextBuffer6appendEPKcS1_(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull %0, ptr noundef nonnull %100)
@@ -12417,7 +12417,7 @@ _ZL23TableGetColumnBorderColP10ImGuiTableii.exit.us: ; preds = %322, %320, %318
 325:                                              ; preds = %.lr.ph.us, %369
   %.0172236.us = phi float [ %381, %.lr.ph.us ], [ %358, %369 ]
   %.0173235.us = phi ptr [ %.0.i.us, %.lr.ph.us ], [ %374, %369 ]
-  %326 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0173235.us, i32 noundef 10) #27
+  %326 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0173235.us, i32 noundef 10) #25
   %327 = icmp eq ptr %326, null
   %spec.select.us = select i1 %327, ptr %276, ptr %326
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -13429,7 +13429,7 @@ define void @_ZN5ImGui11TableRemoveEP10ImGuiTable(ptr noundef %0) local_unnamed_
   %sext.i = shl i64 %8, 32
   %11 = ashr exact i64 %sext.i, 32
   %12 = getelementptr inbounds %struct.ImGuiTable, ptr %4, i64 %11
-  tail call void @_ZN10ImGuiTableD2Ev(ptr noundef nonnull align 8 dereferenceable(587) %12) #30
+  tail call void @_ZN10ImGuiTableD2Ev(ptr noundef nonnull align 8 dereferenceable(587) %12) #4
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8704
   %14 = load i32, ptr %13, align 8, !tbaa !326
   %15 = load ptr, ptr %3, align 8, !tbaa !325
@@ -13758,7 +13758,7 @@ select.unfold36._crit_edge:                       ; preds = %_ZN8ImVectorIcE7res
   %98 = landingpad { ptr, i32 }
           catch ptr null
   %99 = extractvalue { ptr, i32 } %98, 0
-  tail call void @__clang_call_terminate(ptr %99) #26
+  tail call void @__clang_call_terminate(ptr %99) #24
   unreachable
 
 _ZN13ImChunkStreamI18ImGuiTableSettingsED2Ev.exit: ; preds = %select.unfold36._crit_edge, %96
@@ -13790,7 +13790,7 @@ define linkonce_odr void @_ZN13ImChunkStreamI18ImGuiTableSettingsED2Ev(ptr nound
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #26
+  tail call void @__clang_call_terminate(ptr %7) #24
   unreachable
 
 _ZN8ImVectorIcED2Ev.exit:                         ; preds = %1, %4
@@ -15088,14 +15088,14 @@ define linkonce_odr void @_ZN15ImGuiOldColumnsD2Ev(ptr noundef nonnull align 8 d
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #25
+  tail call void @__clang_call_terminate(ptr %9) #24
   unreachable
 
 10:                                               ; preds = %1
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #25
+  tail call void @__clang_call_terminate(ptr %12) #24
   unreachable
 
 _ZN18ImDrawListSplitterD2Ev.exit:                 ; preds = %3, %6
@@ -15112,7 +15112,7 @@ _ZN18ImDrawListSplitterD2Ev.exit:                 ; preds = %3, %6
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #26
+  tail call void @__clang_call_terminate(ptr %18) #24
   unreachable
 
 _ZN8ImVectorI18ImGuiOldColumnDataED2Ev.exit:      ; preds = %_ZN18ImDrawListSplitterD2Ev.exit, %15
@@ -16211,7 +16211,7 @@ define void @_ZN5ImGui7ColumnsEiPKcb(i32 noundef %0, ptr noundef %1, i1 noundef 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #17 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #4
-  tail call void @_ZSt9terminatev() #31
+  tail call void @_ZSt9terminatev() #24
   unreachable
 }
 
@@ -16252,7 +16252,7 @@ define linkonce_odr void @_ZN10ImGuiTableD2Ev(ptr noundef nonnull align 8 derefe
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #26
+  tail call void @__clang_call_terminate(ptr %10) #24
   unreachable
 
 _ZN8ImVectorI25ImGuiTableColumnSortSpecsED2Ev.exit: ; preds = %4, %7
@@ -16269,7 +16269,7 @@ _ZN8ImVectorI25ImGuiTableColumnSortSpecsED2Ev.exit: ; preds = %4, %7
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #26
+  tail call void @__clang_call_terminate(ptr %16) #24
   unreachable
 
 _ZN8ImVectorI22ImGuiTableInstanceDataED2Ev.exit:  ; preds = %_ZN8ImVectorI25ImGuiTableColumnSortSpecsED2Ev.exit, %13
@@ -16286,7 +16286,7 @@ _ZN8ImVectorI22ImGuiTableInstanceDataED2Ev.exit:  ; preds = %_ZN8ImVectorI25ImGu
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #26
+  tail call void @__clang_call_terminate(ptr %22) #24
   unreachable
 
 _ZN15ImGuiTextBufferD2Ev.exit:                    ; preds = %_ZN8ImVectorI22ImGuiTableInstanceDataED2Ev.exit, %19
@@ -16296,7 +16296,7 @@ _ZN15ImGuiTextBufferD2Ev.exit:                    ; preds = %_ZN8ImVectorI22ImGu
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #31
+  tail call void @__clang_call_terminate(ptr %25) #24
   unreachable
 }
 

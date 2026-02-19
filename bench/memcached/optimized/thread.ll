@@ -1513,7 +1513,7 @@ define dso_local void @memcached_thread_init(i32 noundef %0, ptr noundef %1) loc
   %26 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 55, i64 1, ptr %25) #17
   %27 = load ptr, ptr @stderr, align 8, !tbaa !18
   %28 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 40, i64 1, ptr %27) #17
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #18
   unreachable
 
 29:                                               ; preds = %20
@@ -1521,14 +1521,14 @@ define dso_local void @memcached_thread_init(i32 noundef %0, ptr noundef %1) loc
   store i32 %30, ptr @item_lock_count, align 4, !tbaa !8
   store i32 %.0, ptr @item_lock_hashpower, align 4, !tbaa !8
   %31 = zext nneg i32 %30 to i64
-  %32 = tail call noalias ptr @calloc(i64 noundef %31, i64 noundef 40) #20
+  %32 = tail call noalias ptr @calloc(i64 noundef %31, i64 noundef 40) #19
   store ptr %32, ptr @item_locks, align 8, !tbaa !4
   %.not34 = icmp eq ptr %32, null
   br i1 %.not34, label %33, label %.lr.ph
 
 33:                                               ; preds = %29
   tail call void @perror(ptr noundef nonnull @.str.18) #17
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #18
   unreachable
 
 .lr.ph:                                           ; preds = %29, %.lr.ph
@@ -1544,7 +1544,7 @@ define dso_local void @memcached_thread_init(i32 noundef %0, ptr noundef %1) loc
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %40 = sext i32 %0 to i64
-  %41 = tail call noalias ptr @calloc(i64 noundef %40, i64 noundef 6992) #20
+  %41 = tail call noalias ptr @calloc(i64 noundef %40, i64 noundef 6992) #19
   store ptr %41, ptr @threads, align 8, !tbaa !4
   %.not35 = icmp eq ptr %41, null
   br i1 %.not35, label %43, label %.preheader38
@@ -1559,7 +1559,7 @@ define dso_local void @memcached_thread_init(i32 noundef %0, ptr noundef %1) loc
 
 43:                                               ; preds = %._crit_edge
   tail call void @perror(ptr noundef nonnull @.str.19) #17
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #18
   unreachable
 
 .lr.ph45.preheader:                               ; preds = %setup_thread.exit
@@ -1578,7 +1578,7 @@ define dso_local void @memcached_thread_init(i32 noundef %0, ptr noundef %1) loc
 
 49:                                               ; preds = %.lr.ph43
   tail call void @perror(ptr noundef nonnull @.str.20) #17
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #18
   unreachable
 
 memcached_thread_notify_init.exit:                ; preds = %.lr.ph43
@@ -1592,7 +1592,7 @@ memcached_thread_notify_init.exit:                ; preds = %.lr.ph43
 
 55:                                               ; preds = %memcached_thread_notify_init.exit
   tail call void @perror(ptr noundef nonnull @.str.20) #17
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #18
   unreachable
 
 memcached_thread_notify_init.exit36:              ; preds = %memcached_thread_notify_init.exit
@@ -1616,7 +1616,7 @@ memcached_thread_notify_init.exit36:              ; preds = %memcached_thread_no
 66:                                               ; preds = %memcached_thread_notify_init.exit36
   %67 = load ptr, ptr @stderr, align 8, !tbaa !18
   %68 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 26, i64 1, ptr %67) #17
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #18
   unreachable
 
 69:                                               ; preds = %memcached_thread_notify_init.exit36
@@ -1633,7 +1633,7 @@ memcached_thread_notify_init.exit36:              ; preds = %memcached_thread_no
 77:                                               ; preds = %69
   %78 = load ptr, ptr @stderr, align 8, !tbaa !18
   %79 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 35, i64 1, ptr %78) #17
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #18
   unreachable
 
 setup_thread_notify.exit.i:                       ; preds = %69
@@ -1650,7 +1650,7 @@ setup_thread_notify.exit.i:                       ; preds = %69
 87:                                               ; preds = %setup_thread_notify.exit.i
   %88 = load ptr, ptr @stderr, align 8, !tbaa !18
   %89 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 35, i64 1, ptr %88) #17
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #18
   unreachable
 
 setup_thread_notify.exit35.i:                     ; preds = %setup_thread_notify.exit.i
@@ -1660,7 +1660,7 @@ setup_thread_notify.exit35.i:                     ; preds = %setup_thread_notify
   store ptr null, ptr %92, align 8, !tbaa !90
   %93 = getelementptr inbounds nuw i8, ptr %57, i64 336
   store ptr %92, ptr %93, align 8, !tbaa !92
-  %94 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #21
+  %94 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #20
   %95 = getelementptr inbounds nuw i8, ptr %57, i64 6928
   store ptr %94, ptr %95, align 8, !tbaa !23
   %96 = icmp eq ptr %94, null
@@ -1668,7 +1668,7 @@ setup_thread_notify.exit35.i:                     ; preds = %setup_thread_notify
 
 97:                                               ; preds = %setup_thread_notify.exit35.i
   tail call void @perror(ptr noundef nonnull @.str.22) #17
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #18
   unreachable
 
 98:                                               ; preds = %setup_thread_notify.exit35.i
@@ -1686,7 +1686,7 @@ setup_thread_notify.exit35.i:                     ; preds = %setup_thread_notify
 105:                                              ; preds = %98
   %106 = load ptr, ptr @stderr, align 8, !tbaa !18
   %107 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 40, i64 1, ptr %106) #17
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #18
   unreachable
 
 cq_init.exit.i:                                   ; preds = %98
@@ -1697,7 +1697,7 @@ cq_init.exit.i:                                   ; preds = %98
 
 110:                                              ; preds = %cq_init.exit.i
   tail call void @perror(ptr noundef nonnull @.str.23) #17
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #18
   unreachable
 
 111:                                              ; preds = %cq_init.exit.i
@@ -1710,7 +1710,7 @@ cq_init.exit.i:                                   ; preds = %98
 115:                                              ; preds = %111
   %116 = load ptr, ptr @stderr, align 8, !tbaa !18
   %117 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 35, i64 1, ptr %116) #17
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #18
   unreachable
 
 118:                                              ; preds = %111
@@ -1736,7 +1736,7 @@ cq_init.exit.i:                                   ; preds = %98
 128:                                              ; preds = %124
   %129 = load ptr, ptr @stderr, align 8, !tbaa !18
   %130 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 33, i64 1, ptr %129) #17
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #18
   unreachable
 
 131:                                              ; preds = %124
@@ -1771,7 +1771,7 @@ setup_thread.exit:                                ; preds = %131, %133
   %141 = load ptr, ptr @stderr, align 8, !tbaa !18
   %142 = call ptr @strerror(i32 noundef %139) #15
   %143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %141, ptr noundef nonnull @.str.34, ptr noundef %142) #16
-  call void @exit(i32 noundef 1) #19
+  call void @exit(i32 noundef 1) #18
   unreachable
 
 create_worker.exit:                               ; preds = %.lr.ph45
@@ -1826,7 +1826,7 @@ define internal noalias noundef ptr @worker_libevent(ptr noundef initializes((69
   br i1 %or.cond, label %9, label %10
 
 9:                                                ; preds = %1
-  tail call void @abort() #22
+  tail call void @abort() #21
   unreachable
 
 10:                                               ; preds = %1
@@ -1980,7 +1980,7 @@ cq_pop.exit:                                      ; preds = %15
 53:                                               ; preds = %50
   %54 = load ptr, ptr @stderr, align 8, !tbaa !18
   %55 = tail call i64 @fwrite(ptr nonnull @.str.30, i64 38, i64 1, ptr %54) #17
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #18
   unreachable
 
 56:                                               ; preds = %50

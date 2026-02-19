@@ -402,16 +402,16 @@ blas_get_cpu_number.exit:                         ; preds = %12, %8
 
 55:                                               ; preds = %.loopexit58
   %56 = load ptr, ptr @stderr, align 8, !tbaa !22
-  %57 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 96, i64 1, ptr %56) #17
+  %57 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 96, i64 1, ptr %56) #16
   %58 = load ptr, ptr @stderr, align 8, !tbaa !22
-  %59 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 94, i64 1, ptr %58) #17
+  %59 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 94, i64 1, ptr %58) #16
   %60 = load ptr, ptr @stderr, align 8, !tbaa !22
-  %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.3, i32 noundef 16) #18
+  %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.3, i32 noundef 16) #17
   store i1 true, ptr @memory_overflowed, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !24
-  %62 = tail call noalias dereferenceable_or_null(12288) ptr @malloc(i64 noundef 12288) #19
+  %62 = tail call noalias dereferenceable_or_null(12288) ptr @malloc(i64 noundef 12288) #18
   store ptr %62, ptr @new_release_info, align 8, !tbaa !25
-  %63 = tail call noalias dereferenceable_or_null(32768) ptr @malloc(i64 noundef 32768) #19
+  %63 = tail call noalias dereferenceable_or_null(32768) ptr @malloc(i64 noundef 32768) #18
   store ptr %63, ptr @newmemory, align 8, !tbaa !14
   br label %64
 
@@ -535,7 +535,7 @@ define internal ptr @alloc_mmap(ptr noundef %0) #0 {
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @alloc_malloc(ptr readnone captures(none) %0) #4 {
-  %2 = tail call noalias dereferenceable_or_null(134221824) ptr @malloc(i64 noundef 134221824) #19
+  %2 = tail call noalias dereferenceable_or_null(134221824) ptr @malloc(i64 noundef 134221824) #18
   %3 = icmp eq ptr %2, null
   %spec.store.select = select i1 %3, ptr inttoptr (i64 -1 to ptr), ptr %2
   %.not = icmp eq ptr %spec.store.select, inttoptr (i64 -1 to ptr)
@@ -662,7 +662,7 @@ define void @blas_memory_free(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @blas_memory_alloc_nolock(i32 noundef %0) local_unnamed_addr #7 {
-  %2 = tail call noalias dereferenceable_or_null(134221824) ptr @malloc(i64 noundef 134221824) #19
+  %2 = tail call noalias dereferenceable_or_null(134221824) ptr @malloc(i64 noundef 134221824) #18
   ret ptr %2
 }
 
@@ -859,9 +859,9 @@ define internal void @alloc_mmap_free(ptr noundef readonly captures(none) %0) #0
   br i1 %.not3, label %10, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @__errno_location() #20
+  %6 = tail call ptr @__errno_location() #19
   %7 = load i32, ptr %6, align 4, !tbaa !3
-  tail call void @perror(ptr noundef nonnull @.str.11) #17
+  tail call void @perror(ptr noundef nonnull @.str.11) #16
   %8 = load ptr, ptr %0, align 8, !tbaa !32
   %9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %7, ptr noundef %8)
   br label %10

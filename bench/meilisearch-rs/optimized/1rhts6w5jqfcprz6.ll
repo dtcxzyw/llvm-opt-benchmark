@@ -2430,7 +2430,7 @@ define hidden void @_ZN6anyhow5error11object_drop17h0e327e9f4212f027E(ptr nounde
   %12 = landingpad { ptr, i32 }
           cleanup
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13) #23
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13) #19
           to label %24 unwind label %20
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17ha9d879821087e873E.llvm.7557364402226394005.exit.i.i": ; preds = %.sink.split.i.i.i.i.i.i.i, %.noexc.i.i, %1
@@ -2500,7 +2500,7 @@ define hidden void @_ZN6anyhow5error11object_drop17h2493c14de0db9429E(ptr nounde
   %11 = landingpad { ptr, i32 }
           cleanup
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$meilisearch_types..versioning..VersionFileError$GT$17h5b05644d55bf8976E.llvm.7557364402226394005"(ptr noalias noundef nonnull align 8 dereferenceable(72) %12) #24
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$meilisearch_types..versioning..VersionFileError$GT$17h5b05644d55bf8976E.llvm.7557364402226394005"(ptr noalias noundef nonnull align 8 dereferenceable(72) %12) #19
           to label %18 unwind label %14
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17ha9d879821087e873E.llvm.7557364402226394005.exit.i.i": ; preds = %.sink.split.i.i.i.i.i.i.i, %.noexc.i.i, %1

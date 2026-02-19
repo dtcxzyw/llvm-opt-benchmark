@@ -5430,13 +5430,13 @@ define internal noalias noundef nonnull ptr @CallbackThreadFunc(ptr noundef %0) 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !3
-  %8 = call i32 @__sigsetjmp(ptr noundef nonnull %4, i32 noundef 0) #32
+  %8 = call i32 @__sigsetjmp(ptr noundef nonnull %4, i32 noundef 0) #31
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %10, label %9, !prof !35
 
 9:                                                ; preds = %1
   call fastcc void @OnExit(ptr noundef %0)
-  call void @__pthread_unwind_next(ptr noundef nonnull %4) #33
+  call void @__pthread_unwind_next(ptr noundef nonnull %4) #32
   unreachable
 
 10:                                               ; preds = %1
@@ -5758,13 +5758,13 @@ OnExit.exit:                                      ; preds = %.thread108, %139
   br i1 %.not101, label %145, label %143
 
 143:                                              ; preds = %OnExit.exit
-  %144 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
+  %144 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #33
   store i32 %.8, ptr %144, align 4, !tbaa !3
   br label %145
 
 145:                                              ; preds = %143, %OnExit.exit
   %.0 = phi ptr [ %144, %143 ], [ null, %OnExit.exit ]
-  call void @pthread_exit(ptr noundef %.0) #33
+  call void @pthread_exit(ptr noundef %.0) #32
   unreachable
 }
 

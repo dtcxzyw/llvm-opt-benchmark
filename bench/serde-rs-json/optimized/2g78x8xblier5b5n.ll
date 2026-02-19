@@ -372,7 +372,7 @@ define hidden void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allo
   %7 = add i64 %2, -1
   %8 = icmp sgt i64 %7, -1
   tail call void @llvm.assume(i1 %8)
-  tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef %3, i64 noundef %2) #15
+  tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef %3, i64 noundef %2) #14
   br label %9
 
 9:                                                ; preds = %4, %6
@@ -451,7 +451,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.llvm.15834873109261722949.exit: ; preds
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd250b5237476e3b8E.llvm.15834873109261722949"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 40, i64 noundef 8) #15
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 40, i64 noundef 8) #14
   ret void
 }
 
@@ -848,7 +848,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN57_$LT$usize$u20$as$
   store ptr %6, ptr %22, align 8, !alias.scope !193, !noalias !196
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %23, align 8, !alias.scope !193, !noalias !196
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8ee8e6336c12f85abf0522abe3e6113a.21) #16
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8ee8e6336c12f85abf0522abe3e6113a.21) #15
   unreachable
 
 24:                                               ; preds = %12
@@ -870,7 +870,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN57_$LT$usize$u20$as$
   store ptr %3, ptr %30, align 8, !alias.scope !199, !noalias !202
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 2, ptr %31, align 8, !alias.scope !199, !noalias !202
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8ee8e6336c12f85abf0522abe3e6113a.18) #16
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8ee8e6336c12f85abf0522abe3e6113a.18) #15
   unreachable
 
 32:                                               ; preds = %12
@@ -1076,7 +1076,7 @@ _ZN10serde_json3map5Entry9or_insert17hc50b8275d310848dE.exit: ; preds = %24, %26
   store ptr %9, ptr %34, align 8, !alias.scope !245, !noalias !248
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 2, ptr %35, align 8, !alias.scope !245, !noalias !248
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8ee8e6336c12f85abf0522abe3e6113a.25) #16
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8ee8e6336c12f85abf0522abe3e6113a.25) #15
   unreachable
 }
 

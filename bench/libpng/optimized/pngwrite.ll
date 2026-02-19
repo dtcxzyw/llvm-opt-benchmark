@@ -3520,12 +3520,12 @@ png_image_write_to_stdio.exit:                    ; preds = %22, %31
   br i1 %41, label %.critedge, label %42
 
 42:                                               ; preds = %39
-  %43 = tail call ptr @__errno_location() #20
+  %43 = tail call ptr @__errno_location() #18
   %44 = load i32, ptr %43, align 4, !tbaa !235
   br label %49
 
 45:                                               ; preds = %36, %33
-  %46 = tail call ptr @__errno_location() #20
+  %46 = tail call ptr @__errno_location() #18
   %47 = load i32, ptr %46, align 4, !tbaa !235
   %48 = call i32 @fclose(ptr noundef nonnull %16)
   br label %49
@@ -3543,7 +3543,7 @@ png_image_write_to_stdio.exit.thread:             ; preds = %20, %png_image_writ
   br label %.critedge
 
 55:                                               ; preds = %15
-  %56 = tail call ptr @__errno_location() #20
+  %56 = tail call ptr @__errno_location() #18
   %57 = load i32, ptr %56, align 4, !tbaa !235
   %58 = tail call ptr @strerror(i32 noundef %57) #16
   %59 = tail call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef %58) #16

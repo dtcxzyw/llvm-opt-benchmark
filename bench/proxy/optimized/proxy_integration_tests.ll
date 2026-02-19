@@ -1660,7 +1660,7 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDe
   %420 = landingpad { ptr, i32 }
           catch ptr null
   %421 = extractvalue { ptr, i32 } %420, 0
-  call void @__clang_call_terminate(ptr %421) #31
+  call void @__clang_call_terminate(ptr %421) #30
   unreachable
 }
 
@@ -1950,7 +1950,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %109
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 32
   %130 = load ptr, ptr %129, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %131 = tail call ptr @__errno_location() #33
+  %131 = tail call ptr @__errno_location() #31
   %132 = load i32, ptr %131, align 4
   store i32 0, ptr %131, align 4
   %133 = call noundef double @strtod(ptr noundef %130, ptr noundef nonnull %5)
@@ -2093,7 +2093,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i15: ; preds = %_ZNSt11char_traitsI
   %185 = getelementptr inbounds nuw i8, ptr %107, i64 32
   %186 = load ptr, ptr %185, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %187 = tail call ptr @__errno_location() #33
+  %187 = tail call ptr @__errno_location() #31
   %188 = load i32, ptr %187, align 4
   store i32 0, ptr %187, align 4
   %189 = call noundef double @strtod(ptr noundef %186, ptr noundef nonnull %3)
@@ -2328,7 +2328,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #26
-  tail call void @_ZSt9terminatev() #31
+  tail call void @_ZSt9terminatev() #30
   unreachable
 }
 
@@ -2603,7 +2603,7 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec6LoggerEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   %89 = landingpad { ptr, i32 }
           catch ptr null
   %90 = extractvalue { ptr, i32 } %89, 0
-  call void @__clang_call_terminate(ptr %90) #31
+  call void @__clang_call_terminate(ptr %90) #30
   unreachable
 
 91:                                               ; preds = %13
@@ -3194,7 +3194,7 @@ define internal void @_ZN3pro7details21relocation_dispatcherINS0_13allocated_ptr
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #31
+  tail call void @__clang_call_terminate(ptr %13) #30
   unreachable
 
 _ZSt10destroy_atIN3pro7details13allocated_ptrIN12_GLOBAL__N_19RectangleENSt3pmr21polymorphic_allocatorISt4byteEEEEEvPT_.exit: ; preds = %2, %7
@@ -3220,7 +3220,7 @@ define internal void @_ZN3pro7details22destruction_dispatcherINS0_13allocated_pt
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #34
+  tail call void @__clang_call_terminate(ptr %9) #30
   unreachable
 
 _ZSt10destroy_atIN3pro7details13allocated_ptrIN12_GLOBAL__N_19RectangleENSt3pmr21polymorphic_allocatorISt4byteEEEEEvPT_.exit: ; preds = %1, %3

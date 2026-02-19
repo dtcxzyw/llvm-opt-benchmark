@@ -733,12 +733,12 @@ declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
-  %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(22) @.str.2, ptr noundef nonnull dereferenceable(1) %0) #20
+  %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(22) @.str.2, ptr noundef nonnull dereferenceable(1) %0) #17
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %SplittingStepCoefficients_LieTrotter.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(35) @.str.3, ptr noundef nonnull dereferenceable(1) %0) #20
+  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(35) @.str.3, ptr noundef nonnull dereferenceable(1) %0) #17
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %20
 
@@ -768,7 +768,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr
   br i1 %exitcond.not.i, label %SplittingStepCoefficients_LieTrotter.exit, label %18
 
 20:                                               ; preds = %4
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(30) @.str.4, ptr noundef nonnull dereferenceable(1) %0) #20
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(30) @.str.4, ptr noundef nonnull dereferenceable(1) %0) #17
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %41
 
@@ -811,7 +811,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr
   br i1 %exitcond69.not.i.i, label %SplittingStepCoefficients_LieTrotter.exit, label %.preheader.us.i.i
 
 41:                                               ; preds = %20
-  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(28) @.str.5, ptr noundef nonnull dereferenceable(1) %0) #20
+  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(28) @.str.5, ptr noundef nonnull dereferenceable(1) %0) #17
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %57
 
@@ -837,7 +837,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr
   br label %SplittingStepCoefficients_LieTrotter.exit
 
 57:                                               ; preds = %41
-  %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(30) @.str.6, ptr noundef nonnull dereferenceable(1) %0) #20
+  %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(30) @.str.6, ptr noundef nonnull dereferenceable(1) %0) #17
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %83
 
@@ -887,7 +887,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr
   br i1 %exitcond50.not.i, label %SplittingStepCoefficients_LieTrotter.exit, label %81
 
 83:                                               ; preds = %57
-  %84 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(28) @.str.7, ptr noundef nonnull dereferenceable(1) %0) #20
+  %84 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(28) @.str.7, ptr noundef nonnull dereferenceable(1) %0) #17
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %86, label %102
 
@@ -918,7 +918,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr
   br label %SplittingStepCoefficients_LieTrotter.exit
 
 102:                                              ; preds = %83
-  %103 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(31) @.str.8, ptr noundef nonnull dereferenceable(1) %0) #20
+  %103 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(31) @.str.8, ptr noundef nonnull dereferenceable(1) %0) #17
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %105, label %117
 
@@ -941,7 +941,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr
   br label %SplittingStepCoefficients_LieTrotter.exit
 
 117:                                              ; preds = %102
-  %118 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(31) @.str.9, ptr noundef nonnull dereferenceable(1) %0) #20
+  %118 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(31) @.str.9, ptr noundef nonnull dereferenceable(1) %0) #17
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %120, label %122
 

@@ -161,7 +161,7 @@ common.resume:                                    ; preds = %40, %10
   %11 = landingpad { ptr, i32 }
           cleanup
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  tail call void @_ZNSt10unique_ptrIN8facebook4yoga16SmallValueBufferILm4EE8OverflowESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #17
+  tail call void @_ZNSt10unique_ptrIN8facebook4yoga16SmallValueBufferILm4EE8OverflowESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #16
   br label %common.resume
 
 _ZN8facebook4yoga5StyleC2ERKS1_.exit:             ; preds = %2
@@ -185,7 +185,7 @@ _ZN8facebook4yoga5StyleC2ERKS1_.exit:             ; preds = %2
   br i1 %24, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaIPN8facebook4yoga4NodeEEE8allocateERS4_m.exit.i.i.i.i, !prof !66
 
 .noexc.i.i:                                       ; preds = %23
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #18
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #17
           to label %.noexc unwind label %40
 
 .noexc:                                           ; preds = %.noexc.i.i
@@ -226,7 +226,7 @@ _ZNSt16allocator_traitsISaIPN8facebook4yoga4NodeEEE8allocateERS4_m.exit.i.i.i.i:
 40:                                               ; preds = %_ZNSt16allocator_traitsISaIPN8facebook4yoga4NodeEEE8allocateERS4_m.exit.i.i.i.i, %.noexc.i.i
   %41 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN8facebook4yoga5StyleD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %3) #19
+  tail call void @_ZN8facebook4yoga5StyleD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %3) #16
   br label %common.resume
 }
 
@@ -810,7 +810,7 @@ _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %1
   br i1 %.not.i.i.i20, label %_ZNK8facebook4yoga4Node8getChildEm.exit21, label %39
 
 39:                                               ; preds = %32
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.4, i64 noundef %.026, i64 noundef %38) #18
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.4, i64 noundef %.026, i64 noundef %38) #17
   unreachable
 
 _ZNK8facebook4yoga4Node8getChildEm.exit21:        ; preds = %32
@@ -1499,7 +1499,7 @@ define noundef zeroext i1 @YGNodeCanUseCachedMeasurement(i32 noundef %0, float n
   br i1 %15, label %switch.lookup, label %16
 
 16:                                               ; preds = %13
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #18
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #17
   unreachable
 
 switch.lookup:                                    ; preds = %13
@@ -1512,7 +1512,7 @@ switch.lookup:                                    ; preds = %13
   br i1 %19, label %switch.lookup21, label %20
 
 20:                                               ; preds = %switch.lookup
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #18
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #17
   unreachable
 
 switch.lookup21:                                  ; preds = %switch.lookup
@@ -1525,7 +1525,7 @@ switch.lookup21:                                  ; preds = %switch.lookup
   br i1 %23, label %switch.lookup18, label %24
 
 24:                                               ; preds = %switch.lookup21
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #18
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #17
   unreachable
 
 switch.lookup18:                                  ; preds = %switch.lookup21
@@ -1534,7 +1534,7 @@ switch.lookup18:                                  ; preds = %switch.lookup21
   br i1 %26, label %switch.lookup24, label %27
 
 27:                                               ; preds = %switch.lookup18
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #18
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #17
   unreachable
 
 switch.lookup24:                                  ; preds = %switch.lookup18
@@ -1652,7 +1652,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN8
   br i1 %23, label %.noexc.i.i.i.i, label %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i.i, !prof !66
 
 .noexc.i.i.i.i:                                   ; preds = %22
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #18
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #17
           to label %.noexc.i unwind label %42, !noalias !106
 
 .noexc.i:                                         ; preds = %.noexc.i.i.i.i
@@ -1945,7 +1945,7 @@ _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %47, %44
 57:                                               ; preds = %18
   %58 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #19
+  tail call void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   resume { ptr, i32 } %58
 }
 
@@ -2014,7 +2014,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
   br i1 %18, label %19, label %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.i, !prof !66
 
 19:                                               ; preds = %17
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #18
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #17
   unreachable
 
 _ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.i: ; preds = %17

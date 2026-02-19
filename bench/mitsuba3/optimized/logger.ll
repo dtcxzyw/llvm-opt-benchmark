@@ -607,7 +607,7 @@ _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4findB8ne190000E
   br i1 %109, label %110, label %111
 
 110:                                              ; preds = %93
-  invoke void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #29
+  invoke void @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #27
           to label %.noexc unwind label %.thread
 
 .noexc:                                           ; preds = %110
@@ -1735,7 +1735,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__16vectorIN7mitsuba3refINS1_8Appe
   br i1 %12, label %13, label %_ZNKSt3__16vectorIN7mitsuba3refINS1_8AppenderEEENS_9allocatorIS4_EEE11__recommendB8ne190000Em.exit
 
 13:                                               ; preds = %2
-  tail call void @_ZNKSt3__16vectorIN7mitsuba3refINS1_8AppenderEEENS_9allocatorIS4_EEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #31
+  tail call void @_ZNKSt3__16vectorIN7mitsuba3refINS1_8AppenderEEENS_9allocatorIS4_EEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #27
   unreachable
 
 _ZNKSt3__16vectorIN7mitsuba3refINS1_8AppenderEEENS_9allocatorIS4_EEE11__recommendB8ne190000Em.exit: ; preds = %2
@@ -1752,7 +1752,7 @@ _ZNKSt3__16vectorIN7mitsuba3refINS1_8AppenderEEENS_9allocatorIS4_EEE11__recommen
   br i1 %19, label %20, label %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba3refINS2_8AppenderEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS9_m.exit.i
 
 20:                                               ; preds = %_ZNKSt3__16vectorIN7mitsuba3refINS1_8AppenderEEENS_9allocatorIS4_EEE11__recommendB8ne190000Em.exit
-  tail call void @_ZSt28__throw_bad_array_new_lengthB8ne190000v() #31
+  tail call void @_ZSt28__throw_bad_array_new_lengthB8ne190000v() #27
   unreachable
 
 _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba3refINS2_8AppenderEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS9_m.exit.i: ; preds = %_ZNKSt3__16vectorIN7mitsuba3refINS1_8AppenderEEENS_9allocatorIS4_EEE11__recommendB8ne190000Em.exit

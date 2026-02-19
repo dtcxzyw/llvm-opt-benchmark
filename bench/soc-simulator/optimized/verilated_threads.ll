@@ -399,7 +399,7 @@ _ZN14VlWorkerThread8shutdownEv.exit:              ; preds = %1
   br i1 %.not.i, label %_ZNSt6threadD2Ev.exit, label %4
 
 4:                                                ; preds = %3
-  tail call void @_ZSt9terminatev() #29
+  tail call void @_ZSt9terminatev() #27
   unreachable
 
 _ZNSt6threadD2Ev.exit:                            ; preds = %3
@@ -501,7 +501,7 @@ _ZNSt3_V222condition_variable_anyD2Ev.exit:       ; preds = %_ZNSt6vectorIN14VlW
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  tail call void @__clang_call_terminate(ptr %53) #29
+  tail call void @__clang_call_terminate(ptr %53) #27
   unreachable
 }
 
@@ -514,7 +514,7 @@ define dso_local void @_ZN14VlWorkerThread8shutdownEv(ptr noundef nonnull align 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #24
-  tail call void @_ZSt9terminatev() #29
+  tail call void @_ZSt9terminatev() #27
   unreachable
 }
 
@@ -550,7 +550,7 @@ define linkonce_odr dso_local void @_ZN14VlWorkerThread7addTaskEPFvPvbES0_b(ptr 
   br i1 %.not.i.i.i, label %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit, label %12
 
 12:                                               ; preds = %10
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %11) #30
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %11) #28
   unreachable
 
 _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit: ; preds = %.preheader.i.i, %4, %10
@@ -583,7 +583,7 @@ _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit: ; preds = %.preheader.i.i, %4,
   br i1 %29, label %30, label %_ZNKSt6vectorIN14VlWorkerThread7ExecRecESaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
 30:                                               ; preds = %24
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #30
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #28
           to label %.noexc unwind label %63
 
 .noexc:                                           ; preds = %30
@@ -656,7 +656,7 @@ _ZNSt6vectorIN14VlWorkerThread7ExecRecESaIS1_EE12emplace_backIJRPFvPvbERS5_RbEEE
   br i1 %.not.i.i.i13, label %_ZNSt3_V222condition_variable_any10notify_oneEv.exit, label %57
 
 57:                                               ; preds = %53
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %56) #30
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %56) #28
           to label %.noexc.i unwind label %58
 
 .noexc.i:                                         ; preds = %57
@@ -666,7 +666,7 @@ _ZNSt6vectorIN14VlWorkerThread7ExecRecESaIS1_EE12emplace_backIJRPFvPvbERS5_RbEEE
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  tail call void @__clang_call_terminate(ptr %60) #31
+  tail call void @__clang_call_terminate(ptr %60) #27
   unreachable
 
 _ZNSt3_V222condition_variable_any10notify_oneEv.exit: ; preds = %53
@@ -777,7 +777,7 @@ define linkonce_odr dso_local void @_ZN14VlWorkerThread9dequeWorkILb0EEEvPNS_7Ex
   br i1 %.not.i.i.i, label %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit, label %9
 
 9:                                                ; preds = %7
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %8) #30
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %8) #28
   unreachable
 
 _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit: ; preds = %.preheader.i.i, %2, %7
@@ -883,7 +883,7 @@ define linkonce_odr dso_local void @_ZN14VlWorkerThread9dequeWorkILb1EEEvPNS_7Ex
   br i1 %.not.i.i.i, label %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit, label %15
 
 15:                                               ; preds = %13
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %14) #30
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %14) #28
   unreachable
 
 _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit: ; preds = %.preheader.i.i, %8, %13
@@ -1008,7 +1008,7 @@ define dso_local void @_ZN12VlThreadPoolC2EP16VerilatedContextj(ptr noundef nonn
   br i1 %21, label %22, label %_ZNKSt6vectorIP14VlWorkerThreadSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
 
 22:                                               ; preds = %16
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #30
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #28
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %22
@@ -1164,7 +1164,7 @@ define dso_local void @_ZN12VlThreadPoolD0Ev(ptr noundef nonnull align 8 derefer
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %.lr.ph.i
-  tail call void @_ZN14VlWorkerThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %7) #32
+  tail call void @_ZN14VlWorkerThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %7) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 152) #26
   br label %10
 
@@ -1369,7 +1369,7 @@ define linkonce_odr dso_local void @_ZN18VerilatedLockGuardC2ER14VerilatedMutex(
   br i1 %.not.i.i, label %_ZN14VerilatedMutex4lockEv.exit, label %9
 
 9:                                                ; preds = %7
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %8) #30
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %8) #28
   unreachable
 
 _ZN14VerilatedMutex4lockEv.exit:                  ; preds = %.preheader.i, %2, %7
@@ -1407,7 +1407,7 @@ define linkonce_odr dso_local void @_ZN14VerilatedMutex4lockEv(ptr noundef nonnu
   br i1 %.not.i, label %_ZNSt5mutex4lockEv.exit, label %8
 
 8:                                                ; preds = %6
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %7) #30
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %7) #28
   unreachable
 
 _ZNSt5mutex4lockEv.exit:                          ; preds = %.preheader, %6, %1
@@ -1536,7 +1536,7 @@ _ZNSt10shared_ptrISt5mutexEC2ERKS1_.exit:         ; preds = %2, %14, %17
   br i1 %.not.i.i.i7, label %22, label %21
 
 21:                                               ; preds = %_ZNSt10shared_ptrISt5mutexEC2ERKS1_.exit
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %20) #30
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %20) #28
           to label %.noexc unwind label %67
 
 .noexc:                                           ; preds = %21
@@ -1686,7 +1686,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit15:          ; preds = %_ZNSt11unique_lockI
   %80 = landingpad { ptr, i32 }
           catch ptr null
   %81 = extractvalue { ptr, i32 } %80, 0
-  call void @__clang_call_terminate(ptr %81) #29
+  call void @__clang_call_terminate(ptr %81) #27
   unreachable
 }
 
@@ -1694,7 +1694,7 @@ declare void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noun
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt3_V222condition_variable_any7_UnlockI14VerilatedMutexED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noundef zeroext i1 @_ZSt18uncaught_exceptionv() #33
+  %2 = tail call noundef zeroext i1 @_ZSt18uncaught_exceptionv() #29
   %3 = load ptr, ptr %0, align 8
   %4 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) %3) #24
   %.not.i.i.i = icmp eq i32 %4, 0
@@ -1721,7 +1721,7 @@ define linkonce_odr dso_local void @_ZNSt3_V222condition_variable_any7_UnlockI14
   br i1 %.not.i.i, label %_ZN14VerilatedMutex4lockEv.exit, label %11
 
 11:                                               ; preds = %9
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %10) #30
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %10) #28
           to label %.noexc unwind label %12
 
 .noexc:                                           ; preds = %11
@@ -1739,7 +1739,7 @@ define linkonce_odr dso_local void @_ZNSt3_V222condition_variable_any7_UnlockI14
   br i1 %17, label %19, label %20
 
 19:                                               ; preds = %12
-  invoke void @__cxa_rethrow() #30
+  invoke void @__cxa_rethrow() #28
           to label %34 unwind label %21
 
 20:                                               ; preds = %12
@@ -1773,7 +1773,7 @@ define linkonce_odr dso_local void @_ZNSt3_V222condition_variable_any7_UnlockI14
   br i1 %.not.i.i10, label %_ZN14VerilatedMutex4lockEv.exit, label %29
 
 29:                                               ; preds = %27
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %28) #30
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %28) #28
   unreachable
 
 _ZN14VerilatedMutex4lockEv.exit:                  ; preds = %.preheader.i6, %.preheader.i, %27, %23, %9, %5, %20
@@ -1786,7 +1786,7 @@ _ZN14VerilatedMutex4lockEv.exit:                  ; preds = %.preheader.i6, %.pr
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  tail call void @__clang_call_terminate(ptr %33) #29
+  tail call void @__clang_call_terminate(ptr %33) #27
   unreachable
 
 34:                                               ; preds = %19

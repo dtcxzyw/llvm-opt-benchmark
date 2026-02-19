@@ -24498,7 +24498,7 @@ define linkonce_odr void @_ZN15ImGuiTextFilterD2Ev(ptr noundef nonnull align 8 d
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #36
+  tail call void @__clang_call_terminate(ptr %7) #34
   unreachable
 
 _ZN8ImVectorIN15ImGuiTextFilter14ImGuiTextRangeEED2Ev.exit: ; preds = %1, %4
@@ -24587,7 +24587,7 @@ define internal fastcc void @_ZL23ExampleTree_DestroyNodeP15ExampleTreeNode(ptr 
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #37
+  tail call void @__clang_call_terminate(ptr %12) #34
   unreachable
 
 _Z9IM_DELETEI15ExampleTreeNodeEvPT_.exit:         ; preds = %._crit_edge, %9
@@ -27212,7 +27212,7 @@ _ZNK8ImVectorIiE14_grow_capacityEi.exit.i325:     ; preds = %914, %912
   %942 = landingpad { ptr, i32 }
           catch ptr null
   %943 = extractvalue { ptr, i32 } %942, 0
-  call void @__clang_call_terminate(ptr %943) #36
+  call void @__clang_call_terminate(ptr %943) #34
   unreachable
 
 _ZN8ImVectorIiED2Ev.exit:                         ; preds = %938, %940
@@ -27895,7 +27895,7 @@ define linkonce_odr void @_ZN26ImGuiSelectionBasicStorageD2Ev(ptr noundef nonnul
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #36
+  tail call void @__clang_call_terminate(ptr %7) #34
   unreachable
 
 _ZN12ImGuiStorageD2Ev.exit:                       ; preds = %1, %4
@@ -28101,7 +28101,7 @@ _ZN26ImGuiSelectionBasicStorage21GetStorageIdFromIndexEi.exit27: ; preds = %77
   %86 = landingpad { ptr, i32 }
           catch ptr null
   %87 = extractvalue { ptr, i32 } %86, 0
-  tail call void @__clang_call_terminate(ptr %87) #36
+  tail call void @__clang_call_terminate(ptr %87) #34
   unreachable
 
 _ZN8ImVectorIjED2Ev.exit:                         ; preds = %83, %84
@@ -28188,7 +28188,7 @@ define linkonce_odr void @_ZN18ExampleDualListBoxD2Ev(ptr noundef nonnull align 
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #36
+  tail call void @__clang_call_terminate(ptr %9) #34
   unreachable
 
 _ZN26ImGuiSelectionBasicStorageD2Ev.exit:         ; preds = %3, %6
@@ -28211,7 +28211,7 @@ _ZN26ImGuiSelectionBasicStorageD2Ev.exit:         ; preds = %3, %6
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #36
+  tail call void @__clang_call_terminate(ptr %18) #34
   unreachable
 
 _ZN8ImVectorIjED2Ev.exit:                         ; preds = %.preheader, %15
@@ -28466,7 +28466,7 @@ define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #2
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #36
+  tail call void @__clang_call_terminate(ptr %10) #34
   unreachable
 
 _ZN26ImGuiSelectionBasicStorageD2Ev.exit:         ; preds = %2, %7
@@ -29067,7 +29067,7 @@ _ZN26ImGuiSelectionBasicStorage21GetStorageIdFromIndexEi.exit27: ; preds = %77
   %86 = landingpad { ptr, i32 }
           catch ptr null
   %87 = extractvalue { ptr, i32 } %86, 0
-  tail call void @__clang_call_terminate(ptr %87) #36
+  tail call void @__clang_call_terminate(ptr %87) #34
   unreachable
 
 _ZN8ImVectorIiED2Ev.exit:                         ; preds = %83, %84
@@ -30490,7 +30490,7 @@ _ZN17ExampleAppConsole8ClearLogEv.exit:           ; preds = %._crit_edge.i, %.no
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  tail call void @__clang_call_terminate(ptr %26) #36
+  tail call void @__clang_call_terminate(ptr %26) #34
   unreachable
 
 _ZN15ImGuiTextFilterD2Ev.exit:                    ; preds = %._crit_edge, %23
@@ -30507,7 +30507,7 @@ _ZN15ImGuiTextFilterD2Ev.exit:                    ; preds = %._crit_edge, %23
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #36
+  tail call void @__clang_call_terminate(ptr %32) #34
   unreachable
 
 _ZN8ImVectorIPcED2Ev.exit:                        ; preds = %_ZN15ImGuiTextFilterD2Ev.exit, %29
@@ -30524,7 +30524,7 @@ _ZN8ImVectorIPcED2Ev.exit:                        ; preds = %_ZN15ImGuiTextFilte
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #36
+  tail call void @__clang_call_terminate(ptr %38) #34
   unreachable
 
 _ZN8ImVectorIPKcED2Ev.exit:                       ; preds = %_ZN8ImVectorIPcED2Ev.exit, %35
@@ -30540,7 +30540,7 @@ _ZN8ImVectorIPKcED2Ev.exit:                       ; preds = %_ZN8ImVectorIPcED2E
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  tail call void @__clang_call_terminate(ptr %43) #36
+  tail call void @__clang_call_terminate(ptr %43) #34
   unreachable
 
 _ZN8ImVectorIPcED2Ev.exit7:                       ; preds = %_ZN8ImVectorIPKcED2Ev.exit, %40
@@ -31105,7 +31105,7 @@ define linkonce_odr void @_ZN17ExampleAppConsole11ExecCommandEPKc(ptr noundef no
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
   %15 = load ptr, ptr %14, align 8, !tbaa !96
-  %16 = tail call ptr @__ctype_toupper_loc() #38
+  %16 = tail call ptr @__ctype_toupper_loc() #36
   %17 = load ptr, ptr %16, align 8, !tbaa !532
   %18 = load i8, ptr %1, align 1, !tbaa !140
   %19 = sext i8 %18 to i64
@@ -31221,7 +31221,7 @@ _ZN8ImVectorIPcE9push_backERKS0_.exit:            ; preds = %._ZN8ImVectorIPcE7r
   %80 = load i32, ptr %4, align 8, !tbaa !521
   %81 = add nsw i32 %80, 1
   store i32 %81, ptr %4, align 8, !tbaa !521
-  %82 = tail call ptr @__ctype_toupper_loc() #38
+  %82 = tail call ptr @__ctype_toupper_loc() #36
   %83 = load ptr, ptr %82, align 8, !tbaa !532
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 268
   %85 = load i32, ptr %84, align 4, !tbaa !54
@@ -31479,7 +31479,7 @@ define linkonce_odr noundef i32 @_ZN17ExampleAppConsole16TextEditCallbackEP26ImG
 
 toupper.exit.lr.ph.i:                             ; preds = %28
   %35 = load ptr, ptr %34, align 8, !tbaa !96
-  %36 = tail call ptr @__ctype_toupper_loc() #38
+  %36 = tail call ptr @__ctype_toupper_loc() #36
   %37 = load ptr, ptr %36, align 8, !tbaa !532
   br label %toupper.exit.i
 
@@ -31649,7 +31649,7 @@ toupper.exit105.us:                               ; preds = %113
   %116 = load ptr, ptr %115, align 8, !tbaa !96
   %117 = getelementptr inbounds i8, ptr %116, i64 %indvars.iv133
   %118 = load i8, ptr %117, align 1, !tbaa !140
-  %119 = tail call ptr @__ctype_toupper_loc() #38
+  %119 = tail call ptr @__ctype_toupper_loc() #36
   %120 = load ptr, ptr %119, align 8, !tbaa !532
   %121 = sext i8 %118 to i64
   %122 = getelementptr inbounds i32, ptr %120, i64 %121
@@ -31661,7 +31661,7 @@ toupper.exit105.us:                               ; preds = %113
   %125 = load ptr, ptr %108, align 8, !tbaa !96
   %126 = getelementptr inbounds i8, ptr %125, i64 %indvars.iv133
   %127 = load i8, ptr %126, align 1, !tbaa !140
-  %128 = tail call ptr @__ctype_toupper_loc() #38
+  %128 = tail call ptr @__ctype_toupper_loc() #36
   %129 = load ptr, ptr %128, align 8, !tbaa !532
   %130 = sext i8 %127 to i64
   %131 = getelementptr inbounds i32, ptr %129, i64 %130
@@ -31739,7 +31739,7 @@ toupper.exit.us:                                  ; preds = %124, %toupper.exit1
   %156 = landingpad { ptr, i32 }
           catch ptr null
   %157 = extractvalue { ptr, i32 } %156, 0
-  tail call void @__clang_call_terminate(ptr %157) #36
+  tail call void @__clang_call_terminate(ptr %157) #34
   unreachable
 
 _ZN8ImVectorIPKcED2Ev.exit:                       ; preds = %.loopexit, %.loopexit.thread
@@ -31878,7 +31878,7 @@ define linkonce_odr void @_ZN13ExampleAppLogD2Ev(ptr noundef nonnull align 8 der
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #36
+  tail call void @__clang_call_terminate(ptr %7) #34
   unreachable
 
 _ZN8ImVectorIiED2Ev.exit:                         ; preds = %1, %4
@@ -31895,7 +31895,7 @@ _ZN8ImVectorIiED2Ev.exit:                         ; preds = %1, %4
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #36
+  tail call void @__clang_call_terminate(ptr %13) #34
   unreachable
 
 _ZN15ImGuiTextFilterD2Ev.exit:                    ; preds = %_ZN8ImVectorIiED2Ev.exit, %10
@@ -31912,7 +31912,7 @@ _ZN15ImGuiTextFilterD2Ev.exit:                    ; preds = %_ZN8ImVectorIiED2Ev
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #36
+  tail call void @__clang_call_terminate(ptr %19) #34
   unreachable
 
 _ZN15ImGuiTextBufferD2Ev.exit:                    ; preds = %_ZN15ImGuiTextFilterD2Ev.exit, %16
@@ -32371,7 +32371,7 @@ define linkonce_odr void @_ZN15ImGuiTextBufferD2Ev(ptr noundef nonnull align 8 d
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #36
+  tail call void @__clang_call_terminate(ptr %7) #34
   unreachable
 
 _ZN8ImVectorIcED2Ev.exit:                         ; preds = %1, %4
@@ -32397,7 +32397,7 @@ define linkonce_odr void @_ZN24ExampleAppPropertyEditorD2Ev(ptr noundef nonnull 
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #36
+  tail call void @__clang_call_terminate(ptr %7) #34
   unreachable
 
 _ZN15ImGuiTextFilterD2Ev.exit:                    ; preds = %1, %4
@@ -33254,7 +33254,7 @@ define linkonce_odr void @_ZN19ExampleAppDocumentsD2Ev(ptr noundef nonnull align
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #36
+  tail call void @__clang_call_terminate(ptr %7) #34
   unreachable
 
 _ZN8ImVectorIP10MyDocumentED2Ev.exit:             ; preds = %1, %4
@@ -33271,7 +33271,7 @@ _ZN8ImVectorIP10MyDocumentED2Ev.exit:             ; preds = %1, %4
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #36
+  tail call void @__clang_call_terminate(ptr %13) #34
   unreachable
 
 _ZN8ImVectorI10MyDocumentED2Ev.exit:              ; preds = %_ZN8ImVectorIP10MyDocumentED2Ev.exit, %10
@@ -33641,7 +33641,7 @@ define linkonce_odr void @_ZN20ExampleAssetsBrowserD2Ev(ptr noundef nonnull alig
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #36
+  tail call void @__clang_call_terminate(ptr %7) #34
   unreachable
 
 _ZN26ImGuiSelectionBasicStorageD2Ev.exit:         ; preds = %1, %4
@@ -33658,7 +33658,7 @@ _ZN26ImGuiSelectionBasicStorageD2Ev.exit:         ; preds = %1, %4
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #36
+  tail call void @__clang_call_terminate(ptr %13) #34
   unreachable
 
 _ZN8ImVectorI12ExampleAssetED2Ev.exit:            ; preds = %_ZN26ImGuiSelectionBasicStorageD2Ev.exit, %10
@@ -34336,7 +34336,7 @@ _ZN8ImVectorIjE9push_backERKj.exit:               ; preds = %_ZNK8ImVectorIjE14_
   %323 = landingpad { ptr, i32 }
           catch ptr null
   %324 = extractvalue { ptr, i32 } %323, 0
-  call void @__clang_call_terminate(ptr %324) #36
+  call void @__clang_call_terminate(ptr %324) #34
   unreachable
 
 .preheader:                                       ; preds = %315, %_ZN8ImVectorIjE9push_backERKj.exit143
@@ -34418,7 +34418,7 @@ _ZN8ImVectorIjE9push_backERKj.exit143:            ; preds = %327, %.noexc141, %3
   %351 = landingpad { ptr, i32 }
           catch ptr null
   %352 = extractvalue { ptr, i32 } %351, 0
-  call void @__clang_call_terminate(ptr %352) #36
+  call void @__clang_call_terminate(ptr %352) #34
   unreachable
 
 _ZN8ImVectorIjED2Ev.exit145:                      ; preds = %349, %348, %313
@@ -35235,7 +35235,7 @@ _ZN26ImGuiSelectionBasicStorage21GetStorageIdFromIndexEi.exit27: ; preds = %77
   %86 = landingpad { ptr, i32 }
           catch ptr null
   %87 = extractvalue { ptr, i32 } %86, 0
-  tail call void @__clang_call_terminate(ptr %87) #36
+  tail call void @__clang_call_terminate(ptr %87) #34
   unreachable
 
 _ZN8ImVectorI12ExampleAssetED2Ev.exit:            ; preds = %83, %84

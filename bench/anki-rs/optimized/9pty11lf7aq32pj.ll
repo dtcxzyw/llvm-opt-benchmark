@@ -381,7 +381,7 @@ define void @_ZN7anki_io13atomic_rename17h34267177826296e9E(ptr noalias noundef 
 35:                                               ; preds = %31
   %36 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee5980806d1ba524E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10) #9
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee5980806d1ba524E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10) #8
           to label %.thread110 unwind label %37, !noalias !123
 
 37:                                               ; preds = %35
@@ -563,7 +563,7 @@ common.resume:                                    ; preds = %.thread110, %.body8
 79:                                               ; preds = %78
   %80 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee5980806d1ba524E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6) #9
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee5980806d1ba524E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6) #8
           to label %..body83_crit_edge145 unwind label %81, !noalias !177
 
 81:                                               ; preds = %79

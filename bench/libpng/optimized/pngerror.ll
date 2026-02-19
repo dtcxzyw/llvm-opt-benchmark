@@ -1339,7 +1339,7 @@ define void @png_chunk_report(ptr noalias noundef %0, ptr noundef %1, i32 nounde
   br i1 %.not.i, label %14, label %png_chunk_benign_error.exit
 
 14:                                               ; preds = %10
-  tail call void @png_chunk_error(ptr noundef nonnull %0, ptr noundef %1) #26
+  tail call void @png_chunk_error(ptr noundef nonnull %0, ptr noundef %1) #22
   unreachable
 
 png_chunk_benign_error.exit:                      ; preds = %10
@@ -1398,7 +1398,7 @@ png_chunk_benign_error.exit:                      ; preds = %10
   br label %png_app_warning.exit
 
 33:                                               ; preds = %18
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef %1) #29
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef %1) #22
   unreachable
 
 34:                                               ; preds = %15
@@ -1448,7 +1448,7 @@ png_chunk_benign_error.exit:                      ; preds = %10
   br label %png_app_warning.exit
 
 49:                                               ; preds = %34
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef %1) #29
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef %1) #22
   unreachable
 
 png_app_warning.exit:                             ; preds = %48, %.split14.i.i16, %32, %.split14.i.i, %9, %png_chunk_benign_error.exit
@@ -1594,7 +1594,7 @@ define void @png_free_jmpbuf(ptr noalias noundef %0) local_unnamed_addr #4 {
 
 9:                                                ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %10 = call i32 @_setjmp(ptr noundef nonnull %2) #30
+  %10 = call i32 @_setjmp(ptr noundef nonnull %2) #24
   %.not18 = icmp eq i32 %10, 0
   br i1 %.not18, label %11, label %13
 
@@ -1649,7 +1649,7 @@ define void @png_longjmp(ptr noalias noundef readonly captures(address_is_null) 
   br label %10
 
 10:                                               ; preds = %9, %6, %3, %2
-  tail call void @abort() #31
+  tail call void @abort() #25
   unreachable
 }
 
@@ -1742,7 +1742,7 @@ png_safecat.exit:                                 ; preds = %.lr.ph.i, %5, %.pre
   br i1 %.not15, label %.lr.ph.i17.preheader, label %24
 
 24:                                               ; preds = %21
-  tail call void @longjmp(ptr noundef nonnull %23, i32 noundef 1) #31
+  tail call void @longjmp(ptr noundef nonnull %23, i32 noundef 1) #25
   unreachable
 
 .lr.ph.i17:                                       ; preds = %.lr.ph.i17.preheader, %.lr.ph.i17
@@ -1788,7 +1788,7 @@ png_safecat.exit28:                               ; preds = %.lr.ph.i25, %30, %.
   br label %42
 
 42:                                               ; preds = %png_safecat.exit28, %2
-  tail call void @abort() #31
+  tail call void @abort() #25
   unreachable
 }
 
@@ -1843,7 +1843,7 @@ define i32 @png_safe_execute(ptr noundef %0, ptr noundef readonly captures(none)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !84
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %8 = call i32 @_setjmp(ptr noundef nonnull %4) #30
+  %8 = call i32 @_setjmp(ptr noundef nonnull %4) #24
   %9 = icmp eq i32 %8, 0
   %10 = load ptr, ptr %0, align 8, !tbaa !83
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16

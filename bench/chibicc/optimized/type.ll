@@ -428,10 +428,10 @@ define dso_local void @add_type(ptr noundef captures(address_is_null) %0) local_
   %33 = load ptr, ptr %32, align 16, !tbaa !40
   %34 = tail call fastcc ptr @get_common_type(ptr noundef %30, ptr noundef %33) #12
   %35 = load ptr, ptr %6, align 8, !tbaa !34
-  %36 = tail call ptr @new_cast(ptr noundef %35, ptr noundef %34) #13
+  %36 = tail call ptr @new_cast(ptr noundef %35, ptr noundef %34) #12
   store ptr %36, ptr %6, align 8, !tbaa !34
   %37 = load ptr, ptr %8, align 8, !tbaa !34
-  %38 = tail call ptr @new_cast(ptr noundef %37, ptr noundef %34) #13
+  %38 = tail call ptr @new_cast(ptr noundef %37, ptr noundef %34) #12
   store ptr %38, ptr %8, align 8, !tbaa !34
   %39 = load ptr, ptr %6, align 16, !tbaa !45
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
@@ -445,7 +445,7 @@ define dso_local void @add_type(ptr noundef captures(address_is_null) %0) local_
   %46 = load ptr, ptr %45, align 16, !tbaa !40
   %47 = tail call fastcc ptr @get_common_type(ptr noundef %43, ptr noundef %46)
   %48 = load ptr, ptr %6, align 16, !tbaa !45
-  %49 = tail call ptr @new_cast(ptr noundef %48, ptr noundef %47) #13
+  %49 = tail call ptr @new_cast(ptr noundef %48, ptr noundef %47) #12
   store ptr %49, ptr %6, align 16, !tbaa !45
   br label %.sink.split
 
@@ -462,12 +462,12 @@ define dso_local void @add_type(ptr noundef captures(address_is_null) %0) local_
 55:                                               ; preds = %50
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %57 = load ptr, ptr %56, align 8, !tbaa !55
-  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %57, ptr noundef nonnull @.str) #14
+  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %57, ptr noundef nonnull @.str) #13
   unreachable
 
 58:                                               ; preds = %50
   %59 = load ptr, ptr %8, align 8, !tbaa !46
-  %60 = tail call ptr @new_cast(ptr noundef %59, ptr noundef nonnull %53) #13
+  %60 = tail call ptr @new_cast(ptr noundef %59, ptr noundef nonnull %53) #12
   store ptr %60, ptr %8, align 8, !tbaa !46
   %.pre = load ptr, ptr %6, align 16, !tbaa !45
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
@@ -483,10 +483,10 @@ define dso_local void @add_type(ptr noundef captures(address_is_null) %0) local_
   %67 = load ptr, ptr %66, align 16, !tbaa !40
   %68 = tail call fastcc ptr @get_common_type(ptr noundef %64, ptr noundef %67) #12
   %69 = load ptr, ptr %6, align 8, !tbaa !34
-  %70 = tail call ptr @new_cast(ptr noundef %69, ptr noundef %68) #13
+  %70 = tail call ptr @new_cast(ptr noundef %69, ptr noundef %68) #12
   store ptr %70, ptr %6, align 8, !tbaa !34
   %71 = load ptr, ptr %8, align 8, !tbaa !34
-  %72 = tail call ptr @new_cast(ptr noundef %71, ptr noundef %68) #13
+  %72 = tail call ptr @new_cast(ptr noundef %71, ptr noundef %68) #12
   store ptr %72, ptr %8, align 8, !tbaa !34
   %73 = load ptr, ptr @ty_int, align 8, !tbaa !26
   br label %.sink.split
@@ -594,7 +594,7 @@ define dso_local void @add_type(ptr noundef captures(address_is_null) %0) local_
 138:                                              ; preds = %132
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %140 = load ptr, ptr %139, align 8, !tbaa !55
-  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %140, ptr noundef nonnull @.str.13) #14
+  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %140, ptr noundef nonnull @.str.13) #13
   unreachable
 
 141:                                              ; preds = %132
@@ -605,7 +605,7 @@ define dso_local void @add_type(ptr noundef captures(address_is_null) %0) local_
 144:                                              ; preds = %141
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %146 = load ptr, ptr %145, align 8, !tbaa !55
-  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %146, ptr noundef nonnull @.str.14) #14
+  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %146, ptr noundef nonnull @.str.14) #13
   unreachable
 
 147:                                              ; preds = %._crit_edge117
@@ -635,7 +635,7 @@ define dso_local void @add_type(ptr noundef captures(address_is_null) %0) local_
 .thread:                                          ; preds = %151, %147
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %160 = load ptr, ptr %159, align 8, !tbaa !55
-  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %160, ptr noundef nonnull @.str.15) #14
+  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %160, ptr noundef nonnull @.str.15) #13
   unreachable
 
 161:                                              ; preds = %._crit_edge117
@@ -674,7 +674,7 @@ define dso_local void @add_type(ptr noundef captures(address_is_null) %0) local_
 180:                                              ; preds = %168
   %181 = getelementptr inbounds nuw i8, ptr %176, i64 24
   %182 = load ptr, ptr %181, align 8, !tbaa !55
-  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %182, ptr noundef nonnull @.str.16) #14
+  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %182, ptr noundef nonnull @.str.16) #13
   unreachable
 
 183:                                              ; preds = %168
@@ -688,7 +688,7 @@ define dso_local void @add_type(ptr noundef captures(address_is_null) %0) local_
 188:                                              ; preds = %183
   %189 = getelementptr inbounds nuw i8, ptr %184, i64 24
   %190 = load ptr, ptr %189, align 8, !tbaa !55
-  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %190, ptr noundef nonnull @.str.16) #14
+  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %190, ptr noundef nonnull @.str.16) #13
   unreachable
 
 191:                                              ; preds = %._crit_edge117
@@ -704,7 +704,7 @@ define dso_local void @add_type(ptr noundef captures(address_is_null) %0) local_
   %198 = load ptr, ptr %197, align 8, !tbaa !69
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 24
   %200 = load ptr, ptr %199, align 8, !tbaa !55
-  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %200, ptr noundef nonnull @.str.16) #14
+  tail call void (ptr, ptr, ...) @error_tok(ptr noundef %200, ptr noundef nonnull @.str.16) #13
   unreachable
 
 201:                                              ; preds = %191
@@ -731,10 +731,10 @@ define internal fastcc void @usual_arith_conv(ptr noundef nonnull captures(none)
   %8 = load ptr, ptr %7, align 16, !tbaa !40
   %9 = tail call fastcc ptr @get_common_type(ptr noundef %5, ptr noundef %8)
   %10 = load ptr, ptr %0, align 8, !tbaa !34
-  %11 = tail call ptr @new_cast(ptr noundef %10, ptr noundef %9) #13
+  %11 = tail call ptr @new_cast(ptr noundef %10, ptr noundef %9) #12
   store ptr %11, ptr %0, align 8, !tbaa !34
   %12 = load ptr, ptr %1, align 8, !tbaa !34
-  %13 = tail call ptr @new_cast(ptr noundef %12, ptr noundef %9) #13
+  %13 = tail call ptr @new_cast(ptr noundef %12, ptr noundef %9) #12
   store ptr %13, ptr %1, align 8, !tbaa !34
   ret void
 }

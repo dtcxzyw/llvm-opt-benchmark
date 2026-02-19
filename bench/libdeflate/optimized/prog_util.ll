@@ -454,7 +454,7 @@ xmalloc.exit:                                     ; preds = %1, %32
 
 7:                                                ; preds = %5
   %8 = tail call i64 @llvm.uadd.sat.i64(i64 %.037, i64 %.037)
-  %9 = tail call ptr @realloc(ptr noundef %.033, i64 noundef %8) #26
+  %9 = tail call ptr @realloc(ptr noundef %.033, i64 noundef %8) #23
   %10 = icmp eq ptr %9, null
   br i1 %10, label %select.unfold, label %11
 

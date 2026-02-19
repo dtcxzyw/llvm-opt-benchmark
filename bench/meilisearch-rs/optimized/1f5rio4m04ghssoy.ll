@@ -850,7 +850,7 @@ define void @_ZN10meili_snap34default_snapshot_settings_for_test17h23bbead29b6e1
 93:                                               ; preds = %86
   %94 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hadce198af27f2353E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35) #15
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hadce198af27f2353E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35) #14
           to label %.body52 unwind label %103, !noalias !99
 
 95:                                               ; preds = %86
@@ -960,13 +960,13 @@ define void @_ZN10meili_snap34default_snapshot_settings_for_test17h23bbead29b6e1
 131:                                              ; preds = %127
   %132 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hf32b184f1eaeeb44E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %34) #18
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hf32b184f1eaeeb44E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %34) #14
           to label %.body.thread unwind label %133
 
 133:                                              ; preds = %131
   %134 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #16
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #15
   unreachable
 
 135:                                              ; preds = %130
@@ -1151,7 +1151,7 @@ define void @_ZN10meili_snap34default_snapshot_settings_for_test17h23bbead29b6e1
 189:                                              ; preds = %186
   %190 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$$LP$std..path..PathBuf$C$usize$RP$$GT$17h2aef44dd178cfa75E.llvm.264747204521838616"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #20
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$$LP$std..path..PathBuf$C$usize$RP$$GT$17h2aef44dd178cfa75E.llvm.264747204521838616"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #14
           to label %.body74 unwind label %191, !noalias !171
 
 191:                                              ; preds = %189
@@ -1448,7 +1448,7 @@ select.unfold:                                    ; preds = %"_ZN73_$LT$$u5b$A$u
 290:                                              ; preds = %296, %.body74, %292, %.body.thread, %.thread160, %266, %.body52
   %291 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #16
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #15
   unreachable
 
 .thread160:                                       ; preds = %266, %242, %.thread167

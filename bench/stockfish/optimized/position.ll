@@ -588,7 +588,7 @@ define dso_local noundef nonnull align 8 dereferenceable(865) ptr @_ZN9Stockfish
   %.054 = phi i32 [ 56, %.lr.ph ], [ %.1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread ]
   %21 = load i8, ptr %7, align 1
   %22 = zext i8 %21 to i32
-  %23 = call i32 @isspace(i32 noundef %22) #20
+  %23 = call i32 @isspace(i32 noundef %22) #19
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %24, label %.critedge
 
@@ -693,15 +693,15 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %3
 87:                                               ; preds = %.lr.ph56, %.backedge
   %88 = load i8, ptr %7, align 1
   %89 = zext i8 %88 to i32
-  %90 = call i32 @isspace(i32 noundef %89) #20
+  %90 = call i32 @isspace(i32 noundef %89) #19
   %.not26 = icmp eq i32 %90, 0
   br i1 %.not26, label %91, label %.critedge2
 
 91:                                               ; preds = %87
-  %92 = call i32 @islower(i32 noundef %89) #20
+  %92 = call i32 @islower(i32 noundef %89) #19
   %.not30 = icmp ne i32 %92, 0
   %93 = select i1 %.not30, i32 12, i32 4
-  %94 = call i32 @toupper(i32 noundef %89) #20
+  %94 = call i32 @toupper(i32 noundef %89) #19
   %95 = trunc i32 %94 to i8
   store i8 %95, ptr %7, align 1
   switch i8 %95, label %107 [
@@ -4937,16 +4937,16 @@ define dso_local void @_ZN9Stockfish8Position4flipEv(ptr noundef nonnull align 8
   %.sroa.03.07.i = phi ptr [ %35, %"_ZZN9Stockfish8Position4flipEvENK3$_0clEc.exit.i" ], [ %23, %15 ]
   %26 = load i8, ptr %.sroa.03.07.i, align 1
   %27 = sext i8 %26 to i32
-  %28 = call i32 @islower(i32 noundef %27) #20
+  %28 = call i32 @islower(i32 noundef %27) #19
   %.not.i.i = icmp eq i32 %28, 0
   br i1 %.not.i.i, label %31, label %29
 
 29:                                               ; preds = %.lr.ph.i
-  %30 = call i32 @toupper(i32 noundef %27) #20
+  %30 = call i32 @toupper(i32 noundef %27) #19
   br label %"_ZZN9Stockfish8Position4flipEvENK3$_0clEc.exit.i"
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = call i32 @tolower(i32 noundef %27) #20
+  %32 = call i32 @tolower(i32 noundef %27) #19
   br label %"_ZZN9Stockfish8Position4flipEvENK3$_0clEc.exit.i"
 
 "_ZZN9Stockfish8Position4flipEvENK3$_0clEc.exit.i": ; preds = %31, %29
