@@ -10261,7 +10261,7 @@ switch.lookup1400:                                ; preds = %908
   %1380 = getelementptr inbounds nuw i8, ptr %1379, i64 1424
   %1381 = load double, ptr %1380, align 8, !tbaa !511
   call void @cairo_set_line_width(ptr noundef %39, double noundef %1381) #21
-  %1382 = call reassoc nsz arcp contract afn float @llvm.ldexp.f32.i32(float 1.000000e+00, i32 %.010501340)
+  %1382 = call reassoc nnan nsz arcp contract afn float @llvm.ldexp.f32.i32(float 1.000000e+00, i32 %.010501340)
   %1383 = fmul reassoc nnan nsz arcp contract afn float %1382, 0x3FC79DB220000000
   %1384 = call reassoc nsz arcp contract afn float @llvm.pow.f32(float %1383, float 0x3FDAAAAAA0000000)
   %1385 = fmul reassoc nsz arcp contract afn float %1378, %1120

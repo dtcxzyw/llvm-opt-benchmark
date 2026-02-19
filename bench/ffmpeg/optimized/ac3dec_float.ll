@@ -7182,7 +7182,7 @@ define internal void @ac3_tables_init() #3 {
   %72 = and i32 %71, 8
   %73 = add nsw i32 %70, -5
   %74 = sub nsw i32 %73, %72
-  %exp250 = tail call nsz float @llvm.ldexp.f32.i32(float 1.000000e+00, i32 %74)
+  %exp250 = tail call nnan nsz float @llvm.ldexp.f32.i32(float 1.000000e+00, i32 %74)
   %75 = and i32 %69, 31
   %76 = or disjoint i32 %75, 32
   %77 = uitofp nneg i32 %76 to float
@@ -7201,7 +7201,7 @@ define internal void @ac3_tables_init() #3 {
   %83 = and i32 %82, 16
   %84 = add nsw i32 %81, -4
   %85 = sub nsw i32 %84, %83
-  %exp2 = tail call nsz float @llvm.ldexp.f32.i32(float 1.000000e+00, i32 %85)
+  %exp2 = tail call nnan nsz float @llvm.ldexp.f32.i32(float 1.000000e+00, i32 %85)
   %86 = and i32 %80, 15
   %87 = or disjoint i32 %86, 16
   %88 = uitofp nneg i32 %87 to float

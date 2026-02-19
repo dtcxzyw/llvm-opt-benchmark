@@ -14853,7 +14853,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 214:                                              ; preds = %.noexc
   %215 = zext i8 %213 to i32
   %216 = add nsw i32 %215, -136
-  %217 = call contract noundef float @llvm.ldexp.f32.i32(float 1.000000e+00, i32 %216)
+  %217 = call nnan contract float @llvm.ldexp.f32.i32(float 1.000000e+00, i32 %216)
   br label %218
 
 218:                                              ; preds = %218, %214
@@ -14939,7 +14939,7 @@ _ZN7mitsuba12_GLOBAL__N_116rgbe_read_pixelsEPNS_6StreamEPfm.exit: ; preds = %_ZN
 252:                                              ; preds = %250
   %253 = zext i8 %251 to i32
   %254 = add nsw i32 %253, -136
-  %255 = call contract noundef float @llvm.ldexp.f32.i32(float 1.000000e+00, i32 %254)
+  %255 = call nnan contract float @llvm.ldexp.f32.i32(float 1.000000e+00, i32 %254)
   br label %256
 
 256:                                              ; preds = %256, %252
@@ -14992,7 +14992,7 @@ _ZN7mitsuba12_GLOBAL__N_116rgbe_read_pixelsEPNS_6StreamEPfm.exit: ; preds = %_ZN
 276:                                              ; preds = %.noexc198
   %277 = zext i8 %275 to i32
   %278 = add nsw i32 %277, -136
-  %279 = call contract noundef float @llvm.ldexp.f32.i32(float 1.000000e+00, i32 %278)
+  %279 = call nnan contract float @llvm.ldexp.f32.i32(float 1.000000e+00, i32 %278)
   br label %280
 
 280:                                              ; preds = %280, %276
@@ -15227,7 +15227,7 @@ _ZN7mitsuba12_GLOBAL__N_116rgbe_read_pixelsEPNS_6StreamEPfm.exit199: ; preds = %
 367:                                              ; preds = %.lr.ph269
   %368 = zext i8 %366 to i32
   %369 = add nsw i32 %368, -136
-  %370 = call contract noundef float @llvm.ldexp.f32.i32(float 1.000000e+00, i32 %369)
+  %370 = call nnan contract float @llvm.ldexp.f32.i32(float 1.000000e+00, i32 %369)
   br label %371
 
 371:                                              ; preds = %371, %367
