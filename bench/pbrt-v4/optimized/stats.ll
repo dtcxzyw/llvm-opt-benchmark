@@ -9175,66 +9175,67 @@ define internal fastcc void @"_ZZN4pbrt16StatsAccumulator5PrintEP8_IO_FILEENK3$_
   %16 = icmp eq ptr %15, %11
   br i1 %16, label %common.resume, label %common.resume.sink.split
 
-common.resume.sink.split:                         ; preds = %32, %24, %13
-  %.sink8.in = phi ptr [ %22, %24 ], [ %11, %13 ], [ %30, %32 ]
-  %.sink = phi ptr [ %26, %24 ], [ %15, %13 ], [ %34, %32 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %25, %24 ], [ %14, %13 ], [ %33, %32 ]
-  %.sink8 = load i64, ptr %.sink8.in, align 8, !tbaa !53
-  %17 = add i64 %.sink8, 1
+common.resume.sink.split:                         ; preds = %33, %25, %13
+  %.sink7.in = phi ptr [ %23, %25 ], [ %11, %13 ], [ %31, %33 ]
+  %.sink = phi ptr [ %27, %25 ], [ %15, %13 ], [ %35, %33 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %26, %25 ], [ %14, %13 ], [ %34, %33 ]
+  %.sink7 = load i64, ptr %.sink7.in, align 8, !tbaa !53
+  %17 = add i64 %.sink7, 1
   call void @_ZdlPvm(ptr noundef %.sink, i64 noundef %17) #30
   br label %common.resume
 
-common.resume:                                    ; preds = %common.resume.sink.split, %32, %24, %13
-  %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %25, %24 ], [ %33, %32 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+common.resume:                                    ; preds = %common.resume.sink.split, %33, %25, %13
+  %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %26, %25 ], [ %34, %33 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 18:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %19 = fmul nnan float %8, 0x3F50000000000000
   store float %19, ptr %4, align 4, !tbaa !67
-  %20 = fcmp olt float %19, 1.024000e+03
-  br i1 %20, label %21, label %28
+  %20 = tail call noundef float @llvm.fabs.f32(float %19)
+  %21 = fcmp olt float %20, 1.024000e+03
+  br i1 %21, label %22, label %29
 
-21:                                               ; preds = %18
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %22, ptr %0, align 8, !tbaa !49, !alias.scope !222
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %23, align 8, !tbaa !51, !alias.scope !222
-  store i8 0, ptr %22, align 8, !tbaa !53, !alias.scope !222
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %23, ptr %0, align 8, !tbaa !49, !alias.scope !222
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %24, align 8, !tbaa !51, !alias.scope !222
+  store i8 0, ptr %23, align 8, !tbaa !53, !alias.scope !222
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRfJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %0, ptr noundef nonnull @.str.55, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %_ZN4pbrt12StringPrintfIJRfEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit4 unwind label %24
+          to label %_ZN4pbrt12StringPrintfIJRfEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit4 unwind label %25
 
-24:                                               ; preds = %21
-  %25 = landingpad { ptr, i32 }
+25:                                               ; preds = %22
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = load ptr, ptr %0, align 8, !tbaa !55, !alias.scope !222
-  %27 = icmp eq ptr %26, %22
-  br i1 %27, label %common.resume, label %common.resume.sink.split
+  %27 = load ptr, ptr %0, align 8, !tbaa !55, !alias.scope !222
+  %28 = icmp eq ptr %27, %23
+  br i1 %28, label %common.resume, label %common.resume.sink.split
 
-28:                                               ; preds = %18
+29:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %29 = fmul nnan float %19, 0x3F50000000000000
-  store float %29, ptr %5, align 4, !tbaa !67
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %30, ptr %0, align 8, !tbaa !49, !alias.scope !225
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %31, align 8, !tbaa !51, !alias.scope !225
-  store i8 0, ptr %30, align 8, !tbaa !53, !alias.scope !225
+  %30 = fmul nnan float %19, 0x3F50000000000000
+  store float %30, ptr %5, align 4, !tbaa !67
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %31, ptr %0, align 8, !tbaa !49, !alias.scope !225
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %32, align 8, !tbaa !51, !alias.scope !225
+  store i8 0, ptr %31, align 8, !tbaa !53, !alias.scope !225
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRfJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %0, ptr noundef nonnull @.str.56, ptr noundef nonnull align 4 dereferenceable(4) %5)
-          to label %_ZN4pbrt12StringPrintfIJRfEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit8 unwind label %32
+          to label %_ZN4pbrt12StringPrintfIJRfEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit8 unwind label %33
 
-32:                                               ; preds = %28
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %29
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %34 = load ptr, ptr %0, align 8, !tbaa !55, !alias.scope !225
-  %35 = icmp eq ptr %34, %30
-  br i1 %35, label %common.resume, label %common.resume.sink.split
+  %35 = load ptr, ptr %0, align 8, !tbaa !55, !alias.scope !225
+  %36 = icmp eq ptr %35, %31
+  br i1 %36, label %common.resume, label %common.resume.sink.split
 
-_ZN4pbrt12StringPrintfIJRfEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit8: ; preds = %28
+_ZN4pbrt12StringPrintfIJRfEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit8: ; preds = %29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4pbrt12StringPrintfIJRfEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit4
 
-_ZN4pbrt12StringPrintfIJRfEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit4: ; preds = %21, %_ZN4pbrt12StringPrintfIJRfEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit8
+_ZN4pbrt12StringPrintfIJRfEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit4: ; preds = %22, %_ZN4pbrt12StringPrintfIJRfEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN4pbrt12StringPrintfIJRfEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit
 

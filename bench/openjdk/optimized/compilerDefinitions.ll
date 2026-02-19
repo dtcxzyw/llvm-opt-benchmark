@@ -735,11 +735,11 @@ _ZN14CompilerConfig10is_c1_onlyEv.exit:           ; preds = %19
   %28 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
   %29 = icmp eq i32 %28, 1
   %30 = or i1 %spec.select.i, %29
-  %.not75 = xor i1 %30, true
+  %.not74 = xor i1 %30, true
   %31 = icmp ne i32 %28, 2
-  %32 = and i1 %31, %.not75
-  %or.cond76 = and i1 %32, %26
-  br i1 %or.cond76, label %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit.thread, label %33
+  %32 = and i1 %31, %.not74
+  %or.cond75 = and i1 %32, %26
+  br i1 %or.cond75, label %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit.thread, label %33
 
 33:                                               ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit
   %34 = load ptr, ptr @_ZN7JVMFlag5flagsE, align 8
@@ -941,32 +941,33 @@ _ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit.thread: ; preds = %_ZN1
 134:                                              ; preds = %132
   %135 = uitofp nneg i64 %130 to double
   %136 = fmul double %128, %135
-  %137 = fcmp ueq double %136, 0x7FF0000000000000
-  br i1 %137, label %_ZN14CompilerConfig24scaled_compile_thresholdEl.exit, label %138
+  %137 = call double @llvm.fabs.f64(double %136)
+  %138 = fcmp ueq double %137, 0x7FF0000000000000
+  br i1 %138, label %_ZN14CompilerConfig24scaled_compile_thresholdEl.exit, label %139
 
-138:                                              ; preds = %134
-  %139 = call double @frexp(double noundef %136, ptr noundef nonnull %2) #10
-  %140 = load i32, ptr %2, align 4
-  %141 = icmp sgt i32 %140, 63
-  %142 = fptosi double %136 to i64
-  %spec.select.i.i = select i1 %141, i64 9223372036854775807, i64 %142
+139:                                              ; preds = %134
+  %140 = call double @frexp(double noundef %136, ptr noundef nonnull %2) #10
+  %141 = load i32, ptr %2, align 4
+  %142 = icmp sgt i32 %141, 63
+  %143 = fptosi double %136 to i64
+  %spec.select.i.i = select i1 %142, i64 9223372036854775807, i64 %143
   br label %_ZN14CompilerConfig24scaled_compile_thresholdEl.exit
 
-_ZN14CompilerConfig24scaled_compile_thresholdEl.exit: ; preds = %132, %134, %138
-  %.0.i.i = phi i64 [ %spec.select.i.i, %138 ], [ %130, %132 ], [ 9223372036854775807, %134 ]
+_ZN14CompilerConfig24scaled_compile_thresholdEl.exit: ; preds = %132, %134, %139
+  %.0.i.i = phi i64 [ %spec.select.i.i, %139 ], [ %130, %132 ], [ 9223372036854775807, %134 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %143 = call noundef i32 @_Z30CompileThresholdConstraintFunclb(i64 noundef %.0.i.i, i1 noundef zeroext true) #10
-  %.not26 = icmp eq i32 %143, 6
-  br i1 %.not26, label %_ZL18check_legacy_flagsv.exit.thread, label %144
+  %144 = call noundef i32 @_Z30CompileThresholdConstraintFunclb(i64 noundef %.0.i.i, i1 noundef zeroext true) #10
+  %.not26 = icmp eq i32 %144, 6
+  br i1 %.not26, label %_ZL18check_legacy_flagsv.exit.thread, label %145
 
-144:                                              ; preds = %_ZN14CompilerConfig24scaled_compile_thresholdEl.exit
+145:                                              ; preds = %_ZN14CompilerConfig24scaled_compile_thresholdEl.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 %.0.i.i, ptr %1, align 8
-  %145 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 844, i32 noundef 3, ptr noundef nonnull %1, i32 noundef 5) #10
+  %146 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 844, i32 noundef 3, ptr noundef nonnull %1, i32 noundef 5) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %_ZL18check_legacy_flagsv.exit.thread
 
-_ZL18check_legacy_flagsv.exit.thread:             ; preds = %33, %_ZN12JVMFlagLimit14get_constraintEPK7JVMFlag.exit12.i, %_ZN14CompilerConfig24scaled_compile_thresholdEl.exit, %144, %_ZL18check_legacy_flagsv.exit, %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit.thread
+_ZL18check_legacy_flagsv.exit.thread:             ; preds = %33, %_ZN12JVMFlagLimit14get_constraintEPK7JVMFlag.exit12.i, %_ZN14CompilerConfig24scaled_compile_thresholdEl.exit, %145, %_ZL18check_legacy_flagsv.exit, %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit.thread
   ret void
 }
 
