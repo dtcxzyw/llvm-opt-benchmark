@@ -167,7 +167,7 @@
   "gvn.IsValueFullyAvailableInBlockNumSpeculationsMax": 602106,
   "gvn.NumGVNBlocks": 191276,
   "gvn.NumGVNEqProp": 426613,
-  "gvn.NumGVNInstr": 149593,
+  "gvn.NumGVNInstr": 9126575,
   "gvn.NumGVNLoad": 1319122,
   "gvn.NumGVNPRE": 149593,
   "gvn.NumGVNSimpl": 4415209,
