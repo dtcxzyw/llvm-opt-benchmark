@@ -4899,7 +4899,7 @@ define hidden void @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$12remo
 .loopexit:                                        ; preds = %.backedge.i.i, %3
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 2, ptr %21, align 8
-  br label %43
+  br label %41
 
 22:                                               ; preds = %"_ZN67_$LT$clap_builder..util..id..Id$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7953693b163d6e92E.llvm.7008872586094235178.exit.i.i.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1379)
@@ -4939,20 +4939,20 @@ define hidden void @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$12remo
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(104) %38, i64 104, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 112
-  %40 = add i64 %34, %29
-  %41 = mul i64 %40, 104
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %38, ptr nonnull align 8 %39, i64 %41, i1 false), !noalias !1392
-  %42 = add i64 %34, -1
-  store i64 %42, ptr %33, align 8, !alias.scope !1385, !noalias !1388
+  %reass.add = add i64 %34, %29
+  %reass.mul = mul i64 %reass.add, 104
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %38, ptr nonnull align 8 %39, i64 %reass.mul, i1 false), !noalias !1392
+  %40 = add i64 %34, -1
+  store i64 %40, ptr %33, align 8, !alias.scope !1385, !noalias !1388
   store ptr %25, ptr %0, align 8
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %27, ptr %.sroa.43.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.5, i64 104, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  br label %43
+  br label %41
 
-43:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h237c4e2914152e93E.exit", %.loopexit
+41:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h237c4e2914152e93E.exit", %.loopexit
   ret void
 }
 

@@ -3793,14 +3793,14 @@ _ZL8zreceiveP4zbufi.exit73.i.i:                   ; preds = %66, %_ZL8zreceiveP4
   %.v.i.i.i = select i1 %125, i8 -36, i8 -35
   %126 = add i8 %.v.i.i.i, %124
   %127 = zext i8 %126 to i32
-  %128 = mul nuw nsw i32 %127, 85
-  %129 = add nuw nsw i32 %128, %122
-  %130 = mul nuw nsw i32 %129, 85
-  %131 = add nuw nsw i32 %130, %117
-  %132 = mul nuw nsw i32 %131, 85
-  %133 = add nuw nsw i32 %132, %112
-  %134 = mul nuw nsw i32 %133, 85
-  %135 = add nuw nsw i32 %134, %107
+  %128 = mul nuw nsw i32 %122, 614125
+  %129 = mul nuw nsw i32 %117, 7225
+  %130 = mul i32 %127, 52200625
+  %131 = mul nuw nsw i32 %112, 85
+  %132 = add nuw nsw i32 %131, %107
+  %133 = add nuw nsw i32 %132, %129
+  %134 = add nuw nsw i32 %133, %128
+  %135 = add nuw nsw i32 %134, %130
   store i32 %135, ptr %14, align 4
   %136 = add nsw i32 %102, 5
   store i32 %136, ptr %6, align 4, !tbaa !22
@@ -4493,8 +4493,8 @@ define internal fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef nonnull captures(no
   br label %9
 
 9:                                                ; preds = %_ZL5zget8P4zbuf.exit, %1
-  %10 = phi i32 [ %79, %_ZL5zget8P4zbuf.exit ], [ %.promoted12, %1 ]
-  %11 = phi i32 [ %78, %_ZL5zget8P4zbuf.exit ], [ %.promoted, %1 ]
+  %10 = phi i32 [ %78, %_ZL5zget8P4zbuf.exit ], [ %.promoted12, %1 ]
+  %11 = phi i32 [ %77, %_ZL5zget8P4zbuf.exit ], [ %.promoted, %1 ]
   %.highbits = lshr i32 %11, %10
   %.not = icmp eq i32 %.highbits, 0
   br i1 %.not, label %13, label %12
@@ -4507,7 +4507,7 @@ define internal fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef nonnull captures(no
   %14 = load i32, ptr %4, align 8, !tbaa !23
   %15 = and i32 %14, 3
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %71
+  br i1 %16, label %17, label %70
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %0, align 8, !tbaa !16
@@ -4572,37 +4572,37 @@ define internal fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef nonnull captures(no
   %.v.i = select i1 %59, i8 -36, i8 -35
   %60 = add i8 %.v.i, %58
   %61 = zext i8 %60 to i32
-  %62 = mul nuw nsw i32 %61, 85
-  %63 = add nuw nsw i32 %62, %56
-  %64 = mul nuw nsw i32 %63, 85
-  %65 = add nuw nsw i32 %64, %51
-  %66 = mul nuw nsw i32 %65, 85
-  %67 = add nuw nsw i32 %66, %46
-  %68 = mul nuw nsw i32 %67, 85
-  %69 = add nuw nsw i32 %68, %41
-  store i32 %69, ptr %7, align 4
-  %70 = add nsw i32 %35, 5
-  store i32 %70, ptr %5, align 4, !tbaa !22
-  br label %71
+  %62 = mul nuw nsw i32 %61, 7225
+  %63 = mul nuw nsw i32 %56, 85
+  %64 = add nuw nsw i32 %63, %51
+  %reass.add = add nuw nsw i32 %64, %62
+  %65 = mul i32 %reass.add, 7225
+  %66 = mul nuw nsw i32 %46, 85
+  %67 = add nuw nsw i32 %66, %41
+  %68 = add nuw nsw i32 %67, %65
+  store i32 %68, ptr %7, align 4
+  %69 = add nsw i32 %35, 5
+  store i32 %69, ptr %5, align 4, !tbaa !22
+  br label %70
 
-71:                                               ; preds = %33, %13
-  %72 = zext nneg i32 %15 to i64
-  %73 = getelementptr inbounds nuw i8, ptr %7, i64 %72
-  %74 = load i8, ptr %73, align 1, !tbaa !5
-  %75 = add nsw i32 %14, 1
-  store i32 %75, ptr %4, align 8, !tbaa !23
-  %76 = zext i8 %74 to i32
+70:                                               ; preds = %33, %13
+  %71 = zext nneg i32 %15 to i64
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 %71
+  %73 = load i8, ptr %72, align 1, !tbaa !5
+  %74 = add nsw i32 %14, 1
+  store i32 %74, ptr %4, align 8, !tbaa !23
+  %75 = zext i8 %73 to i32
   br label %_ZL5zget8P4zbuf.exit
 
-_ZL5zget8P4zbuf.exit:                             ; preds = %28, %71
-  %.0.i = phi i32 [ 0, %28 ], [ %76, %71 ]
-  %77 = shl i32 %.0.i, %10
-  %78 = or i32 %77, %11
-  store i32 %78, ptr %2, align 4, !tbaa !29
-  %79 = add nsw i32 %10, 8
-  store i32 %79, ptr %3, align 8, !tbaa !28
-  %80 = icmp slt i32 %10, 17
-  br i1 %80, label %9, label %.loopexit, !llvm.loop !31
+_ZL5zget8P4zbuf.exit:                             ; preds = %28, %70
+  %.0.i = phi i32 [ 0, %28 ], [ %75, %70 ]
+  %76 = shl i32 %.0.i, %10
+  %77 = or i32 %76, %11
+  store i32 %77, ptr %2, align 4, !tbaa !29
+  %78 = add nsw i32 %10, 8
+  store i32 %78, ptr %3, align 8, !tbaa !28
+  %79 = icmp slt i32 %10, 17
+  br i1 %79, label %9, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %_ZL5zget8P4zbuf.exit, %12
   ret void

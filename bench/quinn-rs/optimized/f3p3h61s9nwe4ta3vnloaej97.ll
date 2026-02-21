@@ -617,52 +617,52 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h1b944cc8d6a3c05
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = load i8, ptr %3, align 1, !alias.scope !47, !noalias !50, !noundef !3
   %5 = zext i8 %4 to i64
-  %6 = mul i64 %5, 1452335207727870361
-  %7 = add i64 %6, -2869467737972456604
+  %reass.mul.i = mul i64 %5, 1452335207727870361
+  %6 = add i64 %reass.mul.i, -2869467737972456604
   %.sroa.029.0.copyload.i.i.i.i = load i64, ptr %1, align 1, !alias.scope !54, !noalias !59
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.031.0.copyload.i.i.i.i = load i64, ptr %8, align 1, !alias.scope !54, !noalias !59
-  %9 = xor i64 %.sroa.029.0.copyload.i.i.i.i, 2611923443488327891
-  %10 = xor i64 %.sroa.031.0.copyload.i.i.i.i, -6626703657320631856
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.031.0.copyload.i.i.i.i = load i64, ptr %7, align 1, !alias.scope !54, !noalias !59
+  %8 = xor i64 %.sroa.029.0.copyload.i.i.i.i, 2611923443488327891
+  %9 = xor i64 %.sroa.031.0.copyload.i.i.i.i, -6626703657320631856
+  %10 = zext i64 %8 to i128
   %11 = zext i64 %9 to i128
-  %12 = zext i64 %10 to i128
-  %13 = mul nuw i128 %12, %11
-  %14 = lshr i128 %13, 64
-  %15 = xor i128 %14, %13
-  %16 = trunc i128 %15 to i64
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.033.0.copyload.i.i.i.i = load i64, ptr %17, align 1, !alias.scope !54, !noalias !59
-  %18 = xor i64 %.sroa.033.0.copyload.i.i.i.i, 1376283091369227076
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.035.0.copyload.i.i.i.i = load i64, ptr %19, align 1, !alias.scope !54, !noalias !59
-  %20 = xor i64 %.sroa.035.0.copyload.i.i.i.i, %16
-  %21 = zext i64 %18 to i128
-  %22 = zext i64 %20 to i128
-  %23 = mul nuw i128 %22, %21
-  %24 = lshr i128 %23, 64
-  %25 = xor i128 %24, %23
-  %26 = trunc i128 %25 to i64
-  %27 = xor i64 %26, 20
-  %28 = add i64 %7, %27
-  %29 = mul i64 %28, -1065810590584100411
-  %30 = tail call noundef i64 @llvm.fshl.i64(i64 %29, i64 %29, i64 26)
-  ret i64 %30
+  %12 = mul nuw i128 %11, %10
+  %13 = lshr i128 %12, 64
+  %14 = xor i128 %13, %12
+  %15 = trunc i128 %14 to i64
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.033.0.copyload.i.i.i.i = load i64, ptr %16, align 1, !alias.scope !54, !noalias !59
+  %17 = xor i64 %.sroa.033.0.copyload.i.i.i.i, 1376283091369227076
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.035.0.copyload.i.i.i.i = load i64, ptr %18, align 1, !alias.scope !54, !noalias !59
+  %19 = xor i64 %.sroa.035.0.copyload.i.i.i.i, %15
+  %20 = zext i64 %17 to i128
+  %21 = zext i64 %19 to i128
+  %22 = mul nuw i128 %21, %20
+  %23 = lshr i128 %22, 64
+  %24 = xor i128 %23, %22
+  %25 = trunc i128 %24 to i64
+  %26 = xor i64 %25, 20
+  %reass.add = add i64 %6, %26
+  %reass.mul = mul i64 %reass.add, -1065810590584100411
+  %27 = tail call noundef i64 @llvm.fshl.i64(i64 %reass.mul, i64 %reass.mul, i64 26)
+  ret i64 %27
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h2ca142b8e5aa8772E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.val.i = load i64, ptr %1, align 8, !noalias !61, !noundef !3
-  %3 = mul i64 %.val.i, -1065810590584100411
-  %4 = tail call noundef i64 @llvm.fshl.i64(i64 %3, i64 %3, i64 26)
-  ret i64 %4
+  %reass.mul.i = mul i64 %.val.i, -1065810590584100411
+  %3 = tail call noundef i64 @llvm.fshl.i64(i64 %reass.mul.i, i64 %reass.mul.i, i64 26)
+  ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hf89995a6b01bbe12E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.val.i = load i64, ptr %1, align 8, !noalias !64, !noundef !3
-  %3 = mul i64 %.val.i, -1065810590584100411
-  %4 = tail call noundef i64 @llvm.fshl.i64(i64 %3, i64 %3, i64 26)
-  ret i64 %4
+  %reass.mul.i = mul i64 %.val.i, -1065810590584100411
+  %3 = tail call noundef i64 @llvm.fshl.i64(i64 %reass.mul.i, i64 %reass.mul.i, i64 26)
+  ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: readwrite) uwtable
@@ -6795,23 +6795,23 @@ define void @"_ZN125_$LT$quinn_proto..cid_generator..HashedConnectionIdGenerator
   call void @"_ZN4core3ptr50drop_in_place$LT$rand..rngs..thread..ThreadRng$GT$17hb9e0fe3e757b1471E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %33 = load i64, ptr %1, align 8, !noundef !3
-  %34 = mul i64 %33, -1065810590584100411
-  %35 = load i8, ptr %3, align 8, !alias.scope !557, !noundef !3
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %37 = load i16, ptr %36, align 1, !alias.scope !557
-  %38 = zext i16 %37 to i64
-  %39 = zext i8 %35 to i64
-  %40 = xor i64 %39, 2611923443488327891
-  %41 = xor i64 %38, 1376283091369227076
+  %34 = load i8, ptr %3, align 8, !alias.scope !557, !noundef !3
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %36 = load i16, ptr %35, align 1, !alias.scope !557
+  %37 = zext i16 %36 to i64
+  %38 = zext i8 %34 to i64
+  %39 = xor i64 %38, 2611923443488327891
+  %40 = xor i64 %37, 1376283091369227076
+  %41 = zext nneg i64 %39 to i128
   %42 = zext nneg i64 %40 to i128
-  %43 = zext nneg i64 %41 to i128
-  %44 = mul nuw nsw i128 %43, %42
-  %45 = lshr i128 %44, 64
-  %46 = xor i128 %45, %44
-  %47 = trunc i128 %46 to i64
-  %48 = xor i64 %47, 3
-  %49 = add i64 %48, %34
-  %50 = mul i64 %49, -1065810590584100411
+  %43 = mul nuw nsw i128 %42, %41
+  %44 = lshr i128 %43, 64
+  %45 = xor i128 %44, %43
+  %46 = trunc i128 %45 to i64
+  %47 = xor i64 %46, 3
+  %48 = mul i64 %33, 1452335207727870361
+  %49 = mul i64 %47, -1065810590584100411
+  %50 = add i64 %49, %48
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %52 = call i64 @llvm.fshl.i64(i64 %50, i64 %50, i64 26)
   %.sroa.08.0.extract.trunc = trunc i64 %52 to i40
@@ -6872,23 +6872,23 @@ _ZN10rustc_hash10hash_bytes17h276dec8f4f9d3919E.exit: ; preds = %"_ZN77_$LT$quin
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %17 = add nsw i64 %7, -3
   %18 = load i64, ptr %0, align 8, !noundef !3
-  %19 = mul i64 %18, -1065810590584100411
-  %20 = load i8, ptr %1, align 1, !alias.scope !582, !noundef !3
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %22 = load i16, ptr %21, align 1, !alias.scope !582
-  %23 = zext i16 %22 to i64
-  %24 = zext i8 %20 to i64
-  %25 = xor i64 %24, 2611923443488327891
-  %26 = xor i64 %23, 1376283091369227076
+  %19 = load i8, ptr %1, align 1, !alias.scope !582, !noundef !3
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %21 = load i16, ptr %20, align 1, !alias.scope !582
+  %22 = zext i16 %21 to i64
+  %23 = zext i8 %19 to i64
+  %24 = xor i64 %23, 2611923443488327891
+  %25 = xor i64 %22, 1376283091369227076
+  %26 = zext nneg i64 %24 to i128
   %27 = zext nneg i64 %25 to i128
-  %28 = zext nneg i64 %26 to i128
-  %29 = mul nuw nsw i128 %28, %27
-  %30 = lshr i128 %29, 64
-  %31 = xor i128 %30, %29
-  %32 = trunc i128 %31 to i64
-  %33 = xor i64 %32, 3
-  %34 = add i64 %33, %19
-  %35 = mul i64 %34, -1065810590584100411
+  %28 = mul nuw nsw i128 %27, %26
+  %29 = lshr i128 %28, 64
+  %30 = xor i128 %29, %28
+  %31 = trunc i128 %30 to i64
+  %32 = xor i64 %31, 3
+  %33 = mul i64 %18, 1452335207727870361
+  %34 = mul i64 %32, -1065810590584100411
+  %35 = add i64 %34, %33
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %36 = tail call i64 @llvm.fshl.i64(i64 %35, i64 %35, i64 26)
   store i64 %36, ptr %4, align 8

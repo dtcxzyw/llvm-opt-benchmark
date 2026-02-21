@@ -6964,7 +6964,7 @@ define internal noundef i32 @_ZL34ssl_handshaker_result_extract_peerPK21tsi_hand
   %11 = tail call fastcc noundef i32 @_ZL14peer_from_x509P7x509_stiP8tsi_peer(ptr noundef %9, i32 noundef 1, ptr noundef %1)
   tail call void @X509_free(ptr noundef nonnull %9)
   %.not70 = icmp eq i32 %11, 0
-  br i1 %.not70, label %12, label %96
+  br i1 %.not70, label %12, label %95
 
 12:                                               ; preds = %10, %2
   %13 = load ptr, ptr %7, align 8, !tbaa !208
@@ -6991,135 +6991,135 @@ define internal noundef i32 @_ZL34ssl_handshaker_result_extract_peerPK21tsi_hand
   %spec.select.v = select i1 %.not71, i64 3, i64 4
   %.not72 = icmp ne ptr %20, null
   %27 = zext i1 %.not72 to i64
+  %spec.select = add i64 %25, %27
   %.not73 = icmp ne ptr %23, null
   %28 = zext i1 %.not73 to i64
-  %spec.select = add i64 %25, %27
   %.158 = add i64 %spec.select, %28
-  %.259 = add i64 %.158, %spec.select.v
-  %29 = mul i64 %.259, 24
-  %30 = call ptr @gpr_zalloc(i64 noundef %29)
-  %31 = load i64, ptr %24, align 8, !tbaa !24
-  %.not86 = icmp eq i64 %31, 0
+  %reass.add = add i64 %.158, %spec.select.v
+  %reass.mul = mul i64 %reass.add, 24
+  %29 = call ptr @gpr_zalloc(i64 noundef %reass.mul)
+  %30 = load i64, ptr %24, align 8, !tbaa !24
+  %.not86 = icmp eq i64 %30, 0
   br i1 %.not86, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
-  %32 = load ptr, ptr %1, align 8, !tbaa !18
-  %.not74 = icmp eq ptr %32, null
-  br i1 %.not74, label %40, label %39
+  %31 = load ptr, ptr %1, align 8, !tbaa !18
+  %.not74 = icmp eq ptr %31, null
+  br i1 %.not74, label %39, label %38
 
 .lr.ph:                                           ; preds = %18, %.lr.ph
-  %.06085 = phi i64 [ %36, %.lr.ph ], [ 0, %18 ]
-  %33 = load ptr, ptr %1, align 8, !tbaa !18
-  %34 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %33, i64 %.06085
-  %35 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %30, i64 %.06085
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false), !tbaa.struct !221
-  %36 = add nuw i64 %.06085, 1
-  %37 = load i64, ptr %24, align 8, !tbaa !24
-  %38 = icmp ult i64 %36, %37
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !222
+  %.06085 = phi i64 [ %35, %.lr.ph ], [ 0, %18 ]
+  %32 = load ptr, ptr %1, align 8, !tbaa !18
+  %33 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %32, i64 %.06085
+  %34 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %29, i64 %.06085
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %33, i64 24, i1 false), !tbaa.struct !221
+  %35 = add nuw i64 %.06085, 1
+  %36 = load i64, ptr %24, align 8, !tbaa !24
+  %37 = icmp ult i64 %35, %36
+  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !222
 
-39:                                               ; preds = %._crit_edge
-  call void @gpr_free(ptr noundef nonnull %32)
-  br label %40
+38:                                               ; preds = %._crit_edge
+  call void @gpr_free(ptr noundef nonnull %31)
+  br label %39
 
-40:                                               ; preds = %39, %._crit_edge
-  store ptr %30, ptr %1, align 8, !tbaa !18
-  br i1 %.not72, label %41, label %49
+39:                                               ; preds = %38, %._crit_edge
+  store ptr %29, ptr %1, align 8, !tbaa !18
+  br i1 %.not72, label %40, label %48
 
-41:                                               ; preds = %40
-  %42 = load i64, ptr %24, align 8, !tbaa !24
-  %43 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %30, i64 %42
-  %44 = call noundef i32 @_Z31tsi_ssl_get_cert_chain_contentsP13stack_st_X509P17tsi_peer_property(ptr noundef nonnull %20, ptr noundef %43)
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %49
+40:                                               ; preds = %39
+  %41 = load i64, ptr %24, align 8, !tbaa !24
+  %42 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %29, i64 %41
+  %43 = call noundef i32 @_Z31tsi_ssl_get_cert_chain_contentsP13stack_st_X509P17tsi_peer_property(ptr noundef nonnull %20, ptr noundef %42)
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %48
 
-46:                                               ; preds = %41
-  %47 = load i64, ptr %24, align 8, !tbaa !24
-  %48 = add i64 %47, 1
-  store i64 %48, ptr %24, align 8, !tbaa !24
-  br label %49
+45:                                               ; preds = %40
+  %46 = load i64, ptr %24, align 8, !tbaa !24
+  %47 = add i64 %46, 1
+  store i64 %47, ptr %24, align 8, !tbaa !24
+  br label %48
 
-49:                                               ; preds = %41, %46, %40
-  %50 = load ptr, ptr %4, align 8, !tbaa !23
-  %.not75 = icmp eq ptr %50, null
-  br i1 %.not75, label %61, label %51
+48:                                               ; preds = %40, %45, %39
+  %49 = load ptr, ptr %4, align 8, !tbaa !23
+  %.not75 = icmp eq ptr %49, null
+  br i1 %.not75, label %60, label %50
 
-51:                                               ; preds = %49
-  %52 = load i32, ptr %5, align 4, !tbaa !21
-  %53 = zext i32 %52 to i64
-  %54 = load ptr, ptr %1, align 8, !tbaa !18
-  %55 = load i64, ptr %24, align 8, !tbaa !24
-  %56 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %54, i64 %55
-  %57 = call noundef i32 @_Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_property(ptr noundef nonnull @.str.65, ptr noundef nonnull %50, i64 noundef %53, ptr noundef %56)
-  %.not76 = icmp eq i32 %57, 0
-  br i1 %.not76, label %58, label %96
+50:                                               ; preds = %48
+  %51 = load i32, ptr %5, align 4, !tbaa !21
+  %52 = zext i32 %51 to i64
+  %53 = load ptr, ptr %1, align 8, !tbaa !18
+  %54 = load i64, ptr %24, align 8, !tbaa !24
+  %55 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %53, i64 %54
+  %56 = call noundef i32 @_Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_property(ptr noundef nonnull @.str.65, ptr noundef nonnull %49, i64 noundef %52, ptr noundef %55)
+  %.not76 = icmp eq i32 %56, 0
+  br i1 %.not76, label %57, label %95
 
-58:                                               ; preds = %51
-  %59 = load i64, ptr %24, align 8, !tbaa !24
-  %60 = add i64 %59, 1
-  store i64 %60, ptr %24, align 8, !tbaa !24
-  br label %61
+57:                                               ; preds = %50
+  %58 = load i64, ptr %24, align 8, !tbaa !24
+  %59 = add i64 %58, 1
+  store i64 %59, ptr %24, align 8, !tbaa !24
+  br label %60
 
-61:                                               ; preds = %58, %49
-  %62 = call noundef ptr @_Z28tsi_security_level_to_string18tsi_security_level(i32 noundef 2)
-  %63 = load ptr, ptr %1, align 8, !tbaa !18
-  %64 = load i64, ptr %24, align 8, !tbaa !24
-  %65 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %63, i64 %64
-  %66 = call noundef i32 @_Z47tsi_construct_string_peer_property_from_cstringPKcS0_P17tsi_peer_property(ptr noundef nonnull @.str.66, ptr noundef %62, ptr noundef %65)
-  %.not77 = icmp eq i32 %66, 0
-  br i1 %.not77, label %67, label %96
+60:                                               ; preds = %57, %48
+  %61 = call noundef ptr @_Z28tsi_security_level_to_string18tsi_security_level(i32 noundef 2)
+  %62 = load ptr, ptr %1, align 8, !tbaa !18
+  %63 = load i64, ptr %24, align 8, !tbaa !24
+  %64 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %62, i64 %63
+  %65 = call noundef i32 @_Z47tsi_construct_string_peer_property_from_cstringPKcS0_P17tsi_peer_property(ptr noundef nonnull @.str.66, ptr noundef %61, ptr noundef %64)
+  %.not77 = icmp eq i32 %65, 0
+  br i1 %.not77, label %66, label %95
 
-67:                                               ; preds = %61
-  %68 = load i64, ptr %24, align 8, !tbaa !24
-  %69 = add i64 %68, 1
-  store i64 %69, ptr %24, align 8, !tbaa !24
-  %70 = load ptr, ptr %7, align 8, !tbaa !208
-  %71 = call i32 @SSL_session_reused(ptr noundef %70)
-  %.not78 = icmp eq i32 %71, 0
-  %72 = select i1 %.not78, ptr @.str.68, ptr @.str.67
-  %73 = load ptr, ptr %1, align 8, !tbaa !18
-  %74 = load i64, ptr %24, align 8, !tbaa !24
-  %75 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %73, i64 %74
-  %76 = call noundef i32 @_Z47tsi_construct_string_peer_property_from_cstringPKcS0_P17tsi_peer_property(ptr noundef nonnull @.str.69, ptr noundef nonnull %72, ptr noundef %75)
-  %.not79 = icmp eq i32 %76, 0
-  br i1 %.not79, label %77, label %96
+66:                                               ; preds = %60
+  %67 = load i64, ptr %24, align 8, !tbaa !24
+  %68 = add i64 %67, 1
+  store i64 %68, ptr %24, align 8, !tbaa !24
+  %69 = load ptr, ptr %7, align 8, !tbaa !208
+  %70 = call i32 @SSL_session_reused(ptr noundef %69)
+  %.not78 = icmp eq i32 %70, 0
+  %71 = select i1 %.not78, ptr @.str.68, ptr @.str.67
+  %72 = load ptr, ptr %1, align 8, !tbaa !18
+  %73 = load i64, ptr %24, align 8, !tbaa !24
+  %74 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %72, i64 %73
+  %75 = call noundef i32 @_Z47tsi_construct_string_peer_property_from_cstringPKcS0_P17tsi_peer_property(ptr noundef nonnull @.str.69, ptr noundef nonnull %71, ptr noundef %74)
+  %.not79 = icmp eq i32 %75, 0
+  br i1 %.not79, label %76, label %95
 
-77:                                               ; preds = %67
-  %78 = load i64, ptr %24, align 8, !tbaa !24
-  %79 = add i64 %78, 1
-  store i64 %79, ptr %24, align 8, !tbaa !24
-  br i1 %.not73, label %80, label %96
+76:                                               ; preds = %66
+  %77 = load i64, ptr %24, align 8, !tbaa !24
+  %78 = add i64 %77, 1
+  store i64 %78, ptr %24, align 8, !tbaa !24
+  br i1 %.not73, label %79, label %95
 
-80:                                               ; preds = %77
-  %81 = load ptr, ptr %1, align 8, !tbaa !18
-  %82 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %81, i64 %79
-  %83 = call fastcc noundef i32 @_ZL31peer_property_from_x509_subjectP7x509_stP17tsi_peer_propertyb(ptr noundef %23, ptr noundef %82, i1 noundef zeroext true)
-  store i32 %83, ptr %3, align 4, !tbaa !220
-  %.not80 = icmp eq i32 %83, 0
-  br i1 %.not80, label %.critedge81, label %84
+79:                                               ; preds = %76
+  %80 = load ptr, ptr %1, align 8, !tbaa !18
+  %81 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %80, i64 %78
+  %82 = call fastcc noundef i32 @_ZL31peer_property_from_x509_subjectP7x509_stP17tsi_peer_propertyb(ptr noundef %23, ptr noundef %81, i1 noundef zeroext true)
+  store i32 %82, ptr %3, align 4, !tbaa !220
+  %.not80 = icmp eq i32 %82, 0
+  br i1 %.not80, label %.critedge81, label %83
 
-84:                                               ; preds = %80
-  %85 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZZZL34ssl_handshaker_result_extract_peerPK21tsi_handshaker_resultP8tsi_peerENK3$_0clEvE4site", i64 8) monotonic, align 8
-  %86 = icmp slt i32 %85, 2
-  br i1 %86, label %.critedge81, label %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit, !prof !22
+83:                                               ; preds = %79
+  %84 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZZZL34ssl_handshaker_result_extract_peerPK21tsi_handshaker_resultP8tsi_peerENK3$_0clEvE4site", i64 8) monotonic, align 8
+  %85 = icmp slt i32 %84, 2
+  br i1 %85, label %.critedge81, label %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit, !prof !22
 
-_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit: ; preds = %84
-  %87 = call noundef zeroext i1 @_ZN4absl12lts_2024072212log_internal8VLogSite14SlowIsEnabled2Ei(ptr noundef nonnull align 8 dereferenceable(24) @"_ZZZL34ssl_handshaker_result_extract_peerPK21tsi_handshaker_resultP8tsi_peerENK3$_0clEvE4site", i32 noundef %85)
-  br i1 %87, label %88, label %.critedge81
+_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit: ; preds = %83
+  %86 = call noundef zeroext i1 @_ZN4absl12lts_2024072212log_internal8VLogSite14SlowIsEnabled2Ei(ptr noundef nonnull align 8 dereferenceable(24) @"_ZZZL34ssl_handshaker_result_extract_peerPK21tsi_handshaker_resultP8tsi_peerENK3$_0clEvE4site", i32 noundef %84)
+  br i1 %86, label %87, label %.critedge81
 
-88:                                               ; preds = %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit
+87:                                               ; preds = %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_7InfoTagE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.1, i32 noundef 1487) #31
-  %89 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessage13WithVerbosityEi(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 2)
-          to label %90 unwind label %92
+  %88 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessage13WithVerbosityEi(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 2)
+          to label %89 unwind label %91
 
-90:                                               ; preds = %88
-  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %89, i64 60, ptr nonnull @.str.70)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi61EEERS2_RAT__Kc.exit unwind label %92
+89:                                               ; preds = %87
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %88, i64 60, ptr nonnull @.str.70)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi61EEERS2_RAT__Kc.exit unwind label %91
 
-_ZN4absl12lts_2024072212log_internal10LogMessagelsILi61EEERS2_RAT__Kc.exit: ; preds = %90
-  %91 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsI10tsi_resultTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS6_(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %.critedge unwind label %92
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi61EEERS2_RAT__Kc.exit: ; preds = %89
+  %90 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsI10tsi_resultTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS6_(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull align 4 dereferenceable(4) %3)
+          to label %.critedge unwind label %91
 
 .critedge:                                        ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi61EEERS2_RAT__Kc.exit
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #32
@@ -7127,25 +7127,25 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi61EEERS2_RAT__Kc.exit: ; pr
   %.pre.pre = load i32, ptr %3, align 4, !tbaa !220
   br label %.critedge81
 
-92:                                               ; preds = %90, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi61EEERS2_RAT__Kc.exit, %88
-  %93 = landingpad { ptr, i32 }
+91:                                               ; preds = %89, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi61EEERS2_RAT__Kc.exit, %87
+  %92 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %93
+  resume { ptr, i32 } %92
 
-.critedge81:                                      ; preds = %84, %.critedge, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit, %80
-  %.pre = phi i32 [ %83, %84 ], [ %.pre.pre, %.critedge ], [ %83, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit ], [ 0, %80 ]
-  %94 = load i64, ptr %24, align 8, !tbaa !24
-  %95 = add i64 %94, 1
-  store i64 %95, ptr %24, align 8, !tbaa !24
-  br label %96
+.critedge81:                                      ; preds = %83, %.critedge, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit, %79
+  %.pre = phi i32 [ %82, %83 ], [ %.pre.pre, %.critedge ], [ %82, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit ], [ 0, %79 ]
+  %93 = load i64, ptr %24, align 8, !tbaa !24
+  %94 = add i64 %93, 1
+  store i64 %94, ptr %24, align 8, !tbaa !24
+  br label %95
 
-96:                                               ; preds = %77, %.critedge81, %51, %61, %67, %10
-  %.0 = phi i32 [ %11, %10 ], [ %66, %61 ], [ %57, %51 ], [ %76, %67 ], [ %.pre, %.critedge81 ], [ 0, %77 ]
+95:                                               ; preds = %76, %.critedge81, %50, %60, %66, %10
+  %.0 = phi i32 [ %11, %10 ], [ %65, %60 ], [ %56, %50 ], [ %75, %66 ], [ %.pre, %.critedge81 ], [ 0, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

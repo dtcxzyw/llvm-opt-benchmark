@@ -113089,63 +113089,63 @@ define linkonce_odr void @_ZNSt5dequeINSt8__detail9_StateSeqINSt7__cxx1112regex_
   %12 = ashr exact i64 %11, 3
   %13 = icmp ne ptr %6, null
   %.neg.i.i = sext i1 %13 to i64
-  %14 = add nsw i64 %12, %.neg.i.i
-  %15 = mul nsw i64 %14, 21
-  %16 = load ptr, ptr %3, align 8, !tbaa !1267
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %18 = load ptr, ptr %17, align 8, !tbaa !1273
-  %19 = ptrtoint ptr %16 to i64
-  %20 = ptrtoint ptr %18 to i64
-  %21 = sub i64 %19, %20
-  %22 = sdiv exact i64 %21, 24
-  %23 = add nsw i64 %15, %22
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !1278
-  %26 = load ptr, ptr %4, align 8, !tbaa !1267
-  %27 = ptrtoint ptr %25 to i64
-  %28 = ptrtoint ptr %26 to i64
-  %29 = sub i64 %27, %28
-  %30 = sdiv exact i64 %29, 24
-  %31 = add nsw i64 %23, %30
-  %32 = icmp eq i64 %31, 384307168202282325
-  br i1 %32, label %33, label %34
+  %14 = load ptr, ptr %3, align 8, !tbaa !1267
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %16 = load ptr, ptr %15, align 8, !tbaa !1273
+  %17 = ptrtoint ptr %14 to i64
+  %18 = ptrtoint ptr %16 to i64
+  %19 = sub i64 %17, %18
+  %20 = sdiv exact i64 %19, 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %22 = load ptr, ptr %21, align 8, !tbaa !1278
+  %23 = load ptr, ptr %4, align 8, !tbaa !1267
+  %24 = ptrtoint ptr %22 to i64
+  %25 = ptrtoint ptr %23 to i64
+  %26 = sub i64 %24, %25
+  %27 = sdiv exact i64 %26, 24
+  %reass.add = add nsw i64 %12, %.neg.i.i
+  %reass.mul = mul i64 %reass.add, 21
+  %28 = add i64 %reass.mul, %20
+  %29 = add i64 %28, %27
+  %30 = icmp eq i64 %29, 384307168202282325
+  br i1 %30, label %31, label %32
 
-33:                                               ; preds = %2
+31:                                               ; preds = %2
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.413) #50
   unreachable
 
-34:                                               ; preds = %2
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !1287
-  %37 = load ptr, ptr %0, align 8, !tbaa !1284
-  %38 = ptrtoint ptr %37 to i64
-  %39 = sub i64 %9, %38
-  %40 = ashr exact i64 %39, 3
-  %41 = sub i64 %36, %40
-  %42 = icmp ult i64 %41, 2
-  br i1 %42, label %43, label %_ZNSt5dequeINSt8__detail9_StateSeqINSt7__cxx1112regex_traitsIcEEEESaIS5_EE22_M_reserve_map_at_backEm.exit
+32:                                               ; preds = %2
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %34 = load i64, ptr %33, align 8, !tbaa !1287
+  %35 = load ptr, ptr %0, align 8, !tbaa !1284
+  %36 = ptrtoint ptr %35 to i64
+  %37 = sub i64 %9, %36
+  %38 = ashr exact i64 %37, 3
+  %39 = sub i64 %34, %38
+  %40 = icmp ult i64 %39, 2
+  br i1 %40, label %41, label %_ZNSt5dequeINSt8__detail9_StateSeqINSt7__cxx1112regex_traitsIcEEEESaIS5_EE22_M_reserve_map_at_backEm.exit
 
-43:                                               ; preds = %34
+41:                                               ; preds = %32
   tail call void @_ZNSt5dequeINSt8__detail9_StateSeqINSt7__cxx1112regex_traitsIcEEEESaIS5_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef 1, i1 noundef zeroext false)
   %.pre = load ptr, ptr %5, align 8, !tbaa !1277
   br label %_ZNSt5dequeINSt8__detail9_StateSeqINSt7__cxx1112regex_traitsIcEEEESaIS5_EE22_M_reserve_map_at_backEm.exit
 
-_ZNSt5dequeINSt8__detail9_StateSeqINSt7__cxx1112regex_traitsIcEEEESaIS5_EE22_M_reserve_map_at_backEm.exit: ; preds = %34, %43
-  %44 = phi ptr [ %6, %34 ], [ %.pre, %43 ]
-  %45 = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #55
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store ptr %45, ptr %46, align 8, !tbaa !1275
-  %47 = load ptr, ptr %3, align 8, !tbaa !1279
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !1324
-  %48 = load ptr, ptr %5, align 8, !tbaa !1277
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store ptr %49, ptr %5, align 8, !tbaa !1274
-  %50 = load ptr, ptr %49, align 8, !tbaa !1275
-  store ptr %50, ptr %17, align 8, !tbaa !1273
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 504
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %51, ptr %52, align 8, !tbaa !1278
-  store ptr %50, ptr %3, align 8, !tbaa !1279
+_ZNSt5dequeINSt8__detail9_StateSeqINSt7__cxx1112regex_traitsIcEEEESaIS5_EE22_M_reserve_map_at_backEm.exit: ; preds = %32, %41
+  %42 = phi ptr [ %6, %32 ], [ %.pre, %41 ]
+  %43 = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #55
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  store ptr %43, ptr %44, align 8, !tbaa !1275
+  %45 = load ptr, ptr %3, align 8, !tbaa !1279
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !1324
+  %46 = load ptr, ptr %5, align 8, !tbaa !1277
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  store ptr %47, ptr %5, align 8, !tbaa !1274
+  %48 = load ptr, ptr %47, align 8, !tbaa !1275
+  store ptr %48, ptr %15, align 8, !tbaa !1273
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 504
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %49, ptr %50, align 8, !tbaa !1278
+  store ptr %48, ptr %3, align 8, !tbaa !1279
   ret void
 }
 
@@ -113281,63 +113281,63 @@ define linkonce_odr void @_ZNSt5dequeINSt8__detail9_StateSeqINSt7__cxx1112regex_
   %12 = ashr exact i64 %11, 3
   %13 = icmp ne ptr %6, null
   %.neg.i.i = sext i1 %13 to i64
-  %14 = add nsw i64 %12, %.neg.i.i
-  %15 = mul nsw i64 %14, 21
-  %16 = load ptr, ptr %3, align 8, !tbaa !1267
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %18 = load ptr, ptr %17, align 8, !tbaa !1273
-  %19 = ptrtoint ptr %16 to i64
-  %20 = ptrtoint ptr %18 to i64
-  %21 = sub i64 %19, %20
-  %22 = sdiv exact i64 %21, 24
-  %23 = add nsw i64 %15, %22
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !1278
-  %26 = load ptr, ptr %4, align 8, !tbaa !1267
-  %27 = ptrtoint ptr %25 to i64
-  %28 = ptrtoint ptr %26 to i64
-  %29 = sub i64 %27, %28
-  %30 = sdiv exact i64 %29, 24
-  %31 = add nsw i64 %23, %30
-  %32 = icmp eq i64 %31, 384307168202282325
-  br i1 %32, label %33, label %34
+  %14 = load ptr, ptr %3, align 8, !tbaa !1267
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %16 = load ptr, ptr %15, align 8, !tbaa !1273
+  %17 = ptrtoint ptr %14 to i64
+  %18 = ptrtoint ptr %16 to i64
+  %19 = sub i64 %17, %18
+  %20 = sdiv exact i64 %19, 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %22 = load ptr, ptr %21, align 8, !tbaa !1278
+  %23 = load ptr, ptr %4, align 8, !tbaa !1267
+  %24 = ptrtoint ptr %22 to i64
+  %25 = ptrtoint ptr %23 to i64
+  %26 = sub i64 %24, %25
+  %27 = sdiv exact i64 %26, 24
+  %reass.add = add nsw i64 %12, %.neg.i.i
+  %reass.mul = mul i64 %reass.add, 21
+  %28 = add i64 %reass.mul, %20
+  %29 = add i64 %28, %27
+  %30 = icmp eq i64 %29, 384307168202282325
+  br i1 %30, label %31, label %32
 
-33:                                               ; preds = %2
+31:                                               ; preds = %2
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.413) #50
   unreachable
 
-34:                                               ; preds = %2
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !1287
-  %37 = load ptr, ptr %0, align 8, !tbaa !1284
-  %38 = ptrtoint ptr %37 to i64
-  %39 = sub i64 %9, %38
-  %40 = ashr exact i64 %39, 3
-  %41 = sub i64 %36, %40
-  %42 = icmp ult i64 %41, 2
-  br i1 %42, label %43, label %_ZNSt5dequeINSt8__detail9_StateSeqINSt7__cxx1112regex_traitsIcEEEESaIS5_EE22_M_reserve_map_at_backEm.exit
+32:                                               ; preds = %2
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %34 = load i64, ptr %33, align 8, !tbaa !1287
+  %35 = load ptr, ptr %0, align 8, !tbaa !1284
+  %36 = ptrtoint ptr %35 to i64
+  %37 = sub i64 %9, %36
+  %38 = ashr exact i64 %37, 3
+  %39 = sub i64 %34, %38
+  %40 = icmp ult i64 %39, 2
+  br i1 %40, label %41, label %_ZNSt5dequeINSt8__detail9_StateSeqINSt7__cxx1112regex_traitsIcEEEESaIS5_EE22_M_reserve_map_at_backEm.exit
 
-43:                                               ; preds = %34
+41:                                               ; preds = %32
   tail call void @_ZNSt5dequeINSt8__detail9_StateSeqINSt7__cxx1112regex_traitsIcEEEESaIS5_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef 1, i1 noundef zeroext false)
   %.pre = load ptr, ptr %5, align 8, !tbaa !1277
   br label %_ZNSt5dequeINSt8__detail9_StateSeqINSt7__cxx1112regex_traitsIcEEEESaIS5_EE22_M_reserve_map_at_backEm.exit
 
-_ZNSt5dequeINSt8__detail9_StateSeqINSt7__cxx1112regex_traitsIcEEEESaIS5_EE22_M_reserve_map_at_backEm.exit: ; preds = %34, %43
-  %44 = phi ptr [ %6, %34 ], [ %.pre, %43 ]
-  %45 = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #55
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store ptr %45, ptr %46, align 8, !tbaa !1275
-  %47 = load ptr, ptr %3, align 8, !tbaa !1279
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !1324
-  %48 = load ptr, ptr %5, align 8, !tbaa !1277
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store ptr %49, ptr %5, align 8, !tbaa !1274
-  %50 = load ptr, ptr %49, align 8, !tbaa !1275
-  store ptr %50, ptr %17, align 8, !tbaa !1273
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 504
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %51, ptr %52, align 8, !tbaa !1278
-  store ptr %50, ptr %3, align 8, !tbaa !1279
+_ZNSt5dequeINSt8__detail9_StateSeqINSt7__cxx1112regex_traitsIcEEEESaIS5_EE22_M_reserve_map_at_backEm.exit: ; preds = %32, %41
+  %42 = phi ptr [ %6, %32 ], [ %.pre, %41 ]
+  %43 = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #55
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  store ptr %43, ptr %44, align 8, !tbaa !1275
+  %45 = load ptr, ptr %3, align 8, !tbaa !1279
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !1324
+  %46 = load ptr, ptr %5, align 8, !tbaa !1277
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  store ptr %47, ptr %5, align 8, !tbaa !1274
+  %48 = load ptr, ptr %47, align 8, !tbaa !1275
+  store ptr %48, ptr %15, align 8, !tbaa !1273
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 504
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %49, ptr %50, align 8, !tbaa !1278
+  store ptr %48, ptr %3, align 8, !tbaa !1279
   ret void
 }
 

@@ -25,27 +25,27 @@ define hidden void @_ZN4ncnn5sleepEy(i64 noundef %0) local_unnamed_addr #2 perso
 
 4:                                                ; preds = %1
   %5 = udiv i64 %0, 1000
-  %.neg.i.i = mul nsw i64 %5, -1000
-  %6 = add nsw i64 %.neg.i.i, %0
-  %7 = mul nsw i64 %6, 1000000
+  %6 = mul i64 %5, -1000000000
+  %7 = mul nuw nsw i64 %0, 1000000
+  %8 = add nsw i64 %6, %7
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %5, ptr %2, align 8, !tbaa !4
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %7, ptr %8, align 8, !tbaa !9
-  br label %9
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %8, ptr %9, align 8, !tbaa !9
+  br label %10
 
-9:                                                ; preds = %12, %4
-  %10 = call i32 @nanosleep(ptr noundef nonnull %2, ptr noundef nonnull %2)
-  %11 = icmp eq i32 %10, -1
-  br i1 %11, label %12, label %.critedge.i
+10:                                               ; preds = %13, %4
+  %11 = call i32 @nanosleep(ptr noundef nonnull %2, ptr noundef nonnull %2)
+  %12 = icmp eq i32 %11, -1
+  br i1 %12, label %13, label %.critedge.i
 
-12:                                               ; preds = %9
-  %13 = tail call ptr @__errno_location() #7
-  %14 = load i32, ptr %13, align 4, !tbaa !10
-  %15 = icmp eq i32 %14, 4
-  br i1 %15, label %9, label %.critedge.i, !llvm.loop !12
+13:                                               ; preds = %10
+  %14 = tail call ptr @__errno_location() #7
+  %15 = load i32, ptr %14, align 4, !tbaa !10
+  %16 = icmp eq i32 %15, 4
+  br i1 %16, label %10, label %.critedge.i, !llvm.loop !12
 
-.critedge.i:                                      ; preds = %12, %9
+.critedge.i:                                      ; preds = %13, %10
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit
 

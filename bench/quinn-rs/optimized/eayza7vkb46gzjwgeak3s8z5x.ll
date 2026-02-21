@@ -219,17 +219,17 @@ define internal void @"_ZN4core3ptr53drop_in_place$LT$quinn..send_stream..Stoppe
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17ha66480259ea08e9bE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.val.i = load i64, ptr %1, align 8, !noalias !8, !noundef !3
-  %3 = mul i64 %.val.i, -1065810590584100411
-  %4 = tail call noundef i64 @llvm.fshl.i64(i64 %3, i64 %3, i64 26)
-  ret i64 %4
+  %reass.mul.i = mul i64 %.val.i, -1065810590584100411
+  %3 = tail call noundef i64 @llvm.fshl.i64(i64 %reass.mul.i, i64 %reass.mul.i, i64 26)
+  ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hfe7bf25bb5f182f7E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.val.i = load i64, ptr %1, align 8, !noalias !11, !noundef !3
-  %3 = mul i64 %.val.i, -1065810590584100411
-  %4 = tail call noundef i64 @llvm.fshl.i64(i64 %3, i64 %3, i64 26)
-  ret i64 %4
+  %reass.mul.i = mul i64 %.val.i, -1065810590584100411
+  %3 = tail call noundef i64 @llvm.fshl.i64(i64 %reass.mul.i, i64 %reass.mul.i, i64 26)
+  ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

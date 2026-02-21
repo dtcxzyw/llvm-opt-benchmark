@@ -30,67 +30,67 @@ define noundef i32 @_ZN7rocksdb4HashEPKcmj(ptr noundef %0, i64 noundef %1, i32 n
   %5 = trunc i64 %1 to i32
   %6 = mul i32 %5, -962287725
   %7 = xor i32 %6, %2
-  %.not27 = icmp samesign ult i64 %1, 4
-  br i1 %.not27, label %._crit_edge, label %.lr.ph.preheader
+  %.not29 = icmp samesign ult i64 %1, 4
+  br i1 %.not29, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %9 = phi ptr [ %14, %.lr.ph ], [ %8, %.lr.ph.preheader ]
-  %.029 = phi ptr [ %9, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.02428 = phi i32 [ %13, %.lr.ph ], [ %7, %.lr.ph.preheader ]
-  %.0.copyload.i = load i32, ptr %.029, align 1
-  %10 = add i32 %.0.copyload.i, %.02428
-  %11 = mul i32 %10, -962287725
-  %12 = lshr i32 %11, 16
-  %13 = xor i32 %12, %11
-  %14 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %.not = icmp ugt ptr %14, %4
+  %9 = phi ptr [ %12, %.lr.ph ], [ %8, %.lr.ph.preheader ]
+  %.031 = phi ptr [ %9, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %.02430 = phi i32 [ %11, %.lr.ph ], [ %7, %.lr.ph.preheader ]
+  %.0.copyload.i = load i32, ptr %.031, align 1
+  %reass.add = add i32 %.0.copyload.i, %.02430
+  %reass.mul = mul i32 %reass.add, -962287725
+  %10 = lshr i32 %reass.mul, 16
+  %11 = xor i32 %10, %reass.mul
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %.not = icmp ugt ptr %12, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.024.lcssa = phi i32 [ %7, %3 ], [ %13, %.lr.ph ]
+  %.024.lcssa = phi i32 [ %7, %3 ], [ %11, %.lr.ph ]
   %.0.lcssa = phi ptr [ %0, %3 ], [ %9, %.lr.ph ]
-  %15 = ptrtoint ptr %4 to i64
-  %16 = ptrtoint ptr %.0.lcssa to i64
-  %17 = sub i64 %15, %16
-  switch i64 %17, label %37 [
-    i64 3, label %18
-    i64 2, label %24
-    i64 1, label %30
+  %13 = ptrtoint ptr %4 to i64
+  %14 = ptrtoint ptr %.0.lcssa to i64
+  %15 = sub i64 %13, %14
+  switch i64 %15, label %33 [
+    i64 3, label %16
+    i64 2, label %22
+    i64 1, label %28
   ]
 
-18:                                               ; preds = %._crit_edge
-  %19 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 2
-  %20 = load i8, ptr %19, align 1, !tbaa !14
-  %21 = sext i8 %20 to i32
-  %22 = shl nsw i32 %21, 16
-  %23 = add i32 %22, %.024.lcssa
-  br label %24
+16:                                               ; preds = %._crit_edge
+  %17 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 2
+  %18 = load i8, ptr %17, align 1, !tbaa !14
+  %19 = sext i8 %18 to i32
+  %20 = shl nsw i32 %19, 16
+  %21 = add i32 %20, %.024.lcssa
+  br label %22
 
-24:                                               ; preds = %18, %._crit_edge
-  %.2 = phi i32 [ %23, %18 ], [ %.024.lcssa, %._crit_edge ]
-  %25 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
-  %26 = load i8, ptr %25, align 1, !tbaa !14
-  %27 = sext i8 %26 to i32
-  %28 = shl nsw i32 %27, 8
-  %29 = add i32 %28, %.2
-  br label %30
+22:                                               ; preds = %16, %._crit_edge
+  %.2 = phi i32 [ %21, %16 ], [ %.024.lcssa, %._crit_edge ]
+  %23 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
+  %24 = load i8, ptr %23, align 1, !tbaa !14
+  %25 = sext i8 %24 to i32
+  %26 = shl nsw i32 %25, 8
+  %27 = add i32 %26, %.2
+  br label %28
 
-30:                                               ; preds = %24, %._crit_edge
-  %.3 = phi i32 [ %29, %24 ], [ %.024.lcssa, %._crit_edge ]
-  %31 = load i8, ptr %.0.lcssa, align 1, !tbaa !14
-  %32 = sext i8 %31 to i32
-  %33 = add i32 %.3, %32
-  %34 = mul i32 %33, -962287725
-  %35 = lshr i32 %34, 24
-  %36 = xor i32 %35, %34
-  br label %37
+28:                                               ; preds = %22, %._crit_edge
+  %.3 = phi i32 [ %27, %22 ], [ %.024.lcssa, %._crit_edge ]
+  %29 = load i8, ptr %.0.lcssa, align 1, !tbaa !14
+  %30 = sext i8 %29 to i32
+  %reass.add27 = add i32 %.3, %30
+  %reass.mul28 = mul i32 %reass.add27, -962287725
+  %31 = lshr i32 %reass.mul28, 24
+  %32 = xor i32 %31, %reass.mul28
+  br label %33
 
-37:                                               ; preds = %30, %._crit_edge
-  %.1 = phi i32 [ %.024.lcssa, %._crit_edge ], [ %36, %30 ]
+33:                                               ; preds = %28, %._crit_edge
+  %.1 = phi i32 [ %.024.lcssa, %._crit_edge ], [ %32, %28 ]
   ret i32 %.1
 }
 

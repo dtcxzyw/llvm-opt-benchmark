@@ -15183,8 +15183,6 @@ land.lhs.true:                                    ; preds = %if.end117
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %tobool.i.i.i = icmp ne ptr %28, null
   %conv.neg.i.i.i = sext i1 %tobool.i.i.i to i64
-  %sub.i.i.i = add nsw i64 %sub.ptr.div.i.i.i, %conv.neg.i.i.i
-  %mul.i.i.i = mul nsw i64 %sub.i.i.i, 9
   %30 = load ptr, ptr %_M_finish.i.i, align 8
   %_M_first.i.i.i = getelementptr inbounds nuw i8, ptr %26, i64 56
   %31 = load ptr, ptr %_M_first.i.i.i, align 8
@@ -15192,7 +15190,6 @@ land.lhs.true:                                    ; preds = %if.end117
   %sub.ptr.rhs.cast4.i.i.i = ptrtoint ptr %31 to i64
   %sub.ptr.sub5.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i, %sub.ptr.rhs.cast4.i.i.i
   %sub.ptr.div6.i.i.i = sdiv exact i64 %sub.ptr.sub5.i.i.i, 56
-  %add.i.i.i = add nsw i64 %mul.i.i.i, %sub.ptr.div6.i.i.i
   %_M_last.i.i.i = getelementptr inbounds nuw i8, ptr %26, i64 32
   %32 = load ptr, ptr %_M_last.i.i.i, align 8
   %33 = load ptr, ptr %_M_start.i.i, align 8
@@ -15200,7 +15197,10 @@ land.lhs.true:                                    ; preds = %if.end117
   %sub.ptr.rhs.cast9.i.i.i = ptrtoint ptr %33 to i64
   %sub.ptr.sub10.i.i.i = sub i64 %sub.ptr.lhs.cast8.i.i.i, %sub.ptr.rhs.cast9.i.i.i
   %sub.ptr.div11.i.i.i = sdiv exact i64 %sub.ptr.sub10.i.i.i, 56
-  %add12.i.i.i = add nsw i64 %add.i.i.i, %sub.ptr.div11.i.i.i
+  %reass.add = add nsw i64 %sub.ptr.div.i.i.i, %conv.neg.i.i.i
+  %reass.mul = mul i64 %reass.add, 9
+  %add.i.i.i = add i64 %reass.mul, %sub.ptr.div6.i.i.i
+  %add12.i.i.i = add i64 %add.i.i.i, %sub.ptr.div11.i.i.i
   %cmp130.not = icmp ult i64 %add12.i.i.i, %conv
   br i1 %cmp130.not, label %if.end138, label %if.then131
 
@@ -21748,8 +21748,6 @@ entry:
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %tobool.i.i = icmp ne ptr %0, null
   %conv.neg.i.i = sext i1 %tobool.i.i to i64
-  %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
-  %mul.i.i = mul nsw i64 %sub.i.i, 9
   %2 = load ptr, ptr %_M_finish.i, align 8
   %_M_first.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
@@ -21757,7 +21755,6 @@ entry:
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = sdiv exact i64 %sub.ptr.sub5.i.i, 56
-  %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
   %_M_last.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
@@ -21765,7 +21762,10 @@ entry:
   %sub.ptr.rhs.cast9.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub10.i.i = sub i64 %sub.ptr.lhs.cast8.i.i, %sub.ptr.rhs.cast9.i.i
   %sub.ptr.div11.i.i = sdiv exact i64 %sub.ptr.sub10.i.i, 56
-  %add12.i.i = add nsw i64 %add.i.i, %sub.ptr.div11.i.i
+  %reass.add = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
+  %reass.mul = mul i64 %reass.add, 9
+  %add.i.i = add i64 %reass.mul, %sub.ptr.div6.i.i
+  %add12.i.i = add i64 %add.i.i, %sub.ptr.div11.i.i
   %cmp = icmp eq i64 %add12.i.i, 164703072086692425
   br i1 %cmp, label %if.then, label %if.end
 
@@ -22008,8 +22008,6 @@ entry:
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %tobool.i.i = icmp ne ptr %0, null
   %conv.neg.i.i = sext i1 %tobool.i.i to i64
-  %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
-  %mul.i.i = mul nsw i64 %sub.i.i, 9
   %2 = load ptr, ptr %_M_finish.i, align 8
   %_M_first.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
@@ -22017,7 +22015,6 @@ entry:
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = sdiv exact i64 %sub.ptr.sub5.i.i, 56
-  %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
   %_M_last.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
@@ -22025,7 +22022,10 @@ entry:
   %sub.ptr.rhs.cast9.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub10.i.i = sub i64 %sub.ptr.lhs.cast8.i.i, %sub.ptr.rhs.cast9.i.i
   %sub.ptr.div11.i.i = sdiv exact i64 %sub.ptr.sub10.i.i, 56
-  %add12.i.i = add nsw i64 %add.i.i, %sub.ptr.div11.i.i
+  %reass.add = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
+  %reass.mul = mul i64 %reass.add, 9
+  %add.i.i = add i64 %reass.mul, %sub.ptr.div6.i.i
+  %add12.i.i = add i64 %add.i.i, %sub.ptr.div11.i.i
   %cmp = icmp eq i64 %add12.i.i, 164703072086692425
   br i1 %cmp, label %if.then, label %if.end
 
@@ -22099,8 +22099,6 @@ entry:
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %tobool.i.i = icmp ne ptr %0, null
   %conv.neg.i.i = sext i1 %tobool.i.i to i64
-  %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
-  %mul.i.i = mul nsw i64 %sub.i.i, 9
   %2 = load ptr, ptr %_M_finish.i, align 8
   %_M_first.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
@@ -22108,7 +22106,6 @@ entry:
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = sdiv exact i64 %sub.ptr.sub5.i.i, 56
-  %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
   %_M_last.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
@@ -22116,7 +22113,10 @@ entry:
   %sub.ptr.rhs.cast9.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub10.i.i = sub i64 %sub.ptr.lhs.cast8.i.i, %sub.ptr.rhs.cast9.i.i
   %sub.ptr.div11.i.i = sdiv exact i64 %sub.ptr.sub10.i.i, 56
-  %add12.i.i = add nsw i64 %add.i.i, %sub.ptr.div11.i.i
+  %reass.add = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
+  %reass.mul = mul i64 %reass.add, 9
+  %add.i.i = add i64 %reass.mul, %sub.ptr.div6.i.i
+  %add12.i.i = add i64 %add.i.i, %sub.ptr.div11.i.i
   %cmp = icmp eq i64 %add12.i.i, 164703072086692425
   br i1 %cmp, label %if.then, label %if.end
 
@@ -22277,8 +22277,6 @@ entry:
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %tobool.i.i = icmp ne ptr %0, null
   %conv.neg.i.i = sext i1 %tobool.i.i to i64
-  %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
-  %mul.i.i = mul nsw i64 %sub.i.i, 9
   %2 = load ptr, ptr %_M_finish.i, align 8
   %_M_first.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
@@ -22286,7 +22284,6 @@ entry:
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = sdiv exact i64 %sub.ptr.sub5.i.i, 56
-  %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
   %_M_last.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
@@ -22294,7 +22291,10 @@ entry:
   %sub.ptr.rhs.cast9.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub10.i.i = sub i64 %sub.ptr.lhs.cast8.i.i, %sub.ptr.rhs.cast9.i.i
   %sub.ptr.div11.i.i = sdiv exact i64 %sub.ptr.sub10.i.i, 56
-  %add12.i.i = add nsw i64 %add.i.i, %sub.ptr.div11.i.i
+  %reass.add = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
+  %reass.mul = mul i64 %reass.add, 9
+  %add.i.i = add i64 %reass.mul, %sub.ptr.div6.i.i
+  %add12.i.i = add i64 %add.i.i, %sub.ptr.div11.i.i
   %cmp = icmp eq i64 %add12.i.i, 164703072086692425
   br i1 %cmp, label %if.then, label %if.end
 
@@ -22362,8 +22362,6 @@ entry:
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %tobool.i.i = icmp ne ptr %0, null
   %conv.neg.i.i = sext i1 %tobool.i.i to i64
-  %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
-  %mul.i.i = mul nsw i64 %sub.i.i, 9
   %2 = load ptr, ptr %_M_finish.i, align 8
   %_M_first.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
@@ -22371,7 +22369,6 @@ entry:
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = sdiv exact i64 %sub.ptr.sub5.i.i, 56
-  %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
   %_M_last.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
@@ -22379,7 +22376,10 @@ entry:
   %sub.ptr.rhs.cast9.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub10.i.i = sub i64 %sub.ptr.lhs.cast8.i.i, %sub.ptr.rhs.cast9.i.i
   %sub.ptr.div11.i.i = sdiv exact i64 %sub.ptr.sub10.i.i, 56
-  %add12.i.i = add nsw i64 %add.i.i, %sub.ptr.div11.i.i
+  %reass.add = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
+  %reass.mul = mul i64 %reass.add, 9
+  %add.i.i = add i64 %reass.mul, %sub.ptr.div6.i.i
+  %add12.i.i = add i64 %add.i.i, %sub.ptr.div11.i.i
   %cmp = icmp eq i64 %add12.i.i, 164703072086692425
   br i1 %cmp, label %if.then, label %if.end
 
@@ -22453,8 +22453,6 @@ entry:
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %tobool.i.i = icmp ne ptr %0, null
   %conv.neg.i.i = sext i1 %tobool.i.i to i64
-  %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
-  %mul.i.i = mul nsw i64 %sub.i.i, 9
   %2 = load ptr, ptr %_M_finish.i, align 8
   %_M_first.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
@@ -22462,7 +22460,6 @@ entry:
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = sdiv exact i64 %sub.ptr.sub5.i.i, 56
-  %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
   %_M_last.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
@@ -22470,7 +22467,10 @@ entry:
   %sub.ptr.rhs.cast9.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub10.i.i = sub i64 %sub.ptr.lhs.cast8.i.i, %sub.ptr.rhs.cast9.i.i
   %sub.ptr.div11.i.i = sdiv exact i64 %sub.ptr.sub10.i.i, 56
-  %add12.i.i = add nsw i64 %add.i.i, %sub.ptr.div11.i.i
+  %reass.add = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
+  %reass.mul = mul i64 %reass.add, 9
+  %add.i.i = add i64 %reass.mul, %sub.ptr.div6.i.i
+  %add12.i.i = add i64 %add.i.i, %sub.ptr.div11.i.i
   %cmp = icmp eq i64 %add12.i.i, 164703072086692425
   br i1 %cmp, label %if.then, label %if.end
 

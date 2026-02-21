@@ -1008,7 +1008,7 @@ Bdc_IsfStart.exit119:                             ; preds = %Vec_IntFetch.exit.i
 
 67:                                               ; preds = %Bdc_IsfStart.exit119
   %68 = tail call i32 @Bdc_DecomposeWeakOr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3)
-  br label %270
+  br label %269
 
 69:                                               ; preds = %Bdc_IsfStart.exit119
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1386,13 +1386,13 @@ Kit_TruthCopy.exit181:                            ; preds = %Kit_TruthCopy.exit1
   %267 = phi i32 [ %.pre209, %Kit_TruthCopy.exit181.loopexit ], [ %257, %Kit_TruthAnd.exit175 ]
   %..i = tail call i32 @llvm.smin.i32(i32 %.0103.lcssa, i32 %.0.lcssa)
   %.16.i = tail call i32 @llvm.smax.i32(i32 %.0103.lcssa, i32 %.0.lcssa)
-  %268 = mul nsw i32 %267, %..i
-  %269 = add nsw i32 %268, %.16.i
-  %.0.i = mul nsw i32 %269, 1000
-  br label %270
+  %268 = mul i32 %267, %..i
+  %reass.add = add i32 %268, %.16.i
+  %reass.mul = mul i32 %reass.add, 1000
+  br label %269
 
-270:                                              ; preds = %Kit_TruthCopy.exit181, %67
-  %.0106 = phi i32 [ %.0.i, %Kit_TruthCopy.exit181 ], [ %68, %67 ]
+269:                                              ; preds = %Kit_TruthCopy.exit181, %67
+  %.0106 = phi i32 [ %reass.mul, %Kit_TruthCopy.exit181 ], [ %68, %67 ]
   ret i32 %.0106
 }
 

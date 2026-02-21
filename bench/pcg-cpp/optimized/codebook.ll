@@ -85,7 +85,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i
 
 common.resume:                                    ; preds = %_ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i
-  %common.resume.op = phi { ptr, i32 } [ %15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i ], [ %49, %_ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit7 ]
+  %common.resume.op = phi { ptr, i32 } [ %15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i ], [ %47, %_ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit7 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i: ; preds = %14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.i.i
@@ -101,7 +101,7 @@ _ZN10pcg_extras13seed_seq_fromISt13random_deviceEC2IJEEEDpOT_.exit: ; preds = %9
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc, %_ZN10pcg_extras13seed_seq_fromISt13random_deviceEC2IJEEEDpOT_.exit
   %.07.i.idx.i.i.i = phi i64 [ %.07.i.add.i.i.i, %.noexc ], [ 0, %_ZN10pcg_extras13seed_seq_fromISt13random_deviceEC2IJEEEDpOT_.exit ]
   %20 = invoke noundef i32 @_ZNSt13random_device9_M_getvalEv(ptr noundef nonnull align 8 dereferenceable(5000) %5)
-          to label %.noexc unwind label %48
+          to label %.noexc unwind label %46
 
 .noexc:                                           ; preds = %.lr.ph.i.i.i.i
   %.07.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %.07.i.idx.i.i.i
@@ -146,87 +146,87 @@ _ZN10pcg_extras13seed_seq_fromISt13random_deviceEC2IJEEEDpOT_.exit: ; preds = %9
   %36 = or disjoint i64 %35, 1
   store i64 %36, ptr %4, align 8, !tbaa !22
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %38 = add i64 %36, %33
-  %39 = mul i64 %38, 6364136223846793005
-  %40 = add i64 %39, %36
-  store i64 %40, ptr %37, align 8, !tbaa !24
+  %reass.add = add i64 %36, %33
+  %reass.mul = mul i64 %reass.add, 6364136223846793005
+  %38 = add i64 %reass.mul, %36
+  store i64 %38, ptr %37, align 8, !tbaa !24
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   invoke void @_ZNSt13random_device7_M_finiEv(ptr noundef nonnull align 8 dereferenceable(5000) %5)
-          to label %_ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit unwind label %41
+          to label %_ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit unwind label %39
 
-41:                                               ; preds = %31
-  %42 = landingpad { ptr, i32 }
+39:                                               ; preds = %31
+  %40 = landingpad { ptr, i32 }
           catch ptr null
-  %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #15
+  %41 = extractvalue { ptr, i32 } %40, 0
+  call void @__clang_call_terminate(ptr %41) #15
   unreachable
 
 _ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit: ; preds = %31
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %44 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4clog, ptr noundef nonnull @.str, i64 noundef 10)
-  %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN10pcg_detaillsIcSt11char_traitsIcEjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEERSt13basic_ostreamIT_T0_ESD_RKNS_6engineIT1_T2_T3_XT4_ET5_T6_EE(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4clog, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  %46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull @.str.1, i64 noundef 2)
+  %42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4clog, ptr noundef nonnull @.str, i64 noundef 10)
+  %43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN10pcg_detaillsIcSt11char_traitsIcEjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEERSt13basic_ostreamIT_T0_ESD_RKNS_6engineIT1_T2_T3_XT4_ET5_T6_EE(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4clog, ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %44 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull @.str.1, i64 noundef 2)
   br label %.preheader
 
-.preheader:                                       ; preds = %_ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit, %53
-  %.0611 = phi i32 [ 0, %_ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit ], [ %54, %53 ]
-  br label %55
+.preheader:                                       ; preds = %_ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit, %51
+  %.0611 = phi i32 [ 0, %_ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit ], [ %52, %51 ]
+  br label %53
 
-47:                                               ; preds = %53
+45:                                               ; preds = %51
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
 
-48:                                               ; preds = %.lr.ph.i.i.i.i
-  %49 = landingpad { ptr, i32 }
+46:                                               ; preds = %.lr.ph.i.i.i.i
+  %47 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZNSt13random_device7_M_finiEv(ptr noundef nonnull align 8 dereferenceable(5000) %5)
-          to label %_ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit7 unwind label %50
+          to label %_ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit7 unwind label %48
 
-50:                                               ; preds = %48
-  %51 = landingpad { ptr, i32 }
+48:                                               ; preds = %46
+  %49 = landingpad { ptr, i32 }
           catch ptr null
-  %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #15
+  %50 = extractvalue { ptr, i32 } %49, 0
+  call void @__clang_call_terminate(ptr %50) #15
   unreachable
 
-_ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit7: ; preds = %48
+_ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit7: ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
-53:                                               ; preds = %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEclEj.exit
+51:                                               ; preds = %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEclEj.exit
   %putchar = call i32 @putchar(i32 10)
-  %54 = add nuw nsw i32 %.0611, 1
-  %exitcond14.not = icmp eq i32 %54, 16
-  br i1 %exitcond14.not, label %47, label %.preheader, !llvm.loop !26
+  %52 = add nuw nsw i32 %.0611, 1
+  %exitcond14.not = icmp eq i32 %52, 16
+  br i1 %exitcond14.not, label %45, label %.preheader, !llvm.loop !26
 
-55:                                               ; preds = %.preheader, %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEclEj.exit
-  %.010 = phi i32 [ 0, %.preheader ], [ %70, %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEclEj.exit ]
-  %56 = load i64, ptr %4, align 8, !tbaa !22
+53:                                               ; preds = %.preheader, %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEclEj.exit
+  %.010 = phi i32 [ 0, %.preheader ], [ %68, %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEclEj.exit ]
+  %54 = load i64, ptr %4, align 8, !tbaa !22
   %.promoted.i.i = load i64, ptr %37, align 8, !tbaa !24
-  br label %57
+  br label %55
 
-57:                                               ; preds = %57, %55
-  %58 = phi i64 [ %60, %57 ], [ %.promoted.i.i, %55 ]
-  %59 = mul i64 %58, 6364136223846793005
-  %60 = add i64 %59, %56
-  %61 = lshr i64 %58, 59
-  %62 = trunc nuw nsw i64 %61 to i32
-  %63 = lshr i64 %58, 45
-  %64 = lshr i64 %58, 27
-  %65 = xor i64 %63, %64
-  %66 = trunc i64 %65 to i32
-  %67 = call noundef i32 @llvm.fshr.i32(i32 %66, i32 %66, i32 %62)
-  %.not.i.i = icmp ult i32 %67, 296
-  br i1 %.not.i.i, label %57, label %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEclEj.exit
+55:                                               ; preds = %55, %53
+  %56 = phi i64 [ %58, %55 ], [ %.promoted.i.i, %53 ]
+  %57 = mul i64 %56, 6364136223846793005
+  %58 = add i64 %57, %54
+  %59 = lshr i64 %56, 59
+  %60 = trunc nuw nsw i64 %59 to i32
+  %61 = lshr i64 %56, 45
+  %62 = lshr i64 %56, 27
+  %63 = xor i64 %61, %62
+  %64 = trunc i64 %63 to i32
+  %65 = call noundef i32 @llvm.fshr.i32(i32 %64, i32 %64, i32 %60)
+  %.not.i.i = icmp ult i32 %65, 296
+  br i1 %.not.i.i, label %55, label %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEclEj.exit
 
-_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEclEj.exit: ; preds = %57
-  store i64 %60, ptr %37, align 8, !tbaa !24
-  %68 = urem i32 %67, 1000
-  %69 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %68)
-  %70 = add nuw nsw i32 %.010, 1
-  %exitcond.not = icmp eq i32 %70, 16
-  br i1 %exitcond.not, label %53, label %55, !llvm.loop !27
+_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEclEj.exit: ; preds = %55
+  store i64 %58, ptr %37, align 8, !tbaa !24
+  %66 = urem i32 %65, 1000
+  %67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %66)
+  %68 = add nuw nsw i32 %.010, 1
+  %exitcond.not = icmp eq i32 %68, 16
+  br i1 %exitcond.not, label %51, label %53, !llvm.loop !27
 }
 
 declare i32 @__gxx_personality_v0(...)

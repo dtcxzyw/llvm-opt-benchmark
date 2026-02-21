@@ -2199,10 +2199,10 @@ define range(i32 -1, 2) i32 @upx_inflatelzma(ptr noundef %0, i32 noundef %1, ptr
 19:                                               ; preds = %8
   %20 = lshr i32 %7, 16
   %21 = lshr i32 %7, 8
-  %22 = mul nuw nsw i32 %20, 5
-  %23 = add nuw nsw i32 %22, %21
-  %24 = mul nuw nsw i32 %23, 9
-  %25 = add i32 %24, %7
+  %22 = mul nuw nsw i32 %20, 45
+  %23 = mul nuw nsw i32 %21, 9
+  %24 = add i32 %23, %7
+  %25 = add i32 %24, %22
   %26 = trunc i32 %25 to i8
   store i8 %26, ptr %10, align 1, !tbaa !3
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 168

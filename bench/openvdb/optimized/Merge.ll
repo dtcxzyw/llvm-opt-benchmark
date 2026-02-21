@@ -15458,8 +15458,6 @@ entry:
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %tobool.i.i.i.i = icmp ne ptr %7, null
   %conv.neg.i.i.i.i = sext i1 %tobool.i.i.i.i to i64
-  %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, %conv.neg.i.i.i.i
-  %mul.i.i.i.i = mul nsw i64 %sub.i.i.i.i, 12
   %sub.ptr.lhs.cast3.i.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub5.i.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i.i, %sub.ptr.rhs.cast4.i.i.i.i
@@ -15469,7 +15467,9 @@ entry:
   %sub.ptr.sub10.i.i.i.i = sub i64 %sub.ptr.lhs.cast8.i.i.i.i, %sub.ptr.rhs.cast9.i.i.i.i
   %sub.ptr.div11.i.i.i.i = sdiv exact i64 %sub.ptr.sub10.i.i.i.i, 40
   %add.i.i.i.i = add nsw i64 %sub.ptr.div6.i.i.i.i, %sub.ptr.div11.i.i.i.i
-  %add12.i.i.i.i = add i64 %add.i.i.i.i, %mul.i.i.i.i
+  %reass.add = add nsw i64 %sub.ptr.div.i.i.i.i, %conv.neg.i.i.i.i
+  %reass.mul = mul i64 %reass.add, 12
+  %add12.i.i.i.i = add i64 %add.i.i.i.i, %reass.mul
   %cmp.i.i = icmp ugt i64 %add12.i.i.i.i, 230584300921369395
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_9ValueMaskELj3EEELj4EEELj5EEEEEEEEESaISF_EE17_S_check_init_lenEmRKSG_.exit.i
 
@@ -15485,8 +15485,8 @@ _ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4
   br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_9ValueMaskELj3EEELj4EEELj5EEEEEEEEESaISF_EE11_M_allocateEm.exit.i, label %_ZNSt16allocator_traitsISaIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEEE8allocateERSG_m.exit.i.i
 
 _ZNSt16allocator_traitsISaIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEEE8allocateERSG_m.exit.i.i: ; preds = %_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_9ValueMaskELj3EEELj4EEELj5EEEEEEEEESaISF_EE17_S_check_init_lenEmRKSG_.exit.i
-  %mul.i.i.i8.i = mul nuw nsw i64 %add12.i.i.i.i, 40
-  %call5.i.i.i.i7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i8.i) #26
+  %mul.i.i.i.i = mul nuw nsw i64 %add12.i.i.i.i, 40
+  %call5.i.i.i.i7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #26
           to label %_ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_9ValueMaskELj3EEELj4EEELj5EEEEEEEEESaISF_EE11_M_allocateEm.exit.i unwind label %lpad
 
 _ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_9ValueMaskELj3EEELj4EEELj5EEEEEEEEESaISF_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEEE8allocateERSG_m.exit.i.i, %_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_9ValueMaskELj3EEELj4EEELj5EEEEEEEEESaISF_EE17_S_check_init_lenEmRKSG_.exit.i
@@ -18724,8 +18724,6 @@ entry:
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %tobool.i.i.i.i = icmp ne ptr %7, null
   %conv.neg.i.i.i.i = sext i1 %tobool.i.i.i.i to i64
-  %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, %conv.neg.i.i.i.i
-  %mul.i.i.i.i = mul nsw i64 %sub.i.i.i.i, 12
   %sub.ptr.lhs.cast3.i.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub5.i.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i.i, %sub.ptr.rhs.cast4.i.i.i.i
@@ -18735,7 +18733,9 @@ entry:
   %sub.ptr.sub10.i.i.i.i = sub i64 %sub.ptr.lhs.cast8.i.i.i.i, %sub.ptr.rhs.cast9.i.i.i.i
   %sub.ptr.div11.i.i.i.i = sdiv exact i64 %sub.ptr.sub10.i.i.i.i, 40
   %add.i.i.i.i = add nsw i64 %sub.ptr.div6.i.i.i.i, %sub.ptr.div11.i.i.i.i
-  %add12.i.i.i.i = add i64 %add.i.i.i.i, %mul.i.i.i.i
+  %reass.add = add nsw i64 %sub.ptr.div.i.i.i.i, %conv.neg.i.i.i.i
+  %reass.mul = mul i64 %reass.add, 12
+  %add12.i.i.i.i = add i64 %add.i.i.i.i, %reass.mul
   %cmp.i.i = icmp ugt i64 %add12.i.i.i.i, 230584300921369395
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEEESaISE_EE17_S_check_init_lenEmRKSF_.exit.i
 
@@ -18751,8 +18751,8 @@ _ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4
   br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEEESaISE_EE11_M_allocateEm.exit.i, label %_ZNSt16allocator_traitsISaIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEEEEE8allocateERSF_m.exit.i.i
 
 _ZNSt16allocator_traitsISaIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEEEEE8allocateERSF_m.exit.i.i: ; preds = %_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEEESaISE_EE17_S_check_init_lenEmRKSF_.exit.i
-  %mul.i.i.i8.i = mul nuw nsw i64 %add12.i.i.i.i, 40
-  %call5.i.i.i.i7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i8.i) #26
+  %mul.i.i.i.i = mul nuw nsw i64 %add12.i.i.i.i, 40
+  %call5.i.i.i.i7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #26
           to label %_ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEEESaISE_EE11_M_allocateEm.exit.i unwind label %lpad
 
 _ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEEESaISE_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEEEEE8allocateERSF_m.exit.i.i, %_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEEESaISE_EE17_S_check_init_lenEmRKSF_.exit.i
@@ -22208,8 +22208,6 @@ entry:
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %tobool.i.i.i.i = icmp ne ptr %7, null
   %conv.neg.i.i.i.i = sext i1 %tobool.i.i.i.i to i64
-  %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, %conv.neg.i.i.i.i
-  %mul.i.i.i.i = mul nsw i64 %sub.i.i.i.i, 12
   %sub.ptr.lhs.cast3.i.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub5.i.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i.i, %sub.ptr.rhs.cast4.i.i.i.i
@@ -22219,7 +22217,9 @@ entry:
   %sub.ptr.sub10.i.i.i.i = sub i64 %sub.ptr.lhs.cast8.i.i.i.i, %sub.ptr.rhs.cast9.i.i.i.i
   %sub.ptr.div11.i.i.i.i = sdiv exact i64 %sub.ptr.sub10.i.i.i.i, 40
   %add.i.i.i.i = add nsw i64 %sub.ptr.div6.i.i.i.i, %sub.ptr.div11.i.i.i.i
-  %add12.i.i.i.i = add i64 %add.i.i.i.i, %mul.i.i.i.i
+  %reass.add = add nsw i64 %sub.ptr.div.i.i.i.i, %conv.neg.i.i.i.i
+  %reass.mul = mul i64 %reass.add, 12
+  %add12.i.i.i.i = add i64 %add.i.i.i.i, %reass.mul
   %cmp.i.i = icmp ugt i64 %add12.i.i.i.i, 230584300921369395
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEESaISE_EE17_S_check_init_lenEmRKSF_.exit.i
 
@@ -22235,8 +22235,8 @@ _ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4
   br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEESaISE_EE11_M_allocateEm.exit.i, label %_ZNSt16allocator_traitsISaIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEEE8allocateERSF_m.exit.i.i
 
 _ZNSt16allocator_traitsISaIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEEE8allocateERSF_m.exit.i.i: ; preds = %_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEESaISE_EE17_S_check_init_lenEmRKSF_.exit.i
-  %mul.i.i.i8.i = mul nuw nsw i64 %add12.i.i.i.i, 40
-  %call5.i.i.i.i7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i8.i) #26
+  %mul.i.i.i.i = mul nuw nsw i64 %add12.i.i.i.i, 40
+  %call5.i.i.i.i7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #26
           to label %_ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEESaISE_EE11_M_allocateEm.exit.i unwind label %lpad
 
 _ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEESaISE_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEEE8allocateERSF_m.exit.i.i, %_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEESaISE_EE17_S_check_init_lenEmRKSF_.exit.i
@@ -25720,8 +25720,6 @@ entry:
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %tobool.i.i.i.i = icmp ne ptr %7, null
   %conv.neg.i.i.i.i = sext i1 %tobool.i.i.i.i to i64
-  %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, %conv.neg.i.i.i.i
-  %mul.i.i.i.i = mul nsw i64 %sub.i.i.i.i, 12
   %sub.ptr.lhs.cast3.i.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub5.i.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i.i, %sub.ptr.rhs.cast4.i.i.i.i
@@ -25731,7 +25729,9 @@ entry:
   %sub.ptr.sub10.i.i.i.i = sub i64 %sub.ptr.lhs.cast8.i.i.i.i, %sub.ptr.rhs.cast9.i.i.i.i
   %sub.ptr.div11.i.i.i.i = sdiv exact i64 %sub.ptr.sub10.i.i.i.i, 40
   %add.i.i.i.i = add nsw i64 %sub.ptr.div6.i.i.i.i, %sub.ptr.div11.i.i.i.i
-  %add12.i.i.i.i = add i64 %add.i.i.i.i, %mul.i.i.i.i
+  %reass.add = add nsw i64 %sub.ptr.div.i.i.i.i, %conv.neg.i.i.i.i
+  %reass.mul = mul i64 %reass.add, 12
+  %add12.i.i.i.i = add i64 %add.i.i.i.i, %reass.mul
   %cmp.i.i = icmp ugt i64 %add12.i.i.i.i, 230584300921369395
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEESaISE_EE17_S_check_init_lenEmRKSF_.exit.i
 
@@ -25747,8 +25747,8 @@ _ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4
   br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEESaISE_EE11_M_allocateEm.exit.i, label %_ZNSt16allocator_traitsISaIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEEE8allocateERSF_m.exit.i.i
 
 _ZNSt16allocator_traitsISaIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEEE8allocateERSF_m.exit.i.i: ; preds = %_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEESaISE_EE17_S_check_init_lenEmRKSF_.exit.i
-  %mul.i.i.i8.i = mul nuw nsw i64 %add12.i.i.i.i, 40
-  %call5.i.i.i.i7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i8.i) #26
+  %mul.i.i.i.i = mul nuw nsw i64 %add12.i.i.i.i, 40
+  %call5.i.i.i.i7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #26
           to label %_ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEESaISE_EE11_M_allocateEm.exit.i unwind label %lpad
 
 _ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEESaISE_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEEE8allocateERSF_m.exit.i.i, %_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEESaISE_EE17_S_check_init_lenEmRKSF_.exit.i
@@ -29232,8 +29232,6 @@ entry:
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %tobool.i.i.i.i = icmp ne ptr %7, null
   %conv.neg.i.i.i.i = sext i1 %tobool.i.i.i.i to i64
-  %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, %conv.neg.i.i.i.i
-  %mul.i.i.i.i = mul nsw i64 %sub.i.i.i.i, 12
   %sub.ptr.lhs.cast3.i.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub5.i.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i.i, %sub.ptr.rhs.cast4.i.i.i.i
@@ -29243,7 +29241,9 @@ entry:
   %sub.ptr.sub10.i.i.i.i = sub i64 %sub.ptr.lhs.cast8.i.i.i.i, %sub.ptr.rhs.cast9.i.i.i.i
   %sub.ptr.div11.i.i.i.i = sdiv exact i64 %sub.ptr.sub10.i.i.i.i, 40
   %add.i.i.i.i = add nsw i64 %sub.ptr.div6.i.i.i.i, %sub.ptr.div11.i.i.i.i
-  %add12.i.i.i.i = add i64 %add.i.i.i.i, %mul.i.i.i.i
+  %reass.add = add nsw i64 %sub.ptr.div.i.i.i.i, %conv.neg.i.i.i.i
+  %reass.mul = mul i64 %reass.add, 12
+  %add12.i.i.i.i = add i64 %add.i.i.i.i, %reass.mul
   %cmp.i.i = icmp ugt i64 %add12.i.i.i.i, 230584300921369395
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEEESaISE_EE17_S_check_init_lenEmRKSF_.exit.i
 
@@ -29259,8 +29259,8 @@ _ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4
   br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEEESaISE_EE11_M_allocateEm.exit.i, label %_ZNSt16allocator_traitsISaIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEEEEE8allocateERSF_m.exit.i.i
 
 _ZNSt16allocator_traitsISaIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEEEEE8allocateERSF_m.exit.i.i: ; preds = %_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEEESaISE_EE17_S_check_init_lenEmRKSF_.exit.i
-  %mul.i.i.i8.i = mul nuw nsw i64 %add12.i.i.i.i, 40
-  %call5.i.i.i.i7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i8.i) #26
+  %mul.i.i.i.i = mul nuw nsw i64 %add12.i.i.i.i, 40
+  %call5.i.i.i.i7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #26
           to label %_ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEEESaISE_EE11_M_allocateEm.exit.i unwind label %lpad
 
 _ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEEESaISE_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEEEEE8allocateERSF_m.exit.i.i, %_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEEESaISE_EE17_S_check_init_lenEmRKSF_.exit.i
@@ -32725,8 +32725,6 @@ entry:
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %tobool.i.i.i.i = icmp ne ptr %7, null
   %conv.neg.i.i.i.i = sext i1 %tobool.i.i.i.i to i64
-  %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, %conv.neg.i.i.i.i
-  %mul.i.i.i.i = mul nsw i64 %sub.i.i.i.i, 12
   %sub.ptr.lhs.cast3.i.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub5.i.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i.i, %sub.ptr.rhs.cast4.i.i.i.i
@@ -32736,7 +32734,9 @@ entry:
   %sub.ptr.sub10.i.i.i.i = sub i64 %sub.ptr.lhs.cast8.i.i.i.i, %sub.ptr.rhs.cast9.i.i.i.i
   %sub.ptr.div11.i.i.i.i = sdiv exact i64 %sub.ptr.sub10.i.i.i.i, 40
   %add.i.i.i.i = add nsw i64 %sub.ptr.div6.i.i.i.i, %sub.ptr.div11.i.i.i.i
-  %add12.i.i.i.i = add i64 %add.i.i.i.i, %mul.i.i.i.i
+  %reass.add = add nsw i64 %sub.ptr.div.i.i.i.i, %conv.neg.i.i.i.i
+  %reass.mul = mul i64 %reass.add, 12
+  %add12.i.i.i.i = add i64 %add.i.i.i.i, %reass.mul
   %cmp.i.i = icmp ugt i64 %add12.i.i.i.i, 230584300921369395
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEEESaISE_EE17_S_check_init_lenEmRKSF_.exit.i
 
@@ -32752,8 +32752,8 @@ _ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4
   br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEEESaISE_EE11_M_allocateEm.exit.i, label %_ZNSt16allocator_traitsISaIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEEEEE8allocateERSF_m.exit.i.i
 
 _ZNSt16allocator_traitsISaIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEEEEE8allocateERSF_m.exit.i.i: ; preds = %_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEEESaISE_EE17_S_check_init_lenEmRKSF_.exit.i
-  %mul.i.i.i8.i = mul nuw nsw i64 %add12.i.i.i.i, 40
-  %call5.i.i.i.i7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i8.i) #26
+  %mul.i.i.i.i = mul nuw nsw i64 %add12.i.i.i.i, 40
+  %call5.i.i.i.i7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #26
           to label %_ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEEESaISE_EE11_M_allocateEm.exit.i unwind label %lpad
 
 _ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEEESaISE_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEEEEE8allocateERSF_m.exit.i.i, %_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEEESaISE_EE17_S_check_init_lenEmRKSF_.exit.i
@@ -36236,8 +36236,6 @@ entry:
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %tobool.i.i.i.i = icmp ne ptr %7, null
   %conv.neg.i.i.i.i = sext i1 %tobool.i.i.i.i to i64
-  %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, %conv.neg.i.i.i.i
-  %mul.i.i.i.i = mul nsw i64 %sub.i.i.i.i, 12
   %sub.ptr.lhs.cast3.i.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub5.i.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i.i, %sub.ptr.rhs.cast4.i.i.i.i
@@ -36247,7 +36245,9 @@ entry:
   %sub.ptr.sub10.i.i.i.i = sub i64 %sub.ptr.lhs.cast8.i.i.i.i, %sub.ptr.rhs.cast9.i.i.i.i
   %sub.ptr.div11.i.i.i.i = sdiv exact i64 %sub.ptr.sub10.i.i.i.i, 40
   %add.i.i.i.i = add nsw i64 %sub.ptr.div6.i.i.i.i, %sub.ptr.div11.i.i.i.i
-  %add12.i.i.i.i = add i64 %add.i.i.i.i, %mul.i.i.i.i
+  %reass.add = add nsw i64 %sub.ptr.div.i.i.i.i, %conv.neg.i.i.i.i
+  %reass.mul = mul i64 %reass.add, 12
+  %add12.i.i.i.i = add i64 %add.i.i.i.i, %reass.mul
   %cmp.i.i = icmp ugt i64 %add12.i.i.i.i, 230584300921369395
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEEESaISH_EE17_S_check_init_lenEmRKSI_.exit.i
 
@@ -36263,8 +36263,8 @@ _ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4
   br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEEESaISH_EE11_M_allocateEm.exit.i, label %_ZNSt16allocator_traitsISaIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEEEEE8allocateERSI_m.exit.i.i
 
 _ZNSt16allocator_traitsISaIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEEEEE8allocateERSI_m.exit.i.i: ; preds = %_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEEESaISH_EE17_S_check_init_lenEmRKSI_.exit.i
-  %mul.i.i.i8.i = mul nuw nsw i64 %add12.i.i.i.i, 40
-  %call5.i.i.i.i7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i8.i) #26
+  %mul.i.i.i.i = mul nuw nsw i64 %add12.i.i.i.i, 40
+  %call5.i.i.i.i7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #26
           to label %_ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEEESaISH_EE11_M_allocateEm.exit.i unwind label %lpad
 
 _ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEEESaISH_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEEEEE8allocateERSI_m.exit.i.i, %_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEEESaISH_EE17_S_check_init_lenEmRKSI_.exit.i
@@ -39786,8 +39786,6 @@ entry:
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %tobool.i.i.i.i = icmp ne ptr %7, null
   %conv.neg.i.i.i.i = sext i1 %tobool.i.i.i.i to i64
-  %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, %conv.neg.i.i.i.i
-  %mul.i.i.i.i = mul nsw i64 %sub.i.i.i.i, 12
   %sub.ptr.lhs.cast3.i.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub5.i.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i.i, %sub.ptr.rhs.cast4.i.i.i.i
@@ -39797,7 +39795,9 @@ entry:
   %sub.ptr.sub10.i.i.i.i = sub i64 %sub.ptr.lhs.cast8.i.i.i.i, %sub.ptr.rhs.cast9.i.i.i.i
   %sub.ptr.div11.i.i.i.i = sdiv exact i64 %sub.ptr.sub10.i.i.i.i, 40
   %add.i.i.i.i = add nsw i64 %sub.ptr.div6.i.i.i.i, %sub.ptr.div11.i.i.i.i
-  %add12.i.i.i.i = add i64 %add.i.i.i.i, %mul.i.i.i.i
+  %reass.add = add nsw i64 %sub.ptr.div.i.i.i.i, %conv.neg.i.i.i.i
+  %reass.mul = mul i64 %reass.add, 12
+  %add12.i.i.i.i = add i64 %add.i.i.i.i, %reass.mul
   %cmp.i.i = icmp ugt i64 %add12.i.i.i.i, 230584300921369395
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEEESaISH_EE17_S_check_init_lenEmRKSI_.exit.i
 
@@ -39813,8 +39813,8 @@ _ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4
   br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEEESaISH_EE11_M_allocateEm.exit.i, label %_ZNSt16allocator_traitsISaIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEEEEE8allocateERSI_m.exit.i.i
 
 _ZNSt16allocator_traitsISaIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEEEEE8allocateERSI_m.exit.i.i: ; preds = %_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEEESaISH_EE17_S_check_init_lenEmRKSI_.exit.i
-  %mul.i.i.i8.i = mul nuw nsw i64 %add12.i.i.i.i, 40
-  %call5.i.i.i.i7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i8.i) #26
+  %mul.i.i.i.i = mul nuw nsw i64 %add12.i.i.i.i, 40
+  %call5.i.i.i.i7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #26
           to label %_ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEEESaISH_EE11_M_allocateEm.exit.i unwind label %lpad
 
 _ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEEESaISH_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEEEEE8allocateERSI_m.exit.i.i, %_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEEESaISH_EE17_S_check_init_lenEmRKSI_.exit.i
@@ -43332,8 +43332,6 @@ entry:
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %tobool.i.i.i.i = icmp ne ptr %7, null
   %conv.neg.i.i.i.i = sext i1 %tobool.i.i.i.i to i64
-  %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, %conv.neg.i.i.i.i
-  %mul.i.i.i.i = mul nsw i64 %sub.i.i.i.i, 12
   %sub.ptr.lhs.cast3.i.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub5.i.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i.i, %sub.ptr.rhs.cast4.i.i.i.i
@@ -43343,7 +43341,9 @@ entry:
   %sub.ptr.sub10.i.i.i.i = sub i64 %sub.ptr.lhs.cast8.i.i.i.i, %sub.ptr.rhs.cast9.i.i.i.i
   %sub.ptr.div11.i.i.i.i = sdiv exact i64 %sub.ptr.sub10.i.i.i.i, 40
   %add.i.i.i.i = add nsw i64 %sub.ptr.div6.i.i.i.i, %sub.ptr.div11.i.i.i.i
-  %add12.i.i.i.i = add i64 %add.i.i.i.i, %mul.i.i.i.i
+  %reass.add = add nsw i64 %sub.ptr.div.i.i.i.i, %conv.neg.i.i.i.i
+  %reass.mul = mul i64 %reass.add, 12
+  %add12.i.i.i.i = add i64 %add.i.i.i.i, %reass.mul
   %cmp.i.i = icmp ugt i64 %add12.i.i.i.i, 230584300921369395
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEEESaISH_EE17_S_check_init_lenEmRKSI_.exit.i
 
@@ -43359,8 +43359,8 @@ _ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4
   br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEEESaISH_EE11_M_allocateEm.exit.i, label %_ZNSt16allocator_traitsISaIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEEEEE8allocateERSI_m.exit.i.i
 
 _ZNSt16allocator_traitsISaIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEEEEE8allocateERSI_m.exit.i.i: ; preds = %_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEEESaISH_EE17_S_check_init_lenEmRKSI_.exit.i
-  %mul.i.i.i8.i = mul nuw nsw i64 %add12.i.i.i.i, 40
-  %call5.i.i.i.i7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i8.i) #26
+  %mul.i.i.i.i = mul nuw nsw i64 %add12.i.i.i.i, 40
+  %call5.i.i.i.i7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #26
           to label %_ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEEESaISH_EE11_M_allocateEm.exit.i unwind label %lpad
 
 _ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEEESaISH_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEEEEE8allocateERSI_m.exit.i.i, %_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEEESaISH_EE17_S_check_init_lenEmRKSI_.exit.i

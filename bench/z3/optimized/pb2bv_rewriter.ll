@@ -15033,7 +15033,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8psort_nwIN14pb2bv_rewriter3im
   %5 = icmp ult i32 %1, 10
   %6 = icmp ult i32 %2, 10
   %or.cond = and i1 %5, %6
-  br i1 %or.cond, label %7, label %46
+  br i1 %or.cond, label %7, label %44
 
 7:                                                ; preds = %4
   %8 = add nuw nsw i32 %2, %1
@@ -15091,18 +15091,18 @@ _ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE10vc_dsmergeEjjj.exit: ; p
   %37 = add i64 %25, %24
   %.sroa.040.0.extract.trunc.i = trunc i64 %37 to i32
   %38 = or disjoint i32 %36, 1
-  %39 = add i32 %38, %.sroa.040.0.extract.trunc.i
-  %40 = mul nuw nsw i32 %8, 5
-  %41 = add nuw nsw i32 %.sroa.6.1.i, %40
-  %42 = mul i32 %39, 5
-  %43 = add i32 %42, %spec.select.i
-  %44 = add i32 %43, %35
-  %45 = icmp ult i32 %41, %44
-  br label %46
+  %39 = mul nuw nsw i32 %8, 5
+  %40 = add nuw nsw i32 %.sroa.6.1.i, %39
+  %reass.add = add i32 %38, %.sroa.040.0.extract.trunc.i
+  %reass.mul = mul i32 %reass.add, 5
+  %41 = add i32 %reass.mul, %spec.select.i
+  %42 = add i32 %41, %35
+  %43 = icmp ult i32 %40, %42
+  br label %44
 
-46:                                               ; preds = %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE10vc_dsmergeEjjj.exit, %4
-  %47 = phi i1 [ %45, %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE10vc_dsmergeEjjj.exit ], [ false, %4 ]
-  ret i1 %47
+44:                                               ; preds = %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE10vc_dsmergeEjjj.exit, %4
+  %45 = phi i1 [ %43, %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE10vc_dsmergeEjjj.exit ], [ false, %4 ]
+  ret i1 %45
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -17559,30 +17559,30 @@ _ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit: ; 
   %46 = add i64 %34, %33
   %.sroa.040.0.extract.trunc.i = trunc i64 %46 to i32
   %47 = or disjoint i32 %45, 1
-  %48 = add i32 %47, %.sroa.040.0.extract.trunc.i
-  %49 = mul nuw nsw i32 %14, 5
-  %50 = add i32 %.sroa.6.1.i.i, %49
-  %51 = mul i32 %48, 5
-  %52 = add i32 %51, %spec.select.i
-  %53 = add i32 %52, %44
-  %54 = icmp ult i32 %50, %53
-  br i1 %54, label %55, label %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit.thread
+  %48 = mul nuw nsw i32 %14, 5
+  %49 = add i32 %.sroa.6.1.i.i, %48
+  %reass.add = add i32 %47, %.sroa.040.0.extract.trunc.i
+  %reass.mul = mul i32 %reass.add, 5
+  %50 = add i32 %reass.mul, %spec.select.i
+  %51 = add i32 %50, %44
+  %52 = icmp ult i32 %49, %51
+  br i1 %52, label %53, label %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit.thread
 
-55:                                               ; preds = %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit
+53:                                               ; preds = %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit
   %.pre.i = tail call i32 @llvm.umin.i32(i32 %14, i32 %1)
   %.pre53.i = tail call i32 @llvm.umin.i32(i32 %14, i32 %2)
   %.pre54.i = mul nuw nsw i32 %.pre.i, %.pre53.i
   %.pre55.i = lshr i32 %.pre54.i, 1
-  br i1 %.not.i31, label %.thread.i, label %56
+  br i1 %.not.i31, label %.thread.i, label %54
 
-56:                                               ; preds = %55
-  %57 = add nuw nsw i32 %.pre55.i, %14
+54:                                               ; preds = %53
+  %55 = add nuw nsw i32 %.pre55.i, %14
   %.not2.i = icmp eq i32 %37, 0
   br i1 %.not2.i, label %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE10vc_dsmergeEjjj.exit, label %.thread.i
 
-.thread.i:                                        ; preds = %55, %56
-  %.sroa.6.052.i = phi i32 [ %57, %56 ], [ 0, %55 ]
-  %58 = add nsw i32 %.sroa.6.052.i, %.pre55.i
+.thread.i:                                        ; preds = %53, %54
+  %.sroa.6.052.i = phi i32 [ %55, %54 ], [ 0, %53 ]
+  %56 = add nsw i32 %.sroa.6.052.i, %.pre55.i
   br label %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE10vc_dsmergeEjjj.exit
 
 _ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit.thread: ; preds = %._ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit.thread_crit_edge, %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit
@@ -17592,28 +17592,28 @@ _ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit.thr
   %.pre-phi37 = phi i32 [ %.pre36, %._ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit.thread_crit_edge ], [ %25, %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit ]
   %.pre-phi35 = phi i32 [ %.pre34, %._ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit.thread_crit_edge ], [ %24, %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit ]
   %.pre-phi = phi i32 [ %.pre, %._ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit.thread_crit_edge ], [ %23, %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit ]
-  %59 = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE8vc_mergeEjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.pre-phi35, i32 noundef %.pre-phi39)
-  %.sroa.421.0.extract.shift.i = lshr i64 %59, 32
+  %57 = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE8vc_mergeEjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.pre-phi35, i32 noundef %.pre-phi39)
+  %.sroa.421.0.extract.shift.i = lshr i64 %57, 32
   %.sroa.421.0.extract.trunc.i = trunc nuw i64 %.sroa.421.0.extract.shift.i to i32
-  %60 = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE8vc_mergeEjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.pre-phi, i32 noundef %.pre-phi37)
-  %.sroa.419.0.extract.shift.i = lshr i64 %60, 32
+  %58 = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE8vc_mergeEjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.pre-phi, i32 noundef %.pre-phi37)
+  %.sroa.419.0.extract.shift.i = lshr i64 %58, 32
   %.sroa.419.0.extract.trunc.i = trunc nuw i64 %.sroa.419.0.extract.shift.i to i32
-  %61 = add i64 %60, %59
-  %.sroa.022.0.extract.trunc.i = trunc i64 %61 to i32
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %63 = load i32, ptr %62, align 8, !tbaa !251
-  %64 = icmp eq i32 %63, 2
-  %.sroa.4.0.extract.trunc.i.i32 = select i1 %64, i32 6, i32 3
-  %65 = mul i32 %.sroa.4.0.extract.trunc.i.i32, %.sroa.speculated.i.i33.pre-phi
-  %66 = add i32 %.pre-phi48, %.sroa.022.0.extract.trunc.i
-  %67 = add i32 %.sroa.421.0.extract.trunc.i, -2
-  %68 = add i32 %67, %.sroa.419.0.extract.trunc.i
-  %69 = add i32 %68, %65
+  %59 = add i64 %58, %57
+  %.sroa.022.0.extract.trunc.i = trunc i64 %59 to i32
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %61 = load i32, ptr %60, align 8, !tbaa !251
+  %62 = icmp eq i32 %61, 2
+  %.sroa.4.0.extract.trunc.i.i32 = select i1 %62, i32 6, i32 3
+  %63 = mul i32 %.sroa.4.0.extract.trunc.i.i32, %.sroa.speculated.i.i33.pre-phi
+  %64 = add i32 %.pre-phi48, %.sroa.022.0.extract.trunc.i
+  %65 = add i32 %.sroa.421.0.extract.trunc.i, -2
+  %66 = add i32 %65, %.sroa.419.0.extract.trunc.i
+  %67 = add i32 %66, %63
   br label %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE10vc_dsmergeEjjj.exit
 
-_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE10vc_dsmergeEjjj.exit: ; preds = %.thread.i, %56, %10, %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit.thread, %6
-  %.sroa.5.0 = phi i32 [ %.sroa.5.0.extract.trunc, %6 ], [ %69, %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit.thread ], [ 0, %10 ], [ %57, %56 ], [ %58, %.thread.i ]
-  %.sroa.0.0 = phi i32 [ 2, %6 ], [ %66, %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit.thread ], [ 0, %10 ], [ %14, %56 ], [ %14, %.thread.i ]
+_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE10vc_dsmergeEjjj.exit: ; preds = %.thread.i, %54, %10, %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit.thread, %6
+  %.sroa.5.0 = phi i32 [ %.sroa.5.0.extract.trunc, %6 ], [ %67, %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit.thread ], [ 0, %10 ], [ %55, %54 ], [ %56, %.thread.i ]
+  %.sroa.0.0 = phi i32 [ 2, %6 ], [ %64, %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit.thread ], [ 0, %10 ], [ %14, %54 ], [ %14, %.thread.i ]
   %.sroa.5.0.insert.ext = zext i32 %.sroa.5.0 to i64
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %.sroa.0.0 to i64

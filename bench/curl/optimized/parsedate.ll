@@ -368,10 +368,10 @@ match_time.exit.thread:                           ; preds = %67, %79, %82, %oneo
 
 136:                                              ; preds = %133, %133
   %137 = sdiv i32 %124, 100
-  %138 = mul nsw i32 %137, 60
-  %139 = srem i32 %124, 100
-  %140 = add nsw i32 %138, %139
-  %141 = mul nsw i32 %140, 60
+  %138 = srem i32 %124, 100
+  %139 = mul i32 %137, 3600
+  %140 = mul nsw i32 %138, 60
+  %141 = add nsw i32 %139, %140
   %142 = icmp eq i8 %135, 43
   %143 = sub nsw i32 0, %141
   %144 = select i1 %142, i32 %143, i32 %141
@@ -536,22 +536,22 @@ match_time.exit.thread:                           ; preds = %67, %79, %82, %oneo
   %206 = sext i32 %.0153.lcssa to i64
   %207 = add nsw i64 %200, %206
   %208 = add nsw i64 %207, %201
-  %209 = add nsw i64 %208, %205
-  %210 = mul nsw i64 %209, 24
-  %211 = sext i32 %.4271 to i64
-  %212 = add nsw i64 %211, -24
-  %213 = add nsw i64 %212, %210
-  %214 = mul nsw i64 %213, 60
-  %215 = sext i32 %.4265 to i64
-  %216 = add nsw i64 %214, %215
-  %217 = mul nsw i64 %216, 60
-  %218 = sext i32 %.4 to i64
-  %219 = icmp eq i32 %.0170.lcssa, -1
-  %spec.store.select = select i1 %219, i32 0, i32 %.0170.lcssa
-  %220 = sext i32 %spec.store.select to i64
-  %221 = add nsw i64 %220, %218
-  %222 = add nsw i64 %221, %217
-  store i64 %222, ptr %1, align 8, !tbaa !3
+  %reass.add = add nsw i64 %208, %205
+  %209 = sext i32 %.4271 to i64
+  %210 = sext i32 %.4265 to i64
+  %211 = mul nsw i64 %209, 3600
+  %212 = add nsw i64 %211, -86400
+  %213 = mul nsw i64 %reass.add, 86400
+  %214 = mul nsw i64 %210, 60
+  %215 = sext i32 %.4 to i64
+  %216 = icmp eq i32 %.0170.lcssa, -1
+  %spec.store.select = select i1 %216, i32 0, i32 %.0170.lcssa
+  %217 = sext i32 %spec.store.select to i64
+  %218 = add nsw i64 %214, %215
+  %219 = add nsw i64 %218, %212
+  %220 = add nsw i64 %219, %217
+  %221 = add nsw i64 %220, %213
+  store i64 %221, ptr %1, align 8, !tbaa !3
   br label %.critedge229
 
 .critedge229:                                     ; preds = %.loopexit, %.critedge, %56, %175, %185, %._crit_edge, %190

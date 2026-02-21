@@ -1582,20 +1582,20 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev11Lut3DOpData10Lut3DArray6getRGBEll
   %11 = mul nsw i64 %9, %1
   %12 = add i64 %11, %2
   %13 = mul i64 %12, %9
-  %14 = add nsw i64 %13, %3
-  %15 = load ptr, ptr %10, align 8, !tbaa !81
-  %.idx = mul i64 %14, 12
-  %16 = getelementptr i8, ptr %15, i64 %.idx
-  %17 = load float, ptr %16, align 4, !tbaa !92
-  store float %17, ptr %4, align 4, !tbaa !92
-  %18 = getelementptr i8, ptr %16, i64 4
-  %19 = load float, ptr %18, align 4, !tbaa !92
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store float %19, ptr %20, align 4, !tbaa !92
-  %21 = getelementptr i8, ptr %16, i64 8
-  %22 = load float, ptr %21, align 4, !tbaa !92
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store float %22, ptr %23, align 4, !tbaa !92
+  %reass.add = add i64 %13, %3
+  %14 = load ptr, ptr %10, align 8, !tbaa !81
+  %.idx = mul i64 %reass.add, 12
+  %15 = getelementptr i8, ptr %14, i64 %.idx
+  %16 = load float, ptr %15, align 4, !tbaa !92
+  store float %16, ptr %4, align 4, !tbaa !92
+  %17 = getelementptr i8, ptr %15, i64 4
+  %18 = load float, ptr %17, align 4, !tbaa !92
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store float %18, ptr %19, align 4, !tbaa !92
+  %20 = getelementptr i8, ptr %15, i64 8
+  %21 = load float, ptr %20, align 4, !tbaa !92
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store float %21, ptr %22, align 4, !tbaa !92
   ret void
 }
 
@@ -1609,20 +1609,20 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11Lut3DOpData10Lut3DArray6setRGBElll
   %11 = mul nsw i64 %9, %1
   %12 = add i64 %11, %2
   %13 = mul i64 %12, %9
-  %14 = add nsw i64 %13, %3
-  %15 = load float, ptr %4, align 4, !tbaa !92
-  %16 = load ptr, ptr %10, align 8, !tbaa !81
-  %.idx = mul i64 %14, 12
-  %17 = getelementptr i8, ptr %16, i64 %.idx
-  store float %15, ptr %17, align 4, !tbaa !92
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %19 = load float, ptr %18, align 4, !tbaa !92
-  %20 = getelementptr i8, ptr %17, i64 4
-  store float %19, ptr %20, align 4, !tbaa !92
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %22 = load float, ptr %21, align 4, !tbaa !92
-  %23 = getelementptr i8, ptr %17, i64 8
-  store float %22, ptr %23, align 4, !tbaa !92
+  %reass.add = add i64 %13, %3
+  %14 = load float, ptr %4, align 4, !tbaa !92
+  %15 = load ptr, ptr %10, align 8, !tbaa !81
+  %.idx = mul i64 %reass.add, 12
+  %16 = getelementptr i8, ptr %15, i64 %.idx
+  store float %14, ptr %16, align 4, !tbaa !92
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %18 = load float, ptr %17, align 4, !tbaa !92
+  %19 = getelementptr i8, ptr %16, i64 4
+  store float %18, ptr %19, align 4, !tbaa !92
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %21 = load float, ptr %20, align 4, !tbaa !92
+  %22 = getelementptr i8, ptr %16, i64 8
+  store float %21, ptr %22, align 4, !tbaa !92
   ret void
 }
 
@@ -2032,16 +2032,16 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11Lut3DOpData27setArrayFromRedFastes
   %18 = sub i64 %16, %17
   %19 = ashr exact i64 %18, 2
   %.not = icmp eq i64 %12, %19
-  br i1 %.not, label %.preheader65, label %22
+  br i1 %.not, label %.preheader67, label %22
 
-.preheader65:                                     ; preds = %2
-  %.not69 = icmp eq i64 %9, 0
-  br i1 %.not69, label %._crit_edge, label %.preheader64.lr.ph
+.preheader67:                                     ; preds = %2
+  %.not71 = icmp eq i64 %9, 0
+  br i1 %.not71, label %._crit_edge, label %.preheader66.lr.ph
 
-.preheader64.lr.ph:                               ; preds = %.preheader65
+.preheader66.lr.ph:                               ; preds = %.preheader67
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %21 = load ptr, ptr %20, align 8, !tbaa !81
-  br label %.preheader64
+  br label %.preheader66
 
 22:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2104,7 +2104,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit60: ; preds = %_ZNSo
 
 42:                                               ; preds = %40
   invoke void @__cxa_throw(ptr nonnull %39, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_5dev9ExceptionD1Ev) #29
-          to label %78 unwind label %46
+          to label %76 unwind label %46
 
 43:                                               ; preds = %_ZNSolsEm.exit59, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit57, %_ZNSolsEm.exit56, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit55, %_ZNSolsEm.exit54, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit53, %_ZNSolsEm.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %22
   %44 = landingpad { ptr, i32 }
@@ -2148,56 +2148,56 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn
 
-.preheader64:                                     ; preds = %.preheader64.lr.ph, %58
-  %.04768 = phi i64 [ 0, %.preheader64.lr.ph ], [ %59, %58 ]
-  %55 = mul i64 %.04768, %9
+.preheader66:                                     ; preds = %.preheader66.lr.ph, %58
+  %.04770 = phi i64 [ 0, %.preheader66.lr.ph ], [ %59, %58 ]
+  %55 = mul i64 %.04770, %9
   br label %.preheader
 
-._crit_edge:                                      ; preds = %58, %.preheader65
+._crit_edge:                                      ; preds = %58, %.preheader67
   ret void
 
-.preheader:                                       ; preds = %.preheader64, %60
-  %.04667 = phi i64 [ 0, %.preheader64 ], [ %61, %60 ]
-  %56 = add i64 %.04667, %55
+.preheader:                                       ; preds = %.preheader66, %60
+  %.04669 = phi i64 [ 0, %.preheader66 ], [ %61, %60 ]
+  %56 = add i64 %.04669, %55
   %57 = mul i64 %56, %9
   br label %62
 
 58:                                               ; preds = %60
-  %59 = add nuw i64 %.04768, 1
-  %exitcond71.not = icmp eq i64 %59, %9
-  br i1 %exitcond71.not, label %._crit_edge, label %.preheader64, !llvm.loop !101
+  %59 = add nuw i64 %.04770, 1
+  %exitcond73.not = icmp eq i64 %59, %9
+  br i1 %exitcond73.not, label %._crit_edge, label %.preheader66, !llvm.loop !101
 
 60:                                               ; preds = %62
-  %61 = add nuw i64 %.04667, 1
-  %exitcond70.not = icmp eq i64 %61, %9
-  br i1 %exitcond70.not, label %58, label %.preheader, !llvm.loop !102
+  %61 = add nuw i64 %.04669, 1
+  %exitcond72.not = icmp eq i64 %61, %9
+  br i1 %exitcond72.not, label %58, label %.preheader, !llvm.loop !102
 
 62:                                               ; preds = %.preheader, %62
-  %.04566 = phi i64 [ 0, %.preheader ], [ %77, %62 ]
-  %63 = mul i64 %.04566, %9
-  %64 = add i64 %63, %.04667
+  %.04568 = phi i64 [ 0, %.preheader ], [ %75, %62 ]
+  %63 = mul i64 %.04568, %9
+  %64 = add i64 %63, %.04669
   %65 = mul i64 %64, %9
-  %66 = add i64 %65, %.04768
-  %67 = add i64 %.04566, %57
-  %.idx = mul i64 %67, 12
-  %68 = getelementptr i8, ptr %15, i64 %.idx
-  %69 = load float, ptr %68, align 4, !tbaa !92
-  %.idx76 = mul i64 %66, 12
-  %70 = getelementptr i8, ptr %21, i64 %.idx76
-  store float %69, ptr %70, align 4, !tbaa !92
+  %reass.add = add i64 %65, %.04770
+  %reass.add64 = add i64 %.04568, %57
+  %.idx = mul i64 %reass.add64, 12
+  %66 = getelementptr i8, ptr %15, i64 %.idx
+  %67 = load float, ptr %66, align 4, !tbaa !92
+  %.idx78 = mul i64 %reass.add, 12
+  %68 = getelementptr i8, ptr %21, i64 %.idx78
+  store float %67, ptr %68, align 4, !tbaa !92
+  %69 = getelementptr i8, ptr %66, i64 4
+  %70 = load float, ptr %69, align 4, !tbaa !92
   %71 = getelementptr i8, ptr %68, i64 4
-  %72 = load float, ptr %71, align 4, !tbaa !92
-  %73 = getelementptr i8, ptr %70, i64 4
-  store float %72, ptr %73, align 4, !tbaa !92
+  store float %70, ptr %71, align 4, !tbaa !92
+  %72 = getelementptr i8, ptr %66, i64 8
+  %73 = load float, ptr %72, align 4, !tbaa !92
   %74 = getelementptr i8, ptr %68, i64 8
-  %75 = load float, ptr %74, align 4, !tbaa !92
-  %76 = getelementptr i8, ptr %70, i64 8
-  store float %75, ptr %76, align 4, !tbaa !92
-  %77 = add nuw i64 %.04566, 1
-  %exitcond.not = icmp eq i64 %77, %9
+  store float %73, ptr %74, align 4, !tbaa !92
+  %75 = add nuw i64 %.04568, 1
+  %exitcond.not = icmp eq i64 %75, %9
   br i1 %exitcond.not, label %60, label %62, !llvm.loop !103
 
-78:                                               ; preds = %42
+76:                                               ; preds = %42
   unreachable
 }
 

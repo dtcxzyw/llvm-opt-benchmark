@@ -557,100 +557,100 @@ _ZNK4ncnn3Mat5emptyEv.exit81:                     ; preds = %223
 266:                                              ; preds = %262, %235
   %267 = phi i32 [ %.pr82, %262 ], [ %237, %235 ]
   %268 = icmp eq i32 %267, 2
-  br i1 %268, label %269, label %292
+  br i1 %268, label %269, label %290
 
 269:                                              ; preds = %266
   %270 = load i32, ptr %8, align 4, !tbaa !40
   %271 = load i32, ptr %9, align 4, !tbaa !40
-  %272 = add nsw i32 %271, %270
-  %273 = mul i32 %272, 3
-  %274 = sext i32 %273 to i64
-  %275 = icmp slt i32 %273, 0
-  %276 = shl nsw i64 %274, 2
-  %277 = select i1 %275, i64 -1, i64 %276
-  %278 = call noalias noundef nonnull ptr @_Znam(i64 noundef %277) #21
+  %reass.add = add i32 %271, %270
+  %reass.mul = mul i32 %reass.add, 3
+  %272 = sext i32 %reass.mul to i64
+  %273 = icmp slt i32 %reass.mul, 0
+  %274 = shl nsw i64 %272, 2
+  %275 = select i1 %273, i64 -1, i64 %274
+  %276 = call noalias noundef nonnull ptr @_Znam(i64 noundef %275) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  store ptr %278, ptr %17, align 8, !tbaa !57
+  store ptr %276, ptr %17, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %279 = sext i32 %270 to i64
-  %280 = getelementptr inbounds i32, ptr %278, i64 %279
-  store ptr %280, ptr %18, align 8, !tbaa !57
+  %277 = sext i32 %270 to i64
+  %278 = getelementptr inbounds i32, ptr %276, i64 %277
+  store ptr %278, ptr %18, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %281 = sext i32 %271 to i64
-  %282 = getelementptr inbounds i32, ptr %280, i64 %281
-  store ptr %282, ptr %19, align 8, !tbaa !58
+  %279 = sext i32 %271 to i64
+  %280 = getelementptr inbounds i32, ptr %278, i64 %279
+  store ptr %280, ptr %19, align 8, !tbaa !58
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %283 = shl nsw i32 %270, 1
-  %284 = sext i32 %283 to i64
-  %285 = getelementptr inbounds i32, ptr %282, i64 %284
-  store ptr %285, ptr %20, align 8, !tbaa !58
-  %286 = load i32, ptr %5, align 4, !tbaa !40
-  %287 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %288 = load i32, ptr %287, align 8, !tbaa !32
-  call fastcc void @_ZN4ncnnL13linear_coeffsEiiPiPfi(i32 noundef %286, i32 noundef %270, ptr noundef nonnull %278, ptr noundef nonnull %282, i32 noundef %288)
-  %289 = load i32, ptr %6, align 4, !tbaa !40
-  call fastcc void @_ZN4ncnnL13linear_coeffsEiiPiPfi(i32 noundef %289, i32 noundef %271, ptr noundef nonnull %280, ptr noundef nonnull %285, i32 noundef %288)
-  %290 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %291 = load i32, ptr %290, align 4, !tbaa !49
-  call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %25, i32 %291)
+  %281 = shl nsw i32 %270, 1
+  %282 = sext i32 %281 to i64
+  %283 = getelementptr inbounds i32, ptr %280, i64 %282
+  store ptr %283, ptr %20, align 8, !tbaa !58
+  %284 = load i32, ptr %5, align 4, !tbaa !40
+  %285 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %286 = load i32, ptr %285, align 8, !tbaa !32
+  call fastcc void @_ZN4ncnnL13linear_coeffsEiiPiPfi(i32 noundef %284, i32 noundef %270, ptr noundef nonnull %276, ptr noundef nonnull %280, i32 noundef %286)
+  %287 = load i32, ptr %6, align 4, !tbaa !40
+  call fastcc void @_ZN4ncnnL13linear_coeffsEiiPiPfi(i32 noundef %287, i32 noundef %271, ptr noundef nonnull %278, ptr noundef nonnull %283, i32 noundef %286)
+  %288 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %289 = load i32, ptr %288, align 4, !tbaa !49
+  call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %25, i32 %289)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZNK4ncnn6Interp7forwardERKSt6vectorINS_3MatESaIS2_EERS4_RKNS_6OptionE.omp_outlined.7, ptr nonnull %7, ptr nonnull %26, ptr nonnull %27, ptr nonnull %19, ptr nonnull %17, ptr nonnull %20, ptr nonnull %18)
-  call void @_ZdaPv(ptr noundef nonnull %278) #19
+  call void @_ZdaPv(ptr noundef nonnull %276) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %.pre83 = load i32, ptr %236, align 8, !tbaa !4
-  br label %292
+  %.pre85 = load i32, ptr %236, align 8, !tbaa !4
+  br label %290
 
-292:                                              ; preds = %269, %266
-  %293 = phi i32 [ %.pre83, %269 ], [ %267, %266 ]
-  %294 = icmp eq i32 %293, 3
-  br i1 %294, label %295, label %_ZN4ncnn3MataSERKS0_.exit
+290:                                              ; preds = %269, %266
+  %291 = phi i32 [ %.pre85, %269 ], [ %267, %266 ]
+  %292 = icmp eq i32 %291, 3
+  br i1 %292, label %293, label %_ZN4ncnn3MataSERKS0_.exit
 
-295:                                              ; preds = %292
-  %296 = load i32, ptr %8, align 4, !tbaa !40
-  %297 = load i32, ptr %9, align 4, !tbaa !40
-  %298 = add nsw i32 %297, %296
-  %299 = mul i32 %298, 5
-  %300 = sext i32 %299 to i64
-  %301 = icmp slt i32 %299, 0
-  %302 = shl nsw i64 %300, 2
-  %303 = select i1 %301, i64 -1, i64 %302
-  %304 = call noalias noundef nonnull ptr @_Znam(i64 noundef %303) #21
+293:                                              ; preds = %290
+  %294 = load i32, ptr %8, align 4, !tbaa !40
+  %295 = load i32, ptr %9, align 4, !tbaa !40
+  %reass.add83 = add i32 %295, %294
+  %reass.mul84 = mul i32 %reass.add83, 5
+  %296 = sext i32 %reass.mul84 to i64
+  %297 = icmp slt i32 %reass.mul84, 0
+  %298 = shl nsw i64 %296, 2
+  %299 = select i1 %297, i64 -1, i64 %298
+  %300 = call noalias noundef nonnull ptr @_Znam(i64 noundef %299) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  store ptr %304, ptr %21, align 8, !tbaa !57
+  store ptr %300, ptr %21, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %305 = sext i32 %296 to i64
-  %306 = getelementptr inbounds i32, ptr %304, i64 %305
-  store ptr %306, ptr %22, align 8, !tbaa !57
+  %301 = sext i32 %294 to i64
+  %302 = getelementptr inbounds i32, ptr %300, i64 %301
+  store ptr %302, ptr %22, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %307 = sext i32 %297 to i64
-  %308 = getelementptr inbounds i32, ptr %306, i64 %307
-  store ptr %308, ptr %23, align 8, !tbaa !58
+  %303 = sext i32 %295 to i64
+  %304 = getelementptr inbounds i32, ptr %302, i64 %303
+  store ptr %304, ptr %23, align 8, !tbaa !58
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %309 = shl nsw i32 %296, 2
-  %310 = sext i32 %309 to i64
-  %311 = getelementptr inbounds i32, ptr %308, i64 %310
-  store ptr %311, ptr %24, align 8, !tbaa !58
-  %312 = load i32, ptr %5, align 4, !tbaa !40
-  %313 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %314 = load i32, ptr %313, align 8, !tbaa !32
-  call fastcc void @_ZN4ncnnL12cubic_coeffsEiiPiPfi(i32 noundef %312, i32 noundef %296, ptr noundef nonnull %304, ptr noundef nonnull %308, i32 noundef %314)
-  %315 = load i32, ptr %6, align 4, !tbaa !40
-  call fastcc void @_ZN4ncnnL12cubic_coeffsEiiPiPfi(i32 noundef %315, i32 noundef %297, ptr noundef nonnull %306, ptr noundef nonnull %311, i32 noundef %314)
-  %316 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %317 = load i32, ptr %316, align 4, !tbaa !49
-  call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %25, i32 %317)
+  %305 = shl nsw i32 %294, 2
+  %306 = sext i32 %305 to i64
+  %307 = getelementptr inbounds i32, ptr %304, i64 %306
+  store ptr %307, ptr %24, align 8, !tbaa !58
+  %308 = load i32, ptr %5, align 4, !tbaa !40
+  %309 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %310 = load i32, ptr %309, align 8, !tbaa !32
+  call fastcc void @_ZN4ncnnL12cubic_coeffsEiiPiPfi(i32 noundef %308, i32 noundef %294, ptr noundef nonnull %300, ptr noundef nonnull %304, i32 noundef %310)
+  %311 = load i32, ptr %6, align 4, !tbaa !40
+  call fastcc void @_ZN4ncnnL12cubic_coeffsEiiPiPfi(i32 noundef %311, i32 noundef %295, ptr noundef nonnull %302, ptr noundef nonnull %307, i32 noundef %310)
+  %312 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %313 = load i32, ptr %312, align 4, !tbaa !49
+  call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %25, i32 %313)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZNK4ncnn6Interp7forwardERKSt6vectorINS_3MatESaIS2_EERS4_RKNS_6OptionE.omp_outlined.8, ptr nonnull %7, ptr nonnull %26, ptr nonnull %27, ptr nonnull %23, ptr nonnull %21, ptr nonnull %24, ptr nonnull %22)
-  call void @_ZdaPv(ptr noundef nonnull %304) #19
+  call void @_ZdaPv(ptr noundef nonnull %300) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %_ZN4ncnn3MataSERKS0_.exit
 
-_ZN4ncnn3MataSERKS0_.exit:                        ; preds = %223, %106, %42, %_ZN4ncnn3Mat7releaseEv.exit, %176, %_ZN4ncnn3Mat7releaseEv.exit76, %59, %292, %295, %_ZNK4ncnn3Mat5emptyEv.exit81, %155, %158, %_ZNK4ncnn3Mat5emptyEv.exit80, %_ZNK4ncnn3Mat5emptyEv.exit, %54
-  %.0 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit81 ], [ 0, %54 ], [ -100, %106 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit80 ], [ -100, %42 ], [ 0, %155 ], [ 0, %158 ], [ 0, %295 ], [ 0, %292 ], [ 0, %59 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit76 ], [ 0, %176 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit ], [ -100, %223 ]
+_ZN4ncnn3MataSERKS0_.exit:                        ; preds = %223, %106, %42, %_ZN4ncnn3Mat7releaseEv.exit, %176, %_ZN4ncnn3Mat7releaseEv.exit76, %59, %290, %293, %_ZNK4ncnn3Mat5emptyEv.exit81, %155, %158, %_ZNK4ncnn3Mat5emptyEv.exit80, %_ZNK4ncnn3Mat5emptyEv.exit, %54
+  %.0 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit81 ], [ 0, %54 ], [ -100, %106 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit80 ], [ -100, %42 ], [ 0, %155 ], [ 0, %158 ], [ 0, %293 ], [ 0, %290 ], [ 0, %59 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit76 ], [ 0, %176 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit ], [ -100, %223 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

@@ -4455,7 +4455,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL14stbiw__outfileP19stbi__write_c
   %17 = alloca [1 x %struct.__va_list_tag], align 16
   %18 = or i32 %4, %3
   %or.cond.not = icmp sgt i32 %18, -1
-  br i1 %or.cond.not, label %19, label %134
+  br i1 %or.cond.not, label %19, label %132
 
 19:                                               ; preds = %11
   call void @llvm.va_start.p0(ptr nonnull %17)
@@ -4638,26 +4638,26 @@ _ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us.us.us.us.us.us71.us.
 _ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us.us.us.us45.us.us.preheader.i: ; preds = %._crit_edge.split.us.us.us.split.split.split.us.us.i, %.preheader.us.us.us59.preheader.i
   %indvars.iv105.in.i = phi i64 [ %33, %.preheader.us.us.us59.preheader.i ], [ %indvars.iv105.i, %._crit_edge.split.us.us.us.split.split.split.us.us.i ]
   %indvars.iv105.i = add nsw i64 %indvars.iv105.in.i, -1
-  %82 = mul nuw nsw i64 %indvars.iv105.i, %34
+  %82 = mul nuw i64 %indvars.iv105.i, %34
   br label %_ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us.us.us.us45.us.us.i
 
 _ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us.us.us.us45.us.us.i: ; preds = %_ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us.us.us.us45.us.us.i, %_ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us.us.us.us45.us.us.preheader.i
   %indvars.iv100.i = phi i64 [ 0, %_ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us.us.us.us45.us.us.preheader.i ], [ %indvars.iv.next101.i, %_ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us.us.us.us45.us.us.i ]
-  %83 = add nsw i64 %indvars.iv100.i, %82
-  %84 = mul nsw i64 %83, 3
-  %85 = getelementptr inbounds i8, ptr %7, i64 %84
+  %reass.add = add i64 %indvars.iv100.i, %82
+  %reass.mul = mul i64 %reass.add, 3
+  %83 = getelementptr inbounds i8, ptr %7, i64 %reass.mul
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 2
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 2
+  %85 = load i8, ptr %84, align 1
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 1
   %87 = load i8, ptr %86, align 1
-  %88 = getelementptr inbounds nuw i8, ptr %85, i64 1
-  %89 = load i8, ptr %88, align 1
-  %90 = load i8, ptr %85, align 1
+  %88 = load i8, ptr %83, align 1
   %.val41.i.us.us.us.us.us.us.i = load ptr, ptr %0, align 8
   %.val42.i.us.us.us.us.us.us.i = load ptr, ptr %21, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  store i8 %87, ptr %12, align 1
-  store i8 %89, ptr %22, align 1
-  store i8 %90, ptr %23, align 1
+  store i8 %85, ptr %12, align 1
+  store i8 %87, ptr %22, align 1
+  store i8 %88, ptr %23, align 1
   call void %.val41.i.us.us.us.us.us.us.i(ptr noundef %.val42.i.us.us.us.us.us.us.i, ptr noundef nonnull %12, i32 noundef 3)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -4669,14 +4669,14 @@ _ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us.us.us.us45.us.us.i: 
   %.pre159.i = load ptr, ptr %21, align 8
   %.pre.i = load ptr, ptr %0, align 8
   call void %.pre.i(ptr noundef %.pre159.i, ptr noundef nonnull %16, i32 noundef range(i32 0, 4) %9)
-  %91 = icmp eq i64 %indvars.iv105.i, 0
-  br i1 %91, label %_ZL19stbiw__write_pixelsP19stbi__write_contextiiiiiPviii.exit, label %_ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us.us.us.us45.us.us.preheader.i, !llvm.loop !55
+  %89 = icmp eq i64 %indvars.iv105.i, 0
+  br i1 %89, label %_ZL19stbiw__write_pixelsP19stbi__write_contextiiiiiPviii.exit, label %_ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us.us.us.us45.us.us.preheader.i, !llvm.loop !55
 
 .preheader.us.us.us66.i:                          ; preds = %.preheader28.split.us.split.us.i, %.preheader.us.us.us66.i
   %.131.us.us.us67.i = phi i32 [ %.1.us.us.us68.i, %.preheader.us.us.us66.i ], [ %.130.i, %.preheader28.split.us.split.us.i ]
-  %92 = load ptr, ptr %0, align 8
-  %93 = load ptr, ptr %21, align 8
-  call void %92(ptr noundef %93, ptr noundef nonnull %16, i32 noundef range(i32 0, 4) %9)
+  %90 = load ptr, ptr %0, align 8
+  %91 = load ptr, ptr %21, align 8
+  call void %90(ptr noundef %91, ptr noundef nonnull %16, i32 noundef range(i32 0, 4) %9)
   %.1.us.us.us68.i = add nsw i32 %.131.us.us.us67.i, -1
   %.not.us.us.us69.i = icmp eq i32 %.131.us.us.us67.i, 0
   br i1 %.not.us.us.us69.i, label %_ZL19stbiw__write_pixelsP19stbi__write_contextiiiiiPviii.exit, label %.preheader.us.us.us66.i, !llvm.loop !55
@@ -4684,7 +4684,7 @@ _ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us.us.us.us45.us.us.i: 
 .preheader.us.i:                                  ; preds = %._crit_edge.split.us38.i, %.preheader.us.preheader.i
   %indvars.iv92.in.i = phi i64 [ %31, %.preheader.us.preheader.i ], [ %indvars.iv92.i, %._crit_edge.split.us38.i ]
   %indvars.iv92.i = add nsw i64 %indvars.iv92.in.i, -1
-  %94 = mul nuw nsw i64 %indvars.iv92.i, %32
+  %92 = mul nuw nsw i64 %indvars.iv92.i, %32
   switch i32 %5, label %_ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us37.i [
     i32 2, label %.preheader.us.i.split.us
     i32 1, label %.preheader.us.i.split.us
@@ -4700,18 +4700,18 @@ _ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us37.i.us25.preheader: 
 
 _ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us37.i.us.us: ; preds = %.preheader.us.i.split.us, %_ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us37.i.us.us
   %indvars.iv.i.us.us = phi i64 [ %indvars.iv.next.i.us.us, %_ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us37.i.us.us ], [ 0, %.preheader.us.i.split.us ]
-  %95 = add nsw i64 %indvars.iv.i.us.us, %94
-  %96 = mul nsw i64 %95, %30
-  %97 = getelementptr inbounds i8, ptr %7, i64 %96
+  %93 = add nsw i64 %indvars.iv.i.us.us, %92
+  %94 = mul nsw i64 %93, %30
+  %95 = getelementptr inbounds i8, ptr %7, i64 %94
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  %96 = load ptr, ptr %0, align 8
+  %97 = load ptr, ptr %21, align 8
+  call void %96(ptr noundef %97, ptr noundef %95, i32 noundef 1)
   %98 = load ptr, ptr %0, align 8
   %99 = load ptr, ptr %21, align 8
-  call void %98(ptr noundef %99, ptr noundef %97, i32 noundef 1)
-  %100 = load ptr, ptr %0, align 8
-  %101 = load ptr, ptr %21, align 8
-  %102 = getelementptr i8, ptr %97, i64 %30
-  %103 = getelementptr i8, ptr %102, i64 -1
-  call void %100(ptr noundef %101, ptr noundef %103, i32 noundef 1)
+  %100 = getelementptr i8, ptr %95, i64 %30
+  %101 = getelementptr i8, ptr %100, i64 -1
+  call void %98(ptr noundef %99, ptr noundef %101, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, %32
@@ -4719,24 +4719,24 @@ _ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us37.i.us.us: ; preds =
 
 _ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us37.i.us: ; preds = %.preheader.us.i.split.us, %_ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us37.i.us
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %_ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us37.i.us ], [ 0, %.preheader.us.i.split.us ]
-  %104 = add nsw i64 %indvars.iv.i.us, %94
-  %105 = mul nsw i64 %104, %30
-  %106 = getelementptr inbounds i8, ptr %7, i64 %105
+  %102 = add nsw i64 %indvars.iv.i.us, %92
+  %103 = mul nsw i64 %102, %30
+  %104 = getelementptr inbounds i8, ptr %7, i64 %103
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %107 = load i8, ptr %106, align 1
+  %105 = load i8, ptr %104, align 1
   %.val.i.us35.i.us = load ptr, ptr %0, align 8
   %.val38.i.us36.i.us = load ptr, ptr %21, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  store i8 %107, ptr %14, align 1
-  store i8 %107, ptr %28, align 1
-  store i8 %107, ptr %29, align 1
+  store i8 %105, ptr %14, align 1
+  store i8 %105, ptr %28, align 1
+  store i8 %105, ptr %29, align 1
   call void %.val.i.us35.i.us(ptr noundef %.val38.i.us36.i.us, ptr noundef nonnull %14, i32 noundef 3)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %108 = load ptr, ptr %0, align 8
-  %109 = load ptr, ptr %21, align 8
-  %110 = getelementptr i8, ptr %106, i64 %30
-  %111 = getelementptr i8, ptr %110, i64 -1
-  call void %108(ptr noundef %109, ptr noundef %111, i32 noundef 1)
+  %106 = load ptr, ptr %0, align 8
+  %107 = load ptr, ptr %21, align 8
+  %108 = getelementptr i8, ptr %104, i64 %30
+  %109 = getelementptr i8, ptr %108, i64 -1
+  call void %106(ptr noundef %107, ptr noundef %109, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %32
@@ -4744,28 +4744,28 @@ _ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us37.i.us: ; preds = %.
 
 _ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us37.i.us25: ; preds = %_ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us37.i.us25.preheader, %_ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us37.i.us25
   %indvars.iv.i.us24 = phi i64 [ %indvars.iv.next.i.us26, %_ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us37.i.us25 ], [ 0, %_ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us37.i.us25.preheader ]
-  %112 = add nsw i64 %indvars.iv.i.us24, %94
-  %113 = mul nsw i64 %112, %30
-  %114 = getelementptr inbounds i8, ptr %7, i64 %113
+  %110 = add nsw i64 %indvars.iv.i.us24, %92
+  %111 = mul nsw i64 %110, %30
+  %112 = getelementptr inbounds i8, ptr %7, i64 %111
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 2
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 2
+  %114 = load i8, ptr %113, align 1
+  %115 = getelementptr inbounds nuw i8, ptr %112, i64 1
   %116 = load i8, ptr %115, align 1
-  %117 = getelementptr inbounds nuw i8, ptr %114, i64 1
-  %118 = load i8, ptr %117, align 1
-  %119 = load i8, ptr %114, align 1
+  %117 = load i8, ptr %112, align 1
   %.val41.i.us33.i.us = load ptr, ptr %0, align 8
   %.val42.i.us34.i.us = load ptr, ptr %21, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  store i8 %116, ptr %12, align 1
-  store i8 %118, ptr %22, align 1
-  store i8 %119, ptr %23, align 1
+  store i8 %114, ptr %12, align 1
+  store i8 %116, ptr %22, align 1
+  store i8 %117, ptr %23, align 1
   call void %.val41.i.us33.i.us(ptr noundef %.val42.i.us34.i.us, ptr noundef nonnull %12, i32 noundef 3)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %120 = load ptr, ptr %0, align 8
-  %121 = load ptr, ptr %21, align 8
-  %122 = getelementptr i8, ptr %114, i64 %30
-  %123 = getelementptr i8, ptr %122, i64 -1
-  call void %120(ptr noundef %121, ptr noundef %123, i32 noundef 1)
+  %118 = load ptr, ptr %0, align 8
+  %119 = load ptr, ptr %21, align 8
+  %120 = getelementptr i8, ptr %112, i64 %30
+  %121 = getelementptr i8, ptr %120, i64 -1
+  call void %118(ptr noundef %119, ptr noundef %121, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %indvars.iv.next.i.us26 = add nuw nsw i64 %indvars.iv.i.us24, 1
   %exitcond.not.i.us27 = icmp eq i64 %indvars.iv.next.i.us26, %32
@@ -4773,40 +4773,40 @@ _ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us37.i.us25: ; preds = 
 
 _ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us37.i: ; preds = %.preheader.us.i, %_ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us37.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us37.i ], [ 0, %.preheader.us.i ]
-  %124 = add nsw i64 %indvars.iv.i, %94
-  %125 = mul nsw i64 %124, %30
+  %122 = add nsw i64 %indvars.iv.i, %92
+  %123 = mul nsw i64 %122, %30
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %126 = load ptr, ptr %0, align 8
-  %127 = load ptr, ptr %21, align 8
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %125
-  %128 = getelementptr i8, ptr %gep, i64 -1
-  call void %126(ptr noundef %127, ptr noundef %128, i32 noundef 1)
+  %124 = load ptr, ptr %0, align 8
+  %125 = load ptr, ptr %21, align 8
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %123
+  %126 = getelementptr i8, ptr %gep, i64 -1
+  call void %124(ptr noundef %125, ptr noundef %126, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %32
   br i1 %exitcond.not.i, label %._crit_edge.split.us38.i, label %_ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us37.i, !llvm.loop !54
 
 ._crit_edge.split.us38.i:                         ; preds = %_ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us37.i.us25, %_ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us37.i.us, %_ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us37.i.us.us, %_ZL18stbiw__write_pixelP19stbi__write_contextiiiiPh.exit.us37.i
-  %129 = load ptr, ptr %0, align 8
-  %130 = load ptr, ptr %21, align 8
-  call void %129(ptr noundef %130, ptr noundef nonnull %16, i32 noundef range(i32 0, 4) %9)
-  %131 = icmp eq i64 %indvars.iv92.i, 0
-  br i1 %131, label %_ZL19stbiw__write_pixelsP19stbi__write_contextiiiiiPviii.exit, label %.preheader.us.i, !llvm.loop !55
+  %127 = load ptr, ptr %0, align 8
+  %128 = load ptr, ptr %21, align 8
+  call void %127(ptr noundef %128, ptr noundef nonnull %16, i32 noundef range(i32 0, 4) %9)
+  %129 = icmp eq i64 %indvars.iv92.i, 0
+  br i1 %129, label %_ZL19stbiw__write_pixelsP19stbi__write_contextiiiiiPviii.exit, label %.preheader.us.i, !llvm.loop !55
 
 .preheader.i:                                     ; preds = %.preheader28.i, %.preheader.i
   %.131.i = phi i32 [ %.1.i, %.preheader.i ], [ %.130.i, %.preheader28.i ]
-  %132 = load ptr, ptr %0, align 8
-  %133 = load ptr, ptr %21, align 8
-  call void %132(ptr noundef %133, ptr noundef nonnull %16, i32 noundef range(i32 0, 4) %9)
+  %130 = load ptr, ptr %0, align 8
+  %131 = load ptr, ptr %21, align 8
+  call void %130(ptr noundef %131, ptr noundef nonnull %16, i32 noundef range(i32 0, 4) %9)
   %.1.i = add nsw i32 %.131.i, -1
   %.not.i = icmp eq i32 %.131.i, 0
   br i1 %.not.i, label %_ZL19stbiw__write_pixelsP19stbi__write_contextiiiiiPviii.exit, label %.preheader.i, !llvm.loop !55
 
 _ZL19stbiw__write_pixelsP19stbi__write_contextiiiiiPviii.exit: ; preds = %._crit_edge.split.us38.i, %._crit_edge.split.us.us.us.split.split.split.us.us.i, %._crit_edge.split.us.us.us.split.split.us.us.i, %._crit_edge.split.us.us.us.split.us.us.split.split.us.us.i, %._crit_edge.split.us.us.us.split.us.us.split.us.split.us.us.us.i, %.preheader.us.us.us66.i, %.preheader.i, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %134
+  br label %132
 
-134:                                              ; preds = %11, %_ZL19stbiw__write_pixelsP19stbi__write_contextiiiiiPviii.exit
+132:                                              ; preds = %11, %_ZL19stbiw__write_pixelsP19stbi__write_contextiiiiiPviii.exit
   %.0 = phi i32 [ 1, %_ZL19stbiw__write_pixelsP19stbi__write_contextiiiiiPviii.exit ], [ 0, %11 ]
   ret i32 %.0
 }

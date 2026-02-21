@@ -1376,7 +1376,7 @@ define ptr @PGTYPESinterval_from_asc(ptr noundef %0, ptr noundef %1) local_unnam
 21:                                               ; preds = %2
   %22 = tail call ptr @__errno_location() #16
   store i32 330, ptr %22, align 4
-  br label %467
+  br label %465
 
 23:                                               ; preds = %2
   %.not = icmp eq ptr %1, null
@@ -2098,7 +2098,7 @@ DecodeISO8601Interval.exit:                       ; preds = %405, %411
 426:                                              ; preds = %.sink.split, %DecodeISO8601Interval.exit, %23
   %427 = tail call ptr @__errno_location() #16
   store i32 330, ptr %427, align 4
-  br label %467
+  br label %465
 
 .sink.split177.sink.split:                        ; preds = %AdjustFractSeconds.exit111.i, %AdjustFractSeconds.exit101.i, %228, %193, %AdjustFractSeconds.exit128.i, %315, %327, %AdjustFractSeconds.exit118.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2112,7 +2112,7 @@ DecodeISO8601Interval.exit:                       ; preds = %405, %411
 428:                                              ; preds = %.sink.split177, %DecodeISO8601Interval.exit, %26
   %429 = call ptr @pgtypes_alloc(i64 noundef 16) #14
   %.not25 = icmp eq ptr %429, null
-  br i1 %.not25, label %467, label %430
+  br i1 %.not25, label %465, label %430
 
 430:                                              ; preds = %428
   %431 = load i32, ptr %8, align 4
@@ -2123,7 +2123,7 @@ DecodeISO8601Interval.exit:                       ; preds = %405, %411
   %433 = tail call ptr @__errno_location() #16
   store i32 330, ptr %433, align 4
   call void @free(ptr noundef nonnull %429) #14
-  br label %467
+  br label %465
 
 434:                                              ; preds = %430
   %435 = load i32, ptr %14, align 4
@@ -2140,7 +2140,7 @@ tm2interval.exit:                                 ; preds = %434
   %442 = tail call ptr @__errno_location() #16
   store i32 330, ptr %442, align 4
   call void @free(ptr noundef nonnull %429) #14
-  br label %467
+  br label %465
 
 443:                                              ; preds = %434
   %444 = load i32, ptr %6, align 4
@@ -2151,27 +2151,27 @@ tm2interval.exit:                                 ; preds = %434
   store i64 %447, ptr %448, align 8
   %449 = load i32, ptr %16, align 4
   %450 = sext i32 %449 to i64
-  %451 = mul nsw i64 %450, 24
-  %452 = load i32, ptr %17, align 8
-  %453 = sext i32 %452 to i64
-  %454 = add nsw i64 %451, %453
-  %455 = mul nsw i64 %454, 60
+  %451 = load i32, ptr %17, align 8
+  %452 = sext i32 %451 to i64
+  %453 = mul nsw i64 %450, 1440
+  %454 = mul nsw i64 %452, 60
+  %455 = add nsw i64 %454, %453
   %456 = load i32, ptr %18, align 4
   %457 = sext i32 %456 to i64
-  %458 = add nsw i64 %455, %457
-  %459 = mul nsw i64 %458, 60
-  %460 = load i32, ptr %7, align 8
-  %461 = sext i32 %460 to i64
-  %462 = add nsw i64 %459, %461
-  %463 = mul i64 %462, 1000000
-  %464 = sext i32 %444 to i64
-  %465 = add i64 %463, %464
-  store i64 %465, ptr %429, align 8
-  %466 = tail call ptr @__errno_location() #16
-  store i32 0, ptr %466, align 4
-  br label %467
+  %458 = load i32, ptr %7, align 8
+  %459 = sext i32 %458 to i64
+  %460 = mul nsw i64 %459, 1000000
+  %461 = sext i32 %444 to i64
+  %462 = add nsw i64 %460, %461
+  %reass.add = add nsw i64 %455, %457
+  %reass.mul = mul i64 %reass.add, 60000000
+  %463 = add i64 %462, %reass.mul
+  store i64 %463, ptr %429, align 8
+  %464 = tail call ptr @__errno_location() #16
+  store i32 0, ptr %464, align 4
+  br label %465
 
-467:                                              ; preds = %428, %443, %tm2interval.exit, %432, %426, %21
+465:                                              ; preds = %428, %443, %tm2interval.exit, %432, %426, %21
   %.0 = phi ptr [ null, %21 ], [ null, %426 ], [ null, %432 ], [ null, %tm2interval.exit ], [ %429, %443 ], [ null, %428 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

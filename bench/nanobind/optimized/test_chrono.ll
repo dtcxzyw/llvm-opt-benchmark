@@ -1613,95 +1613,95 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail15duration_cas
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %.not25 = icmp eq ptr %1, null
-  br i1 %.not25, label %38, label %8
+  br i1 %.not25, label %36, label %8
 
 8:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = invoke noundef zeroext i1 @_ZN8nanobind6detail16unpack_timedeltaEP7_objectPiS3_S3_(ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #15
-          to label %10 unwind label %23
+          to label %10 unwind label %21
 
 10:                                               ; preds = %8
-  br i1 %9, label %11, label %29
+  br i1 %9, label %11, label %27
 
 11:                                               ; preds = %10
   %12 = load i32, ptr %5, align 4, !tbaa !90
   %13 = load i32, ptr %6, align 4, !tbaa !90
   %14 = sext i32 %13 to i64
   %15 = sext i32 %12 to i64
-  %16 = mul nsw i64 %15, 86400
-  %17 = add nsw i64 %16, %14
-  %18 = load i32, ptr %7, align 4, !tbaa !90
-  %19 = sext i32 %18 to i64
-  %20 = mul nsw i64 %17, 1000000
-  %21 = add nsw i64 %20, %19
-  %22 = mul nsw i64 %21, 1000
+  %16 = load i32, ptr %7, align 4, !tbaa !90
+  %17 = sext i32 %16 to i64
+  %18 = mul i64 %15, 86400000000
+  %19 = mul nsw i64 %14, 1000000
+  %20 = add nsw i64 %19, %18
+  %reass.add = add i64 %20, %17
+  %reass.mul = mul i64 %reass.add, 1000
   br label %.sink.split
 
-23:                                               ; preds = %8
-  %24 = landingpad { ptr, i32 }
+21:                                               ; preds = %8
+  %22 = landingpad { ptr, i32 }
           catch ptr @_ZTIN8nanobind12python_errorE
           catch ptr null
-  %.07 = extractvalue { ptr, i32 } %24, 0
-  %.09 = extractvalue { ptr, i32 } %24, 1
-  %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nanobind12python_errorE) #17
-  %26 = icmp eq i32 %.09, %25
-  br i1 %26, label %27, label %42
+  %.07 = extractvalue { ptr, i32 } %22, 0
+  %.09 = extractvalue { ptr, i32 } %22, 1
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nanobind12python_errorE) #17
+  %24 = icmp eq i32 %.09, %23
+  br i1 %24, label %25, label %40
 
-27:                                               ; preds = %23
-  %28 = call ptr @__cxa_begin_catch(ptr %.07) #17
-  call void @_ZN8nanobind12python_error21discard_as_unraisableENS_6handleE(ptr noundef nonnull align 8 dereferenceable(40) %28, ptr nonnull %1) #16
+25:                                               ; preds = %21
+  %26 = call ptr @__cxa_begin_catch(ptr %.07) #17
+  call void @_ZN8nanobind12python_error21discard_as_unraisableENS_6handleE(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr nonnull %1) #16
   invoke void @__cxa_end_catch()
-          to label %37 unwind label %39
+          to label %35 unwind label %37
 
-29:                                               ; preds = %10
-  %30 = getelementptr i8, ptr %1, i64 8
-  %.val = load ptr, ptr %30, align 8, !tbaa !92
+27:                                               ; preds = %10
+  %28 = getelementptr i8, ptr %1, i64 8
+  %.val = load ptr, ptr %28, align 8, !tbaa !92
   %.not.i = icmp eq ptr %.val, @PyFloat_Type
-  br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, label %31
+  br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, label %29
 
-31:                                               ; preds = %29
-  %32 = invoke i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyFloat_Type) #15
-          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit unwind label %39
+29:                                               ; preds = %27
+  %30 = invoke i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyFloat_Type) #15
+          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit unwind label %37
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %31
-  %.not = icmp eq i32 %32, 0
-  br i1 %.not, label %37, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %29
+  %.not = icmp eq i32 %30, 0
+  br i1 %.not, label %35, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %29, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
-  %33 = invoke double @PyFloat_AsDouble(ptr noundef nonnull %1) #15
-          to label %34 unwind label %39
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %27, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+  %31 = invoke double @PyFloat_AsDouble(ptr noundef nonnull %1) #15
+          to label %32 unwind label %37
 
-34:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
-  %35 = fmul double %33, 1.000000e+09
-  %36 = fptosi double %35 to i64
+32:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+  %33 = fmul double %31, 1.000000e+09
+  %34 = fptosi double %33 to i64
   br label %.sink.split
 
-.sink.split:                                      ; preds = %11, %34
-  %.sink = phi i64 [ %36, %34 ], [ %22, %11 ]
+.sink.split:                                      ; preds = %11, %32
+  %.sink = phi i64 [ %34, %32 ], [ %reass.mul, %11 ]
   store i64 %.sink, ptr %0, align 8, !tbaa !78
-  br label %37
+  br label %35
 
-37:                                               ; preds = %.sink.split, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit, %27
-  %.1 = phi i1 [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ], [ false, %27 ], [ true, %.sink.split ]
+35:                                               ; preds = %.sink.split, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit, %25
+  %.1 = phi i1 [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ], [ false, %25 ], [ true, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %38
+  br label %36
 
-38:                                               ; preds = %4, %37
-  %.0 = phi i1 [ %.1, %37 ], [ false, %4 ]
+36:                                               ; preds = %4, %35
+  %.0 = phi i1 [ %.1, %35 ], [ false, %4 ]
   ret i1 %.0
 
-39:                                               ; preds = %31, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, %27
-  %40 = landingpad { ptr, i32 }
+37:                                               ; preds = %29, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, %25
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #18
+  %39 = extractvalue { ptr, i32 } %38, 0
+  call void @__clang_call_terminate(ptr %39) #18
   unreachable
 
-42:                                               ; preds = %23
+40:                                               ; preds = %21
   call void @__clang_call_terminate(ptr %.07) #18
   unreachable
 }
@@ -1935,95 +1935,95 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail15duration_cas
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %.not28 = icmp eq ptr %1, null
-  br i1 %.not28, label %38, label %8
+  br i1 %.not28, label %36, label %8
 
 8:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = invoke noundef zeroext i1 @_ZN8nanobind6detail16unpack_timedeltaEP7_objectPiS3_S3_(ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #15
-          to label %10 unwind label %23
+          to label %10 unwind label %21
 
 10:                                               ; preds = %8
-  br i1 %9, label %11, label %29
+  br i1 %9, label %11, label %27
 
 11:                                               ; preds = %10
   %12 = load i32, ptr %5, align 4, !tbaa !90
   %13 = load i32, ptr %6, align 4, !tbaa !90
   %14 = sext i32 %13 to i64
   %15 = sext i32 %12 to i64
-  %16 = mul nsw i64 %15, 86400
-  %17 = add nsw i64 %16, %14
-  %18 = load i32, ptr %7, align 4, !tbaa !90
-  %19 = sext i32 %18 to i64
-  %20 = mul nsw i64 %17, 1000000
-  %21 = add nsw i64 %20, %19
-  %22 = mul nsw i64 %21, 1000
+  %16 = load i32, ptr %7, align 4, !tbaa !90
+  %17 = sext i32 %16 to i64
+  %18 = mul i64 %15, 86400000000
+  %19 = mul nsw i64 %14, 1000000
+  %20 = add nsw i64 %19, %18
+  %reass.add = add i64 %20, %17
+  %reass.mul = mul i64 %reass.add, 1000
   br label %.sink.split
 
-23:                                               ; preds = %8
-  %24 = landingpad { ptr, i32 }
+21:                                               ; preds = %8
+  %22 = landingpad { ptr, i32 }
           catch ptr @_ZTIN8nanobind12python_errorE
           catch ptr null
-  %.06 = extractvalue { ptr, i32 } %24, 0
-  %.08 = extractvalue { ptr, i32 } %24, 1
-  %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nanobind12python_errorE) #17
-  %26 = icmp eq i32 %.08, %25
-  br i1 %26, label %27, label %42
+  %.06 = extractvalue { ptr, i32 } %22, 0
+  %.08 = extractvalue { ptr, i32 } %22, 1
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nanobind12python_errorE) #17
+  %24 = icmp eq i32 %.08, %23
+  br i1 %24, label %25, label %40
 
-27:                                               ; preds = %23
-  %28 = call ptr @__cxa_begin_catch(ptr %.06) #17
-  call void @_ZN8nanobind12python_error21discard_as_unraisableENS_6handleE(ptr noundef nonnull align 8 dereferenceable(40) %28, ptr nonnull %1) #16
+25:                                               ; preds = %21
+  %26 = call ptr @__cxa_begin_catch(ptr %.06) #17
+  call void @_ZN8nanobind12python_error21discard_as_unraisableENS_6handleE(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr nonnull %1) #16
   invoke void @__cxa_end_catch()
-          to label %37 unwind label %39
+          to label %35 unwind label %37
 
-29:                                               ; preds = %10
-  %30 = getelementptr i8, ptr %1, i64 8
-  %.val = load ptr, ptr %30, align 8, !tbaa !92
+27:                                               ; preds = %10
+  %28 = getelementptr i8, ptr %1, i64 8
+  %.val = load ptr, ptr %28, align 8, !tbaa !92
   %.not.i = icmp eq ptr %.val, @PyFloat_Type
-  br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, label %31
+  br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, label %29
 
-31:                                               ; preds = %29
-  %32 = invoke i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyFloat_Type) #15
-          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit unwind label %39
+29:                                               ; preds = %27
+  %30 = invoke i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyFloat_Type) #15
+          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit unwind label %37
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %31
-  %.not = icmp eq i32 %32, 0
-  br i1 %.not, label %37, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %29
+  %.not = icmp eq i32 %30, 0
+  br i1 %.not, label %35, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %29, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
-  %33 = invoke double @PyFloat_AsDouble(ptr noundef nonnull %1) #15
-          to label %34 unwind label %39
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %27, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+  %31 = invoke double @PyFloat_AsDouble(ptr noundef nonnull %1) #15
+          to label %32 unwind label %37
 
-34:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
-  %35 = fmul double %33, 1.000000e+09
-  %36 = fptosi double %35 to i64
+32:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
+  %33 = fmul double %31, 1.000000e+09
+  %34 = fptosi double %33 to i64
   br label %.sink.split
 
-.sink.split:                                      ; preds = %11, %34
-  %.sink = phi i64 [ %36, %34 ], [ %22, %11 ]
+.sink.split:                                      ; preds = %11, %32
+  %.sink = phi i64 [ %34, %32 ], [ %reass.mul, %11 ]
   store i64 %.sink, ptr %0, align 8, !tbaa !78
-  br label %37
+  br label %35
 
-37:                                               ; preds = %.sink.split, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit, %27
-  %.1 = phi i1 [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ], [ false, %27 ], [ true, %.sink.split ]
+35:                                               ; preds = %.sink.split, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit, %25
+  %.1 = phi i1 [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ], [ false, %25 ], [ true, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %38
+  br label %36
 
-38:                                               ; preds = %4, %37
-  %.0 = phi i1 [ %.1, %37 ], [ false, %4 ]
+36:                                               ; preds = %4, %35
+  %.0 = phi i1 [ %.1, %35 ], [ false, %4 ]
   ret i1 %.0
 
-39:                                               ; preds = %31, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, %27
-  %40 = landingpad { ptr, i32 }
+37:                                               ; preds = %29, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, %25
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #18
+  %39 = extractvalue { ptr, i32 } %38, 0
+  call void @__clang_call_terminate(ptr %39) #18
   unreachable
 
-42:                                               ; preds = %23
+40:                                               ; preds = %21
   call void @__clang_call_terminate(ptr %.06) #18
   unreachable
 }
@@ -2075,12 +2075,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail15duration_cas
   %13 = load i32, ptr %6, align 4, !tbaa !90
   %14 = sext i32 %13 to i64
   %15 = sext i32 %12 to i64
-  %16 = mul nsw i64 %15, 86400
-  %17 = add nsw i64 %16, %14
-  %18 = load i32, ptr %7, align 4, !tbaa !90
-  %19 = sext i32 %18 to i64
-  %20 = mul nsw i64 %17, 1000000
-  %21 = add nsw i64 %20, %19
+  %16 = load i32, ptr %7, align 4, !tbaa !90
+  %17 = sext i32 %16 to i64
+  %18 = mul i64 %15, 86400000000
+  %19 = mul nsw i64 %14, 1000000
+  %20 = add nsw i64 %19, %18
+  %21 = add nsw i64 %20, %17
   br label %.sink.split
 
 22:                                               ; preds = %8
@@ -2254,12 +2254,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail15duration_cas
   %13 = load i32, ptr %6, align 4, !tbaa !90
   %14 = sext i32 %13 to i64
   %15 = sext i32 %12 to i64
-  %16 = mul nsw i64 %15, 86400
-  %17 = add nsw i64 %16, %14
-  %18 = load i32, ptr %7, align 4, !tbaa !90
-  %19 = sext i32 %18 to i64
-  %20 = mul nsw i64 %17, 1000000
-  %21 = add nsw i64 %20, %19
+  %16 = load i32, ptr %7, align 4, !tbaa !90
+  %17 = sext i32 %16 to i64
+  %18 = mul i64 %15, 86400000000
+  %19 = mul nsw i64 %14, 1000000
+  %20 = add nsw i64 %19, %18
+  %21 = add nsw i64 %20, %17
   %22 = sitofp i64 %21 to float
   %23 = fdiv float %22, 1.000000e+06
   br label %.sink.split

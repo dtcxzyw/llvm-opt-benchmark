@@ -827,11 +827,11 @@ define dso_local double @php_combined_lcg() local_unnamed_addr #0 {
   %1 = alloca i64, align 8
   %2 = load i8, ptr @random_globals, align 4, !tbaa !84, !range !77, !noundef !78
   %3 = trunc nuw i8 %2 to i1
-  br i1 %3, label %._crit_edge28, label %4
+  br i1 %3, label %._crit_edge30, label %4
 
-._crit_edge28:                                    ; preds = %0
-  %.pre29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 4, !tbaa !85
-  %.pre30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 28), align 4, !tbaa !85
+._crit_edge30:                                    ; preds = %0
+  %.pre31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 4, !tbaa !85
+  %.pre32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 28), align 4, !tbaa !85
   br label %14
 
 4:                                                ; preds = %0
@@ -858,37 +858,33 @@ define dso_local double @php_combined_lcg() local_unnamed_addr #0 {
   %13 = trunc nuw i64 %12 to i32
   br label %14
 
-14:                                               ; preds = %._crit_edge28, %9
-  %15 = phi i32 [ %.pre30, %._crit_edge28 ], [ %13, %9 ]
-  %16 = phi i32 [ %.pre29, %._crit_edge28 ], [ %11, %9 ]
+14:                                               ; preds = %._crit_edge30, %9
+  %15 = phi i32 [ %.pre32, %._crit_edge30 ], [ %13, %9 ]
+  %16 = phi i32 [ %.pre31, %._crit_edge30 ], [ %11, %9 ]
   %17 = sdiv i32 %16, 53668
-  %.neg = mul nsw i32 %17, -53668
-  %18 = add i32 %.neg, %16
-  %19 = mul nsw i32 %18, 40014
-  %.neg23 = mul nsw i32 %17, -12211
-  %20 = add i32 %19, %.neg23
-  %21 = icmp slt i32 %20, 0
-  %narrow = add nsw i32 %20, 2147483563
-  %spec.select = select i1 %21, i32 %narrow, i32 %20
+  %18 = mul nsw i32 %16, 40014
+  %reass.mul = mul i32 %17, -2147483563
+  %19 = add i32 %reass.mul, %18
+  %20 = icmp slt i32 %19, 0
+  %narrow = add nsw i32 %19, 2147483563
+  %spec.select = select i1 %20, i32 %narrow, i32 %19
   store i32 %spec.select, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 4, !tbaa !85
-  %22 = sdiv i32 %15, 52774
-  %.neg24 = mul nsw i32 %22, -52774
-  %23 = add i32 %.neg24, %15
-  %24 = mul nsw i32 %23, 40692
-  %.neg25 = mul nsw i32 %22, -3791
-  %25 = add i32 %24, %.neg25
-  %26 = icmp slt i32 %25, 0
-  %narrow26 = add nsw i32 %25, 2147483399
-  %storemerge27 = select i1 %26, i32 %narrow26, i32 %25
+  %21 = sdiv i32 %15, 52774
+  %22 = mul nsw i32 %15, 40692
+  %reass.mul29 = mul i32 %21, -2147483399
+  %23 = add i32 %reass.mul29, %22
+  %24 = icmp slt i32 %23, 0
+  %narrow26 = add nsw i32 %23, 2147483399
+  %storemerge27 = select i1 %24, i32 %narrow26, i32 %23
   store i32 %storemerge27, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 28), align 4, !tbaa !85
-  %27 = sub nsw i32 %spec.select, %storemerge27
-  %28 = icmp slt i32 %27, 1
-  %29 = add nsw i32 %27, 2147483562
-  %.0 = select i1 %28, i32 %29, i32 %27
-  %30 = sext i32 %.0 to i64
-  %31 = uitofp i64 %30 to double
-  %32 = fmul nnan double %31, 0x3E00000007510C0E
-  ret double %32
+  %25 = sub nsw i32 %spec.select, %storemerge27
+  %26 = icmp slt i32 %25, 1
+  %27 = add nsw i32 %25, 2147483562
+  %.0 = select i1 %26, i32 %27, i32 %25
+  %28 = sext i32 %.0 to i64
+  %29 = uitofp i64 %28 to double
+  %30 = fmul nnan double %29, 0x3E00000007510C0E
+  ret double %30
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1007,16 +1003,16 @@ define hidden void @zif_lcg_value(ptr noundef readonly captures(none) %0, ptr no
 
 6:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #17
-  br label %39
+  br label %37
 
 7:                                                ; preds = %2
   %8 = load i8, ptr @random_globals, align 4, !tbaa !84, !range !77, !noundef !78
   %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %._crit_edge28.i, label %10
+  br i1 %9, label %._crit_edge30.i, label %10
 
-._crit_edge28.i:                                  ; preds = %7
-  %.pre29.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 4, !tbaa !85
-  %.pre30.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 28), align 4, !tbaa !85
+._crit_edge30.i:                                  ; preds = %7
+  %.pre31.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 4, !tbaa !85
+  %.pre32.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 28), align 4, !tbaa !85
   br label %php_combined_lcg.exit
 
 10:                                               ; preds = %7
@@ -1043,42 +1039,38 @@ define hidden void @zif_lcg_value(ptr noundef readonly captures(none) %0, ptr no
   %19 = trunc nuw i64 %18 to i32
   br label %php_combined_lcg.exit
 
-php_combined_lcg.exit:                            ; preds = %._crit_edge28.i, %15
-  %20 = phi i32 [ %.pre30.i, %._crit_edge28.i ], [ %19, %15 ]
-  %21 = phi i32 [ %.pre29.i, %._crit_edge28.i ], [ %17, %15 ]
+php_combined_lcg.exit:                            ; preds = %._crit_edge30.i, %15
+  %20 = phi i32 [ %.pre32.i, %._crit_edge30.i ], [ %19, %15 ]
+  %21 = phi i32 [ %.pre31.i, %._crit_edge30.i ], [ %17, %15 ]
   %22 = sdiv i32 %21, 53668
-  %.neg.i = mul nsw i32 %22, -53668
-  %23 = add i32 %.neg.i, %21
-  %24 = mul nsw i32 %23, 40014
-  %.neg23.i = mul nsw i32 %22, -12211
-  %25 = add i32 %24, %.neg23.i
-  %26 = icmp slt i32 %25, 0
-  %narrow.i = add nsw i32 %25, 2147483563
-  %spec.select.i = select i1 %26, i32 %narrow.i, i32 %25
+  %23 = mul nsw i32 %21, 40014
+  %reass.mul.i = mul i32 %22, -2147483563
+  %24 = add i32 %reass.mul.i, %23
+  %25 = icmp slt i32 %24, 0
+  %narrow.i = add nsw i32 %24, 2147483563
+  %spec.select.i = select i1 %25, i32 %narrow.i, i32 %24
   store i32 %spec.select.i, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 24), align 4, !tbaa !85
-  %27 = sdiv i32 %20, 52774
-  %.neg24.i = mul nsw i32 %27, -52774
-  %28 = add i32 %.neg24.i, %20
-  %29 = mul nsw i32 %28, 40692
-  %.neg25.i = mul nsw i32 %27, -3791
-  %30 = add i32 %29, %.neg25.i
-  %31 = icmp slt i32 %30, 0
-  %narrow26.i = add nsw i32 %30, 2147483399
-  %storemerge27.i = select i1 %31, i32 %narrow26.i, i32 %30
+  %26 = sdiv i32 %20, 52774
+  %27 = mul nsw i32 %20, 40692
+  %reass.mul29.i = mul i32 %26, -2147483399
+  %28 = add i32 %reass.mul29.i, %27
+  %29 = icmp slt i32 %28, 0
+  %narrow26.i = add nsw i32 %28, 2147483399
+  %storemerge27.i = select i1 %29, i32 %narrow26.i, i32 %28
   store i32 %storemerge27.i, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 28), align 4, !tbaa !85
-  %32 = sub nsw i32 %spec.select.i, %storemerge27.i
-  %33 = icmp slt i32 %32, 1
-  %34 = add nsw i32 %32, 2147483562
-  %.0.i = select i1 %33, i32 %34, i32 %32
-  %35 = sext i32 %.0.i to i64
-  %36 = uitofp i64 %35 to double
-  %37 = fmul nnan double %36, 0x3E00000007510C0E
-  store double %37, ptr %1, align 8, !tbaa !71
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 5, ptr %38, align 8, !tbaa !71
-  br label %39
+  %30 = sub nsw i32 %spec.select.i, %storemerge27.i
+  %31 = icmp slt i32 %30, 1
+  %32 = add nsw i32 %30, 2147483562
+  %.0.i = select i1 %31, i32 %32, i32 %30
+  %33 = sext i32 %.0.i to i64
+  %34 = uitofp i64 %33 to double
+  %35 = fmul nnan double %34, 0x3E00000007510C0E
+  store double %35, ptr %1, align 8, !tbaa !71
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 5, ptr %36, align 8, !tbaa !71
+  br label %37
 
-39:                                               ; preds = %php_combined_lcg.exit, %6
+37:                                               ; preds = %php_combined_lcg.exit, %6
   ret void
 }
 

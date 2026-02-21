@@ -561,27 +561,26 @@ define hidden void @av1_cdef_filter_fb(ptr noundef writeonly captures(address_is
   %39 = shl i32 %38, %28
   %40 = shl i32 %34, %23
   %41 = shl i32 %37, %22
-  %42 = sext i32 %40 to i64
-  %43 = sext i32 %41 to i64
-  %invariant.gep = getelementptr i16, ptr %3, i64 %43
-  br label %44
+  br label %42
 
-44:                                               ; preds = %.lr.ph179.us, %44
-  %indvars.iv205 = phi i64 [ 0, %.lr.ph179.us ], [ %indvars.iv.next206, %44 ]
-  %45 = trunc nuw nsw i64 %indvars.iv205 to i32
-  %46 = shl i32 %45, %22
-  %47 = add nsw i32 %46, %39
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i16, ptr %1, i64 %48
-  %50 = add nsw i64 %indvars.iv205, %42
-  %.idx221 = mul i64 %50, 288
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx221
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %49, ptr align 2 %gep, i64 %30, i1 false)
+42:                                               ; preds = %.lr.ph179.us, %42
+  %indvars.iv205 = phi i64 [ 0, %.lr.ph179.us ], [ %indvars.iv.next206, %42 ]
+  %43 = trunc nuw nsw i64 %indvars.iv205 to i32
+  %44 = shl i32 %43, %22
+  %45 = add nsw i32 %44, %39
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds i16, ptr %1, i64 %46
+  %reass.add.us = add i32 %40, %43
+  %reass.mul.us = mul i32 %reass.add.us, 144
+  %48 = add i32 %reass.mul.us, %41
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds i16, ptr %3, i64 %49
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %47, ptr align 2 %50, i64 %30, i1 false)
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %exitcond210.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count209
-  br i1 %exitcond210.not, label %._crit_edge180.us, label %44, !llvm.loop !16
+  br i1 %exitcond210.not, label %._crit_edge180.us, label %42, !llvm.loop !16
 
-._crit_edge180.us:                                ; preds = %44
+._crit_edge180.us:                                ; preds = %42
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %exitcond215.not = icmp eq i64 %indvars.iv.next212, %wide.trip.count214
   br i1 %exitcond215.not, label %.loopexit, label %.lr.ph179.us, !llvm.loop !17
@@ -669,11 +668,11 @@ define hidden void @av1_cdef_filter_fb(ptr noundef writeonly captures(address_is
   br i1 %exitcond194.not, label %.thread.thread, label %73, !llvm.loop !19
 
 .thread.thread:                                   ; preds = %73
-  %.not155222 = icmp eq i32 %5, 0
-  %.not157223 = icmp eq i32 %4, 0
-  %86 = select i1 %.not157223, i32 2, i32 0
-  %87 = select i1 %.not157223, i32 3, i32 1
-  %88 = select i1 %.not155222, i32 %87, i32 %86
+  %.not155221 = icmp eq i32 %5, 0
+  %.not157222 = icmp eq i32 %4, 0
+  %86 = select i1 %.not157222, i32 2, i32 0
+  %87 = select i1 %.not157222, i32 3, i32 1
+  %88 = select i1 %.not155221, i32 %87, i32 %86
   br label %.lr.ph176
 
 .thread:                                          ; preds = %._crit_edge, %70, %53, %51, %71

@@ -4251,81 +4251,81 @@ define dso_local void @_ZN4pbrt15DebugMLTSampler6CreateEN4pstd4spanIKNSt7__cxx11
   %26 = or disjoint i64 %25, 1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %26, ptr %27, align 8, !tbaa !220
-  %28 = add i64 %24, %26
-  %29 = mul i64 %28, 6364136223846793005
-  %30 = add i64 %29, %26
-  store i64 %30, ptr %5, align 8, !tbaa !219
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float 5.000000e-01, ptr %31, align 8, !tbaa !260
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float 5.000000e-01, ptr %32, align 4, !tbaa !261
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %3, ptr %33, align 8, !tbaa !248
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %35 = tail call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #30
-  %36 = ptrtoint ptr %35 to i64
-  store i64 %36, ptr %34, align 8, !tbaa !184
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 32, i1 false)
-  store i8 1, ptr %38, align 8, !tbaa !258
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 0, ptr %39, align 8, !tbaa !255
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
+  %reass.add = add i64 %24, %26
+  %reass.mul = mul i64 %reass.add, 6364136223846793005
+  %28 = add i64 %reass.mul, %26
+  store i64 %28, ptr %5, align 8, !tbaa !219
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store float 5.000000e-01, ptr %29, align 8, !tbaa !260
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store float 5.000000e-01, ptr %30, align 4, !tbaa !261
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %3, ptr %31, align 8, !tbaa !248
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %33 = tail call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #30
+  %34 = ptrtoint ptr %33 to i64
+  store i64 %34, ptr %32, align 8, !tbaa !184
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, i8 0, i64 32, i1 false)
+  store i8 1, ptr %36, align 8, !tbaa !258
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i64 0, ptr %37, align 8, !tbaa !255
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %._crit_edge, label %41
+  br i1 %.not, label %._crit_edge, label %39
 
-41:                                               ; preds = %4
-  invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %40, i64 noundef %2)
-          to label %.lr.ph unwind label %44
+39:                                               ; preds = %4
+  invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %38, i64 noundef %2)
+          to label %.lr.ph unwind label %42
 
-42:                                               ; preds = %53
-  %43 = add nuw i64 %.0814, 1
-  %exitcond.not = icmp eq i64 %43, %2
+40:                                               ; preds = %51
+  %41 = add nuw i64 %.0814, 1
+  %exitcond.not = icmp eq i64 %41, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !272
 
-44:                                               ; preds = %41
-  %45 = landingpad { ptr, i32 }
+42:                                               ; preds = %39
+  %43 = landingpad { ptr, i32 }
           cleanup
-  br label %56
+  br label %54
 
 .loopexit:                                        ; preds = %.lr.ph
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %56
+  br label %54
 
-.loopexit.split-lp:                               ; preds = %54
+.loopexit.split-lp:                               ; preds = %52
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %56
+  br label %54
 
-.lr.ph:                                           ; preds = %41, %42
-  %.0814 = phi i64 [ %43, %42 ], [ 0, %41 ]
-  %46 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1, i64 %.0814
-  %47 = load ptr, ptr %46, align 8, !tbaa !79
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %49 = load i64, ptr %48, align 8, !tbaa !64
-  %50 = load ptr, ptr %40, align 8, !tbaa !273
-  %51 = getelementptr inbounds nuw float, ptr %50, i64 %.0814
-  %52 = invoke noundef zeroext i1 @_ZN4pbrt4AtofESt17basic_string_viewIcSt11char_traitsIcEEPf(i64 %49, ptr %47, ptr noundef nonnull %51)
-          to label %53 unwind label %.loopexit
+.lr.ph:                                           ; preds = %39, %40
+  %.0814 = phi i64 [ %41, %40 ], [ 0, %39 ]
+  %44 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1, i64 %.0814
+  %45 = load ptr, ptr %44, align 8, !tbaa !79
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %47 = load i64, ptr %46, align 8, !tbaa !64
+  %48 = load ptr, ptr %38, align 8, !tbaa !273
+  %49 = getelementptr inbounds nuw float, ptr %48, i64 %.0814
+  %50 = invoke noundef zeroext i1 @_ZN4pbrt4AtofESt17basic_string_viewIcSt11char_traitsIcEEPf(i64 %47, ptr %45, ptr noundef nonnull %49)
+          to label %51 unwind label %.loopexit
 
-53:                                               ; preds = %.lr.ph
-  br i1 %52, label %42, label %54
+51:                                               ; preds = %.lr.ph
+  br i1 %50, label %40, label %52
 
-54:                                               ; preds = %53
-  invoke void @_ZN4pbrt9ErrorExitIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKcDpOT_(ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %46) #28
-          to label %55 unwind label %.loopexit.split-lp
+52:                                               ; preds = %51
+  invoke void @_ZN4pbrt9ErrorExitIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKcDpOT_(ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %44) #28
+          to label %53 unwind label %.loopexit.split-lp
 
-55:                                               ; preds = %54
+53:                                               ; preds = %52
   unreachable
 
-._crit_edge:                                      ; preds = %42, %4
+._crit_edge:                                      ; preds = %40, %4
   ret void
 
-56:                                               ; preds = %.loopexit, %.loopexit.split-lp, %44
-  %.pn = phi { ptr, i32 } [ %45, %44 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+54:                                               ; preds = %.loopexit, %.loopexit.split-lp, %42
+  %.pn = phi { ptr, i32 } [ %43, %42 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   tail call void @_ZN4pbrt15DebugMLTSamplerD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #30
   resume { ptr, i32 } %.pn
 }

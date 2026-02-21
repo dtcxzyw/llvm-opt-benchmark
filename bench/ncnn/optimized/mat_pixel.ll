@@ -2755,64 +2755,64 @@ define hidden void @_ZN4ncnn3Mat15from_pixels_roiEPKhiiiiiiiPNS_9AllocatorE(ptr 
   store i64 0, ptr %23, align 8, !tbaa !17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %22, i8 0, i64 28, i1 false)
-  br label %56
+  br label %54
 
 24:                                               ; preds = %10
   %25 = and i32 %2, 65535
   %26 = add nsw i32 %25, -1
   %or.cond7 = icmp ult i32 %26, 2
-  br i1 %or.cond7, label %27, label %34
+  br i1 %or.cond7, label %27, label %32
 
 27:                                               ; preds = %24
-  %28 = mul nsw i32 %6, %3
-  %29 = add nuw nsw i32 %28, %5
-  %30 = mul nsw i32 %29, 3
-  %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 %31
-  %33 = mul nsw i32 %3, 3
-  tail call void @_ZN4ncnn3Mat11from_pixelsEPKhiiiiPNS_9AllocatorE(ptr dead_on_unwind writable sret(%"class.ncnn::Mat") align 8 %0, ptr noundef %32, i32 noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef %33, ptr noundef %9)
-  br label %56
+  %28 = mul i32 %6, %3
+  %reass.add = add i32 %28, %5
+  %reass.mul = mul i32 %reass.add, 3
+  %29 = zext nneg i32 %reass.mul to i64
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %29
+  %31 = mul nsw i32 %3, 3
+  tail call void @_ZN4ncnn3Mat11from_pixelsEPKhiiiiPNS_9AllocatorE(ptr dead_on_unwind writable sret(%"class.ncnn::Mat") align 8 %0, ptr noundef %30, i32 noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef %31, ptr noundef %9)
+  br label %54
 
-34:                                               ; preds = %24
-  %35 = icmp eq i32 %25, 3
-  br i1 %35, label %36, label %41
+32:                                               ; preds = %24
+  %33 = icmp eq i32 %25, 3
+  br i1 %33, label %34, label %39
 
-36:                                               ; preds = %34
-  %37 = mul nsw i32 %6, %3
-  %38 = add nuw nsw i32 %37, %5
-  %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 %39
-  tail call void @_ZN4ncnn3Mat11from_pixelsEPKhiiiiPNS_9AllocatorE(ptr dead_on_unwind writable sret(%"class.ncnn::Mat") align 8 %0, ptr noundef %40, i32 noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef %3, ptr noundef %9)
-  br label %56
+34:                                               ; preds = %32
+  %35 = mul nsw i32 %6, %3
+  %36 = add nuw nsw i32 %35, %5
+  %37 = zext nneg i32 %36 to i64
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 %37
+  tail call void @_ZN4ncnn3Mat11from_pixelsEPKhiiiiPNS_9AllocatorE(ptr dead_on_unwind writable sret(%"class.ncnn::Mat") align 8 %0, ptr noundef %38, i32 noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef %3, ptr noundef %9)
+  br label %54
 
-41:                                               ; preds = %34
-  %42 = and i32 %2, 65534
-  %or.cond9 = icmp eq i32 %42, 4
-  br i1 %or.cond9, label %43, label %50
+39:                                               ; preds = %32
+  %40 = and i32 %2, 65534
+  %or.cond9 = icmp eq i32 %40, 4
+  br i1 %or.cond9, label %41, label %48
 
-43:                                               ; preds = %41
-  %44 = mul nsw i32 %6, %3
-  %45 = add nuw nsw i32 %44, %5
-  %46 = shl nsw i32 %45, 2
-  %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 %47
-  %49 = shl nsw i32 %3, 2
-  tail call void @_ZN4ncnn3Mat11from_pixelsEPKhiiiiPNS_9AllocatorE(ptr dead_on_unwind writable sret(%"class.ncnn::Mat") align 8 %0, ptr noundef %48, i32 noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef %49, ptr noundef %9)
-  br label %56
+41:                                               ; preds = %39
+  %42 = mul nsw i32 %6, %3
+  %43 = add nuw nsw i32 %42, %5
+  %44 = shl nsw i32 %43, 2
+  %45 = zext nneg i32 %44 to i64
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 %45
+  %47 = shl nsw i32 %3, 2
+  tail call void @_ZN4ncnn3Mat11from_pixelsEPKhiiiiPNS_9AllocatorE(ptr dead_on_unwind writable sret(%"class.ncnn::Mat") align 8 %0, ptr noundef %46, i32 noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef %47, ptr noundef %9)
+  br label %54
 
-50:                                               ; preds = %41
+48:                                               ; preds = %39
+  %49 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str, i32 noundef %2) #13
   %51 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str, i32 noundef %2) #13
-  %53 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %fputc = tail call i32 @fputc(i32 10, ptr %53)
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 0, ptr %55, align 8, !tbaa !17
+  %fputc = tail call i32 @fputc(i32 10, ptr %51)
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i64 0, ptr %53, align 8, !tbaa !17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, i8 0, i64 28, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %54, i8 0, i64 28, i1 false)
-  br label %56
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %52, i8 0, i64 28, i1 false)
+  br label %54
 
-56:                                               ; preds = %27, %36, %43, %50, %18
+54:                                               ; preds = %27, %34, %41, %48, %18
   ret void
 }
 
@@ -2930,64 +2930,64 @@ define hidden void @_ZN4ncnn3Mat22from_pixels_roi_resizeEPKhiiiiiiiiiPNS_9Alloca
   store i64 0, ptr %25, align 8, !tbaa !17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %24, i8 0, i64 28, i1 false)
-  br label %58
+  br label %56
 
 26:                                               ; preds = %12
   %27 = and i32 %2, 65535
   %28 = add nsw i32 %27, -1
   %or.cond7 = icmp ult i32 %28, 2
-  br i1 %or.cond7, label %29, label %36
+  br i1 %or.cond7, label %29, label %34
 
 29:                                               ; preds = %26
-  %30 = mul nsw i32 %6, %3
-  %31 = add nuw nsw i32 %30, %5
-  %32 = mul nsw i32 %31, 3
-  %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 %33
-  %35 = mul nsw i32 %3, 3
-  tail call void @_ZN4ncnn3Mat18from_pixels_resizeEPKhiiiiiiPNS_9AllocatorE(ptr dead_on_unwind writable sret(%"class.ncnn::Mat") align 8 %0, ptr noundef %34, i32 noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef %35, i32 noundef %9, i32 noundef %10, ptr noundef %11)
-  br label %58
+  %30 = mul i32 %6, %3
+  %reass.add = add i32 %30, %5
+  %reass.mul = mul i32 %reass.add, 3
+  %31 = zext nneg i32 %reass.mul to i64
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 %31
+  %33 = mul nsw i32 %3, 3
+  tail call void @_ZN4ncnn3Mat18from_pixels_resizeEPKhiiiiiiPNS_9AllocatorE(ptr dead_on_unwind writable sret(%"class.ncnn::Mat") align 8 %0, ptr noundef %32, i32 noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef %33, i32 noundef %9, i32 noundef %10, ptr noundef %11)
+  br label %56
 
-36:                                               ; preds = %26
-  %37 = icmp eq i32 %27, 3
-  br i1 %37, label %38, label %43
+34:                                               ; preds = %26
+  %35 = icmp eq i32 %27, 3
+  br i1 %35, label %36, label %41
 
-38:                                               ; preds = %36
-  %39 = mul nsw i32 %6, %3
-  %40 = add nuw nsw i32 %39, %5
-  %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 %41
-  tail call void @_ZN4ncnn3Mat18from_pixels_resizeEPKhiiiiiiPNS_9AllocatorE(ptr dead_on_unwind writable sret(%"class.ncnn::Mat") align 8 %0, ptr noundef %42, i32 noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef %3, i32 noundef %9, i32 noundef %10, ptr noundef %11)
-  br label %58
+36:                                               ; preds = %34
+  %37 = mul nsw i32 %6, %3
+  %38 = add nuw nsw i32 %37, %5
+  %39 = zext nneg i32 %38 to i64
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 %39
+  tail call void @_ZN4ncnn3Mat18from_pixels_resizeEPKhiiiiiiPNS_9AllocatorE(ptr dead_on_unwind writable sret(%"class.ncnn::Mat") align 8 %0, ptr noundef %40, i32 noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef %3, i32 noundef %9, i32 noundef %10, ptr noundef %11)
+  br label %56
 
-43:                                               ; preds = %36
-  %44 = and i32 %2, 65534
-  %or.cond9 = icmp eq i32 %44, 4
-  br i1 %or.cond9, label %45, label %52
+41:                                               ; preds = %34
+  %42 = and i32 %2, 65534
+  %or.cond9 = icmp eq i32 %42, 4
+  br i1 %or.cond9, label %43, label %50
 
-45:                                               ; preds = %43
-  %46 = mul nsw i32 %6, %3
-  %47 = add nuw nsw i32 %46, %5
-  %48 = shl nsw i32 %47, 2
-  %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 %49
-  %51 = shl nsw i32 %3, 2
-  tail call void @_ZN4ncnn3Mat18from_pixels_resizeEPKhiiiiiiPNS_9AllocatorE(ptr dead_on_unwind writable sret(%"class.ncnn::Mat") align 8 %0, ptr noundef %50, i32 noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef %51, i32 noundef %9, i32 noundef %10, ptr noundef %11)
-  br label %58
+43:                                               ; preds = %41
+  %44 = mul nsw i32 %6, %3
+  %45 = add nuw nsw i32 %44, %5
+  %46 = shl nsw i32 %45, 2
+  %47 = zext nneg i32 %46 to i64
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 %47
+  %49 = shl nsw i32 %3, 2
+  tail call void @_ZN4ncnn3Mat18from_pixels_resizeEPKhiiiiiiPNS_9AllocatorE(ptr dead_on_unwind writable sret(%"class.ncnn::Mat") align 8 %0, ptr noundef %48, i32 noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef %49, i32 noundef %9, i32 noundef %10, ptr noundef %11)
+  br label %56
 
-52:                                               ; preds = %43
+50:                                               ; preds = %41
+  %51 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str, i32 noundef %2) #13
   %53 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str, i32 noundef %2) #13
-  %55 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %fputc = tail call i32 @fputc(i32 10, ptr %55)
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 0, ptr %57, align 8, !tbaa !17
+  %fputc = tail call i32 @fputc(i32 10, ptr %53)
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i64 0, ptr %55, align 8, !tbaa !17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, i8 0, i64 28, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %56, i8 0, i64 28, i1 false)
-  br label %58
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %54, i8 0, i64 28, i1 false)
+  br label %56
 
-58:                                               ; preds = %29, %38, %45, %52, %20
+56:                                               ; preds = %29, %36, %43, %50, %20
   ret void
 }
 

@@ -1580,31 +1580,32 @@ define internal void @scalar_dequant_float(ptr noundef captures(none) %0, i32 no
 define internal void @decouple_float(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, float noundef %3, float noundef %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7) #5 {
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %10 = load i32, ptr %9, align 4, !tbaa !47
-  %11 = add nsw i32 %10, %2
-  %12 = mul nsw i32 %11, 20
-  %13 = mul nsw i32 %2, 20
-  %14 = sext i32 %12 to i64
-  %15 = sext i32 %13 to i64
-  %invariant.gep = getelementptr float, ptr %5, i64 %14
-  br label %16
+  %reass.add = add i32 %10, %2
+  %reass.mul = mul i32 %reass.add, 20
+  %11 = mul nsw i32 %2, 20
+  %12 = sext i32 %11 to i64
+  br label %13
 
-16:                                               ; preds = %8, %16
-  %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %16 ]
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
-  %17 = load float, ptr %gep, align 4, !tbaa !66
-  %18 = fmul nsz float %3, %17
-  %19 = add nsw i64 %indvars.iv, %15
-  %20 = getelementptr inbounds float, ptr %6, i64 %19
-  store float %18, ptr %20, align 4, !tbaa !66
-  %21 = load float, ptr %gep, align 4, !tbaa !66
-  %22 = fmul nsz float %4, %21
-  %23 = getelementptr inbounds float, ptr %7, i64 %19
-  store float %22, ptr %23, align 4, !tbaa !66
+13:                                               ; preds = %8, %13
+  %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %13 ]
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
+  %15 = add i32 %reass.mul, %14
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr inbounds float, ptr %5, i64 %16
+  %18 = load float, ptr %17, align 4, !tbaa !66
+  %19 = fmul nsz float %3, %18
+  %20 = add nsw i64 %indvars.iv, %12
+  %21 = getelementptr inbounds float, ptr %6, i64 %20
+  store float %19, ptr %21, align 4, !tbaa !66
+  %22 = load float, ptr %17, align 4, !tbaa !66
+  %23 = fmul nsz float %4, %22
+  %24 = getelementptr inbounds float, ptr %7, i64 %20
+  store float %23, ptr %24, align 4, !tbaa !66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
-  br i1 %exitcond.not, label %24, label %16, !llvm.loop !117
+  br i1 %exitcond.not, label %25, label %13, !llvm.loop !117
 
-24:                                               ; preds = %16
+25:                                               ; preds = %13
   ret void
 }
 

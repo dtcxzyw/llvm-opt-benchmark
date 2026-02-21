@@ -246,15 +246,15 @@ define internal range(i32 8, 1353) i32 @stats_reply_size(ptr noundef %0, ptr rea
   %25 = icmp eq i64 %24, 0
   %26 = lshr exact i64 %24, 3
   %27 = trunc nuw nsw i64 %26 to i32
-  %28 = add nuw nsw i32 %20, %27
-  %29 = select i1 %25, i32 8, i32 408
-  %30 = mul nuw nsw i32 %28, 20
-  %31 = add nuw nsw i32 %30, %29
-  %32 = shl nuw nsw i32 %22, 4
-  %33 = add nuw nsw i32 %32, 400
-  %34 = select i1 %25, i32 %32, i32 %33
-  %35 = add nuw nsw i32 %31, %34
-  ret i32 %35
+  %28 = select i1 %25, i32 8, i32 408
+  %29 = shl nuw nsw i32 %22, 4
+  %30 = add nuw nsw i32 %29, 400
+  %31 = select i1 %25, i32 %29, i32 %30
+  %reass.add = add nuw nsw i32 %20, %27
+  %reass.mul = mul nuw nsw i32 %reass.add, 20
+  %32 = add nuw nsw i32 %reass.mul, %28
+  %33 = add nuw nsw i32 %32, %31
+  ret i32 %33
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

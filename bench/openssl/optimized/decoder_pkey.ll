@@ -125,35 +125,35 @@ define internal i64 @decoder_cache_entry_hash(ptr noundef readonly captures(none
   %17 = phi i64 [ %15, %14 ], [ 0, %9 ]
   %18 = load ptr, ptr %0, align 8, !tbaa !16
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %22, label %20
+  br i1 %19, label %23, label %20
 
 20:                                               ; preds = %16
   %21 = tail call i64 @ossl_lh_strcasehash(ptr noundef nonnull %18) #7
-  br label %22
+  %22 = mul i64 %21, 23
+  br label %23
 
-22:                                               ; preds = %16, %20
-  %23 = phi i64 [ %21, %20 ], [ 0, %16 ]
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !17
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %29, label %27
+23:                                               ; preds = %16, %20
+  %24 = phi i64 [ %22, %20 ], [ 0, %16 ]
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %26 = load ptr, ptr %25, align 8, !tbaa !17
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %30, label %28
 
-27:                                               ; preds = %22
-  %28 = tail call i64 @ossl_lh_strcasehash(ptr noundef nonnull %25) #7
-  br label %29
+28:                                               ; preds = %23
+  %29 = tail call i64 @ossl_lh_strcasehash(ptr noundef nonnull %26) #7
+  br label %30
 
-29:                                               ; preds = %22, %27
-  %30 = phi i64 [ %28, %27 ], [ 0, %22 ]
-  %31 = add i64 %17, %10
-  %32 = mul i64 %31, 23
-  %33 = add i64 %23, %32
-  %34 = mul i64 %33, 23
-  %35 = add i64 %30, %34
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %37 = load i32, ptr %36, align 8, !tbaa !18
-  %38 = sext i32 %37 to i64
-  %39 = xor i64 %35, %38
-  ret i64 %39
+30:                                               ; preds = %23, %28
+  %31 = phi i64 [ %29, %28 ], [ 0, %23 ]
+  %reass.add = add i64 %17, %10
+  %32 = mul i64 %reass.add, 529
+  %33 = add i64 %24, %32
+  %34 = add i64 %33, %31
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %36 = load i32, ptr %35, align 8, !tbaa !18
+  %37 = sext i32 %36 to i64
+  %38 = xor i64 %34, %37
+  ret i64 %38
 }
 
 ; Function Attrs: nounwind uwtable

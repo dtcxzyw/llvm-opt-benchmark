@@ -5226,7 +5226,7 @@ define internal noundef i32 @_eventbox_scroll_callback(ptr readnone captures(non
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 2496
   %13 = load ptr, ptr %12, align 64, !tbaa !92
   %14 = tail call i32 @gtk_widget_event(ptr noundef %13, ptr noundef nonnull %1) #17
-  br label %96
+  br label %94
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 2688
@@ -5252,7 +5252,7 @@ define internal noundef i32 @_eventbox_scroll_callback(ptr readnone captures(non
 
 28:                                               ; preds = %21, %18
   tail call void @dt_dev_exposure_handle_event(ptr noundef nonnull %1, i32 noundef %20) #17
-  br label %96
+  br label %94
 
 29:                                               ; preds = %15
   %30 = call i32 @dt_gui_get_scroll_unit_delta(ptr noundef nonnull %1, ptr noundef nonnull %4) #17
@@ -5260,13 +5260,13 @@ define internal noundef i32 @_eventbox_scroll_callback(ptr readnone captures(non
   %32 = load i32, ptr %4, align 4
   %33 = icmp ne i32 %32, 0
   %or.cond = select i1 %31, i1 %33, i1 false
-  br i1 %or.cond, label %34, label %96
+  br i1 %or.cond, label %34, label %94
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 2692
   %36 = load i32, ptr %35, align 4, !tbaa !104
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %96
+  br i1 %37, label %38, label %94
 
 38:                                               ; preds = %34
   %39 = load i32, ptr %5, align 8, !tbaa !269
@@ -5288,13 +5288,13 @@ define internal noundef i32 @_eventbox_scroll_callback(ptr readnone captures(non
 
 50:                                               ; preds = %44
   store i32 3, ptr %45, align 4, !tbaa !90
-  br label %95
+  br label %93
 
 51:                                               ; preds = %44
   %52 = add i32 %48, %46
   %53 = and i32 %52, 3
   store i32 %53, ptr %45, align 4, !tbaa !90
-  br label %95
+  br label %93
 
 54:                                               ; preds = %38
   %55 = load i32, ptr %5, align 8, !tbaa !269
@@ -5326,7 +5326,7 @@ define internal noundef i32 @_eventbox_scroll_callback(ptr readnone captures(non
   call fastcc void @_color_harmony_button_on(ptr noundef nonnull %2)
   %71 = load i32, ptr %70, align 4, !tbaa !84
   store i32 %71, ptr %61, align 64, !tbaa !161
-  br label %95
+  br label %93
 
 72:                                               ; preds = %54
   %73 = load i32, ptr %5, align 8, !tbaa !269
@@ -5342,32 +5342,32 @@ define internal noundef i32 @_eventbox_scroll_callback(ptr readnone captures(non
 80:                                               ; preds = %72
   %81 = load i32, ptr %4, align 4, !tbaa !112
   %82 = add nsw i32 %81, %79
-  br label %90
+  br label %88
 
 83:                                               ; preds = %72
   %84 = sitofp i32 %79 to double
   %85 = fmul reassoc nnan nsz arcp contract afn double %84, 0x3FB1111111111111
   %86 = fptosi double %85 to i32
   %87 = load i32, ptr %4, align 4, !tbaa !112
-  %88 = add i32 %87, %86
-  %89 = mul i32 %88, 15
-  br label %90
+  %reass.add = add i32 %87, %86
+  %reass.mul = mul i32 %reass.add, 15
+  br label %88
 
-90:                                               ; preds = %83, %80
-  %.0 = phi i32 [ %82, %80 ], [ %89, %83 ]
-  %91 = srem i32 %.0, 360
-  %92 = icmp slt i32 %91, 0
-  %93 = add nsw i32 %91, 360
-  %spec.select = select i1 %92, i32 %93, i32 %91
-  %94 = getelementptr inbounds nuw i8, ptr %2, i64 2760
-  store i32 %spec.select, ptr %94, align 4, !tbaa !89
-  br label %95
+88:                                               ; preds = %83, %80
+  %.0 = phi i32 [ %82, %80 ], [ %reass.mul, %83 ]
+  %89 = srem i32 %.0, 360
+  %90 = icmp slt i32 %89, 0
+  %91 = add nsw i32 %89, 360
+  %spec.select = select i1 %90, i32 %91, i32 %89
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 2760
+  store i32 %spec.select, ptr %92, align 4, !tbaa !89
+  br label %93
 
-95:                                               ; preds = %69, %90, %50, %51
+93:                                               ; preds = %69, %88, %50, %51
   call fastcc void @_color_harmony_changed_record(ptr noundef nonnull %2)
-  br label %96
+  br label %94
 
-96:                                               ; preds = %28, %34, %95, %29, %11
+94:                                               ; preds = %28, %34, %93, %29, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 1
 }

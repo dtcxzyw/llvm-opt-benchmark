@@ -274,92 +274,92 @@ define noalias ptr @OSSL_PARAM_merge(ptr noundef %0, ptr noundef %1) local_unnam
 27:                                               ; preds = %.loopexit80
   call void @qsort(ptr noundef nonnull %3, i64 noundef %.055, i64 noundef 8, ptr noundef nonnull @compare_params) #8
   call void @qsort(ptr noundef nonnull %4, i64 noundef %.054, i64 noundef 8, ptr noundef nonnull @compare_params) #8
-  %28 = add nuw nsw i64 %.054, %.055
-  %29 = mul nuw nsw i64 %28, 40
-  %30 = add nuw nsw i64 %29, 40
-  %31 = call noalias ptr @CRYPTO_zalloc(i64 noundef %30, ptr noundef nonnull @.str, i32 noundef 184) #8
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %.loopexit, label %.preheader78
+  %reass.add = add nuw nsw i64 %.054, %.055
+  %reass.mul = mul nuw nsw i64 %reass.add, 40
+  %28 = add nuw nsw i64 %reass.mul, 40
+  %29 = call noalias ptr @CRYPTO_zalloc(i64 noundef %28, ptr noundef nonnull @.str, i32 noundef 184) #8
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %.loopexit, label %.preheader78
 
 .preheader78:                                     ; preds = %27
-  %33 = load ptr, ptr %3, align 16, !tbaa !24
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %.preheader, label %.lr.ph95
+  %31 = load ptr, ptr %3, align 16, !tbaa !24
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %.preheader, label %.lr.ph95
 
-.preheader:                                       ; preds = %64, %.preheader78
-  %.061.lcssa = phi ptr [ %4, %.preheader78 ], [ %.263, %64 ]
-  %.057.lcssa = phi ptr [ %31, %.preheader78 ], [ %.3, %64 ]
+.preheader:                                       ; preds = %62, %.preheader78
+  %.061.lcssa = phi ptr [ %4, %.preheader78 ], [ %.263, %62 ]
+  %.057.lcssa = phi ptr [ %29, %.preheader78 ], [ %.3, %62 ]
   %.pre = load ptr, ptr %.061.lcssa, align 8, !tbaa !24
-  br label %35
+  br label %33
 
-35:                                               ; preds = %.preheader, %35
-  %36 = phi ptr [ %39, %35 ], [ %.pre, %.preheader ]
-  %.162 = phi ptr [ %38, %35 ], [ %.061.lcssa, %.preheader ]
-  %.158 = phi ptr [ %37, %35 ], [ %.057.lcssa, %.preheader ]
-  %37 = getelementptr inbounds nuw i8, ptr %.158, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.158, ptr noundef nonnull align 8 dereferenceable(40) %36, i64 40, i1 false), !tbaa.struct !19
-  %38 = getelementptr inbounds nuw i8, ptr %.162, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !24
-  %.not75 = icmp eq ptr %39, null
-  br i1 %.not75, label %.loopexit, label %35, !llvm.loop !28
+33:                                               ; preds = %.preheader, %33
+  %34 = phi ptr [ %37, %33 ], [ %.pre, %.preheader ]
+  %.162 = phi ptr [ %36, %33 ], [ %.061.lcssa, %.preheader ]
+  %.158 = phi ptr [ %35, %33 ], [ %.057.lcssa, %.preheader ]
+  %35 = getelementptr inbounds nuw i8, ptr %.158, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.158, ptr noundef nonnull align 8 dereferenceable(40) %34, i64 40, i1 false), !tbaa.struct !19
+  %36 = getelementptr inbounds nuw i8, ptr %.162, i64 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !24
+  %.not75 = icmp eq ptr %37, null
+  br i1 %.not75, label %.loopexit, label %33, !llvm.loop !28
 
-.lr.ph95:                                         ; preds = %.preheader78, %64
-  %40 = phi ptr [ %65, %64 ], [ %33, %.preheader78 ]
-  %.05794 = phi ptr [ %.3, %64 ], [ %31, %.preheader78 ]
-  %.06193 = phi ptr [ %.263, %64 ], [ %4, %.preheader78 ]
-  %.06492 = phi ptr [ %.266, %64 ], [ %3, %.preheader78 ]
-  %41 = load ptr, ptr %.06193, align 8, !tbaa !24
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %.preheader76, label %47
+.lr.ph95:                                         ; preds = %.preheader78, %62
+  %38 = phi ptr [ %63, %62 ], [ %31, %.preheader78 ]
+  %.05794 = phi ptr [ %.3, %62 ], [ %29, %.preheader78 ]
+  %.06193 = phi ptr [ %.263, %62 ], [ %4, %.preheader78 ]
+  %.06492 = phi ptr [ %.266, %62 ], [ %3, %.preheader78 ]
+  %39 = load ptr, ptr %.06193, align 8, !tbaa !24
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %.preheader76, label %45
 
 .preheader76:                                     ; preds = %.lr.ph95, %.preheader76
-  %43 = phi ptr [ %46, %.preheader76 ], [ %40, %.lr.ph95 ]
-  %.165 = phi ptr [ %45, %.preheader76 ], [ %.06492, %.lr.ph95 ]
-  %.2 = phi ptr [ %44, %.preheader76 ], [ %.05794, %.lr.ph95 ]
-  %44 = getelementptr inbounds nuw i8, ptr %.2, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.2, ptr noundef nonnull align 8 dereferenceable(40) %43, i64 40, i1 false), !tbaa.struct !19
-  %45 = getelementptr inbounds nuw i8, ptr %.165, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !24
-  %.not74 = icmp eq ptr %46, null
+  %41 = phi ptr [ %44, %.preheader76 ], [ %38, %.lr.ph95 ]
+  %.165 = phi ptr [ %43, %.preheader76 ], [ %.06492, %.lr.ph95 ]
+  %.2 = phi ptr [ %42, %.preheader76 ], [ %.05794, %.lr.ph95 ]
+  %42 = getelementptr inbounds nuw i8, ptr %.2, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.2, ptr noundef nonnull align 8 dereferenceable(40) %41, i64 40, i1 false), !tbaa.struct !19
+  %43 = getelementptr inbounds nuw i8, ptr %.165, i64 8
+  %44 = load ptr, ptr %43, align 8, !tbaa !24
+  %.not74 = icmp eq ptr %44, null
   br i1 %.not74, label %.loopexit, label %.preheader76, !llvm.loop !29
 
-47:                                               ; preds = %.lr.ph95
-  %48 = load ptr, ptr %40, align 8, !tbaa !3
-  %49 = load ptr, ptr %41, align 8, !tbaa !3
-  %50 = call i32 @OPENSSL_strcasecmp(ptr noundef %48, ptr noundef %49) #8
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %56
+45:                                               ; preds = %.lr.ph95
+  %46 = load ptr, ptr %38, align 8, !tbaa !3
+  %47 = load ptr, ptr %39, align 8, !tbaa !3
+  %48 = call i32 @OPENSSL_strcasecmp(ptr noundef %46, ptr noundef %47) #8
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %50, label %54
 
-52:                                               ; preds = %47
-  %53 = load ptr, ptr %.06193, align 8, !tbaa !24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.05794, ptr noundef nonnull align 8 dereferenceable(40) %53, i64 40, i1 false), !tbaa.struct !19
-  %54 = getelementptr inbounds nuw i8, ptr %.06193, i64 8
-  %55 = getelementptr inbounds nuw i8, ptr %.06492, i64 8
-  br label %64
+50:                                               ; preds = %45
+  %51 = load ptr, ptr %.06193, align 8, !tbaa !24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.05794, ptr noundef nonnull align 8 dereferenceable(40) %51, i64 40, i1 false), !tbaa.struct !19
+  %52 = getelementptr inbounds nuw i8, ptr %.06193, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.06492, i64 8
+  br label %62
 
-56:                                               ; preds = %47
-  %57 = icmp sgt i32 %50, 0
-  br i1 %57, label %58, label %61
+54:                                               ; preds = %45
+  %55 = icmp sgt i32 %48, 0
+  br i1 %55, label %56, label %59
 
-58:                                               ; preds = %56
-  %59 = load ptr, ptr %.06193, align 8, !tbaa !24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.05794, ptr noundef nonnull align 8 dereferenceable(40) %59, i64 40, i1 false), !tbaa.struct !19
-  %60 = getelementptr inbounds nuw i8, ptr %.06193, i64 8
-  br label %64
+56:                                               ; preds = %54
+  %57 = load ptr, ptr %.06193, align 8, !tbaa !24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.05794, ptr noundef nonnull align 8 dereferenceable(40) %57, i64 40, i1 false), !tbaa.struct !19
+  %58 = getelementptr inbounds nuw i8, ptr %.06193, i64 8
+  br label %62
 
-61:                                               ; preds = %56
-  %62 = load ptr, ptr %.06492, align 8, !tbaa !24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.05794, ptr noundef nonnull align 8 dereferenceable(40) %62, i64 40, i1 false), !tbaa.struct !19
-  %63 = getelementptr inbounds nuw i8, ptr %.06492, i64 8
-  br label %64
+59:                                               ; preds = %54
+  %60 = load ptr, ptr %.06492, align 8, !tbaa !24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.05794, ptr noundef nonnull align 8 dereferenceable(40) %60, i64 40, i1 false), !tbaa.struct !19
+  %61 = getelementptr inbounds nuw i8, ptr %.06492, i64 8
+  br label %62
 
-64:                                               ; preds = %58, %61, %52
-  %.266 = phi ptr [ %55, %52 ], [ %.06492, %58 ], [ %63, %61 ]
-  %.263 = phi ptr [ %54, %52 ], [ %60, %58 ], [ %.06193, %61 ]
+62:                                               ; preds = %56, %59, %50
+  %.266 = phi ptr [ %53, %50 ], [ %.06492, %56 ], [ %61, %59 ]
+  %.263 = phi ptr [ %52, %50 ], [ %58, %56 ], [ %.06193, %59 ]
   %.3 = getelementptr inbounds nuw i8, ptr %.05794, i64 40
-  %65 = load ptr, ptr %.266, align 8, !tbaa !24
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %.preheader, label %.lr.ph95
+  %63 = load ptr, ptr %.266, align 8, !tbaa !24
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %.preheader, label %.lr.ph95
 
 .loopexit.sink.split:                             ; preds = %.loopexit80, %2
   %.sink116 = phi i32 [ 157, %2 ], [ 175, %.loopexit80 ]
@@ -369,8 +369,8 @@ define noalias ptr @OSSL_PARAM_merge(ptr noundef %0, ptr noundef %1) local_unnam
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef %.sink, ptr noundef null) #8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader76, %35, %.loopexit.sink.split, %27
-  %.0 = phi ptr [ null, %.loopexit.sink.split ], [ %31, %35 ], [ null, %27 ], [ %31, %.preheader76 ]
+.loopexit:                                        ; preds = %.preheader76, %33, %.loopexit.sink.split, %27
+  %.0 = phi ptr [ null, %.loopexit.sink.split ], [ %29, %33 ], [ null, %27 ], [ %29, %.preheader76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0

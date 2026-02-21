@@ -15238,108 +15238,108 @@ _ZNSt5stackINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5rati
   %91 = ashr exact i64 %90, 3
   %92 = icmp ne ptr %85, null
   %.neg.i.i.i10 = sext i1 %92 to i64
-  %93 = add nsw i64 %91, %.neg.i.i.i10
-  %94 = load ptr, ptr %82, align 8, !tbaa !661
-  %95 = ptrtoint ptr %94 to i64
-  %96 = ptrtoint ptr %77 to i64
-  %97 = sub i64 %95, %96
-  %98 = ashr exact i64 %97, 3
-  %99 = getelementptr inbounds nuw i8, ptr %81, i64 32
-  %100 = load ptr, ptr %99, align 8, !tbaa !663
-  %101 = load ptr, ptr %83, align 8, !tbaa !661
+  %93 = load ptr, ptr %82, align 8, !tbaa !661
+  %94 = ptrtoint ptr %93 to i64
+  %95 = ptrtoint ptr %77 to i64
+  %96 = sub i64 %94, %95
+  %97 = ashr exact i64 %96, 3
+  %98 = getelementptr inbounds nuw i8, ptr %81, i64 32
+  %99 = load ptr, ptr %98, align 8, !tbaa !663
+  %100 = load ptr, ptr %83, align 8, !tbaa !661
+  %101 = ptrtoint ptr %99 to i64
   %102 = ptrtoint ptr %100 to i64
-  %103 = ptrtoint ptr %101 to i64
-  %104 = sub i64 %102, %103
-  %105 = ashr exact i64 %104, 3
-  %106 = load ptr, ptr %80, align 8, !tbaa !537
-  %.idx = mul i64 %93, 1536
-  %107 = getelementptr i8, ptr %106, i64 %.idx
-  %108 = getelementptr %"class.std::vector.230", ptr %107, i64 %98
-  %109 = getelementptr %"class.std::vector.230", ptr %108, i64 %105
-  %110 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %103 = sub i64 %101, %102
+  %104 = ashr exact i64 %103, 3
+  %105 = load ptr, ptr %80, align 8, !tbaa !537
+  %reass.add = add nsw i64 %91, %.neg.i.i.i10
+  %reass.mul = mul i64 %reass.add, 1536
+  %106 = getelementptr i8, ptr %105, i64 %reass.mul
+  %107 = getelementptr %"class.std::vector.230", ptr %106, i64 %97
+  %108 = getelementptr %"class.std::vector.230", ptr %107, i64 %104
+  %109 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %111 = getelementptr inbounds nuw i8, ptr %2, i64 208
-  %112 = load i8, ptr %111, align 8, !tbaa !132
-  %113 = icmp ult i8 %112, 9
-  br i1 %113, label %switch.lookup, label %_ZNK2tf8TaskView4typeEv.exit
+  %110 = getelementptr inbounds nuw i8, ptr %2, i64 208
+  %111 = load i8, ptr %110, align 8, !tbaa !132
+  %112 = icmp ult i8 %111, 9
+  br i1 %112, label %switch.lookup, label %_ZNK2tf8TaskView4typeEv.exit
 
 switch.lookup:                                    ; preds = %_ZNSt5stackINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEESt5dequeIS8_SaIS8_EEE3popEv.exit
-  %114 = zext nneg i8 %112 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN2tf14TFProfObserver7on_exitENS_10WorkerViewENS_8TaskViewE, i64 %114
+  %113 = zext nneg i8 %111 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN2tf14TFProfObserver7on_exitENS_10WorkerViewENS_8TaskViewE, i64 %113
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK2tf8TaskView4typeEv.exit
 
 _ZNK2tf8TaskView4typeEv.exit:                     ; preds = %_ZNSt5stackINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEESt5dequeIS8_SaIS8_EEE3popEv.exit, %switch.lookup
-  %115 = phi i32 [ %switch.load, %switch.lookup ], [ 7, %_ZNSt5stackINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEESt5dequeIS8_SaIS8_EEE3popEv.exit ]
-  store i32 %115, ptr %6, align 4, !tbaa !598
+  %114 = phi i32 [ %switch.load, %switch.lookup ], [ 7, %_ZNSt5stackINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEESt5dequeIS8_SaIS8_EEE3popEv.exit ]
+  store i32 %114, ptr %6, align 4, !tbaa !598
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %116 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #39
-  store i64 %116, ptr %7, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %118 = load ptr, ptr %117, align 8, !tbaa !542
-  %119 = getelementptr inbounds nuw i8, ptr %109, i64 16
-  %120 = load ptr, ptr %119, align 8, !tbaa !580
-  %.not.i = icmp eq ptr %118, %120
-  br i1 %.not.i, label %142, label %121
+  %115 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #39
+  store i64 %115, ptr %7, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  %117 = load ptr, ptr %116, align 8, !tbaa !542
+  %118 = getelementptr inbounds nuw i8, ptr %108, i64 16
+  %119 = load ptr, ptr %118, align 8, !tbaa !580
+  %.not.i = icmp eq ptr %117, %119
+  br i1 %.not.i, label %141, label %120
 
-121:                                              ; preds = %_ZNK2tf8TaskView4typeEv.exit
-  %122 = getelementptr inbounds nuw i8, ptr %118, i64 16
-  store ptr %122, ptr %118, align 8, !tbaa !120
-  %123 = load ptr, ptr %110, align 8, !tbaa !182
-  %124 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %125 = load i64, ptr %124, align 8, !tbaa !121
+120:                                              ; preds = %_ZNK2tf8TaskView4typeEv.exit
+  %121 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  store ptr %121, ptr %117, align 8, !tbaa !120
+  %122 = load ptr, ptr %109, align 8, !tbaa !182
+  %123 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %124 = load i64, ptr %123, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i64 %125, ptr %4, align 8, !tbaa !250
-  %126 = icmp ugt i64 %125, 15
-  br i1 %126, label %.noexc.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i
+  store i64 %124, ptr %4, align 8, !tbaa !250
+  %125 = icmp ugt i64 %124, 15
+  br i1 %125, label %.noexc.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i
 
-.noexc.i.i.i.i.i:                                 ; preds = %121
-  %127 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(56) %118, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
-  store ptr %127, ptr %118, align 8, !tbaa !182
-  %128 = load i64, ptr %4, align 8, !tbaa !250
-  store i64 %128, ptr %122, align 8, !tbaa !16
+.noexc.i.i.i.i.i:                                 ; preds = %120
+  %126 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(56) %117, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
+  store ptr %126, ptr %117, align 8, !tbaa !182
+  %127 = load i64, ptr %4, align 8, !tbaa !250
+  store i64 %127, ptr %121, align 8, !tbaa !16
   br label %._crit_edge.i.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i.i:                          ; preds = %.noexc.i.i.i.i.i, %121
-  %129 = phi ptr [ %127, %.noexc.i.i.i.i.i ], [ %122, %121 ]
-  switch i64 %125, label %132 [
-    i64 1, label %130
+._crit_edge.i.i.i.i.i.i:                          ; preds = %.noexc.i.i.i.i.i, %120
+  %128 = phi ptr [ %126, %.noexc.i.i.i.i.i ], [ %121, %120 ]
+  switch i64 %124, label %131 [
+    i64 1, label %129
     i64 0, label %_ZNSt16allocator_traitsISaIN2tf7SegmentEEE9constructIS1_JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8TaskTypeERNSt6chrono10time_pointINSE_3_V212steady_clockENSE_8durationIlSt5ratioILl1ELl1000000000EEEEEESM_EEEvRS2_PT_DpOT0_.exit.i
   ]
 
-130:                                              ; preds = %._crit_edge.i.i.i.i.i.i
-  %131 = load i8, ptr %123, align 1, !tbaa !16
-  store i8 %131, ptr %129, align 1, !tbaa !16
+129:                                              ; preds = %._crit_edge.i.i.i.i.i.i
+  %130 = load i8, ptr %122, align 1, !tbaa !16
+  store i8 %130, ptr %128, align 1, !tbaa !16
   br label %_ZNSt16allocator_traitsISaIN2tf7SegmentEEE9constructIS1_JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8TaskTypeERNSt6chrono10time_pointINSE_3_V212steady_clockENSE_8durationIlSt5ratioILl1ELl1000000000EEEEEESM_EEEvRS2_PT_DpOT0_.exit.i
 
-132:                                              ; preds = %._crit_edge.i.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %129, ptr align 1 %123, i64 %125, i1 false)
+131:                                              ; preds = %._crit_edge.i.i.i.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %128, ptr align 1 %122, i64 %124, i1 false)
   br label %_ZNSt16allocator_traitsISaIN2tf7SegmentEEE9constructIS1_JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8TaskTypeERNSt6chrono10time_pointINSE_3_V212steady_clockENSE_8durationIlSt5ratioILl1ELl1000000000EEEEEESM_EEEvRS2_PT_DpOT0_.exit.i
 
-_ZNSt16allocator_traitsISaIN2tf7SegmentEEE9constructIS1_JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8TaskTypeERNSt6chrono10time_pointINSE_3_V212steady_clockENSE_8durationIlSt5ratioILl1ELl1000000000EEEEEESM_EEEvRS2_PT_DpOT0_.exit.i: ; preds = %132, %130, %._crit_edge.i.i.i.i.i.i
-  %133 = load i64, ptr %4, align 8, !tbaa !250
-  %134 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  store i64 %133, ptr %134, align 8, !tbaa !121
-  %135 = load ptr, ptr %118, align 8, !tbaa !182
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 %133
-  store i8 0, ptr %136, align 1, !tbaa !16
+_ZNSt16allocator_traitsISaIN2tf7SegmentEEE9constructIS1_JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8TaskTypeERNSt6chrono10time_pointINSE_3_V212steady_clockENSE_8durationIlSt5ratioILl1ELl1000000000EEEEEESM_EEEvRS2_PT_DpOT0_.exit.i: ; preds = %131, %129, %._crit_edge.i.i.i.i.i.i
+  %132 = load i64, ptr %4, align 8, !tbaa !250
+  %133 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  store i64 %132, ptr %133, align 8, !tbaa !121
+  %134 = load ptr, ptr %117, align 8, !tbaa !182
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 %132
+  store i8 0, ptr %135, align 1, !tbaa !16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %137 = getelementptr inbounds nuw i8, ptr %118, i64 32
-  store i32 %115, ptr %137, align 8, !tbaa !545
-  %138 = getelementptr inbounds nuw i8, ptr %118, i64 40
-  store i64 %.sroa.01.0.copyload.i.i.i, ptr %138, align 8, !tbaa !250
-  %139 = getelementptr inbounds nuw i8, ptr %118, i64 48
-  store i64 %116, ptr %139, align 8, !tbaa !250
-  %140 = load ptr, ptr %117, align 8, !tbaa !542
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 56
-  store ptr %141, ptr %117, align 8, !tbaa !542
+  %136 = getelementptr inbounds nuw i8, ptr %117, i64 32
+  store i32 %114, ptr %136, align 8, !tbaa !545
+  %137 = getelementptr inbounds nuw i8, ptr %117, i64 40
+  store i64 %.sroa.01.0.copyload.i.i.i, ptr %137, align 8, !tbaa !250
+  %138 = getelementptr inbounds nuw i8, ptr %117, i64 48
+  store i64 %115, ptr %138, align 8, !tbaa !250
+  %139 = load ptr, ptr %116, align 8, !tbaa !542
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 56
+  store ptr %140, ptr %116, align 8, !tbaa !542
   br label %_ZNSt6vectorIN2tf7SegmentESaIS1_EE12emplace_backIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8TaskTypeERNSt6chrono10time_pointINSE_3_V212steady_clockENSE_8durationIlSt5ratioILl1ELl1000000000EEEEEESM_EEERS1_DpOT_.exit
 
-142:                                              ; preds = %_ZNK2tf8TaskView4typeEv.exit
-  call void @_ZNSt6vectorIN2tf7SegmentESaIS1_EE17_M_realloc_insertIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8TaskTypeERNSt6chrono10time_pointINSE_3_V212steady_clockENSE_8durationIlSt5ratioILl1ELl1000000000EEEEEESM_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %109, ptr %118, ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %7)
+141:                                              ; preds = %_ZNK2tf8TaskView4typeEv.exit
+  call void @_ZNSt6vectorIN2tf7SegmentESaIS1_EE17_M_realloc_insertIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8TaskTypeERNSt6chrono10time_pointINSE_3_V212steady_clockENSE_8durationIlSt5ratioILl1ELl1000000000EEEEEESM_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %108, ptr %117, ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %7)
   br label %_ZNSt6vectorIN2tf7SegmentESaIS1_EE12emplace_backIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8TaskTypeERNSt6chrono10time_pointINSE_3_V212steady_clockENSE_8durationIlSt5ratioILl1ELl1000000000EEEEEESM_EEERS1_DpOT_.exit
 
-_ZNSt6vectorIN2tf7SegmentESaIS1_EE12emplace_backIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8TaskTypeERNSt6chrono10time_pointINSE_3_V212steady_clockENSE_8durationIlSt5ratioILl1ELl1000000000EEEEEESM_EEERS1_DpOT_.exit: ; preds = %_ZNSt16allocator_traitsISaIN2tf7SegmentEEE9constructIS1_JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8TaskTypeERNSt6chrono10time_pointINSE_3_V212steady_clockENSE_8durationIlSt5ratioILl1ELl1000000000EEEEEESM_EEEvRS2_PT_DpOT0_.exit.i, %142
+_ZNSt6vectorIN2tf7SegmentESaIS1_EE12emplace_backIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8TaskTypeERNSt6chrono10time_pointINSE_3_V212steady_clockENSE_8durationIlSt5ratioILl1ELl1000000000EEEEEESM_EEERS1_DpOT_.exit: ; preds = %_ZNSt16allocator_traitsISaIN2tf7SegmentEEE9constructIS1_JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8TaskTypeERNSt6chrono10time_pointINSE_3_V212steady_clockENSE_8durationIlSt5ratioILl1ELl1000000000EEEEEESM_EEEvRS2_PT_DpOT0_.exit.i, %141
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

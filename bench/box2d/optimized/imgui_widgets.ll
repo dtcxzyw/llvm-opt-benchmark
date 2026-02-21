@@ -41416,45 +41416,45 @@ _ZN5ImGui17TabBarFindTabByIDEP11ImGuiTabBarj.exit: ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 44
   %14 = zext nneg i32 %4 to i64
   %15 = xor i64 %indvars.iv.i, -1
-  %16 = add nsw i64 %15, %14
-  %17 = mul i64 %16, 44
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %10, ptr nonnull align 4 %13, i64 %17, i1 false)
-  %18 = load i32, ptr %3, align 8, !tbaa !763
-  %19 = add nsw i32 %18, -1
-  store i32 %19, ptr %3, align 8, !tbaa !763
+  %reass.add = add nsw i64 %15, %14
+  %reass.mul = mul i64 %reass.add, 44
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %10, ptr nonnull align 4 %13, i64 %reass.mul, i1 false)
+  %16 = load i32, ptr %3, align 8, !tbaa !763
+  %17 = add nsw i32 %16, -1
+  store i32 %17, ptr %3, align 8, !tbaa !763
   br label %_ZN5ImGui17TabBarFindTabByIDEP11ImGuiTabBarj.exit.thread
 
 _ZN5ImGui17TabBarFindTabByIDEP11ImGuiTabBarj.exit.thread: ; preds = %8, %.preheader.i, %2, %_ZN5ImGui17TabBarFindTabByIDEP11ImGuiTabBarj.exit
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %21 = load i32, ptr %20, align 8, !tbaa !747
-  %22 = icmp eq i32 %21, %1
-  br i1 %22, label %23, label %24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %19 = load i32, ptr %18, align 8, !tbaa !747
+  %20 = icmp eq i32 %19, %1
+  br i1 %20, label %21, label %22
 
-23:                                               ; preds = %_ZN5ImGui17TabBarFindTabByIDEP11ImGuiTabBarj.exit.thread
-  store i32 0, ptr %20, align 8, !tbaa !747
-  br label %24
+21:                                               ; preds = %_ZN5ImGui17TabBarFindTabByIDEP11ImGuiTabBarj.exit.thread
+  store i32 0, ptr %18, align 8, !tbaa !747
+  br label %22
 
-24:                                               ; preds = %23, %_ZN5ImGui17TabBarFindTabByIDEP11ImGuiTabBarj.exit.thread
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load i32, ptr %25, align 8, !tbaa !754
-  %27 = icmp eq i32 %26, %1
-  br i1 %27, label %28, label %29
+22:                                               ; preds = %21, %_ZN5ImGui17TabBarFindTabByIDEP11ImGuiTabBarj.exit.thread
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %24 = load i32, ptr %23, align 8, !tbaa !754
+  %25 = icmp eq i32 %24, %1
+  br i1 %25, label %26, label %27
 
-28:                                               ; preds = %24
-  store i32 0, ptr %25, align 8, !tbaa !754
-  br label %29
+26:                                               ; preds = %22
+  store i32 0, ptr %23, align 8, !tbaa !754
+  br label %27
 
-29:                                               ; preds = %28, %24
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %31 = load i32, ptr %30, align 4, !tbaa !755
-  %32 = icmp eq i32 %31, %1
-  br i1 %32, label %33, label %34
+27:                                               ; preds = %26, %22
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %29 = load i32, ptr %28, align 4, !tbaa !755
+  %30 = icmp eq i32 %29, %1
+  br i1 %30, label %31, label %32
 
-33:                                               ; preds = %29
-  store i32 0, ptr %30, align 4, !tbaa !755
-  br label %34
+31:                                               ; preds = %27
+  store i32 0, ptr %28, align 4, !tbaa !755
+  br label %32
 
-34:                                               ; preds = %33, %29
+32:                                               ; preds = %31, %27
   ret void
 }
 

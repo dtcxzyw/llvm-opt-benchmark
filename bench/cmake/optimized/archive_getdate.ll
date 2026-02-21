@@ -1469,47 +1469,47 @@ define internal fastcc i64 @RelativeDate(i64 noundef %0, i64 noundef %1, i32 nou
   %19 = mul nsw i64 %18, 86400
   %20 = icmp sgt i64 %3, 0
   %21 = sext i1 %20 to i64
-  %22 = add nsw i64 %3, %21
-  %23 = mul nsw i64 %22, 604800
-  %24 = add i64 %23, %0
-  %25 = add i64 %24, %19
-  %26 = icmp eq i32 %2, 2
-  br i1 %26, label %27, label %43
+  %reass.add = add i64 %3, %21
+  %reass.mul = mul i64 %reass.add, 604800
+  %22 = add i64 %reass.mul, %0
+  %23 = add i64 %22, %19
+  %24 = icmp eq i32 %2, 2
+  br i1 %24, label %25, label %41
 
-27:                                               ; preds = %5
+25:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %0, ptr %6, align 8, !tbaa !4
-  store i64 %25, ptr %7, align 8, !tbaa !4
+  store i64 %23, ptr %7, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %28 = call ptr @localtime_r(ptr noundef nonnull %6, ptr noundef nonnull %8) #7
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load i32, ptr %29, align 8, !tbaa !14
-  %31 = add nsw i32 %30, 1
-  %32 = srem i32 %31, 24
-  %33 = call ptr @localtime_r(ptr noundef nonnull %7, ptr noundef nonnull %8) #7
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = load i32, ptr %34, align 8, !tbaa !14
-  %36 = add nsw i32 %35, 1
-  %37 = srem i32 %36, 24
-  %38 = load i64, ptr %7, align 8, !tbaa !4
-  %39 = load i64, ptr %6, align 8, !tbaa !4
-  %40 = sub i64 %38, %39
-  %narrow.i = sub nsw i32 %32, %37
+  %26 = call ptr @localtime_r(ptr noundef nonnull %6, ptr noundef nonnull %8) #7
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = load i32, ptr %27, align 8, !tbaa !14
+  %29 = add nsw i32 %28, 1
+  %30 = srem i32 %29, 24
+  %31 = call ptr @localtime_r(ptr noundef nonnull %7, ptr noundef nonnull %8) #7
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %33 = load i32, ptr %32, align 8, !tbaa !14
+  %34 = add nsw i32 %33, 1
+  %35 = srem i32 %34, 24
+  %36 = load i64, ptr %7, align 8, !tbaa !4
+  %37 = load i64, ptr %6, align 8, !tbaa !4
+  %38 = sub i64 %36, %37
+  %narrow.i = sub nsw i32 %30, %35
   %narrow3.i = mul nsw i32 %narrow.i, 3600
-  %41 = sext i32 %narrow3.i to i64
-  %42 = add nsw i64 %40, %41
+  %39 = sext i32 %narrow3.i to i64
+  %40 = add nsw i64 %38, %39
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %45
+  br label %43
 
-43:                                               ; preds = %5
-  %44 = sub nsw i64 %25, %0
-  br label %45
+41:                                               ; preds = %5
+  %42 = sub nsw i64 %23, %0
+  br label %43
 
-45:                                               ; preds = %43, %27
-  %.0 = phi i64 [ %42, %27 ], [ %44, %43 ]
+43:                                               ; preds = %41, %25
+  %.0 = phi i64 [ %40, %25 ], [ %42, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i64 %.0

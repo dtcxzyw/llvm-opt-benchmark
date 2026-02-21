@@ -602,72 +602,72 @@ define range(i32 -65535, 65536) i32 @lv_trigo_cos(i16 noundef signext %0) local_
   %.neg1 = add i16 %reass.sub, -90
   %3 = add i16 %.neg1, %smax.i
   %4 = udiv i16 %3, 360
-  %5 = add nuw nsw i16 %4, %.lobit.i
-  %6 = mul i16 %5, 360
-  %7 = add i16 %6, %2
-  %8 = tail call i16 @llvm.umax.i16(i16 %7, i16 359)
-  %9 = urem i16 %8, 360
-  %.neg.i = sub i16 %9, %8
-  %10 = add i16 %.neg.i, %7
-  %11 = icmp samesign ult i16 %10, 90
-  br i1 %11, label %12, label %17
+  %reass.add = add nuw nsw i16 %4, %.lobit.i
+  %reass.mul = mul i16 %reass.add, 360
+  %5 = add i16 %reass.mul, %2
+  %6 = tail call i16 @llvm.umax.i16(i16 %5, i16 359)
+  %7 = urem i16 %6, 360
+  %.neg.i = sub i16 %7, %6
+  %8 = add i16 %.neg.i, %5
+  %9 = icmp samesign ult i16 %8, 90
+  br i1 %9, label %10, label %15
 
-12:                                               ; preds = %1
-  %13 = zext nneg i16 %10 to i64
-  %14 = getelementptr inbounds nuw i16, ptr @sin0_90_table, i64 %13
-  %15 = load i16, ptr %14, align 2, !tbaa !3
-  %16 = zext i16 %15 to i32
-  br label %41
+10:                                               ; preds = %1
+  %11 = zext nneg i16 %8 to i64
+  %12 = getelementptr inbounds nuw i16, ptr @sin0_90_table, i64 %11
+  %13 = load i16, ptr %12, align 2, !tbaa !3
+  %14 = zext i16 %13 to i32
+  br label %39
 
-17:                                               ; preds = %1
-  %18 = icmp samesign ult i16 %10, 180
-  br i1 %18, label %19, label %25
+15:                                               ; preds = %1
+  %16 = icmp samesign ult i16 %8, 180
+  br i1 %16, label %17, label %23
 
-19:                                               ; preds = %17
-  %20 = sub nuw nsw i16 180, %10
-  %21 = zext nneg i16 %20 to i64
-  %22 = getelementptr inbounds nuw i16, ptr @sin0_90_table, i64 %21
-  %23 = load i16, ptr %22, align 2, !tbaa !3
-  %24 = zext i16 %23 to i32
-  br label %41
+17:                                               ; preds = %15
+  %18 = sub nuw nsw i16 180, %8
+  %19 = zext nneg i16 %18 to i64
+  %20 = getelementptr inbounds nuw i16, ptr @sin0_90_table, i64 %19
+  %21 = load i16, ptr %20, align 2, !tbaa !3
+  %22 = zext i16 %21 to i32
+  br label %39
 
-25:                                               ; preds = %17
-  %26 = icmp samesign ult i16 %10, 270
-  br i1 %26, label %27, label %34
+23:                                               ; preds = %15
+  %24 = icmp samesign ult i16 %8, 270
+  br i1 %24, label %25, label %32
 
-27:                                               ; preds = %25
-  %28 = zext nneg i16 %10 to i64
-  %29 = getelementptr i16, ptr @sin0_90_table, i64 %28
-  %30 = getelementptr i8, ptr %29, i64 -360
-  %31 = load i16, ptr %30, align 2, !tbaa !3
-  %32 = zext i16 %31 to i32
-  %33 = sub nsw i32 0, %32
-  br label %41
+25:                                               ; preds = %23
+  %26 = zext nneg i16 %8 to i64
+  %27 = getelementptr i16, ptr @sin0_90_table, i64 %26
+  %28 = getelementptr i8, ptr %27, i64 -360
+  %29 = load i16, ptr %28, align 2, !tbaa !3
+  %30 = zext i16 %29 to i32
+  %31 = sub nsw i32 0, %30
+  br label %39
 
-34:                                               ; preds = %25
-  %35 = sub nuw nsw i16 360, %10
-  %36 = zext nneg i16 %35 to i64
-  %37 = getelementptr inbounds nuw i16, ptr @sin0_90_table, i64 %36
-  %38 = load i16, ptr %37, align 2, !tbaa !3
-  %39 = zext i16 %38 to i32
-  %40 = sub nsw i32 0, %39
-  br label %41
+32:                                               ; preds = %23
+  %33 = sub nuw nsw i16 360, %8
+  %34 = zext nneg i16 %33 to i64
+  %35 = getelementptr inbounds nuw i16, ptr @sin0_90_table, i64 %34
+  %36 = load i16, ptr %35, align 2, !tbaa !3
+  %37 = zext i16 %36 to i32
+  %38 = sub nsw i32 0, %37
+  br label %39
 
-41:                                               ; preds = %34, %27, %19, %12
-  %.0.i = phi i32 [ %16, %12 ], [ %24, %19 ], [ %33, %27 ], [ %40, %34 ]
-  switch i32 %.0.i, label %43 [
+39:                                               ; preds = %32, %25, %17, %10
+  %.0.i = phi i32 [ %14, %10 ], [ %22, %17 ], [ %31, %25 ], [ %38, %32 ]
+  switch i32 %.0.i, label %41 [
     i32 32767, label %lv_trigo_sin.exit
-    i32 -32767, label %42
+    i32 -32767, label %40
   ]
 
-42:                                               ; preds = %41
+40:                                               ; preds = %39
   br label %lv_trigo_sin.exit
 
-43:                                               ; preds = %41
+41:                                               ; preds = %39
   br label %lv_trigo_sin.exit
 
-lv_trigo_sin.exit:                                ; preds = %41, %42, %43
-  %.026.i = phi i32 [ %.0.i, %43 ], [ -32768, %42 ], [ 32768, %41 ]
+lv_trigo_sin.exit:                                ; preds = %39, %40, %41
+  %.026.i = phi i32 [ %.0.i, %41 ], [ -32768, %40 ], [ 32768, %39 ]
   ret i32 %.026.i
 }
 

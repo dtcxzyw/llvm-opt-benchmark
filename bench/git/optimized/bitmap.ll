@@ -513,8 +513,8 @@ define dso_local i64 @bitmap_popcount(ptr noundef readonly captures(none) %0) lo
   br label %5
 
 5:                                                ; preds = %.lr.ph, %5
-  %.08 = phi i64 [ 0, %.lr.ph ], [ %22, %5 ]
-  %.067 = phi i64 [ 0, %.lr.ph ], [ %23, %5 ]
+  %.08 = phi i64 [ 0, %.lr.ph ], [ %20, %5 ]
+  %.067 = phi i64 [ 0, %.lr.ph ], [ %21, %5 ]
   %6 = getelementptr inbounds nuw i64, ptr %4, i64 %.067
   %7 = load i64, ptr %6, align 8, !tbaa !12
   %8 = and i64 %7, 6148914691236517205
@@ -528,16 +528,16 @@ define dso_local i64 @bitmap_popcount(ptr noundef readonly captures(none) %0) lo
   %16 = and i64 %15, 506381209866536711
   %17 = lshr i64 %15, 4
   %18 = and i64 %17, 506381209866536711
-  %19 = add nuw nsw i64 %18, %16
-  %20 = mul i64 %19, 72340172838076673
-  %21 = lshr i64 %20, 56
-  %22 = add i64 %21, %.08
-  %23 = add nuw i64 %.067, 1
-  %exitcond.not = icmp eq i64 %23, %3
+  %reass.add = add nuw nsw i64 %18, %16
+  %reass.mul = mul i64 %reass.add, 72340172838076673
+  %19 = lshr i64 %reass.mul, 56
+  %20 = add i64 %19, %.08
+  %21 = add nuw i64 %.067, 1
+  %exitcond.not = icmp eq i64 %21, %3
   br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %5, %1
-  %.0.lcssa = phi i64 [ 0, %1 ], [ %22, %5 ]
+  %.0.lcssa = phi i64 [ 0, %1 ], [ %20, %5 ]
   ret i64 %.0.lcssa
 }
 
@@ -553,7 +553,7 @@ define dso_local i64 @ewah_bitmap_popcount(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not2, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.03 = phi i64 [ %20, %.lr.ph ], [ 0, %1 ]
+  %.03 = phi i64 [ %18, %.lr.ph ], [ 0, %1 ]
   %5 = load i64, ptr %3, align 8, !tbaa !12
   %6 = and i64 %5, 6148914691236517205
   %7 = lshr i64 %5, 1
@@ -566,16 +566,16 @@ define dso_local i64 @ewah_bitmap_popcount(ptr noundef %0) local_unnamed_addr #0
   %14 = and i64 %13, 506381209866536711
   %15 = lshr i64 %13, 4
   %16 = and i64 %15, 506381209866536711
-  %17 = add nuw nsw i64 %16, %14
-  %18 = mul i64 %17, 72340172838076673
-  %19 = lshr i64 %18, 56
-  %20 = add i64 %19, %.03
-  %21 = call i32 @ewah_iterator_next(ptr noundef nonnull %3, ptr noundef nonnull %2) #13
-  %.not = icmp eq i32 %21, 0
+  %reass.add = add nuw nsw i64 %16, %14
+  %reass.mul = mul i64 %reass.add, 72340172838076673
+  %17 = lshr i64 %reass.mul, 56
+  %18 = add i64 %17, %.03
+  %19 = call i32 @ewah_iterator_next(ptr noundef nonnull %3, ptr noundef nonnull %2) #13
+  %.not = icmp eq i32 %19, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.0.lcssa = phi i64 [ 0, %1 ], [ %20, %.lr.ph ]
+  %.0.lcssa = phi i64 [ 0, %1 ], [ %18, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0.lcssa

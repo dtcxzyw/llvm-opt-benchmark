@@ -4045,31 +4045,31 @@ define internal fastcc i32 @str_to_time(ptr noundef %0, ptr noundef nonnull writ
   %4 = load i8, ptr %0, align 1, !tbaa !79
   %5 = add i8 %4, -58
   %or.cond = icmp ult i8 %5, -10
-  br i1 %or.cond, label %50, label %6
+  br i1 %or.cond, label %49, label %6
 
 6:                                                ; preds = %2
   %7 = call i64 @strtol(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 10) #16
   %8 = load ptr, ptr %3, align 8, !tbaa !166
   %9 = icmp eq ptr %8, %0
-  br i1 %9, label %50, label %10
+  br i1 %9, label %49, label %10
 
 10:                                               ; preds = %6
   %11 = load i8, ptr %8, align 1, !tbaa !79
   %.not = icmp eq i8 %11, 58
-  br i1 %.not, label %12, label %50
+  br i1 %.not, label %12, label %49
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %14 = load i8, ptr %13, align 1, !tbaa !79
   %15 = add i8 %14, -58
   %or.cond25 = icmp ult i8 %15, -10
-  br i1 %or.cond25, label %50, label %16
+  br i1 %or.cond25, label %49, label %16
 
 16:                                               ; preds = %12
   %17 = call i64 @strtol(ptr noundef nonnull %13, ptr noundef nonnull %3, i32 noundef 10) #16
   %18 = load ptr, ptr %3, align 8, !tbaa !166
   %19 = icmp eq ptr %18, %13
-  br i1 %19, label %50, label %20
+  br i1 %19, label %49, label %20
 
 20:                                               ; preds = %16
   %21 = load i8, ptr %18, align 1, !tbaa !79
@@ -4095,27 +4095,26 @@ define internal fastcc i32 @str_to_time(ptr noundef %0, ptr noundef nonnull writ
   %.0 = phi i64 [ %32, %23 ], [ 0, %20 ]
   %sext = shl i64 %7, 32
   %34 = ashr exact i64 %sext, 32
-  %35 = mul nsw i64 %34, 3600
   %sext24 = shl i64 %17, 32
-  %36 = ashr exact i64 %sext24, 32
-  %37 = mul nsw i64 %36, 60
-  %38 = add nsw i64 %37, %35
-  %39 = mul nsw i64 %38, 1000000
-  %40 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %39, i64 %.0)
-  %41 = extractvalue { i64, i1 } %40, 1
-  %42 = extractvalue { i64, i1 } %40, 0
-  %43 = icmp slt i64 %42, 0
-  %44 = select i1 %43, i64 9223372036854775807, i64 -9223372036854775808
-  %45 = select i1 %41, i64 %44, i64 %42
-  store i64 %45, ptr %1, align 8, !tbaa !61
-  %46 = ptrtoint ptr %.017 to i64
-  %47 = ptrtoint ptr %0 to i64
-  %48 = sub i64 %46, %47
-  %49 = trunc i64 %48 to i32
-  br label %50
+  %35 = ashr exact i64 %sext24, 32
+  %36 = mul nsw i64 %34, 3600000000
+  %37 = mul nsw i64 %35, 60000000
+  %38 = add nsw i64 %37, %36
+  %39 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %38, i64 %.0)
+  %40 = extractvalue { i64, i1 } %39, 1
+  %41 = extractvalue { i64, i1 } %39, 0
+  %42 = icmp slt i64 %41, 0
+  %43 = select i1 %42, i64 9223372036854775807, i64 -9223372036854775808
+  %44 = select i1 %40, i64 %43, i64 %41
+  store i64 %44, ptr %1, align 8, !tbaa !61
+  %45 = ptrtoint ptr %.017 to i64
+  %46 = ptrtoint ptr %0 to i64
+  %47 = sub i64 %45, %46
+  %48 = trunc i64 %47 to i32
+  br label %49
 
-50:                                               ; preds = %16, %6, %10, %12, %2, %33
-  %.016 = phi i32 [ %49, %33 ], [ 0, %2 ], [ 0, %6 ], [ 0, %12 ], [ 0, %10 ], [ 0, %16 ]
+49:                                               ; preds = %16, %6, %10, %12, %2, %33
+  %.016 = phi i32 [ %48, %33 ], [ 0, %2 ], [ 0, %6 ], [ 0, %12 ], [ 0, %10 ], [ 0, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.016
 }

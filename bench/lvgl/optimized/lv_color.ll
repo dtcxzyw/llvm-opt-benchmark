@@ -141,7 +141,7 @@ define i24 @lv_color_hsv_to_rgb(i16 noundef zeroext %0, i8 noundef zeroext %1, i
   %.mask51 = and i16 %9, 255
   %.sroa.3.0.insert.ext.i = zext nneg i16 %.mask51 to i24
   %.sroa.0.0.insert.insert.i = mul nuw i24 %.sroa.3.0.insert.ext.i, 65793
-  br label %47
+  br label %48
 
 14:                                               ; preds = %3
   %15 = zext nneg i16 %11 to i32
@@ -149,57 +149,57 @@ define i24 @lv_color_hsv_to_rgb(i16 noundef zeroext %0, i8 noundef zeroext %1, i
   %17 = mul nuw nsw i32 %16, 255
   %18 = udiv i32 %17, 360
   %19 = udiv i32 %17, 15480
-  %.neg = mul nuw nsw i32 %19, 213
-  %20 = add nuw nsw i32 %.neg, %18
-  %21 = mul nuw nsw i32 %20, 6
+  %20 = mul nuw nsw i32 %19, 254
+  %21 = mul nuw nsw i32 %18, 6
+  %22 = add nuw nsw i32 %20, %21
   %.mask = and i16 %9, 255
-  %22 = zext nneg i16 %.mask to i32
-  %23 = xor i16 %11, 255
-  %24 = mul nuw i16 %23, %.mask
-  %25 = lshr i16 %24, 8
-  %26 = trunc nuw i16 %25 to i8
-  %27 = and i32 %21, 254
-  %28 = mul nuw nsw i32 %27, %15
-  %29 = lshr i32 %28, 8
-  %30 = xor i32 %29, 255
-  %31 = mul nuw nsw i32 %30, %22
-  %32 = lshr i32 %31, 8
-  %33 = trunc nuw i32 %32 to i8
-  %34 = xor i32 %27, 255
-  %35 = mul nuw nsw i32 %34, %15
-  %36 = lshr i32 %35, 8
-  %37 = xor i32 %36, 255
-  %38 = mul nuw nsw i32 %37, %22
-  %39 = lshr i32 %38, 8
-  %40 = trunc nuw i32 %39 to i8
+  %23 = zext nneg i16 %.mask to i32
+  %24 = xor i16 %11, 255
+  %25 = mul nuw i16 %24, %.mask
+  %26 = lshr i16 %25, 8
+  %27 = trunc nuw i16 %26 to i8
+  %28 = and i32 %22, 254
+  %29 = mul nuw nsw i32 %28, %15
+  %30 = lshr i32 %29, 8
+  %31 = xor i32 %30, 255
+  %32 = mul nuw nsw i32 %31, %23
+  %33 = lshr i32 %32, 8
+  %34 = trunc nuw i32 %33 to i8
+  %35 = xor i32 %28, 255
+  %36 = mul nuw nsw i32 %35, %15
+  %37 = lshr i32 %36, 8
+  %38 = xor i32 %37, 255
+  %39 = mul nuw nsw i32 %38, %23
+  %40 = lshr i32 %39, 8
+  %41 = trunc nuw i32 %40 to i8
   %trunc = trunc i32 %19 to i8
-  switch i8 %trunc, label %45 [
-    i8 0, label %46
-    i8 1, label %41
-    i8 2, label %42
-    i8 3, label %43
-    i8 4, label %44
+  switch i8 %trunc, label %46 [
+    i8 0, label %47
+    i8 1, label %42
+    i8 2, label %43
+    i8 3, label %44
+    i8 4, label %45
   ]
 
-41:                                               ; preds = %14
-  br label %46
-
 42:                                               ; preds = %14
-  br label %46
+  br label %47
 
 43:                                               ; preds = %14
-  br label %46
+  br label %47
 
 44:                                               ; preds = %14
-  br label %46
+  br label %47
 
 45:                                               ; preds = %14
-  br label %46
+  br label %47
 
-46:                                               ; preds = %14, %45, %44, %43, %42, %41
-  %.042 = phi i8 [ %33, %45 ], [ %10, %44 ], [ %26, %41 ], [ %40, %42 ], [ %10, %43 ], [ %26, %14 ]
-  %.041 = phi i8 [ %26, %45 ], [ %26, %44 ], [ %10, %41 ], [ %10, %42 ], [ %33, %43 ], [ %40, %14 ]
-  %.0 = phi i8 [ %10, %45 ], [ %40, %44 ], [ %33, %41 ], [ %26, %42 ], [ %26, %43 ], [ %10, %14 ]
+46:                                               ; preds = %14
+  br label %47
+
+47:                                               ; preds = %14, %46, %45, %44, %43, %42
+  %.042 = phi i8 [ %34, %46 ], [ %10, %45 ], [ %27, %42 ], [ %41, %43 ], [ %10, %44 ], [ %27, %14 ]
+  %.041 = phi i8 [ %27, %46 ], [ %27, %45 ], [ %10, %42 ], [ %10, %43 ], [ %34, %44 ], [ %41, %14 ]
+  %.0 = phi i8 [ %10, %46 ], [ %41, %45 ], [ %34, %42 ], [ %27, %43 ], [ %27, %44 ], [ %10, %14 ]
   %.sroa.3.0.insert.ext.i44 = zext i8 %.0 to i24
   %.sroa.3.0.insert.shift.i45 = shl nuw i24 %.sroa.3.0.insert.ext.i44, 16
   %.sroa.2.0.insert.ext.i46 = zext i8 %.041 to i24
@@ -207,10 +207,10 @@ define i24 @lv_color_hsv_to_rgb(i16 noundef zeroext %0, i8 noundef zeroext %1, i
   %.sroa.2.0.insert.insert.i48 = or disjoint i24 %.sroa.3.0.insert.shift.i45, %.sroa.2.0.insert.shift.i47
   %.sroa.0.0.insert.ext.i49 = zext i8 %.042 to i24
   %.sroa.0.0.insert.insert.i50 = or disjoint i24 %.sroa.2.0.insert.insert.i48, %.sroa.0.0.insert.ext.i49
-  br label %47
+  br label %48
 
-47:                                               ; preds = %46, %13
-  %.sroa.0.0 = phi i24 [ %.sroa.0.0.insert.insert.i, %13 ], [ %.sroa.0.0.insert.insert.i50, %46 ]
+48:                                               ; preds = %47, %13
+  %.sroa.0.0 = phi i24 [ %.sroa.0.0.insert.insert.i, %13 ], [ %.sroa.0.0.insert.insert.i50, %47 ]
   ret i24 %.sroa.0.0
 }
 

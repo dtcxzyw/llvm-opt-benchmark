@@ -18004,18 +18004,18 @@ define internal range(i64 0, 7849921) i64 @hash_num_lookup(ptr noundef readonly 
   %2 = load i32, ptr %0, align 8, !tbaa !222
   %3 = zext i32 %2 to i64
   %4 = and i64 %3, 255
-  %5 = mul nuw nsw i64 %4, 31
-  %6 = lshr i64 %3, 8
-  %7 = and i64 %6, 255
-  %8 = add nuw nsw i64 %5, %7
-  %9 = mul nuw nsw i64 %8, 31
-  %10 = lshr i64 %3, 16
-  %11 = and i64 %10, 255
-  %12 = add nuw nsw i64 %9, %11
-  %13 = mul nuw nsw i64 %12, 31
-  %14 = lshr i64 %3, 24
-  %15 = add nuw nsw i64 %13, %14
-  ret i64 %15
+  %5 = lshr i64 %3, 8
+  %6 = and i64 %5, 255
+  %7 = mul nuw nsw i64 %4, 961
+  %8 = mul nuw nsw i64 %6, 31
+  %9 = lshr i64 %3, 16
+  %10 = and i64 %9, 255
+  %11 = lshr i64 %3, 24
+  %12 = add nuw nsw i64 %10, %7
+  %reass.add = add nuw nsw i64 %12, %8
+  %reass.mul = mul nuw nsw i64 %reass.add, 31
+  %13 = add nuw nsw i64 %reass.mul, %11
+  ret i64 %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

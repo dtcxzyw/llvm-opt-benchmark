@@ -546,9 +546,9 @@ sw.bb8:                                           ; preds = %entry
   %conv44.i.neg = sub i32 %add41.i, %1
   %cmp45.i = icmp eq i32 %add41.i, %1
   %spec.store.select1.i.neg = select i1 %cmp45.i, i32 -1, i32 %conv44.i.neg
-  %sub = add i32 %spec.store.select1.i.neg, %nValue
-  %mul = mul nsw i32 %sub, 86400
-  %conv = sext i32 %mul to i64
+  %reass.add13 = add i32 %spec.store.select1.i.neg, %nValue
+  %reass.mul14 = mul i32 %reass.add13, 86400
+  %conv = sext i32 %reass.mul14 to i64
   %add = add nsw i64 %0, %conv
   store i64 %add, ptr %this, align 8
   br label %sw.epilog
@@ -564,9 +564,9 @@ if.then:                                          ; preds = %sw.bb9
   %rem.i = srem i64 %div65.i, 7
   %conv66.i = trunc nsw i64 %rem.i to i32
   %add67.i.neg = xor i32 %conv66.i, -1
-  %sub12 = add nsw i32 %nValue, %add67.i.neg
-  %mul13 = mul nsw i32 %sub12, 86400
-  %conv14 = sext i32 %mul13 to i64
+  %reass.add = add nsw i32 %nValue, %add67.i.neg
+  %reass.mul = mul nsw i32 %reass.add, 86400
+  %conv14 = sext i32 %reass.mul to i64
   %add16 = add nsw i64 %3, %conv14
   store i64 %add16, ptr %this, align 8
   br label %sw.epilog
@@ -716,8 +716,6 @@ _ZN2EA4StdC10IsLeapYearEj.exit.thread:            ; preds = %if.end33, %_ZN2EA4S
   %9 = load i32, ptr %arrayidx, align 4
   %add49 = add i32 %9, %nDayOfMonth.addr.0
   %conv50 = zext i32 %add49 to i64
-  %add51 = add nuw nsw i64 %conv50, %conv
-  %mul52 = mul nuw nsw i64 %add51, 86400
   %mul53 = mul i32 %nHour.addr.0, 3600
   %conv54 = zext i32 %mul53 to i64
   %mul57 = mul i32 %nMinute.addr.0, 60
@@ -725,10 +723,12 @@ _ZN2EA4StdC10IsLeapYearEj.exit.thread:            ; preds = %if.end33, %_ZN2EA4S
   %conv61 = zext i32 %nSecond.addr.0 to i64
   %div64 = udiv i32 %nNanosecond.addr.0, 1000000000
   %conv65 = zext nneg i32 %div64 to i64
+  %reass.add = add nuw nsw i64 %conv50, %conv
+  %reass.mul = mul nuw nsw i64 %reass.add, 86400
   %add56 = add nuw nsw i64 %conv58, %conv54
   %add60 = add nuw nsw i64 %add56, %conv61
   %add63 = add nuw nsw i64 %add60, %conv65
-  %add67 = add nuw nsw i64 %add63, %mul52
+  %add67 = add nuw nsw i64 %add63, %reass.mul
   store i64 %add67, ptr %this, align 8
   %rem68 = urem i32 %nNanosecond.addr.0, 1000000000
   store i32 %rem68, ptr %mnNanosecond, align 8
@@ -1402,7 +1402,6 @@ entry:
   %month.0.in.v = select i1 %cmp, i32 13, i32 1
   %month.0.in = add nuw nsw i32 %conv, %month.0.in.v
   %div.i = udiv i32 %1, 1000000
-  %conv14.i = zext nneg i32 %div.i to i64
   %rem80.i.i = srem i64 %0, 60
   %div75.i.i = sdiv i64 %0, 60
   %rem76.i.i = srem i64 %div75.i.i, 60
@@ -1416,28 +1415,28 @@ entry:
   %div134 = zext nneg i32 %2 to i64
   %mul14 = mul nsw i64 %year.0, 36525
   %div15 = sdiv i64 %mul14, 100
-  %narrow9 = mul nuw nsw i32 %month.0.in, 1959
-  %3 = lshr i32 %narrow9, 6
-  %div185 = zext nneg i32 %3 to i64
+  %sub16 = sub nsw i64 %div15, %div134
+  %narrow14 = mul nuw nsw i32 %month.0.in, 1959
+  %3 = lshr i32 %narrow14, 6
   %4 = and i32 %call5.i, 65535
-  %conv20 = zext nneg i32 %4 to i64
-  %sub16 = add nsw i64 %div15, %conv20
-  %add19 = add nsw i64 %sub16, %div185
-  %add21 = sub nsw i64 %add19, %div134
-  %5 = mul nsw i64 %add21, 24
+  %narrow15 = add nuw nsw i32 %3, %4
+  %add19 = zext nneg i32 %narrow15 to i64
+  %reass.add = add nsw i64 %sub16, %add19
+  %reass.mul = mul nsw i64 %reass.add, 24
   %conv24 = and i64 %rem71.i.i, 65535
   %mul23 = add nuw nsw i64 %conv24, -14035608
-  %add25 = add nsw i64 %mul23, %5
-  %mul26 = mul nsw i64 %add25, 60
+  %reass.add9 = add nsw i64 %mul23, %reass.mul
   %conv27 = and i64 %rem76.i.i, 65535
-  %add28 = add nsw i64 %mul26, %conv27
-  %mul29 = mul nsw i64 %add28, 60
+  %5 = mul nsw i64 %reass.add9, 3600
+  %6 = mul nuw nsw i64 %conv27, 60
   %conv30 = and i64 %rem80.i.i, 65535
-  %add31 = add nsw i64 %mul29, %conv30
-  %mul32 = mul nsw i64 %add31, 1000
-  %add34 = add nsw i64 %mul32, %conv14.i
-  %mul35 = mul nsw i64 %add34, 10000
-  store i64 %mul35, ptr %time, align 4
+  %7 = add nuw nsw i64 %6, %conv30
+  %reass.add11 = add nsw i64 %7, %5
+  %8 = mul i64 %reass.add11, 10000000
+  %narrow13 = mul nuw nsw i32 %div.i, 10000
+  %9 = zext nneg i32 %narrow13 to i64
+  %10 = add nsw i64 %8, %9
+  store i64 %10, ptr %time, align 4
   ret void
 }
 

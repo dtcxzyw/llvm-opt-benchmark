@@ -1612,85 +1612,85 @@ _ZN10open_spiel14colored_trails12_GLOBAL__N_112CurrentScoreEiRKNS0_5BoardE.exit:
   %29 = tail call i32 @llvm.abs.i32(i32 %28, i1 true)
   %30 = sub nsw i32 %27, %25
   %31 = tail call i32 @llvm.abs.i32(i32 %30, i1 true)
-  %32 = add nuw nsw i32 %31, %29
-  %33 = mul nsw i32 %32, -25
-  %34 = add nsw i32 %33, %.0.lcssa.i.i
-  %35 = icmp eq i32 %23, %19
-  br i1 %35, label %39, label %.preheader
+  %reass.add = add nuw i32 %31, %29
+  %reass.mul = mul i32 %reass.add, -25
+  %32 = add i32 %reass.mul, %.0.lcssa.i.i
+  %33 = icmp eq i32 %23, %19
+  br i1 %33, label %37, label %.preheader
 
 .preheader:                                       ; preds = %_ZN10open_spiel14colored_trails12_GLOBAL__N_112CurrentScoreEiRKNS0_5BoardE.exit
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %37 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  br label %40
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  br label %38
 
-39:                                               ; preds = %_ZN10open_spiel14colored_trails12_GLOBAL__N_112CurrentScoreEiRKNS0_5BoardE.exit
+37:                                               ; preds = %_ZN10open_spiel14colored_trails12_GLOBAL__N_112CurrentScoreEiRKNS0_5BoardE.exit
   store i8 1, ptr %2, align 1
   br label %.loopexit
 
-40:                                               ; preds = %.preheader, %76
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %76 ]
-  %.144 = phi i32 [ %34, %.preheader ], [ %.2, %76 ]
-  %41 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel14colored_trails12_GLOBAL__N_111kRowOffsetsE, i64 %indvars.iv
-  %42 = load i32, ptr %41, align 4
-  %43 = add nsw i32 %42, %24
-  %44 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel14colored_trails12_GLOBAL__N_114kColumnOffsetsE, i64 %indvars.iv
-  %45 = load i32, ptr %44, align 4
-  %46 = add nsw i32 %45, %25
-  %47 = call noundef zeroext i1 @_ZNK10open_spiel14colored_trails5Board8InBoundsEii(ptr noundef nonnull align 8 dereferenceable(112) %1, i32 noundef %43, i32 noundef %46)
-  br i1 %47, label %48, label %76
+38:                                               ; preds = %.preheader, %74
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %74 ]
+  %.144 = phi i32 [ %32, %.preheader ], [ %.2, %74 ]
+  %39 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel14colored_trails12_GLOBAL__N_111kRowOffsetsE, i64 %indvars.iv
+  %40 = load i32, ptr %39, align 4
+  %41 = add nsw i32 %40, %24
+  %42 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel14colored_trails12_GLOBAL__N_114kColumnOffsetsE, i64 %indvars.iv
+  %43 = load i32, ptr %42, align 4
+  %44 = add nsw i32 %43, %25
+  %45 = call noundef zeroext i1 @_ZNK10open_spiel14colored_trails5Board8InBoundsEii(ptr noundef nonnull align 8 dereferenceable(112) %1, i32 noundef %41, i32 noundef %44)
+  br i1 %45, label %46, label %74
 
-48:                                               ; preds = %40
-  %49 = load i32, ptr %1, align 8
-  %50 = mul nsw i32 %49, %43
-  %51 = add nsw i32 %50, %46
-  %52 = sext i32 %51 to i64
-  %53 = load ptr, ptr %36, align 8
-  %54 = getelementptr inbounds i32, ptr %53, i64 %52
-  %55 = load i32, ptr %54, align 4
-  %56 = load ptr, ptr %5, align 8
-  %57 = getelementptr inbounds %"class.std::vector", ptr %56, i64 %6
-  %58 = sext i32 %55 to i64
-  %59 = load ptr, ptr %57, align 8
-  %60 = getelementptr inbounds i32, ptr %59, i64 %58
-  %61 = load i32, ptr %60, align 4
-  %62 = icmp sgt i32 %61, 0
-  br i1 %62, label %63, label %76
+46:                                               ; preds = %38
+  %47 = load i32, ptr %1, align 8
+  %48 = mul nsw i32 %47, %41
+  %49 = add nsw i32 %48, %44
+  %50 = sext i32 %49 to i64
+  %51 = load ptr, ptr %34, align 8
+  %52 = getelementptr inbounds i32, ptr %51, i64 %50
+  %53 = load i32, ptr %52, align 4
+  %54 = load ptr, ptr %5, align 8
+  %55 = getelementptr inbounds %"class.std::vector", ptr %54, i64 %6
+  %56 = sext i32 %53 to i64
+  %57 = load ptr, ptr %55, align 8
+  %58 = getelementptr inbounds i32, ptr %57, i64 %56
+  %59 = load i32, ptr %58, align 4
+  %60 = icmp sgt i32 %59, 0
+  br i1 %60, label %61, label %74
 
-63:                                               ; preds = %48
+61:                                               ; preds = %46
   call void @_ZN10open_spiel14colored_trails5BoardC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull align 8 dereferenceable(112) %1)
-  %64 = load ptr, ptr %37, align 8
-  %65 = getelementptr inbounds %"class.std::vector", ptr %64, i64 %6
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i32, ptr %66, i64 %58
-  %68 = load i32, ptr %67, align 4
-  %69 = add nsw i32 %68, -1
-  store i32 %69, ptr %67, align 4
-  %70 = load ptr, ptr %38, align 8
-  %71 = getelementptr inbounds i32, ptr %70, i64 %6
-  store i32 %51, ptr %71, align 4
-  %72 = invoke fastcc noundef i32 @_ZN10open_spiel14colored_trails12_GLOBAL__N_18ScoreRecEiRKNS0_5BoardEPb(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef %2)
-          to label %73 unwind label %74
+  %62 = load ptr, ptr %35, align 8
+  %63 = getelementptr inbounds %"class.std::vector", ptr %62, i64 %6
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds i32, ptr %64, i64 %56
+  %66 = load i32, ptr %65, align 4
+  %67 = add nsw i32 %66, -1
+  store i32 %67, ptr %65, align 4
+  %68 = load ptr, ptr %36, align 8
+  %69 = getelementptr inbounds i32, ptr %68, i64 %6
+  store i32 %49, ptr %69, align 4
+  %70 = invoke fastcc noundef i32 @_ZN10open_spiel14colored_trails12_GLOBAL__N_18ScoreRecEiRKNS0_5BoardEPb(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef %2)
+          to label %71 unwind label %72
 
-73:                                               ; preds = %63
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.144, i32 %72)
+71:                                               ; preds = %61
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.144, i32 %70)
   call void @_ZN10open_spiel14colored_trails5BoardD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #26
-  br label %76
+  br label %74
 
-74:                                               ; preds = %63
-  %75 = landingpad { ptr, i32 }
+72:                                               ; preds = %61
+  %73 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10open_spiel14colored_trails5BoardD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #26
-  resume { ptr, i32 } %75
+  resume { ptr, i32 } %73
 
-76:                                               ; preds = %40, %73, %48
-  %.2 = phi i32 [ %.sroa.speculated, %73 ], [ %.144, %48 ], [ %.144, %40 ]
+74:                                               ; preds = %38, %71, %46
+  %.2 = phi i32 [ %.sroa.speculated, %71 ], [ %.144, %46 ], [ %.144, %38 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %40, !llvm.loop !33
+  br i1 %exitcond.not, label %.loopexit, label %38, !llvm.loop !33
 
-.loopexit:                                        ; preds = %76, %39
-  %.0 = phi i32 [ %34, %39 ], [ %.2, %76 ]
+.loopexit:                                        ; preds = %74, %37
+  %.0 = phi i32 [ %32, %37 ], [ %.2, %74 ]
   ret i32 %.0
 }
 
