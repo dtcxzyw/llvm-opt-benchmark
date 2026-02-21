@@ -716,8 +716,8 @@ _stop_cursor.exit:                                ; preds = %62, %58, %54
   %139 = load i32, ptr %138, align 8, !tbaa !119
   %140 = sub nsw i32 0, %139
   %141 = call reassoc nsz arcp contract afn float @llvm.powi.f32.i32(float 1.000000e+01, i32 %140)
-  %142 = fpext reassoc nsz arcp contract afn float %141 to double
-  %143 = fmul reassoc nsz arcp contract afn double %142, 5.000000e+00
+  %142 = fpext reassoc nnan nsz arcp contract afn float %141 to double
+  %143 = fmul reassoc nnan nsz arcp contract afn double %142, 5.000000e+00
   %144 = getelementptr inbounds nuw i8, ptr %6, i64 428
   %145 = load float, ptr %144, align 4, !tbaa !120
   %146 = getelementptr inbounds nuw i8, ptr %6, i64 424
@@ -972,8 +972,8 @@ define internal noundef i32 @_popup_draw(ptr noundef %0, ptr noundef %1, ptr rea
   %59 = load i32, ptr %58, align 8, !tbaa !119
   %60 = sub nsw i32 0, %59
   %61 = call reassoc nsz arcp contract afn float @llvm.powi.f32.i32(float 1.000000e+01, i32 %60)
-  %62 = fpext reassoc nsz arcp contract afn float %61 to double
-  %63 = fmul reassoc nsz arcp contract afn double %62, 5.000000e+00
+  %62 = fpext reassoc nnan nsz arcp contract afn float %61 to double
+  %63 = fmul reassoc nnan nsz arcp contract afn double %62, 5.000000e+00
   %64 = getelementptr inbounds nuw i8, ptr %12, i64 428
   %65 = load float, ptr %64, align 4, !tbaa !120
   %66 = getelementptr inbounds nuw i8, ptr %12, i64 424
@@ -9997,7 +9997,7 @@ dt_bauhaus_slider_get.exit:                       ; preds = %DT_BAUHAUS_WIDGET.e
 
 65:                                               ; preds = %61
   %66 = fadd reassoc nsz arcp contract afn float %56, %51
-  %67 = fmul reassoc nsz arcp contract afn float %44, 1.000000e+01
+  %67 = fmul reassoc nnan nsz arcp contract afn float %44, 1.000000e+01
   %68 = fdiv reassoc nsz arcp contract afn float %67, %46
   %69 = fcmp reassoc nsz arcp contract afn ult float %66, %68
   br i1 %69, label %71, label %70

@@ -6468,7 +6468,7 @@ define noundef float @_ZN5image8imageops6sample17catmullrom_kernel17h5617209e655
 
 6:                                                ; preds = %1
   %7 = tail call float @llvm.powi.f32.i32(float %2, i32 3)
-  %8 = fmul float %7, 9.000000e+00
+  %8 = fmul nnan float %7, 9.000000e+00
   %9 = fmul float %0, %0
   %10 = fmul nnan float %9, 1.500000e+01
   %11 = fsub float %8, %10
@@ -6477,7 +6477,7 @@ define noundef float @_ZN5image8imageops6sample17catmullrom_kernel17h5617209e655
 
 13:                                               ; preds = %4
   %14 = tail call float @llvm.powi.f32.i32(float %2, i32 3)
-  %15 = fmul float %14, 3.000000e+00
+  %15 = fmul nnan float %14, 3.000000e+00
   %16 = fmul float %0, %0
   %17 = fmul nnan float %16, 1.500000e+01
   %18 = fsub float %17, %15

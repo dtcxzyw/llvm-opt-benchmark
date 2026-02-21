@@ -67798,10 +67798,10 @@ default.unreachable20:                            ; preds = %.lr.ph
 define hidden noundef i64 @_ZN14polars_parquet5arrow5write29decimal_length_from_precision17ha1088a7da5854040E(i64 noundef %0) unnamed_addr #5 {
   %2 = trunc i64 %0 to i32
   %3 = tail call double @llvm.powi.f64.i32(double 1.000000e+01, i32 %2)
-  %4 = fadd double %3, 1.000000e+00
-  %5 = tail call double @llvm.log2.f64(double %4)
-  %6 = fadd double %5, 1.000000e+00
-  %7 = fmul double %6, 1.250000e-01
+  %4 = fadd nnan double %3, 1.000000e+00
+  %5 = tail call nnan double @llvm.log2.f64(double %4)
+  %6 = fadd nnan double %5, 1.000000e+00
+  %7 = fmul nnan double %6, 1.250000e-01
   %8 = tail call double @llvm.ceil.f64(double %7)
   %9 = tail call i64 @llvm.fptoui.sat.i64.f64(double %8)
   ret i64 %9
@@ -70402,10 +70402,10 @@ define void @_ZN14polars_parquet5arrow5write13array_to_page17h024161d2d150e2f3E(
 445:                                              ; preds = %431
   %446 = trunc i64 %209 to i32
   %447 = tail call double @llvm.powi.f64.i32(double 1.000000e+01, i32 %446)
-  %448 = fadd double %447, 1.000000e+00
-  %449 = tail call double @llvm.log2.f64(double %448)
-  %450 = fadd double %449, 1.000000e+00
-  %451 = fmul double %450, 1.250000e-01
+  %448 = fadd nnan double %447, 1.000000e+00
+  %449 = tail call nnan double @llvm.log2.f64(double %448)
+  %450 = fadd nnan double %449, 1.000000e+00
+  %451 = fmul nnan double %450, 1.250000e-01
   %452 = tail call double @llvm.ceil.f64(double %451)
   %453 = tail call noundef i64 @llvm.fptoui.sat.i64.f64(double %452)
   store i64 %453, ptr %107, align 8, !noalias !4475
@@ -71041,10 +71041,10 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h6cfc0bb4e1750586E.exit.i: ; pre
 662:                                              ; preds = %587
   %663 = trunc nuw nsw i64 %215 to i32
   %664 = tail call double @llvm.powi.f64.i32(double 1.000000e+01, i32 %663)
-  %665 = fadd double %664, 1.000000e+00
-  %666 = tail call double @llvm.log2.f64(double %665)
-  %667 = fadd double %666, 1.000000e+00
-  %668 = fmul double %667, 1.250000e-01
+  %665 = fadd nnan double %664, 1.000000e+00
+  %666 = tail call nnan double @llvm.log2.f64(double %665)
+  %667 = fadd nnan double %666, 1.000000e+00
+  %668 = fmul nnan double %667, 1.250000e-01
   %669 = tail call double @llvm.ceil.f64(double %668)
   %670 = tail call noundef i64 @llvm.fptoui.sat.i64.f64(double %669)
   store i64 %670, ptr %81, align 8, !noalias !4475
@@ -73006,10 +73006,10 @@ default.unreachable525:                           ; preds = %226
 646:                                              ; preds = %632
   %647 = trunc i64 %240 to i32
   %648 = tail call double @llvm.powi.f64.i32(double 1.000000e+01, i32 %647)
-  %649 = fadd double %648, 1.000000e+00
-  %650 = tail call double @llvm.log2.f64(double %649)
-  %651 = fadd double %650, 1.000000e+00
-  %652 = fmul double %651, 1.250000e-01
+  %649 = fadd nnan double %648, 1.000000e+00
+  %650 = tail call nnan double @llvm.log2.f64(double %649)
+  %651 = fadd nnan double %650, 1.000000e+00
+  %652 = fmul nnan double %651, 1.250000e-01
   %653 = tail call double @llvm.ceil.f64(double %652)
   %654 = tail call noundef i64 @llvm.fptoui.sat.i64.f64(double %653)
   store i64 %654, ptr %73, align 8
@@ -73645,10 +73645,10 @@ _ZN4core4iter6traits8iterator8Iterator7collect17ha10671d926a6013bE.exit: ; preds
 863:                                              ; preds = %788
   %864 = trunc nuw nsw i64 %246 to i32
   %865 = tail call double @llvm.powi.f64.i32(double 1.000000e+01, i32 %864)
-  %866 = fadd double %865, 1.000000e+00
-  %867 = tail call double @llvm.log2.f64(double %866)
-  %868 = fadd double %867, 1.000000e+00
-  %869 = fmul double %868, 1.250000e-01
+  %866 = fadd nnan double %865, 1.000000e+00
+  %867 = tail call nnan double @llvm.log2.f64(double %866)
+  %868 = fadd nnan double %867, 1.000000e+00
+  %869 = fmul nnan double %868, 1.250000e-01
   %870 = tail call double @llvm.ceil.f64(double %869)
   %871 = tail call noundef i64 @llvm.fptoui.sat.i64.f64(double %870)
   store i64 %871, ptr %110, align 8

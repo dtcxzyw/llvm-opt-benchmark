@@ -69315,7 +69315,7 @@ define hidden void @_ZN11ruff_linter5rules6refurb5rules13math_constant13math_con
 
 32:                                               ; preds = %.preheader.i
   %33 = tail call double @llvm.powi.f64.i32(double 1.000000e+01, i32 %.sroa.0.0.i.i)
-  %34 = fmul double %33, 0x400921FB54442D18
+  %34 = fmul nnan double %33, 0x400921FB54442D18
   %35 = tail call double @llvm.round.f64(double %34)
   %36 = fdiv double %35, %33
   %37 = fsub double %36, %26
@@ -69349,7 +69349,7 @@ define hidden void @_ZN11ruff_linter5rules6refurb5rules13math_constant13math_con
 
 51:                                               ; preds = %.preheader21.i
   %52 = tail call double @llvm.powi.f64.i32(double 1.000000e+01, i32 %.sroa.0.0.i8.i)
-  %53 = fmul double %52, 0x4005BF0A8B145769
+  %53 = fmul nnan double %52, 0x4005BF0A8B145769
   %54 = tail call double @llvm.round.f64(double %53)
   %55 = fdiv double %54, %52
   %56 = fsub double %55, %26
@@ -69377,7 +69377,7 @@ define hidden void @_ZN11ruff_linter5rules6refurb5rules13math_constant13math_con
 
 67:                                               ; preds = %.preheader24.i
   %68 = tail call double @llvm.powi.f64.i32(double 1.000000e+01, i32 %.sroa.0.0.i14.i)
-  %69 = fmul double %68, 0x401921FB54442D18
+  %69 = fmul nnan double %68, 0x401921FB54442D18
   %70 = tail call double @llvm.round.f64(double %69)
   %71 = fdiv double %70, %68
   %72 = fsub double %71, %26
