@@ -30242,7 +30242,7 @@ mpd_iszero.exit.i:                                ; preds = %2
   %23 = and i8 %6, 1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 %23, ptr %24, align 4, !tbaa !86
-  br label %63
+  br label %65
 
 mpd_qcmp.exit.i:                                  ; preds = %mpd_iszero.exit.i, %.mpd_qcmp.exit_crit_edge.i
   %25 = phi ptr [ %.pre.i, %.mpd_qcmp.exit_crit_edge.i ], [ %17, %mpd_iszero.exit.i ]
@@ -30273,7 +30273,7 @@ mpd_qcmp.exit.i:                                  ; preds = %mpd_iszero.exit.i, 
   switch i64 %26, label %50 [
     i64 3, label %41
     i64 2, label %46
-    i64 1, label %53
+    i64 1, label %55
   ]
 
 41:                                               ; preds = %40
@@ -30288,54 +30288,54 @@ mpd_qcmp.exit.i:                                  ; preds = %mpd_iszero.exit.i, 
   %47 = getelementptr i8, ptr %25, i64 8
   %48 = load i64, ptr %47, align 8, !tbaa !3
   %49 = zext i64 %48 to i128
-  %reass.add = add nuw i128 %.0.i19.i, %49
-  %reass.mul = mul i128 %reass.add, 10000000000000000000
-  br label %53
+  %50 = add nuw i128 %.0.i19.i, %49
+  %51 = mul i128 %50, 10000000000000000000
+  br label %55
 
-50:                                               ; preds = %40
+52:                                               ; preds = %40
   call void @abort() #35
   unreachable
 
 _coeff_as_uint128.exit:                           ; preds = %mpd_qcmp.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 4, ptr %0, align 8, !tbaa !84
-  br label %67
+  br label %69
 
 .thread:                                          ; preds = %8, %10
   %.013.i.ph.ph = phi i32 [ %12, %10 ], [ 1, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 %.013.i.ph.ph, ptr %0, align 8, !tbaa !84
-  %51 = and i8 %6, 1
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %51, ptr %52, align 4, !tbaa !86
-  br label %67
+  %53 = and i8 %6, 1
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i8 %53, ptr %54, align 4, !tbaa !86
+  br label %69
 
-53:                                               ; preds = %40, %46
-  %.1.i.i = phi i128 [ %reass.mul, %46 ], [ 0, %40 ]
-  %54 = load i64, ptr %25, align 8, !tbaa !3
-  %55 = zext i64 %54 to i128
-  %56 = add i128 %.1.i.i, %55
-  %57 = lshr i128 %56, 64
-  %58 = trunc nuw i128 %57 to i64
-  store i64 %58, ptr %4, align 8, !tbaa !3
-  %59 = trunc i128 %56 to i64
-  store i64 %59, ptr %5, align 8, !tbaa !3
+55:                                               ; preds = %40, %46
+  %.1.i.i = phi i128 [ %51, %46 ], [ 0, %40 ]
+  %56 = load i64, ptr %25, align 8, !tbaa !3
+  %57 = zext i64 %56 to i128
+  %58 = add i128 %.1.i.i, %57
+  %59 = lshr i128 %58, 64
+  %60 = trunc nuw i128 %59 to i64
+  store i64 %60, ptr %4, align 8, !tbaa !3
+  %61 = trunc i128 %58 to i64
+  store i64 %61, ptr %5, align 8, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 %.0.i, ptr %0, align 8, !tbaa !84
-  %60 = and i8 %6, 1
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %60, ptr %61, align 4, !tbaa !86
-  %62 = icmp eq i32 %.0.i, 0
-  br i1 %62, label %63, label %67
+  %62 = and i8 %6, 1
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i8 %62, ptr %63, align 4, !tbaa !86
+  %64 = icmp eq i32 %.0.i, 0
+  br i1 %64, label %65, label %69
 
-63:                                               ; preds = %.thread6, %53
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %65 = load i64, ptr %64, align 8, !tbaa !7
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %65, ptr %66, align 8, !tbaa !89
-  br label %67
+65:                                               ; preds = %.thread6, %55
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %67 = load i64, ptr %66, align 8, !tbaa !7
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %67, ptr %68, align 8, !tbaa !89
+  br label %69
 
-67:                                               ; preds = %.thread, %_coeff_as_uint128.exit, %53, %63
+69:                                               ; preds = %.thread, %_coeff_as_uint128.exit, %55, %65
   ret void
 }
 

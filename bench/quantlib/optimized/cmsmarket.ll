@@ -10814,7 +10814,7 @@ for.cond3.preheader.us:                           ; preds = %for.cond3.preheader
   %j.0201.us = phi i64 [ %inc186.us, %for.cond3.for.cond.cleanup6_crit_edge.us ], [ 0, %for.cond3.preheader.lr.ph ]
   %add.ptr.i.us = getelementptr inbounds nuw %"class.QuantLib::Period", ptr %6, i64 %j.0201.us
   %30 = load i32, ptr %add.ptr.i.us, align 4, !tbaa !115
-  %31 = mul i64 %j.0201.us, %1
+  %mul10.us = mul i64 %j.0201.us, %1
   %conv.us = sitofp i32 %30 to double
   %invariant.gep.us = getelementptr double, ptr %8, i64 %j.0201.us
   %invariant.gep180.us = getelementptr double, ptr %10, i64 %j.0201.us
@@ -10831,62 +10831,62 @@ for.cond3.preheader.us:                           ; preds = %for.cond3.preheader
 
 invoke.cont78.us:                                 ; preds = %for.cond3.preheader.us, %invoke.cont182.us
   %i.0179.us = phi i64 [ 0, %for.cond3.preheader.us ], [ %inc.us, %invoke.cont182.us ]
-  %reass.add.us = add i64 %i.0179.us, %31
-  %reass.mul.us = mul i64 %reass.add.us, 112
-  %add.ptr.i.i.us = getelementptr inbounds nuw i8, ptr %cond.i, i64 %reass.mul.us
+  %add.us = add i64 %i.0179.us, %mul10.us
+  %add.ptr.i.i.idx.us = mul i64 %add.us, 112
+  %add.ptr.i.i.us = getelementptr inbounds nuw i8, ptr %cond.i, i64 %add.ptr.i.i.idx.us
   store double %conv.us, ptr %add.ptr.i.i.us, align 8, !tbaa !144
   %add.ptr.i75.us = getelementptr inbounds nuw %"class.QuantLib::Period", ptr %7, i64 %i.0179.us
-  %32 = load i32, ptr %add.ptr.i75.us, align 4, !tbaa !115
-  %conv16.us = sitofp i32 %32 to double
+  %31 = load i32, ptr %add.ptr.i75.us, align 4, !tbaa !115
+  %conv16.us = sitofp i32 %31 to double
   %arrayidx22.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 8
   store double %conv16.us, ptr %arrayidx22.us, align 8, !tbaa !144
   %mul.i.i80.us = mul i64 %9, %i.0179.us
   %gep.us = getelementptr double, ptr %invariant.gep.us, i64 %mul.i.i80.us
-  %33 = load double, ptr %gep.us, align 8, !tbaa !144
-  %mul26.us = fmul double %33, 1.000000e+04
+  %32 = load double, ptr %gep.us, align 8, !tbaa !144
+  %mul26.us = fmul double %32, 1.000000e+04
   %arrayidx32.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 16
   store double %mul26.us, ptr %arrayidx32.us, align 8, !tbaa !144
   %mul.i.i86.us = mul i64 %11, %i.0179.us
   %gep181.us = getelementptr double, ptr %invariant.gep180.us, i64 %mul.i.i86.us
-  %34 = load double, ptr %gep181.us, align 8, !tbaa !144
-  %mul36.us = fmul double %34, 1.000000e+04
+  %33 = load double, ptr %gep181.us, align 8, !tbaa !144
+  %mul36.us = fmul double %33, 1.000000e+04
   %arrayidx42.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 24
   store double %mul36.us, ptr %arrayidx42.us, align 8, !tbaa !144
   %mul.i.i92.us = mul i64 %13, %i.0179.us
   %gep183.us = getelementptr double, ptr %invariant.gep182.us, i64 %mul.i.i92.us
-  %35 = load double, ptr %gep183.us, align 8, !tbaa !144
-  %mul46.us = fmul double %35, 1.000000e+04
+  %34 = load double, ptr %gep183.us, align 8, !tbaa !144
+  %mul46.us = fmul double %34, 1.000000e+04
   %arrayidx52.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 32
   store double %mul46.us, ptr %arrayidx52.us, align 8, !tbaa !144
   %mul.i.i98.us = mul i64 %15, %i.0179.us
   %gep185.us = getelementptr double, ptr %invariant.gep184.us, i64 %mul.i.i98.us
-  %36 = load double, ptr %gep185.us, align 8, !tbaa !144
-  %mul56.us = fmul double %36, 1.000000e+04
+  %35 = load double, ptr %gep185.us, align 8, !tbaa !144
+  %mul56.us = fmul double %35, 1.000000e+04
   %arrayidx62.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 40
   store double %mul56.us, ptr %arrayidx62.us, align 8, !tbaa !144
   %mul.i.i104.us = mul i64 %17, %i.0179.us
   %gep187.us = getelementptr double, ptr %invariant.gep186.us, i64 %mul.i.i104.us
-  %37 = load double, ptr %gep187.us, align 8, !tbaa !144
-  %mul66.us = fmul double %37, 1.000000e+04
+  %36 = load double, ptr %gep187.us, align 8, !tbaa !144
+  %mul66.us = fmul double %36, 1.000000e+04
   %arrayidx72.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 48
   store double %mul66.us, ptr %arrayidx72.us, align 8, !tbaa !144
-  %38 = load double, ptr %gep185.us, align 8, !tbaa !144
-  %39 = load double, ptr %gep181.us, align 8, !tbaa !144
-  %cmp81.us = fcmp ogt double %38, %39
+  %37 = load double, ptr %gep185.us, align 8, !tbaa !144
+  %38 = load double, ptr %gep181.us, align 8, !tbaa !144
+  %cmp81.us = fcmp ogt double %37, %38
   br i1 %cmp81.us, label %invoke.cont94.us, label %invoke.cont102.us
 
 invoke.cont102.us:                                ; preds = %invoke.cont78.us
-  %40 = load double, ptr %gep.us, align 8, !tbaa !144
-  %cmp105.us = fcmp olt double %38, %40
+  %39 = load double, ptr %gep.us, align 8, !tbaa !144
+  %cmp105.us = fcmp olt double %37, %39
   br i1 %cmp105.us, label %invoke.cont120.us, label %invoke.cont182.us
 
 invoke.cont120.us:                                ; preds = %invoke.cont102.us
-  %sub115.us = fsub double %40, %38
+  %sub115.us = fsub double %39, %37
   %mul116.us = fmul double %sub115.us, 1.000000e+04
   br label %invoke.cont182.us
 
 invoke.cont94.us:                                 ; preds = %invoke.cont78.us
-  %sub.us = fsub double %38, %39
+  %sub.us = fsub double %37, %38
   %mul90.us = fmul double %sub.us, 1.000000e+04
   br label %invoke.cont182.us
 
@@ -10896,34 +10896,34 @@ invoke.cont182.us:                                ; preds = %invoke.cont102.us, 
   store double %mul90.us.sink, ptr %arrayidx96.us, align 8, !tbaa !144
   %mul.i.i143.us = mul i64 %19, %i.0179.us
   %gep189.us = getelementptr double, ptr %invariant.gep188.us, i64 %mul.i.i143.us
-  %41 = load double, ptr %gep189.us, align 8, !tbaa !144
+  %40 = load double, ptr %gep189.us, align 8, !tbaa !144
   %arrayidx139.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 64
-  store double %41, ptr %arrayidx139.us, align 8, !tbaa !144
+  store double %40, ptr %arrayidx139.us, align 8, !tbaa !144
   %mul.i.i149.us = mul i64 %21, %i.0179.us
   %gep191.us = getelementptr double, ptr %invariant.gep190.us, i64 %mul.i.i149.us
-  %42 = load double, ptr %gep191.us, align 8, !tbaa !144
+  %41 = load double, ptr %gep191.us, align 8, !tbaa !144
   %arrayidx148.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 72
-  store double %42, ptr %arrayidx148.us, align 8, !tbaa !144
+  store double %41, ptr %arrayidx148.us, align 8, !tbaa !144
   %mul.i.i155.us = mul i64 %23, %i.0179.us
   %gep193.us = getelementptr double, ptr %invariant.gep192.us, i64 %mul.i.i155.us
-  %43 = load double, ptr %gep193.us, align 8, !tbaa !144
+  %42 = load double, ptr %gep193.us, align 8, !tbaa !144
   %arrayidx157.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 80
-  store double %43, ptr %arrayidx157.us, align 8, !tbaa !144
+  store double %42, ptr %arrayidx157.us, align 8, !tbaa !144
   %mul.i.i161.us = mul i64 %25, %i.0179.us
   %gep195.us = getelementptr double, ptr %invariant.gep194.us, i64 %mul.i.i161.us
-  %44 = load double, ptr %gep195.us, align 8, !tbaa !144
+  %43 = load double, ptr %gep195.us, align 8, !tbaa !144
   %arrayidx166.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 88
-  store double %44, ptr %arrayidx166.us, align 8, !tbaa !144
+  store double %43, ptr %arrayidx166.us, align 8, !tbaa !144
   %mul.i.i167.us = mul i64 %27, %i.0179.us
   %gep197.us = getelementptr double, ptr %invariant.gep196.us, i64 %mul.i.i167.us
-  %45 = load double, ptr %gep197.us, align 8, !tbaa !144
+  %44 = load double, ptr %gep197.us, align 8, !tbaa !144
   %arrayidx175.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 96
-  store double %45, ptr %arrayidx175.us, align 8, !tbaa !144
+  store double %44, ptr %arrayidx175.us, align 8, !tbaa !144
   %mul.i.i173.us = mul i64 %29, %i.0179.us
   %gep199.us = getelementptr double, ptr %invariant.gep198.us, i64 %mul.i.i173.us
-  %46 = load double, ptr %gep199.us, align 8, !tbaa !144
+  %45 = load double, ptr %gep199.us, align 8, !tbaa !144
   %arrayidx184.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 104
-  store double %46, ptr %arrayidx184.us, align 8, !tbaa !144
+  store double %45, ptr %arrayidx184.us, align 8, !tbaa !144
   %inc.us = add nuw i64 %i.0179.us, 1
   %exitcond.not = icmp eq i64 %inc.us, %1
   br i1 %exitcond.not, label %for.cond3.for.cond.cleanup6_crit_edge.us, label %invoke.cont78.us, !llvm.loop !215

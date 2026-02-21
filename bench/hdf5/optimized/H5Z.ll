@@ -680,7 +680,7 @@ define range(i32 -1, 1) i32 @H5Z__unregister(i32 noundef %0) local_unnamed_addr 
   %6 = trunc nuw i8 %5 to i1
   %7 = xor i1 %6, true
   %8 = select i1 %4, i1 true, i1 %7
-  br i1 %8, label %.preheader, label %62, !prof !9
+  br i1 %8, label %.preheader, label %64, !prof !9
 
 .preheader:                                       ; preds = %1
   %9 = load i64, ptr @H5Z_table_used_g, align 8, !tbaa !10
@@ -708,7 +708,7 @@ define range(i32 -1, 1) i32 @H5Z__unregister(i32 noundef %0) local_unnamed_addr 
   %18 = load i64, ptr @H5E_PLINE_g, align 8, !tbaa !10
   %19 = load i64, ptr @H5E_NOTFOUND_g, align 8, !tbaa !10
   %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z__unregister, i32 noundef 409, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.15) #9
-  br label %62
+  br label %64
 
 21:                                               ; preds = %11
   store i32 %0, ptr %2, align 4, !tbaa !38
@@ -722,7 +722,7 @@ define range(i32 -1, 1) i32 @H5Z__unregister(i32 noundef %0) local_unnamed_addr 
   %26 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %27 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !10
   %28 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z__unregister, i32 noundef 420, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.16) #9
-  br label %62
+  br label %64
 
 29:                                               ; preds = %21
   %30 = load i32, ptr %22, align 4, !tbaa !40
@@ -733,7 +733,7 @@ define range(i32 -1, 1) i32 @H5Z__unregister(i32 noundef %0) local_unnamed_addr 
   %32 = load i64, ptr @H5E_PLINE_g, align 8, !tbaa !10
   %33 = load i64, ptr @H5E_CANTRELEASE_g, align 8, !tbaa !10
   %34 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z__unregister, i32 noundef 424, i64 noundef %32, i64 noundef %33, ptr noundef nonnull @.str.17) #9
-  br label %62
+  br label %64
 
 35:                                               ; preds = %29
   %36 = call i32 @H5I_iterate(i32 noundef 2, ptr noundef nonnull @H5Z__check_unregister_group_cb, ptr noundef nonnull %2, i1 noundef zeroext false) #9
@@ -744,7 +744,7 @@ define range(i32 -1, 1) i32 @H5Z__unregister(i32 noundef %0) local_unnamed_addr 
   %39 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %40 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !10
   %41 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z__unregister, i32 noundef 428, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.16) #9
-  br label %62
+  br label %64
 
 42:                                               ; preds = %35
   %43 = load i32, ptr %22, align 4, !tbaa !40
@@ -755,7 +755,7 @@ define range(i32 -1, 1) i32 @H5Z__unregister(i32 noundef %0) local_unnamed_addr 
   %45 = load i64, ptr @H5E_PLINE_g, align 8, !tbaa !10
   %46 = load i64, ptr @H5E_CANTRELEASE_g, align 8, !tbaa !10
   %47 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z__unregister, i32 noundef 432, i64 noundef %45, i64 noundef %46, ptr noundef nonnull @.str.18) #9
-  br label %62
+  br label %64
 
 48:                                               ; preds = %42
   %49 = call i32 @H5I_iterate(i32 noundef 1, ptr noundef nonnull @H5Z__flush_file_cb, ptr noundef nonnull %2, i1 noundef zeroext false) #9
@@ -766,7 +766,7 @@ define range(i32 -1, 1) i32 @H5Z__unregister(i32 noundef %0) local_unnamed_addr 
   %52 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %53 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !10
   %54 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z__unregister, i32 noundef 436, i64 noundef %52, i64 noundef %53, ptr noundef nonnull @.str.16) #9
-  br label %62
+  br label %64
 
 55:                                               ; preds = %48
   %56 = load ptr, ptr @H5Z_table_g, align 8, !tbaa !12
@@ -774,14 +774,14 @@ define range(i32 -1, 1) i32 @H5Z__unregister(i32 noundef %0) local_unnamed_addr 
   %58 = getelementptr i8, ptr %57, i64 48
   %59 = load i64, ptr @H5Z_table_used_g, align 8, !tbaa !10
   %60 = xor i64 %.01620, -1
-  %reass.add = add i64 %59, %60
-  %reass.mul = mul i64 %reass.add, 48
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %57, ptr align 8 %58, i64 %reass.mul, i1 false)
-  %61 = add i64 %59, -1
-  store i64 %61, ptr @H5Z_table_used_g, align 8, !tbaa !10
-  br label %62
+  %61 = add i64 %59, %60
+  %62 = mul i64 %61, 48
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %57, ptr align 8 %58, i64 %62, i1 false)
+  %63 = add i64 %59, -1
+  store i64 %63, ptr @H5Z_table_used_g, align 8, !tbaa !10
+  br label %64
 
-62:                                               ; preds = %._crit_edge, %25, %31, %38, %44, %51, %55, %1
+64:                                               ; preds = %._crit_edge, %25, %31, %38, %44, %51, %55, %1
   %.0 = phi i32 [ -1, %._crit_edge ], [ -1, %25 ], [ -1, %31 ], [ -1, %38 ], [ -1, %44 ], [ -1, %51 ], [ 0, %55 ], [ 0, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

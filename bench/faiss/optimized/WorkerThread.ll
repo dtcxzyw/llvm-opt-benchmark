@@ -3042,80 +3042,80 @@ define linkonce_odr void @_ZNSt5dequeISt4pairISt8functionIFvvEESt7promiseIbEESaI
   %reass.add = add nsw i64 %12, %.neg.i.i
   %reass.mul = mul i64 %reass.add, 9
   %28 = add i64 %reass.mul, %20
-  %29 = add i64 %28, %27
-  %30 = icmp eq i64 %29, 164703072086692425
-  br i1 %30, label %31, label %32
+  %31 = add i64 %28, %27
+  %32 = icmp eq i64 %31, 164703072086692425
+  br i1 %32, label %33, label %34
 
-31:                                               ; preds = %2
+33:                                               ; preds = %2
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #28
   unreachable
 
-32:                                               ; preds = %2
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load i64, ptr %33, align 8, !tbaa !111
-  %35 = load ptr, ptr %0, align 8, !tbaa !105
-  %36 = ptrtoint ptr %35 to i64
-  %37 = sub i64 %9, %36
-  %38 = ashr exact i64 %37, 3
-  %39 = sub i64 %34, %38
-  %40 = icmp ult i64 %39, 2
-  br i1 %40, label %41, label %_ZNSt5dequeISt4pairISt8functionIFvvEESt7promiseIbEESaIS6_EE22_M_reserve_map_at_backEm.exit
+34:                                               ; preds = %2
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %36 = load i64, ptr %35, align 8, !tbaa !111
+  %37 = load ptr, ptr %0, align 8, !tbaa !105
+  %38 = ptrtoint ptr %37 to i64
+  %39 = sub i64 %9, %38
+  %40 = ashr exact i64 %39, 3
+  %41 = sub i64 %36, %40
+  %42 = icmp ult i64 %41, 2
+  br i1 %42, label %43, label %_ZNSt5dequeISt4pairISt8functionIFvvEESt7promiseIbEESaIS6_EE22_M_reserve_map_at_backEm.exit
 
-41:                                               ; preds = %32
+43:                                               ; preds = %34
   tail call void @_ZNSt5dequeISt4pairISt8functionIFvvEESt7promiseIbEESaIS6_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef 1, i1 noundef zeroext false)
   %.pre = load ptr, ptr %5, align 8, !tbaa !107
   br label %_ZNSt5dequeISt4pairISt8functionIFvvEESt7promiseIbEESaIS6_EE22_M_reserve_map_at_backEm.exit
 
-_ZNSt5dequeISt4pairISt8functionIFvvEESt7promiseIbEESaIS6_EE22_M_reserve_map_at_backEm.exit: ; preds = %32, %41
-  %42 = phi ptr [ %6, %32 ], [ %.pre, %41 ]
-  %43 = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #26
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store ptr %43, ptr %44, align 8, !tbaa !108
-  %45 = load ptr, ptr %3, align 8, !tbaa !93
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %45, i8 0, i64 24, i1 false)
-  %48 = load ptr, ptr %47, align 8, !tbaa !32
-  store ptr %48, ptr %46, align 8, !tbaa !32
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !35
-  %.not.i.i.not.i.i.i.i = icmp eq ptr %50, null
-  br i1 %.not.i.i.not.i.i.i.i, label %_ZNSt16allocator_traitsISaISt4pairISt8functionIFvvEESt7promiseIbEEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit, label %51
+_ZNSt5dequeISt4pairISt8functionIFvvEESt7promiseIbEESaIS6_EE22_M_reserve_map_at_backEm.exit: ; preds = %34, %43
+  %44 = phi ptr [ %6, %32 ], [ %.pre, %41 ]
+  %45 = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #26
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  store ptr %45, ptr %46, align 8, !tbaa !108
+  %47 = load ptr, ptr %3, align 8, !tbaa !93
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %47, i8 0, i64 24, i1 false)
+  %50 = load ptr, ptr %49, align 8, !tbaa !32
+  store ptr %50, ptr %48, align 8, !tbaa !32
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %52 = load ptr, ptr %51, align 8, !tbaa !35
+  %.not.i.i.not.i.i.i.i = icmp eq ptr %52, null
+  br i1 %.not.i.i.not.i.i.i.i, label %_ZNSt16allocator_traitsISaISt4pairISt8functionIFvvEESt7promiseIbEEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit, label %53
 
-51:                                               ; preds = %_ZNSt5dequeISt4pairISt8functionIFvvEESt7promiseIbEESaIS6_EE22_M_reserve_map_at_backEm.exit
-  %52 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %45, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 16, i1 false), !tbaa.struct !92
-  %53 = load ptr, ptr %49, align 8, !tbaa !35
-  store ptr %53, ptr %52, align 8, !tbaa !35
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
+53:                                               ; preds = %_ZNSt5dequeISt4pairISt8functionIFvvEESt7promiseIbEESaIS6_EE22_M_reserve_map_at_backEm.exit
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %47, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 16, i1 false), !tbaa.struct !92
+  %55 = load ptr, ptr %51, align 8, !tbaa !35
+  store ptr %55, ptr %54, align 8, !tbaa !35
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaISt4pairISt8functionIFvvEESt7promiseIbEEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit
 
-_ZNSt16allocator_traitsISaISt4pairISt8functionIFvvEESt7promiseIbEEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit: ; preds = %_ZNSt5dequeISt4pairISt8functionIFvvEESt7promiseIbEESaIS6_EE22_M_reserve_map_at_backEm.exit, %51
-  %54 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %56 = load ptr, ptr %55, align 8, !tbaa !74
-  store ptr %56, ptr %54, align 8, !tbaa !74
-  %57 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  store ptr null, ptr %57, align 8, !tbaa !40
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %59 = load ptr, ptr %58, align 8, !tbaa !40
-  store ptr null, ptr %58, align 8, !tbaa !40
-  store ptr %59, ptr %57, align 8, !tbaa !40
-  store ptr null, ptr %55, align 8, !tbaa !74
-  %60 = getelementptr inbounds nuw i8, ptr %45, i64 48
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %62 = load i64, ptr %61, align 8, !tbaa !69
-  store i64 %62, ptr %60, align 8, !tbaa !69
-  store ptr null, ptr %61, align 8, !tbaa !69
-  %63 = load ptr, ptr %5, align 8, !tbaa !107
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store ptr %64, ptr %5, align 8, !tbaa !101
-  %65 = load ptr, ptr %64, align 8, !tbaa !108
-  store ptr %65, ptr %15, align 8, !tbaa !99
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 504
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %66, ptr %67, align 8, !tbaa !100
-  store ptr %65, ptr %3, align 8, !tbaa !93
+_ZNSt16allocator_traitsISaISt4pairISt8functionIFvvEESt7promiseIbEEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit: ; preds = %_ZNSt5dequeISt4pairISt8functionIFvvEESt7promiseIbEESaIS6_EE22_M_reserve_map_at_backEm.exit, %53
+  %56 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %58 = load ptr, ptr %57, align 8, !tbaa !74
+  store ptr %58, ptr %56, align 8, !tbaa !74
+  %59 = getelementptr inbounds nuw i8, ptr %47, i64 40
+  store ptr null, ptr %59, align 8, !tbaa !40
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %61 = load ptr, ptr %60, align 8, !tbaa !40
+  store ptr null, ptr %60, align 8, !tbaa !40
+  store ptr %61, ptr %59, align 8, !tbaa !40
+  store ptr null, ptr %57, align 8, !tbaa !74
+  %62 = getelementptr inbounds nuw i8, ptr %47, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %64 = load i64, ptr %63, align 8, !tbaa !69
+  store i64 %64, ptr %62, align 8, !tbaa !69
+  store ptr null, ptr %63, align 8, !tbaa !69
+  %65 = load ptr, ptr %5, align 8, !tbaa !107
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  store ptr %66, ptr %5, align 8, !tbaa !101
+  %67 = load ptr, ptr %66, align 8, !tbaa !108
+  store ptr %67, ptr %15, align 8, !tbaa !99
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 504
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %68, ptr %69, align 8, !tbaa !100
+  store ptr %67, ptr %3, align 8, !tbaa !93
   ret void
 }
 

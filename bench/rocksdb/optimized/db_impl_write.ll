@@ -30686,48 +30686,48 @@ define linkonce_odr void @_ZNSt5dequeIN7rocksdb6DBImpl17LogFileNumberSizeESaIS2_
   %reass.add = add nsw i64 %12, %.neg.i.i
   %reass.mul = mul i64 %reass.add, 21
   %28 = add i64 %reass.mul, %20
-  %29 = add i64 %28, %27
-  %30 = icmp eq i64 %29, 384307168202282325
-  br i1 %30, label %31, label %32
+  %31 = add i64 %28, %27
+  %32 = icmp eq i64 %31, 384307168202282325
+  br i1 %32, label %33, label %34
 
-31:                                               ; preds = %2
+33:                                               ; preds = %2
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.81) #31
   unreachable
 
-32:                                               ; preds = %2
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load i64, ptr %33, align 8, !tbaa !1380
-  %35 = load ptr, ptr %0, align 8, !tbaa !1381
-  %36 = ptrtoint ptr %35 to i64
-  %37 = sub i64 %9, %36
-  %38 = ashr exact i64 %37, 3
-  %39 = sub i64 %34, %38
-  %40 = icmp ult i64 %39, 2
-  br i1 %40, label %41, label %42
+34:                                               ; preds = %2
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %36 = load i64, ptr %35, align 8, !tbaa !1380
+  %37 = load ptr, ptr %0, align 8, !tbaa !1381
+  %38 = ptrtoint ptr %37 to i64
+  %39 = sub i64 %9, %38
+  %40 = ashr exact i64 %39, 3
+  %41 = sub i64 %36, %40
+  %42 = icmp ult i64 %41, 2
+  br i1 %42, label %43, label %44
 
-41:                                               ; preds = %32
+43:                                               ; preds = %34
   tail call void @_ZNSt5dequeIN7rocksdb6DBImpl17LogFileNumberSizeESaIS2_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef 1, i1 noundef zeroext false)
   %.pre = load ptr, ptr %5, align 8, !tbaa !1382
-  br label %42
+  br label %44
 
-42:                                               ; preds = %41, %32
-  %43 = phi ptr [ %.pre, %41 ], [ %6, %32 ]
-  %44 = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #30
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store ptr %44, ptr %45, align 8, !tbaa !1103
-  %46 = load ptr, ptr %3, align 8, !tbaa !926
-  %47 = load i64, ptr %1, align 8, !tbaa !511
-  store i64 %47, ptr %46, align 8, !tbaa !928
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store i64 0, ptr %48, align 8, !tbaa !930
-  %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  store i8 0, ptr %49, align 8, !tbaa !931
-  store ptr %45, ptr %5, align 8, !tbaa !1102
-  store ptr %44, ptr %15, align 8, !tbaa !1101
-  %50 = getelementptr inbounds nuw i8, ptr %44, i64 504
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %50, ptr %51, align 8, !tbaa !1379
-  store ptr %44, ptr %3, align 8, !tbaa !926
+44:                                               ; preds = %43, %34
+  %45 = phi ptr [ %.pre, %41 ], [ %6, %32 ]
+  %46 = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #30
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  store ptr %46, ptr %47, align 8, !tbaa !1103
+  %48 = load ptr, ptr %3, align 8, !tbaa !926
+  %49 = load i64, ptr %1, align 8, !tbaa !511
+  store i64 %49, ptr %48, align 8, !tbaa !928
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store i64 0, ptr %50, align 8, !tbaa !930
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  store i8 0, ptr %51, align 8, !tbaa !931
+  store ptr %47, ptr %5, align 8, !tbaa !1102
+  store ptr %46, ptr %15, align 8, !tbaa !1101
+  %52 = getelementptr inbounds nuw i8, ptr %46, i64 504
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %52, ptr %53, align 8, !tbaa !1379
+  store ptr %46, ptr %3, align 8, !tbaa !926
   ret void
 }
 

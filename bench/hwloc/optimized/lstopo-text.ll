@@ -353,14 +353,14 @@ define internal fastcc void @output_distances(ptr noundef readonly captures(none
   %12 = load i32, ptr %4, align 4
   %13 = icmp ne i32 %12, 0
   %or.cond = select i1 %11, i1 %13, i1 false
-  br i1 %or.cond, label %14, label %148
+  br i1 %or.cond, label %14, label %150
 
 14:                                               ; preds = %1
   %15 = zext i32 %12 to i64
   %16 = shl nuw nsw i64 %15, 3
   %17 = call noalias ptr @malloc(i64 noundef %16) #23
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %148, label %18
+  br i1 %.not, label %150, label %18
 
 18:                                               ; preds = %14
   %19 = call i32 @hwloc_distances_get(ptr noundef %5, ptr noundef nonnull %4, ptr noundef nonnull %17, i64 noundef 0, i64 noundef 0) #19
@@ -613,7 +613,7 @@ define internal fastcc void @output_distances(ptr noundef readonly captures(none
   %invariant.gep119.i = getelementptr i8, ptr %72, i64 %.pre-phi
   br label %131
 
-131:                                              ; preds = %143, %.lr.ph124.i
+131:                                              ; preds = %145, %.lr.ph124.i
   %indvars.iv148.i = phi i64 [ 0, %.lr.ph124.i ], [ %indvars.iv.next149.i, %143 ]
   %indvars.iv.next149.i = add nuw nsw i64 %indvars.iv148.i, 1
   %132 = mul i64 %indvars.iv.next149.i, 17
@@ -628,37 +628,37 @@ define internal fastcc void @output_distances(ptr noundef readonly captures(none
 138:                                              ; preds = %138, %131
   %indvars.iv143.i = phi i64 [ 0, %131 ], [ %indvars.iv.next144.i, %138 ]
   %139 = trunc nuw i64 %indvars.iv143.i to i32
-  %reass.add = add i32 %137, %139
-  %reass.mul = mul i32 %reass.add, 17
-  %140 = zext i32 %reass.mul to i64
-  %gep120.i = getelementptr i8, ptr %invariant.gep119.i, i64 %140
-  %141 = getelementptr i8, ptr %gep120.i, i64 16
-  %142 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.33, ptr noundef %141) #19
+  %140 = add i32 %137, %139
+  %141 = mul i32 %140, 17
+  %142 = zext i32 %141 to i64
+  %gep120.i = getelementptr i8, ptr %invariant.gep119.i, i64 %142
+  %143 = getelementptr i8, ptr %gep120.i, i64 16
+  %144 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.33, ptr noundef %143) #19
   %indvars.iv.next144.i = add nuw nsw i64 %indvars.iv143.i, 1
   %exitcond147.not.i = icmp eq i64 %indvars.iv.next144.i, %wide.trip.count151.i.pre-phi
-  br i1 %exitcond147.not.i, label %143, label %138, !llvm.loop !66
+  br i1 %exitcond147.not.i, label %145, label %138, !llvm.loop !66
 
-143:                                              ; preds = %138
+145:                                              ; preds = %138
   %fputc99.i = call i32 @fputc(i32 10, ptr %9)
   %exitcond152.not.i = icmp eq i64 %indvars.iv.next149.i, %wide.trip.count151.i.pre-phi
   br i1 %exitcond152.not.i, label %hwloc_utils_print_distance_matrix.exit, label %131, !llvm.loop !67
 
-hwloc_utils_print_distance_matrix.exit:           ; preds = %143, %56, %._crit_edge.i
+hwloc_utils_print_distance_matrix.exit:           ; preds = %145, %56, %._crit_edge.i
   call void @free(ptr noundef %68) #19
   call void @free(ptr noundef %72) #19
-  %144 = load ptr, ptr %25, align 8, !tbaa !42
-  call void @hwloc_distances_release(ptr noundef %5, ptr noundef %144) #19
+  %146 = load ptr, ptr %25, align 8, !tbaa !42
+  call void @hwloc_distances_release(ptr noundef %5, ptr noundef %146) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %145 = load i32, ptr %4, align 4, !tbaa !23
-  %146 = zext i32 %145 to i64
-  %147 = icmp samesign ult i64 %indvars.iv.next, %146
-  br i1 %147, label %24, label %.loopexit, !llvm.loop !68
+  %147 = load i32, ptr %4, align 4, !tbaa !23
+  %148 = zext i32 %147 to i64
+  %149 = icmp samesign ult i64 %indvars.iv.next, %148
+  br i1 %149, label %24, label %.loopexit, !llvm.loop !68
 
 .loopexit:                                        ; preds = %hwloc_utils_print_distance_matrix.exit, %18
   call void @free(ptr noundef nonnull %17) #19
-  br label %148
+  br label %150
 
-148:                                              ; preds = %14, %1, %.loopexit
+150:                                              ; preds = %14, %1, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

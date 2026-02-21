@@ -6891,95 +6891,95 @@ define linkonce_odr void @_ZNSt5dequeIN4YAML5TokenESaIS1_EE16_M_push_back_auxIJS
   %reass.add = add nsw i64 %12, %.neg.i.i
   %reass.mul = mul nsw i64 %reass.add, 5
   %28 = add nsw i64 %reass.mul, %20
-  %29 = add nsw i64 %28, %27
-  %30 = icmp eq i64 %29, 104811045873349725
-  br i1 %30, label %31, label %32
+  %31 = add nsw i64 %28, %27
+  %32 = icmp eq i64 %31, 104811045873349725
+  br i1 %32, label %33, label %34
 
-31:                                               ; preds = %2
+33:                                               ; preds = %2
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.19) #25
   unreachable
 
-32:                                               ; preds = %2
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load i64, ptr %33, align 8, !tbaa !258
-  %35 = load ptr, ptr %0, align 8, !tbaa !196
-  %36 = ptrtoint ptr %35 to i64
-  %37 = sub i64 %9, %36
-  %38 = ashr exact i64 %37, 3
-  %39 = sub i64 %34, %38
-  %40 = icmp ult i64 %39, 2
-  br i1 %40, label %41, label %_ZNSt5dequeIN4YAML5TokenESaIS1_EE22_M_reserve_map_at_backEm.exit
+34:                                               ; preds = %2
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %36 = load i64, ptr %35, align 8, !tbaa !258
+  %37 = load ptr, ptr %0, align 8, !tbaa !196
+  %38 = ptrtoint ptr %37 to i64
+  %39 = sub i64 %9, %38
+  %40 = ashr exact i64 %39, 3
+  %41 = sub i64 %36, %40
+  %42 = icmp ult i64 %41, 2
+  br i1 %42, label %43, label %_ZNSt5dequeIN4YAML5TokenESaIS1_EE22_M_reserve_map_at_backEm.exit
 
-41:                                               ; preds = %32
+43:                                               ; preds = %34
   tail call void @_ZNSt5dequeIN4YAML5TokenESaIS1_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef 1, i1 noundef zeroext false)
   %.pre = load ptr, ptr %5, align 8, !tbaa !198
   br label %_ZNSt5dequeIN4YAML5TokenESaIS1_EE22_M_reserve_map_at_backEm.exit
 
-_ZNSt5dequeIN4YAML5TokenESaIS1_EE22_M_reserve_map_at_backEm.exit: ; preds = %32, %41
-  %42 = phi ptr [ %6, %32 ], [ %.pre, %41 ]
-  %43 = tail call noalias noundef nonnull dereferenceable(440) ptr @_Znwm(i64 noundef 440) #26
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store ptr %43, ptr %44, align 8, !tbaa !172
-  %45 = load ptr, ptr %3, align 8, !tbaa !160
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %45, ptr noundef nonnull align 8 dereferenceable(84) %1, i64 20, i1 false)
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %48 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  store ptr %48, ptr %46, align 8, !tbaa !157
-  %49 = load ptr, ptr %47, align 8, !tbaa !118
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %51 = icmp eq ptr %49, %50
-  br i1 %51, label %52, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
+_ZNSt5dequeIN4YAML5TokenESaIS1_EE22_M_reserve_map_at_backEm.exit: ; preds = %34, %43
+  %44 = phi ptr [ %6, %32 ], [ %.pre, %41 ]
+  %45 = tail call noalias noundef nonnull dereferenceable(440) ptr @_Znwm(i64 noundef 440) #26
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  store ptr %45, ptr %46, align 8, !tbaa !172
+  %47 = load ptr, ptr %3, align 8, !tbaa !160
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %47, ptr noundef nonnull align 8 dereferenceable(84) %1, i64 20, i1 false)
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 40
+  store ptr %50, ptr %48, align 8, !tbaa !157
+  %51 = load ptr, ptr %49, align 8, !tbaa !118
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %53 = icmp eq ptr %51, %52
+  br i1 %53, label %54, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
-52:                                               ; preds = %_ZNSt5dequeIN4YAML5TokenESaIS1_EE22_M_reserve_map_at_backEm.exit
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %54 = load i64, ptr %53, align 8, !tbaa !158
-  %55 = icmp ult i64 %54, 16
-  tail call void @llvm.assume(i1 %55)
-  %56 = add nuw nsw i64 %54, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %48, ptr noundef nonnull align 8 dereferenceable(1) %50, i64 %56, i1 false)
+54:                                               ; preds = %_ZNSt5dequeIN4YAML5TokenESaIS1_EE22_M_reserve_map_at_backEm.exit
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %56 = load i64, ptr %55, align 8, !tbaa !158
+  %57 = icmp ult i64 %56, 16
+  tail call void @llvm.assume(i1 %57)
+  %58 = add nuw nsw i64 %56, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %50, ptr noundef nonnull align 8 dereferenceable(1) %52, i64 %58, i1 false)
   br label %_ZNSt16allocator_traitsISaIN4YAML5TokenEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %_ZNSt5dequeIN4YAML5TokenESaIS1_EE22_M_reserve_map_at_backEm.exit
-  store ptr %49, ptr %46, align 8, !tbaa !118
-  %57 = load i64, ptr %50, align 8, !tbaa !159
-  store i64 %57, ptr %48, align 8, !tbaa !159
+  store ptr %51, ptr %48, align 8, !tbaa !118
+  %59 = load i64, ptr %52, align 8, !tbaa !159
+  store i64 %59, ptr %50, align 8, !tbaa !159
   br label %_ZNSt16allocator_traitsISaIN4YAML5TokenEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit
 
-_ZNSt16allocator_traitsISaIN4YAML5TokenEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit: ; preds = %52, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %59 = load i64, ptr %58, align 8, !tbaa !158
-  %60 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  store i64 %59, ptr %60, align 8, !tbaa !158
-  store ptr %50, ptr %47, align 8, !tbaa !118
-  store i64 0, ptr %58, align 8, !tbaa !158
-  store i8 0, ptr %50, align 8, !tbaa !159
-  %61 = getelementptr inbounds nuw i8, ptr %45, i64 56
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %63 = load ptr, ptr %62, align 8, !tbaa !162
-  store ptr %63, ptr %61, align 8, !tbaa !162
-  %64 = getelementptr inbounds nuw i8, ptr %45, i64 64
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %66 = load ptr, ptr %65, align 8, !tbaa !163
-  store ptr %66, ptr %64, align 8, !tbaa !163
-  %67 = getelementptr inbounds nuw i8, ptr %45, i64 72
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %69 = load ptr, ptr %68, align 8, !tbaa !164
-  store ptr %69, ptr %67, align 8, !tbaa !164
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, i8 0, i64 24, i1 false)
-  %70 = getelementptr inbounds nuw i8, ptr %45, i64 80
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %72 = load i32, ptr %71, align 8, !tbaa !165
-  store i32 %72, ptr %70, align 8, !tbaa !165
-  %73 = load ptr, ptr %5, align 8, !tbaa !198
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  store ptr %74, ptr %5, align 8, !tbaa !171
-  %75 = load ptr, ptr %74, align 8, !tbaa !172
-  store ptr %75, ptr %15, align 8, !tbaa !170
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 440
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %76, ptr %77, align 8, !tbaa !192
-  store ptr %75, ptr %3, align 8, !tbaa !160
+_ZNSt16allocator_traitsISaIN4YAML5TokenEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit: ; preds = %54, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %61 = load i64, ptr %60, align 8, !tbaa !158
+  %62 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  store i64 %61, ptr %62, align 8, !tbaa !158
+  store ptr %52, ptr %49, align 8, !tbaa !118
+  store i64 0, ptr %60, align 8, !tbaa !158
+  store i8 0, ptr %52, align 8, !tbaa !159
+  %63 = getelementptr inbounds nuw i8, ptr %47, i64 56
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %65 = load ptr, ptr %64, align 8, !tbaa !162
+  store ptr %65, ptr %63, align 8, !tbaa !162
+  %66 = getelementptr inbounds nuw i8, ptr %47, i64 64
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %68 = load ptr, ptr %67, align 8, !tbaa !163
+  store ptr %68, ptr %66, align 8, !tbaa !163
+  %69 = getelementptr inbounds nuw i8, ptr %47, i64 72
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %71 = load ptr, ptr %70, align 8, !tbaa !164
+  store ptr %71, ptr %69, align 8, !tbaa !164
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
+  %72 = getelementptr inbounds nuw i8, ptr %47, i64 80
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %74 = load i32, ptr %73, align 8, !tbaa !165
+  store i32 %74, ptr %72, align 8, !tbaa !165
+  %75 = load ptr, ptr %5, align 8, !tbaa !198
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  store ptr %76, ptr %5, align 8, !tbaa !171
+  %77 = load ptr, ptr %76, align 8, !tbaa !172
+  store ptr %77, ptr %15, align 8, !tbaa !170
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 440
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %78, ptr %79, align 8, !tbaa !192
+  store ptr %77, ptr %3, align 8, !tbaa !160
   ret void
 }
 

@@ -1209,19 +1209,19 @@ define range(i32 0, 2) i32 @us_micr_is_valid(ptr noundef readonly captures(addre
   %reass.mul = mul nuw nsw i16 %reass.add, 9
   %reass.add17 = add nuw nsw i16 %34, %37
   %reass.mul18 = mul nuw nsw i16 %reass.add17, 3
-  %reass.add19 = add nuw nsw i16 %24, %27
-  %reass.mul20 = mul nuw nsw i16 %reass.add19, 7
-  %44 = add nsw i16 %reass.mul20, -2304
-  %45 = add nsw i16 %44, %reass.mul18
-  %.lhs.trunc = add nsw i16 %45, %reass.mul
-  %46 = srem i16 %.lhs.trunc, 10
-  %.sext = sext i16 %46 to i32
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %48 = load i8, ptr %47, align 1, !tbaa !8
-  %49 = zext i8 %48 to i32
-  %50 = add nsw i32 %49, -48
-  %51 = icmp eq i32 %50, %.sext
-  %. = zext i1 %51 to i32
+  %48 = add nuw nsw i16 %24, %27
+  %49 = mul nuw nsw i16 %48, 7
+  %50 = add nsw i16 %49, -2304
+  %51 = add nsw i16 %50, %reass.mul18
+  %.lhs.trunc = add nsw i16 %51, %reass.mul
+  %52 = srem i16 %.lhs.trunc, 10
+  %.sext = sext i16 %52 to i32
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %54 = load i8, ptr %53, align 1, !tbaa !8
+  %55 = zext i8 %54 to i32
+  %56 = add nsw i32 %55, -48
+  %57 = icmp eq i32 %56, %.sext
+  %. = zext i1 %57 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %18, %2

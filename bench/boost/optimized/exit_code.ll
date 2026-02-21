@@ -163703,17 +163703,17 @@ _ZN5boost9gregorian8greg_dayC2Et.exit:            ; preds = %32, %31, %34
   %51 = mul nsw i64 %37, 3600
   %52 = mul nsw i64 %40, 60
   %53 = add nuw nsw i64 %52, %51
-  %reass.add = add nsw i64 %53, %42
-  %reass.mul = mul nsw i64 %reass.add, 1000000
-  %54 = add nsw i64 %reass.mul, %43
+  %54 = add nsw i64 %53, %42
+  %55 = mul nsw i64 %54, 1000000
+  %56 = add nsw i64 %55, %43
   br label %_ZN5boost10posix_time13time_durationC2Ellll.exit
 
 _ZN5boost10posix_time13time_durationC2Ellll.exit: ; preds = %46, %50
-  %.0.i.i.i = phi i64 [ %.neg30.i.i.i, %46 ], [ %54, %50 ]
+  %.0.i.i.i = phi i64 [ %.neg30.i.i.i, %46 ], [ %56, %50 ]
   %.sroa.01.0.copyload = load i32, ptr %5, align 4
   %.off.i.i.i.i = add i32 %.sroa.01.0.copyload, -1
   %switch.i.i.i.i = icmp ult i32 %.off.i.i.i.i, -3
-  br i1 %switch.i.i.i.i, label %55, label %.thread.i.i.i.i.i
+  br i1 %switch.i.i.i.i, label %57, label %.thread.i.i.i.i.i
 
 .thread.i.i.i.i.i:                                ; preds = %_ZN5boost10posix_time13time_durationC2Ellll.exit
   %switch.tableidx = add nsw i32 %.sroa.01.0.copyload, 2
@@ -163721,14 +163721,14 @@ _ZN5boost10posix_time13time_durationC2Ellll.exit: ; preds = %46, %50
   %switch.offset = add nuw i64 %switch.idx.cast, 9223372036854775806
   br label %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit
 
-55:                                               ; preds = %_ZN5boost10posix_time13time_durationC2Ellll.exit
-  %56 = zext i32 %.sroa.01.0.copyload to i64
-  %57 = mul nuw nsw i64 %56, 86400000000
-  %58 = add nsw i64 %57, %.0.i.i.i
+57:                                               ; preds = %_ZN5boost10posix_time13time_durationC2Ellll.exit
+  %58 = zext i32 %.sroa.01.0.copyload to i64
+  %59 = mul nuw nsw i64 %58, 86400000000
+  %60 = add nsw i64 %59, %.0.i.i.i
   br label %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit
 
-_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit: ; preds = %.thread.i.i.i.i.i, %55
-  %storemerge.i.i.i.i = phi i64 [ %58, %55 ], [ %switch.offset, %.thread.i.i.i.i.i ]
+_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit: ; preds = %.thread.i.i.i.i.i, %57
+  %storemerge.i.i.i.i = phi i64 [ %60, %55 ], [ %switch.offset, %.thread.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

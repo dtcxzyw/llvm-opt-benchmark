@@ -713,7 +713,7 @@ define internal fastcc void @lv_label_refr_text(ptr noundef %0) unnamed_addr #0 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %413, label %11
+  br i1 %10, label %414, label %11
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1114,7 +1114,7 @@ overwrite_anim_property.exit154:                  ; preds = %206, %187, %177, %1
 
 220:                                              ; preds = %217, %overwrite_anim_property.exit154
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %412
+  br label %413
 
 221:                                              ; preds = %lv_label_revert_dots.exit
   %222 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 99) #7
@@ -1371,100 +1371,100 @@ overwrite_anim_property.exit157:                  ; preds = %341, %321, %311, %3
 
 361:                                              ; preds = %358, %overwrite_anim_property.exit157
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %412
+  br label %413
 
 362:                                              ; preds = %lv_label_revert_dots.exit
   %363 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %364 = load i32, ptr %363, align 4, !tbaa !32
   %365 = call i32 @lv_area_get_height(ptr noundef nonnull %2) #7
   %366 = icmp sgt i32 %364, %365
-  br i1 %366, label %367, label %412
+  br i1 %366, label %367, label %413
 
 367:                                              ; preds = %362
   %368 = load i32, ptr %363, align 4, !tbaa !32
   %369 = call i32 @lv_font_get_line_height(ptr noundef %17) #7
   %370 = icmp sgt i32 %368, %369
-  br i1 %370, label %371, label %412
+  br i1 %370, label %371, label %413
 
 371:                                              ; preds = %367
   %372 = load ptr, ptr @lv_text_get_encoded_length, align 8, !tbaa !67
   %373 = load ptr, ptr %8, align 8, !tbaa !3
   %374 = call i32 %372(ptr noundef %373) #7
   %375 = icmp ugt i32 %374, 3
-  br i1 %375, label %376, label %412
+  br i1 %375, label %376, label %413
 
 376:                                              ; preds = %371
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %377 = call i32 @lv_area_get_width(ptr noundef nonnull %2) #7
   %378 = call zeroext i16 @lv_font_get_glyph_width(ptr noundef %17, i32 noundef 46, i32 noundef 46) #7
   %379 = zext i16 %378 to i32
-  %reass.add = add i32 %379, %.sroa.0.0.extract.trunc.i152
-  %reass.mul = mul i32 %reass.add, -3
-  %380 = add i32 %reass.mul, %377
-  store i32 %380, ptr %6, align 4, !tbaa !30
-  %381 = call i32 @lv_area_get_height(ptr noundef nonnull %2) #7
-  %382 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %383 = call i32 @lv_font_get_line_height(ptr noundef %17) #7
-  %384 = add nsw i32 %383, %.sroa.0.0.extract.trunc.i
-  %385 = srem i32 %381, %384
-  %386 = call i32 @lv_font_get_line_height(ptr noundef %17) #7
-  %.not = icmp slt i32 %385, %386
-  br i1 %.not, label %391, label %387
+  %380 = add i32 %379, %.sroa.0.0.extract.trunc.i152
+  %.neg = mul i32 %380, -3
+  %381 = add i32 %.neg, %377
+  store i32 %381, ptr %6, align 4, !tbaa !30
+  %382 = call i32 @lv_area_get_height(ptr noundef nonnull %2) #7
+  %383 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %384 = call i32 @lv_font_get_line_height(ptr noundef %17) #7
+  %385 = add nsw i32 %384, %.sroa.0.0.extract.trunc.i
+  %386 = srem i32 %382, %385
+  %387 = call i32 @lv_font_get_line_height(ptr noundef %17) #7
+  %.not = icmp slt i32 %386, %387
+  br i1 %.not, label %392, label %388
 
-387:                                              ; preds = %376
-  %388 = sub nsw i32 %381, %385
-  %389 = call i32 @lv_font_get_line_height(ptr noundef %17) #7
-  %390 = add nsw i32 %389, %388
-  br label %394
+388:                                              ; preds = %376
+  %389 = sub nsw i32 %382, %386
+  %390 = call i32 @lv_font_get_line_height(ptr noundef %17) #7
+  %391 = add nsw i32 %390, %389
+  br label %395
 
-391:                                              ; preds = %376
-  %392 = add i32 %385, %.sroa.0.0.extract.trunc.i
-  %393 = sub i32 %381, %392
-  br label %394
+392:                                              ; preds = %376
+  %393 = add i32 %386, %.sroa.0.0.extract.trunc.i
+  %394 = sub i32 %382, %393
+  br label %395
 
-394:                                              ; preds = %391, %387
-  %storemerge = phi i32 [ %393, %391 ], [ %390, %387 ]
-  store i32 %storemerge, ptr %382, align 4, !tbaa !32
-  %395 = call i32 @lv_label_get_letter_on(ptr noundef nonnull %0, ptr noundef nonnull %6, i1 zeroext poison)
-  %396 = load ptr, ptr %8, align 8, !tbaa !3
-  %397 = call i64 @lv_strlen(ptr noundef %396) #7
+395:                                              ; preds = %392, %388
+  %storemerge = phi i32 [ %394, %391 ], [ %391, %387 ]
+  store i32 %storemerge, ptr %383, align 4, !tbaa !32
+  %396 = call i32 @lv_label_get_letter_on(ptr noundef nonnull %0, ptr noundef nonnull %6, i1 zeroext poison)
+  %397 = load ptr, ptr %8, align 8, !tbaa !3
+  %398 = call i64 @lv_strlen(ptr noundef %397) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %398 = load ptr, ptr @lv_text_encoded_get_byte_id, align 8, !tbaa !67
-  %399 = load ptr, ptr %8, align 8, !tbaa !3
-  %400 = call i32 %398(ptr noundef %399, i32 noundef %395) #7
-  store i32 %400, ptr %7, align 4, !tbaa !48
-  %401 = add i32 %400, 3
-  %402 = zext i32 %401 to i64
-  %403 = icmp ult i64 %397, %402
-  br i1 %403, label %.lr.ph, label %._crit_edge
+  %399 = load ptr, ptr @lv_text_encoded_get_byte_id, align 8, !tbaa !67
+  %400 = load ptr, ptr %8, align 8, !tbaa !3
+  %401 = call i32 %398(ptr noundef %400, i32 noundef %396) #7
+  store i32 %401, ptr %7, align 4, !tbaa !48
+  %402 = add i32 %401, 3
+  %403 = zext i32 %402 to i64
+  %404 = icmp ult i64 %398, %403
+  br i1 %404, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %394
-  %404 = load ptr, ptr @lv_text_encoded_prev, align 8, !tbaa !67
-  %405 = trunc nuw i64 %397 to i32
-  br label %406
+.lr.ph:                                           ; preds = %395
+  %405 = load ptr, ptr @lv_text_encoded_prev, align 8, !tbaa !67
+  %406 = trunc nuw i64 %398 to i32
+  br label %407
 
-406:                                              ; preds = %.lr.ph, %406
-  %407 = load ptr, ptr %8, align 8, !tbaa !3
-  %408 = call i32 %404(ptr noundef %407, ptr noundef nonnull %7) #7
-  %409 = load i32, ptr %7, align 4, !tbaa !48
-  %410 = add i32 %409, 3
-  %411 = icmp ugt i32 %410, %405
-  br i1 %411, label %406, label %._crit_edge, !llvm.loop !68
+407:                                              ; preds = %.lr.ph, %407
+  %408 = load ptr, ptr %8, align 8, !tbaa !3
+  %409 = call i32 %404(ptr noundef %408, ptr noundef nonnull %7) #7
+  %410 = load i32, ptr %7, align 4, !tbaa !48
+  %411 = add i32 %410, 3
+  %412 = icmp ugt i32 %411, %406
+  br i1 %412, label %407, label %._crit_edge, !llvm.loop !68
 
-._crit_edge:                                      ; preds = %406, %394
-  %.lcssa = phi i32 [ %400, %394 ], [ %409, %406 ]
+._crit_edge:                                      ; preds = %407, %395
+  %.lcssa = phi i32 [ %401, %394 ], [ %410, %406 ]
   call fastcc void @lv_label_set_dots(ptr noundef nonnull %0, i32 noundef %.lcssa)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %412
+  br label %413
 
-412:                                              ; preds = %lv_label_revert_dots.exit, %361, %362, %367, %371, %._crit_edge, %220
+413:                                              ; preds = %lv_label_revert_dots.exit, %361, %362, %367, %371, %._crit_edge, %220
   call void @lv_obj_invalidate(ptr noundef nonnull %0) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %413
+  br label %414
 
-413:                                              ; preds = %1, %412
+414:                                              ; preds = %1, %413
   ret void
 }
 

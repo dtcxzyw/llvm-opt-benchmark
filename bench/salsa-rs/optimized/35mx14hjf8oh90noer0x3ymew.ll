@@ -367,26 +367,26 @@ define internal noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17hdfc15abedd9df
 define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h159e1867fda72a7cE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.val.i = load i32, ptr %1, align 4, !noalias !39, !noundef !3
   %3 = zext i32 %.val.i to i64
-  %reass.mul.i = mul i64 %3, -1065810590584100411
-  %4 = tail call noundef i64 @llvm.fshl.i64(i64 %reass.mul.i, i64 %reass.mul.i, i64 26)
-  ret i64 %4
+  %4 = mul i64 %3, -1065810590584100411
+  %5 = tail call noundef i64 @llvm.fshl.i64(i64 %4, i64 %4, i64 26)
+  ret i64 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h1e17d21150f52b02E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.val.i = load i32, ptr %1, align 4, !range !42, !noalias !43, !noundef !3
   %3 = zext i32 %.val.i to i64
-  %reass.mul.i = mul i64 %3, -1065810590584100411
-  %4 = tail call noundef i64 @llvm.fshl.i64(i64 %reass.mul.i, i64 %reass.mul.i, i64 26)
-  ret i64 %4
+  %4 = mul i64 %3, -1065810590584100411
+  %5 = tail call noundef i64 @llvm.fshl.i64(i64 %4, i64 %4, i64 26)
+  ret i64 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h7f7d654077a360bdE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.val.i = load i64, ptr %1, align 8, !range !46, !noalias !47, !noundef !3
-  %reass.mul.i = mul i64 %.val.i, -1065810590584100411
-  %3 = tail call noundef i64 @llvm.fshl.i64(i64 %reass.mul.i, i64 %reass.mul.i, i64 26)
-  ret i64 %3
+  %3 = mul i64 %.val.i, -1065810590584100411
+  %4 = tail call noundef i64 @llvm.fshl.i64(i64 %3, i64 %3, i64 26)
+  ret i64 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -397,10 +397,10 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hed7c2a8e913fc00
   %4 = zext i32 %.val1.i to i64
   %5 = zext i32 %.val.i to i64
   %6 = mul i64 %5, -1065810590584100411
-  %reass.mul.i = mul i64 %4, 1452335207727870361
-  %7 = add i64 %reass.mul.i, %6
-  %8 = tail call noundef i64 @llvm.fshl.i64(i64 %7, i64 %7, i64 26)
-  ret i64 %8
+  %4 = mul i64 %5, 1452335207727870361
+  %7 = add i64 %4, %6
+  %9 = tail call noundef i64 @llvm.fshl.i64(i64 %7, i64 %7, i64 26)
+  ret i64 %9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -806,16 +806,16 @@ define hidden { i64, i1 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$11insert_
   %reass.add = add i64 %5, %7
   %reass.mul = mul i64 %reass.add, 1452335207727870361
   %13 = add i64 %reass.mul, %12
-  %14 = load i32, ptr %8, align 4, !range !42, !alias.scope !101, !noalias !104, !noundef !3
-  %15 = zext i32 %14 to i64
-  %reass.add3 = add i64 %13, %15
-  %reass.mul4 = mul i64 %reass.add3, -1065810590584100411
-  %16 = tail call noundef i64 @llvm.fshl.i64(i64 %reass.mul4, i64 %reass.mul4, i64 26)
+  %16 = load i32, ptr %8, align 4, !range !42, !alias.scope !101, !noalias !104, !noundef !3
+  %17 = zext i32 %16 to i64
+  %18 = add i64 %13, %17
+  %storemerge.i.i = mul i64 %18, -1065810590584100411
+  %19 = tail call noundef i64 @llvm.fshl.i64(i64 %storemerge.i.i, i64 %storemerge.i.i, i64 26)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
-  %17 = call { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_full17hb3f83903e690e9f3E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %16, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %3)
+  %20 = call { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_full17hb3f83903e690e9f3E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret { i64, i1 } %17
+  ret { i64, i1 } %20
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -828,8 +828,8 @@ define hidden { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_in
   ]
 
 "_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h00640c67622e1791E.exit.thread": ; preds = %21, %7, %22, %34, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h00640c67622e1791E.exit", %23, %2, %35
-  %.sroa.5.0 = phi i64 [ %51, %35 ], [ undef, %2 ], [ 0, %23 ], [ 0, %34 ], [ 0, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h00640c67622e1791E.exit" ], [ 0, %22 ], [ 0, %7 ], [ 0, %21 ]
-  %.sroa.0.0 = phi i64 [ %50, %35 ], [ %4, %2 ], [ 0, %23 ], [ 1, %34 ], [ 0, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h00640c67622e1791E.exit" ], [ 0, %22 ], [ 0, %7 ], [ 0, %21 ]
+  %.sroa.5.0 = phi i64 [ %54, %35 ], [ undef, %2 ], [ 0, %23 ], [ 0, %34 ], [ 0, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h00640c67622e1791E.exit" ], [ 0, %22 ], [ 0, %7 ], [ 0, %21 ]
+  %.sroa.0.0 = phi i64 [ %53, %35 ], [ %4, %2 ], [ 0, %23 ], [ 1, %34 ], [ 0, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h00640c67622e1791E.exit" ], [ 0, %22 ], [ 0, %7 ], [ 0, %21 ]
   %5 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %6 = insertvalue { i64, i64 } %5, i64 %.sroa.5.0, 1
   ret { i64, i64 } %6
@@ -895,14 +895,14 @@ define hidden { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_in
   %reass.add = add i64 %37, %39
   %reass.mul = mul i64 %reass.add, 1452335207727870361
   %45 = add i64 %reass.mul, %44
-  %46 = load i32, ptr %40, align 4, !range !42, !alias.scope !122, !noalias !125, !noundef !3
-  %47 = zext i32 %46 to i64
-  %reass.add3 = add i64 %45, %47
-  %reass.mul4 = mul i64 %reass.add3, -1065810590584100411
-  %48 = tail call noundef i64 @llvm.fshl.i64(i64 %reass.mul4, i64 %reass.mul4, i64 26)
-  %49 = tail call { i64, i64 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$12get_index_of17hf76f9a03c7a5d28aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0, i64 noundef %48, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %1)
-  %50 = extractvalue { i64, i64 } %49, 0
-  %51 = extractvalue { i64, i64 } %49, 1
+  %48 = load i32, ptr %40, align 4, !range !42, !alias.scope !122, !noalias !125, !noundef !3
+  %49 = zext i32 %48 to i64
+  %50 = add i64 %45, %49
+  %storemerge.i.i = mul i64 %50, -1065810590584100411
+  %51 = tail call noundef i64 @llvm.fshl.i64(i64 %storemerge.i.i, i64 %storemerge.i.i, i64 26)
+  %52 = tail call { i64, i64 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$12get_index_of17hf76f9a03c7a5d28aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0, i64 noundef %51, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %1)
+  %53 = extractvalue { i64, i64 } %52, 0
+  %54 = extractvalue { i64, i64 } %52, 1
   br label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h00640c67622e1791E.exit.thread"
 }
 

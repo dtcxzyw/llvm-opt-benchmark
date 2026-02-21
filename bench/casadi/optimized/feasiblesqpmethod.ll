@@ -13878,10 +13878,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1711: ; preds = %.
   %2852 = load i64, ptr %2851, align 8, !tbaa !247
   %2853 = add nsw i64 %2852, %2850
   %reass.mul.i = mul i64 %2850, 7
-  %2854 = shl i64 %2853, 3
-  %2855 = add i64 %2849, %2844
-  %2856 = add i64 %2855, %reass.mul.i
-  %2857 = add i64 %2856, %2854
+  %factor64.i = shl i64 %2853, 3
+  %reass.add65.i = add i64 %2849, %2844
+  %2856 = add i64 %reass.add65.i, %reass.mul.i
+  %2854 = add i64 %2856, %2854
   %2858 = icmp sgt i32 %2838, 0
   br i1 %2858, label %2859, label %_ZN6casadi29casadi_feasiblesqpmethod_workIdEEvPKNS_29casadi_feasiblesqpmethod_probIT_EEPxS6_i.exit
 

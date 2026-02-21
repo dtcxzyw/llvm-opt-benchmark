@@ -1116,11 +1116,11 @@ entry:
   %conv = sext i32 %hour to i64
   %conv1 = sext i32 %minute to i64
   %0 = mul nsw i64 %conv, 3600
-  %1 = mul nsw i64 %conv1, 60
+  %mul2 = mul nsw i64 %conv1, 60
   %2 = add nsw i64 %1, %0
   %conv3 = sext i32 %second to i64
   %conv6 = sext i32 %microseconds to i64
-  %reass.add = add nsw i64 %2, %conv3
+  %add7 = add nsw i64 %2, %conv3
   %reass.mul = mul nsw i64 %reass.add, 1000000
   %add7 = add nsw i64 %reass.mul, %conv6
   ret i64 %add7
@@ -1151,8 +1151,8 @@ entry:
   store i32 -1, ptr %min, align 4
   store i32 -1, ptr %sec, align 4
   store i64 0, ptr %pos, align 8
-  %cmp170.not = icmp eq i64 %len, 0
-  br i1 %cmp170.not, label %return, label %land.rhs
+  %cmp172.not = icmp eq i64 %len, 0
+  br i1 %cmp172.not, label %return, label %land.rhs
 
 land.rhs:                                         ; preds = %entry, %while.body
   %0 = phi i64 [ %inc, %while.body ], [ 0, %entry ]
@@ -1210,8 +1210,8 @@ _ZN8facebook5velox4util12_GLOBAL__N_116parseDoubleDigitEPKcmRmRi.exit: ; preds =
   %hour.0 = phi i32 [ %add.i, %if.then6.i ], [ %sub.i, %land.lhs.true3.i ], [ %sub.i, %if.then.i ]
   %or.cond = icmp ult i32 %hour.0, 24
   %cmp16.not = icmp ult i64 %9, %len
-  %or.cond96 = select i1 %or.cond, i1 %cmp16.not, i1 false
-  br i1 %or.cond96, label %if.end18, label %return
+  %or.cond98 = select i1 %or.cond, i1 %cmp16.not, i1 false
+  br i1 %or.cond98, label %if.end18, label %return
 
 if.end18:                                         ; preds = %_ZN8facebook5velox4util12_GLOBAL__N_116parseDoubleDigitEPKcmRmRi.exit
   %inc19 = add nuw i64 %9, 1
@@ -1262,12 +1262,12 @@ land.lhs.true:                                    ; preds = %if.end48
 if.then53:                                        ; preds = %land.lhs.true
   %inc54 = add nuw i64 %15, 1
   store i64 %inc54, ptr %pos, align 8
-  %cmp5572 = icmp ult i64 %inc54, %len
-  br i1 %cmp5572, label %land.rhs56, label %if.end66
+  %cmp5574 = icmp ult i64 %inc54, %len
+  br i1 %cmp5574, label %land.rhs56, label %if.end66
 
 land.rhs56:                                       ; preds = %if.then53, %for.body
-  %mult.074 = phi i32 [ %div, %for.body ], [ 100000, %if.then53 ]
-  %micros.173 = phi i32 [ %micros.2, %for.body ], [ 0, %if.then53 ]
+  %mult.076 = phi i32 [ %div, %for.body ], [ 100000, %if.then53 ]
+  %micros.175 = phi i32 [ %micros.2, %for.body ], [ 0, %if.then53 ]
   %17 = phi i64 [ %inc65, %for.body ], [ %inc54, %if.then53 ]
   %arrayidx57 = getelementptr inbounds i8, ptr %buf, i64 %17
   %18 = load i8, ptr %arrayidx57, align 1
@@ -1276,33 +1276,33 @@ land.rhs56:                                       ; preds = %if.then53, %for.bod
   br i1 %20, label %for.body, label %if.end66.loopexit
 
 for.body:                                         ; preds = %land.rhs56
-  %cmp60 = icmp sgt i32 %mult.074, 0
+  %cmp60 = icmp sgt i32 %mult.076, 0
   %conv63 = zext nneg i8 %18 to i32
   %sub = add nsw i32 %conv63, -48
-  %mul = mul nsw i32 %sub, %mult.074
+  %mul = mul nsw i32 %sub, %mult.076
   %add = select i1 %cmp60, i32 %mul, i32 0
-  %micros.2 = add nsw i32 %add, %micros.173
+  %micros.2 = add nsw i32 %add, %micros.175
   %inc65 = add i64 %17, 1
   store i64 %inc65, ptr %pos, align 8
-  %div = sdiv i32 %mult.074, 10
-  %exitcond82.not = icmp eq i64 %inc65, %len
-  br i1 %exitcond82.not, label %if.end66.loopexit, label %land.rhs56, !llvm.loop !9
+  %div = sdiv i32 %mult.076, 10
+  %exitcond84.not = icmp eq i64 %inc65, %len
+  br i1 %exitcond84.not, label %if.end66.loopexit, label %land.rhs56, !llvm.loop !9
 
 if.end66.loopexit:                                ; preds = %land.rhs56, %for.body
-  %pos.promoted7685 = phi i64 [ %17, %land.rhs56 ], [ %len, %for.body ]
-  %micros.0.ph = phi i32 [ %micros.173, %land.rhs56 ], [ %micros.2, %for.body ]
+  %pos.promoted7887 = phi i64 [ %17, %land.rhs56 ], [ %len, %for.body ]
+  %micros.0.ph = phi i32 [ %micros.175, %land.rhs56 ], [ %micros.2, %for.body ]
   %21 = sext i32 %micros.0.ph to i64
   br label %if.end66
 
 if.end66:                                         ; preds = %if.end66.loopexit, %if.then53, %land.lhs.true, %if.end48
-  %pos.promoted76 = phi i64 [ %15, %land.lhs.true ], [ %15, %if.end48 ], [ %inc54, %if.then53 ], [ %pos.promoted7685, %if.end66.loopexit ]
+  %pos.promoted78 = phi i64 [ %15, %land.lhs.true ], [ %15, %if.end48 ], [ %inc54, %if.then53 ], [ %pos.promoted7887, %if.end66.loopexit ]
   %micros.0 = phi i64 [ 0, %land.lhs.true ], [ 0, %if.end48 ], [ 0, %if.then53 ], [ %21, %if.end66.loopexit ]
-  %cmp6977 = icmp ult i64 %pos.promoted76, %len
-  %or.cond79 = and i1 %strict, %cmp6977
-  br i1 %or.cond79, label %land.rhs70, label %if.end80
+  %cmp6979 = icmp ult i64 %pos.promoted78, %len
+  %or.cond81 = and i1 %strict, %cmp6979
+  br i1 %or.cond81, label %land.rhs70, label %if.end80
 
 land.rhs70:                                       ; preds = %if.end66, %while.body74
-  %22 = phi i64 [ %inc75, %while.body74 ], [ %pos.promoted76, %if.end66 ]
+  %22 = phi i64 [ %inc75, %while.body74 ], [ %pos.promoted78, %if.end66 ]
   %arrayidx71 = getelementptr inbounds i8, ptr %buf, i64 %22
   %23 = load i8, ptr %arrayidx71, align 1
   switch i8 %23, label %return [
@@ -1317,17 +1317,17 @@ land.rhs70:                                       ; preds = %if.end66, %while.bo
 while.body74:                                     ; preds = %land.rhs70, %land.rhs70, %land.rhs70, %land.rhs70, %land.rhs70, %land.rhs70
   %inc75 = add i64 %22, 1
   store i64 %inc75, ptr %pos, align 8
-  %exitcond83.not = icmp eq i64 %inc75, %len
-  br i1 %exitcond83.not, label %if.end80, label %land.rhs70, !llvm.loop !10
+  %exitcond85.not = icmp eq i64 %inc75, %len
+  br i1 %exitcond85.not, label %if.end80, label %land.rhs70, !llvm.loop !10
 
 if.end80:                                         ; preds = %while.body74, %if.end66
   %narrow = mul nuw nsw i32 %hour.0, 3600
   %narrow65 = mul nuw nsw i32 %11, 60
   %narrow66 = add nuw nsw i32 %narrow65, %narrow
-  %narrow67 = add nuw nsw i32 %narrow66, %14
-  %reass.add.i = zext nneg i32 %narrow67 to i64
-  %reass.mul.i = mul nuw nsw i64 %reass.add.i, 1000000
-  %add7.i = add nsw i64 %reass.mul.i, %micros.0
+  %narrow69 = add nuw nsw i32 %narrow66, %14
+  %add4.i = zext nneg i32 %narrow69 to i64
+  %mul5.i = mul nuw nsw i64 %add4.i, 1000000
+  %add7.i = add nsw i64 %mul5.i, %micros.0
   store i64 %add7.i, ptr %result, align 8
   br label %return
 

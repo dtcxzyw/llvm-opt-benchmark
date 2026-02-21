@@ -103,10 +103,10 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br label %20
 
 20:                                               ; preds = %.lr.ph, %._crit_edge58
-  %indvars.iv73 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next74, %._crit_edge58 ]
-  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 4
-  %.not = icmp samesign ult i64 %indvars.iv.next74, %19
-  %21 = sub i64 %7, %indvars.iv73
+  %indvars.iv72 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next73, %._crit_edge58 ]
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 4
+  %.not = icmp samesign ult i64 %indvars.iv.next73, %19
+  %21 = sub i64 %7, %indvars.iv72
   %22 = trunc i64 %21 to i32
   %spec.select = select i1 %.not, i32 4, i32 %22
   %23 = icmp sgt i32 %spec.select, 0
@@ -125,7 +125,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 .preheader52:                                     ; preds = %.preheader52.lr.ph, %35
   %indvars.iv66 = phi i64 [ 0, %.preheader52.lr.ph ], [ %indvars.iv.next67, %35 ]
-  %27 = add nuw nsw i64 %indvars.iv66, %indvars.iv73
+  %27 = add nuw nsw i64 %indvars.iv66, %indvars.iv72
   %.idx = mul i64 %indvars.iv66, 12
   %invariant.gep = getelementptr i8, ptr %3, i64 %.idx
   br label %.preheader
@@ -142,8 +142,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %indvars.iv62 = phi i64 [ 0, %.preheader52 ], [ %indvars.iv.next63, %37 ]
   %31 = mul i64 %indvars.iv62, %7
   %32 = add i64 %27, %31
-  %sext77 = shl i64 %32, 32
-  %33 = ashr exact i64 %sext77, 30
+  %sext76 = shl i64 %32, 32
+  %33 = ashr exact i64 %sext76, 30
   %34 = getelementptr i8, ptr %24, i64 %33
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv62
   br label %38
@@ -176,42 +176,42 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 .preheader.lr.ph.i.i.i.i.i.i.i.i.i.i:             ; preds = %._crit_edge, %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEaSINS_9TransposeINS0_INS1_IfLi12ELi3ELi0ELi12ELi3EEELin1ELin1ELb0EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit
   %indvars.iv69 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next70, %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEaSINS_9TransposeINS0_INS1_IfLi12ELi3ELi0ELi12ELi3EEELin1ELin1ELb0EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit ]
-  %.idx78 = mul nuw nsw i64 %indvars.iv69, 12
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx78
-  %44 = add nuw nsw i64 %indvars.iv69, %indvars.iv73
-  %reass.mul = mul i64 %44, 3
-  %45 = and i64 %reass.mul, 4294967295
+  %.idx77 = mul nuw nsw i64 %indvars.iv69, 12
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx77
+  %44 = add nuw nsw i64 %indvars.iv69, %indvars.iv72
+  %.reass = mul i64 %44, 3
+  %45 = and i64 %.reass, 4294967295
   %46 = mul nsw i64 %29, %45
   %47 = getelementptr inbounds float, ptr %28, i64 %46
   br label %.preheader.us.i.i.i.i.i.i.i.i.i.i
 
 .preheader.us.i.i.i.i.i.i.i.i.i.i:                ; preds = %.preheader.lr.ph.i.i.i.i.i.i.i.i.i.i, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i
-  %.0810.us.i.i.i.i.i.i.i.i.i.i = phi i64 [ %54, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i ], [ 0, %.preheader.lr.ph.i.i.i.i.i.i.i.i.i.i ]
-  %48 = mul nsw i64 %.0810.us.i.i.i.i.i.i.i.i.i.i, %29
-  %49 = getelementptr float, ptr %47, i64 %48
+  %.0810.us.i.i.i.i.i.i.i.i.i.i = phi i64 [ %52, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i ], [ 0, %.preheader.lr.ph.i.i.i.i.i.i.i.i.i.i ]
+  %46 = mul nsw i64 %.0810.us.i.i.i.i.i.i.i.i.i.i, %29
+  %47 = getelementptr float, ptr %47, i64 %46
   %invariant.gep.us.i.i.i.i.i.i.i.i.i.i = getelementptr float, ptr %43, i64 %.0810.us.i.i.i.i.i.i.i.i.i.i
-  br label %50
+  br label %48
 
-50:                                               ; preds = %50, %.preheader.us.i.i.i.i.i.i.i.i.i.i
-  %.09.us.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.us.i.i.i.i.i.i.i.i.i.i ], [ %53, %50 ]
-  %51 = getelementptr float, ptr %49, i64 %.09.us.i.i.i.i.i.i.i.i.i.i
+48:                                               ; preds = %48, %.preheader.us.i.i.i.i.i.i.i.i.i.i
+  %.09.us.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.us.i.i.i.i.i.i.i.i.i.i ], [ %51, %50 ]
+  %49 = getelementptr float, ptr %47, i64 %.09.us.i.i.i.i.i.i.i.i.i.i
   %.idx.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i, 48
   %gep.us.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %invariant.gep.us.i.i.i.i.i.i.i.i.i.i, i64 %.idx.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i
-  %52 = load float, ptr %gep.us.i.i.i.i.i.i.i.i.i.i, align 4, !tbaa !20
-  store float %52, ptr %51, align 4, !tbaa !20
-  %53 = add nuw nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %53, 3
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i, label %._crit_edge.us.i.i.i.i.i.i.i.i.i.i, label %50, !llvm.loop !24
+  %50 = load float, ptr %gep.us.i.i.i.i.i.i.i.i.i.i, align 4, !tbaa !20
+  store float %50, ptr %49, align 4, !tbaa !20
+  %51 = add nuw nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %51, 3
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i, label %._crit_edge.us.i.i.i.i.i.i.i.i.i.i, label %48, !llvm.loop !24
 
-._crit_edge.us.i.i.i.i.i.i.i.i.i.i:               ; preds = %50
-  %54 = add nuw nsw i64 %.0810.us.i.i.i.i.i.i.i.i.i.i, 1
-  %exitcond13.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %54, 3
+._crit_edge.us.i.i.i.i.i.i.i.i.i.i:               ; preds = %48
+  %52 = add nuw nsw i64 %.0810.us.i.i.i.i.i.i.i.i.i.i, 1
+  %exitcond13.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %52, 3
   br i1 %exitcond13.not.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEaSINS_9TransposeINS0_INS1_IfLi12ELi3ELi0ELi12ELi3EEELin1ELin1ELb0EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit, label %.preheader.us.i.i.i.i.i.i.i.i.i.i, !llvm.loop !25
 
 _ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEaSINS_9TransposeINS0_INS1_IfLi12ELi3ELi0ELi12ELi3EEELin1ELin1ELb0EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit: ; preds = %._crit_edge.us.i.i.i.i.i.i.i.i.i.i
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
-  %55 = icmp samesign ult i64 %indvars.iv.next70, %30
-  br i1 %55, label %.preheader.lr.ph.i.i.i.i.i.i.i.i.i.i, label %._crit_edge58, !llvm.loop !26
+  %53 = icmp samesign ult i64 %indvars.iv.next70, %30
+  br i1 %53, label %.preheader.lr.ph.i.i.i.i.i.i.i.i.i.i, label %._crit_edge58, !llvm.loop !26
 
 ._crit_edge60:                                    ; preds = %._crit_edge58, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

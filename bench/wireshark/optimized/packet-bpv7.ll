@@ -1059,27 +1059,27 @@ define i32 @bp_bundle_ident_hash(ptr noundef %0) #1 {
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.01112.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %11, %.lr.ph.i ]
+  %.01112.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %13, %.lr.ph.i ]
   %7 = getelementptr i8, ptr %3, i64 %indvars.iv.i
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
-  %reass.add = add i32 %.01112.i, %9
-  %reass.mul = mul i32 %reass.add, 1025
-  %10 = lshr i32 %reass.mul, 6
-  %11 = xor i32 %10, %reass.mul
+  %10 = add i32 %.01112.i, %9
+  %11 = mul i32 %10, 1025
+  %12 = lshr i32 %11, 6
+  %13 = xor i32 %12, %11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %add_address_to_hash.exit, label %.lr.ph.i, !llvm.loop !6
 
 add_address_to_hash.exit:                         ; preds = %.lr.ph.i, %1
-  %.011.lcssa.i = phi i32 [ 0, %1 ], [ %11, %.lr.ph.i ]
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = tail call i32 @g_int64_hash(ptr noundef nonnull %12)
-  %14 = xor i32 %13, %.011.lcssa.i
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %16 = tail call i32 @g_int64_hash(ptr noundef nonnull %15)
-  %17 = xor i32 %14, %16
-  ret i32 %17
+  %.011.lcssa.i = phi i32 [ 0, %1 ], [ %13, %.lr.ph.i ]
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = tail call i32 @g_int64_hash(ptr noundef nonnull %14)
+  %16 = xor i32 %15, %.011.lcssa.i
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %18 = tail call i32 @g_int64_hash(ptr noundef nonnull %17)
+  %19 = xor i32 %16, %18
+  ret i32 %19
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

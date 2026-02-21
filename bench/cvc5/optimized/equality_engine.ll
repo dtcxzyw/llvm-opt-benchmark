@@ -5934,7 +5934,7 @@ define linkonce_odr hidden void @_ZNSt5dequeIN4cvc58internal6theory2eq14MergeCan
   %12 = load ptr, ptr %3, align 8, !tbaa !313
   %13 = getelementptr inbounds i8, ptr %12, i64 -24
   store ptr %13, ptr %3, align 8, !tbaa !313
-  br label %54
+  br label %56
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5959,48 +5959,48 @@ define linkonce_odr hidden void @_ZNSt5dequeIN4cvc58internal6theory2eq14MergeCan
   %33 = load ptr, ptr %32, align 8, !tbaa !318
   %34 = ptrtoint ptr %33 to i64
   %35 = ptrtoint ptr %4 to i64
-  %36 = sub i64 %34, %35
+  %36 = sub i64 %34, %37
   %37 = sdiv exact i64 %36, 24
   %reass.add = add nsw i64 %23, %.neg.i.i.i
   %reass.mul = mul i64 %reass.add, 21
-  %38 = add i64 %reass.mul, %31
-  %39 = add i64 %38, %37
-  %40 = icmp eq i64 %39, 384307168202282325
-  br i1 %40, label %41, label %42
+  %40 = add i64 %reass.mul, %31
+  %41 = add i64 %38, %37
+  %42 = icmp eq i64 %41, 384307168202282325
+  br i1 %42, label %43, label %44
 
-41:                                               ; preds = %14
+43:                                               ; preds = %14
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.175) #33
   unreachable
 
-42:                                               ; preds = %14
-  %43 = load ptr, ptr %0, align 8, !tbaa !243
-  %44 = icmp eq ptr %19, %43
-  br i1 %44, label %45, label %_ZNSt5dequeIN4cvc58internal6theory2eq14MergeCandidateESaIS4_EE17_M_push_front_auxIJRKS4_EEEvDpOT_.exit
+44:                                               ; preds = %14
+  %45 = load ptr, ptr %0, align 8, !tbaa !243
+  %46 = icmp eq ptr %19, %45
+  br i1 %46, label %47, label %_ZNSt5dequeIN4cvc58internal6theory2eq14MergeCandidateESaIS4_EE17_M_push_front_auxIJRKS4_EEEvDpOT_.exit
 
-45:                                               ; preds = %42
+47:                                               ; preds = %44
   tail call void @_ZNSt5dequeIN4cvc58internal6theory2eq14MergeCandidateESaIS4_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef 1, i1 noundef zeroext true)
   %.pre.i = load ptr, ptr %18, align 8, !tbaa !244
   br label %_ZNSt5dequeIN4cvc58internal6theory2eq14MergeCandidateESaIS4_EE17_M_push_front_auxIJRKS4_EEEvDpOT_.exit
 
-_ZNSt5dequeIN4cvc58internal6theory2eq14MergeCandidateESaIS4_EE17_M_push_front_auxIJRKS4_EEEvDpOT_.exit: ; preds = %42, %45
-  %46 = phi ptr [ %.pre.i, %45 ], [ %19, %42 ]
-  %47 = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #38
-  %48 = getelementptr inbounds i8, ptr %46, i64 -8
-  store ptr %47, ptr %48, align 8, !tbaa !246
-  store ptr %48, ptr %18, align 8, !tbaa !315
-  store ptr %47, ptr %5, align 8, !tbaa !317
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 504
-  store ptr %49, ptr %32, align 8, !tbaa !318
-  %50 = getelementptr inbounds nuw i8, ptr %47, i64 480
-  store ptr %50, ptr %3, align 8, !tbaa !313
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 12, i1 false)
-  %51 = getelementptr inbounds nuw i8, ptr %47, i64 496
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %53 = load ptr, ptr %52, align 8, !tbaa !157
-  store ptr %53, ptr %51, align 8, !tbaa !157
-  br label %54
+_ZNSt5dequeIN4cvc58internal6theory2eq14MergeCandidateESaIS4_EE17_M_push_front_auxIJRKS4_EEEvDpOT_.exit: ; preds = %44, %47
+  %48 = phi ptr [ %.pre.i, %47 ], [ %19, %42 ]
+  %49 = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #38
+  %50 = getelementptr inbounds i8, ptr %48, i64 -8
+  store ptr %49, ptr %50, align 8, !tbaa !246
+  store ptr %50, ptr %18, align 8, !tbaa !315
+  store ptr %49, ptr %5, align 8, !tbaa !317
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 504
+  store ptr %51, ptr %32, align 8, !tbaa !318
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 480
+  store ptr %52, ptr %3, align 8, !tbaa !313
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 12, i1 false)
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 496
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %55 = load ptr, ptr %54, align 8, !tbaa !157
+  store ptr %55, ptr %53, align 8, !tbaa !157
+  br label %56
 
-54:                                               ; preds = %_ZNSt5dequeIN4cvc58internal6theory2eq14MergeCandidateESaIS4_EE17_M_push_front_auxIJRKS4_EEEvDpOT_.exit, %7
+56:                                               ; preds = %_ZNSt5dequeIN4cvc58internal6theory2eq14MergeCandidateESaIS4_EE17_M_push_front_auxIJRKS4_EEEvDpOT_.exit, %7
   ret void
 }
 
@@ -30268,50 +30268,50 @@ define linkonce_odr hidden void @_ZNSt5dequeIN4cvc58internal6theory2eq14MergeCan
   %reass.add = add nsw i64 %12, %.neg.i.i
   %reass.mul = mul i64 %reass.add, 21
   %28 = add i64 %reass.mul, %20
-  %29 = add i64 %28, %27
-  %30 = icmp eq i64 %29, 384307168202282325
-  br i1 %30, label %31, label %32
+  %31 = add i64 %28, %27
+  %32 = icmp eq i64 %31, 384307168202282325
+  br i1 %32, label %33, label %34
 
-31:                                               ; preds = %2
+33:                                               ; preds = %2
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.175) #33
   unreachable
 
-32:                                               ; preds = %2
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load i64, ptr %33, align 8, !tbaa !248
-  %35 = load ptr, ptr %0, align 8, !tbaa !243
-  %36 = ptrtoint ptr %35 to i64
-  %37 = sub i64 %9, %36
-  %38 = ashr exact i64 %37, 3
-  %39 = sub i64 %34, %38
-  %40 = icmp ult i64 %39, 2
-  br i1 %40, label %41, label %42
+34:                                               ; preds = %2
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %36 = load i64, ptr %35, align 8, !tbaa !248
+  %37 = load ptr, ptr %0, align 8, !tbaa !243
+  %38 = ptrtoint ptr %37 to i64
+  %39 = sub i64 %9, %38
+  %40 = ashr exact i64 %39, 3
+  %41 = sub i64 %36, %40
+  %42 = icmp ult i64 %41, 2
+  br i1 %42, label %43, label %44
 
-41:                                               ; preds = %32
+43:                                               ; preds = %34
   tail call void @_ZNSt5dequeIN4cvc58internal6theory2eq14MergeCandidateESaIS4_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef 1, i1 noundef zeroext false)
   %.pre = load ptr, ptr %5, align 8, !tbaa !245
-  br label %42
+  br label %44
 
-42:                                               ; preds = %41, %32
-  %43 = phi ptr [ %.pre, %41 ], [ %6, %32 ]
-  %44 = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #38
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store ptr %44, ptr %45, align 8, !tbaa !246
-  %46 = load ptr, ptr %3, align 8, !tbaa !311
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 12, i1 false)
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %49 = load ptr, ptr %48, align 8, !tbaa !157
-  store ptr %49, ptr %47, align 8, !tbaa !157
-  %50 = load ptr, ptr %5, align 8, !tbaa !245
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store ptr %51, ptr %5, align 8, !tbaa !315
-  %52 = load ptr, ptr %51, align 8, !tbaa !246
-  store ptr %52, ptr %15, align 8, !tbaa !317
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 504
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %53, ptr %54, align 8, !tbaa !318
-  store ptr %52, ptr %3, align 8, !tbaa !311
+44:                                               ; preds = %43, %34
+  %45 = phi ptr [ %.pre, %41 ], [ %6, %32 ]
+  %46 = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #38
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  store ptr %46, ptr %47, align 8, !tbaa !246
+  %48 = load ptr, ptr %3, align 8, !tbaa !311
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 12, i1 false)
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %51 = load ptr, ptr %50, align 8, !tbaa !157
+  store ptr %51, ptr %49, align 8, !tbaa !157
+  %52 = load ptr, ptr %5, align 8, !tbaa !245
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  store ptr %53, ptr %5, align 8, !tbaa !315
+  %54 = load ptr, ptr %53, align 8, !tbaa !246
+  store ptr %54, ptr %15, align 8, !tbaa !317
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 504
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %55, ptr %56, align 8, !tbaa !318
+  store ptr %54, ptr %3, align 8, !tbaa !311
   ret void
 }
 

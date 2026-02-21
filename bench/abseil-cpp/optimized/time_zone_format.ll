@@ -5861,83 +5861,83 @@ define linkonce_odr dso_local noundef i64 @_ZN4absl13time_internal4cctz6detail4i
   %19 = add nsw i64 %.neg.i, %14
   %20 = icmp sgt i8 %1, 2
   %21 = select i1 %20, i16 -3, i16 9
-  %reass.add = add nsw i16 %21, %11
-  %reass.mul = mul nsw i16 %reass.add, 153
-  %.lhs.trunc.i = add nsw i16 %reass.mul, 2
-  %22 = sdiv i16 %.lhs.trunc.i, 5
-  %.sext.i = sext i16 %22 to i64
-  %23 = sext i8 %2 to i64
-  %.lhs.trunc35 = trunc i64 %19 to i16
-  %24 = sdiv i16 %.lhs.trunc35, 4
-  %.sext36 = sext i16 %24 to i64
-  %.neg17.i37 = sdiv i16 %.lhs.trunc35, -100
-  %.neg17.i.sext = sext i16 %.neg17.i37 to i64
-  %25 = sext i8 %4 to i16
-  %26 = icmp slt i8 %4, 3
-  %27 = sext i1 %26 to i64
-  %28 = add nsw i64 %8, %27
-  %29 = add nsw i64 %28, 65137
-  %30 = icmp slt i64 %28, 0
-  %31 = select i1 %30, i64 %29, i64 %28
-  %.lhs.trunc38 = trunc nuw i64 %31 to i16
-  %32 = sdiv i16 %.lhs.trunc38, 400
-  %.sext39 = sext i16 %32 to i64
-  %.neg.i29 = mul nsw i64 %.sext39, -400
-  %33 = add nsw i64 %.neg.i29, %28
-  %34 = icmp sgt i8 %4, 2
-  %35 = select i1 %34, i16 -3, i16 9
-  %reass.add43 = add nsw i16 %35, %25
-  %reass.mul44 = mul nsw i16 %reass.add43, 153
-  %.lhs.trunc.i32 = add nsw i16 %reass.mul44, 2
-  %.neg59 = sdiv i16 %.lhs.trunc.i32, -5
-  %36 = sext i8 %5 to i64
-  %.lhs.trunc40 = trunc i64 %33 to i16
-  %.neg60 = sdiv i16 %.lhs.trunc40, -4
-  %.neg17.i3442.neg = sdiv i16 %.lhs.trunc40, 100
-  %.neg17.i34.sext.neg = sext i16 %.neg17.i3442.neg to i64
-  %.sext.i33.neg = sext i16 %.neg59 to i64
-  %.sext41.neg = sext i16 %.neg60 to i64
-  %reass.add54 = sub nsw i64 %19, %33
-  %reass.mul55 = mul nsw i64 %reass.add54, 365
-  %reass.add57 = sub nsw i64 %.sext, %.sext39
-  %reass.mul58 = mul nsw i64 %reass.add57, 146097
-  %.neg52 = sub nsw i64 %23, %36
-  %.neg53 = add nsw i64 %.neg52, %.sext.i
-  %37 = add nsw i64 %.neg53, %.sext.i33.neg
-  %38 = add nsw i64 %37, %.sext36
-  %39 = add nsw i64 %38, %.neg17.i.sext
-  %40 = add nsw i64 %39, %reass.mul58
-  %41 = add nsw i64 %40, %reass.mul55
-  %42 = add nsw i64 %41, %.sext41.neg
-  %43 = add nsw i64 %42, %.neg17.i34.sext.neg
-  %44 = icmp sgt i64 %10, 0
-  %45 = icmp slt i64 %43, 0
-  %or.cond = select i1 %44, i1 %45, i1 false
-  br i1 %or.cond, label %46, label %49
+  %22 = add nsw i16 %21, %11
+  %23 = mul nsw i16 %22, 153
+  %.lhs.trunc.i = add nsw i16 %23, 2
+  %24 = sdiv i16 %.lhs.trunc.i, 5
+  %.sext.i = sext i16 %24 to i64
+  %25 = sext i8 %2 to i64
+  %.lhs.trunc33 = trunc i64 %19 to i16
+  %26 = sdiv i16 %.lhs.trunc33, 4
+  %.sext34 = sext i16 %26 to i64
+  %.neg17.i35 = sdiv i16 %.lhs.trunc33, -100
+  %.neg17.i.sext = sext i16 %.neg17.i35 to i64
+  %27 = sext i8 %4 to i16
+  %28 = icmp slt i8 %4, 3
+  %29 = sext i1 %28 to i64
+  %30 = add nsw i64 %8, %29
+  %31 = add nsw i64 %30, 65137
+  %32 = icmp slt i64 %30, 0
+  %33 = select i1 %32, i64 %31, i64 %30
+  %.lhs.trunc36 = trunc nuw i64 %33 to i16
+  %34 = sdiv i16 %.lhs.trunc36, 400
+  %.sext37 = sext i16 %34 to i64
+  %.neg.i29 = mul nsw i64 %.sext37, -400
+  %35 = add nsw i64 %.neg.i29, %30
+  %36 = icmp sgt i8 %4, 2
+  %37 = select i1 %36, i16 -3, i16 9
+  %38 = add nsw i16 %37, %27
+  %39 = mul nsw i16 %38, 153
+  %.lhs.trunc.i30 = add nsw i16 %39, 2
+  %.neg53 = sdiv i16 %.lhs.trunc.i30, -5
+  %40 = sext i8 %5 to i64
+  %.lhs.trunc38 = trunc i64 %35 to i16
+  %.neg54 = sdiv i16 %.lhs.trunc38, -4
+  %.neg17.i3240.neg = sdiv i16 %.lhs.trunc38, 100
+  %.neg17.i32.sext.neg = sext i16 %.neg17.i3240.neg to i64
+  %.sext.i31.neg = sext i16 %.neg53 to i64
+  %.sext39.neg = sext i16 %.neg54 to i64
+  %reass.add = sub nsw i64 %19, %35
+  %reass.mul = mul nsw i64 %reass.add, 365
+  %reass.add51 = sub nsw i64 %.sext, %.sext37
+  %reass.mul52 = mul nsw i64 %reass.add51, 146097
+  %.neg48 = sub nsw i64 %25, %40
+  %.neg49 = add nsw i64 %.neg48, %.sext.i
+  %41 = add nsw i64 %.neg49, %.sext.i31.neg
+  %42 = add nsw i64 %41, %.sext34
+  %43 = add nsw i64 %42, %.neg17.i.sext
+  %44 = add nsw i64 %43, %reass.mul52
+  %45 = add nsw i64 %44, %reass.mul
+  %46 = add nsw i64 %45, %.sext39.neg
+  %47 = add nsw i64 %46, %.neg17.i32.sext.neg
+  %48 = icmp sgt i64 %10, 0
+  %49 = icmp slt i64 %47, 0
+  %or.cond = select i1 %48, i1 %49, i1 false
+  br i1 %or.cond, label %50, label %53
 
-46:                                               ; preds = %6
-  %47 = add nsw i64 %43, 292194
-  %48 = add nsw i64 %10, -800
-  br label %55
+50:                                               ; preds = %6
+  %51 = add nsw i64 %47, 292194
+  %52 = add nsw i64 %10, -800
+  br label %59
 
-49:                                               ; preds = %6
-  %50 = icmp slt i64 %10, 0
-  %51 = icmp sgt i64 %43, 0
-  %or.cond3 = select i1 %50, i1 %51, i1 false
-  br i1 %or.cond3, label %52, label %55
+53:                                               ; preds = %6
+  %54 = icmp slt i64 %10, 0
+  %55 = icmp sgt i64 %47, 0
+  %or.cond3 = select i1 %54, i1 %55, i1 false
+  br i1 %or.cond3, label %56, label %59
 
-52:                                               ; preds = %49
-  %53 = add nsw i64 %43, -292194
-  %54 = add nsw i64 %10, 800
-  br label %55
+56:                                               ; preds = %53
+  %57 = add nsw i64 %47, -292194
+  %58 = add nsw i64 %10, 800
+  br label %59
 
-55:                                               ; preds = %49, %52, %46
-  %.025 = phi i64 [ %48, %46 ], [ %54, %52 ], [ %10, %49 ]
-  %.0 = phi i64 [ %47, %46 ], [ %53, %52 ], [ %43, %49 ]
-  %56 = sdiv i64 %.025, 400
-  %57 = mul nsw i64 %56, 146097
-  %58 = add nsw i64 %57, %.0
-  ret i64 %58
+59:                                               ; preds = %53, %56, %50
+  %.025 = phi i64 [ %52, %46 ], [ %58, %52 ], [ %10, %49 ]
+  %.0 = phi i64 [ %51, %46 ], [ %57, %52 ], [ %47, %49 ]
+  %60 = sdiv i64 %.025, 400
+  %61 = mul nsw i64 %60, 146097
+  %62 = add nsw i64 %61, %.0
+  ret i64 %62
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

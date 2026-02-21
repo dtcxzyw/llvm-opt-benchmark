@@ -8958,33 +8958,33 @@ define internal void @"_ZNSt17_Function_handlerIFviPN12_GLOBAL__N_19MockIndexEEZ
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i32 %.val, 2
   %.zext.i.i.i = zext nneg i32 %13 to i64
-  %14 = mul nsw i64 %.zext.i.i.i, -1000000000
-  %15 = mul nuw nsw i64 %12, 1000000
+  %.neg.i.i.i.i.i = mul nsw i64 %.zext.i.i.i, -1000000000
+  %14 = mul nuw nsw i64 %.neg.i.i.i.i.i, 1000000
   %16 = add nsw i64 %14, %15
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.zext.i.i.i, ptr %4, align 8, !tbaa !335
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %16, ptr %17, align 8, !tbaa !337
-  br label %18
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %15, ptr %16, align 8, !tbaa !337
+  br label %17
 
-18:                                               ; preds = %21, %10
-  %19 = call i32 @nanosleep(ptr noundef nonnull %4, ptr noundef nonnull %4)
-  %20 = icmp eq i32 %19, -1
-  br i1 %20, label %21, label %.critedge.i.i.i.i
+17:                                               ; preds = %20, %10
+  %18 = call i32 @nanosleep(ptr noundef nonnull %4, ptr noundef nonnull %4)
+  %19 = icmp eq i32 %18, -1
+  br i1 %19, label %20, label %.critedge.i.i.i.i
 
-21:                                               ; preds = %18
-  %22 = tail call ptr @__errno_location() #36
-  %23 = load i32, ptr %22, align 4, !tbaa !77
-  %24 = icmp eq i32 %23, 4
-  br i1 %24, label %18, label %.critedge.i.i.i.i, !llvm.loop !338
+20:                                               ; preds = %17
+  %21 = tail call ptr @__errno_location() #36
+  %22 = load i32, ptr %21, align 4, !tbaa !77
+  %23 = icmp eq i32 %22, 4
+  br i1 %23, label %17, label %.critedge.i.i.i.i, !llvm.loop !338
 
-.critedge.i.i.i.i:                                ; preds = %21, %18
+.critedge.i.i.i.i:                                ; preds = %20, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %"_ZSt10__invoke_rIvRZN34ThreadedIndex_SingleException_Test8TestBodyEvE3$_0JiPN12_GLOBAL__N_19MockIndexEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
 
 "_ZSt10__invoke_rIvRZN34ThreadedIndex_SingleException_Test8TestBodyEvE3$_0JiPN12_GLOBAL__N_19MockIndexEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %8, %.critedge.i.i.i.i
-  %25 = getelementptr inbounds nuw i8, ptr %.val3, i64 36
-  store i8 1, ptr %25, align 4, !tbaa !21
+  %24 = getelementptr inbounds nuw i8, ptr %.val3, i64 36
+  store i8 1, ptr %24, align 4, !tbaa !21
   ret void
 }
 
@@ -9084,30 +9084,30 @@ define internal void @"_ZNSt17_Function_handlerIFviPN12_GLOBAL__N_19MockIndexEEZ
   %10 = zext nneg i32 %9 to i64
   %11 = lshr i32 %.val, 2
   %.zext.i.i.i = zext nneg i32 %11 to i64
-  %12 = mul nsw i64 %.zext.i.i.i, -1000000000
+  %.neg.i.i.i.i.i = mul nsw i64 %.zext.i.i.i, -1000000000
   %13 = mul nuw nsw i64 %10, 1000000
   %14 = add nsw i64 %12, %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.zext.i.i.i, ptr %4, align 8, !tbaa !335
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %14, ptr %15, align 8, !tbaa !337
-  br label %16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %14, ptr %14, align 8, !tbaa !337
+  br label %15
 
-16:                                               ; preds = %19, %8
-  %17 = call i32 @nanosleep(ptr noundef nonnull %4, ptr noundef nonnull %4)
-  %18 = icmp eq i32 %17, -1
-  br i1 %18, label %19, label %"_ZSt10__invoke_rIvRZN36ThreadedIndex_MultipleException_Test8TestBodyEvE3$_0JiPN12_GLOBAL__N_19MockIndexEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
+15:                                               ; preds = %18, %8
+  %16 = call i32 @nanosleep(ptr noundef nonnull %4, ptr noundef nonnull %4)
+  %17 = icmp eq i32 %16, -1
+  br i1 %17, label %18, label %"_ZSt10__invoke_rIvRZN36ThreadedIndex_MultipleException_Test8TestBodyEvE3$_0JiPN12_GLOBAL__N_19MockIndexEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
 
-19:                                               ; preds = %16
-  %20 = tail call ptr @__errno_location() #36
-  %21 = load i32, ptr %20, align 4, !tbaa !77
-  %22 = icmp eq i32 %21, 4
-  br i1 %22, label %16, label %"_ZSt10__invoke_rIvRZN36ThreadedIndex_MultipleException_Test8TestBodyEvE3$_0JiPN12_GLOBAL__N_19MockIndexEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit", !llvm.loop !338
+18:                                               ; preds = %15
+  %19 = tail call ptr @__errno_location() #36
+  %20 = load i32, ptr %19, align 4, !tbaa !77
+  %21 = icmp eq i32 %20, 4
+  br i1 %21, label %15, label %"_ZSt10__invoke_rIvRZN36ThreadedIndex_MultipleException_Test8TestBodyEvE3$_0JiPN12_GLOBAL__N_19MockIndexEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit", !llvm.loop !338
 
-"_ZSt10__invoke_rIvRZN36ThreadedIndex_MultipleException_Test8TestBodyEvE3$_0JiPN12_GLOBAL__N_19MockIndexEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %16, %19
+"_ZSt10__invoke_rIvRZN36ThreadedIndex_MultipleException_Test8TestBodyEvE3$_0JiPN12_GLOBAL__N_19MockIndexEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %15, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %23 = getelementptr inbounds nuw i8, ptr %.val3, i64 36
-  store i8 1, ptr %23, align 4, !tbaa !21
+  %22 = getelementptr inbounds nuw i8, ptr %.val3, i64 36
+  store i8 1, ptr %22, align 4, !tbaa !21
   ret void
 }
 

@@ -7518,15 +7518,15 @@ for.cond57.preheader:                             ; preds = %if.end
   %_M_finish.i145 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load ptr, ptr %_M_finish.i145, align 8
   %3 = load ptr, ptr %0, align 8
-  %cmp60294.not = icmp eq ptr %2, %3
-  br i1 %cmp60294.not, label %return, label %for.body61
+  %cmp60299.not = icmp eq ptr %2, %3
+  br i1 %cmp60299.not, label %return, label %for.body61
 
 for.cond.preheader:                               ; preds = %if.end
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %_M_finish.i, align 8
   %5 = load ptr, ptr %0, align 8
-  %cmp303.not = icmp eq ptr %4, %5
-  br i1 %cmp303.not, label %return, label %for.body
+  %cmp308.not = icmp eq ptr %4, %5
+  br i1 %cmp308.not, label %return, label %for.body
 
 _ZNK8facebook5velox7variant5valueILNS0_8TypeKindE4EEERKDav.exit: ; preds = %if.end
   %6 = load i64, ptr %0, align 8
@@ -7684,13 +7684,13 @@ _ZNK8facebook5velox7variant5valueILNS0_8TypeKindE7EEERKDav.exit: ; preds = %if.e
   br label %return
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %indvars.iv310 = phi i64 [ %indvars.iv.next311, %for.body ], [ 0, %for.cond.preheader ]
+  %indvars.iv315 = phi i64 [ %indvars.iv.next316, %for.body ], [ 0, %for.cond.preheader ]
   %21 = phi ptr [ %24, %for.body ], [ %5, %for.cond.preheader ]
-  %hash.0304 = phi i64 [ %mul6.i.i, %for.body ], [ 0, %for.cond.preheader ]
-  %add.ptr.i = getelementptr inbounds nuw %"class.facebook::velox::variant", ptr %21, i64 %indvars.iv310
+  %hash.0309 = phi i64 [ %mul6.i.i, %for.body ], [ 0, %for.cond.preheader ]
+  %add.ptr.i = getelementptr inbounds nuw %"class.facebook::velox::variant", ptr %21, i64 %indvars.iv315
   %call51 = tail call noundef i64 @_ZNK8facebook5velox7variant4hashEv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i)
-  %not.i.i.i.i = xor i64 %hash.0304, -1
-  %shl.i.i.i.i = shl i64 %hash.0304, 21
+  %not.i.i.i.i = xor i64 %hash.0309, -1
+  %shl.i.i.i.i = shl i64 %hash.0309, 21
   %add.i.i.i.i = add i64 %shl.i.i.i.i, %not.i.i.i.i
   %shr.i.i.i.i = lshr i64 %add.i.i.i.i, 24
   %xor.i.i.i.i = xor i64 %shr.i.i.i.i, %add.i.i.i.i
@@ -7722,24 +7722,24 @@ for.body:                                         ; preds = %for.cond.preheader,
   %shr4.i.i = lshr i64 %mul3.i.i, 47
   %xor5.i.i = xor i64 %shr4.i.i, %mul3.i.i
   %mul6.i.i = mul i64 %xor5.i.i, -7070675565921424023
-  %indvars.iv.next311 = add nuw nsw i64 %indvars.iv310, 1
+  %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
   %23 = load ptr, ptr %_M_finish.i, align 8
   %24 = load ptr, ptr %0, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %24 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp = icmp ugt i64 %sub.ptr.div.i, %indvars.iv.next311
+  %cmp = icmp ugt i64 %sub.ptr.div.i, %indvars.iv.next316
   br i1 %cmp, label %for.body, label %return, !llvm.loop !103
 
 for.body61:                                       ; preds = %for.cond57.preheader, %for.body61
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body61 ], [ 0, %for.cond57.preheader ]
   %25 = phi ptr [ %28, %for.body61 ], [ %3, %for.cond57.preheader ]
-  %hash.1295 = phi i64 [ %mul6.i.i182, %for.body61 ], [ 0, %for.cond57.preheader ]
+  %hash.1300 = phi i64 [ %mul6.i.i182, %for.body61 ], [ 0, %for.cond57.preheader ]
   %add.ptr.i150 = getelementptr inbounds nuw %"class.facebook::velox::variant", ptr %25, i64 %indvars.iv
   %call65 = tail call noundef i64 @_ZNK8facebook5velox7variant4hashEv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i150)
-  %not.i.i.i.i151 = xor i64 %hash.1295, -1
-  %shl.i.i.i.i152 = shl i64 %hash.1295, 21
+  %not.i.i.i.i151 = xor i64 %hash.1300, -1
+  %shl.i.i.i.i152 = shl i64 %hash.1300, 21
   %add.i.i.i.i153 = add i64 %shl.i.i.i.i152, %not.i.i.i.i151
   %shr.i.i.i.i154 = lshr i64 %add.i.i.i.i153, 24
   %xor.i.i.i.i155 = xor i64 %shr.i.i.i.i154, %add.i.i.i.i153
@@ -7824,16 +7824,16 @@ _ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit: ; preds = %if.
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load ptr, ptr %_M_left.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %cmp.i215.not285 = icmp eq ptr %30, %add.ptr.i.i
-  br i1 %cmp.i215.not285, label %for.end96, label %for.body87
+  %cmp.i215.not290 = icmp eq ptr %30, %add.ptr.i.i
+  br i1 %cmp.i215.not290, label %for.end96, label %for.body87
 
 for.body87:                                       ; preds = %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit, %for.body87
-  %it.sroa.0.0288 = phi ptr [ %call.i, %for.body87 ], [ %30, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit ]
-  %combinedValueHash.0287 = phi i64 [ %add4.i.i243, %for.body87 ], [ 0, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit ]
-  %combinedKeyHash.0286 = phi i64 [ %add4.i.i, %for.body87 ], [ 0, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit ]
-  %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.0288, i64 32
+  %it.sroa.0.0293 = phi ptr [ %call.i, %for.body87 ], [ %30, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit ]
+  %combinedValueHash.0292 = phi i64 [ %add4.i.i243, %for.body87 ], [ 0, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit ]
+  %combinedKeyHash.0291 = phi i64 [ %add4.i.i, %for.body87 ], [ 0, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit ]
+  %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.0293, i64 32
   %call89 = tail call noundef i64 @_ZNK8facebook5velox7variant4hashEv(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i)
-  %second = getelementptr inbounds nuw i8, ptr %it.sroa.0.0288, i64 48
+  %second = getelementptr inbounds nuw i8, ptr %it.sroa.0.0293, i64 48
   %call91 = tail call noundef i64 @_ZNK8facebook5velox7variant4hashEv(ptr noundef nonnull align 8 dereferenceable(16) %second)
   %not.i.i.i.i217 = xor i64 %call89, -1
   %shl.i.i.i.i218 = shl i64 %call89, 21
@@ -7846,12 +7846,12 @@ for.body87:                                       ; preds = %_ZNK8facebook5velox
   %add10.i.i.i.i225 = mul i64 %xor6.i.i.i.i224, 21
   %shr11.i.i.i.i226 = lshr i64 %add10.i.i.i.i225, 28
   %xor12.i.i.i.i227 = xor i64 %shr11.i.i.i.i226, %add10.i.i.i.i225
-  %31 = mul i64 %combinedKeyHash.0286, 2779
-  %32 = mul i64 %combinedKeyHash.0286, 4294967298
+  %add14.i.i.i.i228 = mul i64 %combinedKeyHash.0286, 2779
+  %32 = mul i64 %combinedKeyHash.0291, 4294967298
   %add14.i.i.i.i228 = add i64 %32, 5967857060571
   %reass.mul.i.i = mul i64 %xor12.i.i.i.i227, %add14.i.i.i.i228
-  %add1.i.i = add i64 %31, 3860031
-  %add4.i.i = add i64 %add1.i.i, %reass.mul.i.i
+  %add1.i.i = add i64 %add14.i.i.i.i228, 3860031
+  %add1.i.i = add i64 %add1.i.i, %reass.mul.i.i
   %not.i.i.i.i229 = xor i64 %call91, -1
   %shl.i.i.i.i230 = shl i64 %call91, 21
   %add.i.i.i.i231 = add i64 %shl.i.i.i.i230, %not.i.i.i.i229
@@ -7864,11 +7864,11 @@ for.body87:                                       ; preds = %_ZNK8facebook5velox
   %shr11.i.i.i.i238 = lshr i64 %add10.i.i.i.i237, 28
   %xor12.i.i.i.i239 = xor i64 %shr11.i.i.i.i238, %add10.i.i.i.i237
   %33 = mul i64 %combinedValueHash.0287, 2779
-  %34 = mul i64 %combinedValueHash.0287, 4294967298
-  %add14.i.i.i.i240 = add i64 %34, 5967857060571
-  %reass.mul.i.i241 = mul i64 %xor12.i.i.i.i239, %add14.i.i.i.i240
+  %add14.i.i.i.i242 = mul i64 %combinedValueHash.0287, 4294967298
+  %add.i.i243 = add i64 %add14.i.i.i.i242, 5967857060571
+  %mul.i.i244 = mul i64 %xor12.i.i.i.i239, %add.i.i243
   %add1.i.i242 = add i64 %33, 3860031
-  %add4.i.i243 = add i64 %add1.i.i242, %reass.mul.i.i241
+  %add4.i.i243 = add i64 %add1.i.i242, %mul.i.i244
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.0288) #33
   %cmp.i215.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i215.not, label %for.end96, label %for.body87, !llvm.loop !105
@@ -7876,39 +7876,39 @@ for.body87:                                       ; preds = %_ZNK8facebook5velox
 for.end96:                                        ; preds = %for.body87, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit
   %combinedKeyHash.0.lcssa = phi i64 [ 0, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit ], [ %add4.i.i, %for.body87 ]
   %combinedValueHash.0.lcssa = phi i64 [ 0, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit ], [ %add4.i.i243, %for.body87 ]
-  %not.i.i.i.i244 = xor i64 %combinedKeyHash.0.lcssa, -1
-  %shl.i.i.i.i245 = shl i64 %combinedKeyHash.0.lcssa, 21
-  %add.i.i.i.i246 = add i64 %shl.i.i.i.i245, %not.i.i.i.i244
-  %shr.i.i.i.i247 = lshr i64 %add.i.i.i.i246, 24
-  %xor.i.i.i.i248 = xor i64 %shr.i.i.i.i247, %add.i.i.i.i246
-  %add4.i.i.i.i249 = mul i64 %xor.i.i.i.i248, 265
-  %shr5.i.i.i.i250 = lshr i64 %add4.i.i.i.i249, 14
-  %xor6.i.i.i.i251 = xor i64 %shr5.i.i.i.i250, %add4.i.i.i.i249
-  %add10.i.i.i.i252 = mul i64 %xor6.i.i.i.i251, 21
-  %shr11.i.i.i.i253 = lshr i64 %add10.i.i.i.i252, 28
-  %xor12.i.i.i.i254 = xor i64 %shr11.i.i.i.i253, %add10.i.i.i.i252
-  %add14.i.i.i.i255 = mul i64 %xor12.i.i.i.i254, 2147483649
-  %not.i.i.i.i.i256 = xor i64 %combinedValueHash.0.lcssa, -1
-  %shl.i.i.i.i.i257 = shl i64 %combinedValueHash.0.lcssa, 21
-  %add.i.i.i.i.i258 = add i64 %shl.i.i.i.i.i257, %not.i.i.i.i.i256
-  %shr.i.i.i.i.i259 = lshr i64 %add.i.i.i.i.i258, 24
-  %xor.i.i.i.i.i260 = xor i64 %shr.i.i.i.i.i259, %add.i.i.i.i.i258
-  %add4.i.i.i.i.i261 = mul i64 %xor.i.i.i.i.i260, 265
-  %shr5.i.i.i.i.i262 = lshr i64 %add4.i.i.i.i.i261, 14
-  %xor6.i.i.i.i.i263 = xor i64 %shr5.i.i.i.i.i262, %add4.i.i.i.i.i261
-  %add10.i.i.i.i.i264 = mul i64 %xor6.i.i.i.i.i263, 21
-  %shr11.i.i.i.i.i265 = lshr i64 %add10.i.i.i.i.i264, 28
-  %xor12.i.i.i.i.i266 = xor i64 %shr11.i.i.i.i.i265, %add10.i.i.i.i.i264
-  %add14.i.i.i.i.i267 = mul i64 %xor12.i.i.i.i.i266, 2147483649
-  %xor.i.i268 = xor i64 %add14.i.i.i.i.i267, %add14.i.i.i.i255
-  %mul.i.i269 = mul i64 %xor.i.i268, -7070675565921424023
-  %shr.i.i270 = lshr i64 %mul.i.i269, 47
-  %35 = xor i64 %add14.i.i.i.i255, %shr.i.i270
-  %xor2.i.i271 = xor i64 %35, %mul.i.i269
-  %mul3.i.i272 = mul i64 %xor2.i.i271, -7070675565921424023
-  %shr4.i.i273 = lshr i64 %mul3.i.i272, 47
-  %xor5.i.i274 = xor i64 %shr4.i.i273, %mul3.i.i272
-  %mul6.i.i275 = mul i64 %xor5.i.i274, -7070675565921424023
+  %not.i.i.i.i249 = xor i64 %combinedKeyHash.0.lcssa, -1
+  %shl.i.i.i.i250 = shl i64 %combinedKeyHash.0.lcssa, 21
+  %add.i.i.i.i251 = add i64 %shl.i.i.i.i250, %not.i.i.i.i249
+  %shr.i.i.i.i252 = lshr i64 %add.i.i.i.i251, 24
+  %xor.i.i.i.i253 = xor i64 %shr.i.i.i.i252, %add.i.i.i.i251
+  %add4.i.i.i.i254 = mul i64 %xor.i.i.i.i253, 265
+  %shr5.i.i.i.i255 = lshr i64 %add4.i.i.i.i254, 14
+  %xor6.i.i.i.i256 = xor i64 %shr5.i.i.i.i255, %add4.i.i.i.i254
+  %add10.i.i.i.i257 = mul i64 %xor6.i.i.i.i256, 21
+  %shr11.i.i.i.i258 = lshr i64 %add10.i.i.i.i257, 28
+  %xor12.i.i.i.i259 = xor i64 %shr11.i.i.i.i258, %add10.i.i.i.i257
+  %add14.i.i.i.i260 = mul i64 %xor12.i.i.i.i259, 2147483649
+  %not.i.i.i.i.i261 = xor i64 %combinedValueHash.0.lcssa, -1
+  %shl.i.i.i.i.i262 = shl i64 %combinedValueHash.0.lcssa, 21
+  %add.i.i.i.i.i263 = add i64 %shl.i.i.i.i.i262, %not.i.i.i.i.i261
+  %shr.i.i.i.i.i264 = lshr i64 %add.i.i.i.i.i263, 24
+  %xor.i.i.i.i.i265 = xor i64 %shr.i.i.i.i.i264, %add.i.i.i.i.i263
+  %add4.i.i.i.i.i266 = mul i64 %xor.i.i.i.i.i265, 265
+  %shr5.i.i.i.i.i267 = lshr i64 %add4.i.i.i.i.i266, 14
+  %xor6.i.i.i.i.i268 = xor i64 %shr5.i.i.i.i.i267, %add4.i.i.i.i.i266
+  %add10.i.i.i.i.i269 = mul i64 %xor6.i.i.i.i.i268, 21
+  %shr11.i.i.i.i.i270 = lshr i64 %add10.i.i.i.i.i269, 28
+  %xor12.i.i.i.i.i271 = xor i64 %shr11.i.i.i.i.i270, %add10.i.i.i.i.i269
+  %add14.i.i.i.i.i272 = mul i64 %xor12.i.i.i.i.i271, 2147483649
+  %xor.i.i273 = xor i64 %add14.i.i.i.i.i272, %add14.i.i.i.i260
+  %mul.i.i274 = mul i64 %xor.i.i273, -7070675565921424023
+  %shr.i.i275 = lshr i64 %mul.i.i274, 47
+  %31 = xor i64 %add14.i.i.i.i260, %shr.i.i275
+  %xor2.i.i276 = xor i64 %31, %mul.i.i274
+  %mul3.i.i277 = mul i64 %xor2.i.i276, -7070675565921424023
+  %shr4.i.i278 = lshr i64 %mul3.i.i277, 47
+  %xor5.i.i279 = xor i64 %shr4.i.i278, %mul3.i.i277
+  %mul6.i.i280 = mul i64 %xor5.i.i279, -7070675565921424023
   br label %return
 
 sw.default:                                       ; preds = %if.end
@@ -7916,7 +7916,7 @@ sw.default:                                       ; preds = %if.end
   unreachable
 
 return:                                           ; preds = %for.body61, %for.body, %for.cond57.preheader, %for.cond.preheader, %if.end.i.i103, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE6EEERKDav.exit, %if.end.i.i, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE5EEERKDav.exit, %for.end96, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE9EEERKDav.exit, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE7EEERKDav.exit, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE8EEERKDav.exit, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE0EEERKDav.exit, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE1EEERKDav.exit, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE2EEERKDav.exit, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE3EEERKDav.exit, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE10EEERKDav.exit, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE4EEERKDav.exit, %if.then
-  %retval.0 = phi i64 [ %conv.i.i, %if.then ], [ %add14.i.i.i, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE4EEERKDav.exit ], [ %mul6.i.i.i, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE10EEERKDav.exit ], [ %conv.i.i35, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE3EEERKDav.exit ], [ %conv2.i.i, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE2EEERKDav.exit ], [ %conv2.i.i70, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE1EEERKDav.exit ], [ %cond.i.i, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE0EEERKDav.exit ], [ %mul6.i.i275, %for.end96 ], [ 0, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE5EEERKDav.exit ], [ %19, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE8EEERKDav.exit ], [ %20, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE7EEERKDav.exit ], [ 0, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE6EEERKDav.exit ], [ %mul6.i.i, %for.body ], [ %mul6.i.i208, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE9EEERKDav.exit ], [ %add14.i.i.i95, %if.end.i.i ], [ %add14.i.i.i115, %if.end.i.i103 ], [ 0, %for.cond.preheader ], [ 0, %for.cond57.preheader ], [ %mul6.i.i182, %for.body61 ]
+  %retval.0 = phi i64 [ %conv.i.i, %if.then ], [ %add14.i.i.i, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE4EEERKDav.exit ], [ %mul6.i.i.i, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE10EEERKDav.exit ], [ %conv.i.i35, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE3EEERKDav.exit ], [ %conv2.i.i, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE2EEERKDav.exit ], [ %conv2.i.i70, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE1EEERKDav.exit ], [ %cond.i.i, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE0EEERKDav.exit ], [ %mul6.i.i280, %for.end96 ], [ 0, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE5EEERKDav.exit ], [ %19, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE8EEERKDav.exit ], [ %20, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE7EEERKDav.exit ], [ 0, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE6EEERKDav.exit ], [ %mul6.i.i, %for.body ], [ %mul6.i.i208, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE9EEERKDav.exit ], [ %add14.i.i.i95, %if.end.i.i ], [ %add14.i.i.i115, %if.end.i.i103 ], [ 0, %for.cond.preheader ], [ 0, %for.cond57.preheader ], [ %mul6.i.i182, %for.body61 ]
   ret i64 %retval.0
 }
 

@@ -563,15 +563,15 @@ define hidden void @av1_cdef_filter_fb(ptr noundef writeonly captures(address_is
   %41 = shl i32 %37, %22
   br label %42
 
-42:                                               ; preds = %.lr.ph179.us, %42
+42:; preds = %.lr.ph179.us, %42
   %indvars.iv205 = phi i64 [ 0, %.lr.ph179.us ], [ %indvars.iv.next206, %42 ]
   %43 = trunc nuw nsw i64 %indvars.iv205 to i32
   %44 = shl i32 %43, %22
   %45 = add nsw i32 %44, %39
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i16, ptr %1, i64 %46
-  %reass.add.us = add i32 %40, %43
-  %reass.mul.us = mul i32 %reass.add.us, 144
+  %47 = add i32 %40, %43
+  %reass.mul.us = mul i32 %47, 144
   %48 = add i32 %reass.mul.us, %41
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds i16, ptr %3, i64 %49
@@ -668,11 +668,11 @@ define hidden void @av1_cdef_filter_fb(ptr noundef writeonly captures(address_is
   br i1 %exitcond194.not, label %.thread.thread, label %73, !llvm.loop !19
 
 .thread.thread:                                   ; preds = %73
-  %.not155221 = icmp eq i32 %5, 0
-  %.not157222 = icmp eq i32 %4, 0
-  %86 = select i1 %.not157222, i32 2, i32 0
-  %87 = select i1 %.not157222, i32 3, i32 1
-  %88 = select i1 %.not155221, i32 %87, i32 %86
+  %.not155222 = icmp eq i32 %5, 0
+  %.not157223 = icmp eq i32 %4, 0
+  %86 = select i1 %.not157223, i32 2, i32 0
+  %87 = select i1 %.not157223, i32 3, i32 1
+  %88 = select i1 %.not155222, i32 %87, i32 %86
   br label %.lr.ph176
 
 .thread:                                          ; preds = %._crit_edge, %70, %53, %51, %71

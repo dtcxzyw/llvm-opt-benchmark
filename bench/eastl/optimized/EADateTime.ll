@@ -546,9 +546,9 @@ sw.bb8:                                           ; preds = %entry
   %conv44.i.neg = sub i32 %add41.i, %1
   %cmp45.i = icmp eq i32 %add41.i, %1
   %spec.store.select1.i.neg = select i1 %cmp45.i, i32 -1, i32 %conv44.i.neg
-  %reass.add13 = add i32 %spec.store.select1.i.neg, %nValue
-  %reass.mul14 = mul i32 %reass.add13, 86400
-  %conv = sext i32 %reass.mul14 to i64
+  %sub = add i32 %spec.store.select1.i.neg, %nValue
+  %mul = mul i32 %sub, 86400
+  %conv = sext i32 %mul to i64
   %add = add nsw i64 %0, %conv
   store i64 %add, ptr %this, align 8
   br label %sw.epilog
@@ -564,9 +564,9 @@ if.then:                                          ; preds = %sw.bb9
   %rem.i = srem i64 %div65.i, 7
   %conv66.i = trunc nsw i64 %rem.i to i32
   %add67.i.neg = xor i32 %conv66.i, -1
-  %reass.add = add nsw i32 %nValue, %add67.i.neg
-  %reass.mul = mul nsw i32 %reass.add, 86400
-  %conv14 = sext i32 %reass.mul to i64
+  %sub12 = add nsw i32 %nValue, %add67.i.neg
+  %mul13 = mul nsw i32 %sub12, 86400
+  %conv14 = sext i32 %mul13 to i64
   %add16 = add nsw i64 %3, %conv14
   store i64 %add16, ptr %this, align 8
   br label %sw.epilog
@@ -728,7 +728,7 @@ _ZN2EA4StdC10IsLeapYearEj.exit.thread:            ; preds = %if.end33, %_ZN2EA4S
   %add56 = add nuw nsw i64 %conv58, %conv54
   %add60 = add nuw nsw i64 %add56, %conv61
   %add63 = add nuw nsw i64 %add60, %conv65
-  %add67 = add nuw nsw i64 %add63, %reass.mul
+  %add67 = add nuw nsw i64 %add63, %mul13
   store i64 %add67, ptr %this, align 8
   %rem68 = urem i32 %nNanosecond.addr.0, 1000000000
   store i32 %rem68, ptr %mnNanosecond, align 8
@@ -1421,20 +1421,20 @@ entry:
   %4 = and i32 %call5.i, 65535
   %narrow15 = add nuw nsw i32 %3, %4
   %add19 = zext nneg i32 %narrow15 to i64
-  %reass.add = add nsw i64 %sub16, %add19
-  %reass.mul = mul nsw i64 %reass.add, 24
+  %add19 = add nsw i64 %sub16, %add19
+  %mul13 = mul nsw i64 %add19, 24
   %conv24 = and i64 %rem71.i.i, 65535
   %mul23 = add nuw nsw i64 %conv24, -14035608
-  %reass.add9 = add nsw i64 %mul23, %reass.mul
+  %add25 = add nsw i64 %mul23, %mul13
   %conv27 = and i64 %rem76.i.i, 65535
-  %5 = mul nsw i64 %reass.add9, 3600
-  %6 = mul nuw nsw i64 %conv27, 60
+  %5 = mul nsw i64 %add25, 3600
+  %mul29 = mul nuw nsw i64 %conv27, 60
   %conv30 = and i64 %rem80.i.i, 65535
-  %7 = add nuw nsw i64 %6, %conv30
-  %reass.add11 = add nsw i64 %7, %5
+  %add31 = add nuw nsw i64 %mul29, %conv30
+  %reass.add11 = add nsw i64 %add31, %5
   %8 = mul i64 %reass.add11, 10000000
-  %narrow13 = mul nuw nsw i32 %div.i, 10000
-  %9 = zext nneg i32 %narrow13 to i64
+  %mul35 = mul nuw nsw i32 %div.i, 10000
+  %9 = zext nneg i32 %mul35 to i64
   %10 = add nsw i64 %8, %9
   store i64 %10, ptr %time, align 4
   ret void

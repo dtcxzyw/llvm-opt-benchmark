@@ -18005,13 +18005,13 @@ utc_to_seconds.exit:                              ; preds = %29, %is_leap.exit.t
   %49 = add i32 %48, %.zext20.i
   %50 = add i32 %49, %.0.i.i.i
   %51 = sext i32 %50 to i64
-  %52 = sext i32 %18 to i64
+  %52 = sext i32 %18 to i70
   %53 = mul nsw i64 %52, 60
-  %54 = sext i32 %20 to i64
-  %55 = sext i32 %22 to i64
+  %54 = sext i32 %20 to i70
+  %55 = sext i32 %22 to i70
   %56 = add nsw i64 %53, %54
   %57 = mul nsw i64 %56, 60
-  %58 = mul nsw i64 %51, 86400
+  %58 = mul nsw i64 %57, 86400
   %59 = add nsw i64 %57, %55
   %60 = add nsw i64 %59, %58
   %61 = icmp eq i64 %60, -1
@@ -18143,13 +18143,13 @@ ymd_to_ord.exit.i:                                ; preds = %is_leap.exit.thread
   %43 = add i32 %42, %.zext20.i
   %44 = add i32 %43, %.0.i.i.i
   %45 = sext i32 %44 to i64
-  %46 = sext i32 %12 to i64
+  %46 = sext i32 %12 to i70
   %47 = mul nsw i64 %46, 60
-  %48 = sext i32 %14 to i64
-  %49 = sext i32 %15 to i64
+  %48 = sext i32 %14 to i70
+  %49 = sext i32 %15 to i70
   %50 = add nsw i64 %47, %48
-  %51 = mul nsw i64 %50, 60
-  %52 = mul nsw i64 %45, 86400
+  %51 = mul nsw i64 %56, 60
+  %52 = mul nsw i64 %51, 86400
   %53 = add nsw i64 %51, %49
   %54 = add nsw i64 %53, %52
   br label %utc_to_seconds.exit
@@ -18226,8 +18226,8 @@ ymd_to_ord.exit.i:                                ; preds = %is_leap.exit.thread
   %32 = add nsw i32 %31, %.zext20.i
   %33 = add i32 %32, %.0.i.i.i
   %34 = sext i32 %33 to i64
-  %narrow = mul nuw nsw i32 %3, 60
-  %narrow56 = add nuw nsw i32 %narrow, %4
+  %35 = mul nuw nsw i32 %3, 60
+  %narrow56 = add nuw nsw i32 %35, %4
   %35 = mul nsw i64 %34, 86400
   %narrow57 = mul nuw nsw i32 %narrow56, 60
   %narrow58 = add nuw nsw i32 %narrow57, %5
@@ -18237,65 +18237,65 @@ ymd_to_ord.exit.i:                                ; preds = %is_leap.exit.thread
 
 utc_to_seconds.exit:                              ; preds = %9, %ymd_to_ord.exit.i
   %.0.i = phi i64 [ -1, %9 ], [ %37, %ymd_to_ord.exit.i ]
-  %38 = tail call fastcc i64 @local(i64 noundef %.0.i)
-  %39 = icmp eq i64 %38, -1
-  br i1 %39, label %66, label %40
+  %44 = tail call fastcc i64 @local(i64 noundef %.0.i)
+  %45 = icmp eq i64 %44, -1
+  br i1 %45, label %72, label %46
 
-40:                                               ; preds = %utc_to_seconds.exit
-  %41 = sub nsw i64 %38, %.0.i
-  %42 = sub nsw i64 %.0.i, %41
-  %43 = tail call fastcc i64 @local(i64 noundef %42)
-  %44 = icmp eq i64 %43, -1
-  br i1 %44, label %66, label %45
+46:                                               ; preds = %utc_to_seconds.exit
+  %47 = sub nsw i64 %44, %.0.i
+  %48 = sub nsw i64 %.0.i, %47
+  %49 = tail call fastcc i64 @local(i64 noundef %48)
+  %50 = icmp eq i64 %49, -1
+  br i1 %50, label %72, label %51
 
-45:                                               ; preds = %40
-  %46 = icmp eq i64 %43, %.0.i
-  br i1 %46, label %47, label %53
+51:                                               ; preds = %46
+  %52 = icmp eq i64 %49, %.0.i
+  br i1 %52, label %53, label %59
 
-47:                                               ; preds = %45
+53:                                               ; preds = %51
   %.not = icmp eq i32 %6, 0
   %.049.v = select i1 %.not, i64 -86400, i64 86400
-  %.049 = add nsw i64 %42, %.049.v
-  %48 = tail call fastcc i64 @local(i64 noundef %.049)
-  %49 = icmp eq i64 %48, -1
-  br i1 %49, label %66, label %50
+  %.049 = add nsw i64 %48, %.049.v
+  %54 = tail call fastcc i64 @local(i64 noundef %.049)
+  %55 = icmp eq i64 %54, -1
+  br i1 %55, label %72, label %56
 
-50:                                               ; preds = %47
-  %51 = sub nsw i64 %48, %.049
-  %52 = icmp eq i64 %41, %51
-  br i1 %52, label %66, label %55
+56:                                               ; preds = %53
+  %57 = sub nsw i64 %54, %.049
+  %58 = icmp eq i64 %47, %57
+  br i1 %58, label %72, label %61
 
-53:                                               ; preds = %45
-  %54 = sub nsw i64 %43, %42
-  br label %55
+59:                                               ; preds = %51
+  %60 = sub nsw i64 %49, %48
+  br label %61
 
-55:                                               ; preds = %50, %53
-  %.048 = phi i64 [ %51, %50 ], [ %54, %53 ]
-  %56 = sub nsw i64 %.0.i, %.048
-  %57 = tail call fastcc i64 @local(i64 noundef %56)
-  %58 = icmp eq i64 %57, -1
-  br i1 %58, label %66, label %59
+61:                                               ; preds = %56, %59
+  %.048 = phi i64 [ %57, %50 ], [ %60, %53 ]
+  %62 = sub nsw i64 %.0.i, %.048
+  %63 = tail call fastcc i64 @local(i64 noundef %62)
+  %64 = icmp eq i64 %63, -1
+  br i1 %64, label %72, label %65
 
-59:                                               ; preds = %55
-  %60 = icmp eq i64 %57, %.0.i
-  %brmerge = or i1 %46, %60
-  %.mux = select i1 %60, i64 %56, i64 %42
-  br i1 %brmerge, label %66, label %61
+65:                                               ; preds = %61
+  %66 = icmp eq i64 %63, %.0.i
+  %brmerge = or i1 %52, %66
+  %.mux = select i1 %66, i64 %62, i64 %48
+  br i1 %brmerge, label %72, label %67
 
-61:                                               ; preds = %59
+67:                                               ; preds = %65
   %.not55 = icmp eq i32 %6, 0
-  br i1 %.not55, label %64, label %62
+  br i1 %.not55, label %70, label %68
 
-62:                                               ; preds = %61
-  %63 = tail call i64 @llvm.smin.i64(i64 %42, i64 %56)
-  br label %66
+68:                                               ; preds = %67
+  %69 = tail call i64 @llvm.smin.i64(i64 %48, i64 %62)
+  br label %72
 
-64:                                               ; preds = %61
-  %65 = tail call i64 @llvm.smax.i64(i64 %42, i64 %56)
-  br label %66
+70:                                               ; preds = %67
+  %71 = tail call i64 @llvm.smax.i64(i64 %48, i64 %62)
+  br label %72
 
-66:                                               ; preds = %59, %62, %64, %55, %50, %47, %40, %utc_to_seconds.exit
-  %.0 = phi i64 [ %65, %64 ], [ -1, %utc_to_seconds.exit ], [ -1, %40 ], [ -1, %47 ], [ %42, %50 ], [ -1, %55 ], [ %.mux, %59 ], [ %63, %62 ]
+72:                                               ; preds = %65, %68, %70, %61, %56, %53, %46, %utc_to_seconds.exit
+  %.0 = phi i64 [ %71, %64 ], [ -1, %utc_to_seconds.exit ], [ -1, %40 ], [ -1, %47 ], [ %48, %50 ], [ -1, %55 ], [ %.mux, %59 ], [ %69, %62 ]
   ret i64 %.0
 }
 

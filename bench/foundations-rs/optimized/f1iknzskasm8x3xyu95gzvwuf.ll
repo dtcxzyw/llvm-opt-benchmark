@@ -8558,7 +8558,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h7ee4a281e5597e57E"
   %7 = icmp ult i64 %6, 384307168202282326
   tail call void @llvm.assume(i1 %7)
   %.not = icmp ult i64 %2, %6
-  br i1 %.not, label %8, label %15, !prof !146
+  br i1 %.not, label %8, label %17, !prof !146
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8567,14 +8567,14 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h7ee4a281e5597e57E"
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = xor i64 %2, -1
-  %reass.add = add nsw i64 %6, %13
-  %reass.mul = mul nsw i64 %reass.add, 24
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %11, ptr nonnull align 8 %12, i64 %reass.mul, i1 false)
-  %14 = add nsw i64 %6, -1
-  store i64 %14, ptr %5, align 8
+  %14 = add nsw i64 %6, %13
+  %15 = mul nsw i64 %14, 24
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %11, ptr nonnull align 8 %12, i64 %15, i1 false)
+  %16 = add nsw i64 %6, -1
+  store i64 %16, ptr %5, align 8
   ret void
 
-15:                                               ; preds = %4
+17:                                               ; preds = %4
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove13assert_failed17hd29e7b3054e1e98bE"(i64 noundef %2, i64 noundef %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
   unreachable
 }
@@ -8586,7 +8586,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17hcd02d706cbc4ae23E"
   %7 = icmp ult i64 %6, 384307168202282326
   tail call void @llvm.assume(i1 %7)
   %.not = icmp ult i64 %2, %6
-  br i1 %.not, label %8, label %15, !prof !146
+  br i1 %.not, label %8, label %17, !prof !146
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8595,14 +8595,14 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17hcd02d706cbc4ae23E"
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = xor i64 %2, -1
-  %reass.add = add nsw i64 %6, %13
-  %reass.mul = mul nsw i64 %reass.add, 24
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %11, ptr nonnull align 8 %12, i64 %reass.mul, i1 false)
-  %14 = add nsw i64 %6, -1
-  store i64 %14, ptr %5, align 8
+  %14 = add nsw i64 %6, %13
+  %15 = mul nsw i64 %14, 24
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %11, ptr nonnull align 8 %12, i64 %15, i1 false)
+  %16 = add nsw i64 %6, -1
+  store i64 %16, ptr %5, align 8
   ret void
 
-15:                                               ; preds = %4
+17:                                               ; preds = %4
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove13assert_failed17hd29e7b3054e1e98bE"(i64 noundef %2, i64 noundef %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
   unreachable
 }

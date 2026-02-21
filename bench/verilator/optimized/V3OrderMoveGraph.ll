@@ -3333,53 +3333,53 @@ define linkonce_odr dso_local void @_ZNSt5dequeISt3mapIPK10AstSenTreeP15OrderMov
   %reass.add = add nsw i64 %11, %.neg.i.i
   %reass.mul = mul i64 %reass.add, 10
   %27 = add i64 %reass.mul, %19
-  %28 = add i64 %27, %26
-  %29 = icmp eq i64 %28, 192153584101141162
-  br i1 %29, label %30, label %31
+  %30 = add i64 %27, %26
+  %31 = icmp eq i64 %30, 192153584101141162
+  br i1 %31, label %32, label %33
 
-30:                                               ; preds = %1
+32:                                               ; preds = %1
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.16) #27
   unreachable
 
-31:                                               ; preds = %1
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load i64, ptr %32, align 8, !tbaa !172
-  %34 = load ptr, ptr %0, align 8, !tbaa !168
-  %35 = ptrtoint ptr %34 to i64
-  %36 = sub i64 %8, %35
-  %37 = ashr exact i64 %36, 3
-  %38 = sub i64 %33, %37
-  %39 = icmp ult i64 %38, 2
-  br i1 %39, label %40, label %_ZNSt5dequeISt3mapIPK10AstSenTreeP15OrderMoveVertexSt4lessIS3_ESaISt4pairIKS3_S5_EEESaISC_EE22_M_reserve_map_at_backEm.exit
+33:                                               ; preds = %1
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %35 = load i64, ptr %34, align 8, !tbaa !172
+  %36 = load ptr, ptr %0, align 8, !tbaa !168
+  %37 = ptrtoint ptr %36 to i64
+  %38 = sub i64 %8, %37
+  %39 = ashr exact i64 %38, 3
+  %40 = sub i64 %35, %39
+  %41 = icmp ult i64 %40, 2
+  br i1 %41, label %42, label %_ZNSt5dequeISt3mapIPK10AstSenTreeP15OrderMoveVertexSt4lessIS3_ESaISt4pairIKS3_S5_EEESaISC_EE22_M_reserve_map_at_backEm.exit
 
-40:                                               ; preds = %31
+42:                                               ; preds = %33
   tail call void @_ZNSt5dequeISt3mapIPK10AstSenTreeP15OrderMoveVertexSt4lessIS3_ESaISt4pairIKS3_S5_EEESaISC_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef 1, i1 noundef zeroext false)
   %.pre = load ptr, ptr %4, align 8, !tbaa !170
   br label %_ZNSt5dequeISt3mapIPK10AstSenTreeP15OrderMoveVertexSt4lessIS3_ESaISt4pairIKS3_S5_EEESaISC_EE22_M_reserve_map_at_backEm.exit
 
-_ZNSt5dequeISt3mapIPK10AstSenTreeP15OrderMoveVertexSt4lessIS3_ESaISt4pairIKS3_S5_EEESaISC_EE22_M_reserve_map_at_backEm.exit: ; preds = %31, %40
-  %41 = phi ptr [ %5, %31 ], [ %.pre, %40 ]
-  %42 = tail call noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #26
-  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store ptr %42, ptr %43, align 8, !tbaa !151
-  %44 = load ptr, ptr %2, align 8, !tbaa !133
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false)
-  store ptr %45, ptr %46, align 8, !tbaa !135
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  store ptr %45, ptr %47, align 8, !tbaa !140
-  %48 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  store i64 0, ptr %48, align 8, !tbaa !141
-  %49 = load ptr, ptr %4, align 8, !tbaa !170
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store ptr %50, ptr %4, align 8, !tbaa !150
-  %51 = load ptr, ptr %50, align 8, !tbaa !151
-  store ptr %51, ptr %14, align 8, !tbaa !146
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 480
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %52, ptr %53, align 8, !tbaa !164
-  store ptr %51, ptr %2, align 8, !tbaa !133
+_ZNSt5dequeISt3mapIPK10AstSenTreeP15OrderMoveVertexSt4lessIS3_ESaISt4pairIKS3_S5_EEESaISC_EE22_M_reserve_map_at_backEm.exit: ; preds = %33, %42
+  %43 = phi ptr [ %5, %31 ], [ %.pre, %40 ]
+  %44 = tail call noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #26
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  store ptr %44, ptr %45, align 8, !tbaa !151
+  %46 = load ptr, ptr %2, align 8, !tbaa !133
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false)
+  store ptr %47, ptr %48, align 8, !tbaa !135
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 32
+  store ptr %47, ptr %49, align 8, !tbaa !140
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 40
+  store i64 0, ptr %50, align 8, !tbaa !141
+  %51 = load ptr, ptr %4, align 8, !tbaa !170
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr %52, ptr %4, align 8, !tbaa !150
+  %53 = load ptr, ptr %52, align 8, !tbaa !151
+  store ptr %53, ptr %14, align 8, !tbaa !146
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 480
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %54, ptr %55, align 8, !tbaa !164
+  store ptr %53, ptr %2, align 8, !tbaa !133
   ret void
 }
 

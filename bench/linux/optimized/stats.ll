@@ -253,8 +253,8 @@ define internal range(i32 8, 1353) i32 @stats_reply_size(ptr noundef %0, ptr rea
   %reass.add = add nuw nsw i32 %20, %27
   %reass.mul = mul nuw nsw i32 %reass.add, 20
   %32 = add nuw nsw i32 %reass.mul, %28
-  %33 = add nuw nsw i32 %32, %31
-  ret i32 %33
+  %35 = add nuw nsw i32 %32, %31
+  ret i32 %35
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

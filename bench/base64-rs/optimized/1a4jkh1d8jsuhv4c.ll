@@ -13,11 +13,11 @@ define hidden { i64, i64 } @_ZN6base646engine15general_purpose6decode22GeneralPu
   %3 = lshr i64 %0, 2
   %4 = icmp ne i64 %2, 0
   %5 = zext i1 %4 to i64
-  %reass.add = add nuw nsw i64 %3, %5
-  %reass.mul = mul nuw i64 %reass.add, 3
-  %6 = insertvalue { i64, i64 } poison, i64 %2, 0
-  %7 = insertvalue { i64, i64 } %6, i64 %reass.mul, 1
-  ret { i64, i64 } %7
+  %6 = add nuw nsw i64 %3, %5
+  %7 = mul nuw i64 %6, 3
+  %8 = insertvalue { i64, i64 } poison, i64 %2, 0
+  %9 = insertvalue { i64, i64 } %8, i64 %7, 1
+  ret { i64, i64 } %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

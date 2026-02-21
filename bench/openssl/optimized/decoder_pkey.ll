@@ -132,28 +132,28 @@ define internal i64 @decoder_cache_entry_hash(ptr noundef readonly captures(none
   %22 = mul i64 %21, 23
   br label %23
 
-23:                                               ; preds = %16, %20
+23:; preds = %16, %20
   %24 = phi i64 [ %22, %20 ], [ 0, %16 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !17
   %27 = icmp eq ptr %26, null
   br i1 %27, label %30, label %28
 
-28:                                               ; preds = %23
+28:; preds = %23
   %29 = tail call i64 @ossl_lh_strcasehash(ptr noundef nonnull %26) #7
   br label %30
 
-30:                                               ; preds = %23, %28
+30:; preds = %23, %28
   %31 = phi i64 [ %29, %28 ], [ 0, %23 ]
   %reass.add = add i64 %17, %10
   %32 = mul i64 %reass.add, 529
   %33 = add i64 %24, %32
-  %34 = add i64 %33, %31
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %36 = load i32, ptr %35, align 8, !tbaa !18
-  %37 = sext i32 %36 to i64
-  %38 = xor i64 %34, %37
-  ret i64 %38
+  %35 = add i64 %33, %31
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %37 = load i32, ptr %36, align 8, !tbaa !18
+  %38 = sext i32 %37 to i64
+  %39 = xor i64 %35, %38
+  ret i64 %39
 }
 
 ; Function Attrs: nounwind uwtable

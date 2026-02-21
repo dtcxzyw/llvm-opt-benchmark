@@ -1135,8 +1135,8 @@ land.rhs.i.i:                                     ; preds = %call11.i.i.noexc
 _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i: ; preds = %land.rhs.i.i, %call11.i.i.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %__ts.i.i)
   %call7.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
-  %sub.i.i.i = sub nsw i64 %call7.i, %call.i
-  %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
+  %sub.i.i10.i = sub nsw i64 %call7.i, %call.i
+  %div.i.i.i = sdiv i64 %sub.i.i10.i, 1000000
   %conv.i = sitofp i64 %div.i.i.i to double
   %div.i = fdiv double %conv.i, 1.000000e+03
   %17 = load i32, ptr %13, align 8
@@ -1223,18 +1223,18 @@ call.i.i2.i.i.noexc:                              ; preds = %if.then.i.i.i.i
   store ptr @_ZNSt17_Function_handlerIFvjN7openvdb5v11_02io5Queue6StatusEESt5_BindIFMNS3_4ImplEFvjS4_EPS7_St12_PlaceholderILi1EESB_ILi2EEEEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i, i8 0, i64 32, i1 false)
-  %call.i.i.i.i3536.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
+  %call.i.i.i.i3637.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
           to label %_ZNSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEC2ERKS6_.exit.i.i.i unwind label %ehcleanup43.thread.i
 
 ehcleanup43.thread.i:                             ; preds = %call.i.i2.i.i.noexc
   %25 = landingpad { ptr, i32 }
           cleanup
-  br label %if.then.i.i25.i
+  br label %if.then.i.i26.i
 
 _ZNSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEC2ERKS6_.exit.i.i.i: ; preds = %call.i.i2.i.i.noexc
   %_M_manager.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i.i3536.i, ptr noundef nonnull align 8 dereferenceable(24) %call.i.i2.i.i9, i64 24, i1 false)
-  store ptr %call.i.i.i.i3536.i, ptr %ref.tmp.i.i.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i.i3637.i, ptr noundef nonnull align 8 dereferenceable(24) %call.i.i2.i.i9, i64 24, i1 false)
+  store ptr %call.i.i.i.i3637.i, ptr %ref.tmp.i.i.i, align 8
   %_M_invoker.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i, i64 16, i1 false)
@@ -1284,8 +1284,8 @@ invoke.cont2.i.i:                                 ; preds = %invoke.cont33.i
   store i32 1, ptr %second.i.i, align 4
   store ptr null, ptr %my_node.i.i.i.i, align 8
   %31 = load ptr, ptr %acc.i.i, align 8
-  %tobool.not.i.i.i.i10.i = icmp eq ptr %31, null
-  br i1 %tobool.not.i.i.i.i10.i, label %invoke.cont35.i, label %if.then.i.i.i6.i.i
+  %tobool.not.i.i.i.i11.i = icmp eq ptr %31, null
+  br i1 %tobool.not.i.i.i.i11.i, label %invoke.cont35.i, label %if.then.i.i.i6.i.i
 
 if.then.i.i.i6.i.i:                               ; preds = %invoke.cont2.i.i
   store ptr null, ptr %acc.i.i, align 8
@@ -1343,11 +1343,11 @@ invoke.cont35.i:                                  ; preds = %if.else.i.i.i.i.i.i
   store i32 -1, ptr %my_core_type.i.i.i, align 8
   %my_max_threads_per_core.i.i.i = getelementptr inbounds nuw i8, ptr %arena.i, i64 44
   store i32 -1, ptr %my_max_threads_per_core.i.i.i, align 4
-  %call.i14.i = invoke noundef zeroext i1 @_ZN3tbb6detail2r16attachERNS0_2d115task_arena_baseE(ptr noundef nonnull align 8 dereferenceable(48) %arena.i)
+  %call.i15.i = invoke noundef zeroext i1 @_ZN3tbb6detail2r16attachERNS0_2d115task_arena_baseE(ptr noundef nonnull align 8 dereferenceable(48) %arena.i)
           to label %call.i.noexc.i unwind label %lpad32.i
 
 call.i.noexc.i:                                   ; preds = %invoke.cont35.i
-  br i1 %call.i14.i, label %if.then.i.i, label %invoke.cont36.i
+  br i1 %call.i15.i, label %if.then.i.i, label %invoke.cont36.i
 
 if.then.i.i:                                      ; preds = %call.i.noexc.i
   store atomic i32 2, ptr %my_initialization_state.i.i.i release, align 8
@@ -1365,14 +1365,14 @@ invoke.cont39.i:                                  ; preds = %invoke.cont36.i
 while.body.i.i.i.i:                               ; preds = %invoke.cont39.i, %_ZN3tbb6detail2d015spin_wait_whileINS1_13do_once_stateEZNS1_18spin_wait_while_eqIS3_S3_EET_RKSt6atomicIS5_ET0_St12memory_orderEUlS3_E_EES5_S9_SA_SB_.exit.i.i.i.i
   %41 = load atomic i32, ptr %my_initialization_state.i.i.i monotonic, align 8
   %cmp2.i.i.i.i = icmp eq i32 %41, 0
-  br i1 %cmp2.i.i.i.i, label %if.then.i.i.i16.i, label %if.end5.i.i.i.i
+  br i1 %cmp2.i.i.i.i, label %if.then.i.i.i17.i, label %if.end5.i.i.i.i
 
-if.then.i.i.i16.i:                                ; preds = %while.body.i.i.i.i
+if.then.i.i.i17.i:                                ; preds = %while.body.i.i.i.i
   %42 = cmpxchg ptr %my_initialization_state.i.i.i, i32 0, i32 1 seq_cst seq_cst, align 4
   %43 = extractvalue { i32, i1 } %42, 1
   br i1 %43, label %if.then4.i.i.i.i, label %if.end5.i.i.i.i
 
-if.then4.i.i.i.i:                                 ; preds = %if.then.i.i.i16.i
+if.then4.i.i.i.i:                                 ; preds = %if.then.i.i.i17.i
   invoke void @_ZN3tbb6detail2r110initializeERNS0_2d115task_arena_baseE(ptr noundef nonnull align 8 dereferenceable(48) %arena.i)
           to label %.noexc.i7 unwind label %lpad40.i
 
@@ -1380,7 +1380,7 @@ if.then4.i.i.i.i:                                 ; preds = %if.then.i.i.i16.i
   store atomic i32 2, ptr %my_initialization_state.i.i.i release, align 8
   br label %_ZN3tbb6detail2d110task_arena10initializeEv.exit.i.i
 
-if.end5.i.i.i.i:                                  ; preds = %if.then.i.i.i16.i, %while.body.i.i.i.i
+if.end5.i.i.i.i:                                  ; preds = %if.then.i.i.i17.i, %while.body.i.i.i.i
   %44 = load atomic i32, ptr %my_initialization_state.i.i.i acquire, align 8
   %cmp.i11.i.i.i.i.i = icmp eq i32 %44, 1
   br i1 %cmp.i11.i.i.i.i.i, label %while.body.us.i.i.i.i.i, label %_ZN3tbb6detail2d015spin_wait_whileINS1_13do_once_stateEZNS1_18spin_wait_while_eqIS3_S3_EET_RKSt6atomicIS5_ET0_St12memory_orderEUlS3_E_EES5_S9_SA_SB_.exit.i.i.i.i
@@ -1423,31 +1423,31 @@ _ZN3tbb6detail2d015spin_wait_whileINS1_13do_once_stateEZNS1_18spin_wait_while_eq
 _ZN3tbb6detail2d110task_arena10initializeEv.exit.i.i: ; preds = %_ZN3tbb6detail2d015spin_wait_whileINS1_13do_once_stateEZNS1_18spin_wait_while_eqIS3_S3_EET_RKSt6atomicIS5_ET0_St12memory_orderEUlS3_E_EES5_S9_SA_SB_.exit.i.i.i.i, %.noexc.i7, %invoke.cont39.i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i.i)
   store ptr null, ptr %alloc.i.i.i, align 8
-  %call.i.i.i17.i = invoke noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i.i, i64 noundef 256)
+  %call.i.i.i18.i = invoke noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i.i, i64 noundef 256)
           to label %call.i.i.i.noexc.i unwind label %lpad40.i
 
 call.i.i.i.noexc.i:                               ; preds = %_ZN3tbb6detail2d110task_arena10initializeEv.exit.i.i
-  %47 = getelementptr inbounds nuw i8, ptr %call.i.i.i17.i, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %call.i.i.i18.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %47, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112enqueue_taskIZN7openvdb5v11_02io5Queue4Impl7enqueueERNS5_12_GLOBAL__N_110OutputTaskEEUlvE_EE, i64 16), ptr %call.i.i.i17.i, align 64
-  %m_allocator.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i17.i, i64 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112enqueue_taskIZN7openvdb5v11_02io5Queue4Impl7enqueueERNS5_12_GLOBAL__N_110OutputTaskEEUlvE_EE, i64 16), ptr %call.i.i.i18.i, align 64
+  %m_allocator.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18.i, i64 64
   %48 = load i64, ptr %alloc.i.i.i, align 8
   store i64 %48, ptr %m_allocator.i.i.i.i.i, align 64
-  %m_func.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i17.i, i64 72
+  %m_func.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18.i, i64 72
   invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(144) %m_func.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(144) %ref.tmp37.i)
           to label %.noexc18.i unwind label %lpad40.i
 
-.noexc18.i:                                       ; preds = %call.i.i.i.noexc.i
-  invoke void @_ZN3tbb6detail2r17enqueueERNS0_2d14taskEPNS2_15task_arena_baseE(ptr noundef nonnull align 64 dereferenceable(64) %call.i.i.i17.i, ptr noundef nonnull align 8 dereferenceable(48) %arena.i)
+.noexc19.i:                                       ; preds = %call.i.i.i.noexc.i
+  invoke void @_ZN3tbb6detail2r17enqueueERNS0_2d14taskEPNS2_15task_arena_baseE(ptr noundef nonnull align 64 dereferenceable(64) %call.i.i.i18.i, ptr noundef nonnull align 8 dereferenceable(48) %arena.i)
           to label %invoke.cont41.i unwind label %lpad40.i
 
-invoke.cont41.i:                                  ; preds = %.noexc18.i
+invoke.cont41.i:                                  ; preds = %.noexc19.i
   call void @llvm.lifetime.end.p0(ptr nonnull %alloc.i.i.i)
   call void @_ZN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %ref.tmp37.i) #21
   %49 = atomicrmw add ptr %mNumTasks.i.i, i32 1 seq_cst, align 4
   %50 = load atomic i32, ptr %my_initialization_state.i.i.i acquire, align 8
-  %cmp.i.i.i20.i = icmp eq i32 %50, 2
-  br i1 %cmp.i.i.i20.i, label %if.then.i.i.i, label %_ZN3tbb6detail2d110task_arenaD2Ev.exit.i
+  %cmp.i.i.i21.i = icmp eq i32 %50, 2
+  br i1 %cmp.i.i.i21.i, label %if.then.i.i.i, label %_ZN3tbb6detail2d110task_arenaD2Ev.exit.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont41.i
   invoke void @_ZN3tbb6detail2r19terminateERNS0_2d115task_arena_baseE(ptr noundef nonnull align 8 dereferenceable(48) %arena.i)
@@ -1467,13 +1467,13 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
 _ZN3tbb6detail2d110task_arenaD2Ev.exit.i:         ; preds = %.noexc.i.i, %invoke.cont41.i
   %53 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %53, null
-  br i1 %tobool.not.i.i.i, label %invoke.cont, label %if.then.i.i22.i
+  br i1 %tobool.not.i.i.i, label %invoke.cont, label %if.then.i.i23.i
 
-if.then.i.i22.i:                                  ; preds = %_ZN3tbb6detail2d110task_arenaD2Ev.exit.i
+if.then.i.i23.i:                                  ; preds = %_ZN3tbb6detail2d110task_arenaD2Ev.exit.i
   %call.i.i.i = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(32) %notify.i, ptr noundef nonnull align 8 dereferenceable(32) %notify.i, i32 noundef 3)
           to label %invoke.cont unwind label %terminate.lpad.i.i.i
 
-terminate.lpad.i.i.i:                             ; preds = %if.then.i.i22.i
+terminate.lpad.i.i.i:                             ; preds = %if.then.i.i23.i
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
@@ -1490,7 +1490,7 @@ lpad38.i:                                         ; preds = %invoke.cont36.i
           cleanup
   br label %ehcleanup.i5
 
-lpad40.i:                                         ; preds = %.noexc18.i, %call.i.i.i.noexc.i, %_ZN3tbb6detail2d110task_arena10initializeEv.exit.i.i, %if.then4.i.i.i.i
+lpad40.i:                                         ; preds = %.noexc19.i, %call.i.i.i.noexc.i, %_ZN3tbb6detail2d110task_arena10initializeEv.exit.i.i, %if.then4.i.i.i.i
   %58 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %ref.tmp37.i) #21
@@ -1504,16 +1504,16 @@ ehcleanup.i5:                                     ; preds = %lpad40.i, %lpad38.i
 ehcleanup43.i:                                    ; preds = %ehcleanup.i5, %lpad32.i, %if.else.i.i.i.i12.i.i, %if.then.i.i.i.i13.i.i, %lpad.i.i
   %.pn.pn.ph.i = phi { ptr, i32 } [ %35, %if.then.i.i.i.i13.i.i ], [ %35, %if.else.i.i.i.i12.i.i ], [ %56, %lpad32.i ], [ %35, %lpad.i.i ], [ %.pn.i6, %ehcleanup.i5 ]
   %.pr.i = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i24.i = icmp eq ptr %.pr.i, null
-  br i1 %tobool.not.i.i24.i, label %lpad.body, label %if.then.i.i25.i
+  %tobool.not.i.i25.i = icmp eq ptr %.pr.i, null
+  br i1 %tobool.not.i.i25.i, label %lpad.body, label %if.then.i.i26.i
 
-if.then.i.i25.i:                                  ; preds = %ehcleanup43.i, %ehcleanup43.thread.i
-  %.pn.pn43.i = phi { ptr, i32 } [ %25, %ehcleanup43.thread.i ], [ %.pn.pn.ph.i, %ehcleanup43.i ]
+if.then.i.i26.i:                                  ; preds = %ehcleanup43.i, %ehcleanup43.thread.i
+  %.pn.pn44.i = phi { ptr, i32 } [ %25, %ehcleanup43.thread.i ], [ %.pn.pn.ph.i, %ehcleanup43.i ]
   %59 = phi ptr [ @_ZNSt17_Function_handlerIFvjN7openvdb5v11_02io5Queue6StatusEESt5_BindIFMNS3_4ImplEFvjS4_EPS7_St12_PlaceholderILi1EESB_ILi2EEEEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, %ehcleanup43.thread.i ], [ %.pr.i, %ehcleanup43.i ]
-  %call.i.i26.i = invoke noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(32) %notify.i, ptr noundef nonnull align 8 dereferenceable(32) %notify.i, i32 noundef 3)
-          to label %lpad.body unwind label %terminate.lpad.i.i27.i
+  %call.i.i27.i = invoke noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(32) %notify.i, ptr noundef nonnull align 8 dereferenceable(32) %notify.i, i32 noundef 3)
+          to label %lpad.body unwind label %terminate.lpad.i.i28.i
 
-terminate.lpad.i.i27.i:                           ; preds = %if.then.i.i25.i
+terminate.lpad.i.i28.i:                           ; preds = %if.then.i.i26.i
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
@@ -1523,7 +1523,7 @@ terminate.lpad.i.i27.i:                           ; preds = %if.then.i.i25.i
 unreachable.i:                                    ; preds = %try.cont.i
   unreachable
 
-invoke.cont:                                      ; preds = %if.then.i.i22.i, %_ZN3tbb6detail2d110task_arenaD2Ev.exit.i
+invoke.cont:                                      ; preds = %if.then.i.i23.i, %_ZN3tbb6detail2d110task_arenaD2Ev.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %_openvdb_throw_msg.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %_openvdb_throw_os.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp24.i)
@@ -1543,8 +1543,8 @@ lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i.i
           cleanup
   br label %lpad.body
 
-lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad27.i, %ehcleanup43.i, %if.then.i.i25.i
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn.pn43.i, %if.then.i.i25.i ], [ %22, %lpad27.i ], [ %.pn.pn.ph.i, %ehcleanup43.i ], [ %lpad.loopexit15, %lpad.loopexit ], [ %lpad.loopexit.split-lp16, %lpad.loopexit.split-lp ]
+lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad27.i, %ehcleanup43.i, %if.then.i.i26.i
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.pn44.i, %if.then.i.i25.i ], [ %22, %lpad27.i ], [ %.pn.pn.ph.i, %ehcleanup43.i ], [ %lpad.loopexit15, %lpad.loopexit ], [ %lpad.loopexit.split-lp16, %lpad.loopexit.split-lp ]
   call void @_ZN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %task) #21
   br label %common.resume
 }

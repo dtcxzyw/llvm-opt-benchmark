@@ -15400,33 +15400,33 @@ define ptr @lean_dbg_sleep(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %6 = zext i32 %0 to i64
   %7 = udiv i32 %0, 1000
   %.zext = zext nneg i32 %7 to i64
-  %8 = mul nsw i64 %.zext, -1000000000
+  %.neg.i.i = mul nsw i64 %.zext, -1000000000
   %9 = mul nuw nsw i64 %6, 1000000
   %10 = add nsw i64 %8, %9
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %.zext, ptr %3, align 8, !tbaa !190
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %10, ptr %11, align 8, !tbaa !192
-  br label %12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %10, ptr %10, align 8, !tbaa !192
+  br label %11
 
-12:                                               ; preds = %15, %5
-  %13 = call i32 @nanosleep(ptr noundef nonnull %3, ptr noundef nonnull %3)
-  %14 = icmp eq i32 %13, -1
-  br i1 %14, label %15, label %.critedge.i
+11:                                               ; preds = %14, %5
+  %12 = call i32 @nanosleep(ptr noundef nonnull %3, ptr noundef nonnull %3)
+  %13 = icmp eq i32 %12, -1
+  br i1 %13, label %14, label %.critedge.i
 
-15:                                               ; preds = %12
-  %16 = tail call ptr @__errno_location() #47
-  %17 = load i32, ptr %16, align 4, !tbaa !156
-  %18 = icmp eq i32 %17, 4
-  br i1 %18, label %12, label %.critedge.i, !llvm.loop !193
+14:                                               ; preds = %11
+  %15 = tail call ptr @__errno_location() #47
+  %16 = load i32, ptr %15, align 4, !tbaa !156
+  %17 = icmp eq i32 %16, 4
+  br i1 %17, label %11, label %.critedge.i, !llvm.loop !193
 
-.critedge.i:                                      ; preds = %15, %12
+.critedge.i:                                      ; preds = %14, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit
 
 _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit: ; preds = %2, %.critedge.i
-  %19 = call ptr @lean_apply_1(ptr noundef %1, ptr noundef nonnull inttoptr (i64 1 to ptr))
-  ret ptr %19
+  %18 = call ptr @lean_apply_1(ptr noundef %1, ptr noundef nonnull inttoptr (i64 1 to ptr))
+  ret ptr %18
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -617,13 +617,13 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h1b944cc8d6a3c05
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = load i8, ptr %3, align 1, !alias.scope !47, !noalias !50, !noundef !3
   %5 = zext i8 %4 to i64
-  %reass.mul.i = mul i64 %5, 1452335207727870361
-  %6 = add i64 %reass.mul.i, -2869467737972456604
+  %6 = mul i64 %5, 1452335207727870361
+  %7 = add i64 %6, -2869467737972456604
   %.sroa.029.0.copyload.i.i.i.i = load i64, ptr %1, align 1, !alias.scope !54, !noalias !59
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.031.0.copyload.i.i.i.i = load i64, ptr %7, align 1, !alias.scope !54, !noalias !59
-  %8 = xor i64 %.sroa.029.0.copyload.i.i.i.i, 2611923443488327891
-  %9 = xor i64 %.sroa.031.0.copyload.i.i.i.i, -6626703657320631856
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.031.0.copyload.i.i.i.i = load i64, ptr %8, align 1, !alias.scope !54, !noalias !59
+  %9 = xor i64 %.sroa.029.0.copyload.i.i.i.i, 2611923443488327891
+  %10 = xor i64 %.sroa.031.0.copyload.i.i.i.i, -6626703657320631856
   %10 = zext i64 %8 to i128
   %11 = zext i64 %9 to i128
   %12 = mul nuw i128 %11, %10
@@ -652,17 +652,17 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h1b944cc8d6a3c05
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h2ca142b8e5aa8772E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.val.i = load i64, ptr %1, align 8, !noalias !61, !noundef !3
-  %reass.mul.i = mul i64 %.val.i, -1065810590584100411
-  %3 = tail call noundef i64 @llvm.fshl.i64(i64 %reass.mul.i, i64 %reass.mul.i, i64 26)
-  ret i64 %3
+  %3 = mul i64 %.val.i, -1065810590584100411
+  %4 = tail call noundef i64 @llvm.fshl.i64(i64 %3, i64 %3, i64 26)
+  ret i64 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hf89995a6b01bbe12E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.val.i = load i64, ptr %1, align 8, !noalias !64, !noundef !3
-  %reass.mul.i = mul i64 %.val.i, -1065810590584100411
-  %3 = tail call noundef i64 @llvm.fshl.i64(i64 %reass.mul.i, i64 %reass.mul.i, i64 26)
-  ret i64 %3
+  %3 = mul i64 %.val.i, -1065810590584100411
+  %4 = tail call noundef i64 @llvm.fshl.i64(i64 %3, i64 %3, i64 26)
+  ret i64 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: readwrite) uwtable

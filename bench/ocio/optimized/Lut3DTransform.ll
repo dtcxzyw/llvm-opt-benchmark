@@ -669,16 +669,16 @@ define hidden void @_ZN19OpenColorIO_v2_5dev18Lut3DTransformImpl8setValueEmmmfff
   %12 = mul i64 %11, %1
   %13 = add i64 %12, %2
   %14 = mul i64 %13, %11
-  %reass.add = add i64 %14, %3
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %16 = load ptr, ptr %15, align 8, !tbaa !65
-  %.idx = mul i64 %reass.add, 12
-  %17 = getelementptr i8, ptr %16, i64 %.idx
-  store float %4, ptr %17, align 4, !tbaa !66
-  %18 = getelementptr i8, ptr %17, i64 4
-  store float %5, ptr %18, align 4, !tbaa !66
-  %19 = getelementptr i8, ptr %17, i64 8
-  store float %6, ptr %19, align 4, !tbaa !66
+  %15 = add i64 %14, %3
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %17 = load ptr, ptr %16, align 8, !tbaa !65
+  %.idx = mul i64 %15, 12
+  %18 = getelementptr i8, ptr %17, i64 %.idx
+  store float %4, ptr %18, align 4, !tbaa !66
+  %19 = getelementptr i8, ptr %18, i64 4
+  store float %5, ptr %19, align 4, !tbaa !66
+  %20 = getelementptr i8, ptr %18, i64 8
+  store float %6, ptr %20, align 4, !tbaa !66
   ret void
 }
 
@@ -803,19 +803,19 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev18Lut3DTransformImpl8getValueEmmmRf
   %12 = mul i64 %11, %1
   %13 = add i64 %12, %2
   %14 = mul i64 %13, %11
-  %reass.add = add i64 %14, %3
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %16 = load ptr, ptr %15, align 8, !tbaa !65
-  %.idx = mul i64 %reass.add, 12
-  %17 = getelementptr i8, ptr %16, i64 %.idx
-  %18 = load float, ptr %17, align 4, !tbaa !66
-  store float %18, ptr %4, align 4, !tbaa !66
-  %19 = getelementptr i8, ptr %17, i64 4
-  %20 = load float, ptr %19, align 4, !tbaa !66
-  store float %20, ptr %5, align 4, !tbaa !66
-  %21 = getelementptr i8, ptr %17, i64 8
-  %22 = load float, ptr %21, align 4, !tbaa !66
-  store float %22, ptr %6, align 4, !tbaa !66
+  %15 = add i64 %14, %3
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %17 = load ptr, ptr %16, align 8, !tbaa !65
+  %.idx = mul i64 %15, 12
+  %18 = getelementptr i8, ptr %17, i64 %.idx
+  %19 = load float, ptr %18, align 4, !tbaa !66
+  store float %19, ptr %4, align 4, !tbaa !66
+  %20 = getelementptr i8, ptr %18, i64 4
+  %21 = load float, ptr %20, align 4, !tbaa !66
+  store float %21, ptr %5, align 4, !tbaa !66
+  %22 = getelementptr i8, ptr %18, i64 8
+  %23 = load float, ptr %22, align 4, !tbaa !66
+  store float %23, ptr %6, align 4, !tbaa !66
   ret void
 }
 

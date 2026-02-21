@@ -536,12 +536,12 @@ match_time.exit.thread:                           ; preds = %67, %79, %82, %oneo
   %206 = sext i32 %.0153.lcssa to i64
   %207 = add nsw i64 %200, %206
   %208 = add nsw i64 %207, %201
-  %reass.add = add nsw i64 %208, %205
+  %209 = add nsw i64 %208, %205
   %209 = sext i32 %.4271 to i64
-  %210 = sext i32 %.4265 to i64
+  %211 = sext i32 %.4265 to i64
   %211 = mul nsw i64 %209, 3600
-  %212 = add nsw i64 %211, -86400
-  %213 = mul nsw i64 %reass.add, 86400
+  %213 = add nsw i64 %211, -86400
+  %214 = mul nsw i64 %209, 86400
   %214 = mul nsw i64 %210, 60
   %215 = sext i32 %.4 to i64
   %216 = icmp eq i32 %.0170.lcssa, -1
@@ -549,9 +549,9 @@ match_time.exit.thread:                           ; preds = %67, %79, %82, %oneo
   %217 = sext i32 %spec.store.select to i64
   %218 = add nsw i64 %214, %215
   %219 = add nsw i64 %218, %212
-  %220 = add nsw i64 %219, %217
-  %221 = add nsw i64 %220, %213
-  store i64 %221, ptr %1, align 8, !tbaa !3
+  %221 = add nsw i64 %219, %217
+  %222 = add nsw i64 %221, %213
+  store i64 %222, ptr %1, align 8, !tbaa !3
   br label %.critedge229
 
 .critedge229:                                     ; preds = %.loopexit, %.critedge, %56, %175, %185, %._crit_edge, %190

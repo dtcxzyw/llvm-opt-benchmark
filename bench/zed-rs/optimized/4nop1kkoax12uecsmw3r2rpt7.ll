@@ -40339,7 +40339,7 @@ define void @_ZN6client9telemetry9Telemetry14log_edit_event17heb2f0e7c742e0066E(
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 208
   invoke void @_ZN6client9telemetry15event_coalescer14EventCoalescer9log_event17h57f93c395f357e90E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull align 8 dereferenceable(56) %16, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
-          to label %17 unwind label %97
+          to label %17 unwind label %98
 
 17:                                               ; preds = %15
   %18 = cmpxchg ptr %10, i8 1, i8 0 release monotonic, align 1
@@ -40475,22 +40475,22 @@ define void @_ZN6client9telemetry9Telemetry14log_edit_event17heb2f0e7c742e0066E(
   call void @_ZN6client9telemetry9Telemetry12report_event17hbb89b16843356232E.llvm.5396057584344544046(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %5)
   br label %47
 
-"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit16": ; preds = %97, %100
+"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit16": ; preds = %98, %101
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
-97:                                               ; preds = %15
+98:                                               ; preds = %15
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  %98 = cmpxchg ptr %10, i8 1, i8 0 release monotonic, align 1
-  %99 = extractvalue { i8, i1 } %98, 1
-  br i1 %99, label %"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit16", label %100
+  %99 = cmpxchg ptr %10, i8 1, i8 0 release monotonic, align 1
+  %100 = extractvalue { i8, i1 } %99, 1
+  br i1 %100, label %"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit16", label %101
 
-100:                                              ; preds = %97
+101:                                              ; preds = %98
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17ha4648bd3047b88eeE(ptr noundef nonnull align 1 %10, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit16" unwind label %101
+          to label %"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit16" unwind label %102
 
-101:                                              ; preds = %100
-  %102 = landingpad { ptr, i32 }
+102:                                              ; preds = %101
+  %103 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #57
   unreachable
@@ -41083,7 +41083,7 @@ define hidden void @_ZN6client9telemetry9Telemetry12report_event17hbb89b16843356
 .thread:                                          ; preds = %25, %16
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  br label %204
+  br label %205
 
 16:                                               ; preds = %2
   %17 = invoke noundef zeroext i1 @_ZN11parking_lot9raw_mutex8RawMutex9lock_slow17h4a61cc9e4f42e703E(ptr noundef nonnull align 1 %13, i64 undef, i32 noundef 1000000000)
@@ -41114,7 +41114,7 @@ define hidden void @_ZN6client9telemetry9Telemetry12report_event17hbb89b16843356
   tail call void @"_ZN4core3ptr44drop_in_place$LT$telemetry_events..Event$GT$17h4e8fb70ea36b5fdbE.llvm.5396057584344544046"(ptr noalias noundef nonnull align 8 dereferenceable(96) %1)
   br label %"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit38"
 
-"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit38": ; preds = %"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit36", %197, %194, %"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit"
+"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit38": ; preds = %"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit36", %198, %195, %"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit"
   ret void
 
 30:                                               ; preds = %26
@@ -41334,7 +41334,7 @@ define hidden void @_ZN6client9telemetry9Telemetry12report_event17hbb89b16843356
   %125 = load i64, ptr %124, align 8, !alias.scope !10623, !noalias !10626, !noundef !4
   %126 = load i64, ptr %120, align 8, !alias.scope !10623, !noalias !10626, !noundef !4
   %127 = icmp eq i64 %125, %126
-  br i1 %127, label %128, label %179
+  br i1 %127, label %128, label %180
 
 128:                                              ; preds = %116
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h96c05222aa56636fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %120)
@@ -41415,75 +41415,75 @@ define hidden void @_ZN6client9telemetry9Telemetry12report_event17hbb89b16843356
   %178 = add nsw i64 %177, %reass.mul
   br label %116
 
-179:                                              ; preds = %128, %116
-  %180 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %181 = load ptr, ptr %180, align 8, !alias.scope !10623, !noalias !10626, !nonnull !4, !noundef !4
-  %182 = getelementptr inbounds { { i64, [11 x i64] }, i64, i8, [7 x i8] }, ptr %181, i64 %125
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %182, ptr noundef nonnull align 8 dereferenceable(112) %6, i64 112, i1 false)
-  %183 = add i64 %125, 1
-  store i64 %183, ptr %124, align 8, !alias.scope !10623, !noalias !10626
+180:                                              ; preds = %128, %116
+  %181 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %182 = load ptr, ptr %181, align 8, !alias.scope !10623, !noalias !10626, !nonnull !4, !noundef !4
+  %183 = getelementptr inbounds { { i64, [11 x i64] }, i64, i8, [7 x i8] }, ptr %182, i64 %125
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %183, ptr noundef nonnull align 8 dereferenceable(112) %6, i64 112, i1 false)
+  %184 = add i64 %125, 1
+  store i64 %184, ptr %124, align 8, !alias.scope !10623, !noalias !10626
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %184 = getelementptr inbounds nuw i8, ptr %12, i64 312
-  %185 = load ptr, ptr %184, align 8, !noundef !4
-  %186 = icmp eq ptr %185, null
-  br i1 %186, label %194, label %187
+  %185 = getelementptr inbounds nuw i8, ptr %12, i64 312
+  %186 = load ptr, ptr %185, align 8, !noundef !4
+  %187 = icmp eq ptr %186, null
+  br i1 %187, label %195, label %188
 
-187:                                              ; preds = %179
-  %188 = getelementptr inbounds nuw i8, ptr %12, i64 360
-  %189 = load i64, ptr %188, align 8, !noundef !4
-  %.not = icmp ult i64 %183, %189
-  br i1 %.not, label %194, label %190
+188:                                              ; preds = %180
+  %189 = getelementptr inbounds nuw i8, ptr %12, i64 360
+  %190 = load i64, ptr %189, align 8, !noundef !4
+  %.not = icmp ult i64 %184, %190
+  br i1 %.not, label %195, label %191
 
-190:                                              ; preds = %187
-  %191 = cmpxchg ptr %13, i8 1, i8 0 release monotonic, align 1
-  %192 = extractvalue { i8, i1 } %191, 1
-  br i1 %192, label %"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit36", label %193
+191:                                              ; preds = %188
+  %192 = cmpxchg ptr %13, i8 1, i8 0 release monotonic, align 1
+  %193 = extractvalue { i8, i1 } %192, 1
+  br i1 %193, label %"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit36", label %194
 
-193:                                              ; preds = %190
+194:                                              ; preds = %191
   call void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17ha4648bd3047b88eeE(ptr noundef nonnull align 1 %13, i1 noundef zeroext false)
   br label %"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit36"
 
-"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit36": ; preds = %193, %190
+"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit36": ; preds = %194, %191
   call void @_ZN6client9telemetry9Telemetry12flush_events17h786232233629f0d4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   br label %"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit38"
 
-194:                                              ; preds = %179, %187
-  %195 = cmpxchg ptr %13, i8 1, i8 0 release monotonic, align 1
-  %196 = extractvalue { i8, i1 } %195, 1
-  br i1 %196, label %"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit38", label %197
+195:                                              ; preds = %180, %188
+  %196 = cmpxchg ptr %13, i8 1, i8 0 release monotonic, align 1
+  %197 = extractvalue { i8, i1 } %196, 1
+  br i1 %197, label %"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit38", label %198
 
-197:                                              ; preds = %194
+198:                                              ; preds = %195
   call void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17ha4648bd3047b88eeE(ptr noundef nonnull align 1 %13, i1 noundef zeroext false)
   br label %"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit38"
 
 .thread71:                                        ; preds = %62, %129, %79, %.thread82, %.thread61
   %.sroa.04.366 = phi i1 [ true, %.thread61 ], [ true, %.thread82 ], [ false, %129 ], [ true, %79 ], [ true, %62 ]
   %.pn65 = phi { ptr, i32 } [ %95, %.thread61 ], [ %lpad.thr_comm80, %.thread82 ], [ %130, %129 ], [ %80, %79 ], [ %63, %62 ]
-  %198 = cmpxchg ptr %13, i8 1, i8 0 release monotonic, align 1
-  %199 = extractvalue { i8, i1 } %198, 1
-  br i1 %199, label %"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit40", label %200
+  %199 = cmpxchg ptr %13, i8 1, i8 0 release monotonic, align 1
+  %200 = extractvalue { i8, i1 } %199, 1
+  br i1 %200, label %"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit40", label %201
 
-200:                                              ; preds = %.thread71
+201:                                              ; preds = %.thread71
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17ha4648bd3047b88eeE(ptr noundef nonnull align 1 %13, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit40" unwind label %201
+          to label %"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit40" unwind label %202
 
-"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit40": ; preds = %200, %.thread71
-  br i1 %.sroa.04.366, label %204, label %203
+"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit40": ; preds = %201, %.thread71
+  br i1 %.sroa.04.366, label %205, label %204
 
-201:                                              ; preds = %200, %204
-  %202 = landingpad { ptr, i32 }
+202:                                              ; preds = %201, %205
+  %203 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #57
   unreachable
 
-203:                                              ; preds = %"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit40", %204
+204:                                              ; preds = %"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit40", %205
   %.pn1157 = phi { ptr, i32 } [ %.pn65, %"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit40" ], [ %.pn1158, %204 ]
   resume { ptr, i32 } %.pn1157
 
-204:                                              ; preds = %.thread, %"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit40"
+205:                                              ; preds = %.thread, %"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit40"
   %.pn1158 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %.pn65, %"_ZN4core3ptr124drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$client..telemetry..TelemetryState$GT$$GT$17hd29b3b5a8b83f3d7E.exit40" ]
   invoke void @"_ZN4core3ptr44drop_in_place$LT$telemetry_events..Event$GT$17h4e8fb70ea36b5fdbE.llvm.5396057584344544046"(ptr noalias noundef nonnull align 8 dereferenceable(96) %1) #56
-          to label %203 unwind label %201
+          to label %203 unwind label %202
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

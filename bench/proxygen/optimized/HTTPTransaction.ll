@@ -15197,7 +15197,7 @@ land.lhs.true:                                    ; preds = %if.end117
   %sub.ptr.rhs.cast9.i.i.i = ptrtoint ptr %33 to i64
   %sub.ptr.sub10.i.i.i = sub i64 %sub.ptr.lhs.cast8.i.i.i, %sub.ptr.rhs.cast9.i.i.i
   %sub.ptr.div11.i.i.i = sdiv exact i64 %sub.ptr.sub10.i.i.i, 56
-  %reass.add = add nsw i64 %sub.ptr.div.i.i.i, %conv.neg.i.i.i
+  %add12.i.i.i = add nsw i64 %sub.ptr.div.i.i.i, %conv.neg.i.i.i
   %reass.mul = mul i64 %reass.add, 9
   %add.i.i.i = add i64 %reass.mul, %sub.ptr.div6.i.i.i
   %add12.i.i.i = add i64 %add.i.i.i, %sub.ptr.div11.i.i.i
@@ -21762,7 +21762,7 @@ entry:
   %sub.ptr.rhs.cast9.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub10.i.i = sub i64 %sub.ptr.lhs.cast8.i.i, %sub.ptr.rhs.cast9.i.i
   %sub.ptr.div11.i.i = sdiv exact i64 %sub.ptr.sub10.i.i, 56
-  %reass.add = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
+  %add12.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %reass.mul = mul i64 %reass.add, 9
   %add.i.i = add i64 %reass.mul, %sub.ptr.div6.i.i
   %add12.i.i = add i64 %add.i.i, %sub.ptr.div11.i.i
@@ -22022,7 +22022,7 @@ entry:
   %sub.ptr.rhs.cast9.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub10.i.i = sub i64 %sub.ptr.lhs.cast8.i.i, %sub.ptr.rhs.cast9.i.i
   %sub.ptr.div11.i.i = sdiv exact i64 %sub.ptr.sub10.i.i, 56
-  %reass.add = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
+  %add12.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %reass.mul = mul i64 %reass.add, 9
   %add.i.i = add i64 %reass.mul, %sub.ptr.div6.i.i
   %add12.i.i = add i64 %add.i.i, %sub.ptr.div11.i.i
@@ -22113,7 +22113,7 @@ entry:
   %sub.ptr.rhs.cast9.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub10.i.i = sub i64 %sub.ptr.lhs.cast8.i.i, %sub.ptr.rhs.cast9.i.i
   %sub.ptr.div11.i.i = sdiv exact i64 %sub.ptr.sub10.i.i, 56
-  %reass.add = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
+  %add12.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %reass.mul = mul i64 %reass.add, 9
   %add.i.i = add i64 %reass.mul, %sub.ptr.div6.i.i
   %add12.i.i = add i64 %add.i.i, %sub.ptr.div11.i.i
@@ -22291,7 +22291,7 @@ entry:
   %sub.ptr.rhs.cast9.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub10.i.i = sub i64 %sub.ptr.lhs.cast8.i.i, %sub.ptr.rhs.cast9.i.i
   %sub.ptr.div11.i.i = sdiv exact i64 %sub.ptr.sub10.i.i, 56
-  %reass.add = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
+  %add12.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %reass.mul = mul i64 %reass.add, 9
   %add.i.i = add i64 %reass.mul, %sub.ptr.div6.i.i
   %add12.i.i = add i64 %add.i.i, %sub.ptr.div11.i.i
@@ -22376,7 +22376,7 @@ entry:
   %sub.ptr.rhs.cast9.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub10.i.i = sub i64 %sub.ptr.lhs.cast8.i.i, %sub.ptr.rhs.cast9.i.i
   %sub.ptr.div11.i.i = sdiv exact i64 %sub.ptr.sub10.i.i, 56
-  %reass.add = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
+  %add12.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %reass.mul = mul i64 %reass.add, 9
   %add.i.i = add i64 %reass.mul, %sub.ptr.div6.i.i
   %add12.i.i = add i64 %add.i.i, %sub.ptr.div11.i.i
@@ -22467,7 +22467,7 @@ entry:
   %sub.ptr.rhs.cast9.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub10.i.i = sub i64 %sub.ptr.lhs.cast8.i.i, %sub.ptr.rhs.cast9.i.i
   %sub.ptr.div11.i.i = sdiv exact i64 %sub.ptr.sub10.i.i, 56
-  %reass.add = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
+  %add12.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %reass.mul = mul i64 %reass.add, 9
   %add.i.i = add i64 %reass.mul, %sub.ptr.div6.i.i
   %add12.i.i = add i64 %add.i.i, %sub.ptr.div11.i.i

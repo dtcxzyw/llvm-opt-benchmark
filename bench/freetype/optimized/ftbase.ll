@@ -18014,8 +18014,8 @@ define internal range(i64 0, 7849921) i64 @hash_num_lookup(ptr noundef readonly 
   %12 = add nuw nsw i64 %10, %7
   %reass.add = add nuw nsw i64 %12, %8
   %reass.mul = mul nuw nsw i64 %reass.add, 31
-  %13 = add nuw nsw i64 %reass.mul, %11
-  ret i64 %13
+  %15 = add nuw nsw i64 %reass.mul, %11
+  ret i64 %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

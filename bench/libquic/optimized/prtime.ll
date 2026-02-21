@@ -1579,15 +1579,15 @@ define noundef range(i32 -1, 1) i32 @_Z18PR_ParseTimeStringPKciPl(ptr noundef %0
   br i1 %or.cond811, label %.lr.ph, label %.critedge14.loopexit, !llvm.loop !31
 
 .critedge14.loopexit:                             ; preds = %.lr.ph
-  %.pre937 = ptrtoint ptr %397 to i64
+  %.pre935 = ptrtoint ptr %397 to i64
   br label %.critedge14
 
 .critedge14:                                      ; preds = %385, %.critedge14.loopexit
-  %.pre-phi938 = phi i64 [ %.pre937, %.critedge14.loopexit ], [ %388, %385 ]
+  %.pre-phi936 = phi i64 [ %.pre935, %.critedge14.loopexit ], [ %388, %385 ]
   %400 = phi i8 [ %398, %.critedge14.loopexit ], [ %386, %385 ]
   %.1566.lcssa = phi i32 [ %.2567, %.critedge14.loopexit ], [ 0, %385 ]
   %.4.lcssa = phi ptr [ %397, %.critedge14.loopexit ], [ %363, %385 ]
-  %401 = sub i64 %.pre-phi938, %388
+  %401 = sub i64 %.pre-phi936, %388
   %402 = trunc i64 %401 to i32
   %403 = icmp slt i32 %402, 6
   br i1 %403, label %.lr.ph887, label %.loopexit859
@@ -1699,8 +1699,8 @@ define noundef range(i32 -1, 1) i32 @_Z18PR_ParseTimeStringPKciPl(ptr noundef %0
 446:                                              ; preds = %442
   %447 = mul nuw nsw i32 %439, 100
   %448 = mul i8 %440, 10
-  %narrow924 = add nsw i8 %448, 32
-  %449 = zext nneg i8 %narrow924 to i32
+  %449 = add nsw i8 %448, 32
+  %449 = zext nneg i8 %449 to i32
   %450 = add nuw nsw i32 %447, %449
   %451 = getelementptr inbounds nuw i8, ptr %.0580907, i64 4
   %narrow763 = add nsw i8 %444, -48
@@ -1779,8 +1779,8 @@ define noundef range(i32 -1, 1) i32 @_Z18PR_ParseTimeStringPKciPl(ptr noundef %0
 489:                                              ; preds = %485
   %490 = mul nsw i32 %.0554, 100
   %491 = mul i8 %483, 10
-  %narrow925 = add nsw i8 %491, 32
-  %492 = zext nneg i8 %narrow925 to i32
+  %492 = add nsw i8 %491, 32
+  %492 = zext nneg i8 %492 to i32
   %493 = add nuw nsw i32 %490, %492
   %494 = getelementptr inbounds nuw i8, ptr %.2, i64 2
   %narrow773 = add nsw i8 %487, -48

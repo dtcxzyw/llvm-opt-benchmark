@@ -4831,67 +4831,67 @@ define dso_local range(i32 -1, 1) i32 @scontrol_job_ready(ptr noundef %0) local_
 13:                                               ; preds = %8
   %14 = zext i16 %9 to i32
   %15 = zext i16 %11 to i32
-  %reass.add = add nuw nsw i32 %15, %14
-  %reass.mul = mul nuw nsw i32 %reass.add, 5
-  br label %16
+  %16 = add nuw nsw i32 %15, %14
+  %17 = mul nuw nsw i32 %16, 5
+  br label %18
 
-16:                                               ; preds = %31, %13
+18:                                               ; preds = %33, %13
   %.043.i = phi i32 [ 0, %13 ], [ %.1.i, %31 ]
-  %.02642.i = phi i32 [ 0, %13 ], [ %32, %31 ]
+  %.02642.i = phi i32 [ 0, %13 ], [ %34, %31 ]
   switch i32 %.02642.i, label %21 [
-    i32 0, label %24
-    i32 1, label %17
+    i32 0, label %26
+    i32 1, label %19
   ]
 
-17:                                               ; preds = %16
-  %18 = tail call i32 @get_log_level() #16
-  %19 = icmp sgt i32 %18, 2
-  br i1 %19, label %20, label %21
+19:                                               ; preds = %18
+  %20 = tail call i32 @get_log_level() #16
+  %21 = icmp sgt i32 %20, 2
+  br i1 %21, label %22, label %23
 
-20:                                               ; preds = %17
+22:                                               ; preds = %19
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.210) #16
-  br label %21
+  br label %23
 
-21:                                               ; preds = %20, %17, %16
-  %22 = tail call i32 @sleep(i32 noundef 3) #16
-  %23 = add nsw i32 %.043.i, 3
-  br label %24
+23:                                               ; preds = %22, %19, %18
+  %24 = tail call i32 @sleep(i32 noundef 3) #16
+  %25 = add nsw i32 %.043.i, 3
+  br label %26
 
-24:                                               ; preds = %21, %16
-  %.1.i = phi i32 [ %23, %21 ], [ %.043.i, %16 ]
-  %25 = tail call i32 @slurm_job_node_ready(i32 noundef range(i32 1, 0) %3) #16
-  switch i32 %25, label %26 [
+26:                                               ; preds = %23, %18
+  %.1.i = phi i32 [ %25, %21 ], [ %.043.i, %16 ]
+  %27 = tail call i32 @slurm_job_node_ready(i32 noundef range(i32 1, 0) %3) #16
+  switch i32 %27, label %26 [
     i32 -2, label %.thread40.i
-    i32 -1, label %31
-    i32 11, label %31
+    i32 -1, label %33
+    i32 11, label %33
   ]
 
-26:                                               ; preds = %24
-  %27 = and i32 %25, 2
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %split.thread.i, label %29
+28:                                               ; preds = %26
+  %29 = and i32 %27, 2
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %split.thread.i, label %31
 
-29:                                               ; preds = %26
-  %30 = and i32 %25, 5
-  %or.cond35.not.i = icmp eq i32 %30, 5
-  br i1 %or.cond35.not.i, label %34, label %31
+31:                                               ; preds = %28
+  %32 = and i32 %27, 5
+  %or.cond35.not.i = icmp eq i32 %32, 5
+  br i1 %or.cond35.not.i, label %36, label %33
 
-31:                                               ; preds = %29, %24, %24
-  %32 = add nuw nsw i32 %.02642.i, 1
-  %33 = icmp slt i32 %.1.i, %reass.mul
-  br i1 %33, label %16, label %split.i, !llvm.loop !33
+33:                                               ; preds = %31, %26, %26
+  %34 = add nuw nsw i32 %.02642.i, 1
+  %35 = icmp slt i32 %.1.i, %17
+  br i1 %35, label %18, label %split.i, !llvm.loop !33
 
-34:                                               ; preds = %29
-  %35 = tail call i32 @get_log_level() #16
-  %36 = icmp sgt i32 %35, 2
-  br i1 %36, label %.sink.split.i, label %_wait_nodes_ready.exit
+36:                                               ; preds = %31
+  %37 = tail call i32 @get_log_level() #16
+  %38 = icmp sgt i32 %37, 2
+  br i1 %38, label %.sink.split.i, label %_wait_nodes_ready.exit
 
-split.i:                                          ; preds = %31
-  %.pre.i = and i32 %25, 2
-  %37 = icmp eq i32 %.pre.i, 0
-  br i1 %37, label %split.thread.i, label %.thread40.i
+split.i:                                          ; preds = %33
+  %.pre.i = and i32 %27, 2
+  %39 = icmp eq i32 %.pre.i, 0
+  br i1 %39, label %split.thread.i, label %.thread40.i
 
-split.thread.i:                                   ; preds = %26, %split.i
+split.thread.i:                                   ; preds = %28, %split.i
   %38 = tail call i32 @get_log_level() #16
   %39 = icmp sgt i32 %38, 2
   br i1 %39, label %.sink.split.i, label %_wait_nodes_ready.exit
@@ -4901,13 +4901,13 @@ split.thread.i:                                   ; preds = %26, %split.i
   %41 = icmp sgt i32 %40, 2
   br i1 %41, label %.sink.split.i, label %_wait_nodes_ready.exit
 
-.sink.split.i:                                    ; preds = %.thread40.i, %split.thread.i, %34
+.thread40.i:                                      ; preds = %.thread40.i, %split.thread.i, %34
   %.str.211.sink.i = phi ptr [ @.str.211, %34 ], [ @.str.212, %split.thread.i ], [ @.str.213, %.thread40.i ]
   %.028.ph.i = phi i32 [ 0, %34 ], [ -1, %split.thread.i ], [ -1, %.thread40.i ]
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull %.str.211.sink.i, i32 noundef range(i32 1, 0) %3) #16
   br label %_wait_nodes_ready.exit
 
-_wait_nodes_ready.exit:                           ; preds = %.sink.split.i, %.thread40.i, %split.thread.i, %34, %8, %5
+_wait_nodes_ready.exit:                           ; preds = %.sink.split.i, %.thread40.i, %split.thread.i, %36, %8, %5
   %.0 = phi i32 [ -1, %5 ], [ 0, %8 ], [ -1, %.thread40.i ], [ -1, %split.thread.i ], [ 0, %34 ], [ %.028.ph.i, %.sink.split.i ]
   ret i32 %.0
 }

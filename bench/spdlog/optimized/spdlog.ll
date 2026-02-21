@@ -3893,41 +3893,41 @@ define dso_local void @_ZN6spdlog7details2os16sleep_for_millisEj(i32 noundef %0)
   %5 = zext i32 %0 to i64
   %6 = udiv i32 %0, 1000
   %.zext = zext nneg i32 %6 to i64
-  %7 = mul nsw i64 %.zext, -1000000000
+  %.neg.i.i = mul nsw i64 %.zext, -1000000000
   %8 = mul nuw nsw i64 %5, 1000000
   %9 = add nsw i64 %7, %8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %.zext, ptr %2, align 8, !tbaa !76
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %9, ptr %10, align 8, !tbaa !77
-  br label %11
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %9, ptr %9, align 8, !tbaa !77
+  br label %10
 
-11:                                               ; preds = %14, %4
-  %12 = invoke i32 @nanosleep(ptr noundef nonnull %2, ptr noundef nonnull %2)
-          to label %.noexc unwind label %18
+10:                                               ; preds = %13, %4
+  %11 = invoke i32 @nanosleep(ptr noundef nonnull %2, ptr noundef nonnull %2)
+          to label %.noexc unwind label %17
 
-.noexc:                                           ; preds = %11
-  %13 = icmp eq i32 %12, -1
-  br i1 %13, label %14, label %.critedge.i
+.noexc:                                           ; preds = %10
+  %12 = icmp eq i32 %11, -1
+  br i1 %12, label %13, label %.critedge.i
 
-14:                                               ; preds = %.noexc
-  %15 = tail call ptr @__errno_location() #47
-  %16 = load i32, ptr %15, align 4, !tbaa !54
-  %17 = icmp eq i32 %16, 4
-  br i1 %17, label %11, label %.critedge.i, !llvm.loop !78
+13:                                               ; preds = %.noexc
+  %14 = tail call ptr @__errno_location() #47
+  %15 = load i32, ptr %14, align 4, !tbaa !54
+  %16 = icmp eq i32 %15, 4
+  br i1 %16, label %10, label %.critedge.i, !llvm.loop !78
 
-.critedge.i:                                      ; preds = %14, %.noexc
+.critedge.i:                                      ; preds = %13, %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit
 
 _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit: ; preds = %.critedge.i, %1
   ret void
 
-18:                                               ; preds = %11
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %10
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #43
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #43
   unreachable
 }
 
