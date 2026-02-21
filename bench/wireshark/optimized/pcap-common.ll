@@ -1511,67 +1511,68 @@ define hidden void @pcap_read_post_process(i1 noundef zeroext %0, i32 noundef %1
   %233 = load i32, ptr %232, align 8
   %234 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %235 = load i32, ptr %234, align 4
-  %spec.select.i45 = tail call i32 @llvm.umin.i32(i32 %233, i32 %235)
-  %236 = icmp ult i32 %spec.select.i45, 64
-  br i1 %236, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %237
+  %236 = icmp ult i32 %233, 64
+  %237 = icmp ult i32 %235, 64
+  %238 = or i1 %236, %237
+  br i1 %238, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %239
 
-237:                                              ; preds = %228
-  %238 = load i8, ptr %231, align 4
-  %239 = icmp ult i8 %238, 60
-  br i1 %239, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %240
+239:                                              ; preds = %228
+  %240 = load i8, ptr %231, align 4
+  %241 = icmp ult i8 %240, 60
+  br i1 %241, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %242
 
-240:                                              ; preds = %237
-  %241 = getelementptr inbounds nuw i8, ptr %231, i64 44
-  %242 = getelementptr i8, ptr %231, i64 47
-  %243 = load i8, ptr %242, align 1
-  %244 = load i8, ptr %241, align 4
-  store i8 %244, ptr %242, align 1
-  store i8 %243, ptr %241, align 4
-  %245 = getelementptr i8, ptr %231, i64 46
-  %246 = load i8, ptr %245, align 2
-  %247 = getelementptr i8, ptr %231, i64 45
-  %248 = load i8, ptr %247, align 1
-  store i8 %248, ptr %245, align 2
-  store i8 %246, ptr %247, align 1
-  %249 = getelementptr inbounds nuw i8, ptr %231, i64 48
-  %250 = getelementptr i8, ptr %231, i64 51
-  %251 = load i8, ptr %250, align 1
-  %252 = load i8, ptr %249, align 4
-  store i8 %252, ptr %250, align 1
-  store i8 %251, ptr %249, align 4
-  %253 = getelementptr i8, ptr %231, i64 50
-  %254 = load i8, ptr %253, align 2
-  %255 = getelementptr i8, ptr %231, i64 49
-  %256 = load i8, ptr %255, align 1
-  store i8 %256, ptr %253, align 2
-  store i8 %254, ptr %255, align 1
-  %257 = getelementptr inbounds nuw i8, ptr %231, i64 52
-  %258 = getelementptr i8, ptr %231, i64 55
-  %259 = load i8, ptr %258, align 1
-  %260 = load i8, ptr %257, align 4
-  store i8 %260, ptr %258, align 1
-  store i8 %259, ptr %257, align 4
-  %261 = getelementptr i8, ptr %231, i64 54
-  %262 = load i8, ptr %261, align 2
-  %263 = getelementptr i8, ptr %231, i64 53
-  %264 = load i8, ptr %263, align 1
-  store i8 %264, ptr %261, align 2
-  store i8 %262, ptr %263, align 1
-  %265 = getelementptr inbounds nuw i8, ptr %231, i64 56
-  %266 = getelementptr i8, ptr %231, i64 59
-  %267 = load i8, ptr %266, align 1
-  %268 = load i8, ptr %265, align 4
-  store i8 %268, ptr %266, align 1
-  store i8 %267, ptr %265, align 4
-  %269 = getelementptr i8, ptr %231, i64 58
-  %270 = load i8, ptr %269, align 2
-  %271 = getelementptr i8, ptr %231, i64 57
-  %272 = load i8, ptr %271, align 1
-  store i8 %272, ptr %269, align 2
-  store i8 %270, ptr %271, align 1
+242:                                              ; preds = %239
+  %243 = getelementptr inbounds nuw i8, ptr %231, i64 44
+  %244 = getelementptr i8, ptr %231, i64 47
+  %245 = load i8, ptr %244, align 1
+  %246 = load i8, ptr %243, align 4
+  store i8 %246, ptr %244, align 1
+  store i8 %245, ptr %243, align 4
+  %247 = getelementptr i8, ptr %231, i64 46
+  %248 = load i8, ptr %247, align 2
+  %249 = getelementptr i8, ptr %231, i64 45
+  %250 = load i8, ptr %249, align 1
+  store i8 %250, ptr %247, align 2
+  store i8 %248, ptr %249, align 1
+  %251 = getelementptr inbounds nuw i8, ptr %231, i64 48
+  %252 = getelementptr i8, ptr %231, i64 51
+  %253 = load i8, ptr %252, align 1
+  %254 = load i8, ptr %251, align 4
+  store i8 %254, ptr %252, align 1
+  store i8 %253, ptr %251, align 4
+  %255 = getelementptr i8, ptr %231, i64 50
+  %256 = load i8, ptr %255, align 2
+  %257 = getelementptr i8, ptr %231, i64 49
+  %258 = load i8, ptr %257, align 1
+  store i8 %258, ptr %255, align 2
+  store i8 %256, ptr %257, align 1
+  %259 = getelementptr inbounds nuw i8, ptr %231, i64 52
+  %260 = getelementptr i8, ptr %231, i64 55
+  %261 = load i8, ptr %260, align 1
+  %262 = load i8, ptr %259, align 4
+  store i8 %262, ptr %260, align 1
+  store i8 %261, ptr %259, align 4
+  %263 = getelementptr i8, ptr %231, i64 54
+  %264 = load i8, ptr %263, align 2
+  %265 = getelementptr i8, ptr %231, i64 53
+  %266 = load i8, ptr %265, align 1
+  store i8 %266, ptr %263, align 2
+  store i8 %264, ptr %265, align 1
+  %267 = getelementptr inbounds nuw i8, ptr %231, i64 56
+  %268 = getelementptr i8, ptr %231, i64 59
+  %269 = load i8, ptr %268, align 1
+  %270 = load i8, ptr %267, align 4
+  store i8 %270, ptr %268, align 1
+  store i8 %269, ptr %267, align 4
+  %271 = getelementptr i8, ptr %231, i64 58
+  %272 = load i8, ptr %271, align 2
+  %273 = getelementptr i8, ptr %231, i64 57
+  %274 = load i8, ptr %273, align 1
+  store i8 %274, ptr %271, align 2
+  store i8 %272, ptr %273, align 1
   br label %pcap_byteswap_linux_sll_pseudoheader.exit
 
-pcap_byteswap_linux_sll_pseudoheader.exit:        ; preds = %.lr.ph.i, %240, %237, %228, %194, %188, %184, %._crit_edge.i.i, %158, %154, %149, %135, %132, %125, %.sink.split.i.i37, %106, %97, %95, %89, %78, %72, %.sink.split.i.i, %56, %47, %45, %39, %27, %21, %5, %227, %187, %121, %122, %71, %20, %15, %17, %7, %12, %8, %220, %185
+pcap_byteswap_linux_sll_pseudoheader.exit:        ; preds = %.lr.ph.i, %242, %239, %228, %194, %188, %184, %._crit_edge.i.i, %158, %154, %149, %135, %132, %125, %.sink.split.i.i37, %106, %97, %95, %89, %78, %72, %.sink.split.i.i, %56, %47, %45, %39, %27, %21, %5, %227, %187, %121, %122, %71, %20, %15, %17, %7, %12, %8, %220, %185
   ret void
 }
 

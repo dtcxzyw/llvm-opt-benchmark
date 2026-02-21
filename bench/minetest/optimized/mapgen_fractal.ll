@@ -3429,17 +3429,18 @@ if.then:                                          ; preds = %entry
   %1 = load i32, ptr %seed, align 8, !tbaa !51
   %call = tail call nsz noundef float @_Z13NoisePerlin2DPK11NoiseParamsffi(ptr noundef nonnull %0, float noundef %conv, float noundef %conv3, i32 noundef %1)
   %conv4 = fptosi float %call to i16
-  %conv6 = sext i16 %conv4 to i32
   %water_level = getelementptr inbounds nuw i8, ptr %this, i64 12
   %2 = load i32, ptr %water_level, align 4, !tbaa !88
-  %conv6. = tail call i32 @llvm.smax.i32(i32 %2, i32 %conv6)
-  %cmp9 = icmp slt i32 %conv6., 0
+  %3 = icmp slt i32 %2, 0
+  %4 = icmp slt i16 %conv4, 0
+  %cmp9 = and i1 %3, %4
   br i1 %cmp9, label %for.body.preheader, label %cond.false12
 
 cond.false12:                                     ; preds = %if.then
+  %conv6 = sext i16 %conv4 to i32
   %cmp = icmp slt i32 %2, %conv6
-  %3 = trunc i32 %2 to i16
-  %spec.select60 = select i1 %cmp, i16 %conv4, i16 %3
+  %5 = trunc i32 %2 to i16
+  %spec.select60 = select i1 %cmp, i16 %conv4, i16 %5
   br label %for.body.preheader
 
 for.body.preheader:                               ; preds = %cond.false12, %if.then, %entry

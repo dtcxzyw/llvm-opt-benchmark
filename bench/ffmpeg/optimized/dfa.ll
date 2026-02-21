@@ -28,41 +28,44 @@ define internal range(i32 -1094995529, 1) i32 @dfa_decode_init(ptr noundef initi
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load i32, ptr %5, align 8, !tbaa !28
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %22, label %7
+  br i1 %.not, label %25, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %9 = load i32, ptr %8, align 4, !tbaa !29
   %.not17 = icmp eq i32 %9, 0
-  %. = tail call i32 @llvm.smax.i32(i32 %6, i32 %9)
-  %10 = icmp sgt i32 %., 65535
-  %or.cond = or i1 %.not17, %10
-  br i1 %or.cond, label %22, label %11
+  br i1 %.not17, label %25, label %10
 
-11:                                               ; preds = %7
-  %12 = tail call i32 @av_image_check_size(i32 noundef %6, i32 noundef %9, i32 noundef 0, ptr noundef nonnull %0) #12
-  %13 = icmp sgt i32 %12, -1
-  br i1 %13, label %15, label %14
+10:                                               ; preds = %7
+  %11 = icmp sgt i32 %6, 65535
+  %12 = icmp sgt i32 %9, 65535
+  %13 = or i1 %11, %12
+  br i1 %13, label %25, label %14
 
-14:                                               ; preds = %11
+14:                                               ; preds = %10
+  %15 = tail call i32 @av_image_check_size(i32 noundef %6, i32 noundef %9, i32 noundef 0, ptr noundef nonnull %0) #12
+  %16 = icmp sgt i32 %15, -1
+  br i1 %16, label %18, label %17
+
+17:                                               ; preds = %14
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 48) #12
   tail call void @abort() #13
   unreachable
 
-15:                                               ; preds = %11
-  %16 = load i32, ptr %5, align 8, !tbaa !28
-  %17 = load i32, ptr %8, align 4, !tbaa !29
-  %18 = mul nsw i32 %17, %16
-  %19 = sext i32 %18 to i64
-  %20 = tail call noalias ptr @av_mallocz(i64 noundef %19) #12
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 1024
-  store ptr %20, ptr %21, align 8, !tbaa !30
-  %.not18 = icmp eq ptr %20, null
+18:                                               ; preds = %14
+  %19 = load i32, ptr %5, align 8, !tbaa !28
+  %20 = load i32, ptr %8, align 4, !tbaa !29
+  %21 = mul nsw i32 %20, %19
+  %22 = sext i32 %21 to i64
+  %23 = tail call noalias ptr @av_mallocz(i64 noundef %22) #12
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 1024
+  store ptr %23, ptr %24, align 8, !tbaa !30
+  %.not18 = icmp eq ptr %23, null
   %.19 = select i1 %.not18, i32 -12, i32 0
-  br label %22
+  br label %25
 
-22:                                               ; preds = %15, %1, %7
-  %.0 = phi i32 [ %.19, %15 ], [ -1094995529, %1 ], [ -1094995529, %7 ]
+25:                                               ; preds = %18, %1, %7, %10
+  %.0 = phi i32 [ %.19, %18 ], [ -1094995529, %1 ], [ -1094995529, %10 ], [ -1094995529, %7 ]
   ret i32 %.0
 }
 
@@ -1676,9 +1679,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #11
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

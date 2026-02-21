@@ -654,7 +654,7 @@ define dso_local noundef i32 @_ZN20Sample_TempObstacles19rasterizeTileLayersEiiR
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 8
   %222 = load i32, ptr %221, align 8
   %223 = icmp sgt i32 %222, 0
-  br i1 %223, label %.lr.ph116, label %.preheader
+  br i1 %223, label %.lr.ph116, label %.loopexit
 
 .lr.ph116:                                        ; preds = %218
   %224 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -686,16 +686,13 @@ define dso_local noundef i32 @_ZN20Sample_TempObstacles19rasterizeTileLayersEiiR
   %247 = call noundef i32 @llvm.smin.i32(i32 %246, i32 32)
   %248 = sext i32 %247 to i64
   %249 = icmp slt i64 %indvars.iv.next127, %248
-  br i1 %249, label %254, label %.preheader.loopexit, !llvm.loop !8
+  br i1 %249, label %254, label %.preheader, !llvm.loop !8
 
-.preheader.loopexit:                              ; preds = %243
+.preheader:                                       ; preds = %243
   %.pre = load i32, ptr %219, align 8
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.loopexit, %218
-  %250 = phi i32 [ %.pre, %.preheader.loopexit ], [ 0, %218 ]
-  %251 = call noundef i32 @llvm.smin.i32(i32 %250, i32 %5)
-  %252 = icmp sgt i32 %251, 0
+  %250 = icmp sgt i32 %.pre, 0
+  %251 = icmp sgt i32 %5, 0
+  %252 = and i1 %250, %251
   br i1 %252, label %.lr.ph119, label %.loopexit
 
 .lr.ph119:                                        ; preds = %.preheader
@@ -800,8 +797,8 @@ define dso_local noundef i32 @_ZN20Sample_TempObstacles19rasterizeTileLayersEiiR
   %316 = trunc nuw nsw i64 %indvars.iv.next130 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %131, %306, %.invoke, %.loopexit.loopexit, %.preheader, %100
-  %.1 = phi i32 [ 0, %100 ], [ 0, %.preheader ], [ %316, %.loopexit.loopexit ], [ 0, %.invoke ], [ 0, %306 ], [ 0, %131 ]
+.loopexit:                                        ; preds = %131, %306, %.invoke, %218, %.loopexit.loopexit, %.preheader, %100
+  %.1 = phi i32 [ 0, %100 ], [ 0, %218 ], [ %316, %.loopexit.loopexit ], [ 0, %306 ], [ 0, %.invoke ], [ 0, %.preheader ], [ 0, %131 ]
   %317 = load ptr, ptr %8, align 8
   invoke void @_Z17rcFreeHeightFieldP13rcHeightfield(ptr noundef %317)
           to label %318 unwind label %.loopexit.split-lp.i

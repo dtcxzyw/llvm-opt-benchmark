@@ -71930,7 +71930,7 @@ define weak_odr void @_ZN6casadi6MatrixIdE13print_defaultERSoRKNS_8SparsityEPKdb
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.66, i64 noundef 1)
   %10 = tail call noundef i64 @_ZNK6casadi8Sparsity5size2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIxEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %10)
-  br label %76
+  br label %78
 
 12:                                               ; preds = %4
   %13 = tail call noundef i64 @_ZNK6casadi8Sparsity5numelEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -71944,7 +71944,7 @@ define weak_odr void @_ZN6casadi6MatrixIdE13print_defaultERSoRKNS_8SparsityEPKdb
 
 18:                                               ; preds = %15
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.242, i64 noundef 2)
-  br label %76
+  br label %78
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr %0, align 8, !tbaa !46
@@ -72001,7 +72001,7 @@ _ZN6casadi6MatrixIdE12print_scalarERSoRKd.exit:   ; preds = %41, %44
   %59 = getelementptr inbounds i8, ptr %0, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   store i32 %30, ptr %60, align 8, !tbaa !1350
-  br label %76
+  br label %78
 
 61:                                               ; preds = %12
   %62 = tail call noundef zeroext i1 @_ZNK6casadi8Sparsity9is_columnEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -72009,33 +72009,34 @@ _ZN6casadi6MatrixIdE12print_scalarERSoRKd.exit:   ; preds = %41, %44
 
 63:                                               ; preds = %61
   tail call void @_ZN6casadi6MatrixIdE12print_vectorERSoRKNS_8SparsityEPKdb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i1 noundef zeroext %3)
-  br label %76
+  br label %78
 
 64:                                               ; preds = %61
   %65 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %66 = tail call noundef i64 @_ZNK6casadi8Sparsity5size2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %65, i64 %66)
-  %67 = icmp slt i64 %.sroa.speculated, 11
-  br i1 %67, label %.critedge, label %68
+  %67 = icmp slt i64 %65, 11
+  %68 = icmp slt i64 %66, 11
+  %69 = and i1 %67, %68
+  br i1 %69, label %.critedge, label %70
 
-68:                                               ; preds = %64
-  %69 = tail call noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  %70 = sitofp i64 %69 to double
-  %71 = tail call noundef i64 @_ZNK6casadi8Sparsity5numelEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
+70:                                               ; preds = %64
+  %71 = tail call noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %72 = sitofp i64 %71 to double
-  %73 = fdiv double %70, %72
-  %74 = fcmp ult double %73, 5.000000e-01
-  br i1 %74, label %75, label %.critedge
+  %73 = tail call noundef i64 @_ZNK6casadi8Sparsity5numelEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %74 = sitofp i64 %73 to double
+  %75 = fdiv double %72, %74
+  %76 = fcmp ult double %75, 5.000000e-01
+  br i1 %76, label %77, label %.critedge
 
-.critedge:                                        ; preds = %64, %68
+.critedge:                                        ; preds = %64, %70
   tail call void @_ZN6casadi6MatrixIdE11print_denseERSoRKNS_8SparsityEPKdb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i1 noundef zeroext %3)
-  br label %76
+  br label %78
 
-75:                                               ; preds = %68
+77:                                               ; preds = %70
   tail call void @_ZN6casadi6MatrixIdE12print_sparseERSoRKNS_8SparsityEPKdb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i1 noundef zeroext %3)
-  br label %76
+  br label %78
 
-76:                                               ; preds = %_ZN6casadi6MatrixIdE12print_scalarERSoRKd.exit, %18, %.critedge, %75, %63, %6
+78:                                               ; preds = %_ZN6casadi6MatrixIdE12print_scalarERSoRKd.exit, %18, %.critedge, %77, %63, %6
   ret void
 }
 

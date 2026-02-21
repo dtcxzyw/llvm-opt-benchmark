@@ -7273,8 +7273,7 @@ define hidden noundef i16 @_ZN5bytes3buf8buf_impl3Buf7get_u1617h2f918903260326dd
   %.val.i.i.i.i = load ptr, ptr %.val.i.i, align 8, !alias.scope !2331, !noalias !2324, !nonnull !3, !align !37, !noundef !3
   %.sroa.0.0.sroa.speculated.i.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.val1.i.i.i.i, i64 %7)
   %13 = sub nuw i64 %.val1.i.i.i.i, %.sroa.0.0.sroa.speculated.i.i.i.i.i
-  %.sroa.0.0.sroa.speculated.i.i7.i = tail call noundef i64 @llvm.umin.i64(i64 %10, i64 %13)
-  %14 = icmp ugt i64 %.sroa.0.0.sroa.speculated.i.i7.i, 1
+  %14 = icmp ugt i64 %13, 1
   br i1 %14, label %"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h182b1d00277d5358E.exit.i", label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %12

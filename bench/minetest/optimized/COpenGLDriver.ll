@@ -7140,7 +7140,6 @@ if.end12:                                         ; preds = %lor.lhs.false, %if.
   %targetRect.sroa.0.0.insert.mask301 = and i64 %targetRect.sroa.0.4, -4294967296
   %targetRect.sroa.0.0.insert.insert302 = or disjoint i64 %targetRect.sroa.0.0.insert.mask301, %targetRect.sroa.0.0.insert.ext300
   %targetRect.sroa.0.5 = select i1 %cmp43.i216, i64 %targetRect.sroa.0.0.insert.insert302, i64 %targetRect.sroa.0.4
-  %18 = tail call i32 @llvm.smin.i32(i32 %16, i32 %targetRect.sroa.0.0.extract.trunc294.pre-phi)
   %targetRect.sroa.0.4.extract.shift324 = lshr i64 %targetRect.sroa.0.5, 32
   %targetRect.sroa.0.4.extract.trunc325 = trunc nuw i64 %targetRect.sroa.0.4.extract.shift324 to i32
   %cmp54.i219 = icmp slt i32 %17, %targetRect.sroa.0.4.extract.trunc325
@@ -7149,11 +7148,13 @@ if.end12:                                         ; preds = %lor.lhs.false, %if.
   %targetRect.sroa.0.4.insert.mask334 = and i64 %targetRect.sroa.0.5, 4294967295
   %targetRect.sroa.0.4.insert.insert335 = or disjoint i64 %targetRect.sroa.0.4.insert.mask334, %targetRect.sroa.0.4.insert.shift333
   %targetRect.sroa.0.6 = select i1 %cmp54.i219, i64 %targetRect.sroa.0.4.insert.insert335, i64 %targetRect.sroa.0.5
-  %19 = tail call i32 @llvm.smin.i32(i32 %17, i32 %targetRect.sroa.0.4.extract.trunc325)
-  %cmp65.i221 = icmp slt i32 %18, 0
+  %18 = or i32 %16, %targetRect.sroa.0.0.extract.trunc294.pre-phi
   %targetRect.sroa.0.0.insert.mask297 = and i64 %targetRect.sroa.0.6, -4294967296
-  %targetRect.sroa.0.7 = select i1 %cmp65.i221, i64 %targetRect.sroa.0.0.insert.mask297, i64 %targetRect.sroa.0.6
-  %cmp76.i223 = icmp slt i32 %19, 0
+  %cmp65.i221.not13 = icmp slt i32 %18, 0
+  %targetRect.sroa.0.7 = select i1 %cmp65.i221.not13, i64 %targetRect.sroa.0.0.insert.mask297, i64 %targetRect.sroa.0.6
+  %19 = icmp slt i32 %17, 0
+  %20 = icmp slt i64 %targetRect.sroa.0.5, 0
+  %cmp76.i223 = or i1 %19, %20
   %targetRect.sroa.0.4.insert.mask329 = and i64 %targetRect.sroa.0.7, 4294967295
   %targetRect.sroa.0.8 = select i1 %cmp76.i223, i64 %targetRect.sroa.0.4.insert.mask329, i64 %targetRect.sroa.0.7
   %targetRect.sroa.0.0.extract.trunc304 = trunc i64 %targetRect.sroa.0.8 to i32
@@ -7170,64 +7171,64 @@ lor.lhs.false17:                                  ; preds = %if.end12
 
 if.end21:                                         ; preds = %lor.lhs.false17
   %OriginalSize.i = getelementptr inbounds nuw i8, ptr %texture, i64 72
-  %20 = load <2 x i32>, ptr %destPos, align 4, !tbaa !129
-  %21 = bitcast i64 %targetRect.sroa.0.8 to <2 x i32>
-  %22 = sub nsw <2 x i32> %21, %20
-  %23 = load <2 x i32>, ptr %sourceRect, align 4, !tbaa !129
-  %24 = add nsw <2 x i32> %23, %22
-  %25 = load <2 x i32>, ptr %OriginalSize.i, align 4, !tbaa !129
-  %26 = uitofp <2 x i32> %25 to <2 x float>
-  %27 = fdiv <2 x float> splat (float 1.000000e+00), %26
-  %28 = sitofp <2 x i32> %24 to <2 x float>
-  %29 = fmul <2 x float> %27, %28
-  %30 = insertelement <2 x i32> poison, i32 %sub.i234, i64 0
-  %31 = insertelement <2 x i32> %30, i32 %sub.i237, i64 1
-  %32 = add nsw <2 x i32> %24, %31
-  %33 = sitofp <2 x i32> %32 to <2 x float>
-  %34 = fmul <2 x float> %27, %33
+  %21 = load <2 x i32>, ptr %destPos, align 4, !tbaa !129
+  %22 = bitcast i64 %targetRect.sroa.0.8 to <2 x i32>
+  %23 = sub nsw <2 x i32> %22, %21
+  %24 = load <2 x i32>, ptr %sourceRect, align 4, !tbaa !129
+  %25 = add nsw <2 x i32> %24, %23
+  %26 = load <2 x i32>, ptr %OriginalSize.i, align 4, !tbaa !129
+  %27 = uitofp <2 x i32> %26 to <2 x float>
+  %28 = fdiv <2 x float> splat (float 1.000000e+00), %27
+  %29 = sitofp <2 x i32> %25 to <2 x float>
+  %30 = fmul <2 x float> %28, %29
+  %31 = insertelement <2 x i32> poison, i32 %sub.i234, i64 0
+  %32 = insertelement <2 x i32> %31, i32 %sub.i237, i64 1
+  %33 = add nsw <2 x i32> %25, %32
+  %34 = sitofp <2 x i32> %33 to <2 x float>
+  %35 = fmul <2 x float> %28, %34
   %MaxTextureUnits.i = getelementptr inbounds nuw i8, ptr %this, i64 1731
-  %35 = load i8, ptr %MaxTextureUnits.i, align 1, !tbaa !151
-  %cmp12.i = icmp ugt i8 %35, 1
+  %36 = load i8, ptr %MaxTextureUnits.i, align 1, !tbaa !151
+  %cmp12.i = icmp ugt i8 %36, 1
   br i1 %cmp12.i, label %for.body.lr.ph.i, label %_ZN3irr5video13COpenGLDriver15disableTexturesEj.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.end21
   %CacheHandler.i = getelementptr inbounds nuw i8, ptr %this, i64 3048
-  %36 = load ptr, ptr %CacheHandler.i, align 8, !tbaa !6
-  %TextureCache.i.i.peel = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %TextureCount.i.i.peel = getelementptr inbounds nuw i8, ptr %36, i64 64
-  %37 = load i32, ptr %TextureCount.i.i.peel, align 8
-  %cmp2.i.i.peel = icmp ugt i32 %37, 1
+  %37 = load ptr, ptr %CacheHandler.i, align 8, !tbaa !6
+  %TextureCache.i.i.peel = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %TextureCount.i.i.peel = getelementptr inbounds nuw i8, ptr %37, i64 64
+  %38 = load i32, ptr %TextureCount.i.i.peel, align 8
+  %cmp2.i.i.peel = icmp ugt i32 %38, 1
   br i1 %cmp2.i.i.peel, label %if.then.i.i.peel, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE.exit.i.peel
 
 if.then.i.i.peel:                                 ; preds = %for.body.lr.ph.i
-  %arrayidx.i.i.peel = getelementptr inbounds nuw i8, ptr %36, i64 40
-  %38 = load ptr, ptr %arrayidx.i.i.peel, align 8, !tbaa !135
-  %cmp5.not.i.i.peel = icmp eq ptr %38, null
+  %arrayidx.i.i.peel = getelementptr inbounds nuw i8, ptr %37, i64 40
+  %39 = load ptr, ptr %arrayidx.i.i.peel, align 8, !tbaa !135
+  %cmp5.not.i.i.peel = icmp eq ptr %39, null
   br i1 %cmp5.not.i.i.peel, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE.exit.i.peel, label %if.then6.i.i.peel
 
 if.then6.i.i.peel:                                ; preds = %if.then.i.i.peel
-  %39 = load ptr, ptr %TextureCache.i.i.peel, align 8, !tbaa !319
-  %ActiveTexture.i84.i.i.peel = getelementptr inbounds nuw i8, ptr %39, i64 172
-  %40 = load i32, ptr %ActiveTexture.i84.i.i.peel, align 4, !tbaa !223
-  %cmp.not.i85.i.i.peel = icmp eq i32 %40, 33985
+  %40 = load ptr, ptr %TextureCache.i.i.peel, align 8, !tbaa !319
+  %ActiveTexture.i84.i.i.peel = getelementptr inbounds nuw i8, ptr %40, i64 172
+  %41 = load i32, ptr %ActiveTexture.i84.i.i.peel, align 4, !tbaa !223
+  %cmp.not.i85.i.i.peel = icmp eq i32 %41, 33985
   br i1 %cmp.not.i85.i.i.peel, label %if.then34.i.i.peel, label %if.then.i86.i.i.peel
 
 if.then.i86.i.i.peel:                             ; preds = %if.then6.i.i.peel
-  %Driver.i87.i.i.peel = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load ptr, ptr %Driver.i87.i.i.peel, align 8, !tbaa !224
-  %pGlActiveTexture.i.i88.i.i.peel = getelementptr inbounds nuw i8, ptr %41, i64 1736
-  %42 = load ptr, ptr %pGlActiveTexture.i.i88.i.i.peel, align 8, !tbaa !225
-  %tobool.not.i.i89.i.i.peel = icmp eq ptr %42, null
+  %Driver.i87.i.i.peel = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %42 = load ptr, ptr %Driver.i87.i.i.peel, align 8, !tbaa !224
+  %pGlActiveTexture.i.i88.i.i.peel = getelementptr inbounds nuw i8, ptr %42, i64 1736
+  %43 = load ptr, ptr %pGlActiveTexture.i.i88.i.i.peel, align 8, !tbaa !225
+  %tobool.not.i.i89.i.i.peel = icmp eq ptr %43, null
   br i1 %tobool.not.i.i89.i.i.peel, label %if.else.i.i93.i.i.peel, label %if.end6.sink.split.i.i90.i.i.peel
 
 if.else.i.i93.i.i.peel:                           ; preds = %if.then.i86.i.i.peel
-  %pGlActiveTextureARB.i.i94.i.i.peel = getelementptr inbounds nuw i8, ptr %41, i64 1744
-  %43 = load ptr, ptr %pGlActiveTextureARB.i.i94.i.i.peel, align 8, !tbaa !226
-  %tobool3.not.i.i95.i.i.peel = icmp eq ptr %43, null
+  %pGlActiveTextureARB.i.i94.i.i.peel = getelementptr inbounds nuw i8, ptr %42, i64 1744
+  %44 = load ptr, ptr %pGlActiveTextureARB.i.i94.i.i.peel, align 8, !tbaa !226
+  %tobool3.not.i.i95.i.i.peel = icmp eq ptr %44, null
   br i1 %tobool3.not.i.i95.i.i.peel, label %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel, label %if.end6.sink.split.i.i90.i.i.peel
 
 if.end6.sink.split.i.i90.i.i.peel:                ; preds = %if.else.i.i93.i.i.peel, %if.then.i86.i.i.peel
-  %.sink.i.i91.i.i.peel = phi ptr [ %42, %if.then.i86.i.i.peel ], [ %43, %if.else.i.i93.i.i.peel ]
+  %.sink.i.i91.i.i.peel = phi ptr [ %43, %if.then.i86.i.i.peel ], [ %44, %if.else.i.i93.i.i.peel ]
   tail call void %.sink.i.i91.i.i.peel(i32 noundef 33985) #25
   br label %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel
 
@@ -7236,20 +7237,20 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel: 
   br label %if.then34.i.i.peel
 
 if.then34.i.i.peel:                               ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel, %if.then6.i.i.peel
-  %TextureType.i104.i.i.peel = getelementptr inbounds nuw i8, ptr %38, i64 128
-  %44 = load i32, ptr %TextureType.i104.i.i.peel, align 8, !tbaa !325
-  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 520), align 8, !tbaa !333
-  tail call void %45(i32 noundef %44, i32 noundef 0) #25
-  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 224), align 8, !tbaa !334
-  tail call void %46(i32 noundef %44) #25
+  %TextureType.i104.i.i.peel = getelementptr inbounds nuw i8, ptr %39, i64 128
+  %45 = load i32, ptr %TextureType.i104.i.i.peel, align 8, !tbaa !325
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 520), align 8, !tbaa !333
+  tail call void %46(i32 noundef %45, i32 noundef 0) #25
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 224), align 8, !tbaa !334
+  tail call void %47(i32 noundef %45) #25
   store ptr null, ptr %arrayidx.i.i.peel, align 8, !tbaa !135
-  %vtable43.i.i.peel = load ptr, ptr %38, align 8, !tbaa !3
+  %vtable43.i.i.peel = load ptr, ptr %39, align 8, !tbaa !3
   %vbase.offset.ptr44.i.i.peel = getelementptr i8, ptr %vtable43.i.i.peel, i64 -24
   %vbase.offset45.i.i.peel = load i64, ptr %vbase.offset.ptr44.i.i.peel, align 8
-  %add.ptr46.i.i.peel = getelementptr inbounds i8, ptr %38, i64 %vbase.offset45.i.i.peel
+  %add.ptr46.i.i.peel = getelementptr inbounds i8, ptr %39, i64 %vbase.offset45.i.i.peel
   %ReferenceCounter.i105.i.i.peel = getelementptr inbounds nuw i8, ptr %add.ptr46.i.i.peel, i64 16
-  %47 = load i32, ptr %ReferenceCounter.i105.i.i.peel, align 8, !tbaa !141
-  %dec.i.i.i.peel = add nsw i32 %47, -1
+  %48 = load i32, ptr %ReferenceCounter.i105.i.i.peel, align 8, !tbaa !141
+  %dec.i.i.i.peel = add nsw i32 %48, -1
   store i32 %dec.i.i.i.peel, ptr %ReferenceCounter.i105.i.i.peel, align 8, !tbaa !141
   %tobool.not.i.i.i.peel = icmp eq i32 %dec.i.i.i.peel, 0
   br i1 %tobool.not.i.i.i.peel, label %delete.notnull.i.i.i.peel, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE.exit.i.peel
@@ -7257,52 +7258,52 @@ if.then34.i.i.peel:                               ; preds = %_ZN3irr5video23COpe
 delete.notnull.i.i.i.peel:                        ; preds = %if.then34.i.i.peel
   %vtable.i.i.i.peel = load ptr, ptr %add.ptr46.i.i.peel, align 8, !tbaa !3
   %vfn.i.i.i.peel = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.peel, i64 8
-  %48 = load ptr, ptr %vfn.i.i.i.peel, align 8
-  tail call void %48(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr46.i.i.peel) #25
+  %49 = load ptr, ptr %vfn.i.i.i.peel, align 8
+  tail call void %49(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr46.i.i.peel) #25
   br label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE.exit.i.peel
 
 _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE.exit.i.peel: ; preds = %delete.notnull.i.i.i.peel, %if.then34.i.i.peel, %if.then.i.i.peel, %for.body.lr.ph.i
-  %49 = load i8, ptr %MaxTextureUnits.i, align 1, !tbaa !151
-  %cmp.i263.peel = icmp ugt i8 %49, 2
+  %50 = load i8, ptr %MaxTextureUnits.i, align 1, !tbaa !151
+  %cmp.i263.peel = icmp ugt i8 %50, 2
   br i1 %cmp.i263.peel, label %for.body.i.peel.next, label %_ZN3irr5video13COpenGLDriver15disableTexturesEj.exit
 
 for.body.i.peel.next:                             ; preds = %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE.exit.i.peel
-  %50 = load ptr, ptr %CacheHandler.i, align 8, !tbaa !6
-  %TextureCache.i.i.peel364 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %TextureCount.i.i.peel366 = getelementptr inbounds nuw i8, ptr %50, i64 64
-  %51 = load i32, ptr %TextureCount.i.i.peel366, align 8
-  %cmp2.i.i.peel367 = icmp ugt i32 %51, 2
+  %51 = load ptr, ptr %CacheHandler.i, align 8, !tbaa !6
+  %TextureCache.i.i.peel364 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  %TextureCount.i.i.peel366 = getelementptr inbounds nuw i8, ptr %51, i64 64
+  %52 = load i32, ptr %TextureCount.i.i.peel366, align 8
+  %cmp2.i.i.peel367 = icmp ugt i32 %52, 2
   br i1 %cmp2.i.i.peel367, label %if.then.i.i.peel369, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE.exit.i.peel401
 
 if.then.i.i.peel369:                              ; preds = %for.body.i.peel.next
-  %arrayidx.i.i.peel371 = getelementptr inbounds nuw i8, ptr %50, i64 48
-  %52 = load ptr, ptr %arrayidx.i.i.peel371, align 8, !tbaa !135
-  %cmp5.not.i.i.peel372 = icmp eq ptr %52, null
+  %arrayidx.i.i.peel371 = getelementptr inbounds nuw i8, ptr %51, i64 48
+  %53 = load ptr, ptr %arrayidx.i.i.peel371, align 8, !tbaa !135
+  %cmp5.not.i.i.peel372 = icmp eq ptr %53, null
   br i1 %cmp5.not.i.i.peel372, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE.exit.i.peel401, label %if.then6.i.i.peel373
 
 if.then6.i.i.peel373:                             ; preds = %if.then.i.i.peel369
-  %53 = load ptr, ptr %TextureCache.i.i.peel364, align 8, !tbaa !319
-  %ActiveTexture.i84.i.i.peel374 = getelementptr inbounds nuw i8, ptr %53, i64 172
-  %54 = load i32, ptr %ActiveTexture.i84.i.i.peel374, align 4, !tbaa !223
-  %cmp.not.i85.i.i.peel375 = icmp eq i32 %54, 33986
+  %54 = load ptr, ptr %TextureCache.i.i.peel364, align 8, !tbaa !319
+  %ActiveTexture.i84.i.i.peel374 = getelementptr inbounds nuw i8, ptr %54, i64 172
+  %55 = load i32, ptr %ActiveTexture.i84.i.i.peel374, align 4, !tbaa !223
+  %cmp.not.i85.i.i.peel375 = icmp eq i32 %55, 33986
   br i1 %cmp.not.i85.i.i.peel375, label %if.then34.i.i.peel389, label %if.then.i86.i.i.peel376
 
 if.then.i86.i.i.peel376:                          ; preds = %if.then6.i.i.peel373
-  %Driver.i87.i.i.peel377 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %55 = load ptr, ptr %Driver.i87.i.i.peel377, align 8, !tbaa !224
-  %pGlActiveTexture.i.i88.i.i.peel378 = getelementptr inbounds nuw i8, ptr %55, i64 1736
-  %56 = load ptr, ptr %pGlActiveTexture.i.i88.i.i.peel378, align 8, !tbaa !225
-  %tobool.not.i.i89.i.i.peel379 = icmp eq ptr %56, null
+  %Driver.i87.i.i.peel377 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %56 = load ptr, ptr %Driver.i87.i.i.peel377, align 8, !tbaa !224
+  %pGlActiveTexture.i.i88.i.i.peel378 = getelementptr inbounds nuw i8, ptr %56, i64 1736
+  %57 = load ptr, ptr %pGlActiveTexture.i.i88.i.i.peel378, align 8, !tbaa !225
+  %tobool.not.i.i89.i.i.peel379 = icmp eq ptr %57, null
   br i1 %tobool.not.i.i89.i.i.peel379, label %if.else.i.i93.i.i.peel380, label %if.end6.sink.split.i.i90.i.i.peel383
 
 if.else.i.i93.i.i.peel380:                        ; preds = %if.then.i86.i.i.peel376
-  %pGlActiveTextureARB.i.i94.i.i.peel381 = getelementptr inbounds nuw i8, ptr %55, i64 1744
-  %57 = load ptr, ptr %pGlActiveTextureARB.i.i94.i.i.peel381, align 8, !tbaa !226
-  %tobool3.not.i.i95.i.i.peel382 = icmp eq ptr %57, null
+  %pGlActiveTextureARB.i.i94.i.i.peel381 = getelementptr inbounds nuw i8, ptr %56, i64 1744
+  %58 = load ptr, ptr %pGlActiveTextureARB.i.i94.i.i.peel381, align 8, !tbaa !226
+  %tobool3.not.i.i95.i.i.peel382 = icmp eq ptr %58, null
   br i1 %tobool3.not.i.i95.i.i.peel382, label %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel387, label %if.end6.sink.split.i.i90.i.i.peel383
 
 if.end6.sink.split.i.i90.i.i.peel383:             ; preds = %if.else.i.i93.i.i.peel380, %if.then.i86.i.i.peel376
-  %.sink.i.i91.i.i.peel384 = phi ptr [ %56, %if.then.i86.i.i.peel376 ], [ %57, %if.else.i.i93.i.i.peel380 ]
+  %.sink.i.i91.i.i.peel384 = phi ptr [ %57, %if.then.i86.i.i.peel376 ], [ %58, %if.else.i.i93.i.i.peel380 ]
   tail call void %.sink.i.i91.i.i.peel384(i32 noundef 33986) #25
   br label %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel387
 
@@ -7311,20 +7312,20 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel38
   br label %if.then34.i.i.peel389
 
 if.then34.i.i.peel389:                            ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel387, %if.then6.i.i.peel373
-  %TextureType.i104.i.i.peel390 = getelementptr inbounds nuw i8, ptr %52, i64 128
-  %58 = load i32, ptr %TextureType.i104.i.i.peel390, align 8, !tbaa !325
-  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 520), align 8, !tbaa !333
-  tail call void %59(i32 noundef %58, i32 noundef 0) #25
-  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 224), align 8, !tbaa !334
-  tail call void %60(i32 noundef %58) #25
+  %TextureType.i104.i.i.peel390 = getelementptr inbounds nuw i8, ptr %53, i64 128
+  %59 = load i32, ptr %TextureType.i104.i.i.peel390, align 8, !tbaa !325
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 520), align 8, !tbaa !333
+  tail call void %60(i32 noundef %59, i32 noundef 0) #25
+  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 224), align 8, !tbaa !334
+  tail call void %61(i32 noundef %59) #25
   store ptr null, ptr %arrayidx.i.i.peel371, align 8, !tbaa !135
-  %vtable43.i.i.peel391 = load ptr, ptr %52, align 8, !tbaa !3
+  %vtable43.i.i.peel391 = load ptr, ptr %53, align 8, !tbaa !3
   %vbase.offset.ptr44.i.i.peel392 = getelementptr i8, ptr %vtable43.i.i.peel391, i64 -24
   %vbase.offset45.i.i.peel393 = load i64, ptr %vbase.offset.ptr44.i.i.peel392, align 8
-  %add.ptr46.i.i.peel394 = getelementptr inbounds i8, ptr %52, i64 %vbase.offset45.i.i.peel393
+  %add.ptr46.i.i.peel394 = getelementptr inbounds i8, ptr %53, i64 %vbase.offset45.i.i.peel393
   %ReferenceCounter.i105.i.i.peel395 = getelementptr inbounds nuw i8, ptr %add.ptr46.i.i.peel394, i64 16
-  %61 = load i32, ptr %ReferenceCounter.i105.i.i.peel395, align 8, !tbaa !141
-  %dec.i.i.i.peel396 = add nsw i32 %61, -1
+  %62 = load i32, ptr %ReferenceCounter.i105.i.i.peel395, align 8, !tbaa !141
+  %dec.i.i.i.peel396 = add nsw i32 %62, -1
   store i32 %dec.i.i.i.peel396, ptr %ReferenceCounter.i105.i.i.peel395, align 8, !tbaa !141
   %tobool.not.i.i.i.peel397 = icmp eq i32 %dec.i.i.i.peel396, 0
   br i1 %tobool.not.i.i.i.peel397, label %delete.notnull.i.i.i.peel398, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE.exit.i.peel401
@@ -7332,52 +7333,52 @@ if.then34.i.i.peel389:                            ; preds = %_ZN3irr5video23COpe
 delete.notnull.i.i.i.peel398:                     ; preds = %if.then34.i.i.peel389
   %vtable.i.i.i.peel399 = load ptr, ptr %add.ptr46.i.i.peel394, align 8, !tbaa !3
   %vfn.i.i.i.peel400 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.peel399, i64 8
-  %62 = load ptr, ptr %vfn.i.i.i.peel400, align 8
-  tail call void %62(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr46.i.i.peel394) #25
+  %63 = load ptr, ptr %vfn.i.i.i.peel400, align 8
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr46.i.i.peel394) #25
   br label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE.exit.i.peel401
 
 _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE.exit.i.peel401: ; preds = %delete.notnull.i.i.i.peel398, %if.then34.i.i.peel389, %if.then.i.i.peel369, %for.body.i.peel.next
-  %63 = load i8, ptr %MaxTextureUnits.i, align 1, !tbaa !151
-  %cmp.i263.peel403 = icmp ugt i8 %63, 3
+  %64 = load i8, ptr %MaxTextureUnits.i, align 1, !tbaa !151
+  %cmp.i263.peel403 = icmp ugt i8 %64, 3
   br i1 %cmp.i263.peel403, label %for.body.i.peel.next362, label %_ZN3irr5video13COpenGLDriver15disableTexturesEj.exit
 
 for.body.i.peel.next362:                          ; preds = %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE.exit.i.peel401
-  %64 = load ptr, ptr %CacheHandler.i, align 8, !tbaa !6
-  %TextureCache.i.i.peel406 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %TextureCount.i.i.peel408 = getelementptr inbounds nuw i8, ptr %64, i64 64
-  %65 = load i32, ptr %TextureCount.i.i.peel408, align 8
-  %cmp2.i.i.peel409 = icmp ugt i32 %65, 3
+  %65 = load ptr, ptr %CacheHandler.i, align 8, !tbaa !6
+  %TextureCache.i.i.peel406 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  %TextureCount.i.i.peel408 = getelementptr inbounds nuw i8, ptr %65, i64 64
+  %66 = load i32, ptr %TextureCount.i.i.peel408, align 8
+  %cmp2.i.i.peel409 = icmp ugt i32 %66, 3
   br i1 %cmp2.i.i.peel409, label %if.then.i.i.peel411, label %_ZN3irr5video13COpenGLDriver15disableTexturesEj.exit
 
 if.then.i.i.peel411:                              ; preds = %for.body.i.peel.next362
-  %arrayidx.i.i.peel413 = getelementptr inbounds nuw i8, ptr %64, i64 56
-  %66 = load ptr, ptr %arrayidx.i.i.peel413, align 8, !tbaa !135
-  %cmp5.not.i.i.peel414 = icmp eq ptr %66, null
+  %arrayidx.i.i.peel413 = getelementptr inbounds nuw i8, ptr %65, i64 56
+  %67 = load ptr, ptr %arrayidx.i.i.peel413, align 8, !tbaa !135
+  %cmp5.not.i.i.peel414 = icmp eq ptr %67, null
   br i1 %cmp5.not.i.i.peel414, label %_ZN3irr5video13COpenGLDriver15disableTexturesEj.exit, label %if.then6.i.i.peel415
 
 if.then6.i.i.peel415:                             ; preds = %if.then.i.i.peel411
-  %67 = load ptr, ptr %TextureCache.i.i.peel406, align 8, !tbaa !319
-  %ActiveTexture.i84.i.i.peel416 = getelementptr inbounds nuw i8, ptr %67, i64 172
-  %68 = load i32, ptr %ActiveTexture.i84.i.i.peel416, align 4, !tbaa !223
-  %cmp.not.i85.i.i.peel417 = icmp eq i32 %68, 33987
+  %68 = load ptr, ptr %TextureCache.i.i.peel406, align 8, !tbaa !319
+  %ActiveTexture.i84.i.i.peel416 = getelementptr inbounds nuw i8, ptr %68, i64 172
+  %69 = load i32, ptr %ActiveTexture.i84.i.i.peel416, align 4, !tbaa !223
+  %cmp.not.i85.i.i.peel417 = icmp eq i32 %69, 33987
   br i1 %cmp.not.i85.i.i.peel417, label %if.then34.i.i.peel431, label %if.then.i86.i.i.peel418
 
 if.then.i86.i.i.peel418:                          ; preds = %if.then6.i.i.peel415
-  %Driver.i87.i.i.peel419 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %69 = load ptr, ptr %Driver.i87.i.i.peel419, align 8, !tbaa !224
-  %pGlActiveTexture.i.i88.i.i.peel420 = getelementptr inbounds nuw i8, ptr %69, i64 1736
-  %70 = load ptr, ptr %pGlActiveTexture.i.i88.i.i.peel420, align 8, !tbaa !225
-  %tobool.not.i.i89.i.i.peel421 = icmp eq ptr %70, null
+  %Driver.i87.i.i.peel419 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %70 = load ptr, ptr %Driver.i87.i.i.peel419, align 8, !tbaa !224
+  %pGlActiveTexture.i.i88.i.i.peel420 = getelementptr inbounds nuw i8, ptr %70, i64 1736
+  %71 = load ptr, ptr %pGlActiveTexture.i.i88.i.i.peel420, align 8, !tbaa !225
+  %tobool.not.i.i89.i.i.peel421 = icmp eq ptr %71, null
   br i1 %tobool.not.i.i89.i.i.peel421, label %if.else.i.i93.i.i.peel422, label %if.end6.sink.split.i.i90.i.i.peel425
 
 if.else.i.i93.i.i.peel422:                        ; preds = %if.then.i86.i.i.peel418
-  %pGlActiveTextureARB.i.i94.i.i.peel423 = getelementptr inbounds nuw i8, ptr %69, i64 1744
-  %71 = load ptr, ptr %pGlActiveTextureARB.i.i94.i.i.peel423, align 8, !tbaa !226
-  %tobool3.not.i.i95.i.i.peel424 = icmp eq ptr %71, null
+  %pGlActiveTextureARB.i.i94.i.i.peel423 = getelementptr inbounds nuw i8, ptr %70, i64 1744
+  %72 = load ptr, ptr %pGlActiveTextureARB.i.i94.i.i.peel423, align 8, !tbaa !226
+  %tobool3.not.i.i95.i.i.peel424 = icmp eq ptr %72, null
   br i1 %tobool3.not.i.i95.i.i.peel424, label %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel429, label %if.end6.sink.split.i.i90.i.i.peel425
 
 if.end6.sink.split.i.i90.i.i.peel425:             ; preds = %if.else.i.i93.i.i.peel422, %if.then.i86.i.i.peel418
-  %.sink.i.i91.i.i.peel426 = phi ptr [ %70, %if.then.i86.i.i.peel418 ], [ %71, %if.else.i.i93.i.i.peel422 ]
+  %.sink.i.i91.i.i.peel426 = phi ptr [ %71, %if.then.i86.i.i.peel418 ], [ %72, %if.else.i.i93.i.i.peel422 ]
   tail call void %.sink.i.i91.i.i.peel426(i32 noundef 33987) #25
   br label %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel429
 
@@ -7386,20 +7387,20 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel42
   br label %if.then34.i.i.peel431
 
 if.then34.i.i.peel431:                            ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i.i.peel429, %if.then6.i.i.peel415
-  %TextureType.i104.i.i.peel432 = getelementptr inbounds nuw i8, ptr %66, i64 128
-  %72 = load i32, ptr %TextureType.i104.i.i.peel432, align 8, !tbaa !325
-  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 520), align 8, !tbaa !333
-  tail call void %73(i32 noundef %72, i32 noundef 0) #25
-  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 224), align 8, !tbaa !334
-  tail call void %74(i32 noundef %72) #25
+  %TextureType.i104.i.i.peel432 = getelementptr inbounds nuw i8, ptr %67, i64 128
+  %73 = load i32, ptr %TextureType.i104.i.i.peel432, align 8, !tbaa !325
+  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 520), align 8, !tbaa !333
+  tail call void %74(i32 noundef %73, i32 noundef 0) #25
+  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 224), align 8, !tbaa !334
+  tail call void %75(i32 noundef %73) #25
   store ptr null, ptr %arrayidx.i.i.peel413, align 8, !tbaa !135
-  %vtable43.i.i.peel433 = load ptr, ptr %66, align 8, !tbaa !3
+  %vtable43.i.i.peel433 = load ptr, ptr %67, align 8, !tbaa !3
   %vbase.offset.ptr44.i.i.peel434 = getelementptr i8, ptr %vtable43.i.i.peel433, i64 -24
   %vbase.offset45.i.i.peel435 = load i64, ptr %vbase.offset.ptr44.i.i.peel434, align 8
-  %add.ptr46.i.i.peel436 = getelementptr inbounds i8, ptr %66, i64 %vbase.offset45.i.i.peel435
+  %add.ptr46.i.i.peel436 = getelementptr inbounds i8, ptr %67, i64 %vbase.offset45.i.i.peel435
   %ReferenceCounter.i105.i.i.peel437 = getelementptr inbounds nuw i8, ptr %add.ptr46.i.i.peel436, i64 16
-  %75 = load i32, ptr %ReferenceCounter.i105.i.i.peel437, align 8, !tbaa !141
-  %dec.i.i.i.peel438 = add nsw i32 %75, -1
+  %76 = load i32, ptr %ReferenceCounter.i105.i.i.peel437, align 8, !tbaa !141
+  %dec.i.i.i.peel438 = add nsw i32 %76, -1
   store i32 %dec.i.i.i.peel438, ptr %ReferenceCounter.i105.i.i.peel437, align 8, !tbaa !141
   %tobool.not.i.i.i.peel439 = icmp eq i32 %dec.i.i.i.peel438, 0
   br i1 %tobool.not.i.i.i.peel439, label %delete.notnull.i.i.i.peel440, label %_ZN3irr5video13COpenGLDriver15disableTexturesEj.exit
@@ -7407,14 +7408,14 @@ if.then34.i.i.peel431:                            ; preds = %_ZN3irr5video23COpe
 delete.notnull.i.i.i.peel440:                     ; preds = %if.then34.i.i.peel431
   %vtable.i.i.i.peel441 = load ptr, ptr %add.ptr46.i.i.peel436, align 8, !tbaa !3
   %vfn.i.i.i.peel442 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.peel441, i64 8
-  %76 = load ptr, ptr %vfn.i.i.i.peel442, align 8
-  tail call void %76(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr46.i.i.peel436) #25
+  %77 = load ptr, ptr %vfn.i.i.i.peel442, align 8
+  tail call void %77(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr46.i.i.peel436) #25
   br label %_ZN3irr5video13COpenGLDriver15disableTexturesEj.exit
 
 _ZN3irr5video13COpenGLDriver15disableTexturesEj.exit: ; preds = %delete.notnull.i.i.i.peel440, %if.then34.i.i.peel431, %if.then.i.i.peel411, %for.body.i.peel.next362, %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE.exit.i.peel401, %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE.exit.i.peel, %if.end21
   %CacheHandler = getelementptr inbounds nuw i8, ptr %this, i64 3048
-  %77 = load ptr, ptr %CacheHandler, align 8, !tbaa !6
-  %TextureCache.i = getelementptr inbounds nuw i8, ptr %77, i64 16
+  %78 = load ptr, ptr %CacheHandler, align 8, !tbaa !6
+  %TextureCache.i = getelementptr inbounds nuw i8, ptr %78, i64 16
   %call46 = tail call noundef zeroext i1 @_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE(ptr noundef nonnull align 8 dereferenceable(52) %TextureCache.i, i32 noundef 0, ptr noundef nonnull %texture, i32 noundef 0)
   br i1 %call46, label %if.end48, label %cleanup.cont
 
@@ -7458,27 +7459,27 @@ if.end48:                                         ; preds = %_ZN3irr5video13COpe
   %ref.tmp89.sroa.5.0.arrayidx59.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 4308
   store float 0.000000e+00, ptr %ref.tmp89.sroa.5.0.arrayidx59.sroa_idx, align 4, !tbaa !103
   %TCoords = getelementptr inbounds nuw i8, ptr %this, i64 4220
-  store <2 x float> %29, ptr %TCoords, align 4, !tbaa !103
+  store <2 x float> %30, ptr %TCoords, align 4, !tbaa !103
   %TCoords113 = getelementptr inbounds nuw i8, ptr %this, i64 4256
-  %78 = extractelement <2 x float> %34, i64 0
-  store float %78, ptr %TCoords113, align 8, !tbaa !103
+  %79 = extractelement <2 x float> %35, i64 0
+  store float %79, ptr %TCoords113, align 8, !tbaa !103
   %TCoords113.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 4260
-  %79 = extractelement <2 x float> %29, i64 1
-  store float %79, ptr %TCoords113.sroa_idx, align 4, !tbaa !103
+  %80 = extractelement <2 x float> %30, i64 1
+  store float %80, ptr %TCoords113.sroa_idx, align 4, !tbaa !103
   %TCoords121 = getelementptr inbounds nuw i8, ptr %this, i64 4292
-  store <2 x float> %34, ptr %TCoords121, align 4, !tbaa !103
+  store <2 x float> %35, ptr %TCoords121, align 4, !tbaa !103
   %TCoords129 = getelementptr inbounds nuw i8, ptr %this, i64 4328
-  %80 = extractelement <2 x float> %29, i64 0
-  store float %80, ptr %TCoords129, align 8, !tbaa !103
+  %81 = extractelement <2 x float> %30, i64 0
+  store float %81, ptr %TCoords129, align 8, !tbaa !103
   %TCoords129.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 4332
-  %81 = extractelement <2 x float> %34, i64 1
-  store float %81, ptr %TCoords129.sroa_idx, align 4, !tbaa !103
+  %82 = extractelement <2 x float> %35, i64 1
+  store float %82, ptr %TCoords129.sroa_idx, align 4, !tbaa !103
   %arrayidx130 = getelementptr inbounds nuw i8, ptr %this, i64 1411
-  %82 = load i8, ptr %arrayidx130, align 1, !tbaa !166, !range !131, !noundef !132
-  %tobool131.not = icmp eq i8 %82, 0
+  %83 = load i8, ptr %arrayidx130, align 1, !tbaa !166, !range !131, !noundef !132
+  %tobool131.not = icmp eq i8 %83, 0
   %arrayidx134 = getelementptr inbounds nuw i8, ptr %this, i64 1529
-  %83 = load i8, ptr %arrayidx134, align 1, !range !131
-  %tobool135.not = icmp eq i8 %83, 0
+  %84 = load i8, ptr %arrayidx134, align 1, !range !131
+  %tobool135.not = icmp eq i8 %84, 0
   %or.cond = select i1 %tobool131.not, i1 %tobool135.not, i1 false
   br i1 %or.cond, label %if.then136, label %if.end138
 
@@ -7487,14 +7488,14 @@ if.then136:                                       ; preds = %if.end48
   br label %if.end138
 
 if.end138:                                        ; preds = %if.then136, %if.end48
-  %84 = load ptr, ptr %CacheHandler, align 8, !tbaa !6
-  tail call void @_ZN3irr5video19COpenGLCacheHandler14setClientStateEbbbb(ptr noundef nonnull align 8 dereferenceable(216) %84, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true) #25
+  %85 = load ptr, ptr %CacheHandler, align 8, !tbaa !6
+  tail call void @_ZN3irr5video19COpenGLCacheHandler14setClientStateEbbbb(ptr noundef nonnull align 8 dereferenceable(216) %85, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true) #25
   tail call void @glTexCoordPointer(i32 noundef 2, i32 noundef 5126, i32 noundef 36, ptr noundef nonnull %TCoords) #25
   tail call void @glVertexPointer(i32 noundef 2, i32 noundef 5126, i32 noundef 36, ptr noundef nonnull %Quad2DVertices) #25
-  %85 = load i8, ptr %arrayidx130, align 1, !tbaa !166, !range !131, !noundef !132
-  %tobool151.not = icmp eq i8 %85, 0
-  %86 = load i8, ptr %arrayidx134, align 1, !range !131
-  %tobool155.not = icmp eq i8 %86, 0
+  %86 = load i8, ptr %arrayidx130, align 1, !tbaa !166, !range !131, !noundef !132
+  %tobool151.not = icmp eq i8 %86, 0
+  %87 = load i8, ptr %arrayidx134, align 1, !range !131
+  %tobool155.not = icmp eq i8 %87, 0
   %or.cond192 = select i1 %tobool151.not, i1 %tobool155.not, i1 false
   br i1 %or.cond192, label %if.else, label %if.then165
 
@@ -7504,8 +7505,8 @@ if.then165:                                       ; preds = %if.end138
 
 if.else:                                          ; preds = %if.end138
   %ColorBuffer = getelementptr inbounds nuw i8, ptr %this, i64 3536
-  %87 = load ptr, ptr %ColorBuffer, align 8, !tbaa !183
-  tail call void @glColorPointer(i32 noundef 4, i32 noundef 5121, i32 noundef 0, ptr noundef nonnull %87) #25
+  %88 = load ptr, ptr %ColorBuffer, align 8, !tbaa !183
+  tail call void @glColorPointer(i32 noundef 4, i32 noundef 5121, i32 noundef 0, ptr noundef nonnull %88) #25
   br label %if.end171
 
 if.end171:                                        ; preds = %if.else, %if.then165

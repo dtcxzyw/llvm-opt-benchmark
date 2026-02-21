@@ -3835,78 +3835,79 @@ get_bitsz.exit88:                                 ; preds = %get_bitsz.exit, %44
   %107 = shl nsw i64 %106, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %1, i8 0, i64 %107, i1 false)
   %108 = add nsw i32 %43, 1
-  br label %110
+  %109 = icmp sgt i32 %6, 0
+  br label %111
 
-109:                                              ; preds = %._crit_edge94
+110:                                              ; preds = %._crit_edge94
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret void
 
-110:                                              ; preds = %.loopexit, %._crit_edge94
+111:                                              ; preds = %.loopexit, %._crit_edge94
   %indvars.iv106 = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next107, %._crit_edge94 ]
   %indvars.iv100 = phi i32 [ %108, %.loopexit ], [ %indvars.iv.next101, %._crit_edge94 ]
-  %111 = tail call i32 @llvm.smin.i32(i32 %6, i32 %indvars.iv100)
-  %smin103 = sext i32 %111 to i64
-  %112 = trunc nuw nsw i64 %indvars.iv106 to i32
-  %113 = sub i32 %108, %112
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %6, i32 %113)
-  %114 = icmp sgt i32 %spec.select, 0
-  br i1 %114, label %.lr.ph, label %._crit_edge
+  %112 = tail call i32 @llvm.smin.i32(i32 %6, i32 %indvars.iv100)
+  %smin103 = sext i32 %112 to i64
+  %113 = trunc nuw nsw i64 %indvars.iv106 to i32
+  %114 = sub i32 %108, %113
+  %115 = icmp sgt i32 %114, 0
+  %116 = and i1 %109, %115
+  br i1 %116, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %110
+.lr.ph:                                           ; preds = %111
   %smin = tail call i32 @llvm.smin.i32(i32 %6, i32 %indvars.iv100)
-  %115 = sub nuw nsw i64 2, %indvars.iv106
-  %116 = getelementptr inbounds nuw float, ptr %15, i64 %115
-  %117 = load float, ptr %116, align 4, !tbaa !105
-  %118 = sext i32 %113 to i64
+  %117 = sub nuw nsw i64 2, %indvars.iv106
+  %118 = getelementptr inbounds nuw float, ptr %15, i64 %117
+  %119 = load float, ptr %118, align 4, !tbaa !105
+  %120 = zext nneg i32 %114 to i64
   %wide.trip.count = zext i32 %smin to i64
-  br label %125
+  br label %127
 
-._crit_edge:                                      ; preds = %125, %110
-  %119 = add nsw i32 %113, %43
-  %spec.select86 = tail call i32 @llvm.smin.i32(i32 %6, i32 %119)
-  %120 = icmp slt i32 %113, %spec.select86
-  br i1 %120, label %.lr.ph93, label %._crit_edge94
+._crit_edge:                                      ; preds = %127, %111
+  %121 = add nsw i32 %114, %43
+  %spec.select86 = tail call i32 @llvm.smin.i32(i32 %6, i32 %121)
+  %122 = icmp slt i32 %114, %spec.select86
+  br i1 %122, label %.lr.ph93, label %._crit_edge94
 
 .lr.ph93:                                         ; preds = %._crit_edge
-  %121 = sub nuw nsw i64 2, %indvars.iv106
-  %122 = getelementptr inbounds nuw float, ptr %15, i64 %121
-  %123 = load float, ptr %122, align 4, !tbaa !105
-  %124 = sext i32 %spec.select86 to i64
-  br label %132
+  %123 = sub nuw nsw i64 2, %indvars.iv106
+  %124 = getelementptr inbounds nuw float, ptr %15, i64 %123
+  %125 = load float, ptr %124, align 4, !tbaa !105
+  %126 = sext i32 %spec.select86 to i64
+  br label %134
 
-125:                                              ; preds = %.lr.ph, %125
-  %indvars.iv97 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next98, %125 ]
-  %126 = sub nsw i64 %indvars.iv97, %118
-  %127 = getelementptr inbounds float, ptr %0, i64 %126
-  %128 = load float, ptr %127, align 4, !tbaa !105
-  %129 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv97
+127:                                              ; preds = %.lr.ph, %127
+  %indvars.iv97 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next98, %127 ]
+  %128 = sub nsw i64 %indvars.iv97, %120
+  %129 = getelementptr inbounds float, ptr %0, i64 %128
   %130 = load float, ptr %129, align 4, !tbaa !105
-  %131 = tail call nsz float @llvm.fmuladd.f32(float %117, float %128, float %130)
-  store float %131, ptr %129, align 4, !tbaa !105
+  %131 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv97
+  %132 = load float, ptr %131, align 4, !tbaa !105
+  %133 = tail call nsz float @llvm.fmuladd.f32(float %119, float %130, float %132)
+  store float %133, ptr %131, align 4, !tbaa !105
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count
-  br i1 %exitcond102.not, label %._crit_edge, label %125, !llvm.loop !189
+  br i1 %exitcond102.not, label %._crit_edge, label %127, !llvm.loop !189
 
-._crit_edge94:                                    ; preds = %132, %._crit_edge
+._crit_edge94:                                    ; preds = %134, %._crit_edge
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %indvars.iv.next101 = add i32 %indvars.iv100, -1
   %exitcond109.not = icmp eq i64 %indvars.iv.next107, 3
-  br i1 %exitcond109.not, label %109, label %110, !llvm.loop !190
+  br i1 %exitcond109.not, label %110, label %111, !llvm.loop !190
 
-132:                                              ; preds = %.lr.ph93, %132
-  %indvars.iv104 = phi i64 [ %smin103, %.lr.ph93 ], [ %indvars.iv.next105, %132 ]
-  %133 = trunc nsw i64 %indvars.iv104 to i32
-  %134 = sub i32 %133, %119
-  %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds float, ptr %0, i64 %135
-  %137 = load float, ptr %136, align 4, !tbaa !105
-  %138 = getelementptr inbounds float, ptr %1, i64 %indvars.iv104
+134:                                              ; preds = %.lr.ph93, %134
+  %indvars.iv104 = phi i64 [ %smin103, %.lr.ph93 ], [ %indvars.iv.next105, %134 ]
+  %135 = trunc nsw i64 %indvars.iv104 to i32
+  %136 = sub i32 %135, %121
+  %137 = sext i32 %136 to i64
+  %138 = getelementptr inbounds float, ptr %0, i64 %137
   %139 = load float, ptr %138, align 4, !tbaa !105
-  %140 = tail call nsz float @llvm.fmuladd.f32(float %123, float %137, float %139)
-  store float %140, ptr %138, align 4, !tbaa !105
+  %140 = getelementptr inbounds float, ptr %1, i64 %indvars.iv104
+  %141 = load float, ptr %140, align 4, !tbaa !105
+  %142 = tail call nsz float @llvm.fmuladd.f32(float %125, float %139, float %141)
+  store float %142, ptr %140, align 4, !tbaa !105
   %indvars.iv.next105 = add nsw i64 %indvars.iv104, 1
-  %141 = icmp slt i64 %indvars.iv.next105, %124
-  br i1 %141, label %132, label %._crit_edge94, !llvm.loop !191
+  %143 = icmp slt i64 %indvars.iv.next105, %126
+  br i1 %143, label %134, label %._crit_edge94, !llvm.loop !191
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable

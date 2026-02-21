@@ -16974,7 +16974,6 @@ ZSTD_window_update.exit115:                       ; preds = %ZSTD_window_update.
   %116 = sub nsw i64 0, %114
   %117 = getelementptr inbounds i8, ptr %9, i64 %116
   %.194 = select i1 %115, ptr %117, ptr %.091
-  %.1 = tail call i64 @llvm.umin.i64(i64 %.092, i64 %114)
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %119 = load ptr, ptr %118, align 8, !tbaa !424
   %120 = ptrtoint ptr %.194 to i64
@@ -16996,79 +16995,81 @@ ZSTD_window_update.exit115:                       ; preds = %ZSTD_window_update.
   %133 = load i32, ptr %132, align 4, !tbaa !112
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %133, ptr %134, align 8, !tbaa !234
-  %135 = icmp samesign ult i64 %.1, 9
-  br i1 %135, label %166, label %136
+  %135 = icmp ult i64 %5, 9
+  %136 = icmp ult i32 %., 4
+  %137 = or i1 %135, %136
+  br i1 %137, label %168, label %138
 
-136:                                              ; preds = %106
+138:                                              ; preds = %106
   tail call fastcc void @ZSTD_overflowCorrectIfNeeded(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %.194, ptr noundef nonnull %9)
-  %137 = load i32, ptr %15, align 4, !tbaa !90
-  switch i32 %137, label %161 [
-    i32 1, label %138
-    i32 2, label %139
-    i32 3, label %140
-    i32 4, label %140
-    i32 5, label %140
-    i32 6, label %159
-    i32 7, label %159
-    i32 8, label %159
-    i32 9, label %159
+  %139 = load i32, ptr %15, align 4, !tbaa !90
+  switch i32 %139, label %163 [
+    i32 1, label %140
+    i32 2, label %141
+    i32 3, label %142
+    i32 4, label %142
+    i32 5, label %142
+    i32 6, label %161
+    i32 7, label %161
+    i32 8, label %161
+    i32 9, label %161
   ]
 
-138:                                              ; preds = %136
+140:                                              ; preds = %138
   tail call void @ZSTD_fillHashTable(ptr noundef nonnull %0, ptr noundef nonnull %9, i32 noundef %6, i32 noundef %7) #28
-  br label %161
+  br label %163
 
-139:                                              ; preds = %136
+141:                                              ; preds = %138
   tail call void @ZSTD_fillDoubleHashTable(ptr noundef nonnull %0, ptr noundef nonnull %9, i32 noundef %6, i32 noundef %7) #28
-  br label %161
+  br label %163
 
-140:                                              ; preds = %136, %136, %136
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %142 = load i32, ptr %141, align 4, !tbaa !392
-  %.not104 = icmp eq i32 %142, 0
-  br i1 %.not104, label %145, label %143
+142:                                              ; preds = %138, %138, %138
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %144 = load i32, ptr %143, align 4, !tbaa !392
+  %.not104 = icmp eq i32 %144, 0
+  br i1 %.not104, label %147, label %145
 
-143:                                              ; preds = %140
-  %144 = getelementptr inbounds i8, ptr %9, i64 -8
-  tail call void @ZSTD_dedicatedDictSearch_lazy_loadDictionary(ptr noundef nonnull %0, ptr noundef nonnull %144) #28
-  br label %161
+145:                                              ; preds = %142
+  %146 = getelementptr inbounds i8, ptr %9, i64 -8
+  tail call void @ZSTD_dedicatedDictSearch_lazy_loadDictionary(ptr noundef nonnull %0, ptr noundef nonnull %146) #28
+  br label %163
 
-145:                                              ; preds = %140
-  %146 = getelementptr inbounds nuw i8, ptr %3, i64 160
-  %147 = load i32, ptr %146, align 8, !tbaa !76
-  %148 = icmp eq i32 %147, 1
-  br i1 %148, label %149, label %156
+147:                                              ; preds = %142
+  %148 = getelementptr inbounds nuw i8, ptr %3, i64 160
+  %149 = load i32, ptr %148, align 8, !tbaa !76
+  %150 = icmp eq i32 %149, 1
+  br i1 %150, label %151, label %158
 
-149:                                              ; preds = %145
-  %150 = load i32, ptr %107, align 4, !tbaa !85
-  %151 = zext nneg i32 %150 to i64
-  %152 = shl nuw i64 1, %151
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %154 = load ptr, ptr %153, align 8, !tbaa !400
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %154, i8 0, i64 %152, i1 false)
-  %155 = getelementptr inbounds i8, ptr %9, i64 -8
-  tail call void @ZSTD_row_update(ptr noundef nonnull %0, ptr noundef nonnull %155) #28
-  br label %161
-
-156:                                              ; preds = %145
+151:                                              ; preds = %147
+  %152 = load i32, ptr %107, align 4, !tbaa !85
+  %153 = zext nneg i32 %152 to i64
+  %154 = shl nuw i64 1, %153
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %156 = load ptr, ptr %155, align 8, !tbaa !400
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %156, i8 0, i64 %154, i1 false)
   %157 = getelementptr inbounds i8, ptr %9, i64 -8
-  %158 = tail call i32 @ZSTD_insertAndFindFirstIndex(ptr noundef nonnull %0, ptr noundef nonnull %157) #28
-  br label %161
+  tail call void @ZSTD_row_update(ptr noundef nonnull %0, ptr noundef nonnull %157) #28
+  br label %163
 
-159:                                              ; preds = %136, %136, %136, %136
-  %160 = getelementptr inbounds i8, ptr %9, i64 -8
-  tail call void @ZSTD_updateTree(ptr noundef nonnull %0, ptr noundef nonnull %160, ptr noundef nonnull %9) #28
-  br label %161
+158:                                              ; preds = %147
+  %159 = getelementptr inbounds i8, ptr %9, i64 -8
+  %160 = tail call i32 @ZSTD_insertAndFindFirstIndex(ptr noundef nonnull %0, ptr noundef nonnull %159) #28
+  br label %163
 
-161:                                              ; preds = %136, %143, %156, %149, %159, %139, %138
-  %162 = load ptr, ptr %118, align 8, !tbaa !424
-  %163 = ptrtoint ptr %162 to i64
-  %164 = sub i64 %127, %163
-  %165 = trunc i64 %164 to i32
-  store i32 %165, ptr %124, align 4, !tbaa !180
-  br label %166
+161:                                              ; preds = %138, %138, %138, %138
+  %162 = getelementptr inbounds i8, ptr %9, i64 -8
+  tail call void @ZSTD_updateTree(ptr noundef nonnull %0, ptr noundef nonnull %162, ptr noundef nonnull %9) #28
+  br label %163
 
-166:                                              ; preds = %106, %161
+163:                                              ; preds = %138, %145, %158, %151, %161, %141, %140
+  %164 = load ptr, ptr %118, align 8, !tbaa !424
+  %165 = ptrtoint ptr %164 to i64
+  %166 = sub i64 %127, %165
+  %167 = trunc i64 %166 to i32
+  store i32 %167, ptr %124, align 4, !tbaa !180
+  br label %168
+
+168:                                              ; preds = %106, %163
   ret void
 }
 

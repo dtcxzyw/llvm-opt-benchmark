@@ -57,7 +57,7 @@ define void @LAPACKE_dtr_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %wide.trip.count97 = zext nneg i32 %26 to i64
   %invariant.op = add nsw i64 %.neg121, %31
   %wide.trip.count = zext i32 %28 to i64
-  br label %45
+  br label %46
 
 .preheader80:                                     ; preds = %23
   %33 = tail call i32 @llvm.smin.i32(i32 %3, i32 %7)
@@ -70,9 +70,10 @@ define void @LAPACKE_dtr_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %.neg = sext i1 %.not76 to i64
   %37 = sext i32 %5 to i64
   %wide.trip.count109 = zext nneg i32 %33 to i64
+  %38 = icmp sgt i32 %5, 0
   br label %.preheader
 
-.loopexit:                                        ; preds = %42, %.preheader
+.loopexit:                                        ; preds = %43, %.preheader
   %indvars.iv.next103 = add nuw i32 %indvars.iv102, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
   br i1 %exitcond110.not, label %.loopexit81, label %.preheader, !llvm.loop !3
@@ -81,59 +82,58 @@ define void @LAPACKE_dtr_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %indvars.iv106 = phi i64 [ %36, %.preheader.preheader ], [ %indvars.iv.next107, %.loopexit ]
   %indvars.iv102 = phi i32 [ 1, %.preheader.preheader ], [ %indvars.iv.next103, %.loopexit ]
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
-  %38 = add i64 %indvars.iv.next107, %.neg
-  %39 = trunc nuw nsw i64 %38 to i32
-  %.79 = tail call i32 @llvm.smin.i32(i32 %39, i32 %5)
-  %40 = icmp sgt i32 %.79, 0
-  br i1 %40, label %.lr.ph88, label %.loopexit
+  %39 = add i64 %indvars.iv.next107, %.neg
+  %40 = icmp sgt i64 %39, 0
+  %41 = and i1 %40, %38
+  br i1 %41, label %.lr.ph88, label %.loopexit
 
 .lr.ph88:                                         ; preds = %.preheader
   %smin = tail call i32 @llvm.smin.i32(i32 %5, i32 %indvars.iv102)
-  %41 = mul nsw i64 %indvars.iv106, %37
+  %42 = mul nuw nsw i64 %indvars.iv106, %37
   %wide.trip.count104 = zext i32 %smin to i64
-  %invariant.gep117 = getelementptr double, ptr %4, i64 %41
+  %invariant.gep117 = getelementptr double, ptr %4, i64 %42
   %invariant.gep119 = getelementptr double, ptr %6, i64 %indvars.iv106
-  br label %42
+  br label %43
 
-42:                                               ; preds = %.lr.ph88, %42
-  %indvars.iv99 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next100, %42 ]
+43:                                               ; preds = %.lr.ph88, %43
+  %indvars.iv99 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next100, %43 ]
   %gep118 = getelementptr double, ptr %invariant.gep117, i64 %indvars.iv99
-  %43 = load double, ptr %gep118, align 8, !tbaa !5
-  %44 = mul nsw i64 %indvars.iv99, %35
-  %gep120 = getelementptr double, ptr %invariant.gep119, i64 %44
-  store double %43, ptr %gep120, align 8, !tbaa !5
+  %44 = load double, ptr %gep118, align 8, !tbaa !5
+  %45 = mul nsw i64 %indvars.iv99, %35
+  %gep120 = getelementptr double, ptr %invariant.gep119, i64 %45
+  store double %44, ptr %gep120, align 8, !tbaa !5
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count104
-  br i1 %exitcond105.not, label %.loopexit, label %42, !llvm.loop !9
+  br i1 %exitcond105.not, label %.loopexit, label %43, !llvm.loop !9
 
-45:                                               ; preds = %.lr.ph86, %._crit_edge
+46:                                               ; preds = %.lr.ph86, %._crit_edge
   %indvars.iv94 = phi i64 [ 0, %.lr.ph86 ], [ %indvars.iv.next95, %._crit_edge ]
   %indvars.iv = phi i64 [ %29, %.lr.ph86 ], [ %indvars.iv.next, %._crit_edge ]
-  %46 = icmp slt i64 %indvars.iv94, %invariant.op
-  br i1 %46, label %.lr.ph, label %._crit_edge
+  %47 = icmp slt i64 %indvars.iv94, %invariant.op
+  br i1 %47, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %45
-  %47 = mul nsw i64 %indvars.iv94, %32
-  %invariant.gep = getelementptr double, ptr %4, i64 %47
+.lr.ph:                                           ; preds = %46
+  %48 = mul nsw i64 %indvars.iv94, %32
+  %invariant.gep = getelementptr double, ptr %4, i64 %48
   %invariant.gep115 = getelementptr double, ptr %6, i64 %indvars.iv94
-  br label %48
+  br label %49
 
-48:                                               ; preds = %.lr.ph, %48
-  %indvars.iv91 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next92, %48 ]
+49:                                               ; preds = %.lr.ph, %49
+  %indvars.iv91 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next92, %49 ]
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv91
-  %49 = load double, ptr %gep, align 8, !tbaa !5
-  %50 = mul nsw i64 %indvars.iv91, %30
-  %gep116 = getelementptr double, ptr %invariant.gep115, i64 %50
-  store double %49, ptr %gep116, align 8, !tbaa !5
+  %50 = load double, ptr %gep, align 8, !tbaa !5
+  %51 = mul nsw i64 %indvars.iv91, %30
+  %gep116 = getelementptr double, ptr %invariant.gep115, i64 %51
+  store double %50, ptr %gep116, align 8, !tbaa !5
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %48, %45
+._crit_edge:                                      ; preds = %49, %46
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
-  br i1 %exitcond98.not, label %.loopexit81, label %45, !llvm.loop !11
+  br i1 %exitcond98.not, label %.loopexit81, label %46, !llvm.loop !11
 
 .loopexit81:                                      ; preds = %._crit_edge, %.loopexit, %.preheader82, %.preheader80, %18, %21, %11, %8
   ret void

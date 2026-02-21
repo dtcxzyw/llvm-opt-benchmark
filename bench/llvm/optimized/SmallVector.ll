@@ -106,8 +106,9 @@ define weak_odr noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(
 _ZL14getNewCapacityIjEmmmm.exit:                  ; preds = %11
   %14 = shl nuw nsw i64 %8, 1
   %15 = or disjoint i64 %14, 1
-  %16 = tail call i64 @llvm.umax.i64(i64 %15, i64 %2)
-  %.sroa.speculated.i = tail call noundef range(i64 1, 4294967296) i64 @llvm.umin.i64(i64 %16, i64 4294967295)
+  %16 = icmp slt i32 %7, 0
+  %.sroa.speculate.load.false.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %15, i64 %2)
+  %.sroa.speculated.i = select i1 %16, i64 4294967295, i64 %.sroa.speculate.load.false.sroa.speculated.i
   store i64 %.sroa.speculated.i, ptr %4, align 8, !tbaa !11
   %17 = mul i64 %.sroa.speculated.i, %3
   %18 = tail call noalias ptr @malloc(i64 noundef %17) #14
@@ -199,8 +200,9 @@ define weak_odr void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef non
 _ZL14getNewCapacityIjEmmmm.exit:                  ; preds = %10
   %13 = shl nuw nsw i64 %7, 1
   %14 = or disjoint i64 %13, 1
-  %15 = tail call i64 @llvm.umax.i64(i64 %14, i64 %2)
-  %.sroa.speculated.i = tail call noundef range(i64 1, 4294967296) i64 @llvm.umin.i64(i64 %15, i64 4294967295)
+  %15 = icmp slt i32 %6, 0
+  %.sroa.speculate.load.false.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %14, i64 %2)
+  %.sroa.speculated.i = select i1 %15, i64 4294967295, i64 %.sroa.speculate.load.false.sroa.speculated.i
   %16 = load ptr, ptr %0, align 8, !tbaa !3
   %17 = icmp eq ptr %16, %1
   %18 = mul i64 %.sroa.speculated.i, %3
@@ -338,7 +340,7 @@ _ZL17replaceAllocationPvmmm.exit30:               ; preds = %_ZN4llvm11safe_mall
 71:                                               ; preds = %_ZN4llvm12safe_reallocEPvm.exit, %_ZL17replaceAllocationPvmmm.exit30, %40
   %.1 = phi ptr [ %.0, %40 ], [ %.0.i.i29, %_ZL17replaceAllocationPvmmm.exit30 ], [ %.0.i28, %_ZN4llvm12safe_reallocEPvm.exit ]
   store ptr %.1, ptr %0, align 8, !tbaa !3
-  %72 = trunc nuw i64 %.sroa.speculated.i to i32
+  %72 = trunc i64 %.sroa.speculated.i to i32
   store i32 %72, ptr %5, align 4, !tbaa !10
   ret void
 }
@@ -1072,9 +1074,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #11
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12
