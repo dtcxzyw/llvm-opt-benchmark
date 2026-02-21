@@ -3432,15 +3432,15 @@ if.then:                                          ; preds = %entry
   %water_level = getelementptr inbounds nuw i8, ptr %this, i64 12
   %2 = load i32, ptr %water_level, align 4, !tbaa !88
   %3 = icmp slt i32 %2, 0
-  %4 = icmp slt i16 %conv4, 0
+  %cmp9 = icmp slt i16 %conv4, 0
   %cmp9 = and i1 %3, %4
   br i1 %cmp9, label %for.body.preheader, label %cond.false12
 
 cond.false12:                                     ; preds = %if.then
   %conv6 = sext i16 %conv4 to i32
   %cmp = icmp slt i32 %2, %conv6
-  %5 = trunc i32 %2 to i16
-  %spec.select60 = select i1 %cmp, i16 %conv4, i16 %5
+  %3 = trunc i32 %2 to i16
+  %spec.select60 = select i1 %cmp, i16 %conv4, i16 %3
   br label %for.body.preheader
 
 for.body.preheader:                               ; preds = %cond.false12, %if.then, %entry

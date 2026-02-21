@@ -69717,7 +69717,7 @@ define weak_odr void @_ZN6casadi6MatrixINS_6SXElemEE13print_defaultERSoRKNS_8Spa
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.64, i64 noundef 1)
   %10 = tail call noundef i64 @_ZNK6casadi8Sparsity5size2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIxEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %10)
-  br label %76
+  br label %74
 
 12:                                               ; preds = %4
   %13 = tail call noundef i64 @_ZNK6casadi8Sparsity5numelEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -69731,7 +69731,7 @@ define weak_odr void @_ZN6casadi6MatrixINS_6SXElemEE13print_defaultERSoRKNS_8Spa
 
 18:                                               ; preds = %15
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.187, i64 noundef 2)
-  br label %76
+  br label %74
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr %0, align 8, !tbaa !47
@@ -69787,7 +69787,7 @@ _ZN6casadi6MatrixINS_6SXElemEE12print_scalarERSoRKS1_.exit: ; preds = %41, %44
   %57 = getelementptr inbounds i8, ptr %0, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   store i32 %30, ptr %58, align 8, !tbaa !882
-  br label %76
+  br label %74
 
 59:                                               ; preds = %12
   %60 = tail call noundef zeroext i1 @_ZNK6casadi8Sparsity9is_columnEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -69795,18 +69795,18 @@ _ZN6casadi6MatrixINS_6SXElemEE12print_scalarERSoRKS1_.exit: ; preds = %41, %44
 
 61:                                               ; preds = %59
   tail call void @_ZN6casadi6MatrixINS_6SXElemEE12print_vectorERSoRKNS_8SparsityEPKS1_b(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i1 noundef zeroext %3)
-  br label %76
+  br label %74
 
 62:                                               ; preds = %59
   %63 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %64 = tail call noundef i64 @_ZNK6casadi8Sparsity5size2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %65 = icmp slt i64 %63, 11
-  %66 = icmp slt i64 %64, 11
+  %65 = icmp slt i64 %64, 11
   %67 = and i1 %65, %66
   br i1 %67, label %.critedge, label %68
 
-68:                                               ; preds = %62
-  %69 = tail call noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
+66:                                               ; preds = %62
+  %67 = tail call noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %70 = sitofp i64 %69 to double
   %71 = tail call noundef i64 @_ZNK6casadi8Sparsity5numelEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %72 = sitofp i64 %71 to double
@@ -69814,15 +69814,15 @@ _ZN6casadi6MatrixINS_6SXElemEE12print_scalarERSoRKS1_.exit: ; preds = %41, %44
   %74 = fcmp ult double %73, 5.000000e-01
   br i1 %74, label %75, label %.critedge
 
-.critedge:                                        ; preds = %62, %68
+.critedge:                                        ; preds = %62, %66
   tail call void @_ZN6casadi6MatrixINS_6SXElemEE11print_denseERSoRKNS_8SparsityEPKS1_b(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i1 noundef zeroext %3)
-  br label %76
+  br label %74
 
-75:                                               ; preds = %68
+73:                                               ; preds = %66
   tail call void @_ZN6casadi6MatrixINS_6SXElemEE12print_sparseERSoRKNS_8SparsityEPKS1_b(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i1 noundef zeroext %3)
-  br label %76
+  br label %74
 
-76:                                               ; preds = %_ZN6casadi6MatrixINS_6SXElemEE12print_scalarERSoRKS1_.exit, %18, %.critedge, %75, %61, %6
+74:                                               ; preds = %_ZN6casadi6MatrixINS_6SXElemEE12print_scalarERSoRKS1_.exit, %18, %.critedge, %73, %61, %6
   ret void
 }
 

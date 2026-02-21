@@ -3790,14 +3790,14 @@ define dso_local range(i32 0, 2) i32 @rotate_serial(ptr noundef %0, ptr noundef 
   %10 = add i64 %9, %5
   %11 = trunc i64 %10 to i32
   %12 = icmp sgt i32 %8, 254
-  %13 = icmp sgt i32 %11, 254
+  %12 = icmp sgt i32 %11, 254
   %14 = or i1 %12, %13
   br i1 %14, label %15, label %18
 
-15:                                               ; preds = %3
-  %16 = load ptr, ptr @bio_err, align 8, !tbaa !26
-  %17 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %16, ptr noundef nonnull @.str.121) #27
-  br label %37
+13:                                               ; preds = %3
+  %14 = load ptr, ptr @bio_err, align 8, !tbaa !26
+  %15 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %14, ptr noundef nonnull @.str.121) #27
+  br label %35
 
 18:                                               ; preds = %3
   %19 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %4, i64 noundef 256, ptr noundef nonnull @.str.122, ptr noundef nonnull %0, ptr noundef nonnull %1) #27
@@ -3807,34 +3807,34 @@ define dso_local range(i32 0, 2) i32 @rotate_serial(ptr noundef %0, ptr noundef 
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %24, label %30
 
-24:                                               ; preds = %18
-  %25 = tail call ptr @__errno_location() #28
-  %26 = load i32, ptr %25, align 4, !tbaa !30
+16:                                               ; preds = %18
+  %25 = tail call ptr @__errno_location() #27
+  %26 = load i32, ptr %25, align 4, !tbaa !28
   switch i32 %26, label %27 [
     i32 2, label %30
     i32 20, label %30
   ]
 
-27:                                               ; preds = %24
-  %28 = load ptr, ptr @bio_err, align 8, !tbaa !26
-  %29 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %28, ptr noundef nonnull @.str.125, ptr noundef nonnull %0, ptr noundef nonnull %20) #27
+25:                                               ; preds = %22
+  %26 = load ptr, ptr @bio_err, align 8, !tbaa !26
+  %27 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %26, ptr noundef nonnull @.str.125, ptr noundef nonnull %0, ptr noundef nonnull %18) #27
   call void @perror(ptr noundef nonnull @.str.126) #32
-  br label %37
+  br label %35
 
-30:                                               ; preds = %24, %24, %18
-  %31 = call i32 @rename(ptr noundef nonnull %4, ptr noundef nonnull %0) #27
-  %32 = icmp slt i32 %31, 0
-  br i1 %32, label %33, label %39
+28:                                               ; preds = %22, %22, %16
+  %29 = call i32 @rename(ptr noundef nonnull %4, ptr noundef nonnull %0) #27
+  %30 = icmp slt i32 %29, 0
+  br i1 %30, label %31, label %37
 
-33:                                               ; preds = %30
-  %34 = load ptr, ptr @bio_err, align 8, !tbaa !26
-  %35 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %34, ptr noundef nonnull @.str.125, ptr noundef nonnull %4, ptr noundef nonnull %0) #27
+31:                                               ; preds = %28
+  %32 = load ptr, ptr @bio_err, align 8, !tbaa !26
+  %33 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %32, ptr noundef nonnull @.str.125, ptr noundef nonnull %4, ptr noundef nonnull %0) #27
   call void @perror(ptr noundef nonnull @.str.126) #32
-  %36 = call i32 @rename(ptr noundef nonnull %20, ptr noundef nonnull %0) #27
+  %34 = call i32 @rename(ptr noundef nonnull %18, ptr noundef nonnull %0) #27
   br label %37
 
 37:                                               ; preds = %33, %27, %15
-  %38 = load ptr, ptr @bio_err, align 8, !tbaa !26
+  %36 = load ptr, ptr @bio_err, align 8, !tbaa !26
   call void @ERR_print_errors(ptr noundef %38) #27
   br label %39
 
@@ -4245,88 +4245,88 @@ define dso_local range(i32 0, 2) i32 @rotate_index(ptr noundef %0, ptr noundef %
   %10 = add i64 %9, %5
   %11 = trunc i64 %10 to i32
   %12 = icmp sgt i32 %8, 249
-  %13 = icmp sgt i32 %11, 249
+  %12 = icmp sgt i32 %11, 249
   %14 = or i1 %12, %13
   br i1 %14, label %15, label %18
 
-15:                                               ; preds = %3
-  %16 = load ptr, ptr @bio_err, align 8, !tbaa !26
-  %17 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %16, ptr noundef nonnull @.str.121) #27
+13:                                               ; preds = %3
+  %14 = load ptr, ptr @bio_err, align 8, !tbaa !26
+  %15 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %14, ptr noundef nonnull @.str.121) #27
   br label %63
 
-18:                                               ; preds = %3
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 1024
-  %20 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %19, i64 noundef 256, ptr noundef nonnull @.str.128, ptr noundef nonnull %0) #27
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 768
-  %22 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %21, i64 noundef 256, ptr noundef nonnull @.str.133, ptr noundef nonnull %0, ptr noundef nonnull %2) #27
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 512
-  %24 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %23, i64 noundef 256, ptr noundef nonnull @.str.133, ptr noundef nonnull %0, ptr noundef nonnull %1) #27
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 256
-  %26 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %25, i64 noundef 256, ptr noundef nonnull @.str.122, ptr noundef nonnull %0, ptr noundef nonnull %2) #27
-  %27 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %4, i64 noundef 256, ptr noundef nonnull @.str.122, ptr noundef nonnull %0, ptr noundef nonnull %1) #27
-  %28 = call i32 @rename(ptr noundef nonnull %0, ptr noundef nonnull %25) #27
-  %29 = icmp slt i32 %28, 0
-  br i1 %29, label %30, label %36
+16:                                               ; preds = %3
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %18 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %17, i64 noundef 256, ptr noundef nonnull @.str.128, ptr noundef nonnull %0) #27
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 768
+  %20 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %19, i64 noundef 256, ptr noundef nonnull @.str.133, ptr noundef nonnull %0, ptr noundef nonnull %2) #27
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 512
+  %22 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %21, i64 noundef 256, ptr noundef nonnull @.str.133, ptr noundef nonnull %0, ptr noundef nonnull %1) #27
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 256
+  %24 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %23, i64 noundef 256, ptr noundef nonnull @.str.122, ptr noundef nonnull %0, ptr noundef nonnull %2) #27
+  %25 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %4, i64 noundef 256, ptr noundef nonnull @.str.122, ptr noundef nonnull %0, ptr noundef nonnull %1) #27
+  %26 = call i32 @rename(ptr noundef nonnull %0, ptr noundef nonnull %23) #27
+  %27 = icmp slt i32 %26, 0
+  br i1 %27, label %28, label %34
 
-30:                                               ; preds = %18
-  %31 = tail call ptr @__errno_location() #28
-  %32 = load i32, ptr %31, align 4, !tbaa !30
-  switch i32 %32, label %33 [
-    i32 2, label %36
-    i32 20, label %36
+28:                                               ; preds = %16
+  %29 = tail call ptr @__errno_location() #28
+  %30 = load i32, ptr %29, align 4, !tbaa !30
+  switch i32 %30, label %33 [
+    i32 2, label %34
+    i32 20, label %34
   ]
 
-33:                                               ; preds = %30
-  %34 = load ptr, ptr @bio_err, align 8, !tbaa !26
-  %35 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %34, ptr noundef nonnull @.str.125, ptr noundef nonnull %0, ptr noundef nonnull %25) #27
+31:                                               ; preds = %28
+  %32 = load ptr, ptr @bio_err, align 8, !tbaa !26
+  %33 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %32, ptr noundef nonnull @.str.125, ptr noundef nonnull %0, ptr noundef nonnull %23) #27
   call void @perror(ptr noundef nonnull @.str.126) #32
   br label %63
 
-36:                                               ; preds = %30, %30, %18
-  %37 = call i32 @rename(ptr noundef nonnull %4, ptr noundef nonnull %0) #27
-  %38 = icmp slt i32 %37, 0
-  br i1 %38, label %39, label %43
+34:                                               ; preds = %28, %28, %16
+  %35 = call i32 @rename(ptr noundef nonnull %4, ptr noundef nonnull %0) #27
+  %36 = icmp slt i32 %35, 0
+  br i1 %36, label %37, label %41
 
-39:                                               ; preds = %36
-  %40 = load ptr, ptr @bio_err, align 8, !tbaa !26
-  %41 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %40, ptr noundef nonnull @.str.125, ptr noundef nonnull %4, ptr noundef nonnull %0) #27
+37:                                               ; preds = %34
+  %38 = load ptr, ptr @bio_err, align 8, !tbaa !26
+  %39 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %38, ptr noundef nonnull @.str.125, ptr noundef nonnull %4, ptr noundef nonnull %0) #27
   call void @perror(ptr noundef nonnull @.str.126) #32
-  %42 = call i32 @rename(ptr noundef nonnull %25, ptr noundef nonnull %0) #27
+  %40 = call i32 @rename(ptr noundef nonnull %23, ptr noundef nonnull %0) #27
   br label %63
 
-43:                                               ; preds = %36
-  %44 = call i32 @rename(ptr noundef nonnull %19, ptr noundef nonnull %21) #27
-  %45 = icmp slt i32 %44, 0
-  br i1 %45, label %46, label %54
+41:                                               ; preds = %34
+  %42 = call i32 @rename(ptr noundef nonnull %17, ptr noundef nonnull %19) #27
+  %43 = icmp slt i32 %42, 0
+  br i1 %43, label %44, label %52
 
-46:                                               ; preds = %43
-  %47 = tail call ptr @__errno_location() #28
-  %48 = load i32, ptr %47, align 4, !tbaa !30
-  switch i32 %48, label %49 [
-    i32 2, label %54
-    i32 20, label %54
+44:                                               ; preds = %41
+  %45 = tail call ptr @__errno_location() #28
+  %46 = load i32, ptr %45, align 4, !tbaa !30
+  switch i32 %46, label %49 [
+    i32 2, label %52
+    i32 20, label %52
   ]
 
-49:                                               ; preds = %46
-  %50 = load ptr, ptr @bio_err, align 8, !tbaa !26
-  %51 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %50, ptr noundef nonnull @.str.125, ptr noundef nonnull %19, ptr noundef nonnull %21) #27
+47:                                               ; preds = %44
+  %48 = load ptr, ptr @bio_err, align 8, !tbaa !26
+  %49 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %48, ptr noundef nonnull @.str.125, ptr noundef nonnull %17, ptr noundef nonnull %19) #27
   call void @perror(ptr noundef nonnull @.str.126) #32
-  %52 = call i32 @rename(ptr noundef nonnull %0, ptr noundef nonnull %4) #27
-  %53 = call i32 @rename(ptr noundef nonnull %25, ptr noundef nonnull %0) #27
+  %50 = call i32 @rename(ptr noundef nonnull %0, ptr noundef nonnull %4) #27
+  %51 = call i32 @rename(ptr noundef nonnull %23, ptr noundef nonnull %0) #27
   br label %63
 
-54:                                               ; preds = %46, %46, %43
-  %55 = call i32 @rename(ptr noundef nonnull %23, ptr noundef nonnull %19) #27
-  %56 = icmp slt i32 %55, 0
-  br i1 %56, label %57, label %65
+52:                                               ; preds = %44, %44, %41
+  %53 = call i32 @rename(ptr noundef nonnull %21, ptr noundef nonnull %17) #27
+  %54 = icmp slt i32 %53, 0
+  br i1 %54, label %55, label %65
 
-57:                                               ; preds = %54
-  %58 = load ptr, ptr @bio_err, align 8, !tbaa !26
-  %59 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %58, ptr noundef nonnull @.str.125, ptr noundef nonnull %23, ptr noundef nonnull %19) #27
+55:                                               ; preds = %52
+  %56 = load ptr, ptr @bio_err, align 8, !tbaa !26
+  %57 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %56, ptr noundef nonnull @.str.125, ptr noundef nonnull %21, ptr noundef nonnull %17) #27
   call void @perror(ptr noundef nonnull @.str.126) #32
-  %60 = call i32 @rename(ptr noundef nonnull %21, ptr noundef nonnull %19) #27
-  %61 = call i32 @rename(ptr noundef nonnull %0, ptr noundef nonnull %4) #27
-  %62 = call i32 @rename(ptr noundef nonnull %25, ptr noundef nonnull %0) #27
+  %58 = call i32 @rename(ptr noundef nonnull %19, ptr noundef nonnull %17) #27
+  %59 = call i32 @rename(ptr noundef nonnull %0, ptr noundef nonnull %4) #27
+  %60 = call i32 @rename(ptr noundef nonnull %23, ptr noundef nonnull %0) #27
   br label %63
 
 63:                                               ; preds = %57, %49, %39, %33, %15

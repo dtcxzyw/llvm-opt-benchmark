@@ -5647,12 +5647,12 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8emitSwapEjjjj(ptr 
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %35
 
-32:                                               ; preds = %5
+32: ; preds = %5
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !47
   br label %61
 
-35:                                               ; preds = %5
+35: ; preds = %5
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %37 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %38 = load i32, ptr %37, align 8, !tbaa !11
@@ -5681,37 +5681,37 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8emitSwapEjjjj(ptr 
   store ptr %59, ptr %60, align 8, !tbaa !287
   br label %61
 
-61:                                               ; preds = %35, %32
+61:; preds = %35, %32
   %62 = phi ptr [ %34, %32 ], [ %53, %35 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %27, ptr %6, align 4, !tbaa !85
-  %63 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %2, ptr %63, align 4, !tbaa !44
-  %64 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i32 %2, ptr %62, align 4, !tbaa !44
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %64, align 4, !tbaa !85
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 0, ptr %65, align 4, !tbaa !85
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %27, ptr %7, align 4, !tbaa !85
-  %66 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %4, ptr %66, align 4, !tbaa !44
-  %67 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i32 %4, ptr %65, align 4, !tbaa !44
+  %66 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %67, align 4, !tbaa !85
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 0, ptr %68, align 4, !tbaa !85
   %69 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_(ptr noundef nonnull align 8 dereferenceable(144) %62, i32 noundef 1640, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %7)
           to label %70 unwind label %71
 
-70:                                               ; preds = %61
+69:                                               ; preds = %61
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %69
 
-71:                                               ; preds = %61
-  %72 = landingpad { ptr, i32 }
+70:                                               ; preds = %61
+  %71 = landingpad { ptr, i32 }
           catch ptr null
-  %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #18
+  %72 = extractvalue { ptr, i32 } %71, 0
+  call void @__clang_call_terminate(ptr %72) #18
   unreachable
 }
 

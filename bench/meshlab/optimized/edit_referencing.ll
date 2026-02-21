@@ -20599,7 +20599,7 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %storemerge130 = phi i64 [ %.sroa.speculated167, %38 ], [ %37, %35 ]
   store i64 %storemerge130, ptr %2, align 8
   %43 = icmp sgt i64 %15, %14
-  br i1 %43, label %44, label %152
+  br i1 %43, label %44, label %134
 
 44:                                               ; preds = %42
   %45 = sub nsw i64 %15, %14
@@ -20618,7 +20618,7 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
 55:                                               ; preds = %44
   %56 = and i64 %49, -4
   store i64 %56, ptr %1, align 8
-  br label %152
+  br label %134
 
 57:                                               ; preds = %44
   %58 = add nsw i64 %52, 3
@@ -20626,7 +20626,7 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %60 = sub nsw i64 %58, %59
   %.sroa.speculated163 = tail call i64 @llvm.smin.i64(i64 %60, i64 %50)
   store i64 %.sroa.speculated163, ptr %1, align 8
-  br label %152
+  br label %134
 
 61:                                               ; preds = %_ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit
   %62 = load i64, ptr %1, align 8
@@ -20634,12 +20634,12 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %64 = load i64, ptr %0, align 8
   %65 = icmp slt i64 %64, 48
   %66 = icmp slt i64 %62, 48
-  %67 = icmp slt i64 %63, 48
+  %66 = icmp slt i64 %63, 48
   %68 = and i1 %66, %67
   %69 = and i1 %65, %68
   br i1 %69, label %152, label %70
 
-70:                                               ; preds = %61
+70:; preds = %61
   %71 = add nsw i64 %13, -128
   %72 = sdiv i64 %71, 256
   %73 = and i64 %72, -8
@@ -20647,15 +20647,15 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %74 = icmp sgt i64 %64, %.sroa.speculated154
   br i1 %74, label %75, label %89
 
-75:                                               ; preds = %70
+75:; preds = %70
   %76 = urem i64 %64, %.sroa.speculated154
   %77 = udiv i64 %64, %.sroa.speculated154
   %78 = icmp eq i64 %76, 0
   br i1 %78, label %87, label %79
 
-79:                                               ; preds = %75
+79:; preds = %75
   %80 = xor i64 %76, -1
-  %81 = add nsw i64 %.sroa.speculated154, %80
+  %80 = add nsw i64 %.sroa.speculated154, %80
   %82 = shl i64 %77, 3
   %83 = add i64 %82, 8
   %84 = sdiv i64 %81, %83
@@ -20663,7 +20663,7 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %86 = sub nsw i64 %.sroa.speculated154, %85
   br label %87
 
-87:                                               ; preds = %75, %79
+87:; preds = %75, %79
   %88 = phi i64 [ %86, %79 ], [ %.sroa.speculated154, %75 ]
   store i64 %88, ptr %0, align 8
   %.pre = load i64, ptr %1, align 8
@@ -20684,13 +20684,13 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %98 = udiv i64 %94, %97
   br label %102
 
-99:                                               ; preds = %89
+86:                                               ; preds = %89
   %100 = shl i64 %.sroa.speculated154, 5
   %101 = udiv i64 4718592, %100
   br label %102
 
-102:                                              ; preds = %99, %96
-  %storemerge = phi i64 [ %101, %99 ], [ %98, %96 ]
+116:                                              ; preds = %99, %96
+  %117 = phi i64 [ %101, %99 ], [ %98, %96 ]
   %103 = shl i64 %90, 4
   %104 = udiv i64 1572864, %103
   %.sroa.speculated149 = tail call i64 @llvm.smin.i64(i64 %storemerge, i64 %104)
@@ -20719,9 +20719,9 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   store i64 %120, ptr %2, align 8
   br label %152
 
-121:                                              ; preds = %102
-  %122 = icmp eq i64 %64, %90
-  br i1 %122, label %123, label %152
+118:                                              ; preds = %102
+  %119 = icmp eq i64 %64, %90
+  br i1 %119, label %123, label %134
 
 123:                                              ; preds = %121
   %124 = shl i64 %64, 3
@@ -20752,15 +20752,15 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %136 = and i64 %.sroa.speculated, 9223372036854775804
   br label %139
 
-137:                                              ; preds = %131
+120:                                              ; preds = %131
   %138 = icmp eq i64 %.sroa.speculated, 0
   br i1 %138, label %152, label %139
 
-139:                                              ; preds = %137, %135
+139:; preds = %137, %135
   %.0 = phi i64 [ %136, %135 ], [ %.sroa.speculated, %137 ]
   %140 = srem i64 %91, %.0
   %141 = sdiv i64 %91, %.0
-  %142 = icmp eq i64 %140, 0
+  %126 = icmp eq i64 %140, 0
   br i1 %142, label %150, label %143
 
 143:                                              ; preds = %139
@@ -20772,12 +20772,12 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %149 = sub nsw i64 %.0, %148
   br label %150
 
-150:                                              ; preds = %139, %143
+150:; preds = %139, %143
   %151 = phi i64 [ %149, %143 ], [ %.0, %139 ]
   store i64 %151, ptr %1, align 8
-  br label %152
+  br label %134
 
-152:                                              ; preds = %119, %150, %121, %137, %61, %42, %57, %55
+134:                                              ; preds = %119, %150, %121, %137, %61, %42, %57, %55
   ret void
 }
 

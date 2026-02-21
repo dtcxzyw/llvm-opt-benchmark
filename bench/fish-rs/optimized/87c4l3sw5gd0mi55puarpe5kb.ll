@@ -2091,33 +2091,33 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11rotate_left1
 
 11:                                               ; preds = %6
   %12 = icmp ult i64 %7, 33
-  %13 = icmp ult i64 %2, 33
-  %14 = or i1 %13, %12
+  %12 = icmp ult i64 %2, 33
+  %14 = or i1 %12, %12
   br i1 %14, label %15, label %.preheader.i
 
-15:                                               ; preds = %11
+13:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %16 = getelementptr inbounds nuw ptr, ptr %0, i64 %7
+  %14 = getelementptr inbounds nuw ptr, ptr %0, i64 %7
   %.not.i.i = icmp ugt i64 %2, %7
-  br i1 %.not.i.i, label %20, label %17
+  br i1 %.not.i.i, label %18, label %15
 
-17:                                               ; preds = %15
-  %18 = shl i64 %2, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 8 %0, i64 %18, i1 false)
+15:                                               ; preds = %13
+  %16 = shl i64 %2, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 8 %0, i64 %16, i1 false)
+  %17 = shl i64 %7, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 8 %8, i64 %17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr nonnull align 8 %4, i64 %16, i1 false)
+  br label %_ZN4core5slice6rotate18ptr_rotate_memmove17h378eab3582041596E.exit.i
+
+18:                                               ; preds = %13
   %19 = shl i64 %7, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 8 %8, i64 %19, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr nonnull align 8 %4, i64 %18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 8 %8, i64 %19, i1 false)
+  %20 = shl i64 %2, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %14, ptr nonnull align 8 %0, i64 %20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 8 %4, i64 %19, i1 false)
   br label %_ZN4core5slice6rotate18ptr_rotate_memmove17h378eab3582041596E.exit.i
 
-20:                                               ; preds = %15
-  %21 = shl i64 %7, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 8 %8, i64 %21, i1 false)
-  %22 = shl i64 %2, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %16, ptr nonnull align 8 %0, i64 %22, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 8 %4, i64 %21, i1 false)
-  br label %_ZN4core5slice6rotate18ptr_rotate_memmove17h378eab3582041596E.exit.i
-
-_ZN4core5slice6rotate18ptr_rotate_memmove17h378eab3582041596E.exit.i: ; preds = %20, %17
+_ZN4core5slice6rotate18ptr_rotate_memmove17h378eab3582041596E.exit.i: ; preds = %18, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN4core5slice6rotate10ptr_rotate17h399ae08485ba580fE.exit
 
@@ -2129,40 +2129,40 @@ _ZN4core5slice6rotate18ptr_rotate_memmove17h378eab3582041596E.exit.i: ; preds = 
   br i1 %.not.i2.i, label %.preheader.i.i, label %.preheader29.i.i
 
 .preheader29.i.i:                                 ; preds = %.preheader.i
-  %23 = sub nsw i64 0, %.sroa.016.0.i.i
-  br label %32
+  %21 = sub nsw i64 0, %.sroa.016.0.i.i
+  br label %30
 
 .preheader.i.i:                                   ; preds = %.preheader.i
-  %24 = sub nsw i64 0, %.sroa.0.0.i.i
-  br label %25
+  %22 = sub nsw i64 0, %.sroa.0.0.i.i
+  br label %23
 
-25:                                               ; preds = %25, %.preheader.i.i
-  %.sroa.016.1.i.i = phi i64 [ %28, %25 ], [ %.sroa.016.0.i.i, %.preheader.i.i ]
-  %.sroa.010.1.i.i = phi ptr [ %27, %25 ], [ %.sroa.010.0.i.i, %.preheader.i.i ]
-  %26 = getelementptr inbounds ptr, ptr %.sroa.010.1.i.i, i64 %24
-  tail call void @_ZN4core3ptr25swap_nonoverlapping_bytes26swap_nonoverlapping_chunks17h811212f2e1192049E(ptr noundef nonnull %26, ptr noundef nonnull %.sroa.010.1.i.i, i64 noundef range(i64 1, 0) %.sroa.0.0.i.i)
-  %27 = getelementptr inbounds nuw ptr, ptr %.sroa.010.1.i.i, i64 %.sroa.0.0.i.i
-  %28 = sub i64 %.sroa.016.1.i.i, %.sroa.0.0.i.i
-  %29 = icmp ult i64 %28, %.sroa.0.0.i.i
-  br i1 %29, label %.loopexit.i.i, label %25
+23:                                               ; preds = %23, %.preheader.i.i
+  %.sroa.016.1.i.i = phi i64 [ %26, %25 ], [ %.sroa.016.0.i.i, %.preheader.i.i ]
+  %.sroa.010.1.i.i = phi ptr [ %25, %25 ], [ %.sroa.010.0.i.i, %.preheader.i.i ]
+  %24 = getelementptr inbounds ptr, ptr %.sroa.010.1.i.i, i64 %22
+  tail call void @_ZN4core3ptr25swap_nonoverlapping_bytes26swap_nonoverlapping_chunks17h811212f2e1192049E(ptr noundef nonnull %24, ptr noundef nonnull %.sroa.010.1.i.i, i64 noundef range(i64 1, 0) %.sroa.0.0.i.i)
+  %25 = getelementptr inbounds nuw ptr, ptr %.sroa.010.1.i.i, i64 %.sroa.0.0.i.i
+  %26 = sub i64 %.sroa.016.1.i.i, %.sroa.0.0.i.i
+  %27 = icmp ult i64 %26, %.sroa.0.0.i.i
+  br i1 %27, label %.loopexit.i.i, label %23
 
-.loopexit.i.i:                                    ; preds = %32, %25
-  %.sroa.016.2.i.i = phi i64 [ %28, %25 ], [ %.sroa.016.0.i.i, %32 ]
-  %.sroa.010.3.i.i = phi ptr [ %27, %25 ], [ %33, %32 ]
-  %.sroa.0.2.i.i = phi i64 [ %.sroa.0.0.i.i, %25 ], [ %34, %32 ]
-  %30 = icmp eq i64 %.sroa.016.2.i.i, 0
-  %31 = icmp eq i64 %.sroa.0.2.i.i, 0
-  %or.cond.i.i = or i1 %30, %31
+.loopexit.i.i:                                    ; preds = %30, %23
+  %.sroa.016.2.i.i = phi i64 [ %26, %25 ], [ %.sroa.016.0.i.i, %32 ]
+  %.sroa.010.3.i.i = phi ptr [ %25, %25 ], [ %31, %32 ]
+  %.sroa.0.2.i.i = phi i64 [ %.sroa.0.0.i.i, %25 ], [ %32, %32 ]
+  %28 = icmp eq i64 %.sroa.016.2.i.i, 0
+  %29 = icmp eq i64 %.sroa.0.2.i.i, 0
+  %or.cond.i.i = or i1 %28, %29
   br i1 %or.cond.i.i, label %_ZN4core5slice6rotate10ptr_rotate17h399ae08485ba580fE.exit, label %.preheader.i
 
-32:                                               ; preds = %32, %.preheader29.i.i
-  %.sroa.010.2.i.i = phi ptr [ %33, %32 ], [ %.sroa.010.0.i.i, %.preheader29.i.i ]
-  %.sroa.0.1.i.i = phi i64 [ %34, %32 ], [ %.sroa.0.0.i.i, %.preheader29.i.i ]
-  %33 = getelementptr inbounds ptr, ptr %.sroa.010.2.i.i, i64 %23
-  tail call void @_ZN4core3ptr25swap_nonoverlapping_bytes26swap_nonoverlapping_chunks17h811212f2e1192049E(ptr noundef nonnull %33, ptr noundef nonnull %.sroa.010.2.i.i, i64 noundef range(i64 1, 0) %.sroa.016.0.i.i)
-  %34 = sub i64 %.sroa.0.1.i.i, %.sroa.016.0.i.i
-  %35 = icmp ult i64 %34, %.sroa.016.0.i.i
-  br i1 %35, label %.loopexit.i.i, label %32
+30:                                               ; preds = %30, %.preheader29.i.i
+  %.sroa.010.2.i.i = phi ptr [ %31, %32 ], [ %.sroa.010.0.i.i, %.preheader29.i.i ]
+  %.sroa.0.1.i.i = phi i64 [ %32, %32 ], [ %.sroa.0.0.i.i, %.preheader29.i.i ]
+  %31 = getelementptr inbounds ptr, ptr %.sroa.010.2.i.i, i64 %21
+  tail call void @_ZN4core3ptr25swap_nonoverlapping_bytes26swap_nonoverlapping_chunks17h811212f2e1192049E(ptr noundef nonnull %31, ptr noundef nonnull %.sroa.010.2.i.i, i64 noundef range(i64 1, 0) %.sroa.016.0.i.i)
+  %32 = sub i64 %.sroa.0.1.i.i, %.sroa.016.0.i.i
+  %33 = icmp ult i64 %32, %.sroa.016.0.i.i
+  br i1 %33, label %.loopexit.i.i, label %30
 
 _ZN4core5slice6rotate10ptr_rotate17h399ae08485ba580fE.exit: ; preds = %.loopexit.i.i, %6, %_ZN4core5slice6rotate18ptr_rotate_memmove17h378eab3582041596E.exit.i
   ret void

@@ -4466,58 +4466,58 @@ define dso_local void @_ZN4llvm8SwitchCG14SwitchLowering24computeSplitWorkItemIn
 
 .lr.ph:                                           ; preds = %3, %47
   %28 = phi ptr [ %49, %47 ], [ %26, %3 ]
-  %.0160 = phi i32 [ %48, %47 ], [ 0, %3 ]
-  %.sroa.0122.0159 = phi ptr [ %.sroa.0122.1, %47 ], [ %6, %3 ]
-  %.sroa.0114.0158.idx = phi i64 [ %.sroa.0114.1.idx, %47 ], [ 0, %3 ]
-  %.sroa.0110.0157 = phi i32 [ %.sroa.0110.1, %47 ], [ %spec.select.i.i, %3 ]
-  %.sroa.0106.0156 = phi i32 [ %.sroa.0106.1, %47 ], [ %spec.select.i.i41, %3 ]
-  %.sroa.0114.0158.ptr = getelementptr inbounds i8, ptr %9, i64 %.sroa.0114.0158.idx
-  %29 = icmp ult i32 %.sroa.0110.0157, %.sroa.0106.0156
+  %.0158 = phi i32 [ %48, %47 ], [ 0, %3 ]
+  %.sroa.0122.0157 = phi ptr [ %.sroa.0122.1, %47 ], [ %6, %3 ]
+  %.sroa.0114.0156.idx = phi i64 [ %.sroa.0114.1.idx, %47 ], [ 0, %3 ]
+  %.sroa.0110.0155 = phi i32 [ %.sroa.0110.1, %47 ], [ %spec.select.i.i, %3 ]
+  %.sroa.0106.0154 = phi i32 [ %.sroa.0106.1, %47 ], [ %spec.select.i.i41, %3 ]
+  %.sroa.0114.0156.ptr = getelementptr inbounds i8, ptr %9, i64 %.sroa.0114.0156.idx
+  %29 = icmp ult i32 %.sroa.0110.0155, %.sroa.0106.0154
   br i1 %29, label %33, label %30
 
 30:                                               ; preds = %.lr.ph
-  %31 = icmp ne i32 %.sroa.0110.0157, %.sroa.0106.0156
-  %32 = and i32 %.0160, 1
+  %31 = icmp ne i32 %.sroa.0110.0155, %.sroa.0106.0154
+  %32 = and i32 %.0158, 1
   %.not39 = icmp eq i32 %32, 0
   %or.cond = select i1 %31, i1 true, i1 %.not39
   br i1 %or.cond, label %40, label %33
 
 33:                                               ; preds = %30, %.lr.ph
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0159, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0157, i64 72
   %.sroa.019.0.copyload = load i32, ptr %34, align 8, !tbaa !24
-  %35 = zext i32 %.sroa.0110.0157 to i64
+  %35 = zext i32 %.sroa.0110.0155 to i64
   %36 = zext i32 %.sroa.019.0.copyload to i64
   %37 = add nuw nsw i64 %36, %35
   %38 = icmp samesign ugt i64 %37, 2147483648
-  %39 = add i32 %.sroa.019.0.copyload, %.sroa.0110.0157
+  %39 = add i32 %.sroa.019.0.copyload, %.sroa.0110.0155
   %spec.select.i = select i1 %38, i32 -2147483648, i32 %39
   br label %47
 
 40:                                               ; preds = %30
-  %.sroa.0114.0158.add = add nsw i64 %.sroa.0114.0158.idx, -40
-  %41 = getelementptr inbounds i8, ptr %.sroa.0114.0158.ptr, i64 -8
+  %.sroa.0114.0156.add = add nsw i64 %.sroa.0114.0156.idx, -40
+  %41 = getelementptr inbounds i8, ptr %.sroa.0114.0156.ptr, i64 -8
   %.sroa.018.0.copyload = load i32, ptr %41, align 8, !tbaa !24
-  %42 = zext i32 %.sroa.0106.0156 to i64
+  %42 = zext i32 %.sroa.0106.0154 to i64
   %43 = zext i32 %.sroa.018.0.copyload to i64
   %44 = add nuw nsw i64 %43, %42
   %45 = icmp samesign ugt i64 %44, 2147483648
-  %46 = add i32 %.sroa.018.0.copyload, %.sroa.0106.0156
+  %46 = add i32 %.sroa.018.0.copyload, %.sroa.0106.0154
   %spec.select.i42 = select i1 %45, i32 -2147483648, i32 %46
   br label %47
 
 47:                                               ; preds = %40, %33
-  %.sroa.0106.1 = phi i32 [ %.sroa.0106.0156, %33 ], [ %spec.select.i42, %40 ]
-  %.sroa.0110.1 = phi i32 [ %spec.select.i, %33 ], [ %.sroa.0110.0157, %40 ]
-  %.sroa.0114.1.idx = phi i64 [ %.sroa.0114.0158.idx, %33 ], [ %.sroa.0114.0158.add, %40 ]
-  %.sroa.0122.1 = phi ptr [ %28, %33 ], [ %.sroa.0122.0159, %40 ]
+  %.sroa.0106.1 = phi i32 [ %.sroa.0106.0154, %33 ], [ %spec.select.i42, %40 ]
+  %.sroa.0110.1 = phi i32 [ %spec.select.i, %33 ], [ %.sroa.0110.0155, %40 ]
+  %.sroa.0114.1.idx = phi i64 [ %.sroa.0114.0156.idx, %33 ], [ %.sroa.0114.0156.add, %40 ]
+  %.sroa.0122.1 = phi ptr [ %28, %33 ], [ %.sroa.0122.0157, %40 ]
   %.sroa.0114.1.ptr = getelementptr inbounds i8, ptr %9, i64 %.sroa.0114.1.idx
-  %48 = add i32 %.0160, 1
+  %48 = add i32 %.0158, 1
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.0122.1, i64 40
   %50 = icmp ult ptr %49, %.sroa.0114.1.ptr
   br i1 %50, label %.lr.ph, label %.preheader, !llvm.loop !469
 
 51:                                               ; preds = %.preheader, %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit59.thread
-  %.sroa.0114.2.idx = phi i64 [ %.sroa.0114.2.add172, %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit59.thread ], [ %.sroa.0114.0.lcssa.idx, %.preheader ]
+  %.sroa.0114.2.idx = phi i64 [ %.sroa.0114.2.add167, %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit59.thread ], [ %.sroa.0114.0.lcssa.idx, %.preheader ]
   %.sroa.0122.2 = phi ptr [ %.sroa.0122.5, %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit59.thread ], [ %.sroa.0122.0.lcssa, %.preheader ]
   %.sroa.0114.2.ptr = getelementptr inbounds i8, ptr %9, i64 %.sroa.0114.2.idx
   %52 = ptrtoint ptr %.sroa.0122.2 to i64
@@ -4531,94 +4531,94 @@ define dso_local void @_ZN4llvm8SwitchCG14SwitchLowering24computeSplitWorkItemIn
   %60 = trunc i64 %59 to i32
   %61 = add i32 %60, 1
   %62 = icmp ugt i32 %61, 2
-  %63 = icmp ugt i32 %56, 2
+  %62 = icmp ugt i32 %56, 2
   %.not167 = and i1 %63, %62
   %64 = or i32 %61, %56
   %.not153 = icmp ult i32 %64, 4
   %or.cond155 = or i1 %.not167, %.not153
   br i1 %or.cond155, label %.thread, label %65
 
-65:                                               ; preds = %51
+65:; preds = %51
   %66 = icmp ult i32 %56, %61
   br i1 %66, label %67, label %94
 
-67:                                               ; preds = %65
+67: ; preds = %65
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.0114.2.ptr, i64 32
   %.val4.i = load i32, ptr %68, align 8
   %.not5.i.i.i = icmp eq i64 %.sroa.0114.2.idx, 40
   br i1 %.not5.i.i.i, label %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit, label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %67
-  %69 = getelementptr inbounds nuw i8, ptr %.sroa.0114.2.ptr, i64 8
-  %.val.i = load ptr, ptr %69, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.0114.2.ptr, i64 8
+  %.val.i = load ptr, ptr %68, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i", %.lr.ph.i.preheader.i.i
   %.07.i.i.i = phi i32 [ %spec.select.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i" ], [ 0, %.lr.ph.i.preheader.i.i ]
-  %.sroa.03.06.i.i.i = phi ptr [ %80, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i" ], [ %.sroa.0114.2.ptr, %.lr.ph.i.preheader.i.i ]
-  %71 = getelementptr i8, ptr %.sroa.03.06.i.i.i, i64 32
-  %.val2.i.i.i.i = load i32, ptr %71, align 4, !tbaa !81
+  %.sroa.03.06.i.i.i = phi ptr [ %79, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i" ], [ %.sroa.0114.2.ptr, %.lr.ph.i.preheader.i.i ]
+  %70 = getelementptr i8, ptr %.sroa.03.06.i.i.i, i64 32
+  %.val2.i.i.i.i = load i32, ptr %70, align 4, !tbaa !81
   %.not.i.i.i.i.i = icmp eq i32 %.val2.i.i.i.i, %.val4.i
-  br i1 %.not.i.i.i.i.i, label %74, label %72
+  br i1 %.not.i.i.i.i.i, label %73, label %71
 
-72:                                               ; preds = %.lr.ph.i.i.i
-  %73 = icmp ult i32 %.val4.i, %.val2.i.i.i.i
+71:                                               ; preds = %.lr.ph.i.i.i
+  %72 = icmp ult i32 %.val4.i, %.val2.i.i.i.i
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i"
 
-74:                                               ; preds = %.lr.ph.i.i.i
-  %75 = getelementptr i8, ptr %.sroa.03.06.i.i.i, i64 8
-  %.val1.i.i.i.i = load ptr, ptr %75, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i.i, i64 24
-  %77 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %76, ptr noundef nonnull readonly align 8 dereferenceable(12) %70) #22
-  %78 = icmp slt i32 %77, 0
+73:                                               ; preds = %.lr.ph.i.i.i
+  %74 = getelementptr i8, ptr %.sroa.03.06.i.i.i, i64 8
+  %.val1.i.i.i.i = load ptr, ptr %74, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i.i, i64 24
+  %76 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %75, ptr noundef nonnull readonly align 8 dereferenceable(12) %69) #22
+  %77 = icmp slt i32 %76, 0
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i": ; preds = %74, %72
-  %.0.i.i.i.i.i = phi i1 [ %73, %72 ], [ %78, %74 ]
-  %79 = zext i1 %.0.i.i.i.i.i to i32
-  %spec.select.i.i.i = add i32 %.07.i.i.i, %79
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i.i, i64 40
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i": ; preds = %73, %71
+  %.0.i.i.i.i.i = phi i1 [ %72, %72 ], [ %77, %74 ]
+  %78 = zext i1 %.0.i.i.i.i.i to i32
+  %spec.select.i.i.i = add i32 %.07.i.i.i, %78
+  %79 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i.i, i64 40
   %.not.i.i.i = icmp eq ptr %.sroa.03.06.i.i.i, %9
   br i1 %.not.i.i.i, label %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit, label %.lr.ph.i.i.i, !llvm.loop !468
 
 _ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i", %67
   %.0.lcssa.i.i.i = phi i32 [ 0, %67 ], [ %spec.select.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i" ]
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.0122.2, i64 40
-  %.not5.i.i.i45 = icmp eq ptr %81, %6
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.0122.2, i64 40
+  %.not5.i.i.i45 = icmp eq ptr %80, %6
   br i1 %.not5.i.i.i45, label %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit59.thread, label %.lr.ph.i.preheader.i.i46
 
 .lr.ph.i.preheader.i.i46:                         ; preds = %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit
-  %82 = getelementptr inbounds nuw i8, ptr %.sroa.0114.2.ptr, i64 8
-  %.val.i47 = load ptr, ptr %82, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %.val.i47, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %.sroa.0114.2.ptr, i64 8
+  %.val.i47 = load ptr, ptr %81, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %.val.i47, i64 24
   br label %.lr.ph.i.i.i48
 
 .lr.ph.i.i.i48:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i53", %.lr.ph.i.preheader.i.i46
   %.07.i.i.i49 = phi i32 [ %spec.select.i.i.i55, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i53" ], [ 0, %.lr.ph.i.preheader.i.i46 ]
-  %.sroa.03.06.i.i.i50 = phi ptr [ %93, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i53" ], [ %6, %.lr.ph.i.preheader.i.i46 ]
-  %84 = getelementptr i8, ptr %.sroa.03.06.i.i.i50, i64 32
-  %.val2.i.i.i.i51 = load i32, ptr %84, align 4, !tbaa !81
+  %.sroa.03.06.i.i.i50 = phi ptr [ %92, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i53" ], [ %6, %.lr.ph.i.preheader.i.i46 ]
+  %83 = getelementptr i8, ptr %.sroa.03.06.i.i.i50, i64 32
+  %.val2.i.i.i.i51 = load i32, ptr %83, align 4, !tbaa !81
   %.not.i.i.i.i.i52 = icmp eq i32 %.val2.i.i.i.i51, %.val4.i
-  br i1 %.not.i.i.i.i.i52, label %87, label %85
+  br i1 %.not.i.i.i.i.i52, label %86, label %84
 
-85:                                               ; preds = %.lr.ph.i.i.i48
-  %86 = icmp ult i32 %.val4.i, %.val2.i.i.i.i51
+84:                                               ; preds = %.lr.ph.i.i.i48
+  %85 = icmp ult i32 %.val4.i, %.val2.i.i.i.i51
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i53"
 
-87:                                               ; preds = %.lr.ph.i.i.i48
-  %88 = getelementptr i8, ptr %.sroa.03.06.i.i.i50, i64 8
-  %.val1.i.i.i.i58 = load ptr, ptr %88, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i.i58, i64 24
-  %90 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %89, ptr noundef nonnull readonly align 8 dereferenceable(12) %83) #22
-  %91 = icmp slt i32 %90, 0
+86:                                               ; preds = %.lr.ph.i.i.i48
+  %87 = getelementptr i8, ptr %.sroa.03.06.i.i.i50, i64 8
+  %.val1.i.i.i.i58 = load ptr, ptr %87, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i.i58, i64 24
+  %89 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %88, ptr noundef nonnull readonly align 8 dereferenceable(12) %82) #22
+  %90 = icmp slt i32 %89, 0
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i53"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i53": ; preds = %87, %85
-  %.0.i.i.i.i.i54 = phi i1 [ %86, %85 ], [ %91, %87 ]
-  %92 = zext i1 %.0.i.i.i.i.i54 to i32
-  %spec.select.i.i.i55 = add i32 %.07.i.i.i49, %92
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i.i50, i64 40
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i53": ; preds = %86, %84
+  %.0.i.i.i.i.i54 = phi i1 [ %85, %85 ], [ %90, %87 ]
+  %91 = zext i1 %.0.i.i.i.i.i54 to i32
+  %spec.select.i.i.i55 = add i32 %.07.i.i.i49, %91
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i.i50, i64 40
   %.not.i.i.i56 = icmp eq ptr %.sroa.03.06.i.i.i50, %.sroa.0122.2
   br i1 %.not.i.i.i56, label %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit59, label %.lr.ph.i.i.i48, !llvm.loop !468
 
@@ -4626,83 +4626,83 @@ _ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_c
   %.not38 = icmp ugt i32 %spec.select.i.i.i55, %.0.lcssa.i.i.i
   br i1 %.not38, label %.thread, label %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit59.thread
 
-94:                                               ; preds = %65
-  %95 = getelementptr inbounds nuw i8, ptr %.sroa.0122.2, i64 40
-  %96 = getelementptr inbounds nuw i8, ptr %.sroa.0122.2, i64 32
-  %.val4.i60 = load i32, ptr %96, align 8
-  %.not5.i.i.i61 = icmp eq ptr %95, %6
+93:                                               ; preds = %65
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.0122.2, i64 40
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.0122.2, i64 32
+  %.val4.i60 = load i32, ptr %95, align 8
+  %.not5.i.i.i61 = icmp eq ptr %94, %6
   br i1 %.not5.i.i.i61, label %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit75, label %.lr.ph.i.preheader.i.i62
 
-.lr.ph.i.preheader.i.i62:                         ; preds = %94
-  %97 = getelementptr inbounds nuw i8, ptr %.sroa.0122.2, i64 8
-  %.val.i63 = load ptr, ptr %97, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %.val.i63, i64 24
+.lr.ph.i.preheader.i.i62:                         ; preds = %93
+  %96 = getelementptr inbounds nuw i8, ptr %.sroa.0122.2, i64 8
+  %.val.i63 = load ptr, ptr %96, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %.val.i63, i64 24
   br label %.lr.ph.i.i.i64
 
 .lr.ph.i.i.i64:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i69", %.lr.ph.i.preheader.i.i62
   %.07.i.i.i65 = phi i32 [ %spec.select.i.i.i71, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i69" ], [ 0, %.lr.ph.i.preheader.i.i62 ]
-  %.sroa.03.06.i.i.i66 = phi ptr [ %108, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i69" ], [ %6, %.lr.ph.i.preheader.i.i62 ]
-  %99 = getelementptr i8, ptr %.sroa.03.06.i.i.i66, i64 32
-  %.val2.i.i.i.i67 = load i32, ptr %99, align 4, !tbaa !81
+  %.sroa.03.06.i.i.i66 = phi ptr [ %107, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i69" ], [ %6, %.lr.ph.i.preheader.i.i62 ]
+  %98 = getelementptr i8, ptr %.sroa.03.06.i.i.i66, i64 32
+  %.val2.i.i.i.i67 = load i32, ptr %98, align 4, !tbaa !81
   %.not.i.i.i.i.i68 = icmp eq i32 %.val2.i.i.i.i67, %.val4.i60
-  br i1 %.not.i.i.i.i.i68, label %102, label %100
+  br i1 %.not.i.i.i.i.i68, label %101, label %99
 
-100:                                              ; preds = %.lr.ph.i.i.i64
-  %101 = icmp ult i32 %.val4.i60, %.val2.i.i.i.i67
+99:                                               ; preds = %.lr.ph.i.i.i64
+  %100 = icmp ult i32 %.val4.i60, %.val2.i.i.i.i67
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i69"
 
-102:                                              ; preds = %.lr.ph.i.i.i64
-  %103 = getelementptr i8, ptr %.sroa.03.06.i.i.i66, i64 8
-  %.val1.i.i.i.i74 = load ptr, ptr %103, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i.i74, i64 24
-  %105 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %104, ptr noundef nonnull readonly align 8 dereferenceable(12) %98) #22
-  %106 = icmp slt i32 %105, 0
+101:                                              ; preds = %.lr.ph.i.i.i64
+  %102 = getelementptr i8, ptr %.sroa.03.06.i.i.i66, i64 8
+  %.val1.i.i.i.i74 = load ptr, ptr %102, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i.i74, i64 24
+  %104 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %103, ptr noundef nonnull readonly align 8 dereferenceable(12) %97) #22
+  %105 = icmp slt i32 %104, 0
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i69"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i69": ; preds = %102, %100
-  %.0.i.i.i.i.i70 = phi i1 [ %101, %100 ], [ %106, %102 ]
-  %107 = zext i1 %.0.i.i.i.i.i70 to i32
-  %spec.select.i.i.i71 = add i32 %.07.i.i.i65, %107
-  %108 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i.i66, i64 40
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i69": ; preds = %101, %99
+  %.0.i.i.i.i.i70 = phi i1 [ %100, %100 ], [ %105, %102 ]
+  %106 = zext i1 %.0.i.i.i.i.i70 to i32
+  %spec.select.i.i.i71 = add i32 %.07.i.i.i65, %106
+  %107 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i.i66, i64 40
   %.not.i.i.i72 = icmp eq ptr %.sroa.03.06.i.i.i66, %.sroa.0122.2
   br i1 %.not.i.i.i72, label %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit75, label %.lr.ph.i.i.i64, !llvm.loop !468
 
-_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit75: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i69", %94
+_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit75: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i69", %93
   %.0.lcssa.i.i.i73 = phi i32 [ 0, %94 ], [ %spec.select.i.i.i71, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i69" ]
   %.not5.i.i.i77 = icmp eq i64 %.sroa.0114.2.idx, 40
   br i1 %.not5.i.i.i77, label %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit91.thread, label %.lr.ph.i.preheader.i.i78
 
 .lr.ph.i.preheader.i.i78:                         ; preds = %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit75
-  %109 = getelementptr inbounds nuw i8, ptr %.sroa.0122.2, i64 8
-  %.val.i79 = load ptr, ptr %109, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %.val.i79, i64 24
+  %108 = getelementptr inbounds nuw i8, ptr %.sroa.0122.2, i64 8
+  %.val.i79 = load ptr, ptr %108, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %.val.i79, i64 24
   br label %.lr.ph.i.i.i80
 
 .lr.ph.i.i.i80:                                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i85", %.lr.ph.i.preheader.i.i78
   %.07.i.i.i81 = phi i32 [ %spec.select.i.i.i87, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i85" ], [ 0, %.lr.ph.i.preheader.i.i78 ]
-  %.sroa.03.06.i.i.i82 = phi ptr [ %120, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i85" ], [ %.sroa.0114.2.ptr, %.lr.ph.i.preheader.i.i78 ]
-  %111 = getelementptr i8, ptr %.sroa.03.06.i.i.i82, i64 32
-  %.val2.i.i.i.i83 = load i32, ptr %111, align 4, !tbaa !81
+  %.sroa.03.06.i.i.i82 = phi ptr [ %119, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i85" ], [ %.sroa.0114.2.ptr, %.lr.ph.i.preheader.i.i78 ]
+  %110 = getelementptr i8, ptr %.sroa.03.06.i.i.i82, i64 32
+  %.val2.i.i.i.i83 = load i32, ptr %110, align 4, !tbaa !81
   %.not.i.i.i.i.i84 = icmp eq i32 %.val2.i.i.i.i83, %.val4.i60
-  br i1 %.not.i.i.i.i.i84, label %114, label %112
+  br i1 %.not.i.i.i.i.i84, label %113, label %111
 
-112:                                              ; preds = %.lr.ph.i.i.i80
-  %113 = icmp ult i32 %.val4.i60, %.val2.i.i.i.i83
+111:                                              ; preds = %.lr.ph.i.i.i80
+  %112 = icmp ult i32 %.val4.i60, %.val2.i.i.i.i83
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i85"
 
-114:                                              ; preds = %.lr.ph.i.i.i80
-  %115 = getelementptr i8, ptr %.sroa.03.06.i.i.i82, i64 8
-  %.val1.i.i.i.i90 = load ptr, ptr %115, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i.i90, i64 24
-  %117 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %116, ptr noundef nonnull readonly align 8 dereferenceable(12) %110) #22
-  %118 = icmp slt i32 %117, 0
+113:                                              ; preds = %.lr.ph.i.i.i80
+  %114 = getelementptr i8, ptr %.sroa.03.06.i.i.i82, i64 8
+  %.val1.i.i.i.i90 = load ptr, ptr %114, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i.i90, i64 24
+  %116 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %115, ptr noundef nonnull readonly align 8 dereferenceable(12) %109) #22
+  %117 = icmp slt i32 %116, 0
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i85"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i85": ; preds = %114, %112
-  %.0.i.i.i.i.i86 = phi i1 [ %113, %112 ], [ %118, %114 ]
-  %119 = zext i1 %.0.i.i.i.i.i86 to i32
-  %spec.select.i.i.i87 = add i32 %.07.i.i.i81, %119
-  %120 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i.i82, i64 40
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS3_11CaseClusterENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESD_E3$_0EclISD_EEbT_.exit.i.i.i85": ; preds = %113, %111
+  %.0.i.i.i.i.i86 = phi i1 [ %112, %112 ], [ %117, %114 ]
+  %118 = zext i1 %.0.i.i.i.i.i86 to i32
+  %spec.select.i.i.i87 = add i32 %.07.i.i.i81, %118
+  %119 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i.i82, i64 40
   %.not.i.i.i88 = icmp eq ptr %.sroa.03.06.i.i.i82, %9
   br i1 %.not.i.i.i88, label %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit91, label %.lr.ph.i.i.i80, !llvm.loop !468
 
@@ -4711,23 +4711,23 @@ _ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_c
   br i1 %.not, label %.thread, label %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit91.thread
 
 _ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit91.thread: ; preds = %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit75, %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit91
-  %121 = getelementptr inbounds i8, ptr %.sroa.0122.2, i64 -40
+  %120 = getelementptr inbounds i8, ptr %.sroa.0122.2, i64 -40
   br label %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit59.thread
 
 _ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit59.thread: ; preds = %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit59, %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit, %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit91.thread
   %.sink = phi i64 [ -40, %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit91.thread ], [ 40, %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit ], [ 40, %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit59 ]
-  %.sroa.0122.5 = phi ptr [ %121, %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit91.thread ], [ %81, %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit ], [ %81, %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit59 ]
-  %.sroa.0114.2.add172 = add nsw i64 %.sroa.0114.2.idx, %.sink
+  %.sroa.0122.5 = phi ptr [ %120, %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit91.thread ], [ %80, %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit ], [ %80, %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit59 ]
+  %.sroa.0114.2.add167 = add nsw i64 %.sroa.0114.2.idx, %.sink
   br label %51
 
 .thread:                                          ; preds = %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit91, %_ZN4llvm8SwitchCG14SwitchLowering15caseClusterRankERKNS0_11CaseClusterEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESB_.exit59, %51
   store i64 %52, ptr %0, align 8, !tbaa !459
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %57, ptr %122, align 8, !tbaa !459
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sroa.0110.0.lcssa, ptr %123, align 8, !tbaa !24
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sroa.0106.0.lcssa, ptr %124, align 4, !tbaa !24
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %57, ptr %121, align 8, !tbaa !459
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %.sroa.0110.0.lcssa, ptr %122, align 8, !tbaa !24
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %.sroa.0106.0.lcssa, ptr %123, align 4, !tbaa !24
   ret void
 }
 

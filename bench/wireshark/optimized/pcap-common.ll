@@ -1512,56 +1512,56 @@ define hidden void @pcap_read_post_process(i1 noundef zeroext %0, i32 noundef %1
   %234 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %235 = load i32, ptr %234, align 4
   %236 = icmp ult i32 %233, 64
-  %237 = icmp ult i32 %235, 64
+  %236 = icmp ult i32 %235, 64
   %238 = or i1 %236, %237
   br i1 %238, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %239
 
-239:                                              ; preds = %228
+239:; preds = %228
   %240 = load i8, ptr %231, align 4
   %241 = icmp ult i8 %240, 60
   br i1 %241, label %pcap_byteswap_linux_sll_pseudoheader.exit, label %242
 
-242:                                              ; preds = %239
-  %243 = getelementptr inbounds nuw i8, ptr %231, i64 44
+242: ; preds = %239
+  %242 = getelementptr inbounds nuw i8, ptr %231, i64 44
   %244 = getelementptr i8, ptr %231, i64 47
-  %245 = load i8, ptr %244, align 1
-  %246 = load i8, ptr %243, align 4
+  %244 = load i8, ptr %244, align 1
+  %246 = load i8, ptr %242, align 4
   store i8 %246, ptr %244, align 1
-  store i8 %245, ptr %243, align 4
+  store i8 %244, ptr %243, align 4
   %247 = getelementptr i8, ptr %231, i64 46
   %248 = load i8, ptr %247, align 2
   %249 = getelementptr i8, ptr %231, i64 45
   %250 = load i8, ptr %249, align 1
   store i8 %250, ptr %247, align 2
   store i8 %248, ptr %249, align 1
-  %251 = getelementptr inbounds nuw i8, ptr %231, i64 48
+  %250 = getelementptr inbounds nuw i8, ptr %231, i64 48
   %252 = getelementptr i8, ptr %231, i64 51
-  %253 = load i8, ptr %252, align 1
-  %254 = load i8, ptr %251, align 4
+  %252 = load i8, ptr %252, align 1
+  %254 = load i8, ptr %250, align 4
   store i8 %254, ptr %252, align 1
-  store i8 %253, ptr %251, align 4
+  store i8 %252, ptr %251, align 4
   %255 = getelementptr i8, ptr %231, i64 50
   %256 = load i8, ptr %255, align 2
   %257 = getelementptr i8, ptr %231, i64 49
   %258 = load i8, ptr %257, align 1
   store i8 %258, ptr %255, align 2
   store i8 %256, ptr %257, align 1
-  %259 = getelementptr inbounds nuw i8, ptr %231, i64 52
+  %258 = getelementptr inbounds nuw i8, ptr %231, i64 52
   %260 = getelementptr i8, ptr %231, i64 55
-  %261 = load i8, ptr %260, align 1
-  %262 = load i8, ptr %259, align 4
+  %260 = load i8, ptr %260, align 1
+  %262 = load i8, ptr %258, align 4
   store i8 %262, ptr %260, align 1
-  store i8 %261, ptr %259, align 4
+  store i8 %260, ptr %259, align 4
   %263 = getelementptr i8, ptr %231, i64 54
   %264 = load i8, ptr %263, align 2
   %265 = getelementptr i8, ptr %231, i64 53
   %266 = load i8, ptr %265, align 1
   store i8 %266, ptr %263, align 2
   store i8 %264, ptr %265, align 1
-  %267 = getelementptr inbounds nuw i8, ptr %231, i64 56
+  %266 = getelementptr inbounds nuw i8, ptr %231, i64 56
   %268 = getelementptr i8, ptr %231, i64 59
-  %269 = load i8, ptr %268, align 1
-  %270 = load i8, ptr %267, align 4
+  %268 = load i8, ptr %268, align 1
+  %270 = load i8, ptr %266, align 4
   store i8 %270, ptr %268, align 1
   store i8 %269, ptr %267, align 4
   %271 = getelementptr i8, ptr %231, i64 58

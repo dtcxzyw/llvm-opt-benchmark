@@ -36043,12 +36043,12 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %64 = load i64, ptr %0, align 8, !tbaa !63
   %65 = icmp slt i64 %64, 48
   %66 = icmp slt i64 %62, 48
-  %67 = icmp slt i64 %63, 48
+  %66 = icmp slt i64 %63, 48
   %68 = and i1 %66, %67
   %69 = and i1 %65, %68
   br i1 %69, label %.critedge116, label %70
 
-70:                                               ; preds = %61
+70:; preds = %61
   %71 = add nsw i64 %13, -128
   %72 = sdiv i64 %71, 64
   %73 = and i64 %72, -8
@@ -36056,15 +36056,15 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %74 = icmp sgt i64 %64, %.sroa.speculated140
   br i1 %74, label %75, label %89
 
-75:                                               ; preds = %70
+75:; preds = %70
   %76 = urem i64 %64, %.sroa.speculated140
   %77 = udiv i64 %64, %.sroa.speculated140
   %78 = icmp eq i64 %76, 0
   br i1 %78, label %87, label %79
 
-79:                                               ; preds = %75
+79:; preds = %75
   %80 = xor i64 %76, -1
-  %81 = add nsw i64 %.sroa.speculated140, %80
+  %80 = add nsw i64 %.sroa.speculated140, %80
   %82 = shl i64 %77, 3
   %83 = add i64 %82, 8
   %84 = sdiv i64 %81, %83
@@ -36072,7 +36072,7 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %86 = sub nsw i64 %.sroa.speculated140, %85
   br label %87
 
-87:                                               ; preds = %75, %79
+87:; preds = %75, %79
   %88 = phi i64 [ %86, %79 ], [ %.sroa.speculated140, %75 ]
   store i64 %88, ptr %0, align 8, !tbaa !63
   %.pre = load i64, ptr %1, align 8, !tbaa !63
@@ -36093,12 +36093,12 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %98 = udiv i64 %94, %97
   br label %102
 
-99:                                               ; preds = %89
+86:                                               ; preds = %89
   %100 = shl i64 %.sroa.speculated140, 5
   %101 = udiv i64 4718592, %100
-  br label %102
+  br label %96
 
-102:                                              ; preds = %99, %96
+96:                                               ; preds = %86, %96
   %storemerge = phi i64 [ %101, %99 ], [ %98, %96 ]
   %103 = shl i64 %90, 4
   %104 = udiv i64 1572864, %103
@@ -36108,35 +36108,35 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %107 = icmp sgt i64 %106, %105
   br i1 %107, label %108, label %121
 
-108:                                              ; preds = %102
+99:                                               ; preds = %96
   %109 = srem i64 %106, %105
   %110 = sdiv i64 %106, %105
   %111 = icmp eq i64 %109, 0
   br i1 %111, label %119, label %112
 
-112:                                              ; preds = %108
+112:; preds = %108
   %113 = sub nsw i64 %105, %109
   %114 = shl i64 %110, 2
   %115 = add i64 %114, 4
   %116 = sdiv i64 %113, %115
   %117 = shl nsw i64 %116, 2
   %118 = sub nsw i64 %105, %117
-  br label %119
+  br label %116
 
-119:                                              ; preds = %108, %112
-  %120 = phi i64 [ %118, %112 ], [ %105, %108 ]
-  store i64 %120, ptr %2, align 8, !tbaa !63
+116:                                              ; preds = %108, %112
+  %117 = phi i64 [ %118, %112 ], [ %105, %108 ]
+  store i64 %117, ptr %2, align 8, !tbaa !63
   br label %.critedge116
 
-121:                                              ; preds = %102
-  %122 = icmp eq i64 %64, %90
-  br i1 %122, label %123, label %.critedge116
+118:                                              ; preds = %96
+  %119 = icmp eq i64 %64, %90
+  br i1 %119, label %123, label %.critedge116
 
-123:                                              ; preds = %121
+124:                                              ; preds = %121
   %124 = shl i64 %64, 3
   %125 = mul i64 %124, %106
   %126 = icmp slt i64 %125, 1025
-  br i1 %126, label %131, label %127
+  br i1 %126, label %127, label %127
 
 127:                                              ; preds = %123
   %128 = icmp ne i64 %15, 0
@@ -36148,7 +36148,7 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %.sroa.speculated128 = tail call i64 @llvm.smin.i64(i64 %91, i64 576)
   br label %131
 
-131:                                              ; preds = %123, %127, %130
+127:                                              ; preds = %124, %127, %130
   %.0182 = phi i64 [ %91, %127 ], [ %.sroa.speculated128, %130 ], [ %91, %123 ]
   %.093 = phi i64 [ 1572864, %127 ], [ %14, %130 ], [ %13, %123 ]
   %132 = mul i64 %64, 24
@@ -36157,36 +36157,36 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %134 = icmp sgt i64 %.sroa.speculated, 4
   br i1 %134, label %135, label %137
 
-135:                                              ; preds = %131
+128:                                              ; preds = %127
   %136 = and i64 %.sroa.speculated, 9223372036854775804
   br label %139
 
-137:                                              ; preds = %131
-  %138 = icmp eq i64 %.sroa.speculated, 0
-  br i1 %138, label %.critedge116, label %139
+134:                                              ; preds = %127
+  %135 = icmp eq i64 %.sroa.speculated, 0
+  br i1 %135, label %.critedge116, label %136
 
-139:                                              ; preds = %137, %135
+136:                                              ; preds = %134, %135
   %.0 = phi i64 [ %136, %135 ], [ %.sroa.speculated, %137 ]
-  %140 = srem i64 %91, %.0
-  %141 = sdiv i64 %91, %.0
-  %142 = icmp eq i64 %140, 0
-  br i1 %142, label %.critedge, label %143
+  %137 = srem i64 %91, %.0
+  %138 = sdiv i64 %91, %.0
+  %139 = icmp eq i64 %137, 0
+  br i1 %139, label %.critedge, label %140
 
-143:                                              ; preds = %139
-  %144 = sub nsw i64 %.0, %140
-  %145 = shl i64 %141, 2
-  %146 = add i64 %145, 4
-  %147 = sdiv i64 %144, %146
-  %148 = shl nsw i64 %147, 2
-  %149 = sub nsw i64 %.0, %148
+140:                                              ; preds = %136
+  %141 = sub nsw i64 %.0, %137
+  %142 = shl i64 %138, 2
+  %143 = add i64 %142, 4
+  %144 = sdiv i64 %141, %143
+  %145 = shl nsw i64 %144, 2
+  %146 = sub nsw i64 %.0, %145
   br label %.critedge
 
-.critedge:                                        ; preds = %139, %143
-  %150 = phi i64 [ %149, %143 ], [ %.0, %139 ]
-  store i64 %150, ptr %1, align 8, !tbaa !63
+.critedge:                                        ; preds = %136, %140
+  %147 = phi i64 [ %146, %143 ], [ %.0, %139 ]
+  store i64 %147, ptr %1, align 8, !tbaa !63
   br label %.critedge116
 
-.critedge116:                                     ; preds = %.critedge, %121, %119, %137, %55, %57, %42, %61
+.critedge116:                                     ; preds = %.critedge, %118, %116, %134, %55, %57, %42, %61
   ret void
 }
 

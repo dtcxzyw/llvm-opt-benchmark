@@ -107,7 +107,7 @@ _ZL14getNewCapacityIjEmmmm.exit:                  ; preds = %11
   %14 = shl nuw nsw i64 %8, 1
   %15 = or disjoint i64 %14, 1
   %16 = icmp slt i32 %7, 0
-  %.sroa.speculate.load.false.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %15, i64 %2)
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %15, i64 %2)
   %.sroa.speculated.i = select i1 %16, i64 4294967295, i64 %.sroa.speculate.load.false.sroa.speculated.i
   store i64 %.sroa.speculated.i, ptr %4, align 8, !tbaa !11
   %17 = mul i64 %.sroa.speculated.i, %3
@@ -201,7 +201,7 @@ _ZL14getNewCapacityIjEmmmm.exit:                  ; preds = %10
   %13 = shl nuw nsw i64 %7, 1
   %14 = or disjoint i64 %13, 1
   %15 = icmp slt i32 %6, 0
-  %.sroa.speculate.load.false.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %14, i64 %2)
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %14, i64 %2)
   %.sroa.speculated.i = select i1 %15, i64 4294967295, i64 %.sroa.speculate.load.false.sroa.speculated.i
   %16 = load ptr, ptr %0, align 8, !tbaa !3
   %17 = icmp eq ptr %16, %1

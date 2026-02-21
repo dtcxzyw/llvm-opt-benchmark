@@ -686,9 +686,9 @@ define dso_local noundef i32 @_ZN20Sample_TempObstacles19rasterizeTileLayersEiiR
   %247 = call noundef i32 @llvm.smin.i32(i32 %246, i32 32)
   %248 = sext i32 %247 to i64
   %249 = icmp slt i64 %indvars.iv.next127, %248
-  br i1 %249, label %254, label %.preheader, !llvm.loop !8
+  br i1 %249, label %254, label %.preheader.loopexit, !llvm.loop !8
 
-.preheader:                                       ; preds = %243
+.preheader.loopexit:                              ; preds = %243
   %.pre = load i32, ptr %219, align 8
   %250 = icmp sgt i32 %.pre, 0
   %251 = icmp sgt i32 %5, 0

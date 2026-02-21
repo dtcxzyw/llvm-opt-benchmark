@@ -3364,7 +3364,7 @@ define internal void @predictor_decode_stereo_3950(ptr noundef %0, i32 noundef %
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 7200
   %.sroa.gep114 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %.sroa.gep115 = getelementptr inbounds nuw i8, ptr %0, i64 2648
-  %.not184 = icmp eq i32 %1, 0
+  %.not183 = icmp eq i32 %1, 0
   %.sroa.gep117 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.gep118 = getelementptr inbounds nuw i8, ptr %0, i64 2456
   %.sroa.gep120 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -3416,26 +3416,26 @@ define internal void @predictor_decode_stereo_3950(ptr noundef %0, i32 noundef %
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 4296
   %.sroa.gep113 = getelementptr inbounds nuw i8, ptr %0, i64 6744
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not184, label %.loopexit.us, label %.lr.ph
+  br i1 %.not183, label %.loopexit.us, label %.lr.ph
 
 .loopexit.us:                                     ; preds = %21, %.loopexit.us
-  %.081187.us = phi i32 [ %26, %.loopexit.us ], [ 0, %21 ]
-  %25 = icmp eq i32 %.081187.us, 0
+  %.081186.us = phi i32 [ %26, %.loopexit.us ], [ 0, %21 ]
+  %25 = icmp eq i32 %.081186.us, 0
   %.083.us = select i1 %25, ptr %4, ptr %3
   %.083.sroa.sel116.us = select i1 %25, ptr %.sroa.gep115, ptr %.sroa.gep114
   store ptr %.083.sroa.sel116.us, ptr %.083.us, align 8, !tbaa !131
-  %26 = add nuw nsw i32 %.081187.us, 1
-  %exitcond191.not = icmp eq i32 %26, %.080
-  br i1 %exitcond191.not, label %.split189.us, label %.loopexit.us, !llvm.loop !135
+  %26 = add nuw nsw i32 %.081186.us, 1
+  %exitcond190.not = icmp eq i32 %26, %.080
+  br i1 %exitcond190.not, label %.split188.us, label %.loopexit.us, !llvm.loop !135
 
-.split189.us:                                     ; preds = %..loopexit_crit_edge, %.loopexit.us
+.split188.us:                                     ; preds = %..loopexit_crit_edge, %.loopexit.us
   br i1 %11, label %310, label %320
 
 .lr.ph:                                           ; preds = %21, %..loopexit_crit_edge
-  %.081187 = phi i32 [ %309, %..loopexit_crit_edge ], [ 0, %21 ]
+  %.081186 = phi i32 [ %309, %..loopexit_crit_edge ], [ 0, %21 ]
   %27 = load i32, ptr %9, align 4, !tbaa !43
   %28 = icmp slt i32 %27, 1
-  %29 = icmp eq i32 %.081187, 0
+  %29 = icmp eq i32 %.081186, 0
   %.not182 = and i1 %29, %28
   %.086.in = select i1 %29, ptr %7, ptr %23
   %.084.in = select i1 %29, ptr %5, ptr %22
@@ -3474,10 +3474,10 @@ define internal void @predictor_decode_stereo_3950(ptr noundef %0, i32 noundef %
 30:                                               ; preds = %.lr.ph, %307
   %31 = phi ptr [ %.083.sroa.sel116, %.lr.ph ], [ %308, %307 ]
   %.in = phi i32 [ %1, %.lr.ph ], [ %32, %307 ]
-  %.185186 = phi ptr [ %.084, %.lr.ph ], [ %293, %307 ]
-  %.187185 = phi ptr [ %.086, %.lr.ph ], [ %294, %307 ]
+  %.185185 = phi ptr [ %.084, %.lr.ph ], [ %293, %307 ]
+  %.187184 = phi ptr [ %.086, %.lr.ph ], [ %294, %307 ]
   %32 = add nsw i32 %.in, -1
-  %33 = load i32, ptr %.185186, align 4, !tbaa !61
+  %33 = load i32, ptr %.185185, align 4, !tbaa !61
   %34 = load i64, ptr %.083.sroa.sel119, align 8, !tbaa !130
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 400
   store i64 %34, ptr %35, align 8, !tbaa !130
@@ -3646,7 +3646,7 @@ predictor_update_filter.exit:                     ; preds = %106, %113
   %161 = add i64 %160, %103
   store i64 %161, ptr %.083.sroa.sel137.sroa.sel146, align 8, !tbaa !130
   %162 = trunc i64 %122 to i32
-  %163 = load i32, ptr %.187185, align 4, !tbaa !61
+  %163 = load i32, ptr %.187184, align 4, !tbaa !61
   %164 = load i64, ptr %.083.sroa.sel149.sroa.sel, align 8, !tbaa !130
   %165 = getelementptr inbounds nuw i8, ptr %31, i64 272
   store i64 %164, ptr %165, align 8, !tbaa !130
@@ -3815,10 +3815,10 @@ predictor_update_filter.exit94:                   ; preds = %236, %243
   %291 = add i64 %290, %233
   store i64 %291, ptr %.083.sroa.sel167.sroa.sel.sroa.sel, align 8, !tbaa !130
   %292 = trunc i64 %252 to i32
-  %293 = getelementptr inbounds nuw i8, ptr %.185186, i64 4
-  store i32 %162, ptr %.185186, align 4, !tbaa !61
-  %294 = getelementptr inbounds nuw i8, ptr %.187185, i64 4
-  store i32 %292, ptr %.187185, align 4, !tbaa !61
+  %293 = getelementptr inbounds nuw i8, ptr %.185185, i64 4
+  store i32 %162, ptr %.185185, align 4, !tbaa !61
+  %294 = getelementptr inbounds nuw i8, ptr %.187184, i64 4
+  store i32 %292, ptr %.187184, align 4, !tbaa !61
   br i1 %11, label %295, label %.thread
 
 295:                                              ; preds = %predictor_update_filter.exit94
@@ -3855,11 +3855,11 @@ predictor_update_filter.exit94:                   ; preds = %236, %243
   br i1 %.not, label %..loopexit_crit_edge, label %30
 
 ..loopexit_crit_edge:                             ; preds = %307, %.thread178
-  %309 = add nuw nsw i32 %.081187, 1
+  %309 = add nuw nsw i32 %.081186, 1
   %exitcond.not = icmp eq i32 %309, %.080
-  br i1 %exitcond.not, label %.split189.us, label %.lr.ph, !llvm.loop !135
+  br i1 %exitcond.not, label %.split188.us, label %.lr.ph, !llvm.loop !135
 
-310:                                              ; preds = %.split189.us
+310:                                              ; preds = %.split188.us
   %311 = load i32, ptr %9, align 4, !tbaa !43
   %312 = icmp sgt i32 %311, 0
   br i1 %312, label %313, label %320
@@ -3877,7 +3877,7 @@ predictor_update_filter.exit94:                   ; preds = %236, %243
   store ptr %.sroa.gep115, ptr %4, align 8, !tbaa !131
   br label %320
 
-320:                                              ; preds = %313, %310, %.split189.us
+320:                                              ; preds = %313, %310, %.split188.us
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

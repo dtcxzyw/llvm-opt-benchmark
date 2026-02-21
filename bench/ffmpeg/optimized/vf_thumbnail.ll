@@ -123,42 +123,42 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %22 = load i32, ptr %17, align 4, !tbaa !43
   %23 = load i32, ptr %19, align 8, !tbaa !49
   %24 = icmp sgt i32 %22, 0
-  %25 = icmp sgt i32 %23, 0
+  %24 = icmp sgt i32 %23, 0
   %26 = and i1 %24, %25
   br i1 %26, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %27 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %28 = load ptr, ptr %27, align 8, !tbaa !50
-  br label %34
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %26 = load ptr, ptr %25, align 8, !tbaa !50
+  br label %32
 
-._crit_edge:                                      ; preds = %36, %2
-  %29 = load i32, ptr %12, align 8, !tbaa !42
-  %30 = add nsw i32 %29, 1
-  store i32 %30, ptr %12, align 8, !tbaa !42
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %32 = load i32, ptr %31, align 8, !tbaa !20
-  %33 = icmp slt i32 %30, %32
-  br i1 %33, label %50, label %47
+._crit_edge:                                      ; preds = %34, %2
+  %27 = load i32, ptr %12, align 8, !tbaa !42
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %12, align 8, !tbaa !42
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %30 = load i32, ptr %29, align 8, !tbaa !20
+  %31 = icmp slt i32 %28, %30
+  br i1 %31, label %48, label %45
 
-34:                                               ; preds = %.lr.ph, %36
+32:                                               ; preds = %.lr.ph, %34
   %indvars.iv44 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next45, %36 ]
   %.idx = mul nuw nsw i64 %indvars.iv44, 3072
-  %35 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx
-  br label %41
+  %33 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx
+  br label %39
 
-36:                                               ; preds = %41
+34:                                               ; preds = %39
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
-  %37 = load i32, ptr %17, align 4, !tbaa !43
-  %38 = load i32, ptr %19, align 8, !tbaa !49
-  %.39 = tail call i32 @llvm.smin.i32(i32 %37, i32 %38)
-  %39 = sext i32 %.39 to i64
-  %40 = icmp slt i64 %indvars.iv.next45, %39
-  br i1 %40, label %34, label %._crit_edge, !llvm.loop !51
+  %35 = load i32, ptr %17, align 4, !tbaa !43
+  %36 = load i32, ptr %19, align 8, !tbaa !49
+  %.39 = tail call i32 @llvm.smin.i32(i32 %35, i32 %36)
+  %37 = sext i32 %.39 to i64
+  %38 = icmp slt i64 %indvars.iv.next45, %37
+  br i1 %38, label %32, label %._crit_edge, !llvm.loop !51
 
-41:                                               ; preds = %34, %41
+39:                                               ; preds = %32, %39
   %indvars.iv = phi i64 [ 0, %34 ], [ %indvars.iv.next, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !52
   %44 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4, !tbaa !52
@@ -166,15 +166,15 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   store i32 %46, ptr %44, align 4, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 768
-  br i1 %exitcond.not, label %36, label %41, !llvm.loop !53
+  br i1 %exitcond.not, label %34, label %39, !llvm.loop !53
 
-47:                                               ; preds = %._crit_edge
-  %48 = tail call fastcc ptr @get_best_frame(ptr noundef %4)
-  %49 = tail call i32 @ff_filter_frame(ptr noundef %9, ptr noundef %48) #9
-  br label %50
+45:                                               ; preds = %._crit_edge
+  %46 = tail call fastcc ptr @get_best_frame(ptr noundef %4)
+  %47 = tail call i32 @ff_filter_frame(ptr noundef %9, ptr noundef %46) #9
+  br label %48
 
-50:                                               ; preds = %._crit_edge, %47
-  %.033 = phi i32 [ %49, %47 ], [ 0, %._crit_edge ]
+48:                                               ; preds = %._crit_edge, %45
+  %.033 = phi i32 [ %47, %47 ], [ 0, %._crit_edge ]
   ret i32 %.033
 }
 

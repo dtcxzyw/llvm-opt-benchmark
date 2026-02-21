@@ -14155,7 +14155,7 @@ define internal i32 @do_blend(ptr noundef %0) #0 {
   %11 = load ptr, ptr %10, align 8, !tbaa !59
   %12 = call i32 @ff_framesync_dualinput_get_writable(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #10
   %13 = icmp slt i32 %12, 0
-  br i1 %13, label %159, label %14
+  br i1 %13, label %152, label %14
 
 14:                                               ; preds = %1
   %15 = load ptr, ptr %3, align 8, !tbaa !100
@@ -14168,7 +14168,7 @@ define internal i32 @do_blend(ptr noundef %0) #0 {
   %19 = load ptr, ptr %18, align 8, !tbaa !59
   %20 = load ptr, ptr %2, align 8, !tbaa !100
   %21 = call i32 @ff_filter_frame(ptr noundef %19, ptr noundef %20) #10
-  br label %159
+  br label %152
 
 22:                                               ; preds = %14
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 36
@@ -14287,7 +14287,7 @@ define internal i32 @do_blend(ptr noundef %0) #0 {
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 104
   %105 = load i32, ptr %104, align 8, !tbaa !71
   %106 = icmp slt i32 %102, %105
-  br i1 %106, label %107, label %153
+  br i1 %106, label %107, label %146
 
 107:                                              ; preds = %100
   %108 = load ptr, ptr %3, align 8, !tbaa !100
@@ -14295,7 +14295,7 @@ define internal i32 @do_blend(ptr noundef %0) #0 {
   %110 = load i32, ptr %109, align 8, !tbaa !71
   %111 = add nsw i32 %110, %102
   %112 = icmp sgt i32 %111, -1
-  br i1 %112, label %113, label %153
+  br i1 %112, label %113, label %146
 
 113:                                              ; preds = %107
   %114 = getelementptr inbounds nuw i8, ptr %8, i64 12
@@ -14303,14 +14303,14 @@ define internal i32 @do_blend(ptr noundef %0) #0 {
   %116 = getelementptr inbounds nuw i8, ptr %103, i64 108
   %117 = load i32, ptr %116, align 4, !tbaa !76
   %118 = icmp slt i32 %115, %117
-  br i1 %118, label %119, label %153
+  br i1 %118, label %119, label %146
 
 119:                                              ; preds = %113
   %120 = getelementptr inbounds nuw i8, ptr %108, i64 108
   %121 = load i32, ptr %120, align 4, !tbaa !76
   %122 = add nsw i32 %121, %115
   %123 = icmp sgt i32 %122, -1
-  br i1 %123, label %124, label %153
+  br i1 %123, label %124, label %146
 
 124:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -14322,33 +14322,33 @@ define internal i32 @do_blend(ptr noundef %0) #0 {
   %. = call i32 @llvm.smin.i32(i32 %121, i32 %117)
   %128 = icmp sgt i32 %122, %.
   %129 = sub nsw i32 %117, %115
-  br i1 %128, label %130, label %.thread141
+  br i1 %128, label %130, label %.thread140
 
 130:                                              ; preds = %124
   %131 = icmp slt i32 %., 1
-  %132 = icmp slt i32 %129, 1
-  %133 = or i1 %131, %132
+  %131 = icmp slt i32 %129, 1
+  %133 = or i1 %131, %131
   br i1 %133, label %136, label %135
 
-.thread141:                                       ; preds = %124
-  %134 = icmp eq i32 %122, 0
-  br i1 %134, label %136, label %.thread119
+.thread140:                                       ; preds = %124
+  %132 = icmp eq i32 %122, 0
+  br i1 %132, label %134, label %.thread119
 
-135:                                              ; preds = %130
+133:                                              ; preds = %130
   %spec.select126 = call i32 @llvm.smin.i32(i32 %., i32 %129)
-  br label %136
+  br label %134
 
-.thread119:                                       ; preds = %.thread141
+.thread119:                                       ; preds = %.thread140
   %spec.select127 = call i32 @llvm.smin.i32(i32 %122, i32 %129)
-  br label %136
+  br label %134
 
-136:                                              ; preds = %.thread141, %.thread119, %135, %130
-  %137 = phi i32 [ 1, %130 ], [ %spec.select127, %.thread119 ], [ %spec.select126, %135 ], [ 1, %.thread141 ]
-  %138 = call i32 @ff_filter_get_nb_threads(ptr noundef nonnull %6) #12
-  %139 = icmp sgt i32 %137, %138
-  br i1 %139, label %150, label %140
+134:                                              ; preds = %.thread140, %.thread119, %133, %130
+  %135 = phi i32 [ 1, %130 ], [ %spec.select127, %.thread119 ], [ %spec.select126, %135 ], [ 1, %.thread141 ]
+  %136 = call i32 @ff_filter_get_nb_threads(ptr noundef nonnull %6) #12
+  %137 = icmp sgt i32 %135, %136
+  br i1 %137, label %150, label %138
 
-140:                                              ; preds = %136
+138:                                              ; preds = %134
   %141 = icmp eq i32 %122, 0
   %142 = icmp slt i32 %., 1
   %143 = or i1 %142, %141
@@ -14359,31 +14359,31 @@ define internal i32 @do_blend(ptr noundef %0) #0 {
 146:                                              ; preds = %140
   br i1 %128, label %147, label %.thread123
 
-147:                                              ; preds = %146
+147:; preds = %146
   %148 = call i32 @llvm.umin.i32(i32 %., i32 %129)
   br label %150
 
-.thread123:                                       ; preds = %146
+.thread123:; preds = %146
   %149 = call i32 @llvm.umin.i32(i32 %122, i32 %129)
   br label %150
 
-150:                                              ; preds = %.thread123, %147, %136, %140
+150:; preds = %.thread123, %147, %136, %140
   %151 = phi i32 [ %149, %.thread123 ], [ 1, %140 ], [ %138, %136 ], [ %148, %147 ]
   %152 = call i32 @ff_filter_execute(ptr noundef nonnull %6, ptr noundef %127, ptr noundef nonnull %4, ptr noundef null, i32 noundef %151) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load ptr, ptr %2, align 8, !tbaa !100
-  br label %153
+  br label %146
 
-153:                                              ; preds = %150, %119, %113, %107, %100
-  %154 = phi ptr [ %.pre, %150 ], [ %103, %119 ], [ %103, %113 ], [ %103, %107 ], [ %103, %100 ]
-  %155 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %156 = load ptr, ptr %155, align 8, !tbaa !101
-  %157 = load ptr, ptr %156, align 8, !tbaa !59
-  %158 = call i32 @ff_filter_frame(ptr noundef %157, ptr noundef %154) #10
-  br label %159
+146:                                              ; preds = %150, %119, %113, %107, %100
+  %147 = phi ptr [ %.pre, %150 ], [ %103, %119 ], [ %103, %113 ], [ %103, %107 ], [ %103, %100 ]
+  %148 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %149 = load ptr, ptr %148, align 8, !tbaa !101
+  %150 = load ptr, ptr %149, align 8, !tbaa !59
+  %151 = call i32 @ff_filter_frame(ptr noundef %150, ptr noundef %147) #10
+  br label %152
 
-159:                                              ; preds = %1, %153, %16
-  %.0 = phi i32 [ %21, %16 ], [ %158, %153 ], [ %12, %1 ]
+152:                                              ; preds = %1, %146, %16
+  %.0 = phi i32 [ %21, %16 ], [ %151, %153 ], [ %12, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
