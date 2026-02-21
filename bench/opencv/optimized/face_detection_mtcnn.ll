@@ -22239,7 +22239,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN2cv11GKernelTypeIN6custom12_GLOBAL__N_16RunNMSESt8functionIFNS_6GArrayINS2_4FaceEEES7_fbEEE2onES7_fb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly captures(none) %1, float noundef %2, i1 noundef zeroext %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv11GKernelTypeIN6custom12_GLOBAL__N_16RunNMSESt8functionIFNS_6GArrayINS2_4FaceEEES7_fbEEE2onES7_fb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly captures(none) %1, float noundef nofpclass(nan inf zero sub nnorm) %2, i1 noundef zeroext %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 .noexc.i:
   %4 = alloca %"class.cv::detail::GArrayU", align 8
   %5 = alloca %"class.std::vector.221", align 8

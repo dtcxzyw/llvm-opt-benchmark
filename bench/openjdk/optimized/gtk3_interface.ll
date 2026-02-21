@@ -8295,7 +8295,7 @@ define internal fastcc void @gtk3_get_color_for_flags(ptr dead_on_unwind noalias
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @gtk3_style_shade(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, double noundef %2) unnamed_addr #14 {
+define internal fastcc void @gtk3_style_shade(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, double noundef nofpclass(nan inf zero sub nnorm) %2) unnamed_addr #14 {
   %4 = load double, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load double, ptr %5, align 8

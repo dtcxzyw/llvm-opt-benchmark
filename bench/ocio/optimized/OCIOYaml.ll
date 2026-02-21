@@ -133565,7 +133565,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit55:                  ; preds = %_ZNSt6vectorIdSaIdE
 declare noundef zeroext i1 @_ZN19OpenColorIO_v2_5devneERKNS_13GradingRGBMSWES2_(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112saveLogParamERN4YAML7EmitterERA3_KddPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, double noundef %2, ptr noundef %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112saveLogParamERN4YAML7EmitterERA3_KddPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, double noundef nofpclass(snan inf nzero sub nnorm) %2, ptr noundef %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = load double, ptr %1, align 8, !tbaa !329
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load double, ptr %6, align 8, !tbaa !329

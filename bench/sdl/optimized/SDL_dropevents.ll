@@ -17,7 +17,7 @@ define hidden zeroext i1 @SDL_SendDropFile(ptr noundef captures(address_is_null)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @SDL_SendDrop(ptr noundef captures(address_is_null) %0, i32 noundef range(i32 4096, 4101) %1, ptr noundef %2, ptr noundef %3, float noundef %4, float noundef %5) unnamed_addr #0 {
+define internal fastcc zeroext i1 @SDL_SendDrop(ptr noundef captures(address_is_null) %0, i32 noundef range(i32 4096, 4101) %1, ptr noundef %2, ptr noundef %3, float noundef nofpclass(nan inf nzero sub norm) %4, float noundef nofpclass(nan inf nzero sub norm) %5) unnamed_addr #0 {
   %7 = alloca %union.SDL_Event, align 8
   %8 = tail call zeroext i1 @SDL_EventEnabled_REAL(i32 noundef %1) #4
   br i1 %8, label %9, label %49

@@ -7297,7 +7297,7 @@ declare void @cairo_set_line_width(ptr noundef, double noundef) local_unnamed_ad
 declare void @cairo_new_path(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_line_to_module(ptr noundef %0, i32 noundef %1, i64 %2, float noundef %3, double noundef %4, double noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @_line_to_module(ptr noundef %0, i32 noundef %1, i64 %2, float noundef %3, double noundef nofpclass(nan inf zero sub nnorm) %4, double noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %struct._cairo_rectangle_int, align 4
   %9 = tail call ptr @dt_lib_get_module(ptr noundef %6) #16
   %.not = icmp eq ptr %9, null
@@ -7345,7 +7345,7 @@ define internal fastcc void @_line_to_module(ptr noundef %0, i32 noundef %1, i64
   %39 = fmul reassoc nsz arcp contract afn double %38, 3.000000e+00
   call void @cairo_new_path(ptr noundef %0) #16
   %40 = fpext reassoc nsz arcp contract afn float %3 to double
-  %41 = fadd reassoc nsz arcp contract afn double %4, 5.000000e-01
+  %41 = fadd reassoc nnan nsz arcp contract afn double %4, 5.000000e-01
   %42 = sitofp i32 %.sroa.2.8.extract.trunc.i to double
   %43 = fmul reassoc nsz arcp contract afn double %41, %42
   %44 = fadd reassoc nsz arcp contract afn double %43, %40

@@ -3107,7 +3107,7 @@ unreachable:                                      ; preds = %invoke.cont18
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr nonnull %this.0.val, ptr readonly captures(none) %this.8.val, <2 x float> %a.coerce0, float %a.coerce1, <2 x float> %b.coerce0, float %b.coerce1) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_0clEN3irr4core8vector3dIfEES4_"(ptr nonnull %this.0.val, ptr readonly captures(none) %this.8.val, <2 x float> %a.coerce0, float nofpclass(nan inf nzero sub) %a.coerce1, <2 x float> %b.coerce0, float nofpclass(nan inf zero sub) %b.coerce1) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %actual = alloca %"class.std::vector.35", align 8
   %ref.tmp = alloca %"class.irr::core::line3d", align 8
@@ -3350,7 +3350,7 @@ unreachable:                                      ; preds = %invoke.cont57, %inv
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_1clEN3irr4core8vector3dIfEES4_"(ptr nonnull %this.0.val, <2 x float> %b.coerce0, float %b.coerce1) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN25TestClientActiveObjectMgr30testGetActiveSelectableObjectsEvENK3$_1clEN3irr4core8vector3dIfEES4_"(ptr nonnull %this.0.val, <2 x float> %b.coerce0, float nofpclass(nan inf zero sub nnorm) %b.coerce1) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %actual = alloca %"class.std::vector.35", align 8
   %ref.tmp = alloca %"class.irr::core::line3d", align 8

@@ -11904,7 +11904,7 @@ declare ptr @gtk_menu_new() local_unnamed_addr #3
 declare i64 @gtk_menu_shell_get_type() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_popup_add_item(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef %4, ptr noundef %5, float noundef %6) unnamed_addr #1 {
+define internal fastcc void @_popup_add_item(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef %4, ptr noundef %5, float noundef nofpclass(nan inf nzero sub nnorm) %6) unnamed_addr #1 {
   %8 = icmp eq ptr %4, @_sort_append_sort
   %9 = icmp ne i32 %3, 0
   %or.cond = or i1 %9, %8

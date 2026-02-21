@@ -978,7 +978,7 @@ declare double @atan(double noundef) local_unnamed_addr #2
 declare double @llvm.maxnum.f64(double, double) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @pov_color_as_str(ptr noundef readonly byval(%struct.color_s) align 8 captures(none) %0, float noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @pov_color_as_str(ptr noundef readonly byval(%struct.color_s) align 8 captures(none) %0, float noundef nofpclass(nan inf nzero sub nnorm) %1) unnamed_addr #0 {
   %3 = alloca %struct.agxbuf, align 8
   %4 = alloca %struct.agxbuf, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

@@ -1092,7 +1092,7 @@ declare i32 @IDAGetB(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr nou
 declare i32 @IDAGetQuadB(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @PrintOutput(double noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #6 {
+define internal fastcc void @PrintOutput(double noundef nofpclass(nan inf zero sub nnorm) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #6 {
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.19)
   %4 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.56, double noundef %0)
   %5 = load ptr, ptr %2, align 8, !tbaa !13

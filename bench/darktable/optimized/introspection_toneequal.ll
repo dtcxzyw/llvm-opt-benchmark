@@ -3996,7 +3996,7 @@ declare void @cairo_arc(ptr noundef, double noundef, double noundef, double noun
 declare void @cairo_arc_negative(ptr noundef, double noundef, double noundef, double noundef, double noundef, double noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @draw_exposure_cursor(ptr noundef %0, double noundef %1, double noundef %2, double noundef %3, float noundef %4, float noundef %5, i32 noundef range(i32 3, 7) %6) unnamed_addr #3 {
+define internal fastcc void @draw_exposure_cursor(ptr noundef %0, double noundef %1, double noundef %2, double noundef nofpclass(nan inf zero sub nnorm) %3, float noundef %4, float noundef %5, i32 noundef range(i32 3, 7) %6) unnamed_addr #3 {
   %8 = alloca [2 x double], align 16
   %9 = alloca [2 x double], align 16
   %10 = fpext reassoc nsz arcp contract afn float %5 to double
@@ -7134,7 +7134,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #4
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @luminance_mask(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef nonnull writeonly captures(none) %1, i64 noundef range(i64 -2147483648, 2147483648) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef %7) unnamed_addr #23 {
+define internal fastcc void @luminance_mask(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef nonnull writeonly captures(none) %1, i64 noundef range(i64 -2147483648, 2147483648) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, float noundef %5, float noundef nofpclass(nan inf nzero sub nnorm) %6, float noundef %7) unnamed_addr #23 {
   %9 = shl nsw i64 %2, 2
   %10 = mul i64 %9, %3
   switch i32 %4, label %.loopexit [

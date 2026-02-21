@@ -547,7 +547,7 @@ define internal fastcc noalias noundef ptr @AllocUserData() unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @SetInitialProfiles(ptr noundef %0, double noundef %1, double noundef %2) unnamed_addr #0 {
+define internal fastcc void @SetInitialProfiles(ptr noundef %0, double noundef nofpclass(nan inf zero sub nnorm) %1, double noundef nofpclass(nan inf zero sub nnorm) %2) unnamed_addr #0 {
   %4 = tail call ptr @N_VGetArrayPointer(ptr noundef %0) #10
   br label %5
 
@@ -555,9 +555,9 @@ define internal fastcc void @SetInitialProfiles(ptr noundef %0, double noundef %
   %indvars.iv32 = phi i64 [ 0, %3 ], [ %indvars.iv.next33, %34 ]
   %6 = trunc nuw nsw i64 %indvars.iv32 to i32
   %7 = uitofp nneg i32 %6 to double
-  %8 = tail call double @llvm.fmuladd.f64(double %7, double %2, double 3.000000e+01)
-  %9 = fadd double %8, -4.000000e+01
-  %10 = fmul double %9, 1.000000e-01
+  %8 = tail call nnan double @llvm.fmuladd.f64(double %7, double %2, double 3.000000e+01)
+  %9 = fadd nnan double %8, -4.000000e+01
+  %10 = fmul nnan double %9, 1.000000e-01
   %11 = fmul double %10, %10
   %12 = fsub double 1.000000e+00, %11
   %13 = fmul double %11, %11
@@ -572,9 +572,9 @@ define internal fastcc void @SetInitialProfiles(ptr noundef %0, double noundef %
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %18 ]
   %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = uitofp nneg i32 %19 to double
-  %21 = tail call double @llvm.fmuladd.f64(double %20, double %1, double 0.000000e+00)
-  %22 = fadd double %21, -1.000000e+01
-  %23 = fmul double %22, 1.000000e-01
+  %21 = tail call nnan double @llvm.fmuladd.f64(double %20, double %1, double 0.000000e+00)
+  %22 = fadd nnan double %21, -1.000000e+01
+  %23 = fmul nnan double %22, 1.000000e-01
   %24 = fmul double %23, %23
   %25 = fsub double 1.000000e+00, %24
   %26 = fmul double %24, %24

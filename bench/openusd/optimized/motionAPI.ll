@@ -1927,7 +1927,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %_ZN32pxrInter
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZN32pxrInternal_v0_24__pxrReserved__L27_ComputeInheritedMotionAttrIfEET_RKNS_7UsdPrimERKNS_7TfTokenERKS1_NS_11UsdTimeCodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, float %.0.val, double %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef float @_ZN32pxrInternal_v0_24__pxrReserved__L27_ComputeInheritedMotionAttrIfEET_RKNS_7UsdPrimERKNS_7TfTokenERKS1_NS_11UsdTimeCodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, float nofpclass(nan inf zero sub nnorm) %.0.val, double %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8

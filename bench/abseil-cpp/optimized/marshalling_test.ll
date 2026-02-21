@@ -102209,7 +102209,7 @@ define internal void @_ZN12_GLOBAL__N_139MarshallingTest_TestFloatRoundTrip_Test
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113TestRoundtripIfEEvT_(float noundef %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113TestRoundtripIfEEvT_(float noundef nofpclass(nan inf zero sub nnorm) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca float, align 4
   %3 = alloca float, align 4
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -102992,7 +102992,7 @@ define internal void @_ZN12_GLOBAL__N_140MarshallingTest_TestDoubleRoundTrip_Tes
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113TestRoundtripIdEEvT_(double noundef %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113TestRoundtripIdEEvT_(double noundef nofpclass(nan inf zero sub nnorm) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca double, align 8
   %3 = alloca double, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8

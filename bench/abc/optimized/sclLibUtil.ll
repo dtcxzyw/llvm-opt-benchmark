@@ -2274,7 +2274,7 @@ Scl_CellPinTime.exit.thread:                      ; preds = %Scl_CellPinTime.exi
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @Scl_LibPinArrival(ptr noundef readonly %0, float %.0.val, float %.4.val, float %.0.val1, float %.4.val3, float %.0.val5, float %.4.val7, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #15 {
+define internal fastcc void @Scl_LibPinArrival(ptr noundef readonly %0, float nofpclass(nan inf nzero sub norm) %.0.val, float nofpclass(nan inf nzero sub norm) %.4.val, float %.0.val1, float %.4.val3, float %.0.val5, float %.4.val7, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #15 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !102
   switch i32 %5, label %303 [

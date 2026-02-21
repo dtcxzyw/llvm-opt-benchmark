@@ -6812,7 +6812,7 @@ _ZL28glnvg_convertBlendFuncFactori.exit21.thread: ; preds = %.split.i20, %_ZL28g
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 176)) %1, ptr noundef %2, ptr noundef %3, float noundef %4, float noundef %5, float noundef %6) unnamed_addr #14 {
+define internal fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 176)) %1, ptr noundef %2, ptr noundef %3, float noundef %4, float noundef %5, float noundef nofpclass(nan inf zero sub) %6) unnamed_addr #14 {
   %8 = alloca [6 x float], align 16
   %9 = alloca [6 x float], align 16
   %10 = alloca [6 x float], align 16

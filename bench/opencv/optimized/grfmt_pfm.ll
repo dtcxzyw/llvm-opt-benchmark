@@ -1870,7 +1870,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114write_anythingIdEEbRN2cv12WLByteStreamERKT_(ptr noundef nonnull align 8 dereferenceable(64) %0, double %.0.val) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114write_anythingIdEEbRN2cv12WLByteStreamERKT_(ptr noundef nonnull align 8 dereferenceable(64) %0, double nofpclass(nan inf zero sub pnorm) %.0.val) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -4341,7 +4341,7 @@ _ZNSt12__shared_ptrIN2cv2ml8KNearestELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL26find_decision_boundary_SVMd(double noundef %0) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL26find_decision_boundary_SVMd(double noundef nofpclass(nan inf zero sub nnorm) %0) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.cv::Ptr.30", align 8
   %3 = alloca %"class.cv::TermCriteria", align 8
   %4 = alloca %"struct.cv::Ptr.16", align 8

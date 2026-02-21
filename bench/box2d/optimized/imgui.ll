@@ -83211,7 +83211,7 @@ define internal fastcc void @_ZL30CalcResizePosSizeFromAnyCornerP11ImGuiWindowRK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc { <2 x float>, <2 x float> } @_ZL19GetResizeBorderRectP11ImGuiWindowiff(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3) unnamed_addr #12 {
+define internal fastcc { <2 x float>, <2 x float> } @_ZL19GetResizeBorderRectP11ImGuiWindowiff(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef nofpclass(nan inf zero sub nnorm) %3) unnamed_addr #12 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load float, ptr %5, align 8, !tbaa !794
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -83222,74 +83222,60 @@ define internal fastcc { <2 x float>, <2 x float> } @_ZL19GetResizeBorderRectP11
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %13 = load float, ptr %12, align 4, !tbaa !945
   %14 = fadd float %8, %13
-  %.sroa.3.8.vec.insert.i = insertelement <2 x float> poison, float %11, i64 0
-  %.sroa.3.12.vec.insert.i = insertelement <2 x float> %.sroa.3.8.vec.insert.i, float %14, i64 1
-  %15 = fcmp oeq float %3, 0.000000e+00
-  %16 = fadd float %11, -1.000000e+00
-  %.sroa.9.8.vec.insert = insertelement <2 x float> poison, float %16, i64 0
-  %17 = fadd float %14, -1.000000e+00
-  %.sroa.9.12.vec.insert = insertelement <2 x float> %.sroa.9.8.vec.insert, float %17, i64 1
-  %.sroa.9.0 = select i1 %15, <2 x float> %.sroa.9.12.vec.insert, <2 x float> %.sroa.3.12.vec.insert.i
-  switch i32 %1, label %38 [
-    i32 0, label %18
-    i32 1, label %23
-    i32 2, label %28
-    i32 3, label %33
+  switch i32 %1, label %35 [
+    i32 0, label %15
+    i32 1, label %20
+    i32 2, label %25
+    i32 3, label %30
   ]
 
-18:                                               ; preds = %4
-  %19 = fsub float %6, %3
-  %20 = fadd float %2, %8
-  %21 = fadd float %3, %6
-  %.sroa.9.12.vec.extract44 = extractelement <2 x float> %.sroa.9.0, i64 1
-  %22 = fsub float %.sroa.9.12.vec.extract44, %2
-  %.sroa.045.0.vec.insert = insertelement <2 x float> poison, float %19, i64 0
-  %.sroa.045.4.vec.insert = insertelement <2 x float> %.sroa.045.0.vec.insert, float %20, i64 1
-  %.sroa.10.8.vec.insert = insertelement <2 x float> poison, float %21, i64 0
-  %.sroa.10.12.vec.insert = insertelement <2 x float> %.sroa.10.8.vec.insert, float %22, i64 1
-  br label %38
+15:                                               ; preds = %4
+  %16 = fsub float %6, %3
+  %17 = fadd float %2, %8
+  %18 = fadd float %3, %6
+  %19 = fsub float %14, %2
+  %.sroa.045.0.vec.insert = insertelement <2 x float> poison, float %16, i64 0
+  %.sroa.045.4.vec.insert = insertelement <2 x float> %.sroa.045.0.vec.insert, float %17, i64 1
+  %.sroa.10.8.vec.insert = insertelement <2 x float> poison, float %18, i64 0
+  %.sroa.10.12.vec.insert = insertelement <2 x float> %.sroa.10.8.vec.insert, float %19, i64 1
+  br label %35
 
-23:                                               ; preds = %4
-  %.sroa.9.8.vec.extract34 = extractelement <2 x float> %.sroa.9.0, i64 0
-  %24 = fsub float %.sroa.9.8.vec.extract34, %3
-  %25 = fadd float %2, %8
-  %26 = fadd float %3, %.sroa.9.8.vec.extract34
-  %.sroa.9.12.vec.extract42 = extractelement <2 x float> %.sroa.9.0, i64 1
-  %27 = fsub float %.sroa.9.12.vec.extract42, %2
-  %.sroa.045.0.vec.insert48 = insertelement <2 x float> poison, float %24, i64 0
-  %.sroa.045.4.vec.insert54 = insertelement <2 x float> %.sroa.045.0.vec.insert48, float %25, i64 1
-  %.sroa.10.8.vec.insert61 = insertelement <2 x float> poison, float %26, i64 0
-  %.sroa.10.12.vec.insert67 = insertelement <2 x float> %.sroa.10.8.vec.insert61, float %27, i64 1
-  br label %38
+20:                                               ; preds = %4
+  %21 = fsub float %11, %3
+  %22 = fadd float %2, %8
+  %23 = fadd float %3, %11
+  %24 = fsub float %14, %2
+  %.sroa.045.0.vec.insert48 = insertelement <2 x float> poison, float %21, i64 0
+  %.sroa.045.4.vec.insert54 = insertelement <2 x float> %.sroa.045.0.vec.insert48, float %22, i64 1
+  %.sroa.10.8.vec.insert61 = insertelement <2 x float> poison, float %23, i64 0
+  %.sroa.10.12.vec.insert67 = insertelement <2 x float> %.sroa.10.8.vec.insert61, float %24, i64 1
+  br label %35
 
-28:                                               ; preds = %4
-  %29 = fadd float %2, %6
-  %30 = fsub float %8, %3
-  %.sroa.9.8.vec.extract32 = extractelement <2 x float> %.sroa.9.0, i64 0
-  %31 = fsub float %.sroa.9.8.vec.extract32, %2
-  %32 = fadd float %3, %8
-  %.sroa.045.0.vec.insert50 = insertelement <2 x float> poison, float %29, i64 0
-  %.sroa.045.4.vec.insert56 = insertelement <2 x float> %.sroa.045.0.vec.insert50, float %30, i64 1
-  %.sroa.10.8.vec.insert63 = insertelement <2 x float> poison, float %31, i64 0
-  %.sroa.10.12.vec.insert69 = insertelement <2 x float> %.sroa.10.8.vec.insert63, float %32, i64 1
-  br label %38
+25:                                               ; preds = %4
+  %26 = fadd float %2, %6
+  %27 = fsub float %8, %3
+  %28 = fsub float %11, %2
+  %29 = fadd float %3, %8
+  %.sroa.045.0.vec.insert50 = insertelement <2 x float> poison, float %26, i64 0
+  %.sroa.045.4.vec.insert56 = insertelement <2 x float> %.sroa.045.0.vec.insert50, float %27, i64 1
+  %.sroa.10.8.vec.insert63 = insertelement <2 x float> poison, float %28, i64 0
+  %.sroa.10.12.vec.insert69 = insertelement <2 x float> %.sroa.10.8.vec.insert63, float %29, i64 1
+  br label %35
 
-33:                                               ; preds = %4
-  %34 = fadd float %2, %6
-  %.sroa.9.12.vec.extract40 = extractelement <2 x float> %.sroa.9.0, i64 1
-  %35 = fsub float %.sroa.9.12.vec.extract40, %3
-  %.sroa.9.8.vec.extract = extractelement <2 x float> %.sroa.9.0, i64 0
-  %36 = fsub float %.sroa.9.8.vec.extract, %2
-  %37 = fadd float %3, %.sroa.9.12.vec.extract40
-  %.sroa.045.0.vec.insert52 = insertelement <2 x float> poison, float %34, i64 0
-  %.sroa.045.4.vec.insert58 = insertelement <2 x float> %.sroa.045.0.vec.insert52, float %35, i64 1
-  %.sroa.10.8.vec.insert65 = insertelement <2 x float> poison, float %36, i64 0
-  %.sroa.10.12.vec.insert71 = insertelement <2 x float> %.sroa.10.8.vec.insert65, float %37, i64 1
-  br label %38
+30:                                               ; preds = %4
+  %31 = fadd float %2, %6
+  %32 = fsub float %14, %3
+  %33 = fsub float %11, %2
+  %34 = fadd float %3, %14
+  %.sroa.045.0.vec.insert52 = insertelement <2 x float> poison, float %31, i64 0
+  %.sroa.045.4.vec.insert58 = insertelement <2 x float> %.sroa.045.0.vec.insert52, float %32, i64 1
+  %.sroa.10.8.vec.insert65 = insertelement <2 x float> poison, float %33, i64 0
+  %.sroa.10.12.vec.insert71 = insertelement <2 x float> %.sroa.10.8.vec.insert65, float %34, i64 1
+  br label %35
 
-38:                                               ; preds = %4, %33, %28, %23, %18
-  %.sroa.045.0 = phi <2 x float> [ %.sroa.045.4.vec.insert58, %33 ], [ %.sroa.045.4.vec.insert, %18 ], [ %.sroa.045.4.vec.insert54, %23 ], [ %.sroa.045.4.vec.insert56, %28 ], [ zeroinitializer, %4 ]
-  %.sroa.10.0 = phi <2 x float> [ %.sroa.10.12.vec.insert71, %33 ], [ %.sroa.10.12.vec.insert, %18 ], [ %.sroa.10.12.vec.insert67, %23 ], [ %.sroa.10.12.vec.insert69, %28 ], [ zeroinitializer, %4 ]
+35:                                               ; preds = %4, %30, %25, %20, %15
+  %.sroa.045.0 = phi <2 x float> [ %.sroa.045.4.vec.insert58, %30 ], [ %.sroa.045.4.vec.insert, %15 ], [ %.sroa.045.4.vec.insert54, %20 ], [ %.sroa.045.4.vec.insert56, %25 ], [ zeroinitializer, %4 ]
+  %.sroa.10.0 = phi <2 x float> [ %.sroa.10.12.vec.insert71, %30 ], [ %.sroa.10.12.vec.insert, %15 ], [ %.sroa.10.12.vec.insert67, %20 ], [ %.sroa.10.12.vec.insert69, %25 ], [ zeroinitializer, %4 ]
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.045.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.10.0, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert

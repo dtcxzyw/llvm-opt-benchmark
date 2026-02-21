@@ -37066,7 +37066,7 @@ _ZN7doctest6detail14MessageBuildermlIA13_cEERS1_RKT_.exit.i: ; preds = %2
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @"_ZZL20DOCTEST_ANON_FUNC_21vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEd"(ptr noundef nonnull align 8 dereferenceable(32) %0, double noundef %1) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZL20DOCTEST_ANON_FUNC_21vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEd"(ptr noundef nonnull align 8 dereferenceable(32) %0, double noundef nofpclass(nan inf) %1) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   %5 = alloca %"class.doctest::detail::ContextScope.144", align 8

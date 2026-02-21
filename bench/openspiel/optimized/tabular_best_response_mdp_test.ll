@@ -7592,7 +7592,7 @@ _ZN10open_spiel10algorithms7MDPNodeD2Ev.exit:     ; preds = %4, %._crit_edge.i.i
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_112NashConvTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6PolicyEN4absl7debian28optionalIdEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i8 %2, double %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_112NashConvTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6PolicyEN4absl7debian28optionalIdEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i8 %2, double nofpclass(nan inf zero sub nnorm) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr", align 8
   %6 = alloca %"class.open_spiel::algorithms::TabularBestResponseMDP", align 8
   %7 = alloca %"struct.open_spiel::algorithms::TabularBestResponseMDPInfo", align 8

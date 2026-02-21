@@ -4177,7 +4177,7 @@ define internal void @_ZN12_GLOBAL__N_130ParseTest_TestValidIntArg_Test8TestBody
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19TestParseILi2EEEvRAT__PKcidSt17basic_string_viewIcSt11char_traitsIcEEbi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef range(i32 -1, 101) %1, double noundef %2, i64 %3, ptr %4, i1 noundef zeroext %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_19TestParseILi2EEEvRAT__PKcidSt17basic_string_viewIcSt11char_traitsIcEEbi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef range(i32 -1, 101) %1, double noundef nofpclass(nan inf zero sub nnorm) %2, i64 %3, ptr %4, i1 noundef zeroext %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::basic_string_view", align 8
   %8 = alloca i32, align 4
   %9 = alloca i8, align 1
@@ -5130,7 +5130,7 @@ _ZNSt6vectorIPcSaIS0_EED2Ev.exit146:              ; preds = %323, %325
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19TestParseILi3EEEvRAT__PKcidSt17basic_string_viewIcSt11char_traitsIcEEbi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef range(i32 -30, 34) %1, double noundef %2, i64 %3, ptr %4, i32 noundef range(i32 0, 3) %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_19TestParseILi3EEEvRAT__PKcidSt17basic_string_viewIcSt11char_traitsIcEEbi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef range(i32 -30, 34) %1, double noundef nofpclass(nan inf zero sub nnorm) %2, i64 %3, ptr %4, i32 noundef range(i32 0, 3) %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::basic_string_view", align 8
   %8 = alloca i32, align 4
   %9 = alloca i8, align 1
@@ -8571,7 +8571,7 @@ _ZN12_GLOBAL__N_19TestParseILi5EEEvRAT__PKcidSt17basic_string_viewIcSt11char_tra
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19TestParseILi7EEEvRAT__PKcidSt17basic_string_viewIcSt11char_traitsIcEEbi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef range(i32 -11, 5) %1, double noundef %2, i64 %3, ptr %4, i1 noundef zeroext %5, i32 noundef range(i32 0, 5) %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_19TestParseILi7EEEvRAT__PKcidSt17basic_string_viewIcSt11char_traitsIcEEbi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef range(i32 -11, 5) %1, double noundef nofpclass(nan inf zero sub) %2, i64 %3, ptr %4, i1 noundef zeroext %5, i32 noundef range(i32 0, 5) %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::basic_string_view", align 8
   %9 = alloca i32, align 4
   %10 = alloca i8, align 1
@@ -12378,7 +12378,7 @@ _ZNSt6vectorIPcSaIS0_EED2Ev.exit287:              ; preds = %965, %967
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19TestParseILi4EEEvRAT__PKcidSt17basic_string_viewIcSt11char_traitsIcEEbi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef range(i32 -21, 4) %1, double noundef %2, i64 %3, ptr %4, i1 noundef zeroext %5, i32 noundef range(i32 0, 3) %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_19TestParseILi4EEEvRAT__PKcidSt17basic_string_viewIcSt11char_traitsIcEEbi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef range(i32 -21, 4) %1, double noundef nofpclass(nan inf zero sub nnorm) %2, i64 %3, ptr %4, i1 noundef zeroext %5, i32 noundef range(i32 0, 3) %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::basic_string_view", align 8
   %9 = alloca i32, align 4
   %10 = alloca i8, align 1

@@ -4107,7 +4107,7 @@ _ZN4pbrt13InlinedVectorINS_6Point3IfEELi16EN4pstd3pmr21polymorphic_allocatorIS2_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { <2 x float>, float } @_ZN4pbrtL14weightBoundaryEPNS_8SDVertexEf(ptr noundef readonly captures(address) %0, float noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc { <2 x float>, float } @_ZN4pbrtL14weightBoundaryEPNS_8SDVertexEf(ptr noundef readonly captures(address) %0, float noundef nofpclass(nan inf zero sub nnorm) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pbrt::InlinedVector", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !39
@@ -4306,7 +4306,7 @@ _ZN4pbrt13InlinedVectorINS_6Point3IfEELi16EN4pstd3pmr21polymorphic_allocatorIS2_
 _ZN4pbrt13InlinedVectorINS_6Point3IfEELi16EN4pstd3pmr21polymorphic_allocatorIS2_EEED2Ev.exit: ; preds = %66, %71
   %81 = fmul float %1, %.sroa.28.0.copyload
   %82 = fmul float %1, %.sroa.220.0.copyload
-  %83 = fmul float %1, 2.000000e+00
+  %83 = fmul nnan float %1, 2.000000e+00
   %84 = fsub float 1.000000e+00, %83
   %85 = fmul float %84, %.sroa.230.0.copyload
   %86 = fadd float %85, %82

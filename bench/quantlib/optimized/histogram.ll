@@ -1298,7 +1298,7 @@ declare double @log(double noundef) local_unnamed_addr #8
 declare double @llvm.ceil.f64(double) #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_18quantileERKSt6vectorIdSaIdEEd(ptr %samples.0.val, ptr %samples.8.val, double noundef %prob) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_18quantileERKSt6vectorIdSaIdEEd(ptr %samples.0.val, ptr %samples.8.val, double noundef nofpclass(nan inf zero sub nnorm) %prob) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1316,10 +1316,8 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %samples.0.val to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp = fcmp oge double %prob, 0.000000e+00
-  %cmp1 = fcmp ole double %prob, 1.000000e+00
-  %or.cond = and i1 %cmp, %cmp1
-  br i1 %or.cond, label %do.body26, label %if.then
+  %cmp1 = fcmp ugt double %prob, 1.000000e+00
+  br i1 %cmp1, label %if.then, label %do.body26
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(ptr nonnull %_ql_msg_stream)

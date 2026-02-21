@@ -551,7 +551,7 @@ _apply_trc_if_nonlinear.exit:                     ; preds = %68, %71
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_paint_purity_slider(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef range(i64 0, 3) %3, float noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #1 {
+define internal fastcc void @_paint_purity_slider(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef range(i64 0, 3) %3, float noundef nofpclass(nan inf zero sub nnorm) %4, ptr noundef %5, ptr noundef %6) unnamed_addr #1 {
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x float], align 16
   %10 = alloca [4 x float], align 16
@@ -1073,7 +1073,7 @@ declare float @dt_bauhaus_slider_get_hard_min(ptr noundef) local_unnamed_addr #3
 declare float @dt_bauhaus_slider_get_hard_max(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_rotated_primary_to_display_RGB(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef range(i64 0, 3) %3, float noundef %4, float noundef %5, ptr noundef nonnull writeonly captures(none) %6) unnamed_addr #1 {
+define internal fastcc void @_rotated_primary_to_display_RGB(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef range(i64 0, 3) %3, float noundef %4, float noundef nofpclass(nan inf nzero sub nnorm) %5, ptr noundef nonnull writeonly captures(none) %6) unnamed_addr #1 {
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x float], align 16
   %10 = alloca [4 x float], align 16

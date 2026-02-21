@@ -58520,7 +58520,7 @@ define internal void @"_ZN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7v
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @"_ZZL19DOCTEST_ANON_FUNC_7vENK3$_6clEd"(double noundef %0) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZL19DOCTEST_ANON_FUNC_7vENK3$_6clEd"(double noundef nofpclass(nan inf zero sub nnorm) %0) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRddTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SH_EE5valueEiE4typeELi0EEEOT_.exit:
   %1 = alloca double, align 8
   %2 = alloca double, align 8

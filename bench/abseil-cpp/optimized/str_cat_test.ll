@@ -43883,7 +43883,7 @@ _ZN7testing15AssertionResultD2Ev.exit67:          ; preds = %162, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl8AlphaNumC2IN12_GLOBAL__N_114PointStringifyEvEERKT_ONS_16strings_internal13StringifySinkE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, double %.0.val, double %.8.val, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl8AlphaNumC2IN12_GLOBAL__N_114PointStringifyEvEERKT_ONS_16strings_internal13StringifySinkE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, double nofpclass(nan inf zero sub nnorm) %.0.val, double nofpclass(nan inf zero sub nnorm) %.8.val, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -68128,7 +68128,7 @@ nk_combo_begin.exit:                              ; preds = %204, %202, %199, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_draw_symbol(ptr noundef nonnull captures(address_is_null) %0, i32 noundef %1, <2 x float> %2, <2 x float> %3, i32 %4, i32 %5, float noundef %6, ptr noundef %7) unnamed_addr #21 {
+define internal fastcc void @nk_draw_symbol(ptr noundef nonnull captures(address_is_null) %0, i32 noundef %1, <2 x float> %2, <2 x float> %3, i32 %4, i32 %5, float noundef nofpclass(nan inf nzero sub nnorm) %6, ptr noundef %7) unnamed_addr #21 {
   switch i32 %1, label %134 [
     i32 16, label %103
     i32 15, label %103
@@ -68215,7 +68215,7 @@ nk_widget_text.exit:                              ; preds = %8, %9
 
 51:                                               ; preds = %49
   %.sroa.3.8.vec.extract.i = extractelement <2 x float> %3, i64 0
-  %52 = fmul float %6, 2.000000e+00
+  %52 = fmul nnan float %6, 2.000000e+00
   %53 = fcmp olt float %.sroa.3.8.vec.extract.i, %52
   %54 = select i1 %53, float %52, float %.sroa.3.8.vec.extract.i
   %.sroa.3.12.vec.extract.i = extractelement <2 x float> %3, i64 1

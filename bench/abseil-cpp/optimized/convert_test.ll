@@ -31164,7 +31164,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit607: ; preds = %12
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_DoubleRound_Test8TestBodyEvENK3$_0clB5cxx11EPKcd"(ptr returned initializes((8, 16)) %.0.val, ptr noundef %0, double noundef %1) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_DoubleRound_Test8TestBodyEvENK3$_0clB5cxx11EPKcd"(ptr returned initializes((8, 16)) %.0.val, ptr noundef %0, double noundef nofpclass(nan inf zero sub nnorm) %1) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [1 x %"class.absl::str_format_internal::FormatArgImpl"], align 16
   %4 = alloca %"class.testing::AssertionResult", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -43318,7 +43318,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1905: ; preds = %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZZN4absl19str_format_internal12_GLOBAL__N_135FormatConvertTest_DoubleRoundA_Test8TestBodyEvENK3$_0clB5cxx11EPKcd"(ptr returned initializes((8, 16)) %.0.val, ptr readonly captures(none) %.8.val, ptr noundef %0, double noundef %1) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZZN4absl19str_format_internal12_GLOBAL__N_135FormatConvertTest_DoubleRoundA_Test8TestBodyEvENK3$_0clB5cxx11EPKcd"(ptr returned initializes((8, 16)) %.0.val, ptr readonly captures(none) %.8.val, ptr noundef %0, double noundef nofpclass(nan inf zero sub nnorm) %1) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [1 x %"class.absl::str_format_internal::FormatArgImpl"], align 16
   %4 = alloca %"class.testing::AssertionResult", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -51329,7 +51329,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1173: ; preds = %2
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZZN4absl19str_format_internal12_GLOBAL__N_139FormatConvertTest_LongDoubleRoundA_Test8TestBodyEvENK3$_0clB5cxx11EPKce"(ptr returned initializes((8, 16)) %.0.val, ptr readonly captures(none) %.8.val, ptr noundef %0, x86_fp80 noundef %1) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZZN4absl19str_format_internal12_GLOBAL__N_139FormatConvertTest_LongDoubleRoundA_Test8TestBodyEvENK3$_0clB5cxx11EPKce"(ptr returned initializes((8, 16)) %.0.val, ptr readonly captures(none) %.8.val, ptr noundef %0, x86_fp80 noundef nofpclass(nan inf zero sub nnorm) %1) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca x86_fp80, align 16
   %4 = alloca [1 x %"class.absl::str_format_internal::FormatArgImpl"], align 16
   %5 = alloca %"class.testing::AssertionResult", align 8

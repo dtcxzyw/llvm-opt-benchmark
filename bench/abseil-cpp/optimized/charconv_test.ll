@@ -982,7 +982,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing4Test5SetupEv(ptr noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115TestDoubleParseESt17basic_string_viewIcSt11char_traitsIcEEd(i64 %0, ptr %1, double noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115TestDoubleParseESt17basic_string_viewIcSt11char_traitsIcEEd(i64 %0, ptr %1, double noundef nofpclass(nan inf zero sub) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::basic_string_view", align 8
   %5 = alloca double, align 8
   %6 = alloca %"class.testing::ScopedTrace", align 1
@@ -1444,7 +1444,7 @@ _ZN7testing15AssertionResultD2Ev.exit58:          ; preds = %149, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114TestFloatParseESt17basic_string_viewIcSt11char_traitsIcEEf(i64 %0, ptr %1, float noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_114TestFloatParseESt17basic_string_viewIcSt11char_traitsIcEEf(i64 %0, ptr %1, float noundef nofpclass(nan inf zero) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::basic_string_view", align 8
   %5 = alloca float, align 4
   %6 = alloca %"class.testing::ScopedTrace", align 1

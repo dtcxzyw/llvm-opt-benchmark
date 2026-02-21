@@ -52098,7 +52098,7 @@ define linkonce_odr dso_local void @_ZN15btSoftColliders10CollideCCD7ProcessEPK1
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL12bernsteinCCDPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_R9btVector3(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, float %.0.val, ptr noundef nonnull align 4 captures(none) dereferenceable(16) %3) unnamed_addr #32 {
+define internal fastcc noundef zeroext i1 @_ZL12bernsteinCCDPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_R9btVector3(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, float nofpclass(nan inf zero sub nnorm) %.0.val, ptr noundef nonnull align 4 captures(none) dereferenceable(16) %3) unnamed_addr #32 {
   %5 = alloca [6 x %class.btVector3], align 16
   %6 = alloca [3 x float], align 4
   %7 = alloca %class.btVector3, align 8

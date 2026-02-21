@@ -364,7 +364,7 @@ declare double @llvm.ceil.f64(double) #2
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @Hamiltonian(ptr noundef %0, double noundef %1) unnamed_addr #0 {
+define internal fastcc double @Hamiltonian(ptr noundef %0, double noundef nofpclass(nan inf nzero sub norm) %1) unnamed_addr #0 {
   %3 = tail call ptr @N_VGetArrayPointer(ptr noundef %0) #11
   %4 = load double, ptr %3, align 8, !tbaa !13
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -376,18 +376,14 @@ define internal fastcc double @Hamiltonian(ptr noundef %0, double noundef %1) un
   %11 = tail call double @exp(double noundef %10) #11, !tbaa !16
   %12 = fmul double %7, %11
   %13 = fmul double %12, 5.000000e-01
-  %14 = fmul double %1, 5.000000e-01
-  %15 = tail call double @cos(double noundef %14) #11, !tbaa !16
-  %16 = fmul double %15, %15
-  %17 = fmul double %6, %16
-  %18 = fmul double %6, %17
-  %19 = tail call double @sin(double noundef %8) #11, !tbaa !16
-  %20 = fmul double %19, 1.800000e-02
-  %21 = tail call double @exp(double noundef %20) #11, !tbaa !16
-  %22 = fmul double %21, %18
-  %23 = fmul double %22, 5.000000e-01
-  %24 = fadd double %13, %23
-  ret double %24
+  %14 = fmul double %6, %6
+  %15 = tail call double @sin(double noundef %8) #11, !tbaa !16
+  %16 = fmul double %15, 1.800000e-02
+  %17 = tail call double @exp(double noundef %16) #11, !tbaa !16
+  %18 = fmul double %17, %14
+  %19 = fmul double %18, 5.000000e-01
+  %20 = fadd double %13, %19
+  ret double %20
 }
 
 declare i32 @ARKodeSetStopTime(ptr noundef, double noundef) local_unnamed_addr #1

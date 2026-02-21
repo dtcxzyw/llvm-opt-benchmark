@@ -212859,7 +212859,7 @@ _ZN12_GLOBAL__N_14CApi12ObjectKeeperD2Ev.exit173: ; preds = %360
 declare ptr @proj_create_ellipsoidal_3D_cs(ptr noundef, i32 noundef, ptr noundef, double noundef, ptr noundef, double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_122check_axis_is_latitudeEP6pj_ctxP8PJconstsiPKcdS5_S5_(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, double noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_122check_axis_is_latitudeEP6pj_ctxP8PJconstsiPKcdS5_S5_(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, double noundef nofpclass(nan inf zero sub nnorm) %4, ptr noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
@@ -215444,7 +215444,7 @@ _ZN7testing15AssertionResultD2Ev.exit428:         ; preds = %858, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123check_axis_is_longitudeEP6pj_ctxP8PJconstsiPKcdS5_S5_(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, double noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_123check_axis_is_longitudeEP6pj_ctxP8PJconstsiPKcdS5_S5_(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, double noundef nofpclass(nan inf zero sub nnorm) %4, ptr noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
@@ -218029,7 +218029,7 @@ _ZN7testing15AssertionResultD2Ev.exit428:         ; preds = %858, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120check_axis_is_heightEP6pj_ctxP8PJconstsiPKcdS5_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2, double noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120check_axis_is_heightEP6pj_ctxP8PJconstsiPKcdS5_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2, double noundef nofpclass(nan inf zero sub nnorm) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8

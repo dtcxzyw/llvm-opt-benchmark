@@ -10288,7 +10288,7 @@ declare float @llvm.fabs.f32(float) #11
 declare i32 @gtk_accelerator_get_default_mod_mask() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @simplex(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, i32 noundef %2, double noundef %3, double noundef %4, i32 noundef range(i32 100, 401) %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef nonnull %7) unnamed_addr #5 {
+define internal fastcc i32 @simplex(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, i32 noundef %2, double noundef nofpclass(nan inf zero sub nnorm) %3, double noundef nofpclass(nan inf zero sub nnorm) %4, i32 noundef range(i32 100, 401) %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef nonnull %7) unnamed_addr #5 {
   %9 = add i32 %2, 1
   %10 = sext i32 %9 to i64
   %11 = shl nsw i64 %10, 3

@@ -253,7 +253,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL10setup_zoneP8PJconstsPN11pj_imoll_ns13pj_imoll_dataEiPFS0_S0_Eddd(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, i32 noundef range(i32 1, 7) %2, double noundef %3, double noundef %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL10setup_zoneP8PJconstsPN11pj_imoll_ns13pj_imoll_dataEiPFS0_S0_Eddd(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, i32 noundef range(i32 1, 7) %2, double noundef nofpclass(nan inf zero sub nnorm) %3, double noundef nofpclass(nan inf zero sub nnorm) %4) unnamed_addr #0 {
   %6 = tail call noundef ptr @pj_moll(ptr noundef null)
   %7 = zext nneg i32 %2 to i64
   %8 = getelementptr ptr, ptr %1, i64 %7
@@ -325,7 +325,7 @@ define internal noundef ptr @_ZL19pj_imoll_destructorP8PJconstsi(ptr noundef %0,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef double @_ZL19compute_zone_offsetPN11pj_imoll_ns13pj_imoll_dataEiiddd(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 2, 7) %1, i32 noundef range(i32 1, 3) %2, double noundef %3, double noundef %4) unnamed_addr #0 {
+define internal fastcc noundef double @_ZL19compute_zone_offsetPN11pj_imoll_ns13pj_imoll_dataEiiddd(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 2, 7) %1, i32 noundef range(i32 1, 3) %2, double noundef nofpclass(nan inf zero sub) %3, double noundef nofpclass(nan inf zero sub) %4) unnamed_addr #0 {
   %6 = zext nneg i32 %1 to i64
   %7 = getelementptr ptr, ptr %0, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -8
@@ -362,7 +362,7 @@ define internal fastcc noundef double @_ZL19compute_zone_offsetPN11pj_imoll_ns13
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef double @_ZL23compute_zone_x_boundaryP8PJconstsdd(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2) unnamed_addr #0 {
+define internal fastcc noundef double @_ZL23compute_zone_x_boundaryP8PJconstsdd(ptr noundef readonly captures(none) %0, double noundef nofpclass(nan inf zero sub) %1, double noundef nofpclass(nan inf zero sub) %2) unnamed_addr #0 {
   %4 = fadd double %1, -1.000000e-10
   %5 = fadd double %1, 1.000000e-10
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88

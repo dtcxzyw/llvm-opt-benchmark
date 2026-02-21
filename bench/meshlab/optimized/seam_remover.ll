@@ -75446,7 +75446,7 @@ _ZNSt3setIiSt4lessIiESaIiEED2Ev.exit:             ; preds = %._crit_edge
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17InvalidateClusterSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphE11CheckStatusd(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, i32 noundef range(i32 1, 0) %3, double noundef %4) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL17InvalidateClusterSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphE11CheckStatusd(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, i32 noundef range(i32 1, 0) %3, double noundef nofpclass(nan inf zero sub nnorm) %4) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::tuple.689", align 8
   %7 = alloca %"class.std::tuple.149", align 1
   %8 = alloca %"struct.std::_Hashtable<int, std::pair<const int, std::set<std::shared_ptr<ClusteredSeam>>>, std::allocator<std::pair<const int, std::set<std::shared_ptr<ClusteredSeam>>>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8

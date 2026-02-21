@@ -8790,7 +8790,7 @@ _update_xy_color.exit:                            ; preds = %illuminant_xy_to_RG
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_update_RGB_colors(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #3 {
+define internal fastcc void @_update_RGB_colors(ptr noundef %0, float noundef nofpclass(nan inf nzero sub nnorm) %1, float noundef nofpclass(nan inf nzero sub nnorm) %2, float noundef nofpclass(nan inf nzero sub nnorm) %3, i32 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #3 {
   %10 = alloca [4 x float], align 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %12 = load ptr, ptr %11, align 8, !tbaa !164

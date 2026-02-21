@@ -3453,7 +3453,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_116cornishFisherEpsERKNS_13HestonProcessEdddd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(220) %process, double noundef %nu_0, double noundef %nu_t, double noundef %dt, double noundef %eps) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_116cornishFisherEpsERKNS_13HestonProcessEdddd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(220) %process, double noundef %nu_0, double noundef %nu_t, double noundef %dt, double noundef nofpclass(nan inf zero sub nnorm) %eps) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd(ptr noundef nonnull align 8 dereferenceable(220) %process, double 0.000000e+00, double -2.000000e-02, double noundef %nu_0, double noundef %nu_t, double noundef %dt)
   %0 = extractvalue { double, double } %call, 0
@@ -7349,7 +7349,7 @@ _ZN8QuantLib5ArrayD2Ev.exit3:                     ; preds = %_ZN8QuantLib5ArrayD
 declare void @__cxa_guard_abort(ptr) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(220) %process, double %a.0.val, double %a.8.val, double noundef %nu_0, double noundef %nu_t, double noundef %dt) unnamed_addr #7 {
+define internal fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(220) %process, double %a.0.val, double nofpclass(nan inf nzero sub) %a.8.val, double noundef %nu_0, double noundef %nu_t, double noundef %dt) unnamed_addr #7 {
 entry:
   %ref.tmp237 = alloca %"class.std::complex", align 8
   %ref.tmp246 = alloca %"class.std::complex", align 8

@@ -10716,7 +10716,7 @@ nsvg__parseColorName.exit:                        ; preds = %51, %57, %49, %nsvg
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc float @nsvg__parseCoordinate(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, float noundef %2, float noundef %3) unnamed_addr #19 {
+define internal fastcc float @nsvg__parseCoordinate(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, float noundef nofpclass(nan inf nzero sub norm) %2, float noundef %3) unnamed_addr #19 {
   %5 = tail call fastcc i64 @nsvg__parseCoordinateRaw(ptr noundef %1)
   %.sroa.0.0.extract.trunc.i = trunc i64 %5 to i32
   %6 = bitcast i32 %.sroa.0.0.extract.trunc.i to float

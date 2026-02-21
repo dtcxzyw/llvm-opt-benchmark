@@ -329,7 +329,7 @@ declare ptr @pj_adams_ws2(ptr noundef) local_unnamed_addr #1
 declare i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef double @"_ZZ37pj_projection_specific_setup_spilhausP8PJconstsENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEd"(ptr readonly captures(none) %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %0, double noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef double @"_ZZ37pj_projection_specific_setup_spilhausP8PJconstsENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEd"(ptr readonly captures(none) %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %0, double noundef nofpclass(nan inf zero sub nnorm) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = load ptr, ptr %.0.val, align 8, !tbaa !40
@@ -362,7 +362,7 @@ define internal fastcc noundef double @"_ZZ37pj_projection_specific_setup_spilha
           to label %22 unwind label %39
 
 .thread:                                          ; preds = %11
-  %21 = fmul double %1, 0x3F91DF46A2529D39
+  %21 = fmul nnan double %1, 0x3F91DF46A2529D39
   br label %.critedge
 
 22:                                               ; preds = %18

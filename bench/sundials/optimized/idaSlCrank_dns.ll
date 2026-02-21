@@ -496,7 +496,7 @@ define internal fastcc void @PrintHeader() unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @PrintOutput(ptr noundef %0, double noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @PrintOutput(ptr noundef %0, double noundef nofpclass(nan inf nzero sub norm) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
   %6 = alloca double, align 8

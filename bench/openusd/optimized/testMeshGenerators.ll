@@ -216,7 +216,7 @@ declare void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL30TestTopologyAndPointGenerationfRSt14basic_ofstreamIcSt11char_traitsIcEE(float noundef %0, ptr noundef nonnull align 8 dereferenceable(248) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL30TestTopologyAndPointGenerationfRSt14basic_ofstreamIcSt11char_traitsIcEE(float noundef nofpclass(nan inf zero sub nnorm) %0, ptr noundef nonnull align 8 dereferenceable(248) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::GeomUtilMeshGeneratorBase::_PointWriter", align 8
   %5 = alloca ptr, align 8
@@ -251,8 +251,8 @@ define internal fastcc void @_ZL30TestTopologyAndPointGenerationfRSt14basic_ofst
   %34 = alloca %"class.std::allocator", align 1
   %35 = alloca %"class.pxrInternal_v0_24__pxrReserved__::PxOsdMeshTopology", align 8
   %36 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.2", align 8
-  %37 = fpext float %0 to double
-  %38 = fmul double %37, 0x3F91DF46A2529D39
+  %37 = fpext nnan ninf float %0 to double
+  %38 = fmul nnan double %37, 0x3F91DF46A2529D39
   %39 = tail call double @cos(double noundef %38) #13
   %40 = fadd double %39, -1.000000e+00
   %41 = tail call double @llvm.fabs.f64(double %40)

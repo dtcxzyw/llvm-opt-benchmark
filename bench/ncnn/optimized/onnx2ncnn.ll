@@ -34985,7 +34985,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit1059:                ; preds = %_ZNSt6vectorIfSaIfE
 }
 
 ; Function Attrs: mustprogress norecurse nounwind uwtable
-define internal fastcc noundef float @_ZL15get_node_attr_fRKN4onnx9NodeProtoEPKcf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0, ptr noundef %1, float noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef float @_ZL15get_node_attr_fRKN4onnx9NodeProtoEPKcf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0, ptr noundef %1, float noundef nofpclass(nan inf nzero sub) %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i32, ptr %4, align 8, !tbaa !59
   %6 = icmp sgt i32 %5, 0

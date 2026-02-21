@@ -30440,7 +30440,7 @@ define internal void @_ZN12_GLOBAL__N_129gie_unitconvert_selftest_Test8TestBodyE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19test_timeEPKcddd(ptr noundef nonnull %0, double noundef %1, double noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_19test_timeEPKcddd(ptr noundef nonnull %0, double noundef nofpclass(nan inf zero sub nnorm) %1, double noundef nofpclass(nan inf zero sub nnorm) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.sroa.011 = alloca [4 x double], align 8
   %.sroa.0 = alloca [3 x double], align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -30901,7 +30901,7 @@ define internal void @_ZN12_GLOBAL__N_134gie_unitconvert_selftest_date_Test8Test
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19test_dateEPKcddd(ptr noundef nonnull %0, double noundef %1, double noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_19test_dateEPKcddd(ptr noundef nonnull %0, double noundef nofpclass(nan inf zero sub nnorm) %1, double noundef nofpclass(nan inf zero sub nnorm) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.sroa.05 = alloca [4 x double], align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
   %5 = alloca %"class.testing::Message", align 8

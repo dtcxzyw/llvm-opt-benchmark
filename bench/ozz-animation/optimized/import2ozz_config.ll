@@ -3939,7 +3939,7 @@ declare void @_ZN4Json5Value6resizeEj(ptr noundef nonnull align 8 dereferenceabl
 declare noundef ptr @_ZNK4Json5Value9asCStringEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIfEEbRN4Json5ValueEPKcT_S8_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, float noundef %2, ptr noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111MakeDefaultIfEEbRN4Json5ValueEPKcT_S8_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, float noundef nofpclass(nan inf nzero sub nnorm) %2, ptr noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Json::Value", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

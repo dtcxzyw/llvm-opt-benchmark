@@ -6796,7 +6796,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm
 }
 
 ; Function Attrs: inlinehint mustprogress norecurse ssp uwtable
-define internal fastcc void @"_ZZ4mainENK3$_3clEd"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, double noundef %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZ4mainENK3$_3clEd"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, double noundef nofpclass(nan inf zero sub nnorm) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr.236", align 8
   %4 = alloca %"class.Eigen::Matrix.195", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
